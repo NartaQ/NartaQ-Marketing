@@ -1,8 +1,21 @@
 {
-  "extends": "@repo/typescript-config/react-library.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
+  "extends": "@investi/typescript-config/react-library.json",
   "include": ["src"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "forceConsistentCasingInFileNames": true
+  },
+
   "exclude": ["node_modules", "dist"]
 }
