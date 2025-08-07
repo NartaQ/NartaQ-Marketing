@@ -1,39 +1,36 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Dependencies
 node_modules
-**/node_modules
-
-/.pnp
+.pnp
 .pnp.js
 
-# testing
-/coverage
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# next.js
-/.next/
-/out/
+# Testing
+coverage
 
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-
-# local env files
-.env*
-!.env.example
-# turbo
+# Turbo
 .turbo
 
+# Vercel
+.vercel
 
-__pycache__
-*storybook.log
-storybook-static
+# Build Outputs
+.next/
+out/
+build
+dist
 
-.vscode
-.next
+
+# Debug
+npm-debug.log*
+
+# Misc
+.DS_Store
+*.pem

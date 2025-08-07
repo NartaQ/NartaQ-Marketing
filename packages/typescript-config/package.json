@@ -2,15 +2,7 @@
   "name": "@investi/typescript-config",
   "version": "0.0.0",
   "private": true,
-  "license": "MIT",
-  "exports": {
-    "./base.json": "./base.json",
-    "./nextjs.json": "./nextjs.json"
-  },
-  "files": [
-    "base.json",
-    "nextjs.json"
-  ],
+  "license": "PROPRIETARY",
   "publishConfig": {
     "access": "public"
   }

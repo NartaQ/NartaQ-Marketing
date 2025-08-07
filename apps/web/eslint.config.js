@@ -1,16 +1,4 @@
-import { nextJsConfig } from "@investi/eslint-config/next-js";
+import { nextJsConfig } from '@investi/eslint-config/next-js'
 
-export default [
-  ...nextJsConfig,
-  {
-    languageOptions: {
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-  },
-  {
-    ignores: [".next/**"],
-  },
-];
+/** @type {import("eslint").Linter.Config} */
+export default nextJsConfig

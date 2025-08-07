@@ -1,3 +1,1 @@
-import sharedConfig from "@investi/ui/postcss.config";
-
-export default sharedConfig;
+export { default } from '@investi/ui/postcss.config'

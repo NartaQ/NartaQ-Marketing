@@ -1,0 +1,4 @@
+{
+  "extends": "@investi/typescript-config/base.json"
+}
+

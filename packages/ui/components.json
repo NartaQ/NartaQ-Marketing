@@ -4,9 +4,9 @@
   "rsc": true,
   "tsx": true,
   "tailwind": {
-    "config": "tailwind.config.ts",
+    "config": "",
     "css": "src/styles/globals.css",
-    "baseColor": "zinc",
+    "baseColor": "neutral",
     "cssVariables": true
   },
   "iconLibrary": "lucide",
@@ -15,6 +15,6 @@
     "utils": "@investi/ui/lib/utils",
     "hooks": "@investi/ui/hooks",
     "lib": "@investi/ui/lib",
-    "ui": "@investi/ui"
+    "ui": "@investi/ui/components"
   }
 }
