@@ -66,7 +66,7 @@ export function PricingSection() {
         <div className='text-center mb-10 animate-on-scroll'>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'>
             90% Of Investi's Features Are Available{' '}
-            <span className='bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+            <span className='text-gradient-primary'>
               To All Founders For Free, Forever
             </span>
           </h2>
@@ -76,7 +76,7 @@ export function PricingSection() {
           {/* Free Plan */}
           <Card className='border-2 border-gray-700 bg-gray-900 animate-on-scroll'>
             <CardHeader className='text-center pb-8'>
-              <div className='w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4'>
+              <div className='w-16 h-16 bg-gradient-to-r from-success-500 to-success-600 rounded-2xl flex items-center justify-center mx-auto mb-4'>
                 <Zap className='h-8 w-8 text-white' />
               </div>
               <CardTitle className='text-3xl font-bold mb-2 text-white'>
@@ -89,14 +89,14 @@ export function PricingSection() {
               <div className='space-y-4 mb-8'>
                 {freeFeatures.map((feature, index) => (
                   <div key={index} className='flex items-center'>
-                    <Check className='h-5 w-5 text-green-400 mr-3 flex-shrink-0' />
+                    <Check className='h-5 w-5 text-success mr-3 flex-shrink-0' />
                     <span className='text-gray-300'>{feature}</span>
                   </div>
                 ))}
               </div>
               <Button
                 size='lg'
-                className='w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white'
+                className='w-full gradient-primary hover-primary text-white'
               >
                 Join for free
                 <ArrowRight className='ml-2 h-5 w-5' />
@@ -107,12 +107,12 @@ export function PricingSection() {
           {/* Premium Plan */}
           <Card className='border-2 border-purple-600 bg-gradient-to-br from-gray-800 to-gray-900 relative animate-on-scroll'>
             <div className='absolute -top-4 left-1/2 transform -translate-x-1/2'>
-              <div className='bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium'>
+              <div className='bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2 rounded-full text-sm font-medium'>
                 Most Popular
               </div>
             </div>
             <CardHeader className='text-center pb-8'>
-              <div className='w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4'>
+              <div className='w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mx-auto mb-4'>
                 <Crown className='h-8 w-8 text-white' />
               </div>
               <CardTitle className='text-3xl font-bold mb-2 text-white'>
@@ -121,7 +121,7 @@ export function PricingSection() {
               <div className='text-4xl font-bold text-white mb-2'>
                 $99<span className='text-xl text-gray-400'>/month</span>
               </div>
-              <div className='text-lg text-purple-400 font-medium'>
+              <div className='text-lg text-primary font-medium'>
                 or just $299/year
               </div>
               <p className='text-gray-400'>
@@ -133,7 +133,7 @@ export function PricingSection() {
               <div className='space-y-6 mb-8'>
                 {premiumFeatures.map((feature, index) => (
                   <div key={index} className='flex items-start'>
-                    <Check className='h-5 w-5 text-purple-400 mr-3 flex-shrink-0 mt-1' />
+                    <Check className='h-5 w-5 text-primary mr-3 flex-shrink-0 mt-1' />
                     <div>
                       <div className='font-semibold text-white mb-1'>
                         {feature.title}
@@ -147,7 +147,7 @@ export function PricingSection() {
               </div>
               <Button
                 size='lg'
-                className='w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white'
+                className='w-full gradient-primary hover-primary text-white'
               >
                 Upgrade to Premium
                 <ArrowRight className='ml-2 h-5 w-5' />
@@ -159,7 +159,7 @@ export function PricingSection() {
         <div className='text-center mt-10 animate-on-scroll'>
           <Button
             size='lg'
-            className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-6 text-lg text-white'
+            className='gradient-primary hover-primary px-8 py-6 text-lg text-white'
           >
             Join for free
             <ArrowRight className='ml-2 h-5 w-5' />

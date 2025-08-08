@@ -9,13 +9,13 @@ const stats = [
 
 export function Stats() {
  return (
-  <section className="py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
-   <div className="container mx-auto">
-    <div className="text-center mb-10 animate-on-scroll">
-     <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+  <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-zinc-100/50">
+   <div className="max-w-7xl mx-auto">
+    <div className="text-center mb-12 sm:mb-16 animate-on-scroll">
+     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-6 text-zinc-900 leading-tight">
       Trusted by the best
      </h2>
-     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+     <p className="text-xl text-zinc-600 max-w-3xl mx-auto font-medium">
       Our platform delivers results that matter to both startups and investors
      </p>
     </div>
@@ -26,11 +26,11 @@ export function Stats() {
        key={stat.label}
        className="text-center stagger-item"
       >
-       <div className="text-4xl font-bold text-primary mb-2 hover:scale-110 transition-transform duration-300">
+       <div className="text-4xl sm:text-5xl font-semibold text-amber-600 mb-3 hover:scale-110 transition-transform duration-300">
         {stat.value}
        </div>
-       <div className="text-lg font-semibold mb-2">{stat.label}</div>
-       <div className="text-sm text-muted-foreground">{stat.description}</div>
+       <div className="text-lg font-semibold mb-2 text-zinc-900">{stat.label}</div>
+       <div className="text-sm text-zinc-600 font-medium">{stat.description}</div>
       </div>
      ))}
     </div>

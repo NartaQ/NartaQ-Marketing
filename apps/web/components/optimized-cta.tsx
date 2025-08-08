@@ -91,16 +91,17 @@ export function OptimizedCTA() {
   if (!sectionRef.current) return
 
   gsap.fromTo(contentRef.current,
-   { opacity: 0, y: 50 },
+   { opacity: 0, y: 30 },
    {
     opacity: 1,
     y: 0,
-    duration: 1,
+    duration: 0.6,
     ease: 'power2.out',
     scrollTrigger: {
      trigger: sectionRef.current,
-     start: 'top 80%',
-     toggleActions: 'play none none reverse'
+     start: 'top 95%', // Much earlier trigger
+     toggleActions: 'play none none reverse',
+     fastScrollEnd: true
     }
    }
   )
@@ -113,13 +114,13 @@ export function OptimizedCTA() {
  return (
   <section
    ref={sectionRef}
-   className='py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-950/20 to-slate-900 relative overflow-hidden'
+   className='py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-zinc-900 via-primary-950/20 to-zinc-900 relative overflow-hidden'
   >
    {/* Background Elements */}
    <div className='absolute inset-0'>
-    <div className='absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl'></div>
-    <div className='absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl'></div>
-    <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent'></div>
+    <div className='absolute top-0 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl'></div>
+    <div className='absolute bottom-0 right-1/4 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl'></div>
+    <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900/20 via-transparent to-transparent'></div>
    </div>
 
    <div className='container mx-auto relative z-10'>
@@ -137,7 +138,7 @@ export function OptimizedCTA() {
 
      <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'>
       Ready to{' '}
-      <span className='bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+      <span className='text-gradient-primary'>
        raise funding?
       </span>
      </h2>
@@ -152,8 +153,8 @@ export function OptimizedCTA() {
       {features.map((feature, index) => (
        <div key={index} className='text-center group'>
         <div className='flex justify-center mb-4'>
-         <div className='w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
-          <feature.icon className='h-8 w-8 text-blue-400' />
+         <div className='w-16 h-16 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
+          <feature.icon className='h-8 w-8 text-primary' />
          </div>
         </div>
         <h3 className='text-lg font-bold text-white mb-2'>
@@ -170,7 +171,7 @@ export function OptimizedCTA() {
      <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mb-8'>
       <Button
        size='lg'
-       className='group text-lg px-10 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105'
+       className='group text-lg px-10 py-6 gradient-primary hover-primary text-white shadow-primary hover:shadow-xl transition-all duration-300 hover:scale-105'
       >
        Start Fundraising Free
        <ArrowRight className='ml-2 h-5 w-5 transition-transform group-hover:translate-x-1' />

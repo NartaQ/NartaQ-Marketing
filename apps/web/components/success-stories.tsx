@@ -36,19 +36,19 @@ const platformStats = [
     icon: DollarSign,
     value: '$1+ Billion',
     label: 'Total Raised',
-    gradient: 'from-green-500 to-emerald-600',
+    gradient: 'from-success-500 to-success-600',
   },
   {
     icon: Users,
     value: '22,000+',
     label: 'Founders',
-    gradient: 'from-blue-500 to-cyan-600',
+    gradient: 'from-secondary-500 to-secondary-600',
   },
   {
     icon: TrendingUp,
     value: '85%',
     label: 'Success Rate',
-    gradient: 'from-purple-500 to-violet-600',
+    gradient: 'from-primary-500 to-primary-600',
   },
 ]
 
@@ -59,7 +59,7 @@ export function SuccessStories() {
         <div className='text-center mb-10 animate-on-scroll'>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'>
             Founders Who Raised With{' '}
-            <span className='bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+            <span className='text-gradient-primary'>
               Investi
             </span>
           </h2>
@@ -76,16 +76,16 @@ export function SuccessStories() {
               className='group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 stagger-item border-0 bg-gradient-to-br from-gray-800 to-gray-900'
             >
               <CardContent className='p-8 text-center'>
-                <div className='w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-6'>
+                <div className='w-20 h-20 gradient-primary rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-6'>
                   {story.avatar}
                 </div>
-                <div className='text-3xl font-bold text-green-400 mb-2'>
+                <div className='text-3xl font-bold text-success mb-2'>
                   Raised {story.amount}
                 </div>
                 <div className='text-lg font-semibold text-white mb-1'>
                   {story.founderName}
                 </div>
-                <div className='text-blue-400 font-medium mb-4'>
+                <div className='text-secondary font-medium mb-4'>
                   Founder - {story.companyName}
                 </div>
                 <div className='text-sm text-gray-300 mb-4'>{story.round}</div>
@@ -98,12 +98,12 @@ export function SuccessStories() {
         </div>
 
         {/* Platform Stats */}
-        <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 lg:p-12 animate-on-scroll'>
+        <div className='gradient-primary rounded-2xl p-8 lg:p-12 animate-on-scroll'>
           <div className='text-center mb-12'>
             <h3 className='text-2xl lg:text-3xl font-bold text-white mb-4'>
               Investi Startups Have Raised $1+ Billion From:
             </h3>
-            <p className='text-blue-100'>
+            <p className='text-primary-100'>
               Leading investors worldwide trust our platform
             </p>
           </div>
@@ -117,7 +117,7 @@ export function SuccessStories() {
                 <div className='text-3xl lg:text-4xl font-bold text-white mb-2'>
                   {stat.value}
                 </div>
-                <div className='text-blue-100'>{stat.label}</div>
+                <div className='text-primary-100'>{stat.label}</div>
               </div>
             ))}
           </div>

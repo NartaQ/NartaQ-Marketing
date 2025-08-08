@@ -54,7 +54,7 @@ export function TestimonialsSection() {
         <div className='text-center mb-10 animate-on-scroll'>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'>
             Why Founders Trust{' '}
-            <span className='bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+            <span className='text-gradient-primary'>
               Investi
             </span>
           </h2>
@@ -79,14 +79,14 @@ export function TestimonialsSection() {
                 </div>
 
                 <div className='mb-6'>
-                  <Quote className='h-8 w-8 text-blue-400 mb-4' />
+                  <Quote className='h-8 w-8 text-secondary mb-4' />
                   <p className='text-gray-300 leading-relaxed'>
                     {testimonial.content}
                   </p>
                 </div>
 
                 <div className='flex items-center'>
-                  <div className='w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold mr-4'>
+                  <div className='w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white font-semibold mr-4'>
                     {testimonial.avatar}
                   </div>
                   <div>
@@ -108,7 +108,7 @@ export function TestimonialsSection() {
             More testimonials on our{' '}
             <a
               href='#'
-              className='text-blue-400 hover:text-blue-300 font-medium'
+              className='text-secondary hover:text-secondary-light font-medium'
             >
               Wall of love
             </a>

@@ -9,21 +9,21 @@ const optimizations = [
   title: 'Removed Framer Motion',
   description: 'Eliminated heavy animation library, reducing bundle size by ~50KB',
   impact: 'Performance',
-  color: 'text-green-400'
+  color: 'text-success'
  },
  {
   icon: Sparkles,
   title: 'Added Lottie Animations',
   description: 'Lightweight, scalable animations with better performance',
   impact: 'User Experience',
-  color: 'text-blue-400'
+  color: 'text-secondary'
  },
  {
   icon: Gauge,
   title: 'GSAP Optimization',
   description: 'Streamlined animations using hardware acceleration',
   impact: 'Rendering',
-  color: 'text-purple-400'
+  color: 'text-primary'
  },
  {
   icon: CheckCircle,
@@ -35,9 +35,9 @@ const optimizations = [
 ]
 
 const metrics = [
- { label: 'Bundle Size Reduction', value: '~30%', color: 'text-green-400' },
- { label: 'Animation Performance', value: '+60%', color: 'text-blue-400' },
- { label: 'First Load JS', value: '290 kB', color: 'text-purple-400' },
+ { label: 'Bundle Size Reduction', value: '~30%', color: 'text-success' },
+ { label: 'Animation Performance', value: '+60%', color: 'text-secondary' },
+ { label: 'First Load JS', value: '290 kB', color: 'text-primary' },
  { label: 'Components Optimized', value: '8', color: 'text-orange-400' }
 ]
 
@@ -61,7 +61,7 @@ export function PerformanceSummary() {
       <Card key={index} className='bg-slate-900/50 border-slate-700/50 backdrop-blur-sm'>
        <CardContent className='p-6'>
         <div className='flex items-start gap-4'>
-         <div className='w-12 h-12 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0'>
+         <div className='w-12 h-12 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 rounded-xl flex items-center justify-center flex-shrink-0'>
           <opt.icon className={`h-6 w-6 ${opt.color}`} />
          </div>
          <div>

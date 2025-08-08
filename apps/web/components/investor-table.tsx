@@ -79,7 +79,7 @@ export function InvestorTable() {
         <div className='text-center mb-10'>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'>
             Meet Your{' '}
-            <span className='bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+            <span className='text-gradient-primary'>
               Perfect Investors
             </span>
           </h2>
@@ -98,7 +98,7 @@ export function InvestorTable() {
                     className='hover:bg-slate-800/50 transition-colors animate-on-scroll stagger-item'
                   >
                     <td className='px-6 py-4'>
-                      <div className='w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold'>
+                      <div className='w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white font-semibold'>
                         {investor.name
                           .split(' ')
                           .map((n) => n[0])
@@ -128,7 +128,7 @@ export function InvestorTable() {
                           {investor.countries.map((country, idx) => (
                             <span
                               key={idx}
-                              className='text-sm bg-blue-900/50 text-blue-300 px-2 py-1 rounded'
+                              className='text-sm bg-secondary-900/50 text-secondary-light px-2 py-1 rounded'
                             >
                               🇺🇸 {country}
                             </span>

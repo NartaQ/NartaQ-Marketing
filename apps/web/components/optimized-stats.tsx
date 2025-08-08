@@ -79,24 +79,24 @@ const stats = [
   value: '$2.5B+',
   label: 'Total Funding Raised',
   description: 'Capital raised by startups on our platform',
-  gradient: 'from-green-500 to-emerald-500',
-  color: 'text-green-400'
+  gradient: 'from-success-500 to-success-600',
+  color: 'text-success'
  },
  {
   icon: Users,
   value: '25,000+',
   label: 'Active Founders',
   description: 'Entrepreneurs actively fundraising',
-  gradient: 'from-blue-500 to-cyan-500',
-  color: 'text-blue-400'
+  gradient: 'from-secondary-500 to-secondary-600',
+  color: 'text-secondary'
  },
  {
   icon: Target,
   value: '6,034',
   label: 'Verified Investors',
   description: 'Active investors ready to fund',
-  gradient: 'from-purple-500 to-violet-500',
-  color: 'text-purple-400'
+  gradient: 'from-primary-500 to-primary-600',
+  color: 'text-primary'
  },
  {
   icon: TrendingUp,
@@ -111,16 +111,16 @@ const stats = [
   value: '50+',
   label: 'Countries',
   description: 'Global investor network reach',
-  gradient: 'from-pink-500 to-rose-500',
-  color: 'text-pink-400'
+  gradient: 'from-secondary-500 to-secondary-600',
+  color: 'text-secondary'
  },
  {
   icon: Zap,
   value: '45 days',
   label: 'Average Close Time',
   description: '50% faster than traditional VC',
-  gradient: 'from-indigo-500 to-blue-500',
-  color: 'text-indigo-400'
+  gradient: 'from-primary-500 to-primary-600',
+  color: 'text-primary'
  }
 ]
 
@@ -132,18 +132,19 @@ export function OptimizedStats() {
  useEffect(() => {
   if (!sectionRef.current) return
 
-  // Title animation
+  // Title animation - much faster appearance
   gsap.fromTo(titleRef.current,
-   { opacity: 0, y: 50 },
+   { opacity: 0, y: 30 },
    {
     opacity: 1,
     y: 0,
-    duration: 1,
+    duration: 0.6,
     ease: 'power2.out',
     scrollTrigger: {
      trigger: titleRef.current,
-     start: 'top 80%',
-     toggleActions: 'play none none reverse'
+     start: 'top 95%', // Start much earlier
+     toggleActions: 'play none none reverse',
+     fastScrollEnd: true
     }
    }
   )
@@ -170,8 +171,9 @@ export function OptimizedStats() {
       ease: 'power2.out',
       scrollTrigger: {
        trigger: element,
-       start: 'top 85%',
-       toggleActions: 'play none none reverse'
+       start: 'top 96%', // Much earlier trigger
+       toggleActions: 'play none none reverse',
+       fastScrollEnd: true
       }
      }
     )
@@ -192,8 +194,9 @@ export function OptimizedStats() {
         },
         scrollTrigger: {
          trigger: element,
-         start: 'top 85%',
-         toggleActions: 'play none none reverse'
+         start: 'top 96%', // Much earlier trigger
+         toggleActions: 'play none none reverse',
+         fastScrollEnd: true
         }
        }
       )
@@ -214,19 +217,19 @@ export function OptimizedStats() {
   >
    {/* Background Elements */}
    <div className='absolute inset-0'>
-    <div className='absolute top-1/4 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl'></div>
-    <div className='absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl'></div>
-    <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent'></div>
+    <div className='absolute top-1/4 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl'></div>
+    <div className='absolute bottom-1/4 right-0 w-96 h-96 bg-secondary-500/5 rounded-full blur-3xl'></div>
+    <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900/10 via-transparent to-transparent'></div>
    </div>
 
    <div className='container mx-auto relative z-10'>
     <div className='text-center mb-16'>
      <h2
       ref={titleRef}
-      className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'
+      className='fast-animate text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'
      >
       Trusted by the{' '}
-      <span className='bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+      <span className='text-gradient-primary'>
        best startups
       </span>
      </h2>
@@ -240,10 +243,10 @@ export function OptimizedStats() {
      {stats.map((stat, index) => (
       <div
        key={index}
-       className='stat-item group relative bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10'
+       className='stat-item instant-card group relative bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10'
       >
        {/* Gradient overlay */}
-       <div className='absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl'></div>
+       <div className='absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-secondary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl'></div>
 
        <div className='relative z-10'>
         <div className='flex items-center justify-between mb-6'>
@@ -268,7 +271,7 @@ export function OptimizedStats() {
          {stat.value}
         </div>
 
-        <h3 className='text-xl font-bold mb-3 text-white group-hover:text-blue-100 transition-colors duration-300'>
+        <h3 className='text-xl font-bold mb-3 text-white group-hover:text-primary-100 transition-colors duration-300'>
          {stat.label}
         </h3>
 

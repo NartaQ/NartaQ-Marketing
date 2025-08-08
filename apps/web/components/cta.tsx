@@ -5,14 +5,14 @@ import { ArrowRight } from 'lucide-react'
 
 export function CTA() {
  return (
-  <section className="py-12 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground relative overflow-hidden">
-   <div className="absolute inset-0 bg-gradient-to-r from-primary via-blue-600 to-purple-600 opacity-20"></div>
-   <div className="container mx-auto text-center relative z-10">
+  <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 gradient-primary text-white relative overflow-hidden">
+   <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 via-secondary-500/20 to-primary-600/20"></div>
+   <div className="max-w-7xl mx-auto text-center relative z-10">
     <div className="animate-on-scroll">
-     <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-6 leading-tight">
       Ready to transform your fundraising?
      </h2>
-     <p className="text-xl opacity-90 max-w-2xl mx-auto mb-10">
+     <p className="text-xl text-primary-50 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
       Join thousands of startups and investors who are already using our platform
       to accelerate their funding journey.
      </p>
@@ -21,14 +21,14 @@ export function CTA() {
       <div className="flex flex-col sm:flex-row gap-4">
        <Input
         placeholder="Enter your email"
-        className="bg-background text-foreground hover:scale-105 transition-transform focus:scale-105"
+        className="bg-white text-zinc-900 border-0 hover:scale-105 transition-transform focus:scale-105 font-medium"
        />
-       <Button variant="secondary" size="lg" className="hover:scale-105 transition-transform">
+       <Button variant="secondary" size="lg" className="bg-zinc-900 text-white hover:bg-zinc-800 hover:scale-105 transition-transform font-medium">
         Get Started
         <ArrowRight className="ml-2 h-4 w-4" />
        </Button>
       </div>
-      <p className="text-sm opacity-75 mt-4">
+      <p className="text-sm text-primary-100 mt-4 font-medium">
        No credit card required. Start your free trial today.
       </p>
      </div>

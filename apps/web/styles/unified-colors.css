@@ -1,0 +1,192 @@
+/* Unified Color Palette for Investi */
+
+:root {
+ /* Primary Brand Colors */
+ --primary-50: #fef7ed;
+ --primary-100: #fdedd3;
+ --primary-200: #fbd7a5;
+ --primary-300: #f8bc6d;
+ --primary-400: #f59e0b;
+ --primary-500: #d97706;
+ --primary-600: #b45309;
+ --primary-700: #92400e;
+ --primary-800: #78350f;
+ --primary-900: #451a03;
+
+ /* Secondary Accent Colors */
+ --secondary-50: #f0f9ff;
+ --secondary-100: #e0f2fe;
+ --secondary-200: #bae6fd;
+ --secondary-300: #7dd3fc;
+ --secondary-400: #38bdf8;
+ --secondary-500: #0ea5e9;
+ --secondary-600: #0284c7;
+ --secondary-700: #0369a1;
+ --secondary-800: #075985;
+ --secondary-900: #0c4a6e;
+
+ /* Success Colors */
+ --success-50: #ecfdf5;
+ --success-100: #d1fae5;
+ --success-200: #a7f3d0;
+ --success-300: #6ee7b7;
+ --success-400: #34d399;
+ --success-500: #10b981;
+ --success-600: #059669;
+ --success-700: #047857;
+ --success-800: #065f46;
+ --success-900: #064e3b;
+
+ /* Neutral Colors */
+ --neutral-50: #fafafa;
+ --neutral-100: #f4f4f5;
+ --neutral-200: #e4e4e7;
+ --neutral-300: #d4d4d8;
+ --neutral-400: #a1a1aa;
+ --neutral-500: #71717a;
+ --neutral-600: #52525b;
+ --neutral-700: #3f3f46;
+ --neutral-800: #27272a;
+ --neutral-900: #18181b;
+ --neutral-950: #09090b;
+
+ /* Gradient Definitions */
+ --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+ --gradient-secondary: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
+ --gradient-success: linear-gradient(135deg, var(--success-500), var(--success-600));
+ --gradient-hero: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+ --gradient-card: linear-gradient(135deg, var(--primary-500)/0.1, var(--secondary-500)/0.1);
+}
+
+/* Utility Classes for Unified Colors */
+.bg-primary {
+ background-color: var(--primary-500);
+}
+
+.bg-primary-light {
+ background-color: var(--primary-400);
+}
+
+.bg-primary-dark {
+ background-color: var(--primary-600);
+}
+
+.text-primary {
+ color: var(--primary-500);
+}
+
+.text-primary-light {
+ color: var(--primary-400);
+}
+
+.text-primary-dark {
+ color: var(--primary-600);
+}
+
+.bg-secondary {
+ background-color: var(--secondary-500);
+}
+
+.text-secondary {
+ color: var(--secondary-500);
+}
+
+.bg-success {
+ background-color: var(--success-500);
+}
+
+.text-success {
+ color: var(--success-500);
+}
+
+.gradient-primary {
+ background: var(--gradient-primary);
+}
+
+.gradient-secondary {
+ background: var(--gradient-secondary);
+}
+
+.gradient-success {
+ background: var(--gradient-success);
+}
+
+.gradient-hero {
+ background: var(--gradient-hero);
+}
+
+/* Text Gradients */
+.text-gradient-primary {
+ background: var(--gradient-primary);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+.text-gradient-hero {
+ background: var(--gradient-hero);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+/* Border Colors */
+.border-primary {
+ border-color: var(--primary-500);
+}
+
+.border-primary-light {
+ border-color: var(--primary-400);
+}
+
+.border-secondary {
+ border-color: var(--secondary-500);
+}
+
+.border-success {
+ border-color: var(--success-500);
+}
+
+/* Shadow Colors */
+.shadow-primary {
+ box-shadow: 0 10px 25px -3px var(--primary-500)/0.1, 0 4px 6px -2px var(--primary-500)/0.05;
+}
+
+.shadow-secondary {
+ box-shadow: 0 10px 25px -3px var(--secondary-500)/0.1, 0 4px 6px -2px var(--secondary-500)/0.05;
+}
+
+.shadow-success {
+ box-shadow: 0 10px 25px -3px var(--success-500)/0.1, 0 4px 6px -2px var(--success-500)/0.05;
+}
+
+/* Hover Effects */
+.hover-primary:hover {
+ background-color: var(--primary-600);
+}
+
+.hover-secondary:hover {
+ background-color: var(--secondary-600);
+}
+
+.hover-success:hover {
+ background-color: var(--success-600);
+}
+
+/* Ad
+ditional utility classes */
+.text-primary-100 {
+ color: var(--primary-100);
+}
+
+.text-secondary-light {
+ color: var(--secondary-400);
+}
+
+.text-secondary-dark {
+ color: var(--secondary-600);
+}
+
+.bg-secondary-900 {
+ background-color: var(--secondary-900);
+}

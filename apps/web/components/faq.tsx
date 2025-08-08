@@ -94,7 +94,7 @@ export function FAQSection() {
         <div className='text-center mb-10 animate-on-scroll'>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'>
             Frequently Asked{' '}
-            <span className='bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+            <span className='text-gradient-primary'>
               Questions
             </span>
           </h2>

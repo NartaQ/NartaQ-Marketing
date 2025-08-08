@@ -51,16 +51,16 @@ const footerSections = [
 
 export function Footer() {
   return (
-    <footer className='bg-gray-900 text-white'>
+    <footer className='bg-zinc-950 text-white'>
       {/* CTA Section */}
-      <div className='bg-gradient-to-r from-blue-600 to-purple-600 py-16'>
-        <div className='container mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <h2 className='text-3xl sm:text-4xl font-bold text-white mb-4'>
+      <div className='gradient-primary py-16'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+          <h2 className='text-3xl sm:text-4xl font-semibold text-white mb-4'>
             A new fundraising experience
           </h2>
           <Button
             size='lg'
-            className='bg-white text-blue-600 hover:bg-gray-100 px-8 py-6 text-lg font-semibold'
+            className='bg-white text-primary hover:bg-zinc-100 px-8 py-6 text-lg font-semibold'
           >
             Join for free
             <ArrowRight className='ml-2 h-5 w-5' />
@@ -70,11 +70,11 @@ export function Footer() {
 
       {/* Footer Links */}
       <div className='py-16'>
-        <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {footerSections.map((section, index) => (
               <div key={index}>
-                <h3 className='text-lg font-semibold text-white mb-4'>
+                <h3 className='text-lg font-semibold text-zinc-100 mb-4'>
                   {section.title}
                 </h3>
                 <ul className='space-y-2'>
@@ -82,7 +82,7 @@ export function Footer() {
                     <li key={linkIndex}>
                       <a
                         href={link.href}
-                        className='text-gray-300 hover:text-white transition-colors text-sm'
+                        className='text-zinc-400 hover:text-zinc-100 transition-colors text-sm font-medium'
                       >
                         {link.name}
                       </a>
@@ -94,17 +94,17 @@ export function Footer() {
           </div>
 
           {/* Social Links */}
-          <div className='mt-12 pt-8 border-t border-gray-800'>
+          <div className='mt-12 pt-8 border-t border-zinc-800'>
             <div className='flex flex-col md:flex-row justify-between items-center'>
               <div className='mb-4 md:mb-0'>
-                <p className='text-gray-300 text-sm'>
+                <p className='text-zinc-400 text-sm font-medium'>
                   ©2025 Investi. All rights reserved.
                 </p>
               </div>
               <div className='flex space-x-6'>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors'
+                  className='text-zinc-400 hover:text-zinc-100 transition-colors'
                 >
                   <span className='sr-only'>YouTube</span>
                   <svg
@@ -117,7 +117,7 @@ export function Footer() {
                 </a>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors'
+                  className='text-zinc-400 hover:text-zinc-100 transition-colors'
                 >
                   <span className='sr-only'>LinkedIn</span>
                   <svg
@@ -130,7 +130,7 @@ export function Footer() {
                 </a>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors'
+                  className='text-zinc-400 hover:text-zinc-100 transition-colors'
                 >
                   <span className='sr-only'>Twitter</span>
                   <svg

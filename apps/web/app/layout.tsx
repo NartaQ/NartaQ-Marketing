@@ -3,7 +3,10 @@ import type { Metadata } from 'next'
 
 import '@investi/ui/globals.css'
 import '@/styles/aceternity.css'
+import '@/styles/unified-colors.css'
+import '@/styles/scroll-performance.css'
 import { Providers } from '@/components/providers'
+import { ScrollOptimizer } from '@/components/scroll-optimizer'
 
 const fontSans = Geist({
   subsets: ['latin'],
@@ -38,6 +41,7 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased overflow-x-hidden`}
       >
+        <ScrollOptimizer />
         <Providers>{children}</Providers>
       </body>
     </html>

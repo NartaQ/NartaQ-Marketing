@@ -64,7 +64,7 @@ export function FundraisingTools() {
         <div className='text-center mb-10 animate-on-scroll'>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'>
             Your All-in-One{' '}
-            <span className='bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
+            <span className='text-gradient-primary'>
               Fundraising Suite
             </span>
           </h2>
@@ -74,7 +74,7 @@ export function FundraisingTools() {
           </p>
           <Button
             size='lg'
-            className='bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-6 text-lg text-white'
+            className='gradient-primary hover-primary px-8 py-6 text-lg text-white'
           >
             Join for free
             <ArrowRight className='ml-2 h-5 w-5' />
@@ -88,7 +88,7 @@ export function FundraisingTools() {
               className='group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 stagger-item border-0 bg-gray-900/70 backdrop-blur-sm'
             >
               <CardContent className='p-6 text-center'>
-                <div className='w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300'>
+                <div className='w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300'>
                   <tool.icon className='h-8 w-8 text-white' />
                 </div>
                 <h3 className='text-lg font-bold mb-2 text-white'>
@@ -123,7 +123,7 @@ export function FundraisingTools() {
             </div>
             <div className='bg-gradient-to-br from-gray-800 to-gray-900 p-8 lg:p-12 flex items-center justify-center'>
               <div className='w-full h-64 bg-gray-800 rounded-lg shadow-lg flex items-center justify-center border border-gray-700'>
-                <BarChart3 className='h-24 w-24 text-blue-400' />
+                <BarChart3 className='h-24 w-24 text-secondary' />
               </div>
             </div>
           </div>

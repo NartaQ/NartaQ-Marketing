@@ -101,14 +101,14 @@ export function Header() {
  return (
   <header
    ref={headerRef}
-   className='fixed top-0 w-full bg-slate-900/90 backdrop-blur-md border-b border-slate-800/50 z-50'
+   className='fixed top-0 w-full bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800/50 z-50'
   >
-   <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
+   <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
     <div className='flex justify-between items-center py-4'>
      <div className='flex items-center'>
       <div
        ref={logoRef}
-       className='text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:scale-110 transition-transform cursor-pointer'
+       className='text-2xl font-semibold text-gradient-primary hover:scale-110 transition-transform cursor-pointer'
       >
        Investi
       </div>
@@ -117,25 +117,25 @@ export function Header() {
      <nav ref={navRef} className='hidden md:flex items-center space-x-8'>
       <a
        href='#investors'
-       className='text-slate-300 hover:text-white hover:scale-105 transition-all'
+       className='text-zinc-300 hover:text-zinc-100 hover:scale-105 transition-all font-medium'
       >
        For Investors
       </a>
       <a
        href='#pricing'
-       className='text-slate-300 hover:text-white hover:scale-105 transition-all'
+       className='text-zinc-300 hover:text-zinc-100 hover:scale-105 transition-all font-medium'
       >
        Pricing
       </a>
       <a
        href='#resources'
-       className='text-slate-300 hover:text-white hover:scale-105 transition-all'
+       className='text-zinc-300 hover:text-zinc-100 hover:scale-105 transition-all font-medium'
       >
        Resources
       </a>
       <a
        href='#about'
-       className='text-slate-300 hover:text-white hover:scale-105 transition-all'
+       className='text-zinc-300 hover:text-zinc-100 hover:scale-105 transition-all font-medium'
       >
        About
       </a>
@@ -147,17 +147,17 @@ export function Header() {
      >
       <Button
        variant='ghost'
-       className='text-slate-300 hover:text-white hover:bg-slate-800 hover:scale-105 transition-transform'
+       className='text-zinc-300 hover:text-zinc-100 hover:bg-zinc-800 hover:scale-105 transition-transform font-medium'
       >
        Sign In
       </Button>
-      <Button className='hover:scale-105 transition-transform bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white'>
+      <Button className='hover:scale-105 transition-transform gradient-primary hover-primary text-white font-medium'>
        Join for free
       </Button>
      </div>
 
      <button
-      className='md:hidden text-slate-300 hover:text-white hover:scale-110 transition-transform'
+      className='md:hidden text-zinc-300 hover:text-zinc-100 hover:scale-110 transition-transform'
       onClick={() => setIsMenuOpen(!isMenuOpen)}
      >
       {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -165,40 +165,40 @@ export function Header() {
     </div>
 
     {isMenuOpen && (
-     <div className='md:hidden py-4 border-t border-slate-800'>
+     <div className='md:hidden py-4 border-t border-zinc-800'>
       <nav className='flex flex-col space-y-4'>
        <a
         href='#investors'
-        className='text-slate-300 hover:text-white hover:translate-x-2 transition-all'
+        className='text-zinc-300 hover:text-zinc-100 hover:translate-x-2 transition-all font-medium'
        >
         For Investors
        </a>
        <a
         href='#pricing'
-        className='text-slate-300 hover:text-white hover:translate-x-2 transition-all'
+        className='text-zinc-300 hover:text-zinc-100 hover:translate-x-2 transition-all font-medium'
        >
         Pricing
        </a>
        <a
         href='#resources'
-        className='text-slate-300 hover:text-white hover:translate-x-2 transition-all'
+        className='text-zinc-300 hover:text-zinc-100 hover:translate-x-2 transition-all font-medium'
        >
         Resources
        </a>
        <a
         href='#about'
-        className='text-slate-300 hover:text-white hover:translate-x-2 transition-all'
+        className='text-zinc-300 hover:text-zinc-100 hover:translate-x-2 transition-all font-medium'
        >
         About
        </a>
        <div className='flex flex-col space-y-2 pt-4'>
         <Button
          variant='ghost'
-         className='text-slate-300 hover:text-white hover:bg-slate-800 hover:scale-105 transition-transform'
+         className='text-zinc-300 hover:text-zinc-100 hover:bg-zinc-800 hover:scale-105 transition-transform font-medium'
         >
          Sign In
         </Button>
-        <Button className='hover:scale-105 transition-transform bg-gradient-to-r from-blue-600 to-purple-600 text-white'>
+        <Button className='hover:scale-105 transition-transform gradient-primary text-white font-medium'>
          Join for free
         </Button>
        </div>

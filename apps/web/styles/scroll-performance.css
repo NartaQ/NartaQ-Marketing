@@ -1,0 +1,196 @@
+/* Scroll Performance Optimizations */
+
+/* Enable hardware acceleration for smooth scrolling */
+html {
+ scroll-behavior: auto;
+ /* Disable native smooth scroll to prevent conflicts with GSAP */
+}
+
+body {
+ /* Optimize rendering performance */
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ text-rendering: optimizeSpeed;
+
+ /* Prevent layout shifts during scroll */
+ overflow-x: hidden;
+
+ /* Enable GPU acceleration */
+ transform: translateZ(0);
+ backface-visibility: hidden;
+ perspective: 1000px;
+}
+
+/* Optimize elements that will be animated */
+.animate-on-scroll,
+.fast-animate,
+.stagger-item,
+.feature-card,
+.stat-item,
+.instant-card {
+ /* Prepare for GPU acceleration */
+ will-change: transform, opacity;
+ transform: translateZ(0);
+ backface-visibility: hidden;
+}
+
+/* Remove will-change after animation completes to free up GPU memory */
+.animation-complete {
+ will-change: auto;
+}
+
+/* Optimize scroll containers */
+.scroll-container {
+ /* Enable momentum scrolling on iOS */
+ -webkit-overflow-scrolling: touch;
+
+ /* Optimize scroll performance */
+ scroll-behavior: auto;
+ overscroll-behavior: contain;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+ * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+ }
+
+ .animate-on-scroll,
+ .fast-animate,
+ .stagger-item {
+  transform: none !important;
+  opacity: 1 !important;
+ }
+}
+
+/* Optimize images and media for scroll performance */
+img,
+video {
+ /* Prevent layout shifts */
+ height: auto;
+
+ /* Enable GPU acceleration */
+ transform: translateZ(0);
+}
+
+/* Lazy loading optimization */
+.lazy-load {
+ opacity: 0;
+ transform: translateY(20px);
+ transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.lazy-load.loaded {
+ opacity: 1;
+ transform: translateY(0);
+}
+
+/* Intersection observer optimization */
+.observe {
+ /* Prepare for animation */
+ opacity: 0;
+ transform: translateY(30px);
+ transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.observe.animate-in {
+ opacity: 1;
+ transform: translateY(0);
+}
+
+/* Fast scroll classes for immediate visibility */
+.instant-visible {
+ opacity: 0;
+ transform: translateY(20px);
+}
+
+.instant-visible.visible {
+ opacity: 1;
+ transform: translateY(0);
+ transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Optimize marquee and scrolling elements */
+.marquee-container {
+ /* Enable hardware acceleration */
+ transform: translateZ(0);
+ will-change: transform;
+}
+
+/* Optimize gradient animations */
+.animate-gradient {
+ background-size: 200% 200%;
+ animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+ 0% {
+  background-position: 0% 50%;
+ }
+
+ 50% {
+  background-position: 100% 50%;
+ }
+
+ 100% {
+  background-position: 0% 50%;
+ }
+}
+
+/* Performance monitoring classes */
+.perf-monitor {
+ /* Add visual indicators for performance debugging */
+ position: relative;
+}
+
+.perf-monitor::after {
+ content: '';
+ position: absolute;
+ top: 0;
+ right: 0;
+ width: 4px;
+ height: 4px;
+ background: lime;
+ border-radius: 50%;
+ opacity: 0;
+ animation: perf-blink 1s ease-in-out;
+}
+
+@keyframes perf-blink {
+
+ 0%,
+ 100% {
+  opacity: 0;
+ }
+
+ 50% {
+  opacity: 1;
+ }
+}
+
+/* Optimize for different screen sizes */
+@media (max-width: 768px) {
+
+ /* Reduce animation complexity on mobile */
+ .animate-on-scroll,
+ .fast-animate {
+  animation-duration: 0.3s !important;
+ }
+
+ /* Simplify transforms on mobile */
+ .stagger-item {
+  transform: translateY(10px) !important;
+ }
+}
+
+/* High refresh rate display optimization */
+@media (min-resolution: 120dpi) {
+
+ .animate-on-scroll,
+ .fast-animate {
+  /* Smoother animations on high-DPI displays */
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ }
+}
