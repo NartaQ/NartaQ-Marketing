@@ -1,0 +1,17 @@
+{
+  "servers": {
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    },
+    "@magicuidesign/mcp": {
+      "command": "npx",
+      "args": ["-y", "@magicuidesign/mcp@latest"]
+    },
+    "aceternityui": {
+      "command": "npx",
+      "args": ["aceternityui-mcp"]
+    }
+  }
+}

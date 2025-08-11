@@ -1,52 +1,22 @@
 'use client'
 
-import { ReactNode, useEffect, useRef, useState } from 'react'
+import { cn } from '@/lib/utils'
+import { useInView } from 'framer-motion'
+import { useRef, ReactNode } from 'react'
 
 interface LazySectionProps {
   children: ReactNode
-  threshold?: number
-  rootMargin?: string
   fallback?: ReactNode
   className?: string
 }
 
-export function LazySection({
-  children,
-  threshold = 0.2,
-  rootMargin = '50px',
-  fallback = null,
-  className = '',
-}: LazySectionProps) {
-  const [isVisible, setIsVisible] = useState(false)
-  const [hasLoaded, setHasLoaded] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries
-        if (entry && entry.isIntersecting && !hasLoaded) {
-          setIsVisible(true)
-          setHasLoaded(true)
-          observer.disconnect()
-        }
-      },
-      {
-        threshold,
-        rootMargin,
-      }
-    )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => observer.disconnect()
-  }, [threshold, rootMargin, hasLoaded])
+export function LazySection({ children, fallback, className }: LazySectionProps) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '100px' })
 
   return (
-    <div ref={ref} className={className}>
-      {isVisible ? children : fallback}
+    <div ref={ref} className={cn(className)}>
+      {isInView ? children : fallback}
     </div>
   )
 }

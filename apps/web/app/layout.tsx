@@ -7,6 +7,7 @@ import '@/styles/unified-colors.css'
 import '@/styles/scroll-performance.css'
 import { Providers } from '@/components/providers'
 import { ScrollOptimizer } from '@/components/scroll-optimizer'
+import { Spotlight } from '@/components/ui/spotlight'
 
 const fontSans = Geist({
   subsets: ['latin'],
