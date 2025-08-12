@@ -5,6 +5,7 @@ import { ArrowRight, Search, TrendingUp, Users, DollarSign } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import Lottie from 'lottie-react'
+import { Logo } from './logo'
 
 // Inline Lottie animation data for investment growth
 const investmentAnimation = {

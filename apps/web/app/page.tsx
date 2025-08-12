@@ -22,7 +22,7 @@ export default function Page() {
 
   return (
     <PageTransition>
-      <div className='min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white relative overflow-hidden'>
+      <div className='min-h-screen bg-raisin-black text-white relative overflow-hidden'>
         <Spotlight
           fill='white'
           className='absolute -top-60 -left-60 h-[1200px] w-[1200px] lg:h-[1600px] lg:w-[1600px] opacity-40 animate-spotlight pointer-events-none z-[11]'

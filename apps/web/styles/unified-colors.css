@@ -1,43 +1,62 @@
-/* Unified Color Palette for Nartaq */
+/* Unified Color Palette - Earthy Theme */
 
 :root {
- /* Primary Brand Colors */
- --primary-50: #fef7ed;
- --primary-100: #fdedd3;
- --primary-200: #fbd7a5;
- --primary-300: #f8bc6d;
- --primary-400: #f59e0b;
- --primary-500: #d97706;
- --primary-600: #b45309;
- --primary-700: #92400e;
- --primary-800: #78350f;
- --primary-900: #451a03;
+ /* Core Brand Colors - Based on your palette */
+ --raisin-black: #232428;
+ --onyx: #3e3f44;
+ --davys-gray: #5c5d63;
+ --lion: #a98b5d;
+ --timberwolf: #dcd7ce;
 
- /* Secondary Accent Colors */
- --secondary-50: #f0f9ff;
- --secondary-100: #e0f2fe;
- --secondary-200: #bae6fd;
- --secondary-300: #7dd3fc;
- --secondary-400: #38bdf8;
- --secondary-500: #0ea5e9;
- --secondary-600: #0284c7;
- --secondary-700: #0369a1;
- --secondary-800: #075985;
- --secondary-900: #0c4a6e;
+ /* Primary Brand Colors (Lion - Golden Brown) */
+ --primary-50: #faf8f4;
+ --primary-100: #f2ede1;
+ --primary-200: #e8dcc4;
+ --primary-300: #d9c49d;
+ --primary-400: #c7a876;
+ --primary-500: #a98b5d;
+ --primary-600: #967a4f;
+ --primary-700: #7d6342;
+ --primary-800: #675139;
+ --primary-900: #564332;
 
- /* Success Colors */
- --success-50: #ecfdf5;
- --success-100: #d1fae5;
- --success-200: #a7f3d0;
- --success-300: #6ee7b7;
- --success-400: #34d399;
- --success-500: #10b981;
- --success-600: #059669;
- --success-700: #047857;
- --success-800: #065f46;
- --success-900: #064e3b;
+ /* Secondary Colors (Timberwolf - Warm Gray) */
+ --secondary-50: #fefefe;
+ --secondary-100: #fdfcfa;
+ --secondary-200: #f8f5f0;
+ --secondary-300: #f0ebe2;
+ --secondary-400: #e6ddd0;
+ --secondary-500: #dcd7ce;
+ --secondary-600: #c7c0b5;
+ --secondary-700: #a8a095;
+ --secondary-800: #8a8179;
+ --secondary-900: #726a63;
 
- /* Neutral Colors */
+ /* Accent Colors (Davys Gray) */
+ --accent-50: #f6f6f7;
+ --accent-100: #ededef;
+ --accent-200: #dddde0;
+ --accent-300: #c4c5c9;
+ --accent-400: #a8a9ae;
+ --accent-500: #5c5d63;
+ --accent-600: #525359;
+ --accent-700: #47484d;
+ --accent-800: #3e3f44;
+ --accent-900: #36373b;
+
+ /* Dark Colors (Raisin Black & Onyx) */
+ --dark-50: #f5f5f6;
+ --dark-100: #ebebec;
+ --dark-200: #d9d9db;
+ --dark-300: #bfbfc2;
+ --dark-400: #9f9fa3;
+ --dark-500: #848488;
+ --dark-600: #6d6d71;
+ --dark-700: #5a5a5e;
+ --dark-800: #3e3f44;
+ --dark-900: #232428;
+
+ /* Neutral Colors - Extended grayscale */
  --neutral-50: #fafafa;
  --neutral-100: #f4f4f5;
  --neutral-200: #e4e4e7;
@@ -50,12 +69,24 @@
  --neutral-900: #18181b;
  --neutral-950: #09090b;
 
- /* Gradient Definitions */
- --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-600));
- --gradient-secondary: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
- --gradient-success: linear-gradient(135deg, var(--success-500), var(--success-600));
- --gradient-hero: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
- --gradient-card: linear-gradient(135deg, var(--primary-500)/0.1, var(--secondary-500)/0.1);
+ /* Gradient Definitions - Earthy Theme */
+ --gradient-primary: linear-gradient(135deg, var(--lion), var(--primary-600));
+ --gradient-secondary: linear-gradient(135deg, var(--timberwolf), var(--secondary-600));
+ --gradient-accent: linear-gradient(135deg, var(--davys-gray), var(--accent-600));
+ --gradient-dark: linear-gradient(135deg, var(--onyx), var(--raisin-black));
+ --gradient-hero: linear-gradient(135deg, var(--lion), var(--davys-gray));
+ --gradient-card: linear-gradient(135deg, var(--lion)/0.1, var(--timberwolf)/0.1);
+
+ /* Your custom gradients */
+ --gradient-top: linear-gradient(0deg, var(--raisin-black), var(--onyx), var(--davys-gray), var(--lion), var(--timberwolf));
+ --gradient-right: linear-gradient(90deg, var(--raisin-black), var(--onyx), var(--davys-gray), var(--lion), var(--timberwolf));
+ --gradient-bottom: linear-gradient(180deg, var(--raisin-black), var(--onyx), var(--davys-gray), var(--lion), var(--timberwolf));
+ --gradient-left: linear-gradient(270deg, var(--raisin-black), var(--onyx), var(--davys-gray), var(--lion), var(--timberwolf));
+ --gradient-top-right: linear-gradient(45deg, var(--raisin-black), var(--onyx), var(--davys-gray), var(--lion), var(--timberwolf));
+ --gradient-bottom-right: linear-gradient(135deg, var(--raisin-black), var(--onyx), var(--davys-gray), var(--lion), var(--timberwolf));
+ --gradient-top-left: linear-gradient(225deg, var(--raisin-black), var(--onyx), var(--davys-gray), var(--lion), var(--timberwolf));
+ --gradient-bottom-left: linear-gradient(315deg, var(--raisin-black), var(--onyx), var(--davys-gray), var(--lion), var(--timberwolf));
+ --gradient-radial: radial-gradient(var(--raisin-black), var(--onyx), var(--davys-gray), var(--lion), var(--timberwolf));
 }
 
 /* Utility Classes for Unified Colors */
@@ -189,4 +220,153 @@ ditional utility classes */
 
 .bg-secondary-900 {
  background-color: var(--secondary-900);
+}
+
+/* Ea
+rthy Palette Utility Classes */
+.bg-raisin-black {
+ background-color: var(--raisin-black);
+}
+
+.bg-onyx {
+ background-color: var(--onyx);
+}
+
+.bg-davys-gray {
+ background-color: var(--davys-gray);
+}
+
+.bg-lion {
+ background-color: var(--lion);
+}
+
+.bg-timberwolf {
+ background-color: var(--timberwolf);
+}
+
+.text-raisin-black {
+ color: var(--raisin-black);
+}
+
+.text-onyx {
+ color: var(--onyx);
+}
+
+.text-davys-gray {
+ color: var(--davys-gray);
+}
+
+.text-lion {
+ color: var(--lion);
+}
+
+.text-timberwolf {
+ color: var(--timberwolf);
+}
+
+/* Gradient Classes */
+.gradient-top {
+ background: var(--gradient-top);
+}
+
+.gradient-right {
+ background: var(--gradient-right);
+}
+
+.gradient-bottom {
+ background: var(--gradient-bottom);
+}
+
+.gradient-left {
+ background: var(--gradient-left);
+}
+
+.gradient-top-right {
+ background: var(--gradient-top-right);
+}
+
+.gradient-bottom-right {
+ background: var(--gradient-bottom-right);
+}
+
+.gradient-top-left {
+ background: var(--gradient-top-left);
+}
+
+.gradient-bottom-left {
+ background: var(--gradient-bottom-left);
+}
+
+.gradient-radial {
+ background: var(--gradient-radial);
+}
+
+.gradient-dark {
+ background: var(--gradient-dark);
+}
+
+.gradient-accent {
+ background: var(--gradient-accent);
+}
+
+/* Text Gradients for Earthy Palette */
+.text-gradient-earthy {
+ background: var(--gradient-hero);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+.text-gradient-dark {
+ background: var(--gradient-dark);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+/* Border Colors */
+.border-lion {
+ border-color: var(--lion);
+}
+
+.border-timberwolf {
+ border-color: var(--timberwolf);
+}
+
+.border-davys-gray {
+ border-color: var(--davys-gray);
+}
+
+.border-onyx {
+ border-color: var(--onyx);
+}
+
+.border-raisin-black {
+ border-color: var(--raisin-black);
+}
+
+/* Shadow Colors for Earthy Palette */
+.shadow-lion {
+ box-shadow: 0 10px 25px -3px var(--lion)/0.1, 0 4px 6px -2px var(--lion)/0.05;
+}
+
+.shadow-timberwolf {
+ box-shadow: 0 10px 25px -3px var(--timberwolf)/0.1, 0 4px 6px -2px var(--timberwolf)/0.05;
+}
+
+.shadow-davys-gray {
+ box-shadow: 0 10px 25px -3px var(--davys-gray)/0.1, 0 4px 6px -2px var(--davys-gray)/0.05;
+}
+
+/* Hover Effects for Earthy Palette */
+.hover-lion:hover {
+ background-color: var(--primary-600);
+}
+
+.hover-timberwolf:hover {
+ background-color: var(--secondary-600);
+}
+
+.hover-davys-gray:hover {
+ background-color: var(--accent-600);
 }

@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { Spotlight } from './ui/spotlight'
+import { Logo } from './logo'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -110,11 +111,12 @@ export function Header() {
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20'>
           <div className='flex justify-between items-center py-4'>
             <div className='flex items-center'>
-              <div
-                ref={logoRef}
-                className='text-2xl font-semibold text-gradient-primary hover:scale-110 transition-transform cursor-pointer'
-              >
-                Nartaq
+              <div ref={logoRef}>
+                <Logo
+                  customIconHeight='h-6'
+                  animated={true}
+                  className='max-w-[32px]'
+                />
               </div>
             </div>
 

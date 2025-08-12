@@ -2,6 +2,7 @@
 
 import { Button } from '@investi/ui'
 import { ArrowRight } from 'lucide-react'
+import { Logo } from './logo'
 
 const footerSections = [
   {
