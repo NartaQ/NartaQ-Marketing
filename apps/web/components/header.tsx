@@ -4,8 +4,8 @@ import { Button } from '@investi/ui'
 import { Menu, X } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { Spotlight } from './ui/spotlight'
 import { Logo } from './logo'
+
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -26,8 +26,8 @@ export function Header() {
       { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }
     ).fromTo(
       logoRef.current,
-      { scale: 0, rotation: -180 },
-      { scale: 1, rotation: 0, duration: 0.6, ease: 'back.out(1.7)' },
+      { opacity: 0 },
+      { opacity: 1, duration: 0.6, ease: 'power2.out' },
       '-=0.4'
     )
 
@@ -112,11 +112,7 @@ export function Header() {
           <div className='flex justify-between items-center py-4'>
             <div className='flex items-center'>
               <div ref={logoRef}>
-                <Logo
-                  customIconHeight='h-6'
-                  animated={true}
-                  className='max-w-[32px]'
-                />
+                <Logo iconSize={32} textSize={120} />
               </div>
             </div>
 
