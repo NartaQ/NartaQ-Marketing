@@ -13,8 +13,7 @@ export function ScrollOptimizer() {
   // Configure GSAP for maximum performance
   gsap.config({
    force3D: true, // Force hardware acceleration
-   nullTargetWarn: false,
-   trialWarn: false
+   nullTargetWarn: false
   })
 
   // Configure ScrollTrigger for fast scrolling
@@ -43,8 +42,7 @@ export function ScrollOptimizer() {
      }
     )
    },
-   start: 'top 98%',
-   refreshPriority: 1
+   start: 'top 98%'
   })
 
   // Ultra-fast batch animation for cards
@@ -62,8 +60,7 @@ export function ScrollOptimizer() {
      }
     )
    },
-   start: 'top 99%',
-   refreshPriority: 1
+   start: 'top 99%'
   })
 
   // Immediate visibility for critical elements

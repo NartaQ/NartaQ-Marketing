@@ -20,7 +20,7 @@ const premiumFeatures = [
   {
     title: '5x more outreach',
     description:
-      'Reach out to up to 5 investors per day directly via Investi, and fill your funding pipeline.',
+      'Reach out to up to 5 investors per day directly via Nartaq, and fill your funding pipeline.',
   },
   {
     title: '10 investor filters',
@@ -30,7 +30,7 @@ const premiumFeatures = [
   {
     title: 'Intro finder',
     description:
-      'Plug in your email, Investi scans your network and finds who can make an intro to your dream investor.',
+      'Plug in your email, Nartaq scans your network and finds who can make an intro to your dream investor.',
   },
   {
     title: '$2,000,000 discount',
@@ -53,7 +53,7 @@ const premiumFeatures = [
       'Build a top 1% pitch deck with our battle-tested template. Works on PowerPoint & Google Slides.',
   },
   {
-    title: 'Support Investi',
+    title: 'Support Nartaq',
     description:
       'Your membership helps us make venture capital a better, more open industry.',
   },
@@ -65,7 +65,7 @@ export function PricingSection() {
       <div className='container mx-auto'>
         <div className='text-center mb-10 animate-on-scroll'>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'>
-            90% Of Investi's Features Are Available{' '}
+            90% Of Nartaq's Features Are Available{' '}
             <span className='text-gradient-primary'>
               To All Founders For Free, Forever
             </span>
@@ -125,7 +125,7 @@ export function PricingSection() {
                 or just $299/year
               </div>
               <p className='text-gray-400'>
-                Investi Premium Gives You Advanced Features To Raise Better And
+                Nartaq Premium Gives You Advanced Features To Raise Better And
                 Faster
               </p>
             </CardHeader>

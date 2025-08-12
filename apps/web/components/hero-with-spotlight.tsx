@@ -136,7 +136,7 @@ export function HeroWithSpotlight() {
               0
             </div>
             <div className='text-zinc-400 font-medium'>
-              founders raising with Investi
+              founders raising with Nartaq
             </div>
           </div>
 
@@ -153,7 +153,7 @@ export function HeroWithSpotlight() {
               0
             </div>
             <div className='text-zinc-400 font-medium'>
-              billion+ raised with Investi
+              billion+ raised with Nartaq
             </div>
           </div>
 

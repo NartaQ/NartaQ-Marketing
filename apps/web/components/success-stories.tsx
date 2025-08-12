@@ -60,7 +60,7 @@ export function SuccessStories() {
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'>
             Founders Who Raised With{' '}
             <span className='text-gradient-primary'>
-              Investi
+              Nartaq
             </span>
           </h2>
           <p className='text-xl text-gray-300 max-w-3xl mx-auto'>
@@ -101,7 +101,7 @@ export function SuccessStories() {
         <div className='gradient-primary rounded-2xl p-8 lg:p-12 animate-on-scroll'>
           <div className='text-center mb-12'>
             <h3 className='text-2xl lg:text-3xl font-bold text-white mb-4'>
-              Investi Startups Have Raised $1+ Billion From:
+              Nartaq Startups Have Raised $1+ Billion From:
             </h3>
             <p className='text-primary-100'>
               Leading investors worldwide trust our platform

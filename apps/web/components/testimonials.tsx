@@ -8,41 +8,41 @@ const testimonials = [
     name: 'Janice Taylor',
     role: 'Founder, Ah-ha Healing',
     content:
-      'Absolutely loving Investi.app, so intuitive and has made searching/reaching out 10 times easier. Thank you for building this. All #founders should check this App out if you are hunting for investor leads. Best one yet!',
+      'Absolutely loving Nartaq.app, so intuitive and has made searching/reaching out 10 times easier. Thank you for building this. All #founders should check this App out if you are hunting for investor leads. Best one yet!',
     avatar: 'JT',
   },
   {
     name: 'Camilo Silva Caviedes',
     role: 'Founder, Suplait',
     content:
-      'After weeks of trying to get an intro, the GP scheduled a call with me with almost no effort. Huge thanks to @Investi for making it happen!',
+      'After weeks of trying to get an intro, the GP scheduled a call with me with almost no effort. Huge thanks to @Nartaq for making it happen!',
     avatar: 'CS',
   },
   {
     name: 'Christian Lecorps',
     role: 'Founder, Atlas Prime',
     content:
-      '😍😍😍 Investi is one of the best things that ever happened to me as a founder so far.',
+      '😍😍😍 Nartaq is one of the best things that ever happened to me as a founder so far.',
     avatar: 'CL',
   },
   {
     name: 'Alex Macdonald',
     role: 'Serial investor',
     content:
-      'More than half the deck submissions for my syndicate in the past few days came from @Investi, a suite of amazing free tools for founders and VCs.',
+      'More than half the deck submissions for my syndicate in the past few days came from @Nartaq, a suite of amazing free tools for founders and VCs.',
     avatar: 'AM',
   },
   {
     name: 'Iyanna Halilou',
     role: 'Associate, Moxxie Ventures',
-    content: 'I am obsessed with @Investi! Thank you for building!',
+    content: 'I am obsessed with @Nartaq! Thank you for building!',
     avatar: 'IH',
   },
   {
     name: 'Justin Ahn',
     role: 'Founder, Quidli Protocol',
     content:
-      'FWIW, I found one of our seed round investors via @Investi, reach out as described, and it worked!',
+      'FWIW, I found one of our seed round investors via @Nartaq, reach out as described, and it worked!',
     avatar: 'JA',
   },
 ]
@@ -55,7 +55,7 @@ export function TestimonialsSection() {
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white'>
             Why Founders Trust{' '}
             <span className='text-gradient-primary'>
-              Investi
+              Nartaq
             </span>
           </h2>
           <p className='text-xl text-gray-300 max-w-3xl mx-auto'>

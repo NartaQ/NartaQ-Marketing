@@ -114,7 +114,7 @@ export function Header() {
                 ref={logoRef}
                 className='text-2xl font-semibold text-gradient-primary hover:scale-110 transition-transform cursor-pointer'
               >
-                Investi
+                Nartaq
               </div>
             </div>
 

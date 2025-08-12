@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useId } from 'react'
 import { cn } from '@/lib/utils'
 
 type SpotlightProps = {
@@ -7,7 +7,7 @@ type SpotlightProps = {
 }
 
 export const Spotlight = ({ className, fill }: SpotlightProps) => {
-  const filterId = `spotlight-filter-${Math.random().toString(36).substr(2, 9)}`
+  const filterId = `spotlight-filter-${useId()}`
 
   return (
     <svg

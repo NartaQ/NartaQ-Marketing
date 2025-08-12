@@ -132,7 +132,7 @@ export function Hero() {
             >
               0
             </div>
-            <div className='text-zinc-400 font-medium'>founders raising with Investi</div>
+            <div className='text-zinc-400 font-medium'>founders raising with Nartaq</div>
           </div>
 
           <div className='text-center animate-on-scroll group'>
@@ -147,7 +147,7 @@ export function Hero() {
             >
               0
             </div>
-            <div className='text-zinc-400 font-medium'>billion+ raised with Investi</div>
+            <div className='text-zinc-400 font-medium'>billion+ raised with Nartaq</div>
           </div>
 
           <div className='text-center animate-on-scroll group'>
