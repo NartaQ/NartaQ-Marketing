@@ -28,7 +28,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lottie from 'lottie-react'
-import { Marquee } from '@/components/ui/marquee'
+import { Marquee } from '@/components/magicui/marquee'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -490,7 +490,7 @@ export function AceternityFeatures() {
             </p>
           </div>
 
-          <div className='relative'>
+          <div className='relative marquee-container'>
             {/* Gradient overlays for smooth edges */}
             <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none'></div>
             <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none'></div>

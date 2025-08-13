@@ -6,12 +6,13 @@ import { Header } from '@/components/header'
 import { AceternityFeatures } from '@/components/aceternity-features'
 import { OptimizedStats } from '@/components/optimized-stats'
 import { OptimizedCTA } from '@/components/optimized-cta'
-import AnimatedBeamDemo from '@/components/fundra-integrations'
+
 import { LazySection } from '@/components/lazy-section'
 import { SectionSkeleton } from '@/components/section-skeleton'
 import { useOptimizedAnimations } from '@/hooks/use-optimized-animations'
 import { PageTransition } from '@/components/page-transition'
 import { Spotlight } from '@/components/ui/spotlight'
+import AnimatedBeamMultipleOutputDemo from '@/components/animated-beam'
 // Lazy load essential components only
 const Footer = lazy(() =>
   import('@/components/footer').then((m) => ({ default: m.Footer }))
@@ -32,17 +33,20 @@ export default function Page() {
           <OptimizedHero />
           <AceternityFeatures />
           <OptimizedStats />
-          <AnimatedBeamDemo />
+          <AnimatedBeamMultipleOutputDemo />
           <OptimizedCTA />
 
-          <LazySection
-            fallback={<SectionSkeleton height='h-32' />}
-            className='scroll-mt-20'
-          >
-            <Suspense fallback={<SectionSkeleton height='h-32' />}>
-              <Footer />
-            </Suspense>
-          </LazySection>
+          {/* Footer outside TracingBeam to prevent scroll interference */}
+          <div className='relative z-20'>
+            <LazySection
+              fallback={<SectionSkeleton height='h-32' />}
+              className='scroll-mt-20'
+            >
+              <Suspense fallback={<SectionSkeleton height='h-32' />}>
+                <Footer />
+              </Suspense>
+            </LazySection>
+          </div>
         </div>
       </div>
     </PageTransition>

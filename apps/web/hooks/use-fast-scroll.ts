@@ -112,11 +112,15 @@ export function useFastScroll() {
 
   // Optimize scroll performance with requestAnimationFrame
   let scrollTicking = false
+  let lastScrollY = 0
   const optimizeScroll = () => {
-   if (!scrollTicking) {
+   const currentScrollY = window.scrollY
+   // Only refresh if scroll position changed significantly
+   if (Math.abs(currentScrollY - lastScrollY) > 10 && !scrollTicking) {
     requestAnimationFrame(() => {
      // Batch scroll-dependent operations
      ScrollTrigger.refresh()
+     lastScrollY = currentScrollY
      scrollTicking = false
     })
     scrollTicking = true

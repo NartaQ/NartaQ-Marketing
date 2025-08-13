@@ -448,3 +448,13 @@ html {
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
+
+/* Cust
+om marquee hover behavior - pause all marquees when any card is hovered */
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+.marquee-container:hover .animate-marquee-vertical {
+  animation-play-state: paused;
+}
