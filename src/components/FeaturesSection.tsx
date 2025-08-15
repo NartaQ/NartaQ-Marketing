@@ -13,7 +13,7 @@ export default function FeaturesSection() {
         </h2>
 
         <p className='reveal-up mt-8 max-w-[650px] text-gray-900 dark:text-gray-200 text-center max-md:text-sm'>
-          Pixa's Playground is powered by Pixa's cutting-edge LLM API endpoints.
+          Pixa&apos;s Playground is powered by Pixa&apos;s cutting-edge LLM API endpoints.
           Our powerful models simplify task automation, offering streamlined
           solutions for complex workflows.
         </p>
@@ -44,7 +44,7 @@ export default function FeaturesSection() {
                 Chat Interface
               </h2>
               <p className='leading-normal text-gray-800 dark:text-gray-200'>
-                Pixa's chat interface provides seamless interaction with
+                Pixa&apos;s chat interface provides seamless interaction with
                 multiple AI models, enabling intuitive conversations and complex
                 query handling across various domains.
               </p>
@@ -104,7 +104,7 @@ export default function FeaturesSection() {
                 API Access
               </h2>
               <p className='leading-normal text-gray-800 dark:text-gray-200'>
-                Pixa's LLM API offers advanced summarization, text generation,
+                Pixa&apos;s LLM API offers advanced summarization, text generation,
                 and question-answering. Easily integrate with support for JSON,
                 HTML, Markdown, and plain text, enhancing your applications with
                 powerful language tools.

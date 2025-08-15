@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Spotlight } from './ui/spotlight'
 import { ContainerScroll } from './ui/container-scroll-animation'
+import Image from 'next/image'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -41,17 +42,18 @@ export default function HeroSection() {
 
     // Reveal animations for sections
     const sections = gsap.utils.toArray('section')
-    sections.forEach((sec: any) => {
+    sections.forEach((sec) => {
+      const element = sec as Element
       const timeline = gsap.timeline({
         paused: true,
         scrollTrigger: {
-          trigger: sec,
+          trigger: element,
           start: '10% 80%',
           end: '20% 90%',
         },
       })
 
-      timeline.to(sec.querySelectorAll('.reveal-up'), {
+      timeline.to(element.querySelectorAll('.reveal-up'), {
         opacity: 1,
         duration: 0.8,
         y: '0%',
@@ -81,7 +83,7 @@ export default function HeroSection() {
           </>
         }
       >
-        <img
+        <Image
           src={`/linear.webp`}
           alt='hero'
           height={720}

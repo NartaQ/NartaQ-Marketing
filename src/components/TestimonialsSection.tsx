@@ -69,7 +69,7 @@ export default function TestimonialsSection() {
         </div>
       </div>
       <p className='text-gray-700 dark:text-gray-300 leading-relaxed'>
-        "{testimonial.text}"
+        &ldquo;{testimonial.text}&rdquo;
       </p>
       <div className='flex text-yellow-400'>
         {[...Array(5)].map((_, i) => (

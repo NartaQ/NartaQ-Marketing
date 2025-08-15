@@ -6,7 +6,6 @@ import { HoveredLink, Menu, MenuItem, ProductItem } from './ui/navbar-menu'
 import {
   Navbar,
   NavBody,
-  NavItems,
   MobileNav,
   MobileNavHeader,
   MobileNavMenu,
@@ -19,13 +18,6 @@ import { Spotlight } from './ui/spotlight'
 export default function Header({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  const navItems = [
-    { name: 'Services', link: '#services' },
-    { name: 'Products', link: '#products' },
-    { name: 'Pricing', link: '#pricing' },
-    { name: 'About', link: '#about' },
-  ]
 
   return (
     <Navbar className={cn('fixed top-0', className)}>

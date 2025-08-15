@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import React, {
   ComponentPropsWithoutRef,
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -126,22 +127,26 @@ export const Particles: React.FC<ParticlesProps> = ({
       }
       window.removeEventListener("resize", handleResize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color]);
 
   useEffect(() => {
     onMouseMove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mousePosition.x, mousePosition.y]);
 
   useEffect(() => {
     initCanvas();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresh]);
 
-  const initCanvas = () => {
+  const initCanvas = useCallback(() => {
     resizeCanvas();
     drawParticles();
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const onMouseMove = () => {
+  const onMouseMove = useCallback(() => {
     if (canvasRef.current) {
       const rect = canvasRef.current.getBoundingClientRect();
       const { w, h } = canvasSize.current;
@@ -153,7 +158,7 @@ export const Particles: React.FC<ParticlesProps> = ({
         mouse.current.y = y;
       }
     }
-  };
+  }, [mousePosition.x, mousePosition.y]);
 
   const resizeCanvas = () => {
     if (canvasContainerRef.current && canvasRef.current && context.current) {
@@ -250,7 +255,7 @@ export const Particles: React.FC<ParticlesProps> = ({
     return remapped > 0 ? remapped : 0;
   };
 
-  const animate = () => {
+  const animate = useCallback(() => {
     clearContext();
     circles.current.forEach((circle: Circle, i: number) => {
       // Handle the alpha value
@@ -298,7 +303,8 @@ export const Particles: React.FC<ParticlesProps> = ({
       }
     });
     rafID.current = window.requestAnimationFrame(animate);
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ease, staticity, vx, vy]);
 
   return (
     <div
