@@ -13,7 +13,7 @@ export default function PricingSection() {
       ],
       disabled: ["Access to all premium AI models", "Early access to new features"],
       buttonText: "Get Started",
-      buttonStyle: "btn mt-auto !w-full transition-transform duration-300 hover:scale-x-[1.02] !text-black !bg-transparent !border border-black dark:border-white dark:!text-white"
+      buttonStyle: "btn mt-auto !w-full transition-transform duration-300 hover:scale-x-[1.02] !text-[#dcd7ce] !bg-transparent !border border-[#5c5d63] hover:border-[#a98b5d]"
     },
     {
       name: "Pro",
@@ -45,7 +45,7 @@ export default function PricingSection() {
       ],
       disabled: [],
       buttonText: "Choose plan",
-      buttonStyle: "btn mt-8 !w-full transition-transform duration-300 hover:scale-x-[1.02] !text-black !bg-transparent !border border-black dark:border-white dark:!text-white"
+      buttonStyle: "btn mt-8 !w-full transition-transform duration-300 hover:scale-x-[1.02] !text-[#dcd7ce] !bg-transparent !border border-[#5c5d63] hover:border-[#a98b5d]"
     }
   ];
 
@@ -54,7 +54,7 @@ export default function PricingSection() {
       <h3 className="reveal-up text-4xl font-medium max-md:text-2xl text-center mb-4">
         Choose your plan
       </h3>
-      <p className="reveal-up text-gray-600 dark:text-gray-400 text-center max-w-2xl mb-16">
+      <p className="reveal-up text-[#5c5d63] text-center max-w-2xl mb-16">
         Select the perfect plan that scales with your needs. All plans include our core AI features.
       </p>
 
@@ -62,38 +62,37 @@ export default function PricingSection() {
         {plans.map((plan, index) => (
           <div
             key={index}
-            className={`flex w-[350px] flex-col items-center gap-2 rounded-lg p-8 ${
-              plan.popular 
-                ? 'border-2 border-blue-500 bg-blue-50 dark:bg-blue-900/20' 
-                : 'border bg-white dark:bg-[#171717] dark:border-gray-700'
-            }`}
+            className={`flex w-[350px] flex-col items-center gap-2 rounded-lg p-8 ${plan.popular
+              ? 'border-2 border-[#a98b5d] bg-[#a98b5d]/10'
+              : 'border border-[#5c5d63] bg-[#3e3f44]'
+              }`}
           >
             {plan.popular && (
-              <div className="mb-4 rounded-full bg-blue-500 px-3 py-1 text-sm text-white">
+              <div className="mb-4 rounded-full bg-[#a98b5d] px-3 py-1 text-sm text-black font-medium">
                 Most Popular
               </div>
             )}
-            
+
             <h2 className="text-2xl font-medium">{plan.name}</h2>
             <div className="flex items-baseline gap-1">
               <span className="text-4xl font-bold">{plan.price}</span>
-              <span className="text-gray-600 dark:text-gray-400">{plan.period}</span>
+              <span className="text-[#5c5d63]">{plan.period}</span>
             </div>
-            <p className="text-center text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-center text-[#5c5d63] mb-6">
               {plan.description}
             </p>
 
             <ul className="w-full space-y-3 mb-8">
               {plan.features.map((feature, featureIndex) => (
                 <li key={featureIndex} className="flex gap-2">
-                  <i className="bi bi-check-circle-fill text-green-500" />
+                  <i className="bi bi-check-circle-fill text-[#a98b5d]" />
                   <span>{feature}</span>
                 </li>
               ))}
               {plan.disabled.map((feature, featureIndex) => (
                 <li key={featureIndex} className="flex gap-2">
-                  <i className="bi bi-check-circle-fill text-gray-400 dark:text-gray-500" />
-                  <span className="text-gray-400 dark:text-gray-500">{feature}</span>
+                  <i className="bi bi-check-circle-fill text-[#5c5d63]" />
+                  <span className="text-[#5c5d63]">{feature}</span>
                 </li>
               ))}
             </ul>
