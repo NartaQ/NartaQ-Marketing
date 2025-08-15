@@ -14,12 +14,14 @@ export default function BrandsSection() {
     { name: 'Stripe', src: '/images/brand-logos/stripe.svg' },
     { name: 'Reddit', src: '/images/brand-logos/reddit.svg' },
   ]
-  console.log(brands)
   return (
     <section className='relative flex w-full max-w-full flex-col items-center overflow-hidden p-8'>
       <h2 className='reveal-up text-3xl max-md:text-xl'>
-        Trusted by brands you love
+        Connect with companies backed by top investors
       </h2>
+      <p className='reveal-up mt-4 text-center text-lg text-muted-foreground max-w-2xl'>
+        Discover investment opportunities in startups from the same ecosystem as these industry leaders
+      </p>
 
       <div className='reveal-up mt-10 w-full'>
         <Marquee
@@ -43,11 +45,10 @@ export default function BrandsSection() {
                   alt={brand.name}
                   width={150}
                   height={30}
-                  className={`h-full w-full object-contain grayscale transition-colors hover:grayscale-0 ${
-                    needsDarkModeFilter
-                      ? 'dark:invert dark:brightness-0 dark:contrast-100'
-                      : ''
-                  }`}
+                  className={`h-full w-full object-contain grayscale transition-colors hover:grayscale-0 ${needsDarkModeFilter
+                    ? 'dark:invert dark:brightness-0 dark:contrast-100'
+                    : ''
+                    }`}
                 />
               </div>
             )

@@ -43,43 +43,43 @@ export default function Header({ className }: { className?: string }) {
         {/* Desktop Menu Items */}
         <div className='hidden lg:flex'>
           <Menu setActive={setActive}>
-            <MenuItem setActive={setActive} active={active} item='Services'>
+            <MenuItem setActive={setActive} active={active} item='For Startups'>
               <div className='flex flex-col space-y-4 text-sm'>
-                <HoveredLink href='/web-dev'>Web Development</HoveredLink>
-                <HoveredLink href='/interface-design'>
-                  Interface Design
+                <HoveredLink href='/pitch-deck'>Pitch Your Vision</HoveredLink>
+                <HoveredLink href='/funding-rounds'>
+                  Funding Rounds
                 </HoveredLink>
-                <HoveredLink href='/seo'>
-                  Search Engine Optimization
+                <HoveredLink href='/mentorship'>
+                  Expert Mentorship
                 </HoveredLink>
-                <HoveredLink href='/branding'>Branding</HoveredLink>
+                <HoveredLink href='/resources'>Startup Resources</HoveredLink>
               </div>
             </MenuItem>
-            <MenuItem setActive={setActive} active={active} item='Products'>
+            <MenuItem setActive={setActive} active={active} item='For Investors'>
               <div className='text-sm grid grid-cols-2 gap-10 p-4'>
                 <ProductItem
-                  title='AI Assistant'
+                  title='Deal Flow'
                   href='#'
                   src='/images/home/ai-models.png'
-                  description='Your all-in-one AI companion for various tasks.'
+                  description='Discover vetted startups matching your investment criteria.'
                 />
                 <ProductItem
-                  title='Code Generator'
+                  title='Due Diligence'
                   href='#'
                   src='/images/home/api.png'
-                  description='Generate code snippets and complete applications.'
+                  description='Comprehensive startup analysis and risk assessment.'
                 />
                 <ProductItem
-                  title='Image Creator'
+                  title='Portfolio Tracking'
                   href='#'
                   src='/images/home/image.png'
-                  description='Create stunning images with AI technology.'
+                  description='Monitor and manage your investment portfolio.'
                 />
                 <ProductItem
-                  title='Document Helper'
+                  title='Market Insights'
                   href='#'
                   src='/images/home/article1.png'
-                  description='Generate and edit documents efficiently.'
+                  description='Stay ahead with industry trends and opportunities.'
                 />
               </div>
             </MenuItem>
@@ -97,7 +97,7 @@ export default function Header({ className }: { className?: string }) {
         {/* Desktop CTA Button */}
         <div className='hidden lg:flex'>
           <NavbarButton href='#' variant='dark'>
-            Get Started
+            Join Nartaq
           </NavbarButton>
         </div>
       </NavBody>
@@ -138,18 +138,18 @@ export default function Header({ className }: { className?: string }) {
         >
           <div className='flex flex-col space-y-4 w-full'>
             <a
-              href='#services'
+              href='#startups'
               className='text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors'
               onClick={() => setMobileMenuOpen(false)}
             >
-              Services
+              For Startups
             </a>
             <a
-              href='#products'
+              href='#investors'
               className='text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors'
               onClick={() => setMobileMenuOpen(false)}
             >
-              Products
+              For Investors
             </a>
             <a
               href='#pricing'
@@ -171,7 +171,7 @@ export default function Header({ className }: { className?: string }) {
                 variant='dark'
                 className='w-full text-center'
               >
-                Get Started
+                Join Nartaq
               </NavbarButton>
             </div>
           </div>

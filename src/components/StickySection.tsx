@@ -149,107 +149,107 @@ export default function StickySection({ className }: StickySectionProps) {
   }, [checkMobile])
 
   const stickyText = {
-    title: 'Our Innovation Process',
-    subtitle: 'How we transform ideas into reality',
+    title: 'Who We Are',
+    subtitle: 'Connecting startups with the perfect investors',
     description:
-      'We follow a proven methodology that combines creativity with technical excellence to deliver exceptional results for our clients.',
+      'Nartaq is an innovative platform that uses AI technology and personalized customer service to create perfect matches between ambitious startups and the right investors.',
   }
 
   const scrollingContent = [
     {
       step: '01',
-      title: 'Discovery & Research',
+      title: 'AI-Powered Matching',
       description:
-        'We start by understanding your business goals, target audience, and market landscape. Through comprehensive research and stakeholder interviews, we identify opportunities and challenges.',
+        'Nartaq\'s advanced AI algorithms analyze startup profiles, business models, and growth potential to identify the most compatible investors based on industry focus, investment stage, and strategic alignment.',
       features: [
-        'Market Analysis',
-        'User Research',
-        'Competitive Study',
-        'Goal Definition',
+        'Nartaq Smart Algorithm',
+        'Industry Analysis',
+        'Stage Matching',
+        'Strategic Fit',
       ],
     },
     {
       step: '02',
-      title: 'Strategy & Planning',
+      title: 'Startup Profiling',
       description:
-        'Based on our research, we develop a strategic roadmap that aligns with your objectives. We create detailed project plans, timelines, and resource allocation strategies.',
+        'Nartaq creates comprehensive profiles for each startup, highlighting their unique value proposition, market opportunity, team expertise, and funding requirements to attract the right investors.',
       features: [
-        'Strategic Planning',
-        'Resource Allocation',
-        'Timeline Creation',
-        'Risk Assessment',
+        'Business Analysis',
+        'Market Research',
+        'Team Assessment',
+        'Nartaq Financial Planning',
       ],
     },
     {
       step: '03',
-      title: 'Design & Prototyping',
+      title: 'Investor Network',
       description:
-        'Our design team creates intuitive and engaging user experiences. We develop wireframes, prototypes, and high-fidelity designs that bring your vision to life.',
+        'Access Nartaq\'s curated network of verified investors, from angel investors to venture capital firms, each with detailed profiles showing their investment preferences and portfolio companies.',
       features: [
-        'UI/UX Design',
-        'Prototyping',
-        'User Testing',
-        'Design Systems',
+        'Nartaq Verified Investors',
+        'Investment Focus',
+        'Portfolio Insights',
+        'Success Stories',
       ],
     },
     {
       step: '04',
-      title: 'Development & Implementation',
+      title: 'Personalized Service',
       description:
-        'Our development team builds robust, scalable solutions using cutting-edge technologies. We follow best practices and maintain high code quality standards.',
+        'Nartaq\'s dedicated customer service team provides personalized guidance throughout the matching process, offering strategic advice and facilitating meaningful connections.',
       features: [
-        'Frontend Development',
-        'Backend Architecture',
-        'API Integration',
-        'Quality Assurance',
+        'Nartaq Dedicated Support',
+        'Strategic Guidance',
+        'Connection Facilitation',
+        'Expert Advice',
       ],
     },
     {
       step: '05',
-      title: 'Testing & Optimization',
+      title: 'Due Diligence Support',
       description:
-        'We conduct thorough testing across all devices and browsers. Performance optimization ensures your solution runs smoothly and efficiently.',
+        'Nartaq assists both startups and investors with due diligence processes, providing comprehensive documentation, financial analysis, and market validation to ensure informed decisions.',
       features: [
-        'Cross-browser Testing',
-        'Performance Optimization',
-        'Security Testing',
-        'User Acceptance Testing',
+        'Document Preparation',
+        'Nartaq Financial Analysis',
+        'Market Validation',
+        'Risk Assessment',
       ],
     },
     {
       step: '06',
-      title: 'Launch & Support',
+      title: 'Deal Facilitation',
       description:
-        'We handle the deployment process and provide ongoing support. Our team ensures smooth operations and continuous improvements post-launch.',
+        'Nartaq\'s platform streamlines the investment process with secure communication channels, document sharing, and negotiation support to help close deals efficiently.',
       features: [
-        'Deployment',
-        'Monitoring',
-        'Maintenance',
-        'Continuous Support',
+        'Nartaq Secure Platform',
+        'Document Management',
+        'Communication Tools',
+        'Deal Tracking',
       ],
     },
     {
       step: '07',
-      title: 'Analytics & Insights',
+      title: 'Success Monitoring',
       description:
-        'We implement comprehensive analytics to track performance and user behavior. This data-driven approach helps us make informed decisions for future improvements.',
+        'Nartaq tracks the success of our matches through ongoing monitoring of funded startups, measuring growth metrics and investor satisfaction to continuously improve our matching algorithm.',
       features: [
-        'Performance Analytics',
-        'User Behavior Tracking',
-        'Conversion Optimization',
-        'Reporting Dashboard',
+        'Growth Tracking',
+        'Success Metrics',
+        'Investor Feedback',
+        'Nartaq Algorithm Optimization',
       ],
     },
     {
       step: '08',
-      title: 'Scaling & Growth',
+      title: 'Ongoing Partnership',
       description:
-        'As your business grows, we help scale your solution to meet increasing demands. We provide guidance on infrastructure improvements and feature enhancements.',
+        'Beyond the initial match, Nartaq maintains relationships with both startups and investors, providing continued support for future funding rounds and strategic partnerships.',
       features: [
-        'Infrastructure Scaling',
-        'Feature Enhancement',
-        'Performance Monitoring',
-        'Growth Strategy',
+        'Nartaq Long-term Support',
+        'Future Rounds',
+        'Strategic Partnerships',
+        'Network Expansion',
       ],
     },
   ]
