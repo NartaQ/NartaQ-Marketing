@@ -4,6 +4,7 @@ import { useEffect, useState, useRef, useCallback } from 'react'
 import { cn } from '@/lib/utils'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { MagicCard } from './magicui/magic-card'
 
 // Register ScrollTrigger plugin safely
 if (typeof window !== 'undefined') {
@@ -160,7 +161,7 @@ export default function StickySection({ className }: StickySectionProps) {
       step: '01',
       title: 'AI-Powered Matching',
       description:
-        'Nartaq\'s advanced AI algorithms analyze startup profiles, business models, and growth potential to identify the most compatible investors based on industry focus, investment stage, and strategic alignment.',
+        "Nartaq's advanced AI algorithms analyze startup profiles, business models, and growth potential to identify the most compatible investors based on industry focus, investment stage, and strategic alignment.",
       features: [
         'Nartaq Smart Algorithm',
         'Industry Analysis',
@@ -184,7 +185,7 @@ export default function StickySection({ className }: StickySectionProps) {
       step: '03',
       title: 'Investor Network',
       description:
-        'Access Nartaq\'s curated network of verified investors, from angel investors to venture capital firms, each with detailed profiles showing their investment preferences and portfolio companies.',
+        "Access Nartaq's curated network of verified investors, from angel investors to venture capital firms, each with detailed profiles showing their investment preferences and portfolio companies.",
       features: [
         'Nartaq Verified Investors',
         'Investment Focus',
@@ -196,7 +197,7 @@ export default function StickySection({ className }: StickySectionProps) {
       step: '04',
       title: 'Personalized Service',
       description:
-        'Nartaq\'s dedicated customer service team provides personalized guidance throughout the matching process, offering strategic advice and facilitating meaningful connections.',
+        "Nartaq's dedicated customer service team provides personalized guidance throughout the matching process, offering strategic advice and facilitating meaningful connections.",
       features: [
         'Nartaq Dedicated Support',
         'Strategic Guidance',
@@ -220,7 +221,7 @@ export default function StickySection({ className }: StickySectionProps) {
       step: '06',
       title: 'Deal Facilitation',
       description:
-        'Nartaq\'s platform streamlines the investment process with secure communication channels, document sharing, and negotiation support to help close deals efficiently.',
+        "Nartaq's platform streamlines the investment process with secure communication channels, document sharing, and negotiation support to help close deals efficiently.",
       features: [
         'Nartaq Secure Platform',
         'Document Management',
@@ -271,7 +272,7 @@ export default function StickySection({ className }: StickySectionProps) {
               {stickyText.title}
             </h2>
             <p className='text-xl text-[#a98b5d] mb-6'>{stickyText.subtitle}</p>
-            <p className='text-[#5c5d63] max-w-2xl mx-auto'>
+            <p className='text-[#dcd7ce] max-w-2xl mx-auto'>
               {stickyText.description}
             </p>
           </div>
@@ -279,13 +280,14 @@ export default function StickySection({ className }: StickySectionProps) {
           {/* Mobile content */}
           <div className='space-y-8'>
             {scrollingContent.map((item, index) => (
-              <div
+              <MagicCard
                 key={`mobile-${item.step}-${index}`}
-                className='bg-[#3e3f44]/50 rounded-xl p-6 border border-[#5c5d63]'
+                gradientColor={'#262626'}
+                className='bg-[#3e3f44]/70 rounded-xl p-6 border border-[#5c5d63]'
               >
                 <div className='flex items-start gap-4'>
                   <div className='flex-shrink-0 w-12 h-12 bg-[#a98b5d] rounded-lg flex items-center justify-center'>
-                    <span className='text-black font-bold text-sm'>
+                    <span className='text-white font-bold text-sm'>
                       {item.step}
                     </span>
                   </div>
@@ -309,7 +311,7 @@ export default function StickySection({ className }: StickySectionProps) {
                     </div>
                   </div>
                 </div>
-              </div>
+              </MagicCard>
             ))}
           </div>
         </div>
@@ -340,7 +342,7 @@ export default function StickySection({ className }: StickySectionProps) {
                 {stickyText.title}
               </h2>
               <p className='text-xl text-[#a98b5d]'>{stickyText.subtitle}</p>
-              <p className='text-[#5c5d63] text-lg leading-relaxed'>
+              <p className='text-[#dcd7ce] text-lg leading-relaxed'>
                 {stickyText.description}
               </p>
               <div className='pt-6'>
@@ -354,7 +356,11 @@ export default function StickySection({ className }: StickySectionProps) {
             <div className='space-y-16 lg:pl-12'>
               {scrollingContent.map((item, index) => (
                 <div key={`${item.step}-${index}`} className='group'>
-                  <div className='bg-[#3e3f44]/30 backdrop-blur-sm rounded-2xl p-8 border border-[#5c5d63]/50 hover:border-[#a98b5d]/50 transition-all duration-300 hover:bg-[#3e3f44]/50'>
+                  <MagicCard
+                    gradientColor={'#262626'}
+                    gradientSize={300}
+                    className='bg-[#3e3f44]/50 backdrop-blur-sm rounded-2xl p-8 border border-[#5c5d63]/50 hover:border-[#a98b5d]/70 transition-all duration-300 hover:bg-[#3e3f44]/70'
+                  >
                     <div className='flex items-start gap-6'>
                       <div className='flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#a98b5d] to-[#dcd7ce] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
                         <span className='text-black font-bold text-lg'>
@@ -383,7 +389,7 @@ export default function StickySection({ className }: StickySectionProps) {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </MagicCard>
                 </div>
               ))}
             </div>

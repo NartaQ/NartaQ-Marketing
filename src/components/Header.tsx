@@ -28,15 +28,12 @@ export default function Header({ className }: { className?: string }) {
         <a className='flex items-center gap-2 p-1 group relative z-20' href='#'>
           <div className='h-[32px] flex items-center gap-2 relative'>
             <Image
-              src='/logo/main-tr-icon.svg'
+              src='/logo/main-tr-hor.svg'
               alt='Nartaq Icon'
               width={32}
               height={32}
-              className='h-8 w-8 transition-transform duration-300 group-hover:scale-110 relative z-10'
+              className='h-8 w-auto  relative z-10'
             />
-            <span className='font-medium text-black dark:text-white'>
-              Nartaq
-            </span>
           </div>
         </a>
 
@@ -46,16 +43,16 @@ export default function Header({ className }: { className?: string }) {
             <MenuItem setActive={setActive} active={active} item='For Startups'>
               <div className='flex flex-col space-y-4 text-sm'>
                 <HoveredLink href='/pitch-deck'>Pitch Your Vision</HoveredLink>
-                <HoveredLink href='/funding-rounds'>
-                  Funding Rounds
-                </HoveredLink>
-                <HoveredLink href='/mentorship'>
-                  Expert Mentorship
-                </HoveredLink>
+                <HoveredLink href='/funding-rounds'>Funding Rounds</HoveredLink>
+                <HoveredLink href='/mentorship'>Expert Mentorship</HoveredLink>
                 <HoveredLink href='/resources'>Startup Resources</HoveredLink>
               </div>
             </MenuItem>
-            <MenuItem setActive={setActive} active={active} item='For Investors'>
+            <MenuItem
+              setActive={setActive}
+              active={active}
+              item='For Investors'
+            >
               <div className='text-sm grid grid-cols-2 gap-10 p-4'>
                 <ProductItem
                   title='Deal Flow'
@@ -97,7 +94,7 @@ export default function Header({ className }: { className?: string }) {
         {/* Desktop CTA Button */}
         <div className='hidden lg:flex'>
           <NavbarButton href='#' variant='dark'>
-            Join Nartaq
+            Join NartaQ
           </NavbarButton>
         </div>
       </NavBody>
@@ -116,11 +113,15 @@ export default function Header({ className }: { className?: string }) {
                 alt='Nartaq Icon'
                 width={32}
                 height={32}
-                className='h-8 w-8 transition-transform duration-300 group-hover:scale-110 relative z-10'
+                className='h-8 w-8  relative z-10'
               />
-              <span className='font-medium text-black dark:text-white'>
-                Nartaq
-              </span>
+              <Image
+                src='/logo/main-tr-text.svg'
+                alt='Nartaq Icon'
+                width={32}
+                height={32}
+                className='h-16 w-16  relative z-10'
+              />
             </div>
           </a>
 
