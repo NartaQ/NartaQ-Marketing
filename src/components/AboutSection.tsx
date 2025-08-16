@@ -301,7 +301,7 @@ export default function AboutSection({ className }: AboutSectionProps) {
      {/* Mobile header */}
      <div className='text-center mb-16'>
       <div className='inline-block mb-2'>
-       <h2 className='text-4xl font-bold text-[#dcd7ce] leading-tight tracking-tight'>
+       <h2 className='text-4xl font-bold text-[#dcd7ce]  tracking-tight'>
         {stickyText.title}
        </h2>
       </div>
@@ -381,7 +381,7 @@ export default function AboutSection({ className }: AboutSectionProps) {
      >
       <div className='space-y-8 lg:pr-12'>
        <div className='inline-block'>
-        <h2 className='text-4xl lg:text-6xl font-bold text-[#dcd7ce] leading-tight tracking-tight'>
+        <h2 className='text-4xl lg:text-6xl font-bold text-[#dcd7ce]  tracking-tight'>
          {stickyText.title}
         </h2>
        </div>

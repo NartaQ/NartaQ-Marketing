@@ -1,10 +1,5 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import { MagicCard } from '@/components/magicui/magic-card'
 import { ShimmerButton } from '@/components/magicui/shimmer-button'
 import { NumberTicker } from '@/components/magicui/number-ticker'
@@ -12,6 +7,7 @@ import { AnimatedGradientText } from '@/components/magicui/animated-gradient-tex
 import { Spotlight } from '@/components/ui/spotlight'
 import { Particles } from '@/components/magicui/particles'
 import Link from 'next/link'
+import { useRef } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -76,9 +72,8 @@ export default function ForInvestorsPage() {
   }, [])
 
   return (
-    <div ref={pageRef} className='flex min-h-screen flex-col bg-black text-white'>
-      <Header />
-      <main className='pt-20'>
+    <div className='flex min-h-screen flex-col bg-black text-white'>
+      <main>
         {/* Hero Section */}
         <section className='relative flex w-full flex-col items-center justify-center p-[2%] py-20 text-center overflow-hidden'>
           <div className='absolute inset-0 overflow-hidden'>
@@ -101,8 +96,8 @@ export default function ForInvestorsPage() {
                 Exclusive Access to Tomorrow's Unicorns
               </AnimatedGradientText>
             </div>
-            <h1 className='text-5xl md:text-7xl font-bold leading-tight reveal-up'>
-              Find the next{' '}
+            <h1 className='text-5xl md:text-7xl font-bold '>
+              See fewer decks.{' '}
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                 Google, Tesla, Airbnb
               </span>
@@ -228,8 +223,19 @@ export default function ForInvestorsPage() {
                       <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>Growth Forecasting</span>
                     </div>
                   </div>
-                </MagicCard>
-              </div>
+                  <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
+                    AI-Powered Screening
+                  </h3>
+                  <p className='text-neutral-300 leading-relaxed'>
+                    Startups submit decks through our platform. Our AI evaluates them against your rubric, scoring market size, team, traction, and fit.
+                  </p>
+                  <div className='flex flex-wrap gap-2'>
+                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Market Analysis</span>
+                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Team Assessment</span>
+                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Traction Review</span>
+                  </div>
+                </div>
+              </MagicCard>
 
               <div className='reveal-scale'>
                 <MagicCard
@@ -538,7 +544,6 @@ export default function ForInvestorsPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }

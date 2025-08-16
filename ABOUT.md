@@ -13,7 +13,7 @@ NartaQ operates on two complementary axes, with an orchestration layer that ties
 - Curated, tracked intros; optional NDA‑gated data access
 - Progress tracking from term sheet → diligence → close
 
-2) Service Providers ↔ Companies (work)
+2) Startups ↔ Service Providers (work)
 - Verified profiles and corridor‑aware matching (skills, language, rate bands)
 - Brief intake, shortlist workflows, and milestone contracting
 - Delivery tracking with acceptance criteria and audit trails

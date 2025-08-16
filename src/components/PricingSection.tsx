@@ -1,23 +1,22 @@
+import Link from 'next/link'
+
 export default function PricingSection() {
   const plans = [
     {
-      name: 'Free',
-      price: '$0',
-      period: '/month',
-      description: 'Perfect for getting started',
+      name: 'Free (beta)',
+      price: 'NDA',
+      period: '',
+      description: 'Basic profile while we validate mechanics',
       features: [
-        '5 AI powered chat messages',
-        '10 image generations',
-        'Basic support',
-        'Community access',
+        'Create startup or SP profile',
+        'Limited discovery visibility',
+        'Beta updates',
       ],
-      disabled: [
-        'Access to all premium AI models',
-        'Early access to new features',
-      ],
-      buttonText: 'Get Started',
+      disabled: ['Priority listing', 'Advanced analytics'],
+      buttonText: 'Join waitlist',
       buttonStyle:
-        'btn mt-auto !w-full transition-all duration-300 hover:scale-[1.02] !text-[#dcd7ce] !bg-transparent !border border-[#5c5d63] hover:border-[#a98b5d] hover:bg-[#a98b5d]/10',
+        'btn mt-auto !w-full transition-transform duration-300 hover:scale-x-[1.02] !text-[#dcd7ce] !bg-transparent !border border-[#5c5d63] hover:border-[#a98b5d]',
+      href: '/companies-providers#how-it-works',
     },
     {
       name: 'Pro',
@@ -33,8 +32,26 @@ export default function PricingSection() {
       disabled: ['Early access to new features'],
       buttonText: 'Choose plan',
       buttonStyle:
-        'btn mt-auto !w-full transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#a98b5d]/20',
+        'btn mt-auto !w-full transition-transform duration-300 hover:scale-x-[1.02] ',
+      href: 'mailto:invest@nartaq.com?subject=Startup%20Credit%20Pack%20(NDA)',
       popular: true,
+    },
+    {
+      name: 'Bounty Posting Pack',
+      price: 'NDA',
+      period: '',
+      description: 'Boost visibility of micro‑task bounties',
+      features: [
+        'Pay‑to‑post with visibility boosts',
+        'Private bounties (pre‑vetted SPs)',
+        'Timestamped submissions & criteria templates',
+        'Managed payouts on acceptance',
+      ],
+      disabled: ['Program management layer'],
+      buttonText: 'Request details',
+      buttonStyle:
+        'btn mt-auto !w-full transition-transform duration-300 hover:scale-x-[1.02] !text-[#dcd7ce] !bg-transparent !border border-[#5c5d63] hover:border-[#a98b5d] ',
+      href: '/companies-providers#bounties',
     },
     {
       name: 'Enterprise',
@@ -49,9 +66,10 @@ export default function PricingSection() {
         'Early access to new features',
       ],
       disabled: [],
-      buttonText: 'Choose plan',
+      buttonText: 'Talk to us (NDA)',
       buttonStyle:
-        'btn mt-8 !w-full transition-all duration-300 hover:scale-[1.02] !text-[#dcd7ce] !bg-transparent !border border-[#5c5d63] hover:border-[#a98b5d] hover:bg-[#a98b5d]/10',
+        'btn mt-8 !w-full transition-transform duration-300 hover:scale-x-[1.02] !text-[#dcd7ce] !bg-transparent !border border-[#5c5d63] hover:border-[#a98b5d] ',
+      href: 'mailto:contact@nartaq.com?subject=Enterprise%20(NDA)',
     },
   ]
 
@@ -63,9 +81,8 @@ export default function PricingSection() {
       <h3 className='reveal-up text-4xl md:text-5xl font-bold max-md:text-3xl text-center mb-6 text-[#dcd7ce]'>
         Choose Your Plan
       </h3>
-      <p className='reveal-up text-[#5c5d63] text-center max-w-2xl mb-16 text-lg'>
-        Select the perfect plan that scales with your needs. All plans include
-        our core AI features.
+      <p className="reveal-up text-[#dcd7ce] text-center max-w-2xl mb-16">
+        Pricing and mechanics are shared under NDA while we validate. If you&rsquo;re a fit, we&rsquo;ll reach out.
       </p>
 
       <div className='reveal-up flex gap-8 max-lg:flex-col max-lg:items-center w-full justify-center'>
@@ -89,9 +106,9 @@ export default function PricingSection() {
               <span className='text-5xl font-extrabold text-[#a98b5d]'>
                 {plan.price}
               </span>
-              <span className='text-[#5c5d63] text-lg'>{plan.period}</span>
+              <span className='text-[#dcd7ce] text-lg'>{plan.period}</span>
             </div>
-            <p className='text-center text-[#5c5d63] mb-6 text-base'>
+            <p className='text-center text-[#dcd7ce] mb-6 text-base'>
               {plan.description}
             </p>
 
@@ -104,15 +121,27 @@ export default function PricingSection() {
               ))}
               {plan.disabled.map((feature, featureIndex) => (
                 <li key={featureIndex} className='flex gap-3 items-start'>
-                  <i className='bi bi-x-circle-fill text-[#5c5d63] text-lg mt-0.5' />
-                  <span className='text-[#5c5d63]'>{feature}</span>
+                  <i className='bi bi-x-circle-fill text-[#dcd7ce] text-lg mt-0.5' />
+                  <span className='text-[#dcd7ce]'>{feature}</span>
                 </li>
               ))}
             </ul>
 
-            <a href='#' className={plan.buttonStyle}>
-              {plan.buttonText}
-            </a>
+            {plan.href ? (
+              plan.href.startsWith('/') ? (
+                <Link href={plan.href} className={plan.buttonStyle}>
+                  {plan.buttonText}
+                </Link>
+              ) : (
+                <a href={plan.href} className={plan.buttonStyle}>
+                  {plan.buttonText}
+                </a>
+              )
+            ) : (
+              <a href="#" className={plan.buttonStyle}>
+                {plan.buttonText}
+              </a>
+            )}
           </div>
         ))}
       </div>
