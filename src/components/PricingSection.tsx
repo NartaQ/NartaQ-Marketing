@@ -75,51 +75,54 @@ export default function PricingSection() {
         Exact fees are shared privately and may evolve during beta. Request details to learn more.
       </p>
 
-      <div className="reveal-up flex gap-8 max-lg:flex-col max-lg:items-center">
+      <div className='reveal-up flex gap-8 max-lg:flex-col max-lg:items-center w-full justify-center'>
         {plans.map((plan, index) => (
           <div
             key={index}
-            className={`flex w-[350px] flex-col items-center gap-2 rounded-lg p-8 ${plan.popular
-              ? 'border-2 border-[#a98b5d] bg-[#a98b5d]/10'
-              : 'border border-[#5c5d63] bg-[#3e3f44]'
-              }`}
+            className={`flex w-full max-w-sm flex-col items-center gap-6 rounded-xl p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-[#a98b5d]/10 ${
+              plan.popular
+                ? 'border-2 border-[#a98b5d] bg-gradient-to-b from-[#3e3f44] to-[#232428] relative shadow-xl shadow-[#a98b5d]/20 scale-[1.03]'
+                : 'border border-[#5c5d63] bg-gradient-to-b from-[#3e3f44] to-[#232428] shadow-lg'
+            }`}
           >
             {plan.popular && (
-              <div className="mb-4 rounded-full bg-[#a98b5d] px-3 py-1 text-sm text-black font-medium">
+              <div className='absolute -top-3 left-1/2 transform -translate-x-1/2 rounded-full bg-[#a98b5d] px-4 py-1 text-sm text-black font-bold shadow-lg'>
                 Most Popular
               </div>
             )}
 
-            <h2 className="text-2xl font-medium">{plan.name}</h2>
-            <div className="flex items-baseline gap-1">
-              <span className="text-4xl font-bold">{plan.price}</span>
-              <span className="text-[#5c5d63]">{plan.period}</span>
+            <h2 className='text-2xl font-bold text-[#dcd7ce]'>{plan.name}</h2>
+            <div className='flex items-baseline gap-2'>
+              <span className='text-5xl font-extrabold text-[#a98b5d]'>
+                {plan.price}
+              </span>
+              <span className='text-[#5c5d63] text-lg'>{plan.period}</span>
             </div>
-            <p className="text-center text-[#5c5d63] mb-6">
+            <p className='text-center text-[#5c5d63] mb-6 text-base'>
               {plan.description}
             </p>
 
-            <ul className="w-full space-y-3 mb-8">
+            <ul className='w-full space-y-4 mb-8'>
               {plan.features.map((feature, featureIndex) => (
-                <li key={featureIndex} className="flex gap-2">
-                  <i className="bi bi-check-circle-fill text-[#a98b5d]" />
-                  <span>{feature}</span>
+                <li key={featureIndex} className='flex gap-3 items-start'>
+                  <i className='bi bi-check-circle-fill text-[#a98b5d] text-lg mt-0.5' />
+                  <span className='text-[#dcd7ce]'>{feature}</span>
                 </li>
               ))}
               {plan.disabled.map((feature, featureIndex) => (
-                <li key={featureIndex} className="flex gap-2">
-                  <i className="bi bi-check-circle-fill text-[#5c5d63]" />
-                  <span className="text-[#5c5d63]">{feature}</span>
+                <li key={featureIndex} className='flex gap-3 items-start'>
+                  <i className='bi bi-x-circle-fill text-[#5c5d63] text-lg mt-0.5' />
+                  <span className='text-[#5c5d63]'>{feature}</span>
                 </li>
               ))}
             </ul>
 
-            <a href="#" className={plan.buttonStyle}>
+            <a href='#' className={plan.buttonStyle}>
               {plan.buttonText}
             </a>
           </div>
         ))}
       </div>
     </section>
-  );
+  )
 }

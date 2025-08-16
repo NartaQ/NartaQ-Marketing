@@ -8,7 +8,6 @@ import OrchestrationSection from "../components/OrchestrationSection";
 import BountySection from "../components/BountySection";
 import FaqSection from "../components/FaqSection";
 import AdditionalFeaturesSection from "../components/AdditionalFeaturesSection";
-import TestimonialsSection from "../components/TestimonialsSection";
 import PricingSection from "../components/PricingSection";
 import BlogSection from "../components/BlogSection";
 import NewsletterSection from "../components/NewsletterSection";
@@ -26,7 +25,6 @@ export default function Home() {
       <OrchestrationSection />
       <TrustComplianceSection />
       <AdditionalFeaturesSection />
-      <TestimonialsSection />
       <PricingSection />
       <FaqSection />
       <BlogSection />
