@@ -95,7 +95,7 @@ export default function MarketInsightsSection() {
           The Market Reality
         </h3>
         <p className='reveal-up mt-4 text-xl text-gray-600 dark:text-gray-400 max-md:text-lg'>
-          Understanding the challenges in today's investor-startup ecosystem
+          Understanding the challenges in today&apos;s investor-startup ecosystem
         </p>
       </div>
 
