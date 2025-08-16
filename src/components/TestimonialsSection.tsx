@@ -108,8 +108,8 @@ export default function MarketInsightsSection() {
         <h3 className="reveal-up text-5xl font-bold text-center max-md:text-3xl bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
           The Market Reality
         </h3>
-        <p className="reveal-up mt-4 text-xl text-gray-600 dark:text-gray-400 max-md:text-lg">
-          Understanding the challenges in today&apos;s investor‑startup ecosystem
+        <p className='reveal-up mt-4 text-xl text-gray-600 dark:text-gray-400 max-md:text-lg'>
+          Understanding the challenges in today&apos;s investor-startup ecosystem
         </p>
       </div>
 
