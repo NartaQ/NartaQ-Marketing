@@ -150,107 +150,107 @@ export default function StickySection({ className }: StickySectionProps) {
   }, [checkMobile])
 
   const stickyText = {
-    title: 'Who We Are',
-    subtitle: 'Connecting startups with the perfect investors',
+    title: 'About NartaQ',
+    subtitle: 'From brief to release — in one trusted flow',
     description:
-      'Nartaq is an innovative platform that uses AI technology and personalized customer service to create perfect matches between ambitious startups and the right investors.',
+      'NartaQ helps innovators and companies hire service providers through scoped bounties and tri‑party orchestration with milestone protections, hybrid compensation, and optional intermediation.',
   }
 
   const scrollingContent = [
     {
       step: '01',
-      title: 'AI-Powered Matching',
+      title: 'Start with one corridor',
       description:
-        "Nartaq's advanced AI algorithms analyze startup profiles, business models, and growth potential to identify the most compatible investors based on industry focus, investment stage, and strategic alignment.",
+        'We focus the platform where we can guarantee quality and outcomes first, then expand. Relevance over breadth.',
       features: [
-        'Nartaq Smart Algorithm',
-        'Industry Analysis',
-        'Stage Matching',
-        'Strategic Fit',
+        'Segmented supply',
+        'Verified demand',
+        'Tight feedback loops',
+        'Quality bar > volume',
       ],
     },
     {
       step: '02',
-      title: 'Startup Profiling',
+      title: 'Post a scoped bounty',
       description:
-        'Nartaq creates comprehensive profiles for each startup, highlighting their unique value proposition, market opportunity, team expertise, and funding requirements to attract the right investors.',
+        'Turn work into a brief with acceptance criteria and budget ranges. Run open or private to a vetted pool of SPs.',
       features: [
-        'Business Analysis',
-        'Market Research',
-        'Team Assessment',
-        'Nartaq Financial Planning',
+        'Clear deliverables',
+        'Acceptance tests',
+        'Private bounties',
+        'Payout on acceptance',
       ],
     },
     {
       step: '03',
-      title: 'Investor Network',
+      title: 'Verify & gate access',
       description:
-        "Access Nartaq's curated network of verified investors, from angel investors to venture capital firms, each with detailed profiles showing their investment preferences and portfolio companies.",
+        'KYC/KYB, NDAs, and role‑based access ensure only the right SPs see sensitive briefs and data.',
       features: [
-        'Nartaq Verified Investors',
-        'Investment Focus',
-        'Portfolio Insights',
-        'Success Stories',
+        'KYC/KYB',
+        'NDA gating',
+        'Role‑based access',
+        'Audit trails',
       ],
     },
     {
       step: '04',
-      title: 'Personalized Service',
+      title: 'Assign & contract',
       description:
-        "Nartaq's dedicated customer service team provides personalized guidance throughout the matching process, offering strategic advice and facilitating meaningful connections.",
+        'Shortlist, assign, and establish milestone‑based terms with optional hybrid compensation (cash + equity).',
       features: [
-        'Nartaq Dedicated Support',
-        'Strategic Guidance',
-        'Connection Facilitation',
-        'Expert Advice',
+        'Shortlist → award',
+        'Milestone terms',
+        'Hybrid comp',
+        'Standard templates',
       ],
     },
     {
       step: '05',
-      title: 'Due Diligence Support',
+      title: 'Deliver & accept',
       description:
-        'Nartaq assists both startups and investors with due diligence processes, providing comprehensive documentation, financial analysis, and market validation to ensure informed decisions.',
+        'SPs deliver to spec; acceptance criteria make quality measurable and objective.',
       features: [
-        'Document Preparation',
-        'Nartaq Financial Analysis',
-        'Market Validation',
-        'Risk Assessment',
+        'Artifact hand‑off',
+        'Acceptance checks',
+        'Change requests',
+        'Version control',
       ],
     },
     {
       step: '06',
-      title: 'Deal Facilitation',
+      title: 'Resolve issues fast',
       description:
-        "Nartaq's platform streamlines the investment process with secure communication channels, document sharing, and negotiation support to help close deals efficiently.",
+        'Optional intermediation handles scope clarifications and disputes without derailing delivery.',
       features: [
-        'Nartaq Secure Platform',
-        'Document Management',
-        'Communication Tools',
-        'Deal Tracking',
+        'Mediated escalations',
+        'Clear SLAs',
+        'Evidence trails',
+        'Fair outcomes',
       ],
     },
     {
       step: '07',
-      title: 'Success Monitoring',
+      title: 'Release payouts',
       description:
-        'Nartaq tracks the success of our matches through ongoing monitoring of funded startups, measuring growth metrics and investor satisfaction to continuously improve our matching algorithm.',
+        'Milestone protections govern releases; equity components are handled via partners under NDA.',
       features: [
-        'Growth Tracking',
-        'Success Metrics',
-        'Investor Feedback',
-        'Nartaq Algorithm Optimization',
+        'Milestone release',
+        'Split payments',
+        'Equity docs (NDA)',
+        'Reconciliation',
       ],
     },
     {
       step: '08',
-      title: 'Ongoing Partnership',
+      title: 'Learn and scale',
       description:
-        'Beyond the initial match, Nartaq maintains relationships with both startups and investors, providing continued support for future funding rounds and strategic partnerships.',
+        'Capture learnings, improve briefs, and scale to adjacent corridors backed by measurable outcomes.',
       features: [
-        'Nartaq Long-term Support',
-        'Future Rounds',
-        'Strategic Partnerships',
-        'Network Expansion',
+        'Post‑mortems',
+        'Quality metrics',
+        'Playbooks',
+        'Expansion signals',
       ],
     },
   ]
@@ -259,6 +259,7 @@ export default function StickySection({ className }: StickySectionProps) {
     // Mobile layout - no sticky behavior
     return (
       <section
+        id='about'
         key='mobile-layout'
         className={cn(
           'py-20 bg-gradient-to-br from-[#232428] via-[#3e3f44] to-[#232428]',
@@ -322,6 +323,7 @@ export default function StickySection({ className }: StickySectionProps) {
   // Desktop layout with GSAP sticky behavior
   return (
     <section
+      id='about'
       key='desktop-layout'
       ref={sectionRef}
       className={cn(

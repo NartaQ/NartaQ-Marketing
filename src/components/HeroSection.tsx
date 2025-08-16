@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Spotlight } from './ui/spotlight'
 import { ContainerScroll } from './ui/container-scroll-animation'
 import Image from 'next/image'
+import Link from 'next/link'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -122,84 +123,44 @@ export default function HeroSection() {
             {/* Central Hook */}
             <div className='text-center space-y-8 max-w-4xl'>
               <div className='space-y-4'>
-                <h2
-                  className='text-3xl md:text-5xl font-bold'
-                  style={{ color: '#dcd7ceff' }}
-                >
-                  From Idea to IPO
+                <h2 className='text-3xl md:text-5xl font-bold' style={{ color: '#dcd7ceff' }}>
+                  The Franco–Tunisian tech bridge for startups, investors, and elite service providers
                 </h2>
-                <p
-                  className='text-xl md:text-2xl font-medium'
-                  style={{ color: '#a98b5dff' }}
-                >
-                  Every unicorn started with a single connection
+                <p className='text-xl md:text-2xl font-medium' style={{ color: '#a98b5dff' }}>
+                  From funding to delivery — curated matches, bounty micro‑tasks, escrow‑style protections, and hybrid compensation in one platform.
                 </p>
               </div>
 
-              {/* Stats/Features Grid */}
+              {/* Trust/Value Bullets */}
               <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-12'>
                 <div className='text-center space-y-2'>
-                  <div
-                    className='text-3xl md:text-4xl font-bold'
-                    style={{ color: '#a98b5dff' }}
-                  >
-                    500+
+                  <div className='text-sm md:text-base' style={{ color: '#a98b5dff' }}>
+                    Corridor‑focused: France ↔ Tunisia (global next)
                   </div>
-                  <p
-                    className='text-sm md:text-base'
-                    style={{ color: '#5c5d63ff' }}
-                  >
-                    Startups Funded
-                  </p>
                 </div>
                 <div className='text-center space-y-2'>
-                  <div
-                    className='text-3xl md:text-4xl font-bold'
-                    style={{ color: '#a98b5dff' }}
-                  >
-                    $2.5B+
+                  <div className='text-sm md:text-base' style={{ color: '#a98b5dff' }}>
+                    Escrow‑style milestones and NDA‑gated workflows
                   </div>
-                  <p
-                    className='text-sm md:text-base'
-                    style={{ color: '#5c5d63ff' }}
-                  >
-                    Capital Deployed
-                  </p>
                 </div>
                 <div className='text-center space-y-2'>
-                  <div
-                    className='text-3xl md:text-4xl font-bold'
-                    style={{ color: '#a98b5dff' }}
-                  >
-                    98%
+                  <div className='text-sm md:text-base' style={{ color: '#a98b5dff' }}>
+                    Hybrid compensation: cash and equity/options
                   </div>
-                  <p
-                    className='text-sm md:text-base'
-                    style={{ color: '#5c5d63ff' }}
-                  >
-                    Match Success Rate
-                  </p>
                 </div>
               </div>
 
               {/* Call to Action */}
               <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mt-12'>
-                <button
-                  className='px-8 py-3 rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg'
-                  style={{ backgroundColor: '#a98b5dff' }}
-                >
-                  Start Your Journey
-                </button>
-                <button
-                  className='px-8 py-3 rounded-lg font-semibold border-2 transition-all duration-300 hover:scale-105'
-                  style={{
-                    color: '#dcd7ceff',
-                    borderColor: '#5c5d63ff',
-                    backgroundColor: 'transparent',
-                  }}
-                >
-                  Explore Opportunities
-                </button>
+                <Link href='/investors-startups' className='px-8 py-3 rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg' style={{ backgroundColor: '#a98b5dff' }}>
+                  For Startups & Investors — See how it works
+                </Link>
+                <Link href='/companies-providers#bounties' className='px-8 py-3 rounded-lg font-semibold border-2 transition-all duration-300 hover:scale-105' style={{ color: '#dcd7ceff', borderColor: '#5c5d63ff', backgroundColor: 'transparent' }}>
+                  For Companies & Providers — Explore bounties
+                </Link>
+                <a href='mailto:contact@nartaq.com?subject=Investor%20Memo%20Request' className='px-8 py-3 rounded-lg font-semibold border-2 transition-all duration-300 hover:scale-105' style={{ color: '#dcd7ceff', borderColor: '#5c5d63ff', backgroundColor: 'transparent' }}>
+                  Request investor memo (NDA)
+                </a>
               </div>
             </div>
 

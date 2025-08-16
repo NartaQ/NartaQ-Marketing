@@ -25,17 +25,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='dark' suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                document.documentElement.classList.add('dark');
-              })();
-            `,
-          }}
-        />
-      </head>
       <body
         className={`${fontSans.variable} ${fontMono.variable} antialiased bg-black text-white`}
       >
