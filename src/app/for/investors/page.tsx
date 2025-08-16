@@ -98,7 +98,7 @@ export default function ForInvestorsPage() {
                 colorFrom='#a98b5d'
                 colorTo='#dcd7ce'
               >
-                💎 Exclusive Access to Tomorrow's Unicorns
+                Exclusive Access to Tomorrow's Unicorns
               </AnimatedGradientText>
             </div>
             <h1 className='text-5xl md:text-7xl font-bold leading-tight reveal-up'>
@@ -111,17 +111,21 @@ export default function ForInvestorsPage() {
             <p className='text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
               Stop wasting time on mediocre pitches. Our AI-powered platform delivers only the highest-potential startups that match your exact investment criteria and risk profile.
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 reveal-scale'>
-              <ShimmerButton
-                className='px-8 py-4 text-lg font-semibold'
-                background='linear-gradient(135deg, #a98b5d 0%, #8a7249 100%)'
-                shimmerColor='#dcd7ce'
+            <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 reveal-scale'>
+              <a
+                href='mailto:invest@nartaq.com?subject=Investor%20Memo%20Request'
+                className='group relative px-10 py-5 text-lg font-bold text-black bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] rounded-xl shadow-2xl hover:shadow-[#a98b5d]/50 transform hover:scale-105 transition-all duration-300 overflow-hidden'
               >
-                Request Investor Memo
-              </ShimmerButton>
+                <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+                <div className='relative flex items-center space-x-3'>
+                  <span>Request Investor Memo</span>
+                  <span className='text-xl group-hover:translate-x-1 transition-transform duration-300'>→</span>
+                </div>
+                <div className='absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 animate-pulse transition-opacity duration-300'></div>
+              </a>
               <Link
                 href='#how-it-works'
-                className='px-8 py-4 rounded-lg font-semibold border-2 border-[#5c5d63] text-[#dcd7ce] hover:border-[#a98b5d] transition-all duration-300'
+                className='px-8 py-5 rounded-xl font-semibold border-2 border-[#5c5d63] text-[#dcd7ce] hover:border-[#a98b5d] hover:bg-[#a98b5d]/10 hover:text-[#a98b5d] transition-all duration-300 shadow-lg hover:shadow-[#5c5d63]/30'
               >
                 See How It Works
               </Link>
@@ -285,7 +289,7 @@ export default function ForInvestorsPage() {
                     <div className='text-4xl'>⚡</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>Maximize Your Returns</h3>
                     <p className='text-neutral-300'>
-                      Access startups with 10x-100x growth potential before they hit mainstream radar. Our predictive algorithms identify the next unicorns while they're still affordable.
+                      Access startups with 10x-100x growth potential before they hit mainstream radar. Our predictive algorithms identify the next unicorns while they&apos;re still affordable.
                     </p>
                   </div>
                 </MagicCard>
@@ -297,7 +301,7 @@ export default function ForInvestorsPage() {
                     <div className='text-4xl'>🔍</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>Insider Market Intelligence</h3>
                     <p className='text-neutral-300'>
-                      Get exclusive market insights, competitive analysis, and growth projections that give you the edge. Make informed decisions with data that others don't have access to.
+                      Get exclusive market insights, competitive analysis, and growth projections that give you the edge. Make informed decisions with data that others don&apos;t have access to.
                     </p>
                   </div>
                 </MagicCard>
@@ -363,7 +367,7 @@ export default function ForInvestorsPage() {
                       </div>
                     </div>
                     <p className='text-neutral-300 italic'>
-                      &ldquo;The platform's AI identified market opportunities we completely missed. We invested early in what became a $2B exit. NartaQ pays for itself 1000x over.&rdquo;
+                      &ldquo;The platform&apos;s AI identified market opportunities we completely missed. We invested early in what became a $2B exit. NartaQ pays for itself 1000x over.&rdquo;
                     </p>
                   </div>
                 </MagicCard>
@@ -382,7 +386,7 @@ export default function ForInvestorsPage() {
                       </div>
                     </div>
                     <p className='text-neutral-300 italic'>
-                      &ldquo;We've closed 5 deals in 6 months, all from NartaQ&apos;s pipeline. The quality is unmatched - these are the companies that will define the next decade.&rdquo;
+                      &ldquo;We&apos;ve closed 5 deals in 6 months, all from NartaQ&apos;s pipeline. The quality is unmatched - these are the companies that will define the next decade.&rdquo;
                     </p>
                   </div>
                 </MagicCard>
@@ -404,9 +408,14 @@ export default function ForInvestorsPage() {
             </p>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
-              <div className='reveal-scale'>
-                <MagicCard className='p-8'>
-                  <div className='space-y-6'>
+              <div className='reveal-scale h-full'>
+                <MagicCard className='p-8 h-full flex flex-col'>
+                  <div className='flex-1 space-y-6'>
+                    <div className='h-8 flex items-center'>
+                      <div className='bg-[#5c5d63] text-[#dcd7ce] px-3 py-1 rounded-full text-sm font-medium inline-block'>
+                        Pay Per Deal
+                      </div>
+                    </div>
                     <h3 className='text-2xl font-semibold text-[#dcd7ce]'>Deal Hunter</h3>
                     <div className='text-4xl font-bold text-[#a98b5d]'>
                       $2,500/deal
@@ -414,7 +423,7 @@ export default function ForInvestorsPage() {
                     <p className='text-neutral-300'>
                       Pay only for unicorn-potential startups that match your criteria. Average deal value: $50M+
                     </p>
-                    <ul className='space-y-3 text-left'>
+                    <ul className='space-y-3 text-left flex-1'>
                       <li className='flex items-center space-x-3'>
                         <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
                         <span>Pre-screened unicorn potential</span>
@@ -433,14 +442,24 @@ export default function ForInvestorsPage() {
                       </li>
                     </ul>
                   </div>
+                  <div className='pt-6 mt-auto'>
+                    <a
+                      href='mailto:invest@nartaq.com?subject=Deal%20Hunter%20Package%20Inquiry'
+                      className='w-full inline-block text-center px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-lg hover:from-[#dcd7ce] hover:to-[#a98b5d] transition-all duration-300 shadow-lg hover:shadow-[#a98b5d]/50'
+                    >
+                      Start Hunting →
+                    </a>
+                  </div>
                 </MagicCard>
               </div>
 
-              <div className='reveal-scale'>
-                <MagicCard className='p-8 border-2 border-[#a98b5d]'>
-                  <div className='space-y-6'>
-                    <div className='bg-[#a98b5d] text-black px-3 py-1 rounded-full text-sm font-medium inline-block'>
-                      Most Popular
+              <div className='reveal-scale h-full'>
+                <MagicCard className='p-8 border-2 border-[#a98b5d] h-full flex flex-col'>
+                  <div className='flex-1 space-y-6'>
+                    <div className='h-8 flex items-center'>
+                      <div className='bg-[#a98b5d] text-black px-3 py-1 rounded-full text-sm font-medium inline-block'>
+                        Most Popular
+                      </div>
                     </div>
                     <h3 className='text-2xl font-semibold text-[#dcd7ce]'>Unicorn Hunter VIP</h3>
                     <div className='text-4xl font-bold text-[#a98b5d]'>
@@ -449,7 +468,7 @@ export default function ForInvestorsPage() {
                     <p className='text-neutral-300'>
                       Unlimited access to billion-dollar opportunities. Dedicated deal sourcing and first-look rights on all premium deals.
                     </p>
-                    <ul className='space-y-3 text-left'>
+                    <ul className='space-y-3 text-left flex-1'>
                       <li className='flex items-center space-x-3'>
                         <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
                         <span>Dedicated relationship manager</span>
@@ -467,6 +486,14 @@ export default function ForInvestorsPage() {
                         <span>Priority deal flow</span>
                       </li>
                     </ul>
+                  </div>
+                  <div className='pt-6 mt-auto'>
+                    <a
+                      href='mailto:invest@nartaq.com?subject=VIP%20Unicorn%20Hunter%20Package%20Inquiry'
+                      className='w-full inline-block text-center px-6 py-3 bg-gradient-to-r from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] text-black font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-[#a98b5d]/60 border-2 border-[#dcd7ce]/50'
+                    >
+                      Join VIP Program
+                    </a>
                   </div>
                 </MagicCard>
               </div>
@@ -486,20 +513,21 @@ export default function ForInvestorsPage() {
             <p className='text-xl text-neutral-300 mb-8 max-w-2xl mx-auto reveal-up'>
               Join leading investors who are already using NartaQ to find better deals faster.
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center items-center reveal-scale'>
-              <ShimmerButton
-                className='px-8 py-4 text-lg font-semibold'
-                background='linear-gradient(135deg, #a98b5d 0%, #8a7249 100%)'
-                shimmerColor='#dcd7ce'
+            <div className='flex flex-col sm:flex-row gap-6 justify-center items-center reveal-scale'>
+              <a
+                href='mailto:invest@nartaq.com?subject=Investor%20Memo%20Request'
+                className='group relative px-8 py-4 text-lg font-bold text-black bg-gradient-to-r from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] rounded-xl shadow-2xl hover:shadow-[#a98b5d]/60 transform hover:scale-105 transition-all duration-500 overflow-hidden border-2 border-[#dcd7ce]/30'
               >
-                <a href='mailto:invest@nartaq.com?subject=Investor%20Memo%20Request' className='flex items-center space-x-2'>
-                  <span>Request Investor Memo</span>
-                  <span>→</span>
-                </a>
-              </ShimmerButton>
+                <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] via-white to-[#dcd7ce] opacity-0 group-hover:opacity-30 transition-opacity duration-500'></div>
+                <div className='absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 group-hover:translate-x-full transition-transform duration-1000'></div>
+                <div className='relative flex items-center space-x-3'>
+                  <span className='tracking-wide'>Get Exclusive Access</span>
+                  <span className='text-xl group-hover:translate-x-2 transition-transform duration-300'>→</span>
+                </div>
+              </a>
               <Link
                 href='/investors-startups'
-                className='px-8 py-4 rounded-lg font-semibold border-2 border-[#5c5d63] text-[#dcd7ce] hover:border-[#a98b5d] transition-all duration-300'
+                className='px-10 py-6 rounded-2xl font-semibold border-2 border-[#5c5d63] text-[#dcd7ce] hover:border-[#a98b5d] hover:bg-gradient-to-r hover:from-[#a98b5d]/20 hover:to-[#dcd7ce]/20 hover:text-[#a98b5d] transition-all duration-500 shadow-lg hover:shadow-[#5c5d63]/40 backdrop-blur-sm'
               >
                 Learn More
               </Link>
