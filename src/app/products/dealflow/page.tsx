@@ -1,16 +1,13 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata = {
-  title: "NartaQ Dealflow | Startups ↔ Investors",
-  description: "Credit-based deck reviews, curated intros, and transparent progress tracking for the France–Tunisia corridor.",
+  title: "NartaQ Dealflow | Investors & Startups",
+  description: "AI‑assisted deck checks, scoring, and curated intros for fit‑first meetings.",
 };
 
 export default function DealflowProductPage() {
   return (
     <div className="flex min-h-screen flex-col bg-black text-white">
-      <Header />
       <main>
         {/* Hero */}
         <section className="flex w-full flex-col items-center justify-center p-[2%] py-24">
@@ -83,7 +80,6 @@ export default function DealflowProductPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

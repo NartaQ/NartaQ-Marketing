@@ -320,6 +320,126 @@ header>.collapsible-header {
   transform: translateY(100%);
 }
 
+/* Premium Club Aesthetics */
+.premium-glow {
+  box-shadow: 0 0 50px rgba(169, 139, 93, 0.15),
+              0 0 100px rgba(169, 139, 93, 0.08),
+              inset 0 1px 0 rgba(220, 215, 206, 0.1);
+}
+
+.premium-border {
+  border: 1px solid rgba(169, 139, 93, 0.2);
+  position: relative;
+}
+
+.premium-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(220, 215, 206, 0.1);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.premium-gradient {
+  background: linear-gradient(135deg, 
+    rgba(35, 36, 40, 0.95) 0%, 
+    rgba(62, 63, 68, 0.9) 35%,
+    rgba(92, 93, 99, 0.85) 100%);
+}
+
+.premium-glass {
+  background: rgba(35, 36, 40, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(169, 139, 93, 0.15);
+}
+
+. {
+  position: relative;
+  overflow: hidden;
+}
+
+.::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(169, 139, 93, 0.1) 50%,
+    transparent 60%
+  );
+  animation: exclusive-shine 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes exclusive-shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.member-badge {
+  background: linear-gradient(45deg, #a98b5d, #dcd7ce);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.member-badge::after {
+  content: '★';
+  position: absolute;
+  top: -0.2em;
+  right: -0.5em;
+  font-size: 0.6em;
+  color: #a98b5d;
+  animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.luxury-texture {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(169, 139, 93, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(220, 215, 206, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.elite-hover {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.elite-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(169, 139, 93, 0.2),
+    inset 0 1px 0 rgba(220, 215, 206, 0.15);
+}
+
+/* Floating Animation for Premium Elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating:nth-child(2) { animation-delay: -2s; }
+.floating:nth-child(3) { animation-delay: -4s; }
+
 /* Additional Magic UI animations */
 @keyframes rainbow {
   0% {

@@ -1,19 +1,22 @@
+import Link from 'next/link'
+
 export default function PricingSection() {
   const plans = [
     {
-      name: 'Free',
-      price: '$0',
-      period: '/month',
-      description: 'Get started with a basic profile',
+      name: 'Free (beta)',
+      price: 'NDA',
+      period: '',
+      description: 'Basic profile while we validate mechanics',
       features: [
         'Create startup or SP profile',
-        'Basic discovery visibility',
-        'Newsletter & updates',
+        'Limited discovery visibility',
+        'Beta updates',
       ],
       disabled: ['Priority listing', 'Advanced analytics'],
-      buttonText: 'Get Started',
+      buttonText: 'Join waitlist',
       buttonStyle:
         'btn mt-auto !w-full transition-transform duration-300 hover:scale-x-[1.02] !text-[#dcd7ce] !bg-transparent !border border-[#5c5d63] hover:border-[#a98b5d]',
+      href: '/companies-providers#how-it-works',
     },
     {
       name: 'Startup Credit Pack',
@@ -30,6 +33,7 @@ export default function PricingSection() {
       buttonText: 'Request details',
       buttonStyle:
         'btn mt-auto !w-full transition-transform duration-300 hover:scale-x-[1.02] ',
+      href: 'mailto:invest@nartaq.com?subject=Startup%20Credit%20Pack%20(NDA)',
       popular: true,
     },
     {
@@ -47,6 +51,7 @@ export default function PricingSection() {
       buttonText: 'Request details',
       buttonStyle:
         'btn mt-auto !w-full transition-transform duration-300 hover:scale-x-[1.02] !text-[#dcd7ce] !bg-transparent !border border-[#5c5d63] hover:border-[#a98b5d] ',
+      href: '/companies-providers#bounties',
     },
     {
       name: 'Enterprise',
@@ -60,9 +65,10 @@ export default function PricingSection() {
         'Optional intermediation for milestones & disputes',
       ],
       disabled: [],
-      buttonText: 'Talk to sales',
+      buttonText: 'Talk to us (NDA)',
       buttonStyle:
         'btn mt-8 !w-full transition-transform duration-300 hover:scale-x-[1.02] !text-[#dcd7ce] !bg-transparent !border border-[#5c5d63] hover:border-[#a98b5d] ',
+      href: 'mailto:contact@nartaq.com?subject=Enterprise%20(NDA)',
     },
   ];
 
@@ -71,8 +77,8 @@ export default function PricingSection() {
       <h3 className="reveal-up text-4xl font-medium max-md:text-2xl text-center mb-4">
         Pricing & Packages (overview)
       </h3>
-      <p className="reveal-up text-[#5c5d63] text-center max-w-2xl mb-16">
-        Exact fees are shared privately and may evolve during beta. Request details to learn more.
+      <p className="reveal-up text-[#dcd7ce] text-center max-w-2xl mb-16">
+        Pricing and mechanics are shared under NDA while we validate. If you&rsquo;re a fit, we&rsquo;ll reach out.
       </p>
 
       <div className='reveal-up flex gap-8 max-lg:flex-col max-lg:items-center w-full justify-center'>
@@ -96,9 +102,9 @@ export default function PricingSection() {
               <span className='text-5xl font-extrabold text-[#a98b5d]'>
                 {plan.price}
               </span>
-              <span className='text-[#5c5d63] text-lg'>{plan.period}</span>
+              <span className='text-[#dcd7ce] text-lg'>{plan.period}</span>
             </div>
-            <p className='text-center text-[#5c5d63] mb-6 text-base'>
+            <p className='text-center text-[#dcd7ce] mb-6 text-base'>
               {plan.description}
             </p>
 
@@ -111,15 +117,27 @@ export default function PricingSection() {
               ))}
               {plan.disabled.map((feature, featureIndex) => (
                 <li key={featureIndex} className='flex gap-3 items-start'>
-                  <i className='bi bi-x-circle-fill text-[#5c5d63] text-lg mt-0.5' />
-                  <span className='text-[#5c5d63]'>{feature}</span>
+                  <i className='bi bi-x-circle-fill text-[#dcd7ce] text-lg mt-0.5' />
+                  <span className='text-[#dcd7ce]'>{feature}</span>
                 </li>
               ))}
             </ul>
 
-            <a href='#' className={plan.buttonStyle}>
-              {plan.buttonText}
-            </a>
+            {plan.href ? (
+              plan.href.startsWith('/') ? (
+                <Link href={plan.href} className={plan.buttonStyle}>
+                  {plan.buttonText}
+                </Link>
+              ) : (
+                <a href={plan.href} className={plan.buttonStyle}>
+                  {plan.buttonText}
+                </a>
+              )
+            ) : (
+              <a href="#" className={plan.buttonStyle}>
+                {plan.buttonText}
+              </a>
+            )}
           </div>
         ))}
       </div>

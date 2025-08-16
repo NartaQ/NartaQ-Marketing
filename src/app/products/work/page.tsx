@@ -1,16 +1,13 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata = {
-  title: "NartaQ Work | Companies ↔ Providers",
+  title: "NartaQ Work | Startups ↔ Providers",
   description: "Scoped bounties, tri‑party orchestration, and milestone protections for reliable delivery.",
 };
 
 export default function WorkProductPage() {
   return (
     <div className="flex min-h-screen flex-col bg-black text-white">
-      <Header />
       <main>
         {/* Hero */}
         <section className="flex w-full flex-col items-center justify-center p-[2%] py-24">
@@ -20,7 +17,7 @@ export default function WorkProductPage() {
               Turn scope into outcomes with bounties, milestone releases, and optional intermediation.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/for/companies" className="px-6 py-3 rounded-lg font-medium bg-[#a98b5d] text-black">For companies</Link>
+              <Link href="/for/startups" className="px-6 py-3 rounded-lg font-medium bg-[#a98b5d] text-black">For startups</Link>
               <Link href="/for/providers" className="px-6 py-3 rounded-lg font-medium border border-neutral-700">For providers</Link>
             </div>
           </div>
@@ -29,8 +26,8 @@ export default function WorkProductPage() {
         {/* Value blocks */}
         <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
           <div className="rounded-2xl border border-neutral-800 p-8 bg-black/40">
-            <h2 className="text-2xl font-semibold mb-2">For Companies</h2>
-            <p className="text-neutral-400 mb-4">Predictable delivery with measurable acceptance.</p>
+            <h2 className="text-2xl font-semibold mb-2">For Startups</h2>
+            <p className="text-neutral-400 mb-4">Ship reliably with measurable acceptance.</p>
             <ul className="list-disc pl-5 space-y-2 text-neutral-300">
               <li>Scoped briefs and acceptance criteria templates</li>
               <li>Private bounties restricted to pre‑vetted SPs</li>
@@ -77,13 +74,12 @@ export default function WorkProductPage() {
         {/* CTAs */}
         <section className="max-w-4xl mx-auto p-6 pb-16 text-center">
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/for/companies" className="px-6 py-3 rounded-lg font-medium bg-[#a98b5d] text-black">I’m a company</Link>
+            <Link href="/for/startups" className="px-6 py-3 rounded-lg font-medium bg-[#a98b5d] text-black">I’m a startup</Link>
             <Link href="/for/providers" className="px-6 py-3 rounded-lg font-medium border border-neutral-700">I’m a provider</Link>
             <Link href="/companies-providers#bounties" className="px-6 py-3 rounded-lg font-medium border border-neutral-700">Explore bounties</Link>
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

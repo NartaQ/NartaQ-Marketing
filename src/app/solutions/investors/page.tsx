@@ -1,7 +1,5 @@
 'use client'
 
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import { MagicCard } from '@/components/magicui/magic-card'
 import { ShimmerButton } from '@/components/magicui/shimmer-button'
 import { NumberTicker } from '@/components/magicui/number-ticker'
@@ -12,7 +10,6 @@ import Link from 'next/link'
 export default function ForInvestorsPage() {
   return (
     <div className='flex min-h-screen flex-col bg-black text-white'>
-      <Header />
       <main>
         {/* Hero Section */}
         <section className='relative flex w-full flex-col items-center justify-center p-[2%] py-20 text-center overflow-hidden'>
@@ -29,7 +26,7 @@ export default function ForInvestorsPage() {
                 🎯 For Smart Capital
               </AnimatedGradientText>
             </div>
-            <h1 className='text-5xl md:text-7xl font-bold leading-tight'>
+            <h1 className='text-5xl md:text-7xl font-bold '>
               See fewer decks.{' '}
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                 Make better picks.
@@ -143,9 +140,9 @@ export default function ForInvestorsPage() {
                     Startups submit decks through our platform. Our AI evaluates them against your rubric, scoring market size, team, traction, and fit.
                   </p>
                   <div className='flex flex-wrap gap-2'>
-                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>Market Analysis</span>
-                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>Team Assessment</span>
-                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>Traction Review</span>
+                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Market Analysis</span>
+                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Team Assessment</span>
+                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Traction Review</span>
                   </div>
                 </div>
               </MagicCard>
@@ -415,7 +412,6 @@ export default function ForInvestorsPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }
