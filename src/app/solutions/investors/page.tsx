@@ -7,7 +7,7 @@ import { AnimatedGradientText } from '@/components/magicui/animated-gradient-tex
 import { Spotlight } from '@/components/ui/spotlight'
 import { Particles } from '@/components/magicui/particles'
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -234,8 +234,8 @@ export default function ForInvestorsPage() {
                     <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Team Assessment</span>
                     <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Traction Review</span>
                   </div>
-                </div>
               </MagicCard>
+              </div>
 
               <div className='reveal-scale'>
                 <MagicCard
