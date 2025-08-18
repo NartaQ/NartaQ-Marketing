@@ -139,19 +139,23 @@ body.modal-open {
 }
 
 .hero-bg-gradient {
-  background: linear-gradient(180deg,
-      var(--hero-gradient) 23%,
-      rgba(0, 0, 0, 0) 87%,
-      var(--hero-gradient) 97%);
+  background: linear-gradient(
+    180deg,
+    var(--hero-gradient) 23%,
+    rgba(0, 0, 0, 0) 87%,
+    var(--hero-gradient) 97%
+  );
 }
 
 .purple-bg-grad {
   background: var(--lion);
-  background: linear-gradient(90deg,
-      #a98b5d91 8%,
-      #5c5d63ae 31%,
-      #3e3f44bc 76%,
-      #232428ca 89%);
+  background: linear-gradient(
+    90deg,
+    #a98b5d91 8%,
+    #5c5d63ae 31%,
+    #3e3f44bc 76%,
+    #232428ca 89%
+  );
   filter: blur(50px);
   opacity: 0.5;
 }
@@ -280,7 +284,7 @@ body.modal-open {
 }
 
 /* Collapsible Header */
-header>.collapsible-header {
+header > .collapsible-header {
   display: flex;
   gap: 1rem;
   width: 100%;
@@ -323,8 +327,7 @@ header>.collapsible-header {
 /* Premium Club Aesthetics */
 .premium-glow {
   box-shadow: 0 0 50px rgba(169, 139, 93, 0.15),
-              0 0 100px rgba(169, 139, 93, 0.08),
-              inset 0 1px 0 rgba(220, 215, 206, 0.1);
+    0 0 100px rgba(169, 139, 93, 0.08), inset 0 1px 0 rgba(220, 215, 206, 0.1);
 }
 
 .premium-border {
@@ -345,10 +348,12 @@ header>.collapsible-header {
 }
 
 .premium-gradient {
-  background: linear-gradient(135deg, 
-    rgba(35, 36, 40, 0.95) 0%, 
+  background: linear-gradient(
+    135deg,
+    rgba(35, 36, 40, 0.95) 0%,
     rgba(62, 63, 68, 0.9) 35%,
-    rgba(92, 93, 99, 0.85) 100%);
+    rgba(92, 93, 99, 0.85) 100%
+  );
 }
 
 .premium-glass {
@@ -358,7 +363,7 @@ header>.collapsible-header {
   border: 1px solid rgba(169, 139, 93, 0.15);
 }
 
-. {
+/* . {
   position: relative;
   overflow: hidden;
 }
@@ -378,11 +383,16 @@ header>.collapsible-header {
   );
   animation: exclusive-shine 3s infinite;
   pointer-events: none;
-}
+} */
 
 @keyframes exclusive-shine {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
 }
 
 .member-badge {
@@ -404,14 +414,29 @@ header>.collapsible-header {
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
 .luxury-texture {
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(169, 139, 93, 0.05) 1px, transparent 1px),
-    radial-gradient(circle at 75% 75%, rgba(220, 215, 206, 0.03) 1px, transparent 1px);
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(169, 139, 93, 0.05) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(220, 215, 206, 0.03) 1px,
+      transparent 1px
+    );
   background-size: 40px 40px;
 }
 
@@ -421,24 +446,33 @@ header>.collapsible-header {
 
 .elite-hover:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.4),
-    0 0 80px rgba(169, 139, 93, 0.2),
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 80px rgba(169, 139, 93, 0.2),
     inset 0 1px 0 rgba(220, 215, 206, 0.15);
 }
 
 /* Floating Animation for Premium Elements */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .floating {
   animation: float 6s ease-in-out infinite;
 }
 
-.floating:nth-child(2) { animation-delay: -2s; }
-.floating:nth-child(3) { animation-delay: -4s; }
+.floating:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.floating:nth-child(3) {
+  animation-delay: -4s;
+}
 
 /* Additional Magic UI animations */
 @keyframes rainbow {
@@ -572,7 +606,8 @@ header>.collapsible-header {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite
+    alternate;
   --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
 
   @keyframes shimmer-slide {
@@ -675,4 +710,10 @@ header>.collapsible-header {
     opacity: 1;
     transform: translate(-50%, -40%) scale(1);
   }
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
 }

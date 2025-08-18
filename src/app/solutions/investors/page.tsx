@@ -1,5 +1,10 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { MagicCard } from '@/components/magicui/magic-card'
 import { ShimmerButton } from '@/components/magicui/shimmer-button'
 import { NumberTicker } from '@/components/magicui/number-ticker'
@@ -7,7 +12,6 @@ import { AnimatedGradientText } from '@/components/magicui/animated-gradient-tex
 import { Spotlight } from '@/components/ui/spotlight'
 import { Particles } from '@/components/magicui/particles'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -47,22 +51,30 @@ export default function ForInvestorsPage() {
       // Animate reveal-fade elements
       const revealFadeElements = element.querySelectorAll('.reveal-fade')
       if (revealFadeElements.length > 0) {
-        timeline.to(revealFadeElements, {
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.1,
-        }, '-=0.4')
+        timeline.to(
+          revealFadeElements,
+          {
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+          },
+          '-=0.4'
+        )
       }
 
       // Animate reveal-scale elements
       const revealScaleElements = element.querySelectorAll('.reveal-scale')
       if (revealScaleElements.length > 0) {
-        timeline.to(revealScaleElements, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.1,
-        }, '-=0.4')
+        timeline.to(
+          revealScaleElements,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.1,
+          },
+          '-=0.4'
+        )
       }
     })
 
@@ -72,8 +84,12 @@ export default function ForInvestorsPage() {
   }, [])
 
   return (
-    <div className='flex min-h-screen flex-col bg-black text-white'>
-      <main>
+    <div
+      ref={pageRef}
+      className='flex min-h-screen flex-col bg-black text-white'
+    >
+      <Header />
+      <main className='pt-20'>
         {/* Hero Section */}
         <section className='relative flex w-full flex-col items-center justify-center p-[2%] py-20 text-center overflow-hidden'>
           <div className='absolute inset-0 overflow-hidden'>
@@ -96,15 +112,17 @@ export default function ForInvestorsPage() {
                 Exclusive Access to Tomorrow's Unicorns
               </AnimatedGradientText>
             </div>
-            <h1 className='text-5xl md:text-7xl font-bold '>
-              See fewer decks.{' '}
+            <h1 className='text-5xl md:text-7xl font-bold leading-tight reveal-up'>
+              Find the next{' '}
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                 Google, Tesla, Airbnb
-              </span>
-              {' '}before everyone else.
+              </span>{' '}
+              before everyone else.
             </h1>
             <p className='text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-              Stop wasting time on mediocre pitches. Our AI-powered platform delivers only the highest-potential startups that match your exact investment criteria and risk profile.
+              Stop wasting time on mediocre pitches. Our AI-powered platform
+              delivers only the highest-potential startups that match your exact
+              investment criteria and risk profile.
             </p>
             <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 reveal-scale'>
               <a
@@ -114,7 +132,9 @@ export default function ForInvestorsPage() {
                 <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                 <div className='relative flex items-center space-x-3'>
                   <span>Request Investor Memo</span>
-                  <span className='text-xl group-hover:translate-x-1 transition-transform duration-300'>→</span>
+                  <span className='text-xl group-hover:translate-x-1 transition-transform duration-300'>
+                    →
+                  </span>
                 </div>
                 <div className='absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 animate-pulse transition-opacity duration-300'></div>
               </a>
@@ -171,7 +191,9 @@ export default function ForInvestorsPage() {
                 </span>
               </h2>
               <p className='text-xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-                Join elite investors who are already capitalizing on our AI-powered deal flow. Get exclusive access to pre-screened, high-growth startups before they hit the mainstream market.
+                Join elite investors who are already capitalizing on our
+                AI-powered deal flow. Get exclusive access to pre-screened,
+                high-growth startups before they hit the mainstream market.
               </p>
             </div>
 
@@ -190,12 +212,21 @@ export default function ForInvestorsPage() {
                       Define Your Winning Formula
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Set your investment DNA: target sectors, growth stage, ticket size, and risk appetite. Our AI becomes your personal deal-hunting assistant, learning what makes you profitable.
+                      Set your investment DNA: target sectors, growth stage,
+                      ticket size, and risk appetite. Our AI becomes your
+                      personal deal-hunting assistant, learning what makes you
+                      profitable.
                     </p>
                     <div className='flex flex-wrap gap-2'>
-                      <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>Unicorn Potential</span>
-                      <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>Market Disruption</span>
-                      <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>ROI Optimization</span>
+                      <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>
+                        Unicorn Potential
+                      </span>
+                      <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>
+                        Market Disruption
+                      </span>
+                      <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>
+                        ROI Optimization
+                      </span>
                     </div>
                   </div>
                 </MagicCard>
@@ -215,26 +246,24 @@ export default function ForInvestorsPage() {
                       Smart Deal Discovery Engine
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Our proprietary AI scans thousands of startups daily, identifying hidden gems with explosive growth potential. Only the top 3% that match your success criteria reach your inbox.
+                      Our proprietary AI scans thousands of startups daily,
+                      identifying hidden gems with explosive growth potential.
+                      Only the top 3% that match your success criteria reach
+                      your inbox.
                     </p>
                     <div className='flex flex-wrap gap-2'>
-                      <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>Predictive Analytics</span>
-                      <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>Risk Assessment</span>
-                      <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>Growth Forecasting</span>
+                      <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>
+                        Predictive Analytics
+                      </span>
+                      <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>
+                        Risk Assessment
+                      </span>
+                      <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>
+                        Growth Forecasting
+                      </span>
                     </div>
                   </div>
-                  <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                    AI-Powered Screening
-                  </h3>
-                  <p className='text-neutral-300 leading-relaxed'>
-                    Startups submit decks through our platform. Our AI evaluates them against your rubric, scoring market size, team, traction, and fit.
-                  </p>
-                  <div className='flex flex-wrap gap-2'>
-                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Market Analysis</span>
-                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Team Assessment</span>
-                    <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#dcd7ce] rounded-full text-sm'>Traction Review</span>
-                  </div>
-              </MagicCard>
+                </MagicCard>
               </div>
 
               <div className='reveal-scale'>
@@ -251,12 +280,21 @@ export default function ForInvestorsPage() {
                       Exclusive First Access
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Get VIP access to tomorrow's market leaders before they become household names. Each opportunity comes with comprehensive due diligence, valuation insights, and direct founder connections.
+                      Get VIP access to tomorrow's market leaders before they
+                      become household names. Each opportunity comes with
+                      comprehensive due diligence, valuation insights, and
+                      direct founder connections.
                     </p>
                     <div className='flex flex-wrap gap-2'>
-                      <span className='px-3 py-1 bg-[#dcd7ce]/20 text-[#dcd7ce] rounded-full text-sm'>Early Bird Access</span>
-                      <span className='px-3 py-1 bg-[#dcd7ce]/20 text-[#dcd7ce] rounded-full text-sm'>Premium Deal Flow</span>
-                      <span className='px-3 py-1 bg-[#dcd7ce]/20 text-[#dcd7ce] rounded-full text-sm'>Instant Connect</span>
+                      <span className='px-3 py-1 bg-[#dcd7ce]/20 text-[#dcd7ce] rounded-full text-sm'>
+                        Early Bird Access
+                      </span>
+                      <span className='px-3 py-1 bg-[#dcd7ce]/20 text-[#dcd7ce] rounded-full text-sm'>
+                        Premium Deal Flow
+                      </span>
+                      <span className='px-3 py-1 bg-[#dcd7ce]/20 text-[#dcd7ce] rounded-full text-sm'>
+                        Instant Connect
+                      </span>
                     </div>
                   </div>
                 </MagicCard>
@@ -281,9 +319,14 @@ export default function ForInvestorsPage() {
                 <MagicCard className='p-8'>
                   <div className='space-y-4'>
                     <div className='text-4xl'>🎯</div>
-                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>Zero Time Wasted</h3>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Zero Time Wasted
+                    </h3>
                     <p className='text-neutral-300'>
-                      No more sifting through hundreds of mediocre pitches. Our AI filters out 97% of deals, delivering only the cream of the crop that match your investment DNA and profit potential.
+                      No more sifting through hundreds of mediocre pitches. Our
+                      AI filters out 97% of deals, delivering only the cream of
+                      the crop that match your investment DNA and profit
+                      potential.
                     </p>
                   </div>
                 </MagicCard>
@@ -293,9 +336,13 @@ export default function ForInvestorsPage() {
                 <MagicCard className='p-8'>
                   <div className='space-y-4'>
                     <div className='text-4xl'>⚡</div>
-                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>Maximize Your Returns</h3>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Maximize Your Returns
+                    </h3>
                     <p className='text-neutral-300'>
-                      Access startups with 10x-100x growth potential before they hit mainstream radar. Our predictive algorithms identify the next unicorns while they&apos;re still affordable.
+                      Access startups with 10x-100x growth potential before they
+                      hit mainstream radar. Our predictive algorithms identify
+                      the next unicorns while they&apos;re still affordable.
                     </p>
                   </div>
                 </MagicCard>
@@ -305,9 +352,13 @@ export default function ForInvestorsPage() {
                 <MagicCard className='p-8'>
                   <div className='space-y-4'>
                     <div className='text-4xl'>🔍</div>
-                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>Insider Market Intelligence</h3>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Insider Market Intelligence
+                    </h3>
                     <p className='text-neutral-300'>
-                      Get exclusive market insights, competitive analysis, and growth projections that give you the edge. Make informed decisions with data that others don&apos;t have access to.
+                      Get exclusive market insights, competitive analysis, and
+                      growth projections that give you the edge. Make informed
+                      decisions with data that others don&apos;t have access to.
                     </p>
                   </div>
                 </MagicCard>
@@ -317,9 +368,14 @@ export default function ForInvestorsPage() {
                 <MagicCard className='p-8'>
                   <div className='space-y-4'>
                     <div className='text-4xl'>🤝</div>
-                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>VIP Access & Priority Deals</h3>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      VIP Access & Priority Deals
+                    </h3>
                     <p className='text-neutral-300'>
-                      Skip the line and get first dibs on the hottest deals. Direct access to founders, preferential terms, and exclusive investment rounds reserved for our premium investors.
+                      Skip the line and get first dibs on the hottest deals.
+                      Direct access to founders, preferential terms, and
+                      exclusive investment rounds reserved for our premium
+                      investors.
                     </p>
                   </div>
                 </MagicCard>
@@ -349,12 +405,18 @@ export default function ForInvestorsPage() {
                         JD
                       </div>
                       <div>
-                        <h4 className='font-semibold text-[#dcd7ce]'>Jean Dupont</h4>
-                        <p className='text-sm text-neutral-400'>Partner, TechVentures Paris</p>
+                        <h4 className='font-semibold text-[#dcd7ce]'>
+                          Jean Dupont
+                        </h4>
+                        <p className='text-sm text-neutral-400'>
+                          Partner, TechVentures Paris
+                        </p>
                       </div>
                     </div>
                     <p className='text-neutral-300 italic'>
-                      &ldquo;NartaQ helped us discover three unicorns before they became billion-dollar companies. Our portfolio ROI increased by 340% in just 18 months.&rdquo;
+                      &ldquo;NartaQ helped us discover three unicorns before
+                      they became billion-dollar companies. Our portfolio ROI
+                      increased by 340% in just 18 months.&rdquo;
                     </p>
                   </div>
                 </MagicCard>
@@ -368,12 +430,19 @@ export default function ForInvestorsPage() {
                         AB
                       </div>
                       <div>
-                        <h4 className='font-semibold text-[#dcd7ce]'>Ahmed Ben Ali</h4>
-                        <p className='text-sm text-neutral-400'>Managing Director, MENA Growth Fund</p>
+                        <h4 className='font-semibold text-[#dcd7ce]'>
+                          Ahmed Ben Ali
+                        </h4>
+                        <p className='text-sm text-neutral-400'>
+                          Managing Director, MENA Growth Fund
+                        </p>
                       </div>
                     </div>
                     <p className='text-neutral-300 italic'>
-                      &ldquo;The platform&apos;s AI identified market opportunities we completely missed. We invested early in what became a $2B exit. NartaQ pays for itself 1000x over.&rdquo;
+                      &ldquo;The platform&apos;s AI identified market
+                      opportunities we completely missed. We invested early in
+                      what became a $2B exit. NartaQ pays for itself 1000x
+                      over.&rdquo;
                     </p>
                   </div>
                 </MagicCard>
@@ -387,12 +456,18 @@ export default function ForInvestorsPage() {
                         SM
                       </div>
                       <div>
-                        <h4 className='font-semibold text-[#dcd7ce]'>Sarah Martin</h4>
-                        <p className='text-sm text-neutral-400'>Principal, Innovation Capital</p>
+                        <h4 className='font-semibold text-[#dcd7ce]'>
+                          Sarah Martin
+                        </h4>
+                        <p className='text-sm text-neutral-400'>
+                          Principal, Innovation Capital
+                        </p>
                       </div>
                     </div>
                     <p className='text-neutral-300 italic'>
-                      &ldquo;We&apos;ve closed 5 deals in 6 months, all from NartaQ&apos;s pipeline. The quality is unmatched - these are the companies that will define the next decade.&rdquo;
+                      &ldquo;We&apos;ve closed 5 deals in 6 months, all from
+                      NartaQ&apos;s pipeline. The quality is unmatched - these
+                      are the companies that will define the next decade.&rdquo;
                     </p>
                   </div>
                 </MagicCard>
@@ -410,7 +485,9 @@ export default function ForInvestorsPage() {
               </span>
             </h2>
             <p className='text-xl text-neutral-300 mb-12 max-w-2xl mx-auto reveal-up'>
-              Pay only for billion-dollar opportunities. One successful deal covers years of platform access. No hidden fees, no long-term commitments.
+              Pay only for billion-dollar opportunities. One successful deal
+              covers years of platform access. No hidden fees, no long-term
+              commitments.
             </p>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
@@ -422,12 +499,15 @@ export default function ForInvestorsPage() {
                         Pay Per Deal
                       </div>
                     </div>
-                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>Deal Hunter</h3>
+                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
+                      Deal Hunter
+                    </h3>
                     <div className='text-4xl font-bold text-[#a98b5d]'>
                       $2,500/deal
                     </div>
                     <p className='text-neutral-300'>
-                      Pay only for unicorn-potential startups that match your criteria. Average deal value: $50M+
+                      Pay only for unicorn-potential startups that match your
+                      criteria. Average deal value: $50M+
                     </p>
                     <ul className='space-y-3 text-left flex-1'>
                       <li className='flex items-center space-x-3'>
@@ -467,12 +547,16 @@ export default function ForInvestorsPage() {
                         Most Popular
                       </div>
                     </div>
-                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>Unicorn Hunter VIP</h3>
+                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
+                      Unicorn Hunter VIP
+                    </h3>
                     <div className='text-4xl font-bold text-[#a98b5d]'>
                       $25K/month
                     </div>
                     <p className='text-neutral-300'>
-                      Unlimited access to billion-dollar opportunities. Dedicated deal sourcing and first-look rights on all premium deals.
+                      Unlimited access to billion-dollar opportunities.
+                      Dedicated deal sourcing and first-look rights on all
+                      premium deals.
                     </p>
                     <ul className='space-y-3 text-left flex-1'>
                       <li className='flex items-center space-x-3'>
@@ -517,7 +601,8 @@ export default function ForInvestorsPage() {
               </span>
             </h2>
             <p className='text-xl text-neutral-300 mb-8 max-w-2xl mx-auto reveal-up'>
-              Join leading investors who are already using NartaQ to find better deals faster.
+              Join leading investors who are already using NartaQ to find better
+              deals faster.
             </p>
             <div className='flex flex-col sm:flex-row gap-6 justify-center items-center reveal-scale'>
               <a
@@ -528,7 +613,9 @@ export default function ForInvestorsPage() {
                 <div className='absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 group-hover:translate-x-full transition-transform duration-1000'></div>
                 <div className='relative flex items-center space-x-3'>
                   <span className='tracking-wide'>Get Exclusive Access</span>
-                  <span className='text-xl group-hover:translate-x-2 transition-transform duration-300'>→</span>
+                  <span className='text-xl group-hover:translate-x-2 transition-transform duration-300'>
+                    →
+                  </span>
                 </div>
               </a>
               <Link

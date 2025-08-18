@@ -1,132 +1,145 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { MagicCard } from '@/components/magicui/magic-card'
-import { ShimmerButton } from '@/components/magicui/shimmer-button'
 import { NumberTicker } from '@/components/magicui/number-ticker'
 import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text'
 import { Spotlight } from '@/components/ui/spotlight'
-import { FileCheck, Clock, DollarSign, Shield, CheckCircle, Users, Target, ArrowRight, Briefcase } from 'lucide-react'
+import { Particles } from '@/components/magicui/particles'
 import Link from 'next/link'
 
-export const metadata = {
-  title: "For Providers | NartaQ",
-  description: "Private bounties, clear acceptance, and protections that reduce client risk.",
-};
+gsap.registerPlugin(ScrollTrigger)
 
-export default function ForProvidersPage() {
-  const benefits = [
-    {
-      icon: 'filecheck',
-      title: 'Crystal-Clear Scope',
-      description: 'Every project comes with detailed deliverables, acceptance criteria, and timelines documented upfront. No ambiguity, no scope creep.',
-      color: 'from-[#a98b5d]/10 via-[#a98b5d]/5 to-transparent'
-    },
-    {
-      icon: 'clock',
-      title: 'Timeboxed Reviews',
-      description: 'Stop waiting in review limbo. All reviews and payment releases follow scheduled timelines with clear SLAs.',
-      color: 'from-[#dcd7ce]/10 via-[#dcd7ce]/5 to-transparent'
-    },
-    {
-      icon: 'dollarsign',
-      title: 'Hybrid Compensation',
-      description: 'Access cash + equity/options arrangements for long-term alignment with high-growth startups and established companies.',
-      color: 'from-[#5c5d63]/15 via-[#5c5d63]/8 to-transparent'
-    }
-  ];
+export default function ForServiceProvidersPage() {
+  const pageRef = useRef<HTMLDivElement>(null)
 
-  const process = [
-    {
-      step: '01',
-      title: 'Browse Private Bounties',
-      description: 'Access exclusive opportunities from verified startups and companies. Each bounty includes detailed scope and compensation.',
-      icon: 'target'
-    },
-    {
-      step: '02', 
-      title: 'Submit Your Proposal',
-      description: 'Respond to bounties that match your expertise. Include your approach, timeline, and any clarifying questions.',
-      icon: 'filecheck'
-    },
-    {
-      step: '03',
-      title: 'Secure Assignment',
-      description: 'Get selected based on your track record and proposal quality. Terms are locked in with clear success criteria.',
-      icon: 'shield'
-    },
-    {
-      step: '04',
-      title: 'Deliver & Get Paid',
-      description: 'Complete your work, submit for review, and receive payment upon acceptance. All transactions are protected.',
-      icon: 'checkcircle'
-    }
-  ];
+  useEffect(() => {
+    // Initial reveal animations
+    gsap.set('.reveal-up', { opacity: 0, y: '100%' })
+    gsap.set('.reveal-fade', { opacity: 0 })
+    gsap.set('.reveal-scale', { opacity: 0, scale: 0.8 })
 
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'filecheck': return <FileCheck className="w-8 h-8 text-[#a98b5d]" />
-      case 'clock': return <Clock className="w-8 h-8 text-[#a98b5d]" />
-      case 'dollarsign': return <DollarSign className="w-8 h-8 text-[#a98b5d]" />
-      case 'target': return <Target className="w-8 h-8 text-[#a98b5d]" />
-      case 'shield': return <Shield className="w-8 h-8 text-[#a98b5d]" />
-      case 'checkcircle': return <CheckCircle className="w-8 h-8 text-[#a98b5d]" />
-      default: return <Target className="w-8 h-8 text-[#a98b5d]" />
+    // Reveal animations for sections
+    const sections = gsap.utils.toArray('section')
+    sections.forEach((sec) => {
+      const element = sec as Element
+      const timeline = gsap.timeline({
+        paused: true,
+        scrollTrigger: {
+          trigger: element,
+          start: '10% 80%',
+          end: '20% 90%',
+        },
+      })
+
+      // Animate reveal-up elements
+      const revealUpElements = element.querySelectorAll('.reveal-up')
+      if (revealUpElements.length > 0) {
+        timeline.to(revealUpElements, {
+          opacity: 1,
+          duration: 0.8,
+          y: '0%',
+          stagger: 0.2,
+        })
+      }
+
+      // Animate reveal-fade elements
+      const revealFadeElements = element.querySelectorAll('.reveal-fade')
+      if (revealFadeElements.length > 0) {
+        timeline.to(
+          revealFadeElements,
+          {
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+          },
+          '-=0.4'
+        )
+      }
+
+      // Animate reveal-scale elements
+      const revealScaleElements = element.querySelectorAll('.reveal-scale')
+      if (revealScaleElements.length > 0) {
+        timeline.to(
+          revealScaleElements,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.1,
+          },
+          '-=0.4'
+        )
+      }
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
-  };
+  }, [])
 
   return (
-    <div className="flex min-h-screen flex-col bg-black text-white">
-      <main>
+    <div
+      ref={pageRef}
+      className='flex min-h-screen flex-col bg-black text-white'
+    >
+      <Header />
+      <main className='pt-20'>
         {/* Hero Section */}
         <section className='relative flex w-full flex-col items-center justify-center p-[2%] py-20 text-center overflow-hidden'>
           <div className='absolute inset-0 overflow-hidden'>
             <Spotlight />
+            <Particles
+              className='absolute inset-0'
+              quantity={100}
+              ease={80}
+              color='#a98b5d'
+              refresh={false}
+            />
           </div>
-          <div className="absolute inset-0 luxury-texture opacity-25"></div>
-          <div className="absolute top-1/5 right-1/4 w-96 h-96 bg-[#a98b5d]/4 rounded-full blur-3xl floating"></div>
-          <div className="absolute bottom-1/5 left-1/4 w-80 h-80 bg-[#dcd7ce]/3 rounded-full blur-3xl floating"></div>
-          
-          <div className='relative z-10 max-w-4xl space-y-8 reveal-up'>
-            <div className='flex justify-center mb-6'>
+          <div className='relative z-10 max-w-4xl space-y-8'>
+            <div className='flex justify-center mb-6 reveal-fade'>
               <AnimatedGradientText
                 className='text-sm font-medium'
                 colorFrom='#a98b5d'
                 colorTo='#dcd7ce'
               >
-                <Briefcase className="w-4 h-4 mr-2" />
-                For Elite Service Providers
+                Work with Tomorrow&apos;s Unicorns Today
               </AnimatedGradientText>
             </div>
-            
-            <h1 className='text-5xl md:text-7xl font-light '>
-              Earn on outcomes,{' '}
-              <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent font-medium'>
-                not promises.
-              </span>
+            <h1 className='text-5xl md:text-7xl font-bold leading-tight reveal-up'>
+              Skip Upwork, work with{' '}
+              <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+                unicorns
+              </span>{' '}
+              at unicorn rates.
             </h1>
-            
-            <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto"></div>
-            
-            <p className='text-xl md:text-2xl text-[#5c5d63] font-light max-w-3xl mx-auto leading-relaxed'>
-              Join exclusive private bounties from verified startups and companies.
-              <br />
-              <span className="text-[#a98b5d]/90">Get paid when your work meets clear acceptance criteria.</span>
+            <p className='text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
+              Elite projects for elite talent. Access exclusive contracts from
+              funded startups and unicorn companies. Your expertise,
+              unicorn-level compensation.
             </p>
-            
-            <div className='flex flex-col sm:flex-row gap-4 justify-center items-center mt-8'>
-              <ShimmerButton
-                className='px-8 py-4 text-lg font-semibold'
-                background='linear-gradient(135deg, #a98b5d 0%, #8a7249 100%)'
-                shimmerColor='#dcd7ce'
+            <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 reveal-scale'>
+              <a
+                href='mailto:talent@nartaq.com?subject=Join%20Elite%20Network%20Request'
+                className='group relative px-10 py-5 text-lg font-bold text-black bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] rounded-xl shadow-2xl hover:shadow-[#a98b5d]/50 transform hover:scale-105 transition-all duration-300 overflow-hidden'
               >
-                <a href='mailto:providers@nartaq.com?subject=Provider%20Application' className='flex items-center space-x-2'>
-                  <span>Apply as Provider</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </ShimmerButton>
+                <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+                <div className='relative flex items-center space-x-3'>
+                  <span>Join Elite Network</span>
+                  <span className='text-xl group-hover:translate-x-1 transition-transform duration-300'>
+                    →
+                  </span>
+                </div>
+                <div className='absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 animate-pulse transition-opacity duration-300'></div>
+              </a>
               <Link
                 href='#how-it-works'
-                className='px-8 py-4 rounded-xl font-semibold border-2 border-[#5c5d63]/50 text-[#dcd7ce] hover:border-[#a98b5d] transition-all duration-300 premium-glass'
+                className='px-8 py-5 rounded-xl font-semibold border-2 border-[#5c5d63] text-[#dcd7ce] hover:border-[#a98b5d] hover:bg-[#a98b5d]/10 hover:text-[#a98b5d] transition-all duration-300 shadow-lg hover:shadow-[#5c5d63]/30'
               >
                 See How It Works
               </Link>
@@ -135,185 +148,345 @@ export default function ForProvidersPage() {
         </section>
 
         {/* Stats Section */}
-        <section className='py-20 bg-gradient-to-b from-black to-[#232428]'>
+        <section className='py-16 bg-gradient-to-b from-black to-[#232428]'>
           <div className='max-w-6xl mx-auto px-6'>
             <div className='grid grid-cols-1 md:grid-cols-4 gap-8 text-center'>
-              <div className='space-y-3 reveal-up'>
-                <div className='text-4xl md:text-5xl font-light text-[#a98b5d] '>
-                  <NumberTicker value={94} />%
+              <div className='space-y-2 reveal-scale'>
+                <div className='text-4xl md:text-5xl font-bold text-[#a98b5d]'>
+                  $<NumberTicker value={75} />K
                 </div>
-                <p className='text-[#5c5d63] font-light'>On-Time Payment Rate</p>
+                <p className='text-neutral-400'>Average Project Value vs $5K</p>
               </div>
-              <div className='space-y-3 reveal-up'>
-                <div className='text-4xl md:text-5xl font-light text-[#a98b5d] '>
-                  <NumberTicker value={2.8} />x
+              <div className='space-y-2 reveal-scale'>
+                <div className='text-4xl md:text-5xl font-bold text-[#a98b5d]'>
+                  <NumberTicker value={92} />%
                 </div>
-                <p className='text-[#5c5d63] font-light'>Higher Rates vs Market</p>
+                <p className='text-neutral-400'>Long-term Partnerships</p>
               </div>
-              <div className='space-y-3 reveal-up'>
-                <div className='text-4xl md:text-5xl font-light text-[#a98b5d] '>
-                  <NumberTicker value={48} />h
+              <div className='space-y-2 reveal-scale'>
+                <div className='text-4xl md:text-5xl font-bold text-[#a98b5d]'>
+                  $<NumberTicker value={350} />
+                  /h
                 </div>
-                <p className='text-[#5c5d63] font-light'>Average Review Time</p>
+                <p className='text-neutral-400'>Average Rate vs $50 Market</p>
               </div>
-              <div className='space-y-3 reveal-up'>
-                <div className='text-4xl md:text-5xl font-light text-[#a98b5d] '>
-                  <NumberTicker value={200} />+
+              <div className='space-y-2 reveal-scale'>
+                <div className='text-4xl md:text-5xl font-bold text-[#a98b5d]'>
+                  <NumberTicker value={15} />%
                 </div>
-                <p className='text-[#5c5d63] font-light'>Active Provider Network</p>
+                <p className='text-neutral-400'>Got Equity That 10x&apos;d</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Value Propositions Section */}
+        <section className='py-20 px-6'>
+          <div className='max-w-6xl mx-auto'>
+            <div className='text-center mb-16'>
+              <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
+                Where A-players work on{' '}
+                <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+                  A+ projects
+                </span>
+              </h2>
+              <p className='text-xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
+                From FAANG to founding teams. Elite freelancers and service
+                providers working with high-growth startups and unicorn
+                companies.
+              </p>
+            </div>
+
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
+              {/* Premium Client Access */}
+              <div className='reveal-scale'>
+                <MagicCard
+                  className='p-8 h-full'
+                  gradientColor='#a98b5d'
+                  gradientOpacity={0.1}
+                >
+                  <div className='space-y-6'>
+                    <div className='flex items-center space-x-4'>
+                      <div className='w-16 h-16 rounded-full bg-gradient-to-br from-[#a98b5d] to-[#8a7249] flex items-center justify-center text-2xl'>
+                        🎯
+                      </div>
+                      <h3 className='text-3xl font-bold text-[#a98b5d]'>
+                        PREMIUM CLIENT ACCESS
+                      </h3>
+                    </div>
+                    <p className='text-lg text-neutral-300 leading-relaxed'>
+                      Work with funded startups and unicorn companies. Access
+                      exclusive projects from Series A+ companies with
+                      high-value contracts.
+                    </p>
+                    <ul className='space-y-4'>
+                      <li className='flex items-start space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full mt-2'></div>
+                        <span className='text-neutral-300'>
+                          High-value contracts ($50K-$500K+ projects)
+                        </span>
+                      </li>
+                      <li className='flex items-start space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full mt-2'></div>
+                        <span className='text-neutral-300'>
+                          Equity compensation opportunities in promising
+                          startups
+                        </span>
+                      </li>
+                      <li className='flex items-start space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full mt-2'></div>
+                        <span className='text-neutral-300'>
+                          Direct access to CTOs, founders, and decision makers
+                        </span>
+                      </li>
+                      <li className='flex items-start space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full mt-2'></div>
+                        <span className='text-neutral-300'>
+                          Skip agency middlemen and keep 100% of your rates
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </MagicCard>
+              </div>
+
+              {/* Elite Earning Potential */}
+              <div className='reveal-scale'>
+                <MagicCard
+                  className='p-8 h-full'
+                  gradientColor='#dcd7ce'
+                  gradientOpacity={0.1}
+                >
+                  <div className='space-y-6'>
+                    <div className='flex items-center space-x-4'>
+                      <div className='w-16 h-16 rounded-full bg-gradient-to-br from-[#dcd7ce] to-[#b8b3a8] flex items-center justify-center text-2xl'>
+                        💰
+                      </div>
+                      <h3 className='text-3xl font-bold text-[#dcd7ce]'>
+                        ELITE EARNING POTENTIAL
+                      </h3>
+                    </div>
+                    <p className='text-lg text-neutral-300 leading-relaxed'>
+                      3-5x higher rates than traditional freelancing platforms.
+                      Equity upside in high-growth companies with premium
+                      project budgets.
+                    </p>
+                    <ul className='space-y-4'>
+                      <li className='flex items-start space-x-3'>
+                        <div className='w-2 h-2 bg-[#dcd7ce] rounded-full mt-2'></div>
+                        <span className='text-neutral-300'>
+                          Long-term retainer opportunities
+                        </span>
+                      </li>
+                      <li className='flex items-start space-x-3'>
+                        <div className='w-2 h-2 bg-[#dcd7ce] rounded-full mt-2'></div>
+                        <span className='text-neutral-300'>
+                          Performance bonuses and success fees
+                        </span>
+                      </li>
+                      <li className='flex items-start space-x-3'>
+                        <div className='w-2 h-2 bg-[#dcd7ce] rounded-full mt-2'></div>
+                        <span className='text-neutral-300'>
+                          Premium project budgets ($10K+ minimum)
+                        </span>
+                      </li>
+                      <li className='flex items-start space-x-3'>
+                        <div className='w-2 h-2 bg-[#dcd7ce] rounded-full mt-2'></div>
+                        <span className='text-neutral-300'>
+                          Recurring revenue from growing clients
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </MagicCard>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Target Service Provider Types */}
+        <section className='py-20 bg-gradient-to-b from-[#232428] to-black'>
+          <div className='max-w-6xl mx-auto px-6'>
+            <div className='text-center mb-16'>
+              <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
+                Elite Talent We&apos;re Looking For
+              </h2>
+              <p className='text-xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
+                We work with the top 1% of service providers who have built
+                products for unicorn companies and FAANG organizations.
+              </p>
+            </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-4'>
+                    <div className='text-4xl'>⚡</div>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Senior Software Engineers
+                    </h3>
+                    <p className='text-neutral-300'>
+                      FAANG background with experience building scalable
+                      systems. Full-stack, backend, and specialized engineers.
+                    </p>
+                  </div>
+                </MagicCard>
+              </div>
+
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-4'>
+                    <div className='text-4xl'>🏗️</div>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Technical Architects
+                    </h3>
+                    <p className='text-neutral-300'>
+                      CTOs and technical architects who have designed
+                      billion-dollar platforms and led engineering teams.
+                    </p>
+                  </div>
+                </MagicCard>
+              </div>
+
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-4'>
+                    <div className='text-4xl'>🎨</div>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Product Designers
+                    </h3>
+                    <p className='text-neutral-300'>
+                      Unicorn company experience creating award-winning products
+                      and user experiences that scale.
+                    </p>
+                  </div>
+                </MagicCard>
+              </div>
+
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-4'>
+                    <div className='text-4xl'>📈</div>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Growth Marketing Experts
+                    </h3>
+                    <p className='text-neutral-300'>
+                      Growth hackers who scaled companies 10x with proven track
+                      records in user acquisition and retention.
+                    </p>
+                  </div>
+                </MagicCard>
+              </div>
+
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-4'>
+                    <div className='text-4xl'>🤖</div>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      AI/ML Engineers
+                    </h3>
+                    <p className='text-neutral-300'>
+                      Machine learning experts and AI specialists who built
+                      production ML systems at scale.
+                    </p>
+                  </div>
+                </MagicCard>
+              </div>
+
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-4'>
+                    <div className='text-4xl'>🔒</div>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Cybersecurity Specialists
+                    </h3>
+                    <p className='text-neutral-300'>
+                      Security experts who protected billion-dollar platforms
+                      and built enterprise-grade security systems.
+                    </p>
+                  </div>
+                </MagicCard>
               </div>
             </div>
           </div>
         </section>
 
         {/* Benefits Section */}
-        <section className='py-24 px-6 relative'>
-          <div className="absolute inset-0 luxury-texture opacity-20"></div>
-          
-          <div className='max-w-6xl mx-auto relative z-10'>
-            <div className='text-center mb-16 reveal-up'>
-              <div className="flex justify-center mb-6">
-                <div className="premium-glass px-8 py-3 rounded-full border border-[#a98b5d]/20">
-                  <span className="text-sm font-medium text-[#a98b5d] tracking-wider">
-                    PROVIDER ADVANTAGES
-                  </span>
-                </div>
-              </div>
-              
-              <h2 className='text-4xl md:text-5xl font-light mb-6 text-[#dcd7ce]'>
-                Why Elite Providers Choose{' '}
-                <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent font-medium'>
+        <section className='py-20 px-6'>
+          <div className='max-w-6xl mx-auto'>
+            <div className='text-center mb-16'>
+              <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
+                Why Elite Talent Chooses{' '}
+                <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                   NartaQ
                 </span>
               </h2>
-              
-              <p className='text-xl text-[#5c5d63] font-light max-w-3xl mx-auto'>
-                Work with premium clients, earn competitive rates, and enjoy the protection of clear contracts.
-              </p>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-              {benefits.map((benefit, i) => (
-                <div key={i} className='group premium-glass elite-hover rounded-3xl overflow-hidden border border-[#a98b5d]/20  relative reveal-up'>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color}`}></div>
-                  
-                  <div className="relative z-10 p-8">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500">
-                      {getIcon(benefit.icon)}
-                    </div>
-                    
-                    <h3 className='text-xl font-medium text-[#dcd7ce] mb-4'>
-                      {benefit.title}
-                    </h3>
-                    
-                    <div className="w-12 h-0.5 bg-[#a98b5d] mb-4 group-hover:w-16 transition-all duration-300"></div>
-                    
-                    <p className='text-[#5c5d63] leading-relaxed font-light'>
-                      {benefit.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* How It Works Section */}
-        <section id='how-it-works' className='py-24 bg-gradient-to-b from-[#232428] to-black'>
-          <div className='max-w-6xl mx-auto px-6'>
-            <div className='text-center mb-16 reveal-up'>
-              <h2 className='text-4xl md:text-5xl font-light mb-6 text-[#dcd7ce]'>
-                How NartaQ Works for{' '}
-                <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent font-medium'>
-                  Providers
-                </span>
-              </h2>
-              <p className='text-xl text-[#5c5d63] font-light max-w-3xl mx-auto'>
-                A streamlined process that connects you with premium opportunities and ensures fair compensation
-              </p>
-            </div>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
-              {process.map((step, i) => (
-                <div key={i} className='group premium-glass elite-hover rounded-3xl overflow-hidden border border-[#a98b5d]/20  relative reveal-up'>
-                  <div className="relative z-10 p-6">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="text-2xl font-light text-[#a98b5d]/40">
-                        {step.step}
-                      </div>
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center group-hover:scale-110 transition-all duration-500">
-                        {getIcon(step.icon)}
-                      </div>
-                    </div>
-                    
-                    <h3 className='text-lg font-medium text-[#dcd7ce] mb-4'>
-                      {step.title}
-                    </h3>
-                    
-                    <div className="w-8 h-0.5 bg-[#a98b5d] mb-4 group-hover:w-12 transition-all duration-300"></div>
-                    
-                    <p className='text-[#5c5d63] leading-relaxed font-light text-sm'>
-                      {step.description}
-                    </p>
-                    
-                    {/* Connection arrow (except for last item) */}
-                    {i < process.length - 1 && (
-                      <div className="hidden lg:block absolute -right-3 top-1/2 transform -translate-y-1/2 z-20">
-                        <div className="premium-glass w-6 h-6 rounded-full flex items-center justify-center border border-[#a98b5d]/20">
-                          <ArrowRight className="w-3 h-3 text-[#a98b5d]" />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Specializations Section */}
-        <section className='py-20 px-6'>
-          <div className='max-w-6xl mx-auto'>
-            <div className='text-center mb-16 reveal-up'>
-              <h2 className='text-4xl md:text-5xl font-light mb-6 text-[#dcd7ce]'>
-                High-Demand{' '}
-                <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent font-medium'>
-                  Specializations
-                </span>
-              </h2>
-              <p className='text-xl text-[#5c5d63] font-light max-w-3xl mx-auto'>
-                Areas where we see the highest demand and best compensation rates
-              </p>
-            </div>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-              {[
-                { title: 'AI/ML Development', demand: 'Very High', rate: '€80-150/hr' },
-                { title: 'Mobile App Development', demand: 'High', rate: '€60-120/hr' },
-                { title: 'Blockchain Development', demand: 'High', rate: '€70-140/hr' },
-                { title: 'UI/UX Design', demand: 'High', rate: '€50-100/hr' },
-                { title: 'DevOps Engineering', demand: 'High', rate: '€65-130/hr' },
-                { title: 'Data Science', demand: 'Medium', rate: '€55-110/hr' }
-              ].map((spec, i) => (
-                <MagicCard key={i} className='p-6 reveal-up'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
                   <div className='space-y-4'>
-                    <h3 className='text-lg font-medium text-[#dcd7ce]'>{spec.title}</h3>
-                    <div className='flex justify-between items-center'>
-                      <span className='text-sm text-[#5c5d63]'>Demand</span>
-                      <span className={`text-sm font-medium ${
-                        spec.demand === 'Very High' ? 'text-[#a98b5d]' : 
-                        spec.demand === 'High' ? 'text-[#dcd7ce]' : 'text-[#5c5d63]'
-                      }`}>
-                        {spec.demand}
-                      </span>
-                    </div>
-                    <div className='flex justify-between items-center'>
-                      <span className='text-sm text-[#5c5d63]'>Rate Range</span>
-                      <span className='text-sm font-medium text-[#a98b5d]'>{spec.rate}</span>
-                    </div>
+                    <div className='text-4xl'>🎯</div>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Exclusive Client Vetting
+                    </h3>
+                    <p className='text-neutral-300'>
+                      Only funded and profitable companies. No bidding wars or
+                      race-to-the-bottom pricing. Work with serious clients who
+                      value expertise.
+                    </p>
                   </div>
                 </MagicCard>
-              ))}
+              </div>
+
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-4'>
+                    <div className='text-4xl'>🏠</div>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Flexible Work Arrangements
+                    </h3>
+                    <p className='text-neutral-300'>
+                      Remote-first culture with flexible schedules. Long-term
+                      partnership potential with direct founder and CTO
+                      relationships.
+                    </p>
+                  </div>
+                </MagicCard>
+              </div>
+
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-4'>
+                    <div className='text-4xl'>📊</div>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Equity Participation
+                    </h3>
+                    <p className='text-neutral-300'>
+                      Equity participation opportunities in high-growth
+                      startups. Share in the upside of the companies you help
+                      build.
+                    </p>
+                  </div>
+                </MagicCard>
+              </div>
+
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-4'>
+                    <div className='text-4xl'>💎</div>
+                    <h3 className='text-2xl font-semibold text-[#a98b5d]'>
+                      Premium Project Scopes
+                    </h3>
+                    <p className='text-neutral-300'>
+                      Work on cutting-edge projects that matter. Premium budgets
+                      for premium work with the latest technologies and
+                      methodologies.
+                    </p>
+                  </div>
+                </MagicCard>
+              </div>
             </div>
           </div>
         </section>
@@ -321,94 +494,297 @@ export default function ForProvidersPage() {
         {/* Testimonials Section */}
         <section className='py-20 bg-gradient-to-b from-[#232428] to-black'>
           <div className='max-w-6xl mx-auto px-6'>
-            <div className='text-center mb-16 reveal-up'>
-              <h2 className='text-4xl md:text-5xl font-light mb-6 text-[#dcd7ce]'>
-                Success Stories from{' '}
-                <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent font-medium'>
-                  Our Providers
+            <div className='text-center mb-16'>
+              <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
+                Trusted by Elite{' '}
+                <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+                  Service Providers
                 </span>
               </h2>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-              <MagicCard className='p-8 reveal-up'>
-                <div className='space-y-6'>
-                  <div className='flex items-center space-x-4'>
-                    <div className='w-12 h-12 rounded-full bg-gradient-to-br from-[#a98b5d] to-[#8a7249] flex items-center justify-center text-white font-bold'>
-                      MK
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-6'>
+                    <div className='flex items-center space-x-4'>
+                      <div className='w-12 h-12 rounded-full bg-gradient-to-br from-[#a98b5d] to-[#8a7249] flex items-center justify-center text-white font-bold'>
+                        JC
+                      </div>
+                      <div>
+                        <h4 className='font-semibold text-[#dcd7ce]'>
+                          James Chen
+                        </h4>
+                        <p className='text-sm text-neutral-400'>
+                          Ex-Google Senior Engineer
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className='font-semibold text-[#dcd7ce]'>Malik Korchi</h4>
-                      <p className='text-sm text-[#5c5d63]'>Full-Stack Developer, Tunis</p>
-                    </div>
+                    <p className='text-neutral-300 italic'>
+                      &ldquo;Tripled my freelance income working with NartaQ
+                      clients. These are the projects I dreamed of working on -
+                      billion-dollar potential with equity upside.&rdquo;
+                    </p>
                   </div>
-                  <p className='text-[#5c5d63] italic leading-relaxed'>
-                    &ldquo;The project specs were incredibly clear, and payment came exactly on schedule. I've earned 40% more through NartaQ compared to other platforms.&rdquo;
-                  </p>
-                </div>
-              </MagicCard>
+                </MagicCard>
+              </div>
 
-              <MagicCard className='p-8 reveal-up'>
-                <div className='space-y-6'>
-                  <div className='flex items-center space-x-4'>
-                    <div className='w-12 h-12 rounded-full bg-gradient-to-br from-[#5c5d63] to-[#3e3f44] flex items-center justify-center text-white font-bold'>
-                      SL
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-6'>
+                    <div className='flex items-center space-x-4'>
+                      <div className='w-12 h-12 rounded-full bg-gradient-to-br from-[#5c5d63] to-[#3e3f44] flex items-center justify-center text-white font-bold'>
+                        SP
+                      </div>
+                      <div>
+                        <h4 className='font-semibold text-[#dcd7ce]'>
+                          Sarah Park
+                        </h4>
+                        <p className='text-sm text-neutral-400'>
+                          Product Designer, Ex-Airbnb
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className='font-semibold text-[#dcd7ce]'>Sophie Lefèvre</h4>
-                      <p className='text-sm text-[#5c5d63]'>UX/UI Designer, Paris</p>
-                    </div>
+                    <p className='text-neutral-300 italic'>
+                      &ldquo;My equity from one NartaQ client is now worth $2M
+                      after their Series B. Finally found clients who understand
+                      the value of great design.&rdquo;
+                    </p>
                   </div>
-                  <p className='text-[#5c5d63] italic leading-relaxed'>
-                    &ldquo;Working with startups through NartaQ has been amazing. Clear expectations, fast payments, and I even got equity in one of my favorite projects.&rdquo;
-                  </p>
-                </div>
-              </MagicCard>
+                </MagicCard>
+              </div>
+
+              <div className='reveal-scale'>
+                <MagicCard className='p-8'>
+                  <div className='space-y-6'>
+                    <div className='flex items-center space-x-4'>
+                      <div className='w-12 h-12 rounded-full bg-gradient-to-br from-[#dcd7ce] to-[#b8b3a8] flex items-center justify-center text-black font-bold'>
+                        MR
+                      </div>
+                      <div>
+                        <h4 className='font-semibold text-[#dcd7ce]'>
+                          Marcus Rodriguez
+                        </h4>
+                        <p className='text-sm text-neutral-400'>
+                          Growth Marketing, Ex-Stripe
+                        </p>
+                      </div>
+                    </div>
+                    <p className='text-neutral-300 italic'>
+                      &ldquo;Helped 3 startups reach unicorn status through
+                      NartaQ. The quality of clients and projects is unmatched -
+                      this is where the best work happens.&rdquo;
+                    </p>
+                  </div>
+                </MagicCard>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section className='py-20 px-6'>
+          <div className='max-w-4xl mx-auto text-center'>
+            <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
+              Transparent{' '}
+              <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+                Pricing
+              </span>
+            </h2>
+            <p className='text-xl text-neutral-300 mb-12 max-w-2xl mx-auto reveal-up'>
+              Keep more of what you earn. Lower fees than other platforms with
+              premium project opportunities.
+            </p>
+
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
+              <div className='reveal-scale h-full'>
+                <MagicCard className='p-8 h-full flex flex-col'>
+                  <div className='flex-1 space-y-6'>
+                    <div className='h-8 flex items-center'>
+                      <div className='bg-[#5c5d63] text-[#dcd7ce] px-3 py-1 rounded-full text-sm font-medium inline-block'>
+                        Standard
+                      </div>
+                    </div>
+                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
+                      Premium Tier
+                    </h3>
+                    <div className='text-4xl font-bold text-[#a98b5d]'>
+                      10% fee
+                    </div>
+                    <p className='text-neutral-300'>
+                      Platform fee vs 20% on other platforms. Access to premium
+                      projects and clients.
+                    </p>
+                    <ul className='space-y-3 text-left flex-1'>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Vetted client access</span>
+                      </li>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Premium project matching</span>
+                      </li>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Direct client communication</span>
+                      </li>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Secure milestone payments</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className='pt-6 mt-auto'>
+                    <a
+                      href='mailto:talent@nartaq.com?subject=Premium%20Tier%20Application'
+                      className='w-full inline-block text-center px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-lg hover:from-[#dcd7ce] hover:to-[#a98b5d] transition-all duration-300 shadow-lg hover:shadow-[#a98b5d]/50'
+                    >
+                      Apply Now
+                    </a>
+                  </div>
+                </MagicCard>
+              </div>
+
+              <div className='reveal-scale h-full'>
+                <MagicCard className='p-8 border-2 border-[#a98b5d] h-full flex flex-col'>
+                  <div className='flex-1 space-y-6'>
+                    <div className='h-8 flex items-center'>
+                      <div className='bg-[#a98b5d] text-black px-3 py-1 rounded-full text-sm font-medium inline-block'>
+                        Most Popular
+                      </div>
+                    </div>
+                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
+                      Elite Tier
+                    </h3>
+                    <div className='text-4xl font-bold text-[#a98b5d]'>
+                      5% fee
+                    </div>
+                    <p className='text-neutral-300'>
+                      For proven performers with track record. Lowest fees in
+                      the industry for elite talent.
+                    </p>
+                    <ul className='space-y-3 text-left flex-1'>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Priority project access</span>
+                      </li>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Dedicated account manager</span>
+                      </li>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Equity opportunity matching</span>
+                      </li>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Long-term retainer priority</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className='pt-6 mt-auto'>
+                    <a
+                      href='mailto:talent@nartaq.com?subject=Elite%20Tier%20Application'
+                      className='w-full inline-block text-center px-6 py-3 bg-gradient-to-r from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] text-black font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-[#a98b5d]/60 border-2 border-[#dcd7ce]/50'
+                    >
+                      Start Earning More
+                    </a>
+                  </div>
+                </MagicCard>
+              </div>
+
+              <div className='reveal-scale h-full'>
+                <MagicCard className='p-8 h-full flex flex-col'>
+                  <div className='flex-1 space-y-6'>
+                    <div className='h-8 flex items-center'>
+                      <div className='bg-[#dcd7ce] text-black px-3 py-1 rounded-full text-sm font-medium inline-block'>
+                        Equity Focus
+                      </div>
+                    </div>
+                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
+                      Equity Projects
+                    </h3>
+                    <div className='text-4xl font-bold text-[#a98b5d]'>
+                      0% fee
+                    </div>
+                    <p className='text-neutral-300'>
+                      Equity participation only. Share in the upside of
+                      high-growth startups you help build.
+                    </p>
+                    <ul className='space-y-3 text-left flex-1'>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Equity-only compensation</span>
+                      </li>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>High-growth startup access</span>
+                      </li>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Co-founder level involvement</span>
+                      </li>
+                      <li className='flex items-center space-x-3'>
+                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
+                        <span>Unicorn potential projects</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className='pt-6 mt-auto'>
+                    <a
+                      href='mailto:talent@nartaq.com?subject=Equity%20Projects%20Interest'
+                      className='w-full inline-block text-center px-6 py-3 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] text-black font-bold rounded-lg hover:from-[#a98b5d] hover:to-[#dcd7ce] transition-all duration-300 shadow-lg hover:shadow-[#dcd7ce]/50'
+                    >
+                      Join Elite Network
+                    </a>
+                  </div>
+                </MagicCard>
+              </div>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className='py-20'>
-          <div className='max-w-4xl mx-auto px-6 text-center reveal-up'>
-            <div className="premium-glass rounded-3xl p-8 md:p-12 border border-[#a98b5d]/20 ">
-              <h2 className='text-4xl md:text-5xl font-light mb-6 text-[#dcd7ce]'>
-                Ready to Join Our{' '}
-                <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent font-medium'>
-                  Elite Network?
-                </span>
-              </h2>
-              
-              <p className='text-xl text-[#5c5d63] font-light mb-8 max-w-2xl mx-auto leading-relaxed'>
-                Connect with premium clients, work on meaningful projects, and earn competitive rates with clear protection.
-              </p>
-              
-              <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-                <ShimmerButton
-                  className='px-8 py-4 text-lg font-semibold'
-                  background='linear-gradient(135deg, #a98b5d 0%, #8a7249 100%)'
-                  shimmerColor='#dcd7ce'
-                >
-                  <a href='mailto:providers@nartaq.com?subject=Provider%20Application%20Request' className='flex items-center space-x-2'>
-                    <span>Apply as Provider</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                </ShimmerButton>
-                <Link
-                  href='/companies-providers'
-                  className='px-8 py-4 rounded-xl font-semibold border-2 border-[#5c5d63]/50 text-[#dcd7ce] hover:border-[#a98b5d] transition-all duration-300 premium-glass'
-                >
-                  Learn About Orchestration
-                </Link>
-              </div>
-              
-              <p className='text-sm text-[#5c5d63] mt-6'>
-                All applications are reviewed confidentially and we maintain strict NDA protection
-              </p>
+        <section className='py-20 bg-gradient-to-b from-black to-[#232428]'>
+          <div className='max-w-4xl mx-auto px-6 text-center'>
+            <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
+              Ready to Work with{' '}
+              <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+                Tomorrow&apos;s Unicorns?
+              </span>
+            </h2>
+            <p className='text-xl text-neutral-300 mb-8 max-w-2xl mx-auto reveal-up'>
+              Join elite service providers who are already earning unicorn-level
+              compensation working on the most exciting projects.
+            </p>
+            <div className='flex flex-col sm:flex-row gap-6 justify-center items-center reveal-scale'>
+              <a
+                href='mailto:talent@nartaq.com?subject=Join%20Elite%20Network%20Request'
+                className='group relative px-8 py-4 text-lg font-bold text-black bg-gradient-to-r from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] rounded-xl shadow-2xl hover:shadow-[#a98b5d]/60 transform hover:scale-105 transition-all duration-500 overflow-hidden border-2 border-[#dcd7ce]/30'
+              >
+                <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] via-white to-[#dcd7ce] opacity-0 group-hover:opacity-30 transition-opacity duration-500'></div>
+                <div className='absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 group-hover:translate-x-full transition-transform duration-1000'></div>
+                <div className='relative flex items-center space-x-3'>
+                  <span className='tracking-wide'>Join Elite Network</span>
+                  <span className='text-xl group-hover:translate-x-2 transition-transform duration-300'>
+                    →
+                  </span>
+                </div>
+              </a>
+              <Link
+                href='/service-providers-companies'
+                className='px-10 py-6 rounded-2xl font-semibold border-2 border-[#5c5d63] text-[#dcd7ce] hover:border-[#a98b5d] hover:bg-gradient-to-r hover:from-[#a98b5d]/20 hover:to-[#dcd7ce]/20 hover:text-[#a98b5d] transition-all duration-500 shadow-lg hover:shadow-[#5c5d63]/40 backdrop-blur-sm'
+              >
+                Browse Projects
+              </Link>
             </div>
+            <p className='text-sm text-neutral-400 mt-6'>
+              Application review within 48 hours for qualified candidates
+            </p>
           </div>
         </section>
       </main>
+
     </div>
-  );
+  )
 }
