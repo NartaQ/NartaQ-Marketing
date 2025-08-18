@@ -33,7 +33,7 @@ export default function FaqSection() {
   ]
 
   return (
-    <section id='faq' className='flex w-full flex-col items-center justify-center p-[2%] py-32 relative'>
+    <section id='faq' className='flex w-full flex-col items-center justify-center p-[2%] py-20 relative'>
       {/* Premium background elements */}
       <div className="absolute inset-0 luxury-texture opacity-20"></div>
       <div className="absolute top-1/5 left-1/4 w-80 h-80 bg-[#a98b5d]/4 rounded-full blur-3xl floating"></div>

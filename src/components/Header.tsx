@@ -76,10 +76,10 @@ export default function Header({ className }: { className?: string }) {
         {/* Desktop CTA Button */}
         <div className='hidden lg:flex'>
           <NavbarButton
-            className='font-serif text-lg text-white bg-[#A98B5D]'
+            className='text-sm text-white bg-[#A98B5D] px-3 py-1.5 font-medium'
             href='/companies-providers#how-it-works'
           >
-            Join the waitlist
+            Join Waitlist
           </NavbarButton>
         </div>
       </NavBody>
