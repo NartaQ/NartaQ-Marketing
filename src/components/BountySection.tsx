@@ -67,15 +67,14 @@ export default function BountySection() {
           <div className='w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
 
           <p className='text-xl text-[#dcd7ce] font-light leading-relaxed max-w-4xl mx-auto'>
-            Startups post precisely scoped micro‑tasks with transparent budget
-            ranges and detailed acceptance criteria.
+            Startups post clear micro-tasks with budget ranges and success
+            criteria.
             <br />
             <br />
             <span className='text-[#a98b5d]/90'>
-              Vetted service providers can apply or submit under
-              first‑acceptable or shortlist‑then‑award rules. All submissions
-              are timestamped and evaluated against pre‑set criteria with
-              automatic payouts on acceptance.
+              Experts can apply or submit work. All submissions get time stamps
+              and reviews against set criteria. Winners get paid when work is
+              approved.
             </span>
           </p>
         </div>

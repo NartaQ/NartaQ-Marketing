@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import {
   Target,
   Users,
@@ -11,13 +12,14 @@ import {
   Globe,
   ArrowRight,
   CheckCircle,
+  Sparkles
 } from 'lucide-react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import { Button } from './ui/button'
 
 export default function CoreToolsShowcase() {
   const [activeTab, setActiveTab] = useState('startups')
+  const [hoveredTool, setHoveredTool] = useState<number | null>(null)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
 
   const tools = [
     {
@@ -121,183 +123,212 @@ export default function CoreToolsShowcase() {
   ]
 
   return (
-    <section className='relative py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-black via-[#232428] to-[#3e3f44]'>
-      {/* Simple Background Elements */}
-      <div className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent z-30' />
-      <div className='absolute top-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#dcd7ce]/60 to-transparent z-30' />
+    <section className="relative py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden">
+      {/* Neon Grid Background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="w-full h-full" style={{
+          backgroundImage: `
+            linear-gradient(rgba(169, 139, 93, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(169, 139, 93, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
+        }} />
+      </div>
 
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
-        {/* Clean Section Header */}
-        <div className='text-center mb-8 sm:mb-12 lg:mb-16 space-y-3 sm:space-y-4'>
-          <div className='inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-[#232428]/80 border border-[#a98b5d]/20 backdrop-blur-sm'>
-            <Zap className='w-3 h-3 sm:w-4 sm:h-4 text-[#a98b5d]' />
-            <span className='text-xs sm:text-sm font-medium text-[#a98b5d]'>
-              CORE TOOLS
-            </span>
+      {/* Floating Geometric Elements */}
+      <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-[#a98b5d]/20 to-[#dcd7ce]/10 rounded-2xl backdrop-blur-xl border border-[#a98b5d]/30 animate-pulse" />
+      <div className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-br from-[#dcd7ce]/20 to-[#a98b5d]/10 rounded-full backdrop-blur-xl border border-[#dcd7ce]/30 animate-pulse" style={{ animationDelay: '1s' }} />
+
+      <div ref={ref} className="max-w-7xl mx-auto px-4 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.2 }}
+          className="text-center mb-20"
+        >
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8">
+            <Zap className="w-4 h-4 text-[#a98b5d]" />
+            <span className="text-sm font-medium text-[#dcd7ce]">CORE TOOLS</span>
           </div>
-          <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-[#dcd7ce] px-4'>
-            <span className='text-[#a98b5d] font-semibold'>Powerful Tools</span>{' '}
-            for Every User
+          
+          <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+            <span className="text-[#dcd7ce]">Powerful Tools </span>
+            <br />
+            <span className="bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent">
+              for Every User
+            </span>
           </h2>
-          <p className='text-base sm:text-lg text-[#5c5d63] max-w-3xl mx-auto px-4'>
-            Tailored functionality that adapts to your specific needs and
-            workflow
+          
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Tailored functionality that adapts to your specific needs and workflow
           </p>
-        </div>
+        </motion.div>
 
-        {/* Tools Showcase */}
-        <div className='max-w-6xl mx-auto'>
-          <Tabs
-            value={activeTab}
-            onValueChange={setActiveTab}
-            className='w-full'
-          >
-            {/* Enhanced Tab Navigation */}
-            <div className='flex justify-center mb-8 sm:mb-10 lg:mb-12 px-4'>
-              <div className='inline-flex p-1 sm:p-1.5 rounded-xl sm:rounded-2xl bg-[#1a1b1f]/90 border border-[#a98b5d]/30 backdrop-blur-sm shadow-lg w-full max-w-md sm:max-w-none sm:w-auto'>
-                <TabsList className='grid grid-cols-3 bg-transparent p-0 h-auto gap-1 sm:gap-2 w-full'>
-                  <TabsTrigger
-                    value='startups'
-                    className='flex items-center gap-1 sm:gap-2 px-2 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-3.5 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#a98b5d] data-[state=active]:to-[#c4a574] data-[state=active]:text-black data-[state=active]:shadow-xl data-[state=active]:shadow-[#a98b5d]/30 data-[state=active]:scale-105 data-[state=active]:border data-[state=active]:border-[#dcd7ce]/20 text-[#8a8a8a] hover:text-[#dcd7ce] hover:bg-[#a98b5d]/15 border-0 relative overflow-hidden'
-                  >
-                    <Users className='w-3 h-3 sm:w-4 sm:h-4 relative z-10 flex-shrink-0' />
-                    <span className='relative z-10 hidden xs:inline sm:inline'>
-                      Startups
-                    </span>
-                    <div className='absolute inset-0 bg-gradient-to-r from-[#a98b5d]/0 via-[#a98b5d]/5 to-[#a98b5d]/0 opacity-0 data-[state=active]:opacity-100 transition-opacity duration-300' />
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value='investors'
-                    className='flex items-center gap-1 sm:gap-2 px-2 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-3.5 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#a98b5d] data-[state=active]:to-[#c4a574] data-[state=active]:text-black data-[state=active]:shadow-xl data-[state=active]:shadow-[#a98b5d]/30 data-[state=active]:scale-105 data-[state=active]:border data-[state=active]:border-[#dcd7ce]/20 text-[#8a8a8a] hover:text-[#dcd7ce] hover:bg-[#a98b5d]/15 border-0 relative overflow-hidden'
-                  >
-                    <Target className='w-3 h-3 sm:w-4 sm:h-4 relative z-10 flex-shrink-0' />
-                    <span className='relative z-10 hidden xs:inline sm:inline'>
-                      Investors
-                    </span>
-                    <div className='absolute inset-0 bg-gradient-to-r from-[#a98b5d]/0 via-[#a98b5d]/5 to-[#a98b5d]/0 opacity-0 data-[state=active]:opacity-100 transition-opacity duration-300' />
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value='providers'
-                    className='flex items-center gap-1 sm:gap-2 px-2 sm:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-3.5 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#a98b5d] data-[state=active]:to-[#c4a574] data-[state=active]:text-black data-[state=active]:shadow-xl data-[state=active]:shadow-[#a98b5d]/30 data-[state=active]:scale-105 data-[state=active]:border data-[state=active]:border-[#dcd7ce]/20 text-[#8a8a8a] hover:text-[#dcd7ce] hover:bg-[#a98b5d]/15 border-0 relative overflow-hidden'
-                  >
-                    <Settings className='w-3 h-3 sm:w-4 sm:h-4 relative z-10 flex-shrink-0' />
-                    <span className='relative z-10 hidden xs:inline sm:inline'>
-                      Providers
-                    </span>
-                    <div className='absolute inset-0 bg-gradient-to-r from-[#a98b5d]/0 via-[#a98b5d]/5 to-[#a98b5d]/0 opacity-0 data-[state=active]:opacity-100 transition-opacity duration-300' />
-                  </TabsTrigger>
-                </TabsList>
-              </div>
+        {/* Interactive Tab Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.4 }}
+          className="flex justify-center mb-16"
+        >
+          <div className="flex items-center bg-black/60 backdrop-blur-xl rounded-2xl p-2 border border-[#333]">
+            {[
+              { value: 'startups', icon: Users, label: 'Startups' },
+              { value: 'investors', icon: Target, label: 'Investors' },
+              { value: 'providers', icon: Settings, label: 'Providers' }
+            ].map((tab) => (
+              <motion.button
+                key={tab.value}
+                onClick={() => setActiveTab(tab.value)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`
+                  relative flex items-center gap-3 px-6 py-4 rounded-xl transition-all duration-300
+                  ${activeTab === tab.value 
+                    ? 'bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black shadow-xl' 
+                    : 'text-[#dcd7ce]/80 hover:text-[#dcd7ce] hover:bg-[#a98b5d]/10'
+                  }
+                `}
+              >
+                <tab.icon className="w-5 h-5" />
+                <span className="font-semibold">{tab.label}</span>
+                
+                {activeTab === tab.value && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] rounded-xl -z-10"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Tools Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6 }}
+          className="grid lg:grid-cols-3 gap-8 mb-20"
+        >
+          {tools.map((tool, index) => {
+            const toolData = tool[activeTab as keyof typeof tool] as {
+              title: string
+              description: string
+              features: string[]
+            }
+            const Icon = tool.icon
+
+            return (
+              <motion.div
+                key={`${activeTab}-${index}`}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 + index * 0.2 }}
+                className="group relative"
+                onMouseEnter={() => setHoveredTool(index)}
+                onMouseLeave={() => setHoveredTool(null)}
+              >
+                <div className="relative h-full bg-gradient-to-br from-black/60 to-[#0a0a0a]/80 backdrop-blur-xl rounded-3xl border border-[#333]/50 overflow-hidden hover:border-[#a98b5d]/50 transition-all duration-500 p-8">
+                  {/* Tool Icon */}
+                  <div className="mb-6">
+                    <div className="relative w-16 h-16 bg-gradient-to-br from-[#a98b5d]/20 to-[#dcd7ce]/10 rounded-2xl backdrop-blur-xl border border-[#a98b5d]/30 flex items-center justify-center">
+                      <Icon className="w-8 h-8 text-[#a98b5d]" />
+                      
+                      {/* Glow effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#a98b5d]/10 to-[#dcd7ce]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-[#dcd7ce] mb-2 group-hover:text-[#a98b5d] transition-colors duration-300">
+                        {tool.name}
+                      </h3>
+                      <h4 className="text-lg font-semibold text-[#a98b5d] mb-3 leading-tight">
+                        {toolData.title}
+                      </h4>
+                    </div>
+
+                    <p className="text-gray-400 leading-relaxed">
+                      {toolData.description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="space-y-2">
+                      {toolData.features.map((feature: string, featureIndex: number) => (
+                        <motion.div
+                          key={featureIndex}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 1 + index * 0.2 + featureIndex * 0.1 }}
+                          className="flex items-center gap-3"
+                        >
+                          <CheckCircle className="w-4 h-4 text-[#a98b5d] flex-shrink-0" />
+                          <span className="text-sm text-[#dcd7ce]/90">{feature}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* CTA Button */}
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full mt-6 px-6 py-3 bg-transparent border-2 border-[#a98b5d]/30 text-[#a98b5d] font-semibold rounded-xl hover:border-[#a98b5d] hover:bg-[#a98b5d]/10 transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                      Explore {tool.name}
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                    </motion.button>
+                  </div>
+
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl bg-gradient-to-br from-[#a98b5d]/30 to-[#dcd7ce]/20" />
+                </div>
+              </motion.div>
+            )
+          })}
+        </motion.div>
+
+        {/* Tab-specific CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 1.4 }}
+          className="text-center"
+        >
+          <div className="max-w-2xl mx-auto bg-gradient-to-br from-black/60 to-[#0a0a0a]/80 backdrop-blur-xl rounded-3xl border border-[#333]/50 p-8">
+            <div className="mb-6">
+              <Sparkles className="w-8 h-8 text-[#a98b5d] mx-auto mb-4" />
+              <h3 className="text-3xl font-bold text-[#dcd7ce] mb-4">
+                {activeTab === 'startups' && 'Ready to accelerate your fundraising?'}
+                {activeTab === 'investors' && 'Ready to discover better deals?'}
+                {activeTab === 'providers' && 'Ready to grow your practice?'}
+              </h3>
+              <p className="text-gray-400 leading-relaxed">
+                {activeTab === 'startups' && 'Join thousands of startups who\'ve raised faster with our platform'}
+                {activeTab === 'investors' && 'Access curated deal flow that matches your investment thesis'}
+                {activeTab === 'providers' && 'Connect with funded startups that need your expertise'}
+              </p>
             </div>
 
-            {/* Tab Content */}
-            {['startups', 'investors', 'providers'].map((tabValue) => (
-              <TabsContent
-                key={tabValue}
-                value={tabValue}
-                className='space-y-6 sm:space-y-8 px-4'
-              >
-                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 auto-rows-fr'>
-                  {tools.map((tool, index) => {
-                    const toolData = tool[tabValue as keyof typeof tool] as {
-                      title: string
-                      description: string
-                      features: string[]
-                    }
-                    const Icon = tool.icon
-
-                    return (
-                      <Card
-                        key={index}
-                        className='group hover:shadow-xl hover:shadow-[#a98b5d]/10 hover:-translate-y-1 transition-all duration-300 border-[#a98b5d]/20 bg-[#232428]/60 backdrop-blur-sm hover:border-[#a98b5d]/40 flex flex-col h-full'
-                      >
-                        <CardHeader className='pb-3 sm:pb-4 flex-shrink-0'>
-                          <div className='flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3'>
-                            <div className='w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#a98b5d]/10 flex items-center justify-center border border-[#a98b5d]/20 group-hover:bg-[#a98b5d]/20 group-hover:border-[#a98b5d]/40 transition-all duration-300 flex-shrink-0'>
-                              <Icon className='w-5 h-5 sm:w-6 sm:h-6 text-[#a98b5d] group-hover:scale-110 transition-transform duration-300' />
-                            </div>
-                            <CardTitle className='text-lg sm:text-xl text-[#dcd7ce] group-hover:text-[#a98b5d] transition-colors duration-300 leading-tight'>
-                              {tool.name}
-                            </CardTitle>
-                          </div>
-                          <h4 className='text-base sm:text-lg font-semibold text-[#a98b5d] leading-tight'>
-                            {toolData.title}
-                          </h4>
-                        </CardHeader>
-                        <CardContent className='space-y-3 sm:space-y-4 flex-grow flex flex-col'>
-                          <p className='text-sm sm:text-base text-[#5c5d63] leading-relaxed flex-shrink-0'>
-                            {toolData.description}
-                          </p>
-
-                          {/* Features List */}
-                          <div className='space-y-1.5 sm:space-y-2 flex-grow'>
-                            {toolData.features.map(
-                              (feature: string, featureIndex: number) => (
-                                <div
-                                  key={featureIndex}
-                                  className='flex items-center gap-2'
-                                >
-                                  <CheckCircle className='w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#a98b5d] flex-shrink-0' />
-                                  <span className='text-xs sm:text-sm text-[#dcd7ce] leading-relaxed'>
-                                    {feature}
-                                  </span>
-                                </div>
-                              )
-                            )}
-                          </div>
-
-                          {/* CTA Button */}
-                          <Button
-                            variant='outline'
-                            className='w-full mt-3 sm:mt-4 border-[#a98b5d]/30 text-[#a98b5d] hover:bg-[#a98b5d]/10 hover:border-[#a98b5d]/50 group/btn transition-all duration-200 flex-shrink-0 text-sm sm:text-base py-2 sm:py-2.5'
-                          >
-                            <span className='hidden sm:inline'>
-                              Explore {tool.name}
-                            </span>
-                            <span className='sm:hidden'>Explore</span>
-                            <ArrowRight className='w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1.5 sm:ml-2 group-hover/btn:translate-x-1 transition-transform duration-200' />
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    )
-                  })}
-                </div>
-
-                {/* Tab-specific CTA */}
-                <div className='text-center mt-8 sm:mt-10 lg:mt-12'>
-                  <Card className='max-w-2xl mx-auto border-[#a98b5d]/20 bg-[#232428]/50 backdrop-blur-sm'>
-                    <CardContent className='p-4 sm:p-6 lg:p-8 text-center space-y-3 sm:space-y-4'>
-                      <h3 className='text-lg sm:text-xl lg:text-2xl font-semibold text-[#dcd7ce] leading-tight'>
-                        {tabValue === 'startups' &&
-                          'Ready to accelerate your fundraising?'}
-                        {tabValue === 'investors' &&
-                          'Ready to discover better deals?'}
-                        {tabValue === 'providers' &&
-                          'Ready to grow your practice?'}
-                      </h3>
-                      <p className='text-sm sm:text-base text-[#5c5d63] max-w-xl mx-auto leading-relaxed'>
-                        {tabValue === 'startups' &&
-                          "Join thousands of startups who've raised faster with our platform"}
-                        {tabValue === 'investors' &&
-                          'Access curated deal flow that matches your investment thesis'}
-                        {tabValue === 'providers' &&
-                          'Connect with funded startups that need your expertise'}
-                      </p>
-                      <Button
-                        size='lg'
-                        className='bg-[#a98b5d] text-black hover:bg-[#dcd7ce] font-semibold px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base'
-                      >
-                        {tabValue === 'startups' && 'Start Fundraising'}
-                        {tabValue === 'investors' && 'Browse Deals'}
-                        {tabValue === 'providers' && 'List Your Services'}
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-            ))}
-          </Tabs>
-        </div>
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(169, 139, 93, 0.3)' }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl shadow-xl overflow-hidden relative group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <span className="relative flex items-center gap-2">
+                {activeTab === 'startups' && 'Start Fundraising'}
+                {activeTab === 'investors' && 'Browse Deals'}
+                {activeTab === 'providers' && 'List Your Services'}
+                <ArrowRight className="w-5 h-5" />
+              </span>
+            </motion.button>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

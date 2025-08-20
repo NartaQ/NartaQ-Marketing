@@ -1,17 +1,18 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { useState, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
+import { ArrowRight, Users, Rocket, Target, Sparkles } from 'lucide-react'
 
 const stories = [
   {
     id: 'investor',
-    title: 'The Investor',
+    title: 'Smart Investors',
+    icon: Target,
     problem: {
       title: "You've seen it all.",
       description:
-        "As an investor, you've sorted through hundreds of pitch decks, but the perfect startup remains a ghost. You're exhausted from chasing leads and doing due diligence on half-baked ideas.",
+        "You've read hundreds of pitch decks, but the perfect startup stays hidden. You're tired of chasing leads and checking half-baked ideas.",
     },
     solution: {
       title: 'The next unicorn is just a click away',
@@ -19,14 +20,16 @@ const stories = [
     },
     color: 'from-[#a98b5d] to-[#dcd7ce]',
     bgGradient: 'from-[#a98b5d]/10 to-[#dcd7ce]/10',
+    glowColor: '#a98b5d',
   },
   {
     id: 'founder',
-    title: 'The Startup Founder',
+    title: 'Funded Startups',
+    icon: Rocket,
     problem: {
       title: 'The fundraising treadmill never stops.',
       description:
-        "As a startup founder, you've spent months on the fundraising treadmill. It's a full-time job that keeps you from building your company.",
+        "You've spent months raising money. It's a full-time job that keeps you from building your company.",
     },
     solution: {
       title: 'You spend less time pitching and more time growing',
@@ -34,27 +37,32 @@ const stories = [
     },
     color: 'from-[#5c5d63] to-[#a98b5d]',
     bgGradient: 'from-[#5c5d63]/10 to-[#a98b5d]/10',
+    glowColor: '#5c5d63',
   },
   {
     id: 'provider',
-    title: 'The Service Provider',
+    title: 'Expert Providers',
+    icon: Users,
     problem: {
       title: 'Talent without the right connections.',
       description:
-        "As a service provider, you're a top-tier consultant with incredible talent, but finding high-quality clients is a constant struggle. You're tired of competing on price and want to connect with startups that value your expertise.",
+        "You're a top consultant with great skills, but finding good clients is hard. You're tired of competing on price. You want clients who value your work.",
     },
     solution: {
       title: 'Your next big project finds you',
       description:
         'So you can stop chasing leads and start doing what you do best.',
     },
-    color: 'from-[#3e3f44] to-[#5c5d63]',
-    bgGradient: 'from-[#3e3f44]/10 to-[#5c5d63]/10',
+    color: 'from-[#dcd7ce] to-[#a98b5d]',
+    bgGradient: 'from-[#dcd7ce]/10 to-[#a98b5d]/10',
+    glowColor: '#dcd7ce',
   },
 ]
 
 export default function StorytellingSection() {
-  const [, setActiveStory] = useState(0)
+  const [activeStory, setActiveStory] = useState(0)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
 
   return (
     <section className='relative overflow-hidden py-8 bg-gradient-to-b from-black via-[#0f0f10] to-[#1a1b1f]'>
@@ -75,13 +83,21 @@ export default function StorytellingSection() {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className='text-center mb-12'
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.2 }}
+          className='text-center mb-20'
         >
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-[#dcd7ce] via-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-            Three Stories, One Solution
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8">
+            <Sparkles className="w-4 h-4 text-[#a98b5d]" />
+            <span className="text-sm font-medium text-[#dcd7ce]">THREE ELITE NETWORKS</span>
+          </div>
+          
+          <h2 className='text-5xl md:text-6xl font-bold leading-tight mb-6'>
+            <span className='text-[#dcd7ce]'>Built for </span>
+            <br />
+            <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+              Different Goals
+            </span>
           </h2>
           <p className='text-lg text-[#dcd7ce]/80 max-w-2xl mx-auto'>
             Each day, brilliant minds face the same challenges. Here are their
@@ -89,66 +105,64 @@ export default function StorytellingSection() {
           </p>
         </motion.div>
 
-        {/* Story Cards */}
-        <div className='grid lg:grid-cols-3 gap-6 mb-16'>
+        {/* Interactive Story Grid */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-20">
           {stories.map((story, index) => (
             <motion.div
               key={story.id}
               initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className='group relative'
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.4 + index * 0.2 }}
+              className="group relative"
               onMouseEnter={() => setActiveStory(index)}
             >
-              {/* Magic Card Effect */}
-              <div className='relative bg-gradient-to-br from-[#232428]/80 to-[#3e3f44]/60 backdrop-blur-xl rounded-2xl p-6 border border-[#5c5d63]/50 hover:border-[#a98b5d]/50 transition-all duration-500 overflow-hidden'>
-                {/* Animated Background Gradient */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${story.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                />
+              <div className="relative h-96 bg-gradient-to-br from-black/60 to-[#0a0a0a]/80 backdrop-blur-xl rounded-3xl border border-[#333]/50 overflow-hidden hover:border-[#a98b5d]/50 transition-all duration-500">
+                {/* Story Icon */}
+                <div className="absolute top-6 left-6">
+                  <div className={`p-3 rounded-xl bg-gradient-to-br ${story.bgGradient} backdrop-blur-xl border border-white/10`}>
+                    <story.icon 
+                      className={`w-6 h-6`}
+                      style={{ color: story.glowColor }}
+                    />
+                  </div>
+                </div>
 
                 {/* Content */}
-                <div className='relative z-10'>
-                  {/* Header */}
-                  <div className='mb-6'>
-                    <div
-                      className={`w-12 h-1 bg-gradient-to-r ${story.color} rounded-full mb-4 group-hover:w-16 transition-all duration-300`}
-                    />
-                    <h3 className='text-xl font-bold text-[#dcd7ce]'>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="mb-4">
+                    <h3 className="text-2xl font-bold text-[#dcd7ce] mb-2">
                       {story.title}
                     </h3>
+                    <div className={`w-12 h-1 rounded-full bg-gradient-to-r ${story.color}`} />
                   </div>
 
-                  {/* Problem */}
-                  <div className='mb-6'>
-                    <h4 className='text-lg font-semibold text-[#a98b5d] mb-3'>
-                      {story.problem.title}
-                    </h4>
-                    <p className='text-sm text-[#dcd7ce]/80 leading-relaxed'>
+                  {/* Problem Section */}
+                  <div className="mb-4">
+                    <p className="text-sm text-gray-400 mb-2">The Challenge:</p>
+                    <p className="text-[#dcd7ce]/90 text-sm leading-relaxed">
                       {story.problem.description}
                     </p>
                   </div>
 
-                  {/* Divider */}
-                  <div className='w-full h-px bg-gradient-to-r from-transparent via-[#5c5d63] to-transparent mb-6' />
-
-                  {/* Solution */}
-                  <div>
-                    <h4 className='text-lg font-semibold text-[#a98b5d] mb-3'>
-                      What if...
-                    </h4>
-                    <p className='text-sm text-[#dcd7ce] font-semibold leading-relaxed mb-2'>
-                      {story.solution.title}
+                  {/* Solution Preview */}
+                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-[#a98b5d]/50 to-transparent mb-3" />
+                    <p className="text-sm text-[#a98b5d] font-semibold mb-1">
+                      The Solution:
                     </p>
-                    <p className='text-sm text-[#dcd7ce]/80'>
+                    <p className="text-[#dcd7ce] text-sm leading-relaxed">
                       {story.solution.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Hover Border Effect */}
-                <div className='absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#a98b5d]/30 transition-colors duration-500' />
+                {/* Glow effect on hover */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl"
+                  style={{
+                    background: `radial-gradient(circle at center, ${story.glowColor}40 0%, transparent 70%)`
+                  }}
+                />
               </div>
             </motion.div>
           ))}
@@ -157,26 +171,31 @@ export default function StorytellingSection() {
         {/* Transformation Section */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className='text-center mb-16'
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ delay: 1 }}
+          className="text-center"
         >
-          {/* Transformation Divider */}
-          <div className='flex items-center justify-center mb-8'>
-            <div className='flex-1 h-px bg-gradient-to-r from-transparent to-[#5c5d63]' />
-            <div className='mx-8 w-3 h-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] rounded-full shadow-lg' />
-            <div className='flex-1 h-px bg-gradient-to-l from-transparent to-[#5c5d63]' />
+          {/* Animated Divider */}
+          <div className="flex items-center justify-center mb-12">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#333]" />
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="mx-8 w-8 h-8 bg-gradient-to-br from-[#a98b5d] to-[#dcd7ce] rounded-xl shadow-lg backdrop-blur-xl border border-[#a98b5d]/30"
+            />
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#333]" />
           </div>
 
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className='text-2xl md:text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r from-[#dcd7ce] via-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 1.2 }}
+            className="text-4xl md:text-5xl font-bold mb-8"
           >
-            Imagine a world where...
+            <span className="text-[#dcd7ce]">This is </span>
+            <span className="bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent">
+              Nartaq
+            </span>
           </motion.h3>
 
           <div className='grid md:grid-cols-3 gap-4 mb-8'>
@@ -252,14 +271,36 @@ export default function StorytellingSection() {
             whileTap={{ scale: 0.95 }}
             className='group relative px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-[#232428] font-bold text-base rounded-full shadow-lg transition-all duration-300 overflow-hidden'
           >
-            {/* Button shine effect */}
-            <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700' />
-
-            <span className='relative flex items-center'>
-              Start Your Story
-              <ArrowRight className='ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform' />
-            </span>
+            Where perfect matches happen effortlessly, and every connection creates extraordinary value.
           </motion.button>
+
+          {/* Call to Action */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 1.6 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(169, 139, 93, 0.3)' }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-full shadow-xl overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <span className="relative flex items-center">
+                Start Your Journey
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-transparent border-2 border-[#a98b5d]/50 text-[#dcd7ce] font-semibold rounded-full hover:border-[#a98b5d] hover:bg-[#a98b5d]/10 transition-all duration-300"
+            >
+              View Success Stories
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </section>

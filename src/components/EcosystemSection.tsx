@@ -14,28 +14,25 @@ export default function EcosystemSection() {
 
       <div className='max-w-6xl mx-auto text-center space-y-8 relative z-10'>
         {/* Premium section header */}
-        <div className='space-y-6'>
-          <div className='flex justify-center mb-4'>
-            <div className='premium-glass px-8 py-3 rounded-full border border-[#a98b5d]/20'>
-              <span className='text-sm font-medium text-[#a98b5d] tracking-wider'>
-                TWO EXCLUSIVE PATHS
+        <div className="space-y-6 reveal-up">
+          <div className="flex justify-center mb-4">
+            <div className="premium-glass px-8 py-3 rounded-full border border-[#a98b5d]/20">
+              <span className="text-sm font-medium text-[#a98b5d] tracking-wider">
+                NOT THE USUAL APPROACH
               </span>
             </div>
           </div>
-
-          <h2 className='text-4xl md:text-5xl font-light text-[#dcd7ce]'>
-            An{' '}
-            <span className='font-medium text-[#a98b5d] '>
-              innovative ecosystem
-            </span>
+          
+          <h2 className="text-4xl md:text-5xl font-light text-[#dcd7ce]">
+            We don't do <span className="font-medium text-[#a98b5d]">everything</span> for <span className="font-medium text-[#a98b5d]">everyone</span>
           </h2>
-
-          <div className='w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
-
-          <p className='text-xl text-[#dcd7ce] font-light leading-relaxed max-w-2xl mx-auto'>
-            Two complementary axes under one premium platform.
+          
+          <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto"></div>
+          
+          <p className="text-xl text-[#dcd7ce] font-light leading-relaxed max-w-2xl mx-auto">
+            Two big problems. Two focused solutions.
             <br />
-            Choose your exclusive pathway.
+            Choose the one that matters to you.
           </p>
         </div>
       </div>

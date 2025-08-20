@@ -61,8 +61,9 @@ export default function FaqSection() {
           <div className='w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
 
           <p className='text-xl text-[#dcd7ce] font-light leading-relaxed max-w-3xl mx-auto'>
-            Everything you need to know about our premium bounty system,
-            orchestration services, and trust-first approach.
+            You have concerns. We have specific answers.
+            <br />
+            No fluff, no corporate speak.
           </p>
         </div>
       </div>

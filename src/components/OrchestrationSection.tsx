@@ -9,26 +9,26 @@ import {
 export default function OrchestrationSection() {
   const orchestrationSteps = [
     {
-      title: 'Scope Definition',
-      desc: 'Crystal-clear deliverables, acceptance criteria, and precision timelines with immutable documentation.',
+      title: 'Define Scope',
+      desc: 'Clear deliverables, success criteria, and timeline with locked documentation.',
       icon: 'target',
       color: 'from-[#a98b5d]/10 via-[#a98b5d]/5 to-transparent',
     },
     {
-      title: 'Elite Assignment',
-      desc: 'Curated vetted service providers or specialized micro‑teams matched precisely to your requirements.',
+      title: 'Match Expert',
+      desc: 'Vetted service providers or teams matched to your exact needs.',
       icon: 'users',
       color: 'from-[#dcd7ce]/10 via-[#dcd7ce]/5 to-transparent',
     },
     {
       title: 'Premium Delivery',
-      desc: 'Milestone reviews with comprehensive audit trails, approval gates, and white-glove quality assurance.',
+      desc: 'Milestone reviews with audit trails, approval gates, and quality checks.',
       icon: 'checkcircle',
       color: 'from-[#5c5d63]/15 via-[#5c5d63]/8 to-transparent',
     },
     {
-      title: 'Secure Release',
-      desc: 'Sophisticated staged payouts with optional intermediation for complex work and dispute protection.',
+      title: 'Secure Payment',
+      desc: 'Staged payouts with optional support for complex work and disputes.',
       icon: 'creditcard',
       color: 'from-[#a98b5d]/12 via-[#a98b5d]/6 to-transparent',
     },

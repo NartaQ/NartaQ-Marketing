@@ -4,19 +4,19 @@ export default function TrustComplianceSection() {
   const trustFeatures = [
     {
       title: 'Elite Verification',
-      desc: 'Multi-layer identity and business verification with credential checks and professional references.',
+      desc: 'Multi-layer identity checks with credential verification and professional references.',
       iconName: 'shield',
       color: 'from-[#a98b5d]/20 to-[#a98b5d]/5',
     },
     {
       title: 'Premium Security',
-      desc: 'EU data residency, end-to-end encryption, NDAs, and optional intellectual property escrow.',
+      desc: 'EU data residency, full encryption, NDAs, and optional IP escrow.',
       iconName: 'lock',
       color: 'from-[#dcd7ce]/20 to-[#dcd7ce]/5',
     },
     {
-      title: 'Concierge Resolution',
-      desc: 'White-glove dispute handling with structured evidence review and expedited arbitration.',
+      title: 'White-Glove Resolution',
+      desc: 'Expert dispute handling with evidence review and fast arbitration.',
       iconName: 'scale',
       color: 'from-[#5c5d63]/30 to-[#5c5d63]/10',
     },

@@ -118,8 +118,8 @@ export default function ForStartupsPage() {
               without equity dilution.
             </h1>
             <p className='text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-              Skip the 18-month fundraising cycle and months of hiring. Connect
-              with pre-qualified investors and hire unicorn-level talent who
+              Skip 18 months of fundraising and hiring. Connect
+              with qualified investors and hire top talent who
               built Google, Stripe, and Airbnb.
             </p>
             <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 reveal-scale'>
@@ -212,22 +212,21 @@ export default function ForStartupsPage() {
                       </h3>
                     </div>
                     <p className='text-lg text-neutral-300 leading-relaxed'>
-                      Connect with pre-qualified investors who invest in your
-                      stage and sector. Skip cold outreach and get warm
+                      Connect with qualified investors who fund your
+                      stage and sector. Skip cold emails and get warm
                       introductions to the right VCs.
                     </p>
                     <ul className='space-y-4'>
                       <li className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#a98b5d] rounded-full mt-2'></div>
                         <span className='text-neutral-300'>
-                          AI-powered investor matching based on your startup DNA
+                          AI-powered investor matching based on your startup profile
                         </span>
                       </li>
                       <li className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#a98b5d] rounded-full mt-2'></div>
                         <span className='text-neutral-300'>
-                          Pitch deck optimization and investor readiness
-                          assessment
+                          Pitch deck help and investor readiness check
                         </span>
                       </li>
                       <li className='flex items-start space-x-3'>
