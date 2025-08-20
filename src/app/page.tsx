@@ -1,19 +1,16 @@
-import Header from '../components/Header'
-import HeroSection from '../components/HeroSection'
 import StorytellingSection from '../components/StorytellingSection'
 
 import CoreToolsShowcase from '../components/CoreToolsShowcase'
 import IndustryVerticals from '../components/IndustryVerticals'
 
-import EcosystemSection from '../components/EcosystemSection'
-import TrustComplianceSection from '../components/TrustComplianceSection'
-import OrchestrationSection from '../components/OrchestrationSection'
 import BountySection from '../components/BountySection'
-import ResourceHub from '../components/ResourceHub'
-import FinalCTASection from '../components/FinalCTASection'
+import EcosystemSection from '../components/EcosystemSection'
 import FaqSection from '../components/FaqSection'
-import BlogSection from '../components/BlogSection'
+import FinalCTASection from '../components/FinalCTASection'
 import NewsletterSection from '../components/NewsletterSection'
+import OrchestrationSection from '../components/OrchestrationSection'
+import ResourceHub from '../components/ResourceHub'
+import TrustComplianceSection from '../components/TrustComplianceSection'
 
 import PremiumParticles from '../components/ui/premium-particles'
 
@@ -48,13 +45,13 @@ export default function Home() {
       {/* Header */}
 
       {/* Main Content Sections */}
-      {/* <HeroSection /> */}
+
       <HookText />
-      {/* <FlipStackDemo /> */}
+
       <StorytellingSection />
       <CoreToolsShowcase />
       <IndustryVerticals />
-      {/* Original Existing Sections */}
+
       <EcosystemSection />
       <BountySection />
       <OrchestrationSection />

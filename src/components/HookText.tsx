@@ -3,7 +3,7 @@
 import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import { motion } from 'framer-motion'
-import { Briefcase, Rocket, Sparkles, Target } from 'lucide-react'
+import { Briefcase, Rocket, Target } from 'lucide-react'
 import { LampContainer } from './ui/lamp'
 
 export default function HookText() {

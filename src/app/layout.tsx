@@ -5,8 +5,6 @@ import { Playfair_Display, Source_Sans_3 } from 'next/font/google'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-import { Spotlight } from '@/components/ui/spotlight-new'
-
 const fontSans = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-serif',
