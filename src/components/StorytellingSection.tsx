@@ -11,7 +11,7 @@ const stories = [
     problem: {
       title: "You've seen it all.",
       description:
-        "As an investor, you've sorted through hundreds of pitch decks, but the perfect startup remains a ghost. You're exhausted from chasing leads and conducting due diligence on half-baked ideas.",
+        "As an investor, you've sorted through hundreds of pitch decks, but the perfect startup remains a ghost. You're exhausted from chasing leads and doing due diligence on half-baked ideas.",
     },
     solution: {
       title: 'The next unicorn is just a click away',
@@ -30,7 +30,7 @@ const stories = [
     },
     solution: {
       title: 'You spend less time pitching and more time growing',
-      description: 'connecting with the right investors from day one.',
+      description: 'Connect with the right investors from day one.',
     },
     color: 'from-[#5c5d63] to-[#a98b5d]',
     bgGradient: 'from-[#5c5d63]/10 to-[#a98b5d]/10',
@@ -41,12 +41,12 @@ const stories = [
     problem: {
       title: 'Talent without the right connections.',
       description:
-        "As a service provider, you're a top-tier consultant with incredible talent, but finding high-quality clients is a constant struggle. You're tired of competing on price and want to connect with startups that truly value your expertise.",
+        "As a service provider, you're a top-tier consultant with incredible talent, but finding high-quality clients is a constant struggle. You're tired of competing on price and want to connect with startups that value your expertise.",
     },
     solution: {
       title: 'Your next big project finds you',
       description:
-        'so you can stop chasing leads and start doing what you do best.',
+        'So you can stop chasing leads and start doing what you do best.',
     },
     color: 'from-[#3e3f44] to-[#5c5d63]',
     bgGradient: 'from-[#3e3f44]/10 to-[#5c5d63]/10',
@@ -77,7 +77,7 @@ export default function StorytellingSection() {
             Three Stories, One Solution
           </h2>
           <p className='text-lg text-[#dcd7ce]/80 max-w-2xl mx-auto'>
-            Every day, brilliant minds face the same challenges. Here are their
+            Each day, brilliant minds face the same challenges. Here are their
             stories.
           </p>
         </motion.div>
@@ -232,8 +232,8 @@ export default function StorytellingSection() {
           </div>
 
           <p className='text-lg text-[#dcd7ce]/80 max-w-3xl mx-auto leading-relaxed mb-8'>
-            Where perfect matches happen effortlessly, and every connection
-            creates extraordinary value.
+            Where perfect matches happen effortlessly. Every connection creates
+            extraordinary value.
           </p>
 
           {/* CTA Button */}

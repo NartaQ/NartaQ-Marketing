@@ -64,7 +64,7 @@ export default function Home() {
       <FinalCTASection />
       {/* Footer Sections */}
       <FaqSection />
-      <BlogSection />
+
       <NewsletterSection />
     </div>
   )

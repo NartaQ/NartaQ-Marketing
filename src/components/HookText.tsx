@@ -64,9 +64,9 @@ export default function HookText() {
                 delay={2.5}
                 className='text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-[#8a8b90] leading-relaxed'
               >
-                Whether you're seeking investment, looking to hire, or ready to
-                work, our platform bridges the gap between capital, projects,
-                and people.
+                Whether you seek investment, look to hire, or are ready to work,
+                our platform bridges the gap between capital, projects, and
+                people.
               </TextAnimate>
             </motion.div>
           </div>

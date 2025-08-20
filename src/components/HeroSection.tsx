@@ -155,7 +155,7 @@ export default function HeroSection() {
                 className='text-lg md:text-xl max-w-3xl mx-auto opacity-80'
                 style={{ color: '#5c5d63ff' }}
               >
-                A trust‑driven matching layer for discerning professionals.
+                Trust‑driven matches for smart professionals.
               </p>
             </div>
           </>
@@ -199,7 +199,7 @@ export default function HeroSection() {
                   className='text-xl md:text-2xl font-light leading-relaxed opacity-90 reveal-up'
                   style={{ color: '#a98b5dcc' }}
                 >
-                  The trust-driven platform connecting ambitious startups
+                  The trust-driven platform connects ambitious startups
                   <br className='hidden md:block' />
                   with smart investors and expert providers who deliver.
                 </p>
@@ -207,7 +207,7 @@ export default function HeroSection() {
                   className='text-base md:text-lg font-light opacity-75 reveal-up'
                   style={{ color: '#dcd7ce99' }}
                 >
-                  No more wasted time. No more broken promises. Just results.
+                  No wasted time. No broken promises. Just results.
                 </p>
               </div>
 
@@ -226,13 +226,13 @@ export default function HeroSection() {
                       className='text-sm font-bold leading-tight tracking-wide'
                       style={{ color: '#a98b5d' }}
                     >
-                      "Great ideas die in inbox silence"
+                      "Great ideas die in silence"
                     </p>
                     <p
                       className='text-xs font-medium opacity-80'
                       style={{ color: '#dcd7ce' }}
                     >
-                      500+ investor emails sent. 12 replies. 0 meetings.
+                      Sent 500+ investor emails. Got 12 replies. 0 meetings.
                     </p>
                   </div>
                   <div className='w-16 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
@@ -242,7 +242,7 @@ export default function HeroSection() {
                       style={{ color: '#dcd7cebb' }}
                     >
                       <span className='text-[#a98b5d] font-bold'>→</span>{' '}
-                      Connect with investors actively seeking your sector
+                      Connect with investors seeking your sector
                     </p>
                     <p
                       className='text-xs font-medium leading-relaxed'
@@ -256,7 +256,7 @@ export default function HeroSection() {
                       style={{ color: '#dcd7cebb' }}
                     >
                       <span className='text-[#a98b5d] font-bold'>→</span> Prove
-                      execution ability through verified milestones
+                      execution through verified milestones
                     </p>
                   </div>
                 </div>
@@ -277,7 +277,7 @@ export default function HeroSection() {
                       className='text-sm font-bold leading-tight tracking-wide'
                       style={{ color: '#a98b5d' }}
                     >
-                      "Brilliant work, broken promises"
+                      "Great work, broken promises"
                     </p>
                     <p
                       className='text-xs font-medium opacity-80'
@@ -357,7 +357,7 @@ export default function HeroSection() {
                       className='text-xs font-medium leading-relaxed'
                       style={{ color: '#dcd7cebb' }}
                     >
-                      <span className='text-[#a98b5d] font-bold'>→</span>{' '}
+                      <span className='text-[#a98b5d] font-bold'>→</span>
                       Co-invest with your trusted network partners
                     </p>
                   </div>
