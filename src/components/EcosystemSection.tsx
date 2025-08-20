@@ -4,6 +4,9 @@ import { Gem, Rocket, ArrowRight } from 'lucide-react'
 export default function EcosystemSection() {
   return (
     <section className='flex w-full flex-col items-center justify-center p-[2%] py-32 relative'>
+      <div className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent z-30' />
+      <div className='absolute top-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#dcd7ce]/60 to-transparent z-30' />
+
       {/* Premium background layers */}
       <div className='absolute inset-0 luxury-texture opacity-30'></div>
       <div className='absolute top-0 left-1/4 w-96 h-96 bg-[#a98b5d]/5 rounded-full blur-3xl'></div>

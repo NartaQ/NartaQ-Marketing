@@ -57,14 +57,21 @@ export default function StorytellingSection() {
   const [, setActiveStory] = useState(0)
 
   return (
-    <section className='relative overflow-hidden'>
+    <section className='relative overflow-hidden py-8 bg-gradient-to-b from-black via-[#0f0f10] to-[#1a1b1f]'>
+      {/* Color separation border */}
+      <div className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent z-30' />
+      <div className='absolute top-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#dcd7ce]/60 to-transparent z-30' />
+
+      {/* Smooth transition overlay from HookText */}
+      <div className='absolute top-2 left-0 right-0 h-16 bg-gradient-to-b from-black via-[#0a0a0a] to-transparent z-10' />
+
       {/* Background Effects */}
       <div className='absolute inset-0'>
         <div className='absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#a98b5d]/20 to-transparent rounded-full blur-3xl animate-pulse' />
         <div className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-[#dcd7ce]/20 to-transparent rounded-full blur-3xl animate-pulse' />
       </div>
 
-      <div className='container mx-auto px-6 relative z-10'>
+      <div className='container mx-auto px-6 relative z-20 pt-8'>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
