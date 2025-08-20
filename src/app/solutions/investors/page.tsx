@@ -1,17 +1,15 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import Header from '@/components/Header'
+import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text'
+import { MagicCard } from '@/components/magicui/magic-card'
+import { NumberTicker } from '@/components/magicui/number-ticker'
+import { Particles } from '@/components/magicui/particles'
+import { Spotlight } from '@/components/ui/spotlight'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { MagicCard } from '@/components/magicui/magic-card'
-import { ShimmerButton } from '@/components/magicui/shimmer-button'
-import { NumberTicker } from '@/components/magicui/number-ticker'
-import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text'
-import { Spotlight } from '@/components/ui/spotlight'
-import { Particles } from '@/components/magicui/particles'
 import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -109,7 +107,7 @@ export default function ForInvestorsPage() {
                 colorFrom='#a98b5d'
                 colorTo='#dcd7ce'
               >
-                Exclusive Access to Tomorrow's Unicorns
+                Exclusive Access to Tomorrow&apos;s Unicorns
               </AnimatedGradientText>
             </div>
             <h1 className='text-5xl md:text-7xl font-bold leading-tight reveal-up'>
@@ -280,8 +278,8 @@ export default function ForInvestorsPage() {
                       Exclusive First Access
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Get VIP access to tomorrow's market leaders before they
-                      become household names. Each opportunity comes with
+                      Get VIP access to tomorrow&apos;s market leaders before
+                      they become household names. Each opportunity comes with
                       comprehensive due diligence, valuation insights, and
                       direct founder connections.
                     </p>

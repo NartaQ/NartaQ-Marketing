@@ -1,16 +1,15 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text'
 import { MagicCard } from '@/components/magicui/magic-card'
 import { NumberTicker } from '@/components/magicui/number-ticker'
-import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text'
-import { Spotlight } from '@/components/ui/spotlight'
 import { Particles } from '@/components/magicui/particles'
+import { Spotlight } from '@/components/ui/spotlight'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -720,7 +719,6 @@ export default function ForStartupsPage() {
           </div>
         </section>
       </main>
-
     </div>
   )
 }

@@ -14,8 +14,10 @@ import FinalCTASection from '../components/FinalCTASection'
 import FaqSection from '../components/FaqSection'
 import BlogSection from '../components/BlogSection'
 import NewsletterSection from '../components/NewsletterSection'
-import Footer from '../components/Footer'
+
 import PremiumParticles from '../components/ui/premium-particles'
+
+import HookText from '@/components/HookText'
 
 export default function Home() {
   return (
@@ -41,34 +43,29 @@ export default function Home() {
           }}
         ></div>
       </div>
-
       {/* Premium animated particles */}
       <PremiumParticles />
-
       {/* Header */}
-      <Header />
 
       {/* Main Content Sections */}
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <HookText />
+      {/* <FlipStackDemo /> */}
       <StorytellingSection />
       <CoreToolsShowcase />
       <IndustryVerticals />
-
       {/* Original Existing Sections */}
       <EcosystemSection />
       <BountySection />
       <OrchestrationSection />
       <TrustComplianceSection />
-
       {/* Pricing and Resources */}
       <ResourceHub />
       <FinalCTASection />
-
       {/* Footer Sections */}
       <FaqSection />
       <BlogSection />
       <NewsletterSection />
-
     </div>
   )
 }

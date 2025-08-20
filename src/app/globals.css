@@ -78,6 +78,11 @@
   /* timberwolf */
   --chart-5: 240 6% 14%;
   /* raisin-black */
+  --color-1: oklch(66.2% 0.225 25.9);
+  --color-2: oklch(60.4% 0.26 302);
+  --color-3: oklch(69.6% 0.165 251);
+  --color-4: oklch(80.2% 0.134 225);
+  --color-5: oklch(90.7% 0.231 133);
 }
 
 html {
@@ -318,10 +323,10 @@ header > .collapsible-header {
   }
 }
 
-/* Reveal Animation Initial State */
+/* Reveal Animation Initial State - Fixed */
 .reveal-up {
-  opacity: 0;
-  transform: translateY(100%);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Premium Club Aesthetics */
@@ -688,6 +693,46 @@ header > .collapsible-header {
       background-position: var(--bg-size, 300%) 0;
     }
   }
+  @keyframes gradient {
+    to {
+      background-position: var(--bg-size, 300%) 0;
+    }
+  }
+  @keyframes shimmer-slide {
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+  @keyframes spin-around {
+    0% {
+      transform: translateZ(0) rotate(0);
+    }
+    15%,
+    35% {
+      transform: translateZ(0) rotate(90deg);
+    }
+    65%,
+    85% {
+      transform: translateZ(0) rotate(270deg);
+    }
+    100% {
+      transform: translateZ(0) rotate(360deg);
+    }
+  }
+  --animate-rainbow: rainbow var(--speed, 2s) infinite linear;
+  --color-color-5: var(--color-5);
+  --color-color-4: var(--color-4);
+  --color-color-3: var(--color-3);
+  --color-color-2: var(--color-2);
+  --color-color-1: var(--color-1);
+  @keyframes rainbow {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 200%;
+    }
+  }
 }
 
 @layer base {
@@ -716,4 +761,12 @@ h1,
 h2,
 h3 {
   font-family: var(--font-serif);
+}
+
+.dark {
+  --color-1: oklch(66.2% 0.225 25.9);
+  --color-2: oklch(60.4% 0.26 302);
+  --color-3: oklch(69.6% 0.165 251);
+  --color-4: oklch(80.2% 0.134 225);
+  --color-5: oklch(90.7% 0.231 133);
 }

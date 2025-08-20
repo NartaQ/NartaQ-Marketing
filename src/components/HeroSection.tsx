@@ -28,14 +28,13 @@ export default function HeroSection() {
     gsap.set('.reveal-up', { opacity: 0, y: '100%' })
 
     // Animate main content elements on load
-    gsap.timeline({ delay: 1 })
-      .to('.reveal-up', {
-        opacity: 1,
-        y: '0%',
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power2.out'
-      })
+    gsap.timeline({ delay: 1 }).to('.reveal-up', {
+      opacity: 1,
+      y: '0%',
+      duration: 0.8,
+      stagger: 0.2,
+      ease: 'power2.out',
+    })
 
     // Dashboard 3D transform - exact pattern from working code
     if (dashboardRef.current) {
@@ -98,7 +97,10 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <div className='relative flex flex-col overflow-hidden bg-black' ref={heroRef}>
+    <div
+      className='relative flex flex-col overflow-hidden bg-black'
+      ref={heroRef}
+    >
       {/* Premium Background Layers */}
       <div className='absolute inset-0 overflow-hidden'>
         <Spotlight />
@@ -182,75 +184,208 @@ export default function HeroSection() {
                   className='text-3xl md:text-6xl font-light reveal-up'
                   style={{ color: '#dcd7ceff' }}
                 >
-                  A{' '}
+                  Where{' '}
                   <span className='font-medium text-[#a98b5d] '>
-                    focused ecosystem
+                    serious capital
                   </span>{' '}
-                  to turn
+                  meets
                   <br className='hidden md:block' />
-                  funding intent into delivered outcomes
+                  <span className='font-medium text-[#a98b5d] '>
+                    proven execution
+                  </span>
                 </h1>
                 <div className='w-24 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto reveal-up'></div>
                 <p
                   className='text-xl md:text-2xl font-light leading-relaxed opacity-90 reveal-up'
                   style={{ color: '#a98b5dcc' }}
                 >
-                  Early access platform. Core mechanisms: curated matches,
-                  milestone protections,
+                  The trust-driven platform connecting ambitious startups
                   <br className='hidden md:block' />
-                  and hybrid compensation via trusted partners.
+                  with smart investors and expert providers who deliver.
+                </p>
+                <p
+                  className='text-base md:text-lg font-light opacity-75 reveal-up'
+                  style={{ color: '#dcd7ce99' }}
+                >
+                  No more wasted time. No more broken promises. Just results.
                 </p>
               </div>
 
-              {/* Premium Trust/Value Bullets */}
+              {/* Revolutionary Hook Cards - The Connection Crisis We Solve */}
               <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 reveal-up'>
-                <div className='premium-glass elite-hover rounded-2xl p-6 text-center space-y-3'>
-                  <div className='w-12 h-12 rounded-full bg-[#a98b5d]/10 flex items-center justify-center mx-auto mb-4'>
-                    <Globe className='w-6 h-6 text-[#a98b5d]' />
+                {/* Ambitious Startups Card */}
+                <div className='premium-glass elite-hover rounded-2xl p-6 text-center space-y-4 floating-element group'>
+                  <div className='w-14 h-14 rounded-full bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300'>
+                    <Globe className='w-7 h-7 text-[#a98b5d] group-hover:text-[#dcd7ce] transition-colors' />
                   </div>
-                  <h3 className='font-medium text-[#dcd7ce]'>
-                    Corridor‑Focused
+                  <h3 className='font-bold text-[#dcd7ce] text-xl'>
+                    Ambitious Startups
                   </h3>
-                  <p
-                    className='text-sm opacity-75'
-                    style={{ color: '#a98b5dcc' }}
-                  >
-                    France & Tunisia corridor
-                    <br />
-                    (global expansion planned)
-                  </p>
+                  <div className='space-y-2'>
+                    <p
+                      className='text-sm font-bold leading-tight tracking-wide'
+                      style={{ color: '#a98b5d' }}
+                    >
+                      "Great ideas die in inbox silence"
+                    </p>
+                    <p
+                      className='text-xs font-medium opacity-80'
+                      style={{ color: '#dcd7ce' }}
+                    >
+                      500+ investor emails sent. 12 replies. 0 meetings.
+                    </p>
+                  </div>
+                  <div className='w-16 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
+                  <div className='space-y-2 text-left'>
+                    <p
+                      className='text-xs font-medium leading-relaxed'
+                      style={{ color: '#dcd7cebb' }}
+                    >
+                      <span className='text-[#a98b5d] font-bold'>→</span>{' '}
+                      Connect with investors actively seeking your sector
+                    </p>
+                    <p
+                      className='text-xs font-medium leading-relaxed'
+                      style={{ color: '#dcd7cebb' }}
+                    >
+                      <span className='text-[#a98b5d] font-bold'>→</span> Access
+                      expert providers who take equity stakes
+                    </p>
+                    <p
+                      className='text-xs font-medium leading-relaxed'
+                      style={{ color: '#dcd7cebb' }}
+                    >
+                      <span className='text-[#a98b5d] font-bold'>→</span> Prove
+                      execution ability through verified milestones
+                    </p>
+                  </div>
                 </div>
 
-                <div className='premium-glass elite-hover rounded-2xl p-6 text-center space-y-3'>
-                  <div className='w-12 h-12 rounded-full bg-[#a98b5d]/10 flex items-center justify-center mx-auto mb-4'>
-                    <Shield className='w-6 h-6 text-[#a98b5d]' />
+                {/* Expert Service Providers Card */}
+                <div
+                  className='premium-glass elite-hover rounded-2xl p-6 text-center space-y-4 floating-element group'
+                  style={{ animationDelay: '0.5s' }}
+                >
+                  <div className='w-14 h-14 rounded-full bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300'>
+                    <Shield className='w-7 h-7 text-[#a98b5d] group-hover:text-[#dcd7ce] transition-colors' />
                   </div>
-                  <h3 className='font-medium text-[#dcd7ce]'>
-                    Protected Workflows
+                  <h3 className='font-bold text-[#dcd7ce] text-xl'>
+                    Expert Providers
                   </h3>
-                  <p
-                    className='text-sm opacity-75'
-                    style={{ color: '#a98b5dcc' }}
-                  >
-                    Escrow‑style milestones
-                    <br />
-                    and NDA‑gated processes
-                  </p>
+                  <div className='space-y-2'>
+                    <p
+                      className='text-sm font-bold leading-tight tracking-wide'
+                      style={{ color: '#a98b5d' }}
+                    >
+                      "Brilliant work, broken promises"
+                    </p>
+                    <p
+                      className='text-xs font-medium opacity-80'
+                      style={{ color: '#dcd7ce' }}
+                    >
+                      Deliver excellence. Chase payments for months.
+                    </p>
+                  </div>
+                  <div className='w-16 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
+                  <div className='space-y-2 text-left'>
+                    <p
+                      className='text-xs font-medium leading-relaxed'
+                      style={{ color: '#dcd7cebb' }}
+                    >
+                      <span className='text-[#a98b5d] font-bold'>→</span> Work
+                      only with funded, verified startups
+                    </p>
+                    <p
+                      className='text-xs font-medium leading-relaxed'
+                      style={{ color: '#dcd7cebb' }}
+                    >
+                      <span className='text-[#a98b5d] font-bold'>→</span> Secure
+                      payments in escrow before starting
+                    </p>
+                    <p
+                      className='text-xs font-medium leading-relaxed'
+                      style={{ color: '#dcd7cebb' }}
+                    >
+                      <span className='text-[#a98b5d] font-bold'>→</span> Build
+                      equity wealth in client success stories
+                    </p>
+                  </div>
                 </div>
 
-                <div className='premium-glass elite-hover rounded-2xl p-6 text-center space-y-3'>
-                  <div className='w-12 h-12 rounded-full bg-[#a98b5d]/10 flex items-center justify-center mx-auto mb-4'>
-                    <Gem className='w-6 h-6 text-[#a98b5d]' />
+                {/* Smart Investors Card */}
+                <div
+                  className='premium-glass elite-hover rounded-2xl p-6 text-center space-y-4 floating-element group'
+                  style={{ animationDelay: '1s' }}
+                >
+                  <div className='w-14 h-14 rounded-full bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300'>
+                    <Gem className='w-7 h-7 text-[#a98b5d] group-hover:text-[#dcd7ce] transition-colors' />
                   </div>
-                  <h3 className='font-medium text-[#dcd7ce]'>Hybrid Value</h3>
-                  <p
-                    className='text-sm opacity-75'
-                    style={{ color: '#a98b5dcc' }}
-                  >
-                    Cash and equity/options
-                    <br />
-                    compensation models
-                  </p>
+                  <h3 className='font-bold text-[#dcd7ce] text-xl'>
+                    Smart Investors
+                  </h3>
+                  <div className='space-y-2'>
+                    <p
+                      className='text-sm font-bold leading-tight tracking-wide'
+                      style={{ color: '#a98b5d' }}
+                    >
+                      "Perfect pitch, failed execution"
+                    </p>
+                    <p
+                      className='text-xs font-medium opacity-80'
+                      style={{ color: '#dcd7ce' }}
+                    >
+                      Beautiful decks hide operational disasters.
+                    </p>
+                  </div>
+                  <div className='w-16 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
+                  <div className='space-y-2 text-left'>
+                    <p
+                      className='text-xs font-medium leading-relaxed'
+                      style={{ color: '#dcd7cebb' }}
+                    >
+                      <span className='text-[#a98b5d] font-bold'>→</span> Back
+                      startups with proven delivery records
+                    </p>
+                    <p
+                      className='text-xs font-medium leading-relaxed'
+                      style={{ color: '#dcd7cebb' }}
+                    >
+                      <span className='text-[#a98b5d] font-bold'>→</span>{' '}
+                      Monitor real progress through milestone tracking
+                    </p>
+                    <p
+                      className='text-xs font-medium leading-relaxed'
+                      style={{ color: '#dcd7cebb' }}
+                    >
+                      <span className='text-[#a98b5d] font-bold'>→</span>{' '}
+                      Co-invest with your trusted network partners
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className='flex flex-wrap justify-center gap-6 mt-12 reveal-up'>
+                <div
+                  className='flex items-center gap-2 text-xs'
+                  style={{ color: '#a98b5d99' }}
+                >
+                  <span className='w-2 h-2 rounded-full bg-[#a98b5d] animate-pulse'></span>
+                  <span>NDA-Protected Deals</span>
+                </div>
+                <div
+                  className='flex items-center gap-2 text-xs'
+                  style={{ color: '#a98b5d99' }}
+                >
+                  <span className='w-2 h-2 rounded-full bg-[#a98b5d] animate-pulse'></span>
+                  <span>Escrow-Secured Payments</span>
+                </div>
+                <div
+                  className='flex items-center gap-2 text-xs'
+                  style={{ color: '#a98b5d99' }}
+                >
+                  <span className='w-2 h-2 rounded-full bg-[#a98b5d] animate-pulse'></span>
+                  <span>Curated Network Only</span>
                 </div>
               </div>
 

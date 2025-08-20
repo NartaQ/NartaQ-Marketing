@@ -11,7 +11,7 @@ import {
  ExternalLink,
  Clock,
  Users,
- TrendingUp,
+
  FileText,
  Headphones,
  BarChart3
