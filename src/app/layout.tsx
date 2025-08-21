@@ -5,7 +5,12 @@ import { Playfair_Display, Source_Sans_3 } from 'next/font/google'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-import { organizationSchema, websiteSchema, serviceSchema } from '@/lib/structured-data'
+import {
+  organizationSchema,
+  websiteSchema,
+  serviceSchema,
+} from '@/lib/structured-data'
+import { Spotlight } from '@/components/ui/spotlight-new'
 
 const fontSans = Playfair_Display({
   subsets: ['latin'],
@@ -19,10 +24,12 @@ const fontMono = Source_Sans_3({
 
 export const metadata: Metadata = {
   title: {
-    default: 'NartaQ - Premium Investment & Talent Platform | Connect Startups, Investors & Experts',
-    template: '%s | NartaQ'
+    default:
+      'NartaQ - Premium Investment & Talent Platform | Connect Startups, Investors & Experts',
+    template: '%s | NartaQ',
   },
-  description: 'Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects. Exclusive France-Tunisia corridor network.',
+  description:
+    'Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects. Exclusive France-Tunisia corridor network.',
   keywords: [
     'startup investment',
     'venture capital',
@@ -35,7 +42,7 @@ export const metadata: Metadata = {
     'premium talent',
     'equity deals',
     'startup experts',
-    'venture funding'
+    'venture funding',
   ],
   authors: [{ name: 'NartaQ' }],
   creator: 'NartaQ',
@@ -51,7 +58,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'NartaQ - Premium Investment & Talent Platform',
-    description: 'Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.',
+    description:
+      'Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.',
     url: 'https://nartaq.com',
     siteName: 'NartaQ',
     images: [
@@ -68,7 +76,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'NartaQ - Premium Investment & Talent Platform',
-    description: 'Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.',
+    description:
+      'Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.',
     images: ['/images/twitter-image.png'],
     creator: '@nartaq',
   },
@@ -94,9 +103,13 @@ export default function RootLayout({
     <html lang='en' className='dark' suppressHydrationWarning>
       <head>
         <script
-          type="application/ld+json"
+          type='application/ld+json'
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationSchema, websiteSchema, serviceSchema]),
+            __html: JSON.stringify([
+              organizationSchema,
+              websiteSchema,
+              serviceSchema,
+            ]),
           }}
         />
       </head>
@@ -104,7 +117,8 @@ export default function RootLayout({
         className={`${fontSans.variable} ${fontMono.variable} antialiased bg-black text-white`}
       >
         <Header />
-        <main className="mt-[var(--header-height)]">
+        <main className='mt-[var(--header-height)]'>
+          {/* <Spotlight /> */}
           {children}
         </main>
         <Footer />

@@ -1,4 +1,5 @@
 import { FileText, Lock, DollarSign } from 'lucide-react'
+import { WobbleCard } from './ui/wobble-card'
 
 export default function BountySection() {
   const bountyFeatures = [
@@ -80,49 +81,63 @@ export default function BountySection() {
         </div>
       </div>
 
-      {/* Premium feature showcase */}
+      {/* Premium feature showcase with WobbleCard */}
       <div className='mt-20 max-w-7xl w-full px-4'>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
-          {bountyFeatures.map((card, i) => (
-            <div
-              key={i}
-              className='group premium-glass elite-hover rounded-3xl overflow-hidden border border-[#a98b5d]/20  relative'
-            >
-              {/* Dynamic background */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${card.gradient}`}
-              ></div>
-
-              <div className='relative z-10 p-8'>
-                {/* Premium icon container */}
-                <div className='mb-6'>
-                  <div className='w-18 h-18 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center group-hover:scale-110 transition-all duration-500'>
-                    {getIcon(card.iconName)}
-                  </div>
-                </div>
-
-                <h3 className='text-2xl font-medium text-[#dcd7ce] mb-4'>
-                  {card.title}
-                </h3>
-
-                <div className='w-12 h-0.5 bg-[#a98b5d] mb-6 group-hover:w-16 transition-all duration-300'></div>
-
-                <p className='text-[#dcd7ce] leading-relaxed font-light text-lg'>
-                  {card.desc}
-                </p>
-
-                {/* Premium hover effect */}
-                <div className='mt-8 opacity-0 group-hover:opacity-100 transition-all duration-300'>
-                  <div className='flex items-center text-[#a98b5d] text-sm font-medium'>
-                    <span>Learn more</span>
-                    <span className='ml-2 group-hover:translate-x-1 transition-transform duration-300'>
-                      →
-                    </span>
-                  </div>
+          {/* First card - spans 2 columns on large screens */}
+          <WobbleCard
+            containerClassName='col-span-1 lg:col-span-2 h-full bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 min-h-[400px] border border-[#a98b5d]/20'
+            className=''
+          >
+            <div className='max-w-lg'>
+              <div className='mb-6'>
+                <div className='w-18 h-18 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
+                  {getIcon(bountyFeatures[0].iconName)}
                 </div>
               </div>
+              <h2 className='text-left text-balance text-2xl md:text-3xl lg:text-4xl font-medium tracking-[-0.015em] text-[#dcd7ce] mb-4'>
+                {bountyFeatures[0].title}
+              </h2>
+              <div className='w-16 h-0.5 bg-[#a98b5d] mb-6'></div>
+              <p className='text-left text-lg text-[#dcd7ce]/90 leading-relaxed font-light'>
+                {bountyFeatures[0].desc}
+              </p>
             </div>
-          ))}
+          </WobbleCard>
+
+          {/* Second card */}
+          <WobbleCard containerClassName='col-span-1 min-h-[400px] bg-gradient-to-br from-[#dcd7ce]/15 to-[#dcd7ce]/5 border border-[#a98b5d]/20'>
+            <div className='mb-6'>
+              <div className='w-16 h-16 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
+                {getIcon(bountyFeatures[1].iconName)}
+              </div>
+            </div>
+            <h2 className='text-left text-balance text-xl md:text-2xl lg:text-3xl font-medium tracking-[-0.015em] text-[#dcd7ce] mb-4'>
+              {bountyFeatures[1].title}
+            </h2>
+            <div className='w-12 h-0.5 bg-[#a98b5d] mb-4'></div>
+            <p className='text-left text-base text-[#dcd7ce]/90 leading-relaxed font-light'>
+              {bountyFeatures[1].desc}
+            </p>
+          </WobbleCard>
+
+          {/* Third card - spans full width */}
+          <WobbleCard containerClassName='col-span-1 lg:col-span-3 bg-gradient-to-br from-[#5c5d63]/20 to-[#5c5d63]/10 min-h-[300px] border border-[#a98b5d]/20'>
+            <div className='max-w-2xl'>
+              <div className='mb-6'>
+                <div className='w-18 h-18 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
+                  {getIcon(bountyFeatures[2].iconName)}
+                </div>
+              </div>
+              <h2 className='text-left text-balance text-2xl md:text-3xl lg:text-4xl font-medium tracking-[-0.015em] text-[#dcd7ce] mb-4'>
+                {bountyFeatures[2].title}
+              </h2>
+              <div className='w-16 h-0.5 bg-[#a98b5d] mb-6'></div>
+              <p className='text-left text-lg text-[#dcd7ce]/90 leading-relaxed font-light max-w-3xl'>
+                {bountyFeatures[2].desc}
+              </p>
+            </div>
+          </WobbleCard>
         </div>
       </div>
 
@@ -154,7 +169,10 @@ export default function BountySection() {
             },
             { step: '04', label: 'Auto Payout', desc: 'On acceptance' },
           ].map((item, i) => (
-            <div key={i} className='flex-1 text-center'>
+            <div
+              key={`process-step-${i}-${item.step}`}
+              className='flex-1 text-center'
+            >
               <div className='premium-glass rounded-2xl p-6 mb-3 elite-hover'>
                 <div className='text-2xl font-light text-[#a98b5d] mb-2'>
                   {item.step}

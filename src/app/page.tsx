@@ -71,6 +71,7 @@ export default function Home() {
 
       <HookText />
 
+      <OrchestrationSection />
       <StorytellingSection />
       <CoreToolsShowcase />
       <IndustryVerticals />
@@ -78,7 +79,6 @@ export default function Home() {
       <Hero />
       {/* <EcosystemSection /> */}
       <BountySection />
-      <OrchestrationSection />
       <TrustComplianceSection />
       {/* Pricing and Resources */}
       <ResourceHub />

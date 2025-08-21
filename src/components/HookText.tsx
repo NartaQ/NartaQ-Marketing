@@ -1,31 +1,30 @@
 'use client'
 
-import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text'
-import { TextAnimate } from '@/components/magicui/text-animate'
 import { motion } from 'framer-motion'
-import {
-  Briefcase,
-  Rocket,
-  Target,
-  DollarSign,
-  Users,
-  TrendingUp,
-  Award,
-  Shield,
-  Zap,
-} from 'lucide-react'
-import { LampContainer } from './ui/lamp'
-import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Briefcase, Rocket, Target } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 export default function HookText() {
   const containerRef = useRef<HTMLDivElement>(null)
   const navRef = useRef<HTMLUListElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !isMobile) {
       gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
       const container = containerRef.current
@@ -54,15 +53,9 @@ export default function HookText() {
         markers: false,
       })
 
-      // Initial state - all slides hidden except first
+      // Initial state - all slides hidden except first (horizontal movement)
       gsap.set(slides, {
-        xPercent: () => {
-          return window.innerWidth < 1024 ? 125 : 0
-        },
-        yPercent: () => {
-          return window.innerWidth >= 1024 ? 125 : 0
-        },
-        scale: 0.5,
+        xPercent: 100,
         opacity: 0,
       })
 
@@ -94,9 +87,7 @@ export default function HookText() {
               slides[i],
               {
                 opacity: 1,
-                yPercent: 0,
                 xPercent: 0,
-                scale: 1,
                 ease: 'power2.out',
               },
               '<'
@@ -115,13 +106,7 @@ export default function HookText() {
               slides[i - 1],
               {
                 opacity: 0,
-                yPercent: () => {
-                  return window.innerWidth >= 1024 ? -125 : 0
-                },
-                xPercent: () => {
-                  return window.innerWidth < 1024 ? -125 : 0
-                },
-                scale: 0.5,
+                xPercent: -100,
                 ease: 'power2.in',
               },
               '<'
@@ -137,10 +122,8 @@ export default function HookText() {
             scale: 1.2,
           })
           gsap.set(slides[i], {
-            yPercent: 0,
             xPercent: 0,
             opacity: 1,
-            scale: 1,
           })
           tl.add('our-work-' + (i + 1), '+=0')
         }
@@ -151,7 +134,7 @@ export default function HookText() {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
       }
     }
-  }, [])
+  }, [isMobile])
 
   const cardData = [
     {
@@ -161,16 +144,12 @@ export default function HookText() {
       title: 'Seeking Investment',
       subtitle: 'Turn Your Vision Into Reality',
       description:
-        'Connect with smart investors who understand your market and can accelerate your growth trajectory. Our platform leverages advanced AI algorithms to match startups with the most suitable investors based on industry expertise, investment preferences, and portfolio alignment.',
-      detailedDescription:
-        "Whether you're launching a disruptive tech startup or scaling an established business, our comprehensive investment platform provides everything you need to secure funding. From initial pitch preparation to final term negotiations, we guide you through every step of the investment journey.",
+        'Connect with smart investors who understand your market and can accelerate your growth trajectory.',
       features: [
-        'Access to 5,000+ verified accredited investors',
-        'AI-powered investor matching with 95% accuracy',
-        'Streamlined due diligence process reducing time by 60%',
+        'Access to 5,000+ verified investors',
+        'AI-powered matching with 95% accuracy',
+        'Streamlined due diligence process',
         'Expert term sheet negotiation support',
-        'Real-time funding progress tracking',
-        'Dedicated investment advisor assignment',
       ],
       stats: { value: '85%', label: 'Success Rate' },
       color: 'from-emerald-500/30 to-teal-600/20',
@@ -184,16 +163,12 @@ export default function HookText() {
       title: 'Need Talent',
       subtitle: 'Build Your Dream Team',
       description:
-        'Access top-tier professionals and expert services to transform your projects into market leaders. Our talent ecosystem connects you with specialists who have proven track records in scaling successful ventures.',
-      detailedDescription:
-        'From technical co-founders to marketing specialists, our platform hosts a diverse community of professionals ready to join your mission. Each talent profile is thoroughly vetted, ensuring you connect with individuals who can genuinely contribute to your success.',
+        'Access top-tier professionals and expert services to transform your projects into market leaders.',
       features: [
         'Vetted talent marketplace with 10,000+ professionals',
         'Advanced skill-based matching algorithm',
-        'Integrated project management and collaboration tools',
-        '100% quality assurance guarantee on all deliverables',
-        'Flexible engagement models (full-time, part-time, project-based)',
-        'Secure escrow payment system with milestone tracking',
+        'Integrated project management tools',
+        'Secure escrow payment system',
       ],
       stats: { value: '10k+', label: 'Professionals' },
       color: 'from-blue-500/30 to-indigo-600/20',
@@ -207,16 +182,12 @@ export default function HookText() {
       title: 'Ready to Work',
       subtitle: 'Showcase Your Expertise',
       description:
-        'Demonstrate your skills and discover high-impact projects that align with your professional goals. Join a community where your expertise is valued and your contributions drive meaningful innovation.',
-      detailedDescription:
-        'Transform your skills into lucrative opportunities by joining projects that challenge and inspire you. Our platform ensures fair compensation, professional growth, and the chance to work with cutting-edge technologies alongside industry leaders.',
+        'Demonstrate your skills and discover high-impact projects that align with your professional goals.',
       features: [
         'Comprehensive portfolio showcase platform',
-        'Real-time project matching based on skills and interests',
+        'Real-time project matching',
         'Transparent and secure payment system',
-        'Professional growth tracking and skill development',
-        'Direct communication with project stakeholders',
-        'Performance-based reputation system and reviews',
+        'Performance-based reputation system',
       ],
       stats: { value: '$2M+', label: 'Paid Out' },
       color: 'from-purple-500/30 to-pink-600/20',
@@ -224,6 +195,136 @@ export default function HookText() {
       bgGradient: 'from-purple-500/5 via-pink-500/5 to-rose-500/5',
     },
   ]
+
+  // Mobile Card Component
+  const MobileCard = ({
+    card,
+    index,
+  }: {
+    card: (typeof cardData)[0]
+    index: number
+  }) => {
+    const { ref, inView } = useInView({
+      threshold: 0.3,
+      triggerOnce: true,
+    })
+
+    return (
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.6, delay: index * 0.2 }}
+        className={`w-full p-4 sm:p-6 text-white bg-gradient-to-br ${card.bgGradient} border border-white/30 rounded-2xl backdrop-blur-xl shadow-2xl mb-6`}
+      >
+        {/* Card Header */}
+        <div className='flex items-start justify-between mb-6'>
+          <div className='flex items-center gap-3'>
+            <div
+              className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${card.color} flex items-center justify-center shadow-lg`}
+            >
+              {card.icon}
+            </div>
+            <div>
+              <div
+                className={`text-${card.accentColor} text-sm font-semibold mb-1 tracking-wider`}
+              >
+                STEP {card.step}
+              </div>
+              <h3 className='text-xl font-bold text-white leading-tight'>
+                {card.title}
+              </h3>
+            </div>
+          </div>
+          <div className='text-right bg-white/10 rounded-xl p-3 backdrop-blur-sm'>
+            <div className={`text-xl font-bold text-${card.accentColor}`}>
+              {card.stats.value}
+            </div>
+            <div className='text-xs text-gray-300 font-medium'>
+              {card.stats.label}
+            </div>
+          </div>
+        </div>
+
+        {/* Card Content */}
+        <div className='space-y-4'>
+          <div>
+            <h4 className='text-lg font-bold text-white mb-2 leading-tight'>
+              {card.subtitle}
+            </h4>
+            <p className='text-gray-200 text-sm leading-relaxed'>
+              {card.description}
+            </p>
+          </div>
+
+          {/* Features List */}
+          <div className='grid grid-cols-1 gap-2'>
+            {card.features.map((feature, idx) => (
+              <div
+                key={idx}
+                className='flex items-start gap-2 p-2 bg-white/5 rounded-lg backdrop-blur-sm'
+              >
+                <div
+                  className={`w-1.5 h-1.5 rounded-full bg-${card.accentColor} mt-1.5 flex-shrink-0`}
+                ></div>
+                <span className='text-gray-200 text-xs font-medium leading-relaxed'>
+                  {feature}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Action Button */}
+          <div className='pt-3'>
+            <button
+              className={`w-full px-6 py-3 bg-gradient-to-r from-${card.accentColor} to-${card.accentColor}/80 rounded-xl font-bold text-sm text-white transition-all duration-300 hover:shadow-lg hover:shadow-${card.accentColor}/30 hover:scale-105 transform`}
+            >
+              Get Started Today
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    )
+  }
+
+  // If mobile, return simplified layout
+  if (isMobile) {
+    return (
+      <div className='relative'>
+        <section className='min-h-screen bg-gradient-to-br from-[#14192d] via-[#1a1f35] to-[#0f1419] relative overflow-hidden py-12'>
+          {/* Background Effects */}
+          <div className='absolute inset-0'>
+            <div className='absolute w-[80vw] h-[80vw] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#a98b5d] via-[#d4af37] to-[#8b6914] rounded-full opacity-10 blur-[200px] pointer-events-none animate-pulse'></div>
+          </div>
+
+          <div className='container mx-auto px-4 relative z-10'>
+            {/* Title Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className='text-center mb-8'
+            >
+              <h2 className='text-3xl font-bold bg-gradient-to-r from-[#a98b5d] via-[#d4af37] to-[#dcd7ce] bg-clip-text text-transparent leading-tight mb-4'>
+                How it works
+              </h2>
+              <p className='text-[#8a8b90] text-base leading-relaxed max-w-md mx-auto'>
+                Discover the seamless process that connects opportunities with
+                outcomes through our innovative platform
+              </p>
+            </motion.div>
+
+            {/* Cards */}
+            <div className='space-y-6'>
+              {cardData.map((card, index) => (
+                <MobileCard key={card.id} card={card} index={index} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    )
+  }
 
   return (
     <div className='relative'>
@@ -303,9 +404,6 @@ export default function HookText() {
                         </h4>
                         <p className='text-gray-200 text-lg sm:text-xl lg:text-2xl leading-relaxed mb-4'>
                           {card.description}
-                        </p>
-                        <p className='text-gray-300 text-base sm:text-lg lg:text-xl leading-relaxed'>
-                          {card.detailedDescription}
                         </p>
                       </div>
 
