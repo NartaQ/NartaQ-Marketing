@@ -329,6 +329,128 @@ header > .collapsible-header {
   transform: translateY(0);
 }
 
+/* GSAP ScrollTrigger Styles */
+.our-work {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background-color: #14192d;
+  background-position: center;
+  background-size: cover;
+}
+
+.our-work::before {
+  width: 50vw;
+  height: 50vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  background: #a98b5d;
+  border-radius: 760px;
+  transform: translate(-50%, -50%);
+  backface-visibility: hidden;
+  opacity: 0.4;
+  filter: blur(270px);
+  content: '';
+  pointer-events: none;
+  will-change: transform;
+}
+
+.slider {
+  display: flex;
+  gap: 55px;
+  align-items: center;
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .slider {
+    padding-top: 1rem;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.carousel__slider {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+}
+
+.carousel__item {
+  width: 100%;
+  min-height: 600px;
+  padding: 48px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  position: absolute;
+  top: 0%;
+  opacity: 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.carousel__nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 640px) {
+  .carousel__nav {
+    flex-direction: row;
+  }
+}
+
+.carousel__nav__item {
+  background: #3e3f44;
+  box-shadow: none;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  will-change: background, box-shadow;
+}
+
+.carousel__nav__item:hover {
+  transform: scale(1.2);
+  background: #a98b5d;
+}
+
+.carousel__nav__item.active {
+  background: #a98b5d;
+  box-shadow: 0 0 16px #a98b5d;
+}
+
+/* Animation delay classes */
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-3000 {
+  animation-delay: 3s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
 /* Premium Club Aesthetics */
 .premium-glow {
   box-shadow: 0 0 50px rgba(169, 139, 93, 0.15),

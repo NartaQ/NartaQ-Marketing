@@ -5,7 +5,6 @@ import { Playfair_Display, Source_Sans_3 } from 'next/font/google'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-import { Spotlight } from '@/components/ui/spotlight-new'
 import { organizationSchema, websiteSchema, serviceSchema } from '@/lib/structured-data'
 
 const fontSans = Playfair_Display({
