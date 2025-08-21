@@ -60,7 +60,7 @@ const stories = [
 ]
 
 export default function StorytellingSection() {
-  const [activeStory, setActiveStory] = useState(0)
+  const [_activeStory, setActiveStory] = useState(0)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 

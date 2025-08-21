@@ -17,7 +17,7 @@ import {
 
 export default function CoreToolsShowcase() {
   const [activeTab, setActiveTab] = useState('startups')
-  const [hoveredTool, setHoveredTool] = useState<number | null>(null)
+  const [_hoveredTool, setHoveredTool] = useState<number | null>(null)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 

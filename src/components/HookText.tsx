@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text'
 import { TextAnimate } from '@/components/magicui/text-animate'
 import { motion } from 'framer-motion'
 import { Briefcase, Rocket, Target } from 'lucide-react'

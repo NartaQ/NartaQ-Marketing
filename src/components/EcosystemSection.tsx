@@ -24,7 +24,7 @@ export default function EcosystemSection() {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-light text-[#dcd7ce]">
-            We don't do <span className="font-medium text-[#a98b5d]">everything</span> for <span className="font-medium text-[#a98b5d]">everyone</span>
+            We don&apos;t do <span className="font-medium text-[#a98b5d]">everything</span> for <span className="font-medium text-[#a98b5d]">everyone</span>
           </h2>
           
           <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto"></div>

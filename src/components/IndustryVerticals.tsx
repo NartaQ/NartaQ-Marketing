@@ -21,7 +21,7 @@ import {
 } from 'lucide-react'
 
 export default function IndustryVerticals() {
-  const [hoveredVertical, setHoveredVertical] = useState<number | null>(null)
+  const [_hoveredVertical, setHoveredVertical] = useState<number | null>(null)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -303,11 +303,11 @@ export default function IndustryVerticals() {
             <Sparkles className="w-8 h-8 text-[#a98b5d] mx-auto mb-4" />
             
             <h3 className="text-3xl font-bold text-[#dcd7ce] mb-4">
-              Don't see your sector?
+              Don&apos;t see your sector?
             </h3>
             
             <p className="text-gray-400 mb-8 leading-relaxed">
-              We're constantly expanding our network. Join our waitlist to be notified 
+              We&apos;re constantly expanding our network. Join our waitlist to be notified 
               when your industry vertical launches.
             </p>
 

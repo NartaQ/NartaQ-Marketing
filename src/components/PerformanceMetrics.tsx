@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { NumberTicker } from '@/components/magicui/number-ticker'
 import { Zap, Clock, Users, TrendingUp } from 'lucide-react'
@@ -76,7 +76,7 @@ export default function PerformanceMetrics() {
           
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Our exclusive network delivers measurable results that traditional 
-            platforms can't match.
+            platforms can&apos;t match.
           </p>
         </motion.div>
 
