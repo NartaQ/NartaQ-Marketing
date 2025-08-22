@@ -4,6 +4,8 @@ import "./globals.css";
 import { Playfair_Display, Source_Sans_3 } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import {
   organizationSchema,

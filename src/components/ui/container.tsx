@@ -29,6 +29,7 @@ interface ContainerProps {
   size: keyof typeof styles.size
   children: ReactNode
   as?: ElementType
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
 

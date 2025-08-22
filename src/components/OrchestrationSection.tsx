@@ -24,7 +24,8 @@ export default function OrchestrationSection() {
     const cardsWrappers = gsap.utils.toArray('.card-wrapper')
     const cards = gsap.utils.toArray('.orchestration-card')
 
-    cardsWrappers.forEach((wrapper: any, i: number) => {
+    cardsWrappers.forEach((wrapper: unknown, i: number) => {
+      const wrapperElement = wrapper as Element
       const card = cards[i] as Element
       let scale = 1,
         rotation = 0
@@ -38,12 +39,12 @@ export default function OrchestrationSection() {
         transformOrigin: 'top center',
         ease: 'none',
         scrollTrigger: {
-          trigger: wrapper,
+          trigger: wrapperElement,
           start: 'top ' + (60 + 10 * i),
           end: 'bottom 550',
           endTrigger: '.orchestration-wrapper',
           scrub: true,
-          pin: wrapper,
+          pin: wrapperElement,
           pinSpacing: false,
           id: `card-${i + 1}`,
         },

@@ -4,7 +4,6 @@ import CoreToolsShowcase from '../components/CoreToolsShowcase'
 import IndustryVerticals from '../components/IndustryVerticals'
 
 import BountySection from '../components/BountySection'
-import EcosystemSection from '../components/EcosystemSection'
 import FaqSection from '../components/FaqSection'
 import FinalCTASection from '../components/FinalCTASection'
 import NewsletterSection from '../components/NewsletterSection'

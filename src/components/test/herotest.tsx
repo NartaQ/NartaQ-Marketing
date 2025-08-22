@@ -130,7 +130,7 @@ const ImageCard = ({ item, isActive, onClick, className }: ImageCardProps) => {
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const { width: windowWidth } = useWindowSize()
-  const [isMobile, setIsMobile] = useState(false)
+  const [_isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     setIsMobile(windowWidth <= IS_MOBILE_SCREEN_WIDTH)
@@ -151,7 +151,7 @@ const Hero = () => {
             </div>
 
             <h1 className='text-4xl md:text-5xl font-light text-[#dcd7ce]'>
-              We don't do{' '}
+              We don&apos;t do{' '}
               <span className='font-medium text-[#a98b5d]'>everything</span> for{' '}
               <span className='font-medium text-[#a98b5d]'>everyone</span>
             </h1>

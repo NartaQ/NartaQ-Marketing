@@ -63,8 +63,9 @@ export default function HookText() {
         item.addEventListener('click', (e: Event) => {
           e.preventDefault()
           const target = (e.target as HTMLElement).getAttribute('data-target')
-          if (target && (tl as any).labels[target]) {
-            const percent = (tl as any).labels[target] / tl.totalDuration()
+          const timeline = tl as unknown as { labels: Record<string, number> }
+          if (target && timeline.labels[target]) {
+            const percent = timeline.labels[target] / tl.totalDuration()
             const scrollPos = myST.start + (myST.end - myST.start) * percent
             gsap.to(window, { duration: 2, scrollTo: scrollPos })
           }
@@ -359,7 +360,7 @@ export default function HookText() {
             <div className='lg:w-2/3 slider flex flex-col lg:flex-row items-center gap-8 lg:gap-12'>
               {/* Cards Container */}
               <div className='carousel__slider relative w-full max-w-5xl min-h-[700px] sm:min-h-[750px] lg:min-h-[800px]'>
-                {cardData.map((card, index) => (
+                {cardData.map((card, _index) => (
                   <div
                     key={card.id}
                     id={card.id}
@@ -447,7 +448,7 @@ export default function HookText() {
                 ref={navRef}
                 className='carousel__nav flex lg:flex-col gap-6 mt-8 lg:mt-0 justify-center lg:justify-start'
               >
-                {cardData.map((card, index) => (
+                {cardData.map((card, _index) => (
                   <li
                     key={card.id}
                     className='carousel__nav__item w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-br from-white/20 to-white/10 border-2 border-white/30 rounded-full cursor-pointer transition-all duration-500 hover:scale-150 hover:border-white/60 relative overflow-hidden'
