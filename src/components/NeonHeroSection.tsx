@@ -145,8 +145,8 @@ export default function NeonHeroSection() {
           transition={{ delay: 0.6 }}
           className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
         >
-          The exclusive platform where funded startups meet smart investors 
-          and expert talent. No cold outreach. No broken promises. 
+          Where funded startups find smart investors 
+          and top talent. No cold calls. No broken promises. 
           Just results.
         </motion.p>
 
@@ -173,7 +173,7 @@ export default function NeonHeroSection() {
             href="/solutions/investors"
             className="px-8 py-4 border border-[#a98b5d]/50 text-[#dcd7ce] font-semibold rounded-xl backdrop-blur-xl hover:bg-[#a98b5d]/10 transition-all duration-300 hover:border-[#a98b5d] hover:scale-105"
           >
-            Explore Opportunities
+            Browse Deals
           </Link>
         </motion.div>
 

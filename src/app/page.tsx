@@ -1,27 +1,17 @@
-import StorytellingSection from '../components/StorytellingSection'
-
-import CoreToolsShowcase from '../components/CoreToolsShowcase'
-import IndustryVerticals from '../components/IndustryVerticals'
-
-import BountySection from '../components/BountySection'
 import FaqSection from '../components/FaqSection'
-import FinalCTASection from '../components/FinalCTASection'
 import NewsletterSection from '../components/NewsletterSection'
 import OrchestrationSection from '../components/OrchestrationSection'
-import ResourceHub from '../components/ResourceHub'
 import TrustComplianceSection from '../components/TrustComplianceSection'
 
 import NeonHeroSection from '../components/NeonHeroSection'
 import PerformanceMetrics from '../components/PerformanceMetrics'
 import InteractiveShowcase from '../components/InteractiveShowcase'
 import { Metadata } from 'next'
-import HookText from '@/components/HookText'
-import Hero from '@/components/test/herotest'
 
 export const metadata: Metadata = {
-  title: 'NartaQ - Elite Startup Investment & Talent Platform',
+  title: 'NartaQ - Where Startups Find Investors & Top Talent',
   description:
-    'Connect with smart investors, hire A-player talent, or find premium projects. Exclusive invitation-only platform for funded startups, accredited investors, and expert service providers.',
+    'Find smart investors, hire top talent, or get premium projects. Invite-only platform for funded startups, real investors, and expert service providers.',
   keywords: [
     'startup funding platform',
     'elite investment network',
@@ -35,9 +25,9 @@ export const metadata: Metadata = {
     'premium bounty system',
   ],
   openGraph: {
-    title: 'NartaQ - Elite Startup Investment & Talent Platform',
+    title: 'NartaQ - Where Startups Find Investors & Top Talent',
     description:
-      'Connect with smart investors, hire A-player talent, or find premium projects. Exclusive invitation-only platform for the startup ecosystem.',
+      'Find smart investors, hire top talent, or get premium projects. Invite-only platform for the startup ecosystem.',
     images: [
       {
         url: '/images/home-og.png',
@@ -48,9 +38,9 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: 'NartaQ - Elite Startup Investment & Talent Platform',
+    title: 'NartaQ - Where Startups Find Investors & Top Talent',
     description:
-      'Connect with smart investors, hire A-player talent, or find premium projects. Exclusive invitation-only platform.',
+      'Find smart investors, hire top talent, or get premium projects. Invite-only platform.',
   },
   alternates: {
     canonical: '/',

@@ -3,20 +3,20 @@ import { Shield, Lock, Scale } from 'lucide-react'
 export default function TrustComplianceSection() {
   const trustFeatures = [
     {
-      title: 'Elite Verification',
-      desc: 'Multi-layer identity checks with credential verification and professional references.',
+      title: 'We Check Everyone',
+      desc: 'We check IDs twice and call past employers.',
       iconName: 'shield',
       color: 'from-[#a98b5d]/20 to-[#a98b5d]/5',
     },
     {
-      title: 'Premium Security',
-      desc: 'EU data residency, full encryption, NDAs, and optional IP escrow.',
+      title: 'Bank-Level Security',
+      desc: 'EU data storage, full encryption, NDAs, and IP protection.',
       iconName: 'lock',
       color: 'from-[#dcd7ce]/20 to-[#dcd7ce]/5',
     },
     {
-      title: 'White-Glove Resolution',
-      desc: 'Expert dispute handling with evidence review and fast arbitration.',
+      title: 'Fast Problem Solving',
+      desc: 'Expert dispute help with quick decisions.',
       iconName: 'scale',
       color: 'from-[#5c5d63]/30 to-[#5c5d63]/10',
     },
@@ -58,7 +58,7 @@ export default function TrustComplianceSection() {
 
           <h2 className='text-4xl md:text-5xl font-light text-[#dcd7ce]'>
             <span className='font-medium text-[#a98b5d] '>
-              Trust & compliance
+              Safe & secure
             </span>{' '}
             by design
           </h2>
@@ -66,15 +66,13 @@ export default function TrustComplianceSection() {
           <div className='w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
 
           <p className='text-xl text-[#dcd7ce] font-light leading-relaxed max-w-4xl mx-auto'>
-            Enterprise-grade KYC/KYB verification, NDA‑gated workflows, IP
-            protection, EU data residency, comprehensive audit logs, and
-            professional dispute resolution.
+            We check everyone twice. Store data in Europe. Sign NDAs. Protect your IP.
+            Track everything for legal safety.
             <br />
             <br />
             <span className='text-[#a98b5d]/80'>
-              Specialized bounty controls include immutable briefs, timestamped
-              submissions, duplicate prevention, and private bounties for
-              sensitive work.
+              Project briefs never change once posted. We timestamp all work. 
+              Private projects stay private.
             </span>
           </p>
         </div>

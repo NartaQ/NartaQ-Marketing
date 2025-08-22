@@ -7,28 +7,28 @@ export default function FaqSection() {
 
   const faqs = [
     {
-      q: 'How do exclusive bounties work?',
-      a: 'Startups post precisely scoped micro‑tasks with transparent budget ranges and detailed acceptance criteria. Vetted service providers apply or submit under first‑acceptable or shortlist‑then‑award rules. Payouts release automatically on acceptance. Private bounties restrict access to pre‑vetted professionals.',
+      q: 'How do private bounties work?',
+      a: 'Startups post small, clear tasks with budget ranges. Top experts apply or submit work. We check quality against the brief. Winners get paid when startups approve work. Private bounties only go to pre-checked pros.',
     },
     {
-      q: 'Do you handle premium payments and escrow?',
-      a: 'We provide sophisticated milestone‑based contracting with enterprise-grade protections. Our partner network offers white-glove payment processing and escrow services. Specific mechanics are detailed in our NDA-gated documentation. They may vary by project size and jurisdiction.',
+      q: 'Do you handle payments safely?',
+      a: 'We protect your money until work is done right. Our partner network handles payments and escrow. We have legal docs ready for bigger projects. Details depend on project size and location.',
     },
     {
-      q: 'Can compensation include equity arrangements?',
-      a: 'Absolutely. We specialize in hybrid compensation structures combining cash with equity/options. Our legal partner network provides standardized templates and sophisticated structuring for equity-based arrangements. All are available through our NDA-protected processes.',
+      q: 'Can I pay with equity?',
+      a: 'Yes. We help with cash + equity deals. Our legal partners have templates ready. All equity deals go through our NDA process.',
     },
     {
-      q: "What's NartaQ's role during premium delivery?",
-      a: 'We offer optional concierge intermediation services: coordinating scope definition, verifying milestone completion, and managing any disputes through our white-glove arbitration process. Teams may also choose to self‑manage with our premium tooling support.',
+      q: "What does NartaQ do during projects?",
+      a: 'We can help coordinate scope, check milestones, and handle disputes. Or teams can manage themselves with our tools. Your choice.',
     },
     {
-      q: 'How is sensitive data protected?',
-      a: 'Enterprise-grade security with EU-region data residency, GDPR-compliant practices, end-to-end encryption in transit and at rest, comprehensive audit trails, and SOC 2 compliance. All sensitive processes are NDA-gated with additional IP protection measures available.',
+      q: 'How do you protect sensitive data?',
+      a: 'Bank-level security. EU data storage. Full encryption. Detailed logs. All sensitive work needs NDAs. Extra IP protection available.',
     },
     {
-      q: 'Who can join this exclusive network?',
-      a: 'Access is curated and invitation-based. We prioritize verified professionals, established startups, and accredited investors in the France-Tunisia corridor. All members undergo our multi-layer verification process including credential checks and professional references.',
+      q: 'Who can join this network?',
+      a: 'Invite-only. We want proven pros, funded startups, and real investors in France-Tunisia. We check everyone twice including credentials and past work.',
     },
   ]
 

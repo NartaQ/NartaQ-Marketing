@@ -23,7 +23,7 @@ export default function PerformanceMetrics() {
       value: 18,
       suffix: 'x',
       label: 'Faster Matching',
-      description: 'Than traditional networks',
+      description: 'Than other networks',
       color: 'from-[#dcd7ce] to-[#a98b5d]'
     },
     {
@@ -31,7 +31,7 @@ export default function PerformanceMetrics() {
       value: 95,
       suffix: '%',
       label: 'Success Rate',
-      description: 'For premium matches',
+      description: 'For top matches',
       color: 'from-[#a98b5d] to-[#5c5d63]'
     },
     {
@@ -40,7 +40,7 @@ export default function PerformanceMetrics() {
       suffix: 'M',
       prefix: '$',
       label: 'Avg Deal Size',
-      description: 'In successful matches',
+      description: 'When deals work',
       color: 'from-[#5c5d63] to-[#dcd7ce]'
     }
   ]
@@ -75,8 +75,7 @@ export default function PerformanceMetrics() {
           </h2>
           
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Our exclusive network delivers measurable results that traditional 
-            platforms can&apos;t match.
+            We get better results than other platforms.
           </p>
         </motion.div>
 

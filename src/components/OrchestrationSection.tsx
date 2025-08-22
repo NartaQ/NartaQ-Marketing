@@ -58,28 +58,28 @@ export default function OrchestrationSection() {
   const orchestrationSteps = [
     {
       id: 1,
-      title: 'Define Scope',
+      title: 'Plan Scope',
       desc: 'Clear deliverables, success criteria, and timeline with locked documentation.',
       icon: 'target',
       color: 'from-[#a98b5d]/10 via-[#a98b5d]/5 to-transparent',
     },
     {
       id: 2,
-      title: 'Match Expert',
+      title: 'Find Talent',
       desc: 'Vetted service providers or teams matched to your exact needs.',
       icon: 'users',
       color: 'from-[#dcd7ce]/10 via-[#dcd7ce]/5 to-transparent',
     },
     {
       id: 3,
-      title: 'Premium Delivery',
+      title: 'Top Quality',
       desc: 'Milestone reviews with audit trails, approval gates, and quality checks.',
       icon: 'checkcircle',
       color: 'from-[#5c5d63]/15 via-[#5c5d63]/8 to-transparent',
     },
     {
       id: 4,
-      title: 'Secure Payment',
+      title: 'Safe Payment',
       desc: 'Staged payouts with optional support for complex work and disputes.',
       icon: 'creditcard',
       color: 'from-[#a98b5d]/12 via-[#a98b5d]/6 to-transparent',
@@ -89,70 +89,70 @@ export default function OrchestrationSection() {
   // Card data for GSAP stacked cards
   const cardData = [
     {
-      title: 'Scope Definition & Planning',
+      title: 'Scope Planning',
       description:
-        'Clear deliverables, success criteria, and timeline with locked documentation. Every project begins with comprehensive planning.',
+        'Clear goals, timeline, and success criteria. Locked docs so everyone knows what to build.',
       icon: <Target className='w-16 h-16 text-[#a98b5d]' />,
       bgGradient: 'from-[#a98b5d]/10 via-[#a98b5d]/5 to-transparent',
       features: [
         {
-          title: 'Technical Requirements',
-          desc: 'Detailed specifications, architecture, and technical milestones',
+          title: 'Tech Requirements',
+          desc: 'Detailed specs and milestones',
         },
         {
           title: 'Project Timeline',
-          desc: 'Locked schedule with approval gates and quality checkpoints',
+          desc: 'Fixed schedule with approval gates',
         },
       ],
     },
     {
-      title: 'Expert Matching & Assembly',
+      title: 'Find Top Talent',
       description:
-        'Vetted service providers or teams matched to your exact needs through our comprehensive vetting process.',
+        'We check every expert twice. Match you with people who fit your exact needs.',
       icon: <Users className='w-16 h-16 text-[#a98b5d]' />,
       bgGradient: 'from-[#dcd7ce]/10 via-[#dcd7ce]/5 to-transparent',
       features: [
         {
-          title: 'Rigorous Vetting',
-          desc: 'Technical interviews, portfolio review, and reference verification',
+          title: 'We Check Everyone',
+          desc: 'Tech interviews and portfolio review',
         },
         {
-          title: 'Perfect Alignment',
-          desc: 'AI-powered matching based on skills, experience, and project fit',
+          title: 'Perfect Match',
+          desc: 'Smart matching based on skills and fit',
         },
       ],
     },
     {
-      title: 'Premium Delivery & Quality',
+      title: 'Top Quality Work',
       description:
-        'Milestone reviews with audit trails, approval gates, and comprehensive quality checks throughout development.',
+        'We check each step and track progress. You see what gets done in real time.',
       icon: <CheckCircle className='w-16 h-16 text-[#a98b5d]' />,
       bgGradient: 'from-[#5c5d63]/15 via-[#5c5d63]/8 to-transparent',
       features: [
         {
-          title: 'Quality Assurance',
-          desc: 'Code reviews, testing protocols, and performance optimization',
+          title: 'Quality Checks',
+          desc: 'Code reviews and testing',
         },
         {
-          title: 'Real-time Tracking',
-          desc: 'Live updates, milestone completion, and transparent reporting',
+          title: 'Live Updates',
+          desc: 'See progress as it happens',
         },
       ],
     },
     {
-      title: 'Secure Payment & Completion',
+      title: 'Safe Payment',
       description:
-        'Staged payouts with escrow protection and optional support for complex hybrid compensation structures.',
+        'We hold your money until work is done right. Pay in cash, equity, or both.',
       icon: <CreditCard className='w-16 h-16 text-[#a98b5d]' />,
       bgGradient: 'from-[#a98b5d]/12 via-[#a98b5d]/6 to-transparent',
       features: [
         {
-          title: 'Escrow Protection',
-          desc: 'Funds secured until milestone completion and approval',
+          title: 'Money Protected',
+          desc: 'Funds held until you approve work',
         },
         {
-          title: 'Flexible Compensation',
-          desc: 'Cash + equity arrangements with standardized legal frameworks',
+          title: 'Pay Your Way',
+          desc: 'Cash + equity deals made simple',
         },
       ],
     },
