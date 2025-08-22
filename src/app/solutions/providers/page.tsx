@@ -113,14 +113,14 @@ export default function ForServiceProvidersPage() {
             <h1 className='text-5xl md:text-7xl font-bold leading-tight reveal-up'>
               Skip Upwork, work with{' '}
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                unicorns
+                top companies
               </span>{' '}
-              at unicorn rates.
+              at great rates.
             </h1>
             <p className='text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-              Elite projects for elite talent. Access exclusive contracts from
-              funded startups and unicorn companies. Your expertise,
-              unicorn-level compensation.
+              Great projects for great talent. Get exclusive contracts from
+              funded startups and top companies. Your skills,
+              top-level pay.
             </p>
             <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 reveal-scale'>
               <a

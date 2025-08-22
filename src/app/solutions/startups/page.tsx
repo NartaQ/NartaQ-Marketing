@@ -220,26 +220,26 @@ export default function ForStartupsPage() {
                       <li className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#a98b5d] rounded-full mt-2'></div>
                         <span className='text-neutral-300'>
-                          AI-powered investor matching based on your startup profile
+                          AI finds investors who match your startup
                         </span>
                       </li>
                       <li className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#a98b5d] rounded-full mt-2'></div>
                         <span className='text-neutral-300'>
-                          Pitch deck help and investor readiness check
+                          Get help with pitch decks and investor prep
                         </span>
                       </li>
                       <li className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#a98b5d] rounded-full mt-2'></div>
                         <span className='text-neutral-300'>
-                          Fast-track to Series A/B with proven investor
-                          relationships
+                          Fast-track to Series A/B with trusted
+                          investors
                         </span>
                       </li>
                       <li className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#a98b5d] rounded-full mt-2'></div>
                         <span className='text-neutral-300'>
-                          Access to angel networks and strategic investors
+                          Connect with angel investors and big company partners
                         </span>
                       </li>
                     </ul>
@@ -268,19 +268,19 @@ export default function ForStartupsPage() {
                         ⚡
                       </div>
                       <h3 className='text-3xl font-bold text-[#dcd7ce]'>
-                        ELITE SERVICE PROVIDERS
+                        HIRE TOP TALENT
                       </h3>
                     </div>
                     <p className='text-lg text-neutral-300 leading-relaxed'>
-                      Hire unicorn-level talent who built billion-dollar
-                      companies. Technical co-founders and CTOs from FAANG
-                      companies at equity-friendly rates.
+                      Hire amazing talent who built billion-dollar
+                      companies. Get tech founders and CTOs from Google
+                      and Facebook at fair rates.
                     </p>
                     <ul className='space-y-4'>
                       <li className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#dcd7ce] rounded-full mt-2'></div>
                         <span className='text-neutral-300'>
-                          Growth hackers who scaled startups to IPO
+                          Growth experts who scaled startups to IPO
                         </span>
                       </li>
                       <li className='flex items-start space-x-3'>
@@ -292,14 +292,13 @@ export default function ForStartupsPage() {
                       <li className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#dcd7ce] rounded-full mt-2'></div>
                         <span className='text-neutral-300'>
-                          Legal, marketing, and business development experts
+                          Legal, marketing, and business experts
                         </span>
                       </li>
                       <li className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#dcd7ce] rounded-full mt-2'></div>
                         <span className='text-neutral-300'>
-                          Equity-friendly compensation models for cash-strapped
-                          startups
+                          Fair rates for startups with tight budgets
                         </span>
                       </li>
                     </ul>
@@ -336,12 +335,11 @@ export default function ForStartupsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>🎯</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      Investor-Ready Pitch Deck
+                      Get Your Pitch Deck Right
                     </h3>
                     <p className='text-neutral-300'>
-                      Transform your pitch into a funding magnet. Our experts
-                      help you craft compelling narratives that VCs can&apos;t
-                      ignore.
+                      Turn your pitch into a funding winner. Our experts
+                      help you tell your story in a way VCs love.
                     </p>
                   </div>
                 </MagicCard>
@@ -352,11 +350,11 @@ export default function ForStartupsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>🔍</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      Due Diligence Preparation
+                      Get Ready for Investors
                     </h3>
                     <p className='text-neutral-300'>
-                      Get your startup investor-ready with comprehensive due
-                      diligence preparation that accelerates funding decisions.
+                      Get your startup ready for investors with complete
+                      prep work that speeds up funding decisions.
                     </p>
                   </div>
                 </MagicCard>
@@ -367,11 +365,11 @@ export default function ForStartupsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>👥</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      Technical Team Building
+                      Build Your Tech Team
                     </h3>
                     <p className='text-neutral-300'>
-                      Build your dream team with A-players who have scaled
-                      companies from zero to billion-dollar valuations.
+                      Build your dream team with top talent who have scaled
+                      companies from zero to billion-dollar worth.
                     </p>
                   </div>
                 </MagicCard>
@@ -382,10 +380,10 @@ export default function ForStartupsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>🚀</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      Go-to-Market Strategy
+                      Launch Your Product Right
                     </h3>
                     <p className='text-neutral-300'>
-                      Execute winning go-to-market strategies with experts who
+                      Use winning launch strategies with experts who
                       launched products that reached millions of users.
                     </p>
                   </div>
@@ -397,7 +395,7 @@ export default function ForStartupsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>📈</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      Product-Market Fit Acceleration
+                      Find Product-Market Fit Fast
                     </h3>
                     <p className='text-neutral-300'>
                       Find product-market fit faster with growth experts who
@@ -412,11 +410,11 @@ export default function ForStartupsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>⚙️</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      Scaling Infrastructure
+                      Build Strong Tech Systems
                     </h3>
                     <p className='text-neutral-300'>
-                      Build scalable infrastructure and operations with
-                      engineers who handled billion-user platforms at scale.
+                      Build strong tech systems and operations with
+                      engineers who handled billion-user platforms.
                     </p>
                   </div>
                 </MagicCard>
@@ -526,8 +524,8 @@ export default function ForStartupsPage() {
               </span>
             </h2>
             <p className='text-xl text-neutral-300 mb-12 max-w-2xl mx-auto reveal-up'>
-              Pay only when you succeed. Equity-friendly rates and deferred
-              compensation options for cash-strapped startups.
+              Pay only when you succeed. Fair rates and payment options
+              for startups with tight budgets.
             </p>
 
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
