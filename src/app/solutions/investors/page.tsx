@@ -115,12 +115,11 @@ export default function ForInvestorsPage() {
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                 Google, Tesla, Airbnb
               </span>{' '}
-              before everyone else.
+              before others do.
             </h1>
             <p className='text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-              Stop wasting time on mediocre pitches. Our AI-powered platform
-              delivers only the highest-potential startups that match your exact
-              investment criteria and risk profile.
+              Stop wasting time on bad pitches. Our AI finds only the 
+              best startups that match what you want to invest in.
             </p>
             <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 reveal-scale'>
               <a
@@ -129,7 +128,7 @@ export default function ForInvestorsPage() {
               >
                 <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                 <div className='relative flex items-center space-x-3'>
-                  <span>Request Investor Memo</span>
+                  <span>Get Investor Memo</span>
                   <span className='text-xl group-hover:translate-x-1 transition-transform duration-300'>
                     →
                   </span>
@@ -154,7 +153,7 @@ export default function ForInvestorsPage() {
                 <div className='text-4xl md:text-5xl font-bold text-[#a98b5d]'>
                   <NumberTicker value={87} />%
                 </div>
-                <p className='text-neutral-400'>Time Saved on Deal Sourcing</p>
+                <p className='text-neutral-400'>Time Saved on Deal Finding</p>
               </div>
               <div className='space-y-2 reveal-scale'>
                 <div className='text-4xl md:text-5xl font-bold text-[#a98b5d]'>
@@ -166,7 +165,7 @@ export default function ForInvestorsPage() {
                 <div className='text-4xl md:text-5xl font-bold text-[#a98b5d]'>
                   <NumberTicker value={24} />h
                 </div>
-                <p className='text-neutral-400'>Average Due Diligence Speed</p>
+                <p className='text-neutral-400'>Faster Due Diligence</p>
               </div>
               <div className='space-y-2 reveal-scale'>
                 <div className='text-4xl md:text-5xl font-bold text-[#a98b5d]'>
@@ -185,13 +184,12 @@ export default function ForInvestorsPage() {
               <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
                 Your Gateway to{' '}
                 <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                  Billion-Dollar Opportunities
+                  Billion-Dollar Companies
                 </span>
               </h2>
               <p className='text-xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-                Join elite investors who are already capitalizing on our
-                AI-powered deal flow. Get exclusive access to pre-screened,
-                high-growth startups before they hit the mainstream market.
+                Join top investors who use our AI to find deals. Get access to 
+                high-growth startups before they hit the market.
               </p>
             </div>
 
@@ -207,13 +205,12 @@ export default function ForInvestorsPage() {
                       1
                     </div>
                     <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      Define Your Winning Formula
+                      Set Your Investment Style
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Set your investment DNA: target sectors, growth stage,
-                      ticket size, and risk appetite. Our AI becomes your
-                      personal deal-hunting assistant, learning what makes you
-                      profitable.
+                      Tell us what you want: sectors, growth stage, 
+                      deal size, and risk level. Our AI becomes your 
+                      deal-finding assistant.
                     </p>
                     <div className='flex flex-wrap gap-2'>
                       <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>
@@ -241,13 +238,12 @@ export default function ForInvestorsPage() {
                       2
                     </div>
                     <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      Smart Deal Discovery Engine
+                      Smart Deal Finding
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Our proprietary AI scans thousands of startups daily,
-                      identifying hidden gems with explosive growth potential.
-                      Only the top 3% that match your success criteria reach
-                      your inbox.
+                      Our AI scans thousands of startups daily. It finds 
+                      hidden gems with huge growth potential. Only the top 3% 
+                      reach your inbox.
                     </p>
                     <div className='flex flex-wrap gap-2'>
                       <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>
@@ -275,13 +271,12 @@ export default function ForInvestorsPage() {
                       3
                     </div>
                     <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      Exclusive First Access
+                      First Access
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Get VIP access to tomorrow&apos;s market leaders before
-                      they become household names. Each opportunity comes with
-                      comprehensive due diligence, valuation insights, and
-                      direct founder connections.
+                      Get VIP access to tomorrow&apos;s market leaders before 
+                      they become big names. Each deal comes with research, 
+                      valuation insights, and direct founder contact.
                     </p>
                     <div className='flex flex-wrap gap-2'>
                       <span className='px-3 py-1 bg-[#dcd7ce]/20 text-[#dcd7ce] rounded-full text-sm'>
@@ -321,10 +316,9 @@ export default function ForInvestorsPage() {
                       Zero Time Wasted
                     </h3>
                     <p className='text-neutral-300'>
-                      No more sifting through hundreds of mediocre pitches. Our
-                      AI filters out 97% of deals, delivering only the cream of
-                      the crop that match your investment DNA and profit
-                      potential.
+                      No more looking through hundreds of bad pitches. Our 
+                      AI filters out 97% of deals. You only get the best ones 
+                      that fit what you want.
                     </p>
                   </div>
                 </MagicCard>
@@ -338,9 +332,9 @@ export default function ForInvestorsPage() {
                       Maximize Your Returns
                     </h3>
                     <p className='text-neutral-300'>
-                      Access startups with 10x-100x growth potential before they
-                      hit mainstream radar. Our predictive algorithms identify
-                      the next unicorns while they&apos;re still affordable.
+                      Find startups with 10x-100x growth potential before they 
+                      hit the news. Our smart system finds the next unicorns 
+                      while they&apos;re still cheap.
                     </p>
                   </div>
                 </MagicCard>
@@ -351,12 +345,12 @@ export default function ForInvestorsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>🔍</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      Insider Market Intelligence
+                      Market Insights
                     </h3>
                     <p className='text-neutral-300'>
-                      Get exclusive market insights, competitive analysis, and
-                      growth projections that give you the edge. Make informed
-                      decisions with data that others don&apos;t have access to.
+                      Get market insights, competitor analysis, and 
+                      growth predictions that others don&apos;t have. Make 
+                      smart decisions with better data.
                     </p>
                   </div>
                 </MagicCard>
@@ -367,13 +361,12 @@ export default function ForInvestorsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>🤝</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      VIP Access & Priority Deals
+                      VIP Access & Top Deals
                     </h3>
                     <p className='text-neutral-300'>
-                      Skip the line and get first dibs on the hottest deals.
-                      Direct access to founders, preferential terms, and
-                      exclusive investment rounds reserved for our premium
-                      investors.
+                      Skip the line and get first pick on the hottest deals.
+                      Direct access to founders, better terms, and special 
+                      rounds for our top investors.
                     </p>
                   </div>
                 </MagicCard>

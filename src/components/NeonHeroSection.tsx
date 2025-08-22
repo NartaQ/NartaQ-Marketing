@@ -68,31 +68,6 @@ export default function NeonHeroSection() {
     <div ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
-      
-      {/* 3D Floating Geometric Elements */}
-      <motion.div
-        style={{ y, rotate }}
-        className="absolute top-20 left-20 w-32 h-32 geometric-shape rounded-xl pulse-glow"
-      />
-      
-      <motion.div
-        style={{ y: useTransform(scrollYProgress, [0, 1], ['0%', '-30%']) }}
-        className="absolute top-40 right-32 w-24 h-24 geometric-shape rounded-full pulse-glow"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      />
-      
-      <motion.div
-        style={{ y: useTransform(scrollYProgress, [0, 1], ['0%', '80%']) }}
-        className="absolute bottom-32 left-32 w-20 h-20 geometric-shape transform rotate-45 pulse-glow"
-      />
-      
-      <motion.div
-        style={{ y: useTransform(scrollYProgress, [0, 1], ['0%', '-60%']) }}
-        className="absolute bottom-40 right-20 w-28 h-28 geometric-shape rounded-lg pulse-glow"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-      />
 
       {/* Large Central Glowing Orb */}
       <motion.div

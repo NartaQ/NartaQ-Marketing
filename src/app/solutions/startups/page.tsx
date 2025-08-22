@@ -111,16 +111,16 @@ export default function ForStartupsPage() {
               </AnimatedGradientText>
             </div>
             <h1 className='text-5xl md:text-7xl font-bold leading-tight reveal-up'>
-              Get funded and hire{' '}
+              Get funding and hire{' '}
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                A-players
+                top talent
               </span>{' '}
-              without equity dilution.
+              without giving up equity.
             </h1>
             <p className='text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
               Skip 18 months of fundraising and hiring. Connect
-              with qualified investors and hire top talent who
-              built Google, Stripe, and Airbnb.
+              with smart investors and hire top talent from
+              Google, Stripe, and Airbnb.
             </p>
             <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 reveal-scale'>
               <a
@@ -189,8 +189,8 @@ export default function ForStartupsPage() {
                 </span>
               </h2>
               <p className='text-xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-                The talent that built Google, Stripe, Airbnb now builds for you.
-                Your startup accelerator without the equity dilution.
+                The talent from Google, Stripe, and Airbnb now works for you.
+                Get all the help you need without giving up equity.
               </p>
             </div>
 
@@ -208,11 +208,11 @@ export default function ForStartupsPage() {
                         🚀
                       </div>
                       <h3 className='text-3xl font-bold text-[#a98b5d]'>
-                        FUNDING PATHWAY
+                        GET FUNDING
                       </h3>
                     </div>
                     <p className='text-lg text-neutral-300 leading-relaxed'>
-                      Connect with qualified investors who fund your
+                      Connect with smart investors who fund your
                       stage and sector. Skip cold emails and get warm
                       introductions to the right VCs.
                     </p>

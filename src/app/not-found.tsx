@@ -35,7 +35,7 @@ export default function NotFoundPage() {
      {/* 404 Number with premium styling */}
      <div className='space-y-4'>
       <h1
-       className='text-8xl md:text-9xl font-light tracking-wider premium-glow'
+       className='text-8xl md:text-9xl font-light tracking-wider '
        style={{ color: '#a98b5d' }}
       >
        404
