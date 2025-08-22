@@ -17,10 +17,12 @@ import PerformanceMetrics from '../components/PerformanceMetrics'
 import InteractiveShowcase from '../components/InteractiveShowcase'
 import { Metadata } from 'next'
 import HookText from '@/components/HookText'
+import Hero from '@/components/test/herotest'
 
 export const metadata: Metadata = {
   title: 'NartaQ - Elite Startup Investment & Talent Platform',
-  description: 'Connect with smart investors, hire A-player talent, or find premium projects. Exclusive invitation-only platform for funded startups, accredited investors, and expert service providers.',
+  description:
+    'Connect with smart investors, hire A-player talent, or find premium projects. Exclusive invitation-only platform for funded startups, accredited investors, and expert service providers.',
   keywords: [
     'startup funding platform',
     'elite investment network',
@@ -31,11 +33,12 @@ export const metadata: Metadata = {
     'France Tunisia startups',
     'exclusive investor network',
     'startup talent acquisition',
-    'premium bounty system'
+    'premium bounty system',
   ],
   openGraph: {
     title: 'NartaQ - Elite Startup Investment & Talent Platform',
-    description: 'Connect with smart investors, hire A-player talent, or find premium projects. Exclusive invitation-only platform for the startup ecosystem.',
+    description:
+      'Connect with smart investors, hire A-player talent, or find premium projects. Exclusive invitation-only platform for the startup ecosystem.',
     images: [
       {
         url: '/images/home-og.png',
@@ -47,7 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: 'NartaQ - Elite Startup Investment & Talent Platform',
-    description: 'Connect with smart investors, hire A-player talent, or find premium projects. Exclusive invitation-only platform.',
+    description:
+      'Connect with smart investors, hire A-player talent, or find premium projects. Exclusive invitation-only platform.',
   },
   alternates: {
     canonical: '/',
@@ -67,13 +71,14 @@ export default function Home() {
 
       <HookText />
 
+      <OrchestrationSection />
       <StorytellingSection />
       <CoreToolsShowcase />
       <IndustryVerticals />
 
-      <EcosystemSection />
+      <Hero />
+      {/* <EcosystemSection /> */}
       <BountySection />
-      <OrchestrationSection />
       <TrustComplianceSection />
       {/* Pricing and Resources */}
       <ResourceHub />
