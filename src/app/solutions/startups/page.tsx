@@ -514,165 +514,32 @@ export default function ForStartupsPage() {
             </div>
           </div>
         </section>
-        {/* Pricing Section */}
+        {/* Coming Soon Section */}
         <section className='py-20 bg-gradient-to-b from-black to-[#232428]'>
           <div className='max-w-6xl mx-auto px-6 text-center'>
             <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
-              Startup-Friendly{' '}
+              Coming Soon: Your{' '}
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                Pricing
+                Growth Platform
               </span>
             </h2>
             <p className='text-xl text-neutral-300 mb-12 max-w-2xl mx-auto reveal-up'>
-              Pay only when you succeed. Fair rates and payment options
-              for startups with tight budgets.
+              Be among the first startups to access our platform.
+              Get early access when we launch.
             </p>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
-              <div className='reveal-scale h-full'>
-                <MagicCard className='p-8 h-full flex flex-col'>
-                  <div className='flex-1 space-y-6'>
-                    <div className='h-8 flex items-center'>
-                      <div className='bg-[#5c5d63] text-[#dcd7ce] px-3 py-1 rounded-full text-sm font-medium inline-block'>
-                        Success Fee Only
-                      </div>
-                    </div>
-                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      Funding Package
-                    </h3>
-                    <div className='text-4xl font-bold text-[#a98b5d]'>
-                      2-3%
-                    </div>
-                    <p className='text-neutral-300'>
-                      Success fee only on funds raised. No upfront costs, no
-                      monthly fees. Pay only when you get funded.
-                    </p>
-                    <ul className='space-y-3 text-left flex-1'>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>AI-powered investor matching</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Pitch deck optimization</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Due diligence preparation</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Warm investor introductions</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className='pt-6 mt-auto'>
-                    <a
-                      href='mailto:startups@nartaq.com?subject=Funding%20Package%20Inquiry'
-                      className='w-full inline-block text-center px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-lg hover:from-[#dcd7ce] hover:to-[#a98b5d] transition-all duration-300 shadow-lg hover:shadow-[#a98b5d]/50'
-                    >
-                      Get Funded
-                    </a>
-                  </div>
-                </MagicCard>
-              </div>
-
-              <div className='reveal-scale h-full'>
-                <MagicCard className='p-8 h-full flex flex-col'>
-                  <div className='flex-1 space-y-6'>
-                    <div className='h-8 flex items-center'>
-                      <div className='bg-[#dcd7ce] text-black px-3 py-1 rounded-full text-sm font-medium inline-block'>
-                        Equity-Friendly
-                      </div>
-                    </div>
-                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      Talent Package
-                    </h3>
-                    <div className='text-4xl font-bold text-[#a98b5d]'>
-                      Flexible
-                    </div>
-                    <p className='text-neutral-300'>
-                      Equity-friendly rates or deferred compensation. Hire
-                      A-players without burning through your runway.
-                    </p>
-                    <ul className='space-y-3 text-left flex-1'>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Unicorn-level talent access</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Equity compensation options</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Deferred payment plans</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Technical co-founder matching</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className='pt-6 mt-auto'>
-                    <a
-                      href='mailto:startups@nartaq.com?subject=Talent%20Package%20Inquiry'
-                      className='w-full inline-block text-center px-6 py-3 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] text-black font-bold rounded-lg hover:from-[#a98b5d] hover:to-[#dcd7ce] transition-all duration-300 shadow-lg hover:shadow-[#dcd7ce]/50'
-                    >
-                      Find Co-Founders
-                    </a>
-                  </div>
-                </MagicCard>
-              </div>
-
-              <div className='reveal-scale h-full'>
-                <MagicCard className='p-8 border-2 border-[#a98b5d] h-full flex flex-col'>
-                  <div className='flex-1 space-y-6'>
-                    <div className='h-8 flex items-center'>
-                      <div className='bg-[#a98b5d] text-black px-3 py-1 rounded-full text-sm font-medium inline-block'>
-                        Most Popular
-                      </div>
-                    </div>
-                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      All-in-One
-                    </h3>
-                    <div className='text-4xl font-bold text-[#a98b5d]'>
-                      Custom
-                    </div>
-                    <p className='text-neutral-300'>
-                      Combined funding + talent with startup-friendly terms.
-                      Your complete growth platform without equity dilution.
-                    </p>
-                    <ul className='space-y-3 text-left flex-1'>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Complete funding pathway</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Elite talent network access</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Dedicated startup advisor</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Priority support & matching</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className='pt-6 mt-auto'>
-                    <a
-                      href='mailto:startups@nartaq.com?subject=All-in-One%20Package%20Inquiry'
-                      className='w-full inline-block text-center px-6 py-3 bg-gradient-to-r from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] text-black font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-[#a98b5d]/60 border-2 border-[#dcd7ce]/50'
-                    >
-                      Scale Your Startup
-                    </a>
-                  </div>
-                </MagicCard>
-              </div>
+            <div className='max-w-lg mx-auto'>
+              <a
+                href='mailto:startups@nartaq.com?subject=Early%20Access%20Request'
+                className='w-full inline-block text-center px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl shadow-2xl hover:shadow-[#a98b5d]/50 transform hover:scale-105 transition-all duration-300'
+              >
+                Get Early Access
+              </a>
+              <p className='text-sm text-neutral-400 mt-4'>
+                Join our waitlist to be notified when we launch
+              </p>
             </div>
+
           </div>
         </section>
 

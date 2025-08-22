@@ -320,7 +320,7 @@ export default function OrchestrationSection() {
                 {/* Step number and icon */}
                 <div className='flex items-center justify-between mb-6 md:mb-8'>
                   <div className='text-3xl md:text-4xl font-light text-[#a98b5d]/40'>
-                    {String(card.id + 1).padStart(2, '0')}
+                    {String(card.id).padStart(2, '0')}
                   </div>
                   <div className='w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center group-hover:scale-110 transition-all duration-500'>
                     {getIcon(card.icon)}
@@ -338,15 +338,6 @@ export default function OrchestrationSection() {
                     {card.desc}
                   </p>
                 </div>
-
-                {/* Connection arrow (except for last item) - Hidden on mobile */}
-                {card.id < orchestrationSteps.length - 1 && (
-                  <div className='hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-20'>
-                    <div className='premium-glass w-8 h-8 rounded-full flex items-center justify-center border border-[#a98b5d]/20'>
-                      <ArrowRight className='w-4 h-4 text-[#a98b5d]' />
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           ))}

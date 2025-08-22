@@ -470,114 +470,26 @@ export default function ForInvestorsPage() {
         <section className='py-20 bg-gradient-to-b from-black to-[#232428]'>
           <div className='max-w-4xl mx-auto px-6 text-center'>
             <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
-              Investment That{' '}
+              Coming Soon: Your{' '}
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                Pays for Itself
+                Deal Pipeline
               </span>
             </h2>
             <p className='text-xl text-neutral-300 mb-12 max-w-2xl mx-auto reveal-up'>
-              Pay only for billion-dollar opportunities. One successful deal
-              covers years of platform access. No hidden fees, no long-term
-              commitments.
+              Be among the first investors to access our curated deal flow.
+              Get early access when we launch.
             </p>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
-              <div className='reveal-scale h-full'>
-                <MagicCard className='p-8 h-full flex flex-col'>
-                  <div className='flex-1 space-y-6'>
-                    <div className='h-8 flex items-center'>
-                      <div className='bg-[#5c5d63] text-[#dcd7ce] px-3 py-1 rounded-full text-sm font-medium inline-block'>
-                        Pay Per Deal
-                      </div>
-                    </div>
-                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      Deal Hunter
-                    </h3>
-                    <div className='text-4xl font-bold text-[#a98b5d]'>
-                      $2,500/deal
-                    </div>
-                    <p className='text-neutral-300'>
-                      Pay only for unicorn-potential startups that match your
-                      criteria. Average deal value: $50M+
-                    </p>
-                    <ul className='space-y-3 text-left flex-1'>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Pre-screened unicorn potential</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Exclusive deal access</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>ROI prediction analytics</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Direct founder connections</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className='pt-6 mt-auto'>
-                    <a
-                      href='mailto:invest@nartaq.com?subject=Deal%20Hunter%20Package%20Inquiry'
-                      className='w-full inline-block text-center px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-lg hover:from-[#dcd7ce] hover:to-[#a98b5d] transition-all duration-300 shadow-lg hover:shadow-[#a98b5d]/50'
-                    >
-                      Start Hunting →
-                    </a>
-                  </div>
-                </MagicCard>
-              </div>
-
-              <div className='reveal-scale h-full'>
-                <MagicCard className='p-8 border-2 border-[#a98b5d] h-full flex flex-col'>
-                  <div className='flex-1 space-y-6'>
-                    <div className='h-8 flex items-center'>
-                      <div className='bg-[#a98b5d] text-black px-3 py-1 rounded-full text-sm font-medium inline-block'>
-                        Most Popular
-                      </div>
-                    </div>
-                    <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      Unicorn Hunter VIP
-                    </h3>
-                    <div className='text-4xl font-bold text-[#a98b5d]'>
-                      $25K/month
-                    </div>
-                    <p className='text-neutral-300'>
-                      Unlimited access to billion-dollar opportunities.
-                      Dedicated deal sourcing and first-look rights on all
-                      premium deals.
-                    </p>
-                    <ul className='space-y-3 text-left flex-1'>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Dedicated relationship manager</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Custom screening criteria</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Advanced analytics dashboard</span>
-                      </li>
-                      <li className='flex items-center space-x-3'>
-                        <div className='w-2 h-2 bg-[#a98b5d] rounded-full'></div>
-                        <span>Priority deal flow</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className='pt-6 mt-auto'>
-                    <a
-                      href='mailto:invest@nartaq.com?subject=VIP%20Unicorn%20Hunter%20Package%20Inquiry'
-                      className='w-full inline-block text-center px-6 py-3 bg-gradient-to-r from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] text-black font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-[#a98b5d]/60 border-2 border-[#dcd7ce]/50'
-                    >
-                      Join VIP Program
-                    </a>
-                  </div>
-                </MagicCard>
-              </div>
+            <div className='max-w-lg mx-auto'>
+              <a
+                href='mailto:invest@nartaq.com?subject=Early%20Access%20Request'
+                className='w-full inline-block text-center px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl shadow-2xl hover:shadow-[#a98b5d]/50 transform hover:scale-105 transition-all duration-300'
+              >
+                Get Early Access
+              </a>
+              <p className='text-sm text-neutral-400 mt-4'>
+                Join our waitlist to be notified when we launch
+              </p>
             </div>
           </div>
         </section>

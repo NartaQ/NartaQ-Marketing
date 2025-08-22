@@ -40,7 +40,7 @@ export default function Header({ className }: { className?: string }) {
                 src='/logo/main-tr-hor.svg'
                 alt='Nartaq Icon'
                 width={120}
-                height={36}
+                height={20}
                 className='h-7 sm:h-8 md:h-9 w-auto relative z-10'
               />
             </div>
