@@ -68,21 +68,11 @@ export default function Home() {
       <InteractiveShowcase />
       {/* Main Content Sections */}
 
-      <HookText />
-
       <OrchestrationSection />
-      <StorytellingSection />
-      <CoreToolsShowcase />
-      <IndustryVerticals />
 
-      <Hero />
       {/* <EcosystemSection /> */}
-      <BountySection />
       <TrustComplianceSection />
       {/* Pricing and Resources */}
-      <ResourceHub />
-      <FinalCTASection />
-      {/* Footer Sections */}
       <FaqSection />
 
       <NewsletterSection />
