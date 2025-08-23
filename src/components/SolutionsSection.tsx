@@ -1,18 +1,16 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
-  Network,
+  ArrowRight,
   Brain,
+  CheckCircle,
   Shield,
   TrendingUp,
-  ArrowRight,
-  CheckCircle,
-  Link2,
 } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger)
@@ -36,19 +34,28 @@ export default function SolutionsSection() {
 
     function refresh() {
       pinWrapWidth = strip.scrollWidth
-      horizontalScrollLength = pinWrapWidth - window.innerWidth
+      // Calculate proper scroll length to center first and last cards
+      const cardWidth = window.innerWidth * 0.8 // 80vw card width
+      const centerOffset = (window.innerWidth - cardWidth) / 2
+      horizontalScrollLength =
+        pinWrapWidth - window.innerWidth + centerOffset * 2
     }
 
     refresh()
 
-    // Create the horizontal scroll animation
+    // Set initial position to center the first card
+    gsap.set(strip, {
+      x: (window.innerWidth - window.innerWidth * 0.8) / 2,
+    })
+
+    // Create the horizontal scroll animation with centered positioning
     const scrollTween = gsap.to(strip, {
       scrollTrigger: {
         trigger: section,
         pin: section,
         scrub: 1,
         start: 'top top',
-        end: () => `+=${horizontalScrollLength * 1.5}`, // Increased end point
+        end: () => `+=${horizontalScrollLength * 0.9}`,
         invalidateOnRefresh: true,
         pinSpacing: true,
         anticipatePin: 1,
@@ -68,7 +75,12 @@ export default function SolutionsSection() {
           setActiveFeature(solutions.length - 1)
         },
       },
-      x: () => -horizontalScrollLength,
+      // Move from centered first card to centered last card
+      x: () => {
+        const cardWidth = window.innerWidth * 0.8
+        const centerOffset = (window.innerWidth - cardWidth) / 2
+        return -horizontalScrollLength + centerOffset
+      },
       ease: 'none',
     })
 
@@ -218,7 +230,7 @@ export default function SolutionsSection() {
       <section
         ref={horizontalRef}
         className='relative bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden'
-        style={{ minHeight: '150vh' }}
+        style={{ minHeight: '120vh' }} // Reduced height for faster scrolling
       >
         {/* Background Grid */}
         <div className='absolute inset-0 opacity-20'>
@@ -237,97 +249,110 @@ export default function SolutionsSection() {
         <div
           ref={stripRef}
           className='flex items-center h-screen will-change-transform gsap-element'
-          style={{ width: `${solutions.length * 100}vw`, gap: '0' }}
+          style={{
+            width: `${solutions.length * 80}vw`,
+            gap: '0',
+          }}
         >
           {solutions.map((solution, index) => (
             <div
               key={solution.id}
               className='flex-shrink-0 horizontal-scroll-item'
               style={{
-                width: '100vw',
-                minWidth: '100vw',
-                maxWidth: '100vw',
+                width: '80vw', // Reduced from 100vw for closer cards
+                minWidth: '80vw',
+                maxWidth: '80vw',
               }}
-              data-speed-x={index % 2 === 0 ? '1.1' : '0.9'}
+              data-speed-x={index % 2 === 0 ? '1.05' : '0.95'}
             >
-              <div className='w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center h-screen px-8 lg:px-16'>
+              <div className='w-full max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center h-screen px-4 sm:px-6 lg:px-8'>
                 {/* Solution Content */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 }}
-                  className='space-y-8'
+                  className='space-y-6 lg:space-y-8 order-2 lg:order-1'
                 >
                   <div
-                    className={`group cursor-pointer p-8 rounded-2xl border transition-all duration-300 ${
+                    className={`group relative overflow-hidden p-6 lg:p-8 rounded-2xl lg:rounded-3xl border transition-all duration-500 premium-glass ${
                       activeFeature === index
-                        ? 'border-[#a98b5d] bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/5'
-                        : 'border-white/10 hover:border-[#a98b5d]/50'
+                        ? 'border-[#a98b5d]/60 bg-gradient-to-br from-[#a98b5d]/15 via-[#dcd7ce]/8 to-[#a98b5d]/10 shadow-2xl shadow-[#a98b5d]/20'
+                        : 'border-white/10 hover:border-[#a98b5d]/40 bg-gradient-to-br from-white/5 to-transparent'
                     }`}
                   >
-                    <div className='flex items-start gap-6'>
+                    {/* Animated background effect */}
+                    <div className='absolute inset-0 bg-gradient-to-r from-[#a98b5d]/5 via-transparent to-[#dcd7ce]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+
+                    {/* Glowing border effect */}
+                    {activeFeature === index && (
+                      <div className='absolute inset-0 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-[#a98b5d]/30 to-[#dcd7ce]/30 p-[1px]'>
+                        <div className='w-full h-full rounded-2xl lg:rounded-3xl bg-black/90' />
+                      </div>
+                    )}
+
+                    <div className='relative z-10 flex items-start gap-4 lg:gap-6'>
                       <div
-                        className={`w-16 h-16 rounded-xl bg-gradient-to-r transition-all duration-300 p-0.5 ${
+                        className={`w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-gradient-to-r transition-all duration-500 p-0.5 group-hover:scale-110 ${
                           activeFeature === index
-                            ? 'from-[#a98b5d] to-[#dcd7ce]'
-                            : 'from-white/20 to-white/10'
+                            ? 'from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] shadow-lg shadow-[#a98b5d]/40'
+                            : 'from-white/20 to-white/10 group-hover:from-[#a98b5d]/50 group-hover:to-[#dcd7ce]/50'
                         }`}
                       >
-                        <div className='w-full h-full bg-black rounded-xl flex items-center justify-center'>
+                        <div className='w-full h-full bg-gradient-to-br from-black to-gray-900 rounded-xl lg:rounded-2xl flex items-center justify-center'>
                           <solution.icon
-                            className={`w-8 h-8 transition-colors duration-300 ${
+                            className={`w-6 h-6 lg:w-8 lg:h-8 transition-all duration-500 ${
                               activeFeature === index
-                                ? 'text-[#a98b5d]'
-                                : 'text-gray-400'
+                                ? 'text-[#a98b5d] drop-shadow-lg'
+                                : 'text-gray-400 group-hover:text-[#a98b5d]'
                             }`}
                           />
                         </div>
                       </div>
 
                       <div className='flex-1'>
-                        <div className='flex items-center justify-between mb-3'>
+                        <div className='flex items-center justify-between mb-2 lg:mb-3'>
                           <h3
-                            className={`text-2xl font-semibold transition-colors duration-300 ${
+                            className={`text-xl lg:text-2xl xl:text-3xl font-bold transition-all duration-500 ${
                               activeFeature === index
-                                ? 'text-[#dcd7ce]'
-                                : 'text-gray-300'
+                                ? 'text-[#dcd7ce] drop-shadow-md'
+                                : 'text-gray-300 group-hover:text-white'
                             }`}
                           >
                             {solution.title}
                           </h3>
                           <ArrowRight
-                            className={`w-6 h-6 transition-all duration-300 ${
+                            className={`w-5 h-5 lg:w-6 lg:h-6 transition-all duration-500 ${
                               activeFeature === index
-                                ? 'text-[#a98b5d] translate-x-1'
-                                : 'text-gray-500'
+                                ? 'text-[#a98b5d] translate-x-1 scale-110'
+                                : 'text-gray-500 group-hover:text-[#a98b5d] group-hover:translate-x-1'
                             }`}
                           />
                         </div>
-                        <p className='text-lg text-gray-500 mb-4'>
+                        <p className='text-sm lg:text-lg text-[#a98b5d]/80 mb-3 lg:mb-4 font-medium'>
                           {solution.subtitle}
                         </p>
                         <p
-                          className={`text-base transition-colors duration-300 mb-6 ${
+                          className={`text-sm lg:text-base transition-colors duration-500 mb-4 lg:mb-6 leading-relaxed ${
                             activeFeature === index
-                              ? 'text-gray-300'
-                              : 'text-gray-500'
+                              ? 'text-gray-200'
+                              : 'text-gray-400 group-hover:text-gray-300'
                           }`}
                         >
                           {solution.description}
                         </p>
 
                         {/* Benefits List */}
-                        <div className='space-y-3'>
+                        <div className='space-y-2 lg:space-y-3'>
                           {solution.benefits.map((benefit, idx) => (
                             <motion.div
                               key={idx}
                               initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: idx * 0.1 }}
-                              className='flex items-center gap-3'
+                              className='flex items-center gap-2 lg:gap-3'
                             >
-                              <CheckCircle className='w-4 h-4 text-[#a98b5d] flex-shrink-0' />
-                              <span className='text-sm text-gray-400'>
+                              <CheckCircle className='w-3 h-3 lg:w-4 lg:h-4 text-[#a98b5d] flex-shrink-0' />
+                              <span className='text-xs lg:text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300'>
                                 {benefit}
                               </span>
                             </motion.div>
@@ -343,43 +368,52 @@ export default function SolutionsSection() {
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.5 }}
-                  className='h-full flex items-center justify-center'
+                  className='h-full flex items-center justify-center order-1 lg:order-2'
                 >
-                  <div className='aspect-square w-full max-w-lg bg-gradient-to-br from-[#a98b5d]/20 to-[#dcd7ce]/10 rounded-3xl border border-[#a98b5d]/30 backdrop-blur-xl p-8 flex items-center justify-center'>
+                  <div className='aspect-square w-full max-w-sm lg:max-w-lg bg-gradient-to-br from-[#a98b5d]/20 via-[#dcd7ce]/10 to-[#a98b5d]/5 rounded-2xl lg:rounded-3xl border border-[#a98b5d]/30 backdrop-blur-xl p-6 lg:p-8 flex items-center justify-center premium-glass shadow-2xl'>
                     {/* Dynamic Visual Content */}
                     <motion.div
                       key={activeFeature}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5 }}
+                      initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                      animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                      transition={{
+                        duration: 0.7,
+                        type: 'spring',
+                        bounce: 0.3,
+                      }}
                       className='w-full h-full relative flex items-center justify-center'
                     >
                       {/* Neural Network Visual */}
                       {solution.visual.type === 'neural-network' && (
-                        <div className='relative w-64 h-64'>
+                        <div className='relative w-48 h-48 lg:w-64 lg:h-64'>
                           {[...Array(12)].map((_, i) => (
                             <motion.div
                               key={i}
-                              className='absolute w-3 h-3 bg-[#a98b5d] rounded-full'
+                              className='absolute w-2 h-2 lg:w-3 lg:h-3 bg-[#a98b5d] rounded-full shadow-lg'
                               style={{
                                 left: `${20 + (i % 3) * 30}%`,
                                 top: `${20 + Math.floor(i / 3) * 20}%`,
                               }}
                               animate={{
-                                scale: [1, 1.5, 1],
-                                opacity: [0.3, 1, 0.3],
+                                scale: [1, 1.8, 1],
+                                opacity: [0.4, 1, 0.4],
+                                boxShadow: [
+                                  '0 0 0px #a98b5d',
+                                  '0 0 20px #a98b5d',
+                                  '0 0 0px #a98b5d',
+                                ],
                               }}
                               transition={{
-                                duration: 2,
+                                duration: 2.5,
                                 repeat: Infinity,
-                                delay: i * 0.2,
+                                delay: i * 0.15,
                               }}
                             />
                           ))}
                           {[...Array(8)].map((_, i) => (
                             <motion.div
                               key={`line-${i}`}
-                              className='absolute h-px bg-gradient-to-r from-[#a98b5d]/50 to-transparent'
+                              className='absolute h-px bg-gradient-to-r from-[#a98b5d]/60 via-[#dcd7ce]/40 to-transparent'
                               style={{
                                 left: '25%',
                                 top: `${25 + i * 10}%`,
@@ -387,6 +421,7 @@ export default function SolutionsSection() {
                               }}
                               animate={{
                                 opacity: [0, 1, 0],
+                                scaleX: [0, 1, 0.8],
                               }}
                               transition={{
                                 duration: 3,
@@ -400,11 +435,12 @@ export default function SolutionsSection() {
 
                       {/* Other visual types */}
                       {solution.visual.type !== 'neural-network' && (
-                        <div className='w-48 h-48 rounded-full bg-gradient-to-r from-[#a98b5d]/30 to-[#dcd7ce]/30 flex items-center justify-center'>
+                        <div className='w-32 h-32 lg:w-48 lg:h-48 rounded-full bg-gradient-to-r from-[#a98b5d]/40 via-[#dcd7ce]/30 to-[#a98b5d]/40 flex items-center justify-center relative premium-glow'>
+                          <div className='absolute inset-0 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 animate-pulse' />
                           {(() => {
                             const IconComponent = solution.icon
                             return (
-                              <IconComponent className='w-24 h-24 text-[#a98b5d]' />
+                              <IconComponent className='w-16 h-16 lg:w-24 lg:h-24 text-[#a98b5d] relative z-10 drop-shadow-lg' />
                             )
                           })()}
                         </div>
