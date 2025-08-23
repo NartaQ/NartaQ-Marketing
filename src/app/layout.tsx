@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next'
 
-import "./globals.css";
-import { Playfair_Display, Source_Sans_3 } from "next/font/google";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import './styles//globals.css'
+import { Playfair_Display, Source_Sans_3 } from 'next/font/google'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import {
   organizationSchema,
@@ -14,14 +14,14 @@ import {
 } from '@/lib/structured-data'
 
 const fontSans = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-});
+  subsets: ['latin'],
+  variable: '--font-serif',
+})
 
 const fontMono = Source_Sans_3({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -45,17 +45,17 @@ export const metadata: Metadata = {
     'startup experts',
     'venture funding',
   ],
-  authors: [{ name: "NartaQ" }],
-  creator: "NartaQ",
-  publisher: "NartaQ",
+  authors: [{ name: 'NartaQ' }],
+  creator: 'NartaQ',
+  publisher: 'NartaQ',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://nartaq.com"),
+  metadataBase: new URL('https://nartaq.com'),
   alternates: {
-    canonical: "/",
+    canonical: '/',
   },
   openGraph: {
     title: 'NartaQ - Premium Investment & Talent Platform',
@@ -65,14 +65,14 @@ export const metadata: Metadata = {
     siteName: 'NartaQ',
     images: [
       {
-        url: "/images/og-image.png",
+        url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: "NartaQ - Premium Investment & Talent Platform",
+        alt: 'NartaQ - Premium Investment & Talent Platform',
       },
     ],
-    locale: "en_US",
-    type: "website",
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
@@ -88,20 +88,20 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang='en' className='dark' suppressHydrationWarning>
       <head>
         <script
           type='application/ld+json'
@@ -127,5 +127,5 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-  );
+  )
 }

@@ -7,6 +7,7 @@ import NeonHeroSection from '../components/NeonHeroSection'
 import PerformanceMetrics from '../components/PerformanceMetrics'
 import InteractiveShowcase from '../components/InteractiveShowcase'
 import { Metadata } from 'next'
+import SolutionsSection from '@/components/SolutionsSection'
 
 export const metadata: Metadata = {
   title: 'NartaQ - Where Startups Find Investors & Top Talent',
@@ -55,7 +56,7 @@ export default function Home() {
       {/* Performance Metrics Section */}
       <PerformanceMetrics />
       {/* Interactive Feature Showcase */}
-      <InteractiveShowcase />
+      <SolutionsSection />
       {/* Main Content Sections */}
 
       <OrchestrationSection />

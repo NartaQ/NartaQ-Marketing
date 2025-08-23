@@ -26,7 +26,7 @@ export default function Header({ className }: { className?: string }) {
   }
 
   return (
-    <Navbar className={cn('fixed top-0 z-50', className)}>
+    <Navbar className={cn('fixed top-4 z-50', className)}>
       {/* Desktop Navigation */}
       <NavBody>
         <div className='w-full flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -35,13 +35,13 @@ export default function Header({ className }: { className?: string }) {
             className='flex items-center gap-2 p-1 group relative z-20'
             href='/'
           >
-            <div className='h-[28px] sm:h-[32px] md:h-[36px] flex items-center gap-2 relative'>
+            <div className='h-[24px] sm:h-[28px] md:h-[32px] flex items-center gap-2 relative'>
               <Image
                 src='/logo/main-tr-hor.svg'
                 alt='Nartaq Icon'
-                width={120}
-                height={20}
-                className='h-7 sm:h-8 md:h-9 w-auto relative z-10'
+                width={100}
+                height={18}
+                className='h-6 sm:h-7 md:h-8 w-auto relative z-10'
               />
             </div>
           </Link>
@@ -103,13 +103,13 @@ export default function Header({ className }: { className?: string }) {
               href='/'
               onClick={() => setMobileMenuOpen(false)}
             >
-              <div className='h-[28px] sm:h-[32px] flex items-center gap-1 sm:gap-2 relative'>
+              <div className='h-[24px] sm:h-[28px] flex items-center gap-1 sm:gap-2 relative'>
                 <Image
                   src='/logo/main-tr-hor.svg'
                   alt='Nartaq Icon'
-                  width={120}
-                  height={28}
-                  className='h-7 sm:h-8 w-auto relative z-10'
+                  width={100}
+                  height={24}
+                  className='h-6 sm:h-7 w-auto relative z-10'
                 />
               </div>
             </Link>
@@ -117,7 +117,7 @@ export default function Header({ className }: { className?: string }) {
             {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className='p-2 rounded-lg hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 transition-colors'
+              className='p-2 rounded-lg hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 transition-colors'
               aria-label='Toggle mobile menu'
             >
               <MobileNavToggle
@@ -138,7 +138,7 @@ export default function Header({ className }: { className?: string }) {
             <div className='w-full'>
               <button
                 onClick={() => toggleSection('solutions')}
-                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#3e3f44] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
               >
                 <span className='font-medium'>Solutions</span>
                 <ChevronDown
@@ -152,21 +152,21 @@ export default function Header({ className }: { className?: string }) {
                 <div className='ml-4 mt-2 space-y-2'>
                   <Link
                     href='/solutions/startups'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     For Startups
                   </Link>
                   <Link
                     href='/solutions/investors'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     For Investors
                   </Link>
                   <Link
                     href='/solutions/providers'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     For Service Providers
@@ -179,7 +179,7 @@ export default function Header({ className }: { className?: string }) {
             <div className='w-full'>
               <button
                 onClick={() => toggleSection('products')}
-                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#3e3f44] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
               >
                 <span className='font-medium'>Products</span>
                 <ChevronDown
@@ -193,10 +193,10 @@ export default function Header({ className }: { className?: string }) {
                 <div className='ml-4 mt-2 space-y-3'>
                   <Link
                     href='/products/dealflow'
-                    className='block px-3 py-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    className='block px-3 py-2 hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
+                    <div className='font-medium text-sm text-[#232428] dark:text-[#dcd7ce]'>
                       DealFlow
                     </div>
                     <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
@@ -205,10 +205,10 @@ export default function Header({ className }: { className?: string }) {
                   </Link>
                   <Link
                     href='/products/work'
-                    className='block px-3 py-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    className='block px-3 py-2 hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
+                    <div className='font-medium text-sm text-[#232428] dark:text-[#dcd7ce]'>
                       Work
                     </div>
                     <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
@@ -220,7 +220,7 @@ export default function Header({ className }: { className?: string }) {
             </div>
 
             {/* CTA Button */}
-            <div className='pt-4 mt-4 border-t border-[#5c5d63]/30 dark:border-[#5c5d63]/40'>
+            <div className='pt-4 mt-4 border-t border-[#5c5d63]/40 dark:border-[#5c5d63]/50'>
               <NavbarButton
                 href='/companies-providers#how-it-works'
                 className='w-full text-center bg-[#A98B5D] text-white hover:bg-[#8B7349] transition-colors px-4 py-3 rounded-lg font-medium'

@@ -1,10 +1,9 @@
 'use client'
 import React from 'react'
-import { motion } from 'motion/react'
-import Image from 'next/image'
+import { motion, Transition } from 'framer-motion'
 
-const transition = {
-  type: 'spring' as const,
+const transition: Transition = {
+  type: 'spring',
   mass: 0.5,
   damping: 11.5,
   stiffness: 100,
@@ -27,7 +26,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className='relative '>
       <motion.p
         transition={{ duration: 0.3 }}
-        className='cursor-pointer text-[#232428] hover:opacity-[0.9] dark:text-[#dcd7ce]'
+        className='cursor-pointer text-[#232428] hover:text-[#a98b5d] dark:text-[#dcd7ce] dark:hover:text-[#a98b5d] transition-colors duration-200'
       >
         {item}
       </motion.p>
@@ -38,15 +37,15 @@ export const MenuItem = ({
           transition={transition}
         >
           {active === item && (
-            <div className='absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4'>
+            <div className='absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4 z-50'>
               <motion.div
                 transition={transition}
                 layoutId='active' // layoutId ensures smooth animation
-                className='bg-[#dcd7ce] dark:bg-[#232428] backdrop-blur-sm rounded-2xl overflow-hidden border border-[#5c5d63]/20 dark:border-[#5c5d63]/30 shadow-xl'
+                className='bg-[#dcd7ce]/95 dark:bg-[#232428]/95 backdrop-blur-sm rounded-2xl overflow-hidden border border-[#5c5d63]/30 shadow-xl'
               >
                 <motion.div
                   layout // layout ensures smooth animation
-                  className='w-max h-full p-2'
+                  className='w-max h-full p-4'
                 >
                   {children}
                 </motion.div>
@@ -69,7 +68,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className='relative rounded-full border border-transparent dark:bg-[#232428] dark:border-[#5c5d63]/30 bg-[#dcd7ce] shadow-input flex justify-center space-x-4 px-8 py-2 '
+      className='relative rounded-full border border-transparent bg-transparent flex justify-center space-x-4 px-8 py-6'
     >
       {children}
     </nav>
@@ -88,19 +87,22 @@ export const ProductItem = ({
   src: string
 }) => {
   return (
-    <a href={href} className='flex space-x-2'>
-      <Image
+    <a
+      href={href}
+      className='flex space-x-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg p-2 transition-colors duration-200'
+    >
+      <img
         src={src}
-        width={140}
-        height={70}
+        width={100}
+        height={50}
         alt={title}
-        className='shrink-0 rounded-md shadow-2xl'
+        className='shrink-0 rounded-md shadow-lg'
       />
       <div>
-        <h4 className='text-xl font-bold mb-1 text-[#232428] dark:text-[#dcd7ce]'>
+        <h4 className='text-lg font-semibold mb-1 text-[#232428] dark:text-[#dcd7ce] hover:text-[#a98b5d] transition-colors duration-200'>
           {title}
         </h4>
-        <p className='text-[#3e3f44] text-sm max-w-[10rem] dark:text-[#5c5d63]'>
+        <p className='text-[#5c5d63] dark:text-[#5c5d63] text-sm max-w-[10rem]'>
           {description}
         </p>
       </div>
@@ -108,16 +110,11 @@ export const ProductItem = ({
   )
 }
 
-export const HoveredLink = ({
-  children,
-  ...rest
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  children: React.ReactNode
-}) => {
+export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <a
       {...rest}
-      className='text-[#3e3f44] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce]'
+      className='text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] transition-colors duration-200 block py-2 px-3 rounded-lg hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20'
     >
       {children}
     </a>

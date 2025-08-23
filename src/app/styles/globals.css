@@ -7,82 +7,74 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Main Color Palette */
-  --raisin-black: #232428;
-  --onyx: #3e3f44;
-  --davys-gray: #5c5d63;
-  --lion: #a98b5d;
-  --timberwolf: #dcd7ce;
-
-  /* Custom PixaPage Variables - Dark Mode Only */
-  --primary-text-color: #dcd7ce;
-  --bg-color: #232428;
-  --btn-color: #232428;
-  --btn-bg: #dcd7ce;
-  --header-link-hover: #dcd7ce;
-  --header-link-hover-bg: #a98b5d5e;
-  --input-hover-bd-color: #a98b5d;
-  --dropdown-bg: #3e3f44;
-  --dropdown-hover-bg: #5c5d63db;
-  --faq-h-text: #dcd7ce;
-  --faq-content-text: #a98b5d;
-  --hr-color: #5c5d6395;
-  --footer-link: #a98b5d;
-  --footer-link-hover: #dcd7ce;
-  --header-bg: #232428a5;
-  --hero-gradient: #232428;
-  --hero-bg-img: url('/images/background/dots.svg');
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
 
-  /* Tailwind CSS Variables - Dark Mode Only */
-  --background: 240 6% 14%;
-  /* raisin-black */
-  --foreground: 48 18% 85%;
-  /* timberwolf */
-  --card: 240 4% 25%;
-  /* onyx */
-  --card-foreground: 48 18% 85%;
-  --popover: 240 4% 25%;
-  /* onyx */
-  --popover-foreground: 48 18% 85%;
-  --primary: 42 26% 52%;
-  /* lion */
-  --primary-foreground: 0 0% 0%;
-  /* black */
-  --secondary: 240 4% 39%;
-  /* davys-gray */
-  --secondary-foreground: 48 18% 85%;
-  --muted: 240 4% 25%;
-  /* onyx */
-  --muted-foreground: 48 18% 85%;
-  --accent: 42 26% 52%;
-  /* lion */
-  --accent-foreground: 0 0% 0%;
-  /* black */
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 100%;
-  /* white */
-  --border: 240 4% 39%;
-  /* davys-gray */
-  --input: 240 4% 25%;
-  /* onyx */
-  --ring: 42 26% 52%;
-  /* lion */
-  --chart-1: 42 26% 52%;
-  /* lion */
-  --chart-2: 240 4% 39%;
-  /* davys-gray */
-  --chart-3: 240 4% 25%;
-  /* onyx */
-  --chart-4: 48 18% 85%;
-  /* timberwolf */
-  --chart-5: 240 6% 14%;
-  /* raisin-black */
-  --color-1: oklch(66.2% 0.225 25.9);
-  --color-2: oklch(60.4% 0.26 302);
-  --color-3: oklch(69.6% 0.165 251);
-  --color-4: oklch(80.2% 0.134 225);
-  --color-5: oklch(90.7% 0.231 133);
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
 }
 
 html {
@@ -891,6 +883,56 @@ h3 {
   --color-3: oklch(69.6% 0.165 251);
   --color-4: oklch(80.2% 0.134 225);
   --color-5: oklch(90.7% 0.231 133);
+}
+
+/* Horizontal Scrolling Section Styles */
+.horizontal-scroll-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.horizontal-scroll-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform;
+  position: relative;
+  gap: 0; /* Ensure no gaps between items */
+}
+
+.horizontal-scroll-item {
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+/* GSAP ScrollTrigger pin-spacer fix */
+.pin-spacer {
+  overflow: visible !important;
+  z-index: 1;
+}
+
+/* Performance optimizations for GSAP animations */
+.gsap-element {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Ensure proper layering for scroll sections */
+section[data-scroll-section] {
+  position: relative;
+  z-index: 1;
+}
+
+/* Prevent scroll interference */
+.scroll-container {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 /* Timeline Container Styling */
