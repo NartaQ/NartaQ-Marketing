@@ -107,41 +107,38 @@ export default function ForStartupsPage() {
                 colorFrom='#a98b5d'
                 colorTo='#dcd7ce'
               >
-                From Idea to Unicorn - Complete Startup Journey
+                FRANCE-TUNISIA CORRIDOR
               </AnimatedGradientText>
             </div>
             <h1 className='text-5xl md:text-7xl font-bold leading-tight reveal-up'>
-              Get funding and hire{' '}
+              Get discovered by{' '}
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                top talent
-              </span>{' '}
-              without giving up equity.
+                elite investors
+              </span>
             </h1>
             <p className='text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-              Skip 18 months of fundraising and hiring. Connect
-              with smart investors and hire top talent from
-              Google, Stripe, and Airbnb.
+              Apply to be part of the inaugural cohort and get discovered by our curated investor network.
             </p>
             <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 reveal-scale'>
               <a
-                href='mailto:startups@nartaq.com?subject=Get%20Funded%20Request'
+                href='mailto:startups@nartaq.com?subject=Apply%20for%20Access'
                 className='group relative px-6 py-3 text-base font-bold text-black bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] rounded-lg shadow-xl hover:shadow-[#a98b5d]/50 transform hover:scale-105 transition-all duration-300 overflow-hidden'
               >
                 <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                 <div className='relative flex items-center space-x-2'>
-                  <span>Get Funded</span>
+                  <span>Apply for Access</span>
                   <span className='text-lg group-hover:translate-x-1 transition-transform duration-300'>
                     →
                   </span>
                 </div>
                 <div className='absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 animate-pulse transition-opacity duration-300'></div>
               </a>
-              <a
-                href='mailto:startups@nartaq.com?subject=Find%20Co-Founders%20Request'
+              <Link
+                href='/solutions/investors'
                 className='px-6 py-3 rounded-lg font-semibold border-2 border-[#5c5d63] text-[#dcd7ce] hover:border-[#a98b5d] hover:bg-[#a98b5d]/10 hover:text-[#a98b5d] transition-all duration-300 shadow-lg hover:shadow-[#5c5d63]/30'
               >
-                Find Co-Founders
-              </a>
+                For Investors
+              </Link>
             </div>
           </div>
         </section>
@@ -183,14 +180,13 @@ export default function ForStartupsPage() {
           <div className='max-w-6xl mx-auto'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
-                Your Complete{' '}
+                Get Ready for{' '}
                 <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                  Growth Platform
+                  Smart Capital
                 </span>
               </h2>
               <p className='text-xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-                The talent from Google, Stripe, and Airbnb now works for you.
-                Get all the help you need without giving up equity.
+                Pre-vetted startups get matched with investors who understand their stage, sector, and corridor context.
               </p>
             </div>
 

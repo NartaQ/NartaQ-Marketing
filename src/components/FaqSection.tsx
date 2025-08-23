@@ -7,28 +7,28 @@ export default function FaqSection() {
 
   const faqs = [
     {
-      q: 'How do private bounties work?',
-      a: 'Startups post small, clear tasks with budget ranges. Top experts apply or submit work. We check quality against the brief. Winners get paid when startups approve work. Private bounties only go to pre-checked pros.',
+      q: 'How does the DAO work?',
+      a: 'Token holders vote on big decisions. Submit deals and earn tokens. Good work gets rewarded.',
     },
     {
-      q: 'Do you handle payments safely?',
-      a: 'We protect your money until work is done right. Our partner network handles payments and escrow. We have legal docs ready for bigger projects. Details depend on project size and location.',
+      q: 'Why only France-Tunisia?',
+      a: 'We know this market well. Strong ties between the countries. Great talent in Tunisia. Focus helps us do better.',
     },
     {
-      q: 'Can I pay with equity?',
-      a: 'Yes. We help with cash + equity deals. Our legal partners have templates ready. All equity deals go through our NDA process.',
+      q: 'How do you check if startups are real?',
+      a: 'We verify everything. Check IDs, call references, put key facts on blockchain so nobody can lie.',
     },
     {
-      q: "What does NartaQ do during projects?",
-      a: 'We can help coordinate scope, check milestones, and handle disputes. Or teams can manage themselves with our tools. Your choice.',
+      q: 'What makes you different?',
+      a: 'We all own it together. We focus on one corridor. Everyone shares the wins.',
     },
     {
-      q: 'How do you protect sensitive data?',
-      a: 'Bank-level security. EU data storage. Full encryption. Detailed logs. All sensitive work needs NDAs. Extra IP protection available.',
+      q: 'How do I earn tokens?',
+      a: 'Submit good deals. Vote on choices. Help review startups. Quality work gets paid.',
     },
     {
-      q: 'Who can join this network?',
-      a: 'Invite-only. We want proven pros, funded startups, and real investors in France-Tunisia. We check everyone twice including credentials and past work.',
+      q: 'Who can join?',
+      a: 'Invitation only. Real investors, good startups, trusted partners. We check everyone.',
     },
   ]
 

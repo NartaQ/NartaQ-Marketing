@@ -968,3 +968,13 @@ h3 {
       transparent 50%
     );
 }
+
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(169, 139, 93, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(169, 139, 93, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.text-glow {
+  text-shadow: 0 0 20px #a98b5d60, 0 0 40px #a98b5d30;
+}

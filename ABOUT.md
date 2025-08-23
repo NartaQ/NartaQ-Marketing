@@ -1,52 +1,49 @@
-# NartaQ — An exclusive ecosystem for the France–Tunisia corridor
+# NartaQ — The Collective Intelligence Deal Engine for France–Tunisia
 
-**Mission**: Bridge Tunisia's exceptional technical talent with global capital and market opportunities through a premium, trust-driven platform designed for elite professionals.
+**Mission**: Bridge Tunisia's exceptional technical talent with global capital through a community-owned, DAO-governed dealflow platform designed for elite investors and exceptional startups.
 
-**Positioning**: An invitation-based, private network that functions like a premium club for verified investors, ambitious startups, and elite service providers in the strategic France-Tunisia corridor.
+**Positioning**: An Elite network where elite investors co-source and vet exceptional Tunisian tech talent through a shared, community-owned platform. Think "OpenVC meets DAO governance" for the strategic France-Tunisia corridor.
 
-*Note: Deeper implementation details (AI matching algorithms, compliance workflows, and payment mechanics) are shared under NDA at this pre-seed stage.*
+*Note: Deeper implementation details (AI matching algorithms, DAO governance mechanics, and token economics) are shared under NDA at this pre-seed stage.*
 
 ## What we do
 
-NartaQ operates as an exclusive dual-axis ecosystem with sophisticated orchestration capabilities:
+NartaQ operates as a decentralized, community-owned dealflow platform with a focused mission: solve the investor-startup matching problem in the France-Tunisia corridor through collective intelligence.
 
-### Axis 1: Startups ↔ Investors (Premium Dealflow)
-- **AI-powered deck screening**: Structured rubric-based feedback system for comprehensive evaluation
-- **Precision fit-first introductions**: Only connect when there's genuine stage, sector, and thesis alignment  
-- **Accelerated progress tracking**: Curated network designed for efficient investor-startup connections
-- **Elite reviewer network**: Professional review system with rapid turnaround for actionable feedback
+### Core Product: AI-Powered Dealflow Platform
+- **The Sourcing DAO**: Network of investors and ecosystem partners actively refers and scouts deals, earning rewards for quality submissions
+- **The Vetting Stack**: AI screens for fit, then expert reviewer network (including active VCs) provides structured, actionable feedback  
+- **The Trust Layer**: Every startup is verified. Key data—from cap tables to technical audits—is attested on-chain for immutable due diligence
+- **Shared Success Model**: Token holders govern the platform, vote on features, participate in due diligence, and share in platform success
 
-### Axis 2: Companies ↔ Service Providers (Elite Work Orchestration)
-- **Curated talent network**: Verified elite service providers with premium positioning and competitive rates
-- **Crystal-clear project scoping**: Detailed deliverables, acceptance criteria, and milestone-based contracts
-- **Timeboxed execution**: Structured review cycles with guaranteed payment schedules
-- **Hybrid compensation support**: Cash + equity/options arrangements for long-term alignment
+### The DAO Advantage: Our Key Differentiator
+- **Submit & Earn**: Quality deal submissions earn reputation points or governance tokens
+- **Review & Govern**: Token holders participate in due diligence rounds and vote on platform evolution
+- **Share in Value**: Community shares in platform success through aligned economic model
+- **Collective Intelligence**: Leverage combined expertise of investor community for superior deal evaluation
 
-### Orchestration Layer: Premium Project Management
-- **Tri-party coordination**: Transform funding intent into shipped outcomes with white-glove service
-- **Sophisticated milestone tracking**: Immutable briefs, acceptance templates, and timestamped submissions
-- **Elite dispute resolution**: Concierge-level handling with structured evidence review and expedited arbitration
-- **Premium payment protection**: Escrow-style releases with optional intellectual property protection
+### Future Vision: Phase 2 Expansion
+Once we own the capital-talent connection, we can orchestrate the execution of that capital by helping funded startups connect with vetted service providers and technical talent—a natural, high-value extension built on our dealflow foundation.
 
 ## Strategic advantages & competitive moats
+
+### The DAO Differentiator: Community-Owned Governance
+- **Collective intelligence model**: Harnesses combined expertise of investor community for superior deal sourcing and evaluation
+- **Aligned economic incentives**: Token holders directly invested in platform success, ensuring quality over quantity approach
+- **Transparent governance**: All major platform decisions voted on by community, creating unprecedented transparency in dealflow
+- **Shared ownership model**: Contributors earn platform ownership, creating sustainable long-term value alignment
 
 ### Structural Defensibility
 - **Invitation-only scarcity value**: Multi-layer verification creates natural barriers to entry and maintains premium positioning
 - **Corridor-specific cultural alignment**: Franco-Tunisian linguistic and cultural fluency reduces offshore friction vs. generic platforms  
 - **Regulatory arbitrage advantage**: Tunisia's EU-aligned technical education + GDPR compliance with favorable cost structures
-- **Outcome-based differentiation**: Milestone tracking and escrow protection address high-value client pain points that transactional platforms ignore
+- **Network effects amplification**: DAO governance creates stronger network effects than traditional platforms
 
-### Intellectual Property & Process Innovation
-- **Proprietary orchestration algorithms**: Patent-pending milestone tracking, AI-powered credential validation, and dispute resolution protocols
-- **Cross-jurisdictional compliance framework**: Dual data residency (EU/Tunisia) with automated GDPR/local law adherence
-- **Fraud detection systems**: AI-driven anomaly scanning for credential verification and submission authenticity
-- **Premium talent retention mechanics**: Loyalty programs including carried interest pools for top-tier service providers
-
-### Network Effects & Scaling Strategy
-- **Tiered membership architecture**: "Select" and "Partner" levels with escalating verification requirements and exclusive benefits
-- **Strategic ecosystem partnerships**: Formal alliances with French tech consortia (France Digitale) and Tunisian engineering schools (INSAT, ESPRIT)
-- **Enterprise compliance dashboard**: Real-time GDPR/data residency analytics for corporate clients requiring auditability
-- **Geographic replication model**: Proven framework ready for similar corridors (France-Morocco, Germany-Tunisia post-PMF)
+### Technical Innovation & IP
+- **Proprietary DAO governance protocols**: Patent-pending decentralized deal evaluation and community governance systems
+- **On-chain trust layer**: Immutable due diligence data and startup verification for unprecedented transparency
+- **AI-powered collective intelligence**: Advanced algorithms that learn from community feedback to improve matching
+- **Cross-jurisdictional compliance**: Automated GDPR/local law adherence with dual data residency architecture
 
 ## Why the France-Tunisia corridor
 
@@ -85,23 +82,23 @@ NartaQ operates as an exclusive dual-axis ecosystem with sophisticated orchestra
 
 ## Business model & unit economics
 
-### Revenue Streams & Monetization
-- **Startup-Investor Axis**: Credit-based deck submissions with premium analytics and visibility options
-- **Service Provider Network**: Freemium profiles with priority matching for premium and enterprise tiers  
-- **Orchestration Services**: Transaction and service fees for managed project delivery
-- **Enterprise Solutions**: Custom screening, dedicated relationship management, and advanced analytics
+### DAO-Powered Revenue Model
+- **Deal Submission Credits**: Startups purchase credits for deck submissions with premium analytics and visibility options
+- **Governance Token Economics**: Token holders earn from platform success through aligned economic model
+- **Premium Due Diligence Services**: Enhanced review services and direct investor introductions for qualified startups
+- **Ecosystem Partnership Fees**: Universities, accelerators, and strategic partners for qualified deal flow pipeline
 
 ### Unit Economics Framework
-- **Premium pricing strategy**: Positioning for higher-value transactions with sophisticated clients
-- **Quality-over-volume approach**: High-touch verification model designed for premium transaction values
-- **Scalable service architecture**: Structured protocols designed for systematic scaling of concierge-level services
-- **Multi-tier optimization strategy**: Tiered verification requirements designed to balance acquisition costs with customer lifetime value
+- **Quality-over-volume economics**: High-touch DAO governance model designed for premium deal values and superior outcomes
+- **Community-driven cost efficiency**: Token holder participation reduces traditional platform overhead costs
+- **Shared value creation**: Platform success directly benefits community through token appreciation and governance rewards
+- **Scalable community model**: DAO governance enables efficient scaling without proportional cost increases
 
-### Market Approach & Competitive Positioning
-- **Quality-first growth**: Selective, invitation-based expansion maintaining network exclusivity while scaling
-- **Premium market focus**: Higher-value transactions with sophisticated clients requiring auditability and compliance
-- **Strategic pipeline partnerships**: Universities, accelerators, and ecosystem partners for qualified deal flow
-- **Defensible IP development**: Patent-pending orchestration workflows and compliance automation systems
+### Competitive Positioning: Beyond Platform to Protocol
+- **Protocol-level innovation**: DAO governance model creates defensible competitive moat through community ownership
+- **Network effects amplification**: Token incentives create stronger user retention than traditional fee-based models
+- **Geographic expansion blueprint**: Proven DAO framework replicable for similar high-potential corridors
+- **Ecosystem value capture**: Position as foundational infrastructure for France-Tunisia tech corridor development
 
 ## Why now
 
@@ -136,32 +133,27 @@ NartaQ operates as an exclusive dual-axis ecosystem with sophisticated orchestra
 
 ## Get involved
 
-### For Investors
-- **Request investor memo** (NDA-protected): Deep dive into market opportunity, competitive analysis, and launch strategy
-- **Early access opportunity**: Join exclusive pre-launch network for premium dealflow access
+### For Investors & Angels
+- **Request investor memo** (NDA-protected): Deep dive into DAO governance model, token economics, and community-driven dealflow approach
+- **Join founding member cohort**: Gain privileged access to pre-vetted pipeline and voice in shaping platform governance
 - **Email**: invest@nartaq.com
 
 ### For Startups  
-- **Join launch waitlist**: Early access to structured feedback and investor network upon platform launch
-- **Strategic corridor access**: Build connections in the France-Tunisia tech ecosystem
+- **Apply for inaugural cohort**: Be among the first startups to access community-driven feedback and investor network
+- **Build corridor connections**: Establish presence in the France-Tunisia tech ecosystem through DAO participation
 - **Email**: startups@nartaq.com
 
-### For Service Providers
-- **Apply for founding member status**: Join the initial cohort of verified elite professionals  
-- **Exclusive opportunity access**: First access to premium projects and clients upon launch
-- **Email**: providers@nartaq.com
-
 ### For Ecosystem Partners
-- **Universities & accelerators**: Pipeline partnerships for qualified deal flow
-- **Corporate partners**: Custom orchestration and talent sourcing solutions
-- **Strategic alliances**: Regional expansion and market entry collaboration
+- **Universities & accelerators**: Partnership opportunities for qualified deal flow and community governance participation
+- **Strategic alliances**: Regional expansion and DAO governance collaboration for corridor development
+- **Community governance**: Participate in shaping the future of France-Tunisia tech ecosystem
 
 **Primary Contact**: contact@nartaq.com  
-**Platform**: Built for the France & Tunisia corridor (geographic expansion planned via proven framework)  
-**Status**: Pre-seed development stage with strategic positioning validation and partnership pipeline development
+**Platform**: The collective intelligence deal engine for the France & Tunisia corridor  
+**Status**: Pre-seed DAO development with community governance framework and strategic positioning validation
 
 ---
 
-*"The strategic framework and operational approach position NartaQ to define the Franco-African tech corridor upon launch."*
+*"We're building a decentralized autonomous organization to govern dealflow, ensuring alignment, transparency, and long-term sustainability for the France-Tunisia tech corridor."*
 
-**Investor Memo**: Available under NDA for qualified investors. Deep dive into market opportunity, competitive analysis, unit economics projections, and launch roadmap.
+**Investor Memo**: Available under NDA for qualified investors. Deep dive into DAO governance model, token economics, collective intelligence approach, and community-driven growth strategy.

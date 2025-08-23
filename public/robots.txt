@@ -7,11 +7,6 @@ Sitemap: https://nartaq.com/sitemap.xml
 # Specific crawling rules
 Allow: /solutions/
 Allow: /products/
-Allow: /api/
-
-# Block admin or sensitive areas (if any)
-# Disallow: /admin
-# Disallow: /dashboard
 
 # Allow popular bots
 User-agent: Googlebot

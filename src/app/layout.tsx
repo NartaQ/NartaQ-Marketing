@@ -103,6 +103,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <meta name="apple-mobile-web-app-title" content="NartaQ" />
+        <meta name="application-name" content="NartaQ" />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{

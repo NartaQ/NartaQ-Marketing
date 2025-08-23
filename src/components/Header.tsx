@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
-import { HoveredLink, Menu, MenuItem, ProductItem } from './ui/navbar-menu'
+import { HoveredLink, Menu, MenuItem } from './ui/navbar-menu'
 import {
   Navbar,
   NavBody,
@@ -49,33 +49,39 @@ export default function Header({ className }: { className?: string }) {
           {/* Desktop Menu Items - Centered */}
           <div className='absolute left-1/2 transform -translate-x-1/2 hidden lg:flex'>
             <Menu setActive={setActive}>
-              <MenuItem setActive={setActive} active={active} item='Solutions'>
+              <MenuItem setActive={setActive} active={active} item='Platform'>
                 <div className='flex flex-col space-y-4 text-sm p-4'>
-                  <HoveredLink href='/solutions/startups'>
-                    For Startups
-                  </HoveredLink>
                   <HoveredLink href='/solutions/investors'>
                     For Investors
                   </HoveredLink>
-                  <HoveredLink href='/solutions/providers'>
-                    For Service Providers
+                  <HoveredLink href='/solutions/startups'>
+                    For Startups
+                  </HoveredLink>
+                  <HoveredLink href='/products/dealflow'>
+                    Dealflow Platform
                   </HoveredLink>
                 </div>
               </MenuItem>
-              <MenuItem setActive={setActive} active={active} item='Products'>
-                <div className='text-sm grid grid-cols-1 md:grid-cols-2 gap-6 p-4'>
-                  <ProductItem
-                    title='DealFlow'
-                    href='/products/dealflow'
-                    src='/logo/main-tr-hor.svg'
-                    description='Investors & Startups: AI rubric checks and curated, fit-first intros.'
-                  />
-                  <ProductItem
-                    title='Work'
-                    href='/products/work'
-                    src='/logo/main-tr-hor.svg'
-                    description='Startups & Providers: bounties, milestone protections, orchestration.'
-                  />
+              <MenuItem setActive={setActive} active={active} item='The DAO'>
+                <div className='text-sm flex flex-col space-y-4 p-4'>
+                  <div className='text-neutral-700 dark:text-neutral-300 text-xs uppercase tracking-wide mb-2'>
+                    Community Governance
+                  </div>
+                  <HoveredLink href='/#dao-governance'>
+                    How DAO Works
+                  </HoveredLink>
+                  <HoveredLink href='/#tokenomics'>
+                    Token Economics
+                  </HoveredLink>
+                  <HoveredLink href='/#community'>
+                    Join Community
+                  </HoveredLink>
+                </div>
+              </MenuItem>
+              <MenuItem setActive={setActive} active={active} item='Our Corridor'>
+                <div className='flex flex-col space-y-4 text-sm p-4'>
+                  <HoveredLink href='/solutions/investors'>France ↔ Tunisia Thesis</HoveredLink>
+                  <HoveredLink href='/#faq'>FAQ</HoveredLink>
                 </div>
               </MenuItem>
             </Menu>
@@ -83,12 +89,15 @@ export default function Header({ className }: { className?: string }) {
 
           {/* Desktop CTA Button */}
           <div className='hidden lg:flex'>
-            <NavbarButton
-              className='text-sm text-white bg-[#A98B5D] px-4 py-2 font-medium hover:bg-[#8B7349] transition-colors rounded-lg'
-              href='/companies-providers#how-it-works'
+             <Link
+              href="/solutions/startups"
+              className="group relative px-8 py-2 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105"
             >
-              Join Waitlist
-            </NavbarButton>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative flex items-center gap-2">
+                Apply for Access
+              </div>
+            </Link>
           </div>
         </div>
       </NavBody>
@@ -134,29 +143,22 @@ export default function Header({ className }: { className?: string }) {
           onClose={() => setMobileMenuOpen(false)}
         >
           <div className='flex flex-col space-y-2 w-full max-h-[70vh] overflow-y-auto'>
-            {/* Solutions Section */}
+            {/* Platform Section */}
             <div className='w-full'>
               <button
-                onClick={() => toggleSection('solutions')}
+                onClick={() => toggleSection('platform')}
                 className='w-full flex items-center justify-between px-3 py-2 text-left text-[#3e3f44] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
               >
-                <span className='font-medium'>Solutions</span>
+                <span className='font-medium'>Platform</span>
                 <ChevronDown
                   className={cn(
                     'w-4 h-4 transition-transform duration-200',
-                    expandedSection === 'solutions' && 'rotate-180'
+                    expandedSection === 'platform' && 'rotate-180'
                   )}
                 />
               </button>
-              {expandedSection === 'solutions' && (
+              {expandedSection === 'platform' && (
                 <div className='ml-4 mt-2 space-y-2'>
-                  <Link
-                    href='/solutions/startups'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    For Startups
-                  </Link>
                   <Link
                     href='/solutions/investors'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
@@ -165,54 +167,94 @@ export default function Header({ className }: { className?: string }) {
                     For Investors
                   </Link>
                   <Link
-                    href='/solutions/providers'
+                    href='/solutions/startups'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    For Service Providers
+                    For Startups
+                  </Link>
+                  <Link
+                    href='/products/dealflow'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Dealflow Platform
                   </Link>
                 </div>
               )}
             </div>
 
-            {/* Products Section */}
+            {/* DAO Section */}
             <div className='w-full'>
               <button
-                onClick={() => toggleSection('products')}
+                onClick={() => toggleSection('dao')}
                 className='w-full flex items-center justify-between px-3 py-2 text-left text-[#3e3f44] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
               >
-                <span className='font-medium'>Products</span>
+                <span className='font-medium'>The DAO</span>
+            {/* Corridor Section */}
+            <div className='w-full'>
+              <button
+                onClick={() => toggleSection('corridor')}
+                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#3e3f44] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+              >
+                <span className='font-medium'>Our Corridor</span>
                 <ChevronDown
                   className={cn(
                     'w-4 h-4 transition-transform duration-200',
-                    expandedSection === 'products' && 'rotate-180'
+                    expandedSection === 'corridor' && 'rotate-180'
                   )}
                 />
               </button>
-              {expandedSection === 'products' && (
+              {expandedSection === 'corridor' && (
+                <div className='ml-4 mt-2 space-y-2'>
+                  <Link
+                    href='/solutions/investors'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    France ↔ Tunisia Thesis
+                  </Link>
+                  <Link
+                    href='/#faq'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    FAQ
+                  </Link>
+                </div>
+              )}
+            </div>
+                <ChevronDown
+                  className={cn(
+                    'w-4 h-4 transition-transform duration-200',
+                    expandedSection === 'dao' && 'rotate-180'
+                  )}
+                />
+              </button>
+              {expandedSection === 'dao' && (
                 <div className='ml-4 mt-2 space-y-3'>
                   <Link
-                    href='/products/dealflow'
+                    href='/#dao-governance'
                     className='block px-3 py-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
-                      DealFlow
+                      How DAO Works
                     </div>
                     <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
-                      AI rubric checks and curated, fit-first intros
+                      Community governance and decision making
                     </div>
                   </Link>
                   <Link
-                    href='/products/work'
+                    href='/#tokenomics'
                     className='block px-3 py-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
-                      Work
+                      Token Economics
                     </div>
                     <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
-                      Bounties, milestone protections, orchestration
+                      Rewards and value sharing model
                     </div>
                   </Link>
                 </div>
@@ -222,11 +264,11 @@ export default function Header({ className }: { className?: string }) {
             {/* CTA Button */}
             <div className='pt-4 mt-4 border-t border-[#5c5d63]/30 dark:border-[#5c5d63]/40'>
               <NavbarButton
-                href='/companies-providers#how-it-works'
+                href='/#newsletter'
                 className='w-full text-center bg-[#A98B5D] text-white hover:bg-[#8B7349] transition-colors px-4 py-3 rounded-lg font-medium'
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Join Waitlist
+                Apply for Access
               </NavbarButton>
             </div>
           </div>

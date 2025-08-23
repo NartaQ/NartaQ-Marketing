@@ -2,57 +2,65 @@
 
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Brain, Target, Shield, Zap, ArrowRight } from 'lucide-react'
+import { Network, Brain, Shield, TrendingUp, ArrowRight, CheckCircle, Link2 } from 'lucide-react'
 
-export default function InteractiveShowcase() {
+export default function SolutionsSection() {
   const [activeFeature, setActiveFeature] = useState(0)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
-  const features = [
+  const solutions = [
     {
       id: 0,
       icon: Brain,
-      title: 'The Sourcing DAO',
-      subtitle: 'Community-driven deal discovery',
-      description: 'Our network of investors and ecosystem partners actively refers and scouts deals, earning rewards for quality submissions.',
-      visual: {
-        type: 'neural-network',
-        color: '#a98b5d'
-      }
+      title: 'Source Collectively',
+      subtitle: 'Network reach × aligned incentives',
+      description: 'Leverage our network’s reach. Contributors are rewarded for surfacing high-potential, qualified deals.',
+      benefits: [
+        'Structured intake & routing',
+        'Signal over noise scoring',
+        'Rewarded sourcing behavior'
+      ],
+      visual: { type: 'neural-network', color: '#a98b5d' }
     },
     {
       id: 1,
-      icon: Target,
-      title: 'The Vetting Stack',
-      subtitle: 'AI screens, experts review',
-      description: 'AI screens for fit, then our expert reviewer network (including active VCs) provides structured, actionable feedback.',
-      visual: {
-        type: 'radar',
-        color: '#dcd7ce'
-      }
+      icon: Brain,
+      title: 'Vet with AI & Expertise',
+      subtitle: 'Layered filtration & review',
+      description: 'Adaptive AI pre-filters for thesis fit. Expert reviewers then perform structured diligence with standardized outputs.',
+      benefits: [
+        'Faster qualification cycles',
+        'Comparable evaluation frames',
+        'Reduced false positives'
+      ],
+      visual: { type: 'radar', color: '#dcd7ce' }
     },
     {
       id: 2,
       icon: Shield,
-      title: 'The Trust Layer',
-      subtitle: 'On-chain verification',
-      description: 'Every startup is verified. Key data—from cap tables to technical audits—is attested on-chain for immutable due diligence.',
-      visual: {
-        type: 'shield',
-        color: '#5c5d63'
-      }
+      title: 'Trust On-Chain Verification',
+      subtitle: 'Immutable data attestations',
+      description: 'Key metrics, technical claims, and milestone proofs are immutably attested to reduce misrepresentation risk.',
+      benefits: [
+        'Tamper-evident records',
+        'Reduced diligence redundancy',
+        'Higher confidence early'
+      ],
+      visual: { type: 'shield', color: '#5c5d63' }
     },
     {
       id: 3,
-      icon: Zap,
-      title: 'Shared Success',
-      subtitle: 'Community-owned value',
-      description: 'Token holders govern the platform, vote on key features, participate in due diligence, and share in the platform&apos;s success.',
-      visual: {
-        type: 'lightning',
-        color: '#a98b5d'
-      }
+      icon: TrendingUp,
+      title: 'Succeed Together',
+      subtitle: 'Ownership-aligned outcomes',
+      description: 'Governance participants share in value creation and guide platform direction through transparent processes.',
+      benefits: [
+        'Incentive alignment',
+        'Compounded network effects',
+        'Long-term value focus'
+      ],
+      visual: { type: 'lightning', color: '#a98b5d' }
     }
   ]
 
@@ -76,40 +84,36 @@ export default function InteractiveShowcase() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-20"
         >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#a98b5d]/30 bg-[#a98b5d]/10 text-[#a98b5d] text-sm font-medium mb-6"
+          >
+            <CheckCircle className="w-4 h-4" />
+            OUR SOLUTION
+          </motion.div>
+
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-[#dcd7ce]">Sourcing in Tunisia is a</span>
-            <br />
-            <span className="bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent">
-              Black Box. We&apos;re Opening It.
-            </span>
+            <span className="text-[#dcd7ce]">A Smarter Way to </span>
+            <span className="bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent">Source, Vet, and Invest</span>
           </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
-            <div className="text-center">
-              <div className="text-red-400 font-semibold mb-2">Time-Consuming</div>
-              <p className="text-gray-400 text-sm">Endless unvetted decks, cold outreach, and fragmented networks.</p>
-            </div>
-            <div className="text-center">
-              <div className="text-red-400 font-semibold mb-2">Lack of Trust</div>
-              <p className="text-gray-400 text-sm">Difficult to verify teams, traction, and technical capability remotely.</p>
-            </div>
-            <div className="text-center">
-              <div className="text-red-400 font-semibold mb-2">Missed Opportunities</div>
-              <p className="text-gray-400 text-sm">The best deals are hidden within private networks and accelerators.</p>
-            </div>
-          </div>
+
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            We&apos;re building a community-owned platform to de-risk investing in the Tunisia–France corridor.
+          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Feature List */}
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Solutions List */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3 }}
             className="space-y-4"
           >
-            {features.map((feature, index) => (
+            {solutions.map((solution, index) => (
               <div
-                key={feature.id}
+                key={solution.id}
                 className={`group cursor-pointer p-6 rounded-2xl border transition-all duration-300 ${
                   activeFeature === index
                     ? 'border-[#a98b5d] bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/5'
@@ -124,7 +128,7 @@ export default function InteractiveShowcase() {
                       : 'from-white/20 to-white/10'
                   }`}>
                     <div className="w-full h-full bg-black rounded-xl flex items-center justify-center">
-                      <feature.icon className={`w-6 h-6 transition-colors duration-300 ${
+                      <solution.icon className={`w-6 h-6 transition-colors duration-300 ${
                         activeFeature === index ? 'text-[#a98b5d]' : 'text-gray-400'
                       }`} />
                     </div>
@@ -135,7 +139,7 @@ export default function InteractiveShowcase() {
                       <h3 className={`font-semibold transition-colors duration-300 ${
                         activeFeature === index ? 'text-[#dcd7ce]' : 'text-gray-300'
                       }`}>
-                        {feature.title}
+                        {solution.title}
                       </h3>
                       <ArrowRight className={`w-4 h-4 transition-all duration-300 ${
                         activeFeature === index 
@@ -143,24 +147,42 @@ export default function InteractiveShowcase() {
                           : 'text-gray-500'
                       }`} />
                     </div>
-                    <p className="text-sm text-gray-500 mb-2">{feature.subtitle}</p>
-                    <p className={`text-sm transition-colors duration-300 ${
+                    <p className="text-sm text-gray-500 mb-3">{solution.subtitle}</p>
+                    <p className={`text-sm transition-colors duration-300 mb-4 ${
                       activeFeature === index ? 'text-gray-300' : 'text-gray-500'
                     }`}>
-                      {feature.description}
+                      {solution.description}
                     </p>
+                    
+                    {/* Benefits List - Only show for active feature */}
+                    {activeFeature === index && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="space-y-2"
+                      >
+                        {solution.benefits.map((benefit, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <CheckCircle className="w-3 h-3 text-[#a98b5d] flex-shrink-0" />
+                            <span className="text-xs text-gray-400">{benefit}</span>
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
                   </div>
                 </div>
               </div>
             ))}
           </motion.div>
 
-          {/* Visual Display */}
+          {/* Interactive Visual Display */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.5 }}
-            className="relative"
+            className="sticky top-8"
           >
             <div className="aspect-square bg-gradient-to-br from-[#a98b5d]/20 to-[#dcd7ce]/10 rounded-3xl border border-[#a98b5d]/30 backdrop-blur-xl p-8 flex items-center justify-center">
               {/* Dynamic Visual Content */}
@@ -172,7 +194,7 @@ export default function InteractiveShowcase() {
                 className="w-full h-full relative flex items-center justify-center"
               >
                 {/* Neural Network Visual */}
-                {features[activeFeature].visual.type === 'neural-network' && (
+                {solutions[activeFeature].visual.type === 'neural-network' && (
                   <div className="relative w-64 h-64">
                     {[...Array(12)].map((_, i) => (
                       <motion.div
@@ -215,17 +237,18 @@ export default function InteractiveShowcase() {
                   </div>
                 )}
 
-                {/* Other visual types would go here */}
-                {features[activeFeature].visual.type !== 'neural-network' && (
+                {/* Other visual types */}
+                {solutions[activeFeature].visual.type !== 'neural-network' && (
                   <div className="w-48 h-48 rounded-full bg-gradient-to-r from-[#a98b5d]/30 to-[#dcd7ce]/30 flex items-center justify-center">
                     {(() => {
-                      const IconComponent = features[activeFeature].icon
+                      const IconComponent = solutions[activeFeature].icon
                       return <IconComponent className="w-24 h-24 text-[#a98b5d]" />
                     })()}
                   </div>
                 )}
               </motion.div>
             </div>
+
           </motion.div>
         </div>
       </div>

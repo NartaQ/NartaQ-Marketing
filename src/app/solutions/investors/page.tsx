@@ -107,28 +107,26 @@ export default function ForInvestorsPage() {
                 colorFrom='#a98b5d'
                 colorTo='#dcd7ce'
               >
-                Exclusive Access to Tomorrow&apos;s Unicorns
+                FRANCE-TUNISIA CORRIDOR
               </AnimatedGradientText>
             </div>
             <h1 className='text-5xl md:text-7xl font-bold leading-tight reveal-up'>
-              Find the next{' '}
+              Source, Vet & Invest{' '}
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                Google, Tesla, Airbnb
-              </span>{' '}
-              before others do.
+                Together
+              </span>
             </h1>
             <p className='text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-              Stop wasting time on bad pitches. Our AI finds only the 
-              best startups that match what you want to invest in.
+              An invitation-only network where elite investors co-source and vet exceptional Tunisian tech startups through shared intelligence.
             </p>
             <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 reveal-scale'>
               <a
-                href='mailto:invest@nartaq.com?subject=Investor%20Memo%20Request'
+                href='mailto:invest@nartaq.com?subject=Request%20Investor%20Deck'
                 className='group relative px-10 py-5 text-lg font-bold text-black bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] rounded-xl shadow-2xl hover:shadow-[#a98b5d]/50 transform hover:scale-105 transition-all duration-300 overflow-hidden'
               >
                 <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                 <div className='relative flex items-center space-x-3'>
-                  <span>Get Investor Memo</span>
+                  <span>Request Investor Deck</span>
                   <span className='text-xl group-hover:translate-x-1 transition-transform duration-300'>
                     →
                   </span>
@@ -182,14 +180,13 @@ export default function ForInvestorsPage() {
           <div className='max-w-6xl mx-auto'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
-                Your Gateway to{' '}
+                A Smarter Way to{' '}
                 <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                  Billion-Dollar Companies
+                  Source & Vet Deals
                 </span>
               </h2>
               <p className='text-xl text-neutral-300 max-w-3xl mx-auto reveal-up'>
-                Join top investors who use our AI to find deals. Get access to 
-                high-growth startups before they hit the market.
+                Community-owned platform to de-risk investing in the Tunisia–France corridor through collective intelligence.
               </p>
             </div>
 
@@ -205,22 +202,20 @@ export default function ForInvestorsPage() {
                       1
                     </div>
                     <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      Set Your Investment Style
+                      Source Collectively
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Tell us what you want: sectors, growth stage, 
-                      deal size, and risk level. Our AI becomes your 
-                      deal-finding assistant.
+                      Leverage our network's reach. Contributors are rewarded for surfacing high-potential deals that match your thesis.
                     </p>
                     <div className='flex flex-wrap gap-2'>
                       <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>
-                        Unicorn Potential
+                        Quality Sourcing
                       </span>
                       <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>
-                        Market Disruption
+                        Aligned Incentives
                       </span>
                       <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>
-                        ROI Optimization
+                        Signal Over Noise
                       </span>
                     </div>
                   </div>
@@ -238,22 +233,20 @@ export default function ForInvestorsPage() {
                       2
                     </div>
                     <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      Smart Deal Finding
+                      Vet with AI & Expertise
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Our AI scans thousands of startups daily. It finds 
-                      hidden gems with huge growth potential. Only the top 3% 
-                      reach your inbox.
+                      AI pre-filters for thesis fit, then expert network provides structured diligence with standardized outputs.
                     </p>
                     <div className='flex flex-wrap gap-2'>
                       <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>
-                        Predictive Analytics
+                        Faster Qualification
                       </span>
                       <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>
-                        Risk Assessment
+                        Expert Validation
                       </span>
                       <span className='px-3 py-1 bg-[#5c5d63]/20 text-[#5c5d63] rounded-full text-sm'>
-                        Growth Forecasting
+                        Comparable Frames
                       </span>
                     </div>
                   </div>
@@ -271,22 +264,20 @@ export default function ForInvestorsPage() {
                       3
                     </div>
                     <h3 className='text-2xl font-semibold text-[#dcd7ce]'>
-                      First Access
+                      On-Chain Verification
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Get VIP access to tomorrow&apos;s market leaders before 
-                      they become big names. Each deal comes with research, 
-                      valuation insights, and direct founder contact.
+                      Key metrics and milestone proofs are immutably attested to reduce diligence redundancy and increase confidence.
                     </p>
                     <div className='flex flex-wrap gap-2'>
                       <span className='px-3 py-1 bg-[#dcd7ce]/20 text-[#dcd7ce] rounded-full text-sm'>
-                        Early Bird Access
+                        Tamper-Evident
                       </span>
                       <span className='px-3 py-1 bg-[#dcd7ce]/20 text-[#dcd7ce] rounded-full text-sm'>
-                        Premium Deal Flow
+                        Reduced Redundancy
                       </span>
                       <span className='px-3 py-1 bg-[#dcd7ce]/20 text-[#dcd7ce] rounded-full text-sm'>
-                        Instant Connect
+                        Higher Confidence
                       </span>
                     </div>
                   </div>
@@ -313,12 +304,10 @@ export default function ForInvestorsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>🎯</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      Zero Time Wasted
+                      Aligned Incentives
                     </h3>
                     <p className='text-neutral-300'>
-                      No more looking through hundreds of bad pitches. Our 
-                      AI filters out 97% of deals. You only get the best ones 
-                      that fit what you want.
+                      Rewards tied to quality contributions—not raw volume. Contributors share value creation as the ecosystem grows.
                     </p>
                   </div>
                 </MagicCard>
@@ -329,12 +318,10 @@ export default function ForInvestorsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>⚡</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      Maximize Your Returns
+                      Collective Intelligence
                     </h3>
                     <p className='text-neutral-300'>
-                      Find startups with 10x-100x growth potential before they 
-                      hit the news. Our smart system finds the next unicorns 
-                      while they&apos;re still cheap.
+                      Pattern recognition improves as the network scales. Harness shared expertise across the corridor.
                     </p>
                   </div>
                 </MagicCard>
@@ -345,12 +332,10 @@ export default function ForInvestorsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>🔍</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      Market Insights
+                      Transparent Governance
                     </h3>
                     <p className='text-neutral-300'>
-                      Get market insights, competitor analysis, and 
-                      growth predictions that others don&apos;t have. Make 
-                      smart decisions with better data.
+                      Clear, auditable decision trails for curation and platform evolution through community processes.
                     </p>
                   </div>
                 </MagicCard>
@@ -361,12 +346,10 @@ export default function ForInvestorsPage() {
                   <div className='space-y-4'>
                     <div className='text-4xl'>🤝</div>
                     <h3 className='text-2xl font-semibold text-[#a98b5d]'>
-                      VIP Access & Top Deals
+                      Durable Trust Layer
                     </h3>
                     <p className='text-neutral-300'>
-                      Skip the line and get first pick on the hottest deals.
-                      Direct access to founders, better terms, and special 
-                      rounds for our top investors.
+                      Neutral coordination and reputation signals reduce friction across the ecosystem.
                     </p>
                   </div>
                 </MagicCard>
@@ -470,14 +453,13 @@ export default function ForInvestorsPage() {
         <section className='py-20 bg-gradient-to-b from-black to-[#232428]'>
           <div className='max-w-4xl mx-auto px-6 text-center'>
             <h2 className='text-4xl md:text-5xl font-bold mb-6 reveal-up'>
-              Coming Soon: Your{' '}
+              Join the Founding{' '}
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                Deal Pipeline
+                Cohort
               </span>
             </h2>
             <p className='text-xl text-neutral-300 mb-12 max-w-2xl mx-auto reveal-up'>
-              Be among the first investors to access our curated deal flow.
-              Get early access when we launch.
+              Gain exclusive access to a pre-vetted pipeline and help us shape the future of corridor investing.
             </p>
 
             <div className='max-w-lg mx-auto'>
