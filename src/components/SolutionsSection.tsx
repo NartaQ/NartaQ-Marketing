@@ -35,7 +35,7 @@ export default function SolutionsSection() {
     function refresh() {
       pinWrapWidth = strip.scrollWidth
       // Calculate proper scroll length to center first and last cards
-      const cardWidth = window.innerWidth * 0.8 // 80vw card width
+      const cardWidth = window.innerWidth * 0.7 // 70vw card width
       const centerOffset = (window.innerWidth - cardWidth) / 2
       horizontalScrollLength =
         pinWrapWidth - window.innerWidth + centerOffset * 2
@@ -45,7 +45,7 @@ export default function SolutionsSection() {
 
     // Set initial position to center the first card
     gsap.set(strip, {
-      x: (window.innerWidth - window.innerWidth * 0.8) / 2,
+      x: (window.innerWidth - window.innerWidth * 0.7) / 2, // Better centering for 70vw cards
     })
 
     // Create the horizontal scroll animation with centered positioning
@@ -77,7 +77,7 @@ export default function SolutionsSection() {
       },
       // Move from centered first card to centered last card
       x: () => {
-        const cardWidth = window.innerWidth * 0.8
+        const cardWidth = window.innerWidth * 0.7
         const centerOffset = (window.innerWidth - cardWidth) / 2
         return -horizontalScrollLength + centerOffset
       },
@@ -180,7 +180,7 @@ export default function SolutionsSection() {
   return (
     <>
       {/* Regular Section Header */}
-      <section className='relative py-32 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden'>
+      <section className='relative py-16 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden'>
         {/* Background Grid */}
         <div className='absolute inset-0 opacity-20'>
           <div
@@ -200,7 +200,7 @@ export default function SolutionsSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            className='text-center mb-20'
+            className='text-center mb-8'
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -230,7 +230,7 @@ export default function SolutionsSection() {
       <section
         ref={horizontalRef}
         className='relative bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden'
-        style={{ minHeight: '120vh' }} // Reduced height for faster scrolling
+        style={{ minHeight: '100vh' }} // Reduced height for tighter spacing
       >
         {/* Background Grid */}
         <div className='absolute inset-0 opacity-20'>
@@ -250,7 +250,7 @@ export default function SolutionsSection() {
           ref={stripRef}
           className='flex items-center h-screen will-change-transform gsap-element'
           style={{
-            width: `${solutions.length * 80}vw`,
+            width: `${solutions.length * 70}vw`, // Reduced to match 70vw cards
             gap: '0',
           }}
         >
@@ -259,9 +259,9 @@ export default function SolutionsSection() {
               key={solution.id}
               className='flex-shrink-0 horizontal-scroll-item'
               style={{
-                width: '80vw', // Reduced from 100vw for closer cards
-                minWidth: '80vw',
-                maxWidth: '80vw',
+                width: '70vw', // Reduced width for tighter spacing
+                minWidth: '70vw',
+                maxWidth: '70vw',
               }}
               data-speed-x={index % 2 === 0 ? '1.05' : '0.95'}
             >
@@ -280,8 +280,10 @@ export default function SolutionsSection() {
                         : 'border-white/10 hover:border-[#a98b5d]/40 bg-gradient-to-br from-white/5 to-transparent'
                     }`}
                   >
-                    {/* Animated background effect */}
-                    <div className='absolute inset-0 bg-gradient-to-r from-[#a98b5d]/5 via-transparent to-[#dcd7ce]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+                    {/* Animated background effect - only for non-active cards */}
+                    {activeFeature !== index && (
+                      <div className='absolute inset-0 bg-gradient-to-r from-[#a98b5d]/5 via-transparent to-[#dcd7ce]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+                    )}
 
                     {/* Glowing border effect */}
                     {activeFeature === index && (
@@ -292,10 +294,10 @@ export default function SolutionsSection() {
 
                     <div className='relative z-10 flex items-start gap-4 lg:gap-6'>
                       <div
-                        className={`w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-gradient-to-r transition-all duration-500 p-0.5 group-hover:scale-110 ${
+                        className={`w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-gradient-to-r transition-all duration-500 p-0.5 ${
                           activeFeature === index
                             ? 'from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] shadow-lg shadow-[#a98b5d]/40'
-                            : 'from-white/20 to-white/10 group-hover:from-[#a98b5d]/50 group-hover:to-[#dcd7ce]/50'
+                            : 'from-white/20 to-white/10 group-hover:from-[#a98b5d]/50 group-hover:to-[#dcd7ce]/50 group-hover:scale-110'
                         }`}
                       >
                         <div className='w-full h-full bg-gradient-to-br from-black to-gray-900 rounded-xl lg:rounded-2xl flex items-center justify-center'>
@@ -453,9 +455,6 @@ export default function SolutionsSection() {
           ))}
         </div>
       </section>
-
-      {/* Spacer Section to prevent overlap */}
-      <section className='h-32 bg-gradient-to-b from-[#0a0a0a] to-black'></section>
     </>
   )
 }

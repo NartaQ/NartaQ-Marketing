@@ -180,16 +180,16 @@ export default function OrchestrationSection() {
   return (
     <section
       id='orchestration'
-      className='flex w-full flex-col items-center justify-center p-[2%] py-32 relative'
+      className='flex w-full flex-col items-center justify-center p-[2%] py-16 relative'
     >
       {/* Premium background elements */}
       <div className='absolute inset-0 luxury-texture opacity-25'></div>
       <div className='absolute top-1/5 right-1/4 w-96 h-96 bg-[#a98b5d]/4 rounded-full blur-3xl floating'></div>
       <div className='absolute bottom-1/5 left-1/4 w-80 h-80 bg-[#dcd7ce]/3 rounded-full blur-3xl floating'></div>
 
-      <div className='max-w-6xl mx-auto text-center space-y-8 relative z-10'>
+      <div className='max-w-6xl mx-auto text-center space-y-4 relative z-10'>
         {/* Premium section header */}
-        <div className='space-y-6'>
+        <div className='space-y-4'>
           <div className='flex justify-center mb-4'>
             <div className='premium-glass px-8 py-3 rounded-full border border-[#a98b5d]/20'>
               <span className='text-sm font-medium text-[#a98b5d] tracking-wider'>
