@@ -26,7 +26,7 @@ export default function Header({ className }: { className?: string }) {
   }
 
   return (
-    <Navbar className={cn('fixed top-0 z-50', className)}>
+    <Navbar className={cn('fixed top-4 z-50', className)}>
       {/* Desktop Navigation */}
       <NavBody>
         <div className='w-full flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -35,13 +35,13 @@ export default function Header({ className }: { className?: string }) {
             className='flex items-center gap-2 p-1 group relative z-20'
             href='/'
           >
-            <div className='h-[28px] sm:h-[32px] md:h-[36px] flex items-center gap-2 relative'>
+            <div className='h-[24px] sm:h-[28px] md:h-[32px] flex items-center gap-2 relative'>
               <Image
                 src='/logo/main-tr-hor.svg'
                 alt='Nartaq Icon'
-                width={120}
-                height={20}
-                className='h-7 sm:h-8 md:h-9 w-auto relative z-10'
+                width={100}
+                height={18}
+                className='h-6 sm:h-7 md:h-8 w-auto relative z-10'
               />
             </div>
           </Link>
@@ -70,17 +70,19 @@ export default function Header({ className }: { className?: string }) {
                   <HoveredLink href='/#dao-governance'>
                     How DAO Works
                   </HoveredLink>
-                  <HoveredLink href='/#tokenomics'>
-                    Token Economics
-                  </HoveredLink>
-                  <HoveredLink href='/#community'>
-                    Join Community
-                  </HoveredLink>
+                  <HoveredLink href='/#tokenomics'>Token Economics</HoveredLink>
+                  <HoveredLink href='/#community'>Join Community</HoveredLink>
                 </div>
               </MenuItem>
-              <MenuItem setActive={setActive} active={active} item='Our Corridor'>
+              <MenuItem
+                setActive={setActive}
+                active={active}
+                item='Our Corridor'
+              >
                 <div className='flex flex-col space-y-4 text-sm p-4'>
-                  <HoveredLink href='/solutions/investors'>France ↔ Tunisia Thesis</HoveredLink>
+                  <HoveredLink href='/solutions/investors'>
+                    France ↔ Tunisia Thesis
+                  </HoveredLink>
                   <HoveredLink href='/#faq'>FAQ</HoveredLink>
                 </div>
               </MenuItem>
@@ -89,15 +91,12 @@ export default function Header({ className }: { className?: string }) {
 
           {/* Desktop CTA Button */}
           <div className='hidden lg:flex'>
-             <Link
-              href="/solutions/startups"
-              className="group relative px-8 py-2 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105"
+            <NavbarButton
+              className='text-sm bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] px-7 py-2 font-semibold hover:bg-[#8B7349] transition-colors rounded-lg'
+              href='/solutions/startups'
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative flex items-center gap-2">
-                Apply for Access
-              </div>
-            </Link>
+              Apply for Access
+            </NavbarButton>
           </div>
         </div>
       </NavBody>
@@ -112,13 +111,13 @@ export default function Header({ className }: { className?: string }) {
               href='/'
               onClick={() => setMobileMenuOpen(false)}
             >
-              <div className='h-[28px] sm:h-[32px] flex items-center gap-1 sm:gap-2 relative'>
+              <div className='h-[24px] sm:h-[28px] flex items-center gap-1 sm:gap-2 relative'>
                 <Image
                   src='/logo/main-tr-hor.svg'
                   alt='Nartaq Icon'
-                  width={120}
-                  height={28}
-                  className='h-7 sm:h-8 w-auto relative z-10'
+                  width={100}
+                  height={24}
+                  className='h-6 sm:h-7 w-auto relative z-10'
                 />
               </div>
             </Link>
@@ -126,7 +125,7 @@ export default function Header({ className }: { className?: string }) {
             {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className='p-2 rounded-lg hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 transition-colors'
+              className='p-2 rounded-lg hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 transition-colors'
               aria-label='Toggle mobile menu'
             >
               <MobileNavToggle
@@ -147,7 +146,7 @@ export default function Header({ className }: { className?: string }) {
             <div className='w-full'>
               <button
                 onClick={() => toggleSection('platform')}
-                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#3e3f44] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
               >
                 <span className='font-medium'>Platform</span>
                 <ChevronDown
@@ -161,21 +160,21 @@ export default function Header({ className }: { className?: string }) {
                 <div className='ml-4 mt-2 space-y-2'>
                   <Link
                     href='/solutions/investors'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     For Investors
                   </Link>
                   <Link
                     href='/solutions/startups'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     For Startups
                   </Link>
                   <Link
                     href='/products/dealflow'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Dealflow Platform
@@ -188,14 +187,58 @@ export default function Header({ className }: { className?: string }) {
             <div className='w-full'>
               <button
                 onClick={() => toggleSection('dao')}
-                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#3e3f44] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
               >
                 <span className='font-medium'>The DAO</span>
+                <ChevronDown
+                  className={cn(
+                    'w-4 h-4 transition-transform duration-200',
+                    expandedSection === 'dao' && 'rotate-180'
+                  )}
+                />
+              </button>
+              {expandedSection === 'dao' && (
+                <div className='ml-4 mt-2 space-y-3'>
+                  <Link
+                    href='/#dao-governance'
+                    className='block px-3 py-2 hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <div className='font-medium text-sm text-[#232428] dark:text-[#dcd7ce]'>
+                      How DAO Works
+                    </div>
+                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
+                      Community governance and decision making
+                    </div>
+                  </Link>
+                  <Link
+                    href='/#tokenomics'
+                    className='block px-3 py-2 hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <div className='font-medium text-sm text-[#232428] dark:text-[#dcd7ce]'>
+                      Token Economics
+                    </div>
+                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
+                      Rewards and value sharing model
+                    </div>
+                  </Link>
+                  <Link
+                    href='/#community'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Join Community
+                  </Link>
+                </div>
+              )}
+            </div>
+
             {/* Corridor Section */}
             <div className='w-full'>
               <button
                 onClick={() => toggleSection('corridor')}
-                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#3e3f44] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
               >
                 <span className='font-medium'>Our Corridor</span>
                 <ChevronDown
@@ -209,14 +252,14 @@ export default function Header({ className }: { className?: string }) {
                 <div className='ml-4 mt-2 space-y-2'>
                   <Link
                     href='/solutions/investors'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     France ↔ Tunisia Thesis
                   </Link>
                   <Link
                     href='/#faq'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     FAQ
@@ -224,48 +267,12 @@ export default function Header({ className }: { className?: string }) {
                 </div>
               )}
             </div>
-                <ChevronDown
-                  className={cn(
-                    'w-4 h-4 transition-transform duration-200',
-                    expandedSection === 'dao' && 'rotate-180'
-                  )}
-                />
-              </button>
-              {expandedSection === 'dao' && (
-                <div className='ml-4 mt-2 space-y-3'>
-                  <Link
-                    href='/#dao-governance'
-                    className='block px-3 py-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
-                      How DAO Works
-                    </div>
-                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
-                      Community governance and decision making
-                    </div>
-                  </Link>
-                  <Link
-                    href='/#tokenomics'
-                    className='block px-3 py-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
-                      Token Economics
-                    </div>
-                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
-                      Rewards and value sharing model
-                    </div>
-                  </Link>
-                </div>
-              )}
-            </div>
 
             {/* CTA Button */}
-            <div className='pt-4 mt-4 border-t border-[#5c5d63]/30 dark:border-[#5c5d63]/40'>
+            <div className='pt-4 mt-4 border-t border-[#5c5d63]/40 dark:border-[#5c5d63]/50'>
               <NavbarButton
-                href='/#newsletter'
-                className='w-full text-center bg-[#A98B5D] text-white hover:bg-[#8B7349] transition-colors px-4 py-3 rounded-lg font-medium'
+                href='/solutions/startups'
+                className='w-full text-center bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d]  hover:bg-[#8B7349]  px-4 py-3 rounded-lg font-semibold'
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Apply for Access
