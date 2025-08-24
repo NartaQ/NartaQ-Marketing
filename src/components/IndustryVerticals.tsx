@@ -21,7 +21,7 @@ import {
 } from 'lucide-react'
 
 export default function IndustryVerticals() {
-  const [_hoveredVertical, setHoveredVertical] = useState<number | null>(null)
+  const [, setHoveredVertical] = useState<number | null>(null)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 

@@ -205,7 +205,7 @@ export default function ForInvestorsPage() {
                       Source Collectively
                     </h3>
                     <p className='text-neutral-300 leading-relaxed'>
-                      Leverage our network's reach. Contributors are rewarded for surfacing high-potential deals that match your thesis.
+                      Leverage our network&apos;s reach. Contributors are rewarded for surfacing high-potential deals that match your thesis.
                     </p>
                     <div className='flex flex-wrap gap-2'>
                       <span className='px-3 py-1 bg-[#a98b5d]/20 text-[#a98b5d] rounded-full text-sm'>

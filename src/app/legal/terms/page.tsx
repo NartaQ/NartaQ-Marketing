@@ -21,7 +21,7 @@ export default function TermsOfServicePage() {
       <section>
         <h2>1. Who We Are (Publisher)</h2>
         <p>
-          NartaQ (the "Platform") is an invitation-only dealflow and governance platform focused on the France–Tunisia corridor. The operating company (anticipated form: SAS) is in formation in France. Until registration is complete, references to the "Company" mean the founding team operating in a pre-incorporation capacity.
+          NartaQ (the &quot;Platform&quot;) is an invitation-only dealflow and governance platform focused on the France–Tunisia corridor. The operating company (anticipated form: SAS) is in formation in France. Until registration is complete, references to the &quot;Company&quot; mean the founding team operating in a pre-incorporation capacity.
         </p>
         <ul>
           <li>Provisional Name: NartaQ (SAS – in formation)</li>
@@ -31,7 +31,7 @@ export default function TermsOfServicePage() {
           <li>Director of Publication: Founding Team</li>
           <li>Hosting Provider: (To be finalized – likely Vercel / EU region). Hosting details and DPA will be added.</li>
         </ul>
-        <p className="text-xs text-gray-500">French "Mentions Légales" will be supplemented post-registration (SIREN/SIRET + RCS + capital social).</p>
+        <p className="text-xs text-gray-500">French &quot;Mentions Légales&quot; will be supplemented post-registration (SIREN/SIRET + RCS + capital social).</p>
       </section>
 
       <section>

@@ -11,30 +11,30 @@ export default function ProblemsSection() {
   const problems = [
     {
       icon: Clock,
-      title: 'Wasted Time',
-      description: '80% of investor time is spent sifting through unvetted, irrelevant deals.',
-      stats: '80% time lost to noise',
+      title: 'Biased Game',
+      description: 'Fundraising is "warm intro roulette"—exceptional builders outside major hubs get systematically overlooked.',
+      stats: 'Location bias = lost opportunity',
       visual: 'clock'
     },
     {
       icon: AlertTriangle,
-      title: 'Trust Deficit',
-      description: '65% of deals lack verifiable proof of traction or technical capability.',
-      stats: '65% unverifiable claims',
+      title: 'High Noise, Low Signal',
+      description: 'Investors lack tools to find hidden gems that don\'t come through traditional channels.',
+      stats: 'Signal buried in noise',
       visual: 'warning'
     },
     {
       icon: EyeOff,
-      title: 'Hidden Gems',
-      description: 'The top 70% of viable deals remain locked in private networks and accelerators.',
-      stats: '70% stay locked away',
+      title: 'Network, Location, Pedigree',
+      description: 'The current system filters out great ideas based on zip code and alumni networks, not merit.',
+      stats: 'Best ideas never get seen',
       visual: 'hidden'
     },
     {
       icon: TrendingDown,
-      title: 'Systemic Failure',
-      description: 'Only 2–5% of initial connections result in meaningful funding outcomes.',
-      stats: '2–5% conversion rate',
+      title: 'Massive Misallocation',
+      description: 'The result: systemic failure to fund the best innovation. Capital flows to connections, not competence.',
+      stats: 'Capital ≠ Best Innovation',
       visual: 'decline'
     }
   ]
@@ -64,17 +64,17 @@ export default function ProblemsSection() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-sm font-medium mb-6"
           >
             <AlertTriangle className="w-4 h-4" />
-            THE CURRENT STATE
+            THE PROBLEM
           </motion.div>
           
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="">The Search for Tunisia&apos;s Best</span>
+            <span className="">The Architecture of</span>
             <br />
-            <span className="bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent">Startups is Broken</span>
+            <span className="bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent">Access is Broken</span>
           </h2>
           
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Fragmented sourcing. Shallow filtering. Opaque validation. Misaligned incentives.
+            The best ideas often never get seen. The current system is designed to filter them out.
           </p>
         </motion.div>
 

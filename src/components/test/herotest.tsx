@@ -130,9 +130,11 @@ const ImageCard = ({ item, isActive, onClick, className }: ImageCardProps) => {
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const { width: windowWidth } = useWindowSize()
-  const [_isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    const setIsMobile = (_isMobile: boolean) => {
+      // Mobile state logic would go here if needed
+    }
     setIsMobile(windowWidth <= IS_MOBILE_SCREEN_WIDTH)
   }, [windowWidth])
 

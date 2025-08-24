@@ -360,7 +360,7 @@ export default function HookText() {
             <div className='lg:w-2/3 slider flex flex-col lg:flex-row items-center gap-8 lg:gap-12'>
               {/* Cards Container */}
               <div className='carousel__slider relative w-full max-w-5xl min-h-[700px] sm:min-h-[750px] lg:min-h-[800px]'>
-                {cardData.map((card, _index) => (
+                {cardData.map((card) => (
                   <div
                     key={card.id}
                     id={card.id}
@@ -448,7 +448,7 @@ export default function HookText() {
                 ref={navRef}
                 className='carousel__nav flex lg:flex-col gap-6 mt-8 lg:mt-0 justify-center lg:justify-start'
               >
-                {cardData.map((card, _index) => (
+                {cardData.map((card) => (
                   <li
                     key={card.id}
                     className='carousel__nav__item w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-br from-white/20 to-white/10 border-2 border-white/30 rounded-full cursor-pointer transition-all duration-500 hover:scale-150 hover:border-white/60 relative overflow-hidden'

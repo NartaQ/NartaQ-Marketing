@@ -36,7 +36,7 @@ export default function NeonHeroSection() {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8"
         >
           <Sparkles className="w-4 h-4 text-[#a98b5d]" />
-          <span className="text-sm font-medium text-[#dcd7ce]">FRANCE-TUNISIA CORRIDOR</span>
+          <span className="text-sm font-medium text-[#dcd7ce]">AI-POWERED PROTOCOL</span>
         </motion.div>
 
         {/* Main Headline */}
@@ -46,12 +46,12 @@ export default function NeonHeroSection() {
           transition={{ delay: 0.4 }}
           className="text-5xl md:text-7xl lg:text-7xl font-bold leading-tight mb-6"
         >
-          <span className="text-[#dcd7ce]">The Collective Intelligence </span>
+          <span className="text-[#dcd7ce]">The AI-Powered </span>
           <br />
           <span className="text-glow bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent">
-            Deal Engine
+            Protocol
           </span>{' '}
-          <span className="text-[#dcd7ce]">for France-Tunisia.</span>
+          <span className="text-[#dcd7ce]">for Startup Funding</span>
         </motion.h1>
         <div className='w-64 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto mb-6'></div>
 
@@ -62,7 +62,7 @@ export default function NeonHeroSection() {
           transition={{ delay: 0.6 }}
           className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
         >
-          An invitation-only network where elite investors co-source and vet exceptional Tunisian tech startups. Better deals through shared insight.
+          Decentralize discovery, simplify execution. AI-powered matching connects the best founders with the right capital—no bias, no barriers.
         </motion.p>
 
         {/* CTA Buttons */}

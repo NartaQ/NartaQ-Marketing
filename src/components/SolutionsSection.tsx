@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Network, Brain, Shield, TrendingUp, ArrowRight, CheckCircle, Link2 } from 'lucide-react'
+import { Brain, Shield, TrendingUp, ArrowRight, CheckCircle } from 'lucide-react'
 
 export default function SolutionsSection() {
   const [activeFeature, setActiveFeature] = useState(0)
@@ -13,54 +13,41 @@ export default function SolutionsSection() {
     {
       id: 0,
       icon: Brain,
-      title: 'Source Collectively',
-      subtitle: 'Network reach × aligned incentives',
-      description: 'Leverage our network’s reach. Contributors are rewarded for surfacing high-potential, qualified deals.',
+      title: 'AI-Powered Matching',
+      subtitle: 'Beyond the pitch deck',
+      description: 'Our AI analyzes founder and investor DNA to facilitate perfect, double-opt-in introductions with proprietary Match Confidence Scores.',
       benefits: [
-        'Structured intake & routing',
-        'Signal over noise scoring',
-        'Rewarded sourcing behavior'
+        'Founder-investor DNA analysis',
+        'Match Confidence Scoring',
+        'Double-opt-in introductions'
       ],
       visual: { type: 'neural-network', color: '#a98b5d' }
     },
     {
       id: 1,
-      icon: Brain,
-      title: 'Vet with AI & Expertise',
-      subtitle: 'Layered filtration & review',
-      description: 'Adaptive AI pre-filters for thesis fit. Expert reviewers then perform structured diligence with standardized outputs.',
+      icon: Shield,
+      title: 'Trustless Protocol',
+      subtitle: 'Smart contracts & verification',
+      description: 'Blockchain-based reputation profiles and automated legal framework eliminate traditional barriers to cross-border deals.',
       benefits: [
-        'Faster qualification cycles',
-        'Comparable evaluation frames',
-        'Reduced false positives'
+        'On-chain reputation profiles',
+        'Smart contract execution',
+        'Cross-border compliance'
       ],
       visual: { type: 'radar', color: '#dcd7ce' }
     },
     {
       id: 2,
-      icon: Shield,
-      title: 'Trust On-Chain Verification',
-      subtitle: 'Immutable data attestations',
-      description: 'Key metrics, technical claims, and milestone proofs are immutably attested to reduce misrepresentation risk.',
+      icon: TrendingUp,
+      title: 'Guided Close',
+      subtitle: 'From handshake to funding',
+      description: 'One-click deal execution with automated legal docs, e-signatures, and escrow management. No more "email hell."',
       benefits: [
-        'Tamper-evident records',
-        'Reduced diligence redundancy',
-        'Higher confidence early'
+        'Automated legal generation',
+        'Integrated e-signatures',
+        'Secure escrow flows'
       ],
       visual: { type: 'shield', color: '#5c5d63' }
-    },
-    {
-      id: 3,
-      icon: TrendingUp,
-      title: 'Succeed Together',
-      subtitle: 'Ownership-aligned outcomes',
-      description: 'Governance participants share in value creation and guide platform direction through transparent processes.',
-      benefits: [
-        'Incentive alignment',
-        'Compounded network effects',
-        'Long-term value focus'
-      ],
-      visual: { type: 'lightning', color: '#a98b5d' }
     }
   ]
 
@@ -94,12 +81,13 @@ export default function SolutionsSection() {
           </motion.div>
 
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-[#dcd7ce]">A Smarter Way to </span>
-            <span className="bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent">Source, Vet, and Invest</span>
+            <span className="text-[#dcd7ce]">Decentralize Discovery,</span>
+            <br />
+            <span className="bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent">Simplify Execution</span>
           </h2>
 
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            We&apos;re building a community-owned platform to de-risk investing in the Tunisia–France corridor.
+            NartaQ is a protocol that uses AI for high-signal matching and provides the legal tools for seamless execution.
           </p>
         </motion.div>
 
