@@ -1,49 +1,49 @@
-# NartaQ — The Collective Intelligence Deal Engine for France–Tunisia
+# NartaQ — The DAO Creation Platform for France–Tunisia Tech Ecosystem
 
-**Mission**: Bridge Tunisia's exceptional technical talent with global capital through a community-owned, DAO-governed dealflow platform designed for elite investors and exceptional startups.
+**Mission**: Bridge Tunisia's exceptional technical talent with global capital by providing the infrastructure for investors and startups to create and govern their own DAOs for dealflow, funding, and collaboration.
 
-**Positioning**: An Elite network where elite investors co-source and vet exceptional Tunisian tech talent through a shared, community-owned platform. Think "OpenVC meets DAO governance" for the strategic France-Tunisia corridor.
+**Positioning**: The platform that enables elite investors and exceptional startups to create customized DAOs for deal sourcing, due diligence, and community governance. Think "DAO-as-a-Service meets dealflow infrastructure" for the strategic France-Tunisia corridor.
 
-*Note: Deeper implementation details (AI matching algorithms, DAO governance mechanics, and token economics) are shared under NDA at this pre-seed stage.*
+*Note: Deeper implementation details (DAO creation tools, governance templates, and tokenomics frameworks) are shared under NDA at this pre-seed stage.*
 
 ## What we do
 
-NartaQ operates as a decentralized, community-owned dealflow platform with a focused mission: solve the investor-startup matching problem in the France-Tunisia corridor through collective intelligence.
+NartaQ operates as a platform-as-a-service that enables investors, startups, and ecosystem partners to create and manage their own DAOs for dealflow, funding, and community governance in the France-Tunisia corridor.
 
-### Core Product: AI-Powered Dealflow Platform
-- **The Sourcing DAO**: Network of investors and ecosystem partners actively refers and scouts deals, earning rewards for quality submissions
-- **The Vetting Stack**: AI screens for fit, then expert reviewer network (including active VCs) provides structured, actionable feedback  
-- **The Trust Layer**: Every startup is verified. Key data—from cap tables to technical audits—is attested on-chain for immutable due diligence
-- **Shared Success Model**: Token holders govern the platform, vote on features, participate in due diligence, and share in platform success
+### Core Product: DAO Creation & Management Platform
+- **DAO Templates & Tools**: Pre-built governance frameworks for investor syndicates, startup funding rounds, and ecosystem collaborations
+- **Smart Contract Infrastructure**: Automated deal execution, voting mechanisms, and token distribution systems
+- **Community Management Suite**: Tools for member onboarding, proposal management, and consensus building
+- **Integration Layer**: Connect with existing investment tools, legal frameworks, and compliance systems
 
-### The DAO Advantage: Our Key Differentiator
-- **Submit & Earn**: Quality deal submissions earn reputation points or governance tokens
-- **Review & Govern**: Token holders participate in due diligence rounds and vote on platform evolution
-- **Share in Value**: Community shares in platform success through aligned economic model
-- **Collective Intelligence**: Leverage combined expertise of investor community for superior deal evaluation
+### The Platform Advantage: Our Key Differentiator
+- **Customizable DAO Creation**: Tailored governance structures for different use cases (investor syndicates, startup funding, ecosystem partnerships)
+- **Ready-to-Deploy Infrastructure**: Pre-built smart contracts, voting systems, and community management tools
+- **Cross-DAO Interoperability**: Enable collaboration between different DAOs created on the platform
+- **Expert Support**: Guidance on DAO structure, tokenomics, and governance best practices
 
 ### Future Vision: Phase 2 Expansion
-Once we own the capital-talent connection, we can orchestrate the execution of that capital by helping funded startups connect with vetted service providers and technical talent—a natural, high-value extension built on our dealflow foundation.
+Once we establish the DAO creation infrastructure, we can expand to enable cross-DAO collaborations, multi-jurisdictional governance frameworks, and integrated service provider networks—creating a comprehensive ecosystem for decentralized deal execution.
 
 ## Strategic advantages & competitive moats
 
-### The DAO Differentiator: Community-Owned Governance
-- **Collective intelligence model**: Harnesses combined expertise of investor community for superior deal sourcing and evaluation
-- **Aligned economic incentives**: Token holders directly invested in platform success, ensuring quality over quantity approach
-- **Transparent governance**: All major platform decisions voted on by community, creating unprecedented transparency in dealflow
-- **Shared ownership model**: Contributors earn platform ownership, creating sustainable long-term value alignment
+### The Platform Differentiator: DAO-as-a-Service Infrastructure
+- **Modular DAO creation tools**: Customizable governance frameworks for different investor and startup needs
+- **Battle-tested smart contract templates**: Pre-audited, legally-compliant governance and tokenomics systems
+- **Cross-DAO interoperability**: Enable collaboration between DAOs created on the platform
+- **Expert guidance ecosystem**: Access to legal, technical, and governance expertise for DAO creators
 
 ### Structural Defensibility
-- **Invitation-only scarcity value**: Multi-layer verification creates natural barriers to entry and maintains premium positioning
-- **Corridor-specific cultural alignment**: Franco-Tunisian linguistic and cultural fluency reduces offshore friction vs. generic platforms  
-- **Regulatory arbitrage advantage**: Tunisia's EU-aligned technical education + GDPR compliance with favorable cost structures
-- **Network effects amplification**: DAO governance creates stronger network effects than traditional platforms
+- **First-mover advantage**: Purpose-built DAO creation platform for France-Tunisia corridor with deep cultural understanding
+- **Technical infrastructure moat**: Comprehensive suite of DAO tools, templates, and management systems
+- **Network effects**: Each new DAO created on platform increases value for all participants through cross-DAO opportunities
+- **Regulatory compliance foundation**: Pre-built frameworks for multi-jurisdictional DAO governance and compliance
 
 ### Technical Innovation & IP
-- **Proprietary DAO governance protocols**: Patent-pending decentralized deal evaluation and community governance systems
-- **On-chain trust layer**: Immutable due diligence data and startup verification for unprecedented transparency
-- **AI-powered collective intelligence**: Advanced algorithms that learn from community feedback to improve matching
-- **Cross-jurisdictional compliance**: Automated GDPR/local law adherence with dual data residency architecture
+- **Proprietary DAO creation framework**: Patent-pending modular governance and tokenomics system builder
+- **Cross-jurisdictional compliance engine**: Automated legal framework adherence for France-Tunisia operations
+- **Interoperability protocols**: Enable seamless collaboration between DAOs created on the platform
+- **Smart contract template library**: Battle-tested, audited governance contracts for various use cases
 
 ## Why the France-Tunisia corridor
 
@@ -53,107 +53,108 @@ Once we own the capital-talent connection, we can orchestrate the execution of t
 - **EU-aligned operations**: Friendly time zones, GDPR compliance, and European data residency options
 - **Growing ecosystem momentum**: Visible success stories and increasing policy support for tech innovation
 
-### Premium Network Focus
-- **Verified professionals only**: Multi-layer identity verification with credential checks and professional references
-- **Invitation-based access**: Curated membership prioritizing quality over quantity
-- **Exclusive opportunities**: Private bounties and pre-screened investment opportunities not available elsewhere
+### Premium Platform Focus
+- **Enterprise-grade infrastructure**: Professional DAO creation and management tools for serious investors and startups
+- **Expert support network**: Access to legal, technical, and governance specialists for DAO optimization
+- **Curated ecosystem**: Quality-focused platform ensuring high-value DAO creation and management
+- **White-glove onboarding**: Comprehensive support for complex DAO structures and governance frameworks
 
 ## Trust & premium security architecture
 
-### Elite Verification Standards
-- **Multi-layer KYC/KYB**: Comprehensive identity and business verification processes
-- **Professional credential validation**: Direct verification of qualifications and work history
-- **Reference-based screening**: Structured professional references from verified network members
+### Enterprise-Grade DAO Infrastructure
+- **Audited smart contract templates**: Pre-verified governance and tokenomics contracts for secure DAO deployment
+- **Multi-signature security**: Advanced wallet and treasury management with institutional-grade security
+- **Compliance automation**: Built-in KYC/AML and regulatory reporting for DAO members and transactions
 
 ### Premium Security & Compliance  
 - **EU data residency**: GDPR-aligned data handling with encryption in transit and at rest
-- **NDA-protected access**: Mandatory confidentiality agreements for sensitive materials
-- **Advanced access controls**: Role-based access control (RBAC) with comprehensive audit logging
-- **IP protection**: Optional intellectual property escrow for high-value projects
+- **Multi-jurisdictional compliance**: Automated adherence to France and Tunisia legal frameworks
+- **Advanced access controls**: Role-based access control (RBAC) with comprehensive audit logging for all DAO activities
+- **IP protection frameworks**: Built-in intellectual property management and protection for DAO-managed assets
 
-### Concierge-Level Protections & Risk Mitigation
-- **White-glove dispute handling**: Dedicated resolution specialists with structured review processes
-- **Immutable project documentation**: Timestamped, tamper-proof project briefs and submissions  
-- **Premium payment security**: Multi-milestone escrow with acceptance-based releases
-- **Private bounty mode**: Confidential project opportunities for sensitive work
-- **Cross-jurisdictional IP enforcement**: Coordinated legal frameworks spanning EU and Tunisian jurisdiction
-- **Policy risk contingency**: Dual data residency strategy and regulatory shift mitigation protocols
-- **Advanced threat detection**: AI-powered fraud prevention and credential authenticity verification
+### Enterprise-Level Support & Risk Mitigation
+- **Professional DAO advisory**: Expert guidance on governance structure, tokenomics, and legal compliance
+- **24/7 technical support**: Dedicated infrastructure monitoring and incident response
+- **Legal framework support**: Pre-built templates for DAO operating agreements and member documentation
+- **Treasury management tools**: Advanced multi-signature wallets and automated financial reporting
+- **Cross-jurisdictional dispute resolution**: Structured arbitration processes for DAO governance conflicts
+- **Insurance integration**: Professional liability and cyber security coverage options for DAO operations
+- **Advanced threat detection**: AI-powered security monitoring and fraud prevention for DAO activities
 
 ## Business model & unit economics
 
-### DAO-Powered Revenue Model
-- **Deal Submission Credits**: Startups purchase credits for deck submissions with premium analytics and visibility options
-- **Governance Token Economics**: Token holders earn from platform success through aligned economic model
-- **Premium Due Diligence Services**: Enhanced review services and direct investor introductions for qualified startups
-- **Ecosystem Partnership Fees**: Universities, accelerators, and strategic partners for qualified deal flow pipeline
+### Platform-as-a-Service Revenue Model
+- **DAO Creation & Setup Fees**: One-time fees for custom DAO deployment with smart contract setup and legal framework configuration
+- **Monthly Platform Subscriptions**: Recurring revenue for ongoing DAO management tools, analytics, and infrastructure support
+- **Transaction & Governance Fees**: Small percentage fees on DAO treasury transactions and major governance decisions
+- **Premium Support & Advisory Services**: High-touch consulting for complex DAO structures and optimization
 
 ### Unit Economics Framework
-- **Quality-over-volume economics**: High-touch DAO governance model designed for premium deal values and superior outcomes
-- **Community-driven cost efficiency**: Token holder participation reduces traditional platform overhead costs
-- **Shared value creation**: Platform success directly benefits community through token appreciation and governance rewards
-- **Scalable community model**: DAO governance enables efficient scaling without proportional cost increases
+- **High-value client focus**: Enterprise and institutional clients creating substantial DAOs with significant treasury management needs
+- **Scalable infrastructure model**: Cloud-based platform enabling efficient scaling without proportional infrastructure costs
+- **Recurring revenue emphasis**: Subscription-based model with high client retention through switching costs and platform lock-in
+- **Cross-DAO network effects**: Each new DAO increases platform value through potential collaborations and integrations
 
-### Competitive Positioning: Beyond Platform to Protocol
-- **Protocol-level innovation**: DAO governance model creates defensible competitive moat through community ownership
-- **Network effects amplification**: Token incentives create stronger user retention than traditional fee-based models
-- **Geographic expansion blueprint**: Proven DAO framework replicable for similar high-potential corridors
-- **Ecosystem value capture**: Position as foundational infrastructure for France-Tunisia tech corridor development
+### Competitive Positioning: Platform Infrastructure Leader
+- **Infrastructure-as-a-Service**: Comprehensive DAO creation and management platform with defensible technical moats
+- **First-mover corridor advantage**: Purpose-built for France-Tunisia with potential for geographic expansion
+- **Enterprise client stickiness**: High switching costs due to custom DAO configurations and integrated workflows
+- **Cross-platform interoperability**: Enable DAO collaborations that create additional platform value and lock-in effects
 
 ## Why now
 
 ### Market Tailwinds
-- **Sovereign tech priorities**: Government support for domestic innovation and talent development
-- **Remote-first transformation**: Permanent shift enabling global talent access and collaboration
-- **Persistent talent shortages**: Growing demand for verified, high-quality technical professionals
-- **Trust premium demand**: Increasing willingness to pay for vetted, secure professional networks
+- **DAO adoption acceleration**: Growing institutional interest in decentralized autonomous organizations for deal making and governance
+- **Regulatory clarity improvement**: Increasing legal frameworks supporting DAO operations in France and EU jurisdictions
+- **Remote collaboration normalization**: Permanent shift enabling decentralized governance and decision-making models
+- **Institutional DeFi growth**: Traditional investors increasingly comfortable with blockchain-based governance and treasury management
 
 ### Corridor Momentum  
-- **Success story visibility**: Growing number of successful France-Tunisia tech collaborations
-- **Policy alignment**: Supportive regulatory environment for cross-border innovation partnerships
-- **Capital availability**: Increased investor interest in North African and MENA region opportunities
+- **Cross-border investment growth**: Increasing France-Tunisia venture capital and private equity activity
+- **Blockchain regulatory progress**: Tunisia's emerging crypto-friendly policies and France's DeFi framework development
+- **Institutional blockchain adoption**: Growing comfort with smart contract governance among traditional investors and institutions
 
 ## Development status & strategic positioning
 
-### Platform Development & Target Validation
-- **Pre-launch development phase**: Comprehensive platform architecture with sophisticated matching algorithms
-- **Strategic positioning validation**: Premium, invitation-based model designed for high-value professional networks
-- **Technical infrastructure**: Advanced verification systems, multi-jurisdictional compliance framework, and enterprise-grade security
-- **Market research validation**: Extensive analysis confirming demand for curated, corridor-specific professional networks
-- **Partnership pipeline development**: Strategic discussions with key ecosystem players and educational institutions
-- **Elite talent identification**: Active pipeline development with top-tier technical professionals and verified investors
+### Platform Development & Market Validation
+- **Core infrastructure development**: Comprehensive DAO creation platform with modular governance and tokenomics frameworks
+- **Smart contract architecture**: Battle-tested templates for various DAO structures with legal compliance integration
+- **Enterprise client pipeline**: Strategic discussions with institutional investors and multi-family offices for custom DAO deployment
+- **Technical validation**: Proof-of-concept deployments with beta clients validating DAO creation and management workflows
+- **Legal framework partnerships**: Collaboration with France-Tunisia legal experts on DAO compliance and regulatory adherence
+- **Regulatory mapping**: Comprehensive analysis of cross-jurisdictional requirements for DAO operations and governance
 
-### Strategic Framework & Competitive Readiness
-- **Proven model architecture**: Framework designed based on successful premium network precedents
-- **Scalable verification systems**: Multi-layer authentication and credential validation processes ready for deployment
-- **Geographic expansion blueprint**: Replicable framework validated for similar high-potential corridors
-- **Enterprise client readiness**: Compliance dashboards and auditability features designed for sophisticated corporate clients
-- **Strategic partnerships in development**: Active discussions with France Digitale and leading Tunisian engineering schools
-- **Investor network cultivation**: Pipeline of qualified investors and strategic partners for launch readiness
+### Strategic Framework & Go-to-Market Readiness
+- **Enterprise SaaS model**: Proven platform-as-a-service framework designed for institutional and high-net-worth clients
+- **Modular deployment system**: Flexible DAO creation tools adaptable to various investor syndicate and startup funding structures
+- **Cross-jurisdictional compliance engine**: Ready-to-deploy legal frameworks for France-Tunisia DAO operations
+- **Professional services integration**: Comprehensive support ecosystem including legal, technical, and governance advisory services
+- **Institutional client acquisition**: Active pipeline development with family offices, venture funds, and corporate venture arms
+- **Platform scalability architecture**: Cloud-native infrastructure designed for rapid geographic and client base expansion
 
 ## Get involved
 
 ### For Investors & Angels
-- **Request investor memo** (NDA-protected): Deep dive into DAO governance model, token economics, and community-driven dealflow approach
-- **Join founding member cohort**: Gain privileged access to pre-vetted pipeline and voice in shaping platform governance
+- **Request investor memo** (NDA-protected): Deep dive into DAO creation platform, infrastructure architecture, and enterprise client acquisition strategy
+- **Beta platform access**: Participate in early DAO creation pilots and provide feedback on governance frameworks and user experience
 - **Email**: invest@nartaq.com
 
 ### For Startups  
-- **Apply for inaugural cohort**: Be among the first startups to access community-driven feedback and investor network
-- **Build corridor connections**: Establish presence in the France-Tunisia tech ecosystem through DAO participation
+- **Explore DAO funding models**: Learn how to structure community-driven funding rounds and investor syndicates through DAO governance
+- **Beta program participation**: Access early platform features for creating startup-focused DAOs and community governance structures
 - **Email**: startups@nartaq.com
 
 ### For Ecosystem Partners
-- **Universities & accelerators**: Partnership opportunities for qualified deal flow and community governance participation
-- **Strategic alliances**: Regional expansion and DAO governance collaboration for corridor development
-- **Community governance**: Participate in shaping the future of France-Tunisia tech ecosystem
+- **Platform integration opportunities**: Explore partnerships for DAO creation services, legal framework development, and compliance automation
+- **Technology partnerships**: Integration opportunities for complementary services in the DAO ecosystem
+- **Channel partnership program**: Become a certified DAO creation advisor and implementation partner
 
 **Primary Contact**: contact@nartaq.com  
-**Platform**: The collective intelligence deal engine for the France & Tunisia corridor  
-**Status**: Pre-seed DAO development with community governance framework and strategic positioning validation
+**Platform**: The DAO creation infrastructure for the France & Tunisia corridor  
+**Status**: Pre-seed platform development with enterprise client validation and regulatory framework integration
 
 ---
 
-*"We're building a decentralized autonomous organization to govern dealflow, ensuring alignment, transparency, and long-term sustainability for the France-Tunisia tech corridor."*
+*"We're building the infrastructure that enables investors and startups to create customized DAOs for dealflow, governance, and collaboration in the France-Tunisia tech corridor."*
 
-**Investor Memo**: Available under NDA for qualified investors. Deep dive into DAO governance model, token economics, collective intelligence approach, and community-driven growth strategy.
+**Investor Memo**: Available under NDA for qualified investors. Deep dive into DAO-as-a-Service platform, enterprise client acquisition, infrastructure architecture, and scalable business model.
