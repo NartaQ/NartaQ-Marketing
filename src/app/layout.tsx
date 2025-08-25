@@ -12,6 +12,7 @@ import {
   websiteSchema,
   serviceSchema,
 } from '@/lib/structured-data'
+import ResponsiveNavigation from '@/components/ResponsiveNavigation'
 
 const fontSans = Playfair_Display({
   subsets: ['latin'],
@@ -121,7 +122,7 @@ export default function RootLayout({
       >
         <Analytics />
         <SpeedInsights />
-        <Header />
+        <ResponsiveNavigation />
         <main className='mt-[var(--header-height)]'>{children}</main>
         <Footer />
       </body>
