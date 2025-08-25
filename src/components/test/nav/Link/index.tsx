@@ -23,7 +23,7 @@ export default function Index({
 
   return (
     <motion.div
-      className='relative flex items-center'
+      className='relative flex items-center flex-col'
       onMouseEnter={() => {
         setSelectedIndicator(href)
       }}
@@ -33,17 +33,17 @@ export default function Index({
       animate='enter'
       exit='exit'
     >
-      <motion.div
-        variants={scale}
-        animate={isActive ? 'open' : 'closed'}
-        className='w-2 h-2 sm:w-2.5 sm:h-2.5 bg-white rounded-full absolute -left-6 sm:-left-8'
-      ></motion.div>
       <Link
         href={href}
-        className='text-white no-underline font-light hover:text-gray-300 transition-colors duration-300'
+        className='text-white no-underline font-light hover:text-gray-300 transition-colors duration-300 font-serif'
       >
         {title}
       </Link>
+      <motion.div
+        variants={scale}
+        animate={isActive ? 'open' : 'closed'}
+        className=' w-full h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent '
+      ></motion.div>
     </motion.div>
   )
 }

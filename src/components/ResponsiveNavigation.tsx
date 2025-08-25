@@ -19,16 +19,16 @@ export default function ResponsiveNavigation() {
           onClick={() => {
             setIsActive(!isActive)
           }}
-          className='w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full bg-[#A98B5D] hover:bg-[#c4a77c] cursor-pointer flex items-center justify-center transition-colors duration-300 shadow-lg'
+          className='w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full bg-[#A98B5D] hover:bg-[#c4a77c] cursor-pointer flex items-center justify-center transition-colors duration-300 shadow-lg '
         >
           <div className='w-full relative'>
             <div
-              className={`w-2/5 h-px bg-white block mx-auto relative transition-transform duration-300 ${
+              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${
                 isActive ? 'rotate-45 top-0' : '-top-1.5'
               }`}
             ></div>
             <div
-              className={`w-2/5 h-px bg-white block mx-auto relative transition-transform duration-300 ${
+              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${
                 isActive ? '-rotate-45 top-0' : 'top-1.5'
               }`}
             ></div>

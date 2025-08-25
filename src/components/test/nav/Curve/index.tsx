@@ -44,7 +44,7 @@ export default function Index() {
   }
 
   return (
-    <svg className='absolute top-0 -left-24 w-24 h-full fill-gray-800 stroke-none'>
+    <svg className='absolute top-0 -left-24 w-24 h-full fill-[rgba(169,139,93,0.4)] stroke-none'>
       <motion.path
         variants={curve}
         initial='initial'

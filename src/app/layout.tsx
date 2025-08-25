@@ -131,7 +131,7 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <LenisProvider>
-          <Header />
+          <ResponsiveNavigation />
           <main className='mt-[var(--header-height)]'>
             {/* <Spotlight /> */}
             {children}
