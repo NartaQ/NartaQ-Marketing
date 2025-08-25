@@ -102,12 +102,12 @@ body {
     font-size: clamp(1.75rem, 5vw, 2.5rem);
     line-height: 1.2;
   }
-  
+
   .text-responsive-xl {
     font-size: clamp(2rem, 6vw, 3rem);
     line-height: 1.1;
   }
-  
+
   .text-responsive-2xl {
     font-size: clamp(2.5rem, 8vw, 4rem);
     line-height: 1.1;
@@ -142,6 +142,55 @@ body {
 
 body.modal-open {
   overflow: hidden;
+}
+
+/* Smooth blur overlay using backdrop-filter (more performant and visually cohesive) */
+:root {
+  --nav-blur-duration-enter: 0.8s;
+  --nav-blur-duration-exit: 0.45s;
+  --nav-blur-ease: cubic-bezier(0.76, 0, 0.24, 1);
+  --nav-blur-strength: 6px;
+  --nav-overlay-color: rgba(0, 0, 0, 0.25);
+  --nav-overlay-z: 35; /* sits between page content and nav (nav is z-40) */
+}
+
+/* The overlay uses backdrop-filter to blur the content behind it and animates opacity only.
+   This is smoother than animating filter on many elements. The overlay itself ignores pointer-events
+   so the existing transparent click-catcher (z-30) can still close the nav. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--nav-overlay-color);
+  backdrop-filter: blur(var(--nav-blur-strength)) saturate(0.95);
+  -webkit-backdrop-filter: blur(var(--nav-blur-strength)) saturate(0.95);
+  opacity: 0;
+  pointer-events: none;
+  z-index: var(--nav-overlay-z);
+  will-change: opacity;
+  transform: translateZ(0);
+}
+
+body.nav-open::after {
+  opacity: 1;
+  transition: opacity var(--nav-blur-duration-enter) var(--nav-blur-ease);
+}
+
+body:not(.nav-open)::after {
+  transition: opacity var(--nav-blur-duration-exit) var(--nav-blur-ease);
+  opacity: 0;
+}
+
+/* For users who prefer reduced motion, keep things static */
+@media (prefers-reduced-motion: reduce) {
+  body::after,
+  body.nav-open::after,
+  body:not(.nav-open)::after {
+    transition: none !important;
+    opacity: 1;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
 }
 
 /* Header Styles */
@@ -1015,8 +1064,10 @@ h3 {
 }
 
 .grid-pattern {
-  background-image: 
-    linear-gradient(rgba(169, 139, 93, 0.1) 1px, transparent 1px),
+  background-image: linear-gradient(
+      rgba(169, 139, 93, 0.1) 1px,
+      transparent 1px
+    ),
     linear-gradient(90deg, rgba(169, 139, 93, 0.1) 1px, transparent 1px);
   background-size: 40px 40px;
 }

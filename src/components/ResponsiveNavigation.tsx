@@ -12,6 +12,20 @@ export default function ResponsiveNavigation() {
     if (isActive) setIsActive(false)
   }, [pathname])
 
+  // Toggle body classes to blur page content and disable scroll when nav is open
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+    const body = document.body
+    if (isActive) {
+      body.classList.add('nav-open', 'modal-open')
+    } else {
+      body.classList.remove('nav-open', 'modal-open')
+    }
+    return () => {
+      body.classList.remove('nav-open', 'modal-open')
+    }
+  }, [isActive])
+
   return (
     <>
       <div className='fixed top-0 right-0 p-4 sm:p-6 md:p-8 z-50'>
@@ -36,7 +50,16 @@ export default function ResponsiveNavigation() {
         </div>
       </div>
 
-      <AnimatePresence mode='wait'>{isActive && <Nav />}</AnimatePresence>
+      {/* keep AnimatePresence mounted so Nav can run its exit animation when isActive becomes false */}
+      <div>
+        {isActive && (
+          <div
+            onClick={() => setIsActive(false)}
+            className='fixed inset-0 bg-transparent z-30'
+          />
+        )}
+        <AnimatePresence mode='wait'>{isActive && <Nav />}</AnimatePresence>
+      </div>
     </>
   )
 }
