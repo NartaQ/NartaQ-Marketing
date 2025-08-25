@@ -140,7 +140,13 @@ body {
   }
 }
 
+/* Prevent scrolling when navigation is open */
 body.modal-open {
+  overflow: hidden;
+}
+
+/* Additional protection against scroll */
+body.nav-open {
   overflow: hidden;
 }
 

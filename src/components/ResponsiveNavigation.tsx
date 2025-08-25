@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Nav from './test/nav'
 import { AnimatePresence } from 'framer-motion'
 import { usePathname } from 'next/navigation'
@@ -13,15 +13,34 @@ export default function ResponsiveNavigation() {
   }, [pathname])
 
   // Toggle body classes to blur page content and disable scroll when nav is open
+  const scrollPositionRef = useRef(0)
+
   useEffect(() => {
     if (typeof document === 'undefined') return
     const body = document.body
+
     if (isActive) {
+      // Store the current scroll position in the ref
+      scrollPositionRef.current = window.scrollY
+      body.style.position = 'fixed'
+      body.style.top = `-${scrollPositionRef.current}px`
+      body.style.width = '100%'
       body.classList.add('nav-open', 'modal-open')
     } else {
+      // Restore the scroll position from the ref
+      body.style.position = ''
+      body.style.top = ''
+      body.style.width = ''
       body.classList.remove('nav-open', 'modal-open')
+
+      window.scrollTo({ top: scrollPositionRef.current, behavior: 'instant' })
     }
+
     return () => {
+      // Cleanup on unmount
+      body.style.position = ''
+      body.style.top = ''
+      body.style.width = ''
       body.classList.remove('nav-open', 'modal-open')
     }
   }, [isActive])
