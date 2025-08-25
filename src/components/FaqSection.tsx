@@ -7,83 +7,83 @@ export default function FaqSection() {
 
   const faqs = [
     {
-      q: 'How does the DAO work?',
-      a: 'Token holders vote on big decisions. Submit deals and earn tokens. Good work gets rewarded.',
+      q: 'How does AI-powered matching work?',
+      a: 'Our algorithm analyzes 200+ data points including market metrics, team experience, business model fit, and investor preferences to create high-probability matches. The more data we process, the smarter it gets.',
     },
     {
-      q: 'Why only France-Tunisia?',
-      a: 'We know this market well. Strong ties between the countries. Great talent in Tunisia. Focus helps us do better.',
+      q: 'What makes this different from other platforms?',
+      a: 'We\'re a protocol, not a platform. Decentralized governance, AI-driven matching, and trustless execution mean no single party controls the process. Plus, contributors earn tokens for quality participation.',
     },
     {
-      q: 'How do you check if startups are real?',
-      a: 'We verify everything. Check IDs, call references, put key facts on blockchain so nobody can lie.',
+      q: 'How do you verify participants?',
+      a: 'Multi-layer verification including KYC, accreditation status, reference checks, and on-chain reputation scoring. All participants must meet strict quality standards before joining the network.',
     },
     {
-      q: 'What makes you different?',
-      a: 'We all own it together. We focus on one corridor. Everyone shares the wins.',
+      q: 'Is this only for specific regions?',
+      a: 'No. While we started with specific corridors, the protocol is designed to work globally. Any qualified investor or startup can participate, regardless of geography.',
     },
     {
-      q: 'How do I earn tokens?',
-      a: 'Submit good deals. Vote on choices. Help review startups. Quality work gets paid.',
+      q: 'How do governance tokens work?',
+      a: 'Contribute quality deals, participate in due diligence, or help with protocol development to earn tokens. Token holders vote on algorithm improvements, quality standards, and protocol evolution.',
     },
     {
-      q: 'Who can join?',
-      a: 'Invitation only. Real investors, good startups, trusted partners. We check everyone.',
+      q: 'Who can join the protocol?',
+      a: 'Accredited investors, institutional VCs, qualified startups, and ecosystem contributors. We maintain high standards but welcome applications from serious participants worldwide.',
     },
   ]
 
   return (
     <section
       id='faq'
-      className='flex w-full flex-col items-center justify-center p-[2%] py-20 relative'
+      className='flex w-full flex-col items-center justify-center p-[2%] py-16 sm:py-20 lg:py-24 relative'
     >
       {/* Premium background elements */}
       <div className='absolute inset-0 luxury-texture opacity-20'></div>
       <div className='absolute top-1/5 left-1/4 w-80 h-80 bg-[#a98b5d]/4 rounded-full blur-3xl floating'></div>
       <div className='absolute bottom-1/5 right-1/4 w-96 h-96 bg-[#dcd7ce]/3 rounded-full blur-3xl floating'></div>
 
-      <div className='max-w-6xl mx-auto text-center space-y-8 relative z-10 reveal-up'>
+      <div className='max-w-6xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10 reveal-up px-4 sm:px-6 lg:px-8'>
         {/* Premium section header */}
-        <div className='space-y-6'>
+        <div className='space-y-4 sm:space-y-6'>
           <div className='flex justify-center mb-4'>
-            <div className='premium-glass px-8 py-3 rounded-full border border-[#a98b5d]/20'>
-              <span className='text-sm font-medium text-[#a98b5d] tracking-wider'>
+            <div className='premium-glass px-6 sm:px-8 py-2 sm:py-3 rounded-full border border-[#a98b5d]/20'>
+              <span className='text-xs sm:text-sm font-medium text-[#a98b5d] tracking-wider'>
                 FREQUENTLY ASKED
               </span>
             </div>
           </div>
 
-          <h2 className='text-4xl md:text-5xl font-light text-[#dcd7ce]'>
+          <h2 className='text-3xl sm:text-4xl md:text-5xl font-light text-[#dcd7ce]'>
             <span className='font-medium text-[#a98b5d] '>Questions</span> &
             Answers
           </h2>
 
           <div className='w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
 
-          <p className='text-xl text-[#dcd7ce] font-light leading-relaxed max-w-3xl mx-auto'>
-            You have concerns. We have specific answers.
+          <p className='text-lg sm:text-xl text-[#dcd7ce] font-light leading-relaxed max-w-3xl mx-auto'>
+            Have questions about the protocol? We have detailed answers.
             <br />
-            No fluff, no corporate speak.
+            Clear explanations, no technical jargon.
           </p>
         </div>
       </div>
 
-      <div className='max-w-4xl w-full mt-16 px-4 reveal-up'>
-        <div className='space-y-4'>
+      <div className='max-w-4xl w-full mt-12 sm:mt-16 px-4 reveal-up'>
+        <div className='space-y-3 sm:space-y-4'>
           {faqs.map((item, i) => (
             <div
               key={i}
               className='premium-glass rounded-2xl border border-[#a98b5d]/20 overflow-hidden elite-hover'
             >
               <button
-                className='w-full p-8 text-left flex items-center justify-between group'
+                className='w-full p-6 sm:p-8 text-left flex items-center justify-between group'
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
               >
-                <h3 className='text-xl font-medium text-[#dcd7ce] pr-4 group-hover:text-[#a98b5d] transition-colors duration-300'>
+                <h3 className='text-lg sm:text-xl font-medium text-[#dcd7ce] pr-4 group-hover:text-[#a98b5d] transition-colors duration-300'>
                   {item.q}
                 </h3>
                 <div
-                  className={`text-2xl text-[#a98b5d] transition-transform duration-300 ${
+                  className={`text-xl sm:text-2xl text-[#a98b5d] transition-transform duration-300 ${
                     openFaq === i ? 'rotate-45' : ''
                   }`}
                 >
@@ -96,9 +96,9 @@ export default function FaqSection() {
                   openFaq === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className='px-8 pb-8'>
-                  <div className='w-full h-px bg-gradient-to-r from-[#a98b5d]/20 via-[#a98b5d]/40 to-[#a98b5d]/20 mb-6'></div>
-                  <p className='text-[#dcd7ce] leading-relaxed font-light text-lg'>
+                <div className='px-6 sm:px-8 pb-6 sm:pb-8'>
+                  <div className='w-full h-px bg-gradient-to-r from-[#a98b5d]/20 via-[#a98b5d]/40 to-[#a98b5d]/20 mb-4 sm:mb-6'></div>
+                  <p className='text-[#dcd7ce] leading-relaxed font-light text-base sm:text-lg'>
                     {item.a}
                   </p>
                 </div>
