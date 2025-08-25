@@ -93,6 +93,51 @@ html {
 body {
   font-family: 'Ubuntu', sans-serif;
   overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Mobile-first responsive typography */
+@media (max-width: 640px) {
+  .text-responsive-lg {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    line-height: 1.2;
+  }
+  
+  .text-responsive-xl {
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.1;
+  }
+  
+  .text-responsive-2xl {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    line-height: 1.1;
+  }
+}
+
+/* Ensure proper spacing on mobile */
+.section-padding {
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding: 6rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 8rem 2rem;
+  }
+}
+
+/* Mobile-optimized button sizing */
+@media (max-width: 640px) {
+  .btn-mobile {
+    min-height: 44px; /* Touch-friendly minimum */
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 body.modal-open {

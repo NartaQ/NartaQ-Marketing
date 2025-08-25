@@ -62,13 +62,16 @@ export default function Header({ className }: { className?: string }) {
                   </HoveredLink>
                 </div>
               </MenuItem>
-              <MenuItem setActive={setActive} active={active} item='The DAO'>
+              <MenuItem setActive={setActive} active={active} item='Protocol'>
                 <div className='text-sm flex flex-col space-y-4 p-4'>
                   <div className='text-neutral-700 dark:text-neutral-300 text-xs uppercase tracking-wide mb-2'>
-                    Community Governance
+                    AI-Powered Protocol
                   </div>
+                  <HoveredLink href='/#how-it-works'>
+                    How It Works
+                  </HoveredLink>
                   <HoveredLink href='/#dao-governance'>
-                    How DAO Works
+                    Protocol Governance
                   </HoveredLink>
                   <HoveredLink href='/#tokenomics'>Token Economics</HoveredLink>
                   <HoveredLink href='/#community'>Join Community</HoveredLink>
@@ -84,6 +87,8 @@ export default function Header({ className }: { className?: string }) {
                     France ↔ Tunisia Thesis
                   </HoveredLink>
                   <HoveredLink href='/#faq'>FAQ</HoveredLink>
+                  <HoveredLink href='/legal/terms'>Terms of Service</HoveredLink>
+                  <HoveredLink href='/legal/privacy'>Privacy Policy</HoveredLink>
                 </div>
               </MenuItem>
             </Menu>
@@ -183,7 +188,7 @@ export default function Header({ className }: { className?: string }) {
               )}
             </div>
 
-            {/* DAO Section */}
+            {/* Protocol Section */}
             <div className='w-full'>
               <button
                 onClick={() => toggleSection('dao')}
@@ -244,19 +249,68 @@ export default function Header({ className }: { className?: string }) {
                 <ChevronDown
                   className={cn(
                     'w-4 h-4 transition-transform duration-200',
-                    expandedSection === 'corridor' && 'rotate-180'
+                    expandedSection === 'protocol' && 'rotate-180'
                   )}
                 />
               </button>
-              {expandedSection === 'corridor' && (
-                <div className='ml-4 mt-2 space-y-2'>
+              {expandedSection === 'protocol' && (
+                <div className='ml-4 mt-2 space-y-3'>
                   <Link
                     href='/solutions/investors'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    France ↔ Tunisia Thesis
+                    <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
+                      How It Works
+                    </div>
+                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
+                      AI-powered protocol workflow
+                    </div>
                   </Link>
+                  <Link
+                    href='/#dao-governance'
+                    className='block px-3 py-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
+                      Protocol Governance
+                    </div>
+                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
+                      Community governance and decision making
+                    </div>
+                  </Link>
+                  <Link
+                    href='/#trust-compliance'
+                    className='block px-3 py-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
+                      Security & Compliance
+                    </div>
+                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
+                      Bank-level security and regulatory compliance
+                    </div>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Resources Section */}
+            <div className='w-full'>
+              <button
+                onClick={() => toggleSection('resources')}
+                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#3e3f44] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
+              >
+                <span className='font-medium'>Resources</span>
+                <ChevronDown
+                  className={cn(
+                    'w-4 h-4 transition-transform duration-200',
+                    expandedSection === 'resources' && 'rotate-180'
+                  )}
+                />
+              </button>
+              {expandedSection === 'resources' && (
+                <div className='ml-4 mt-2 space-y-2'>
                   <Link
                     href='/#faq'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
@@ -275,7 +329,7 @@ export default function Header({ className }: { className?: string }) {
                 className='w-full text-center bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d]  hover:bg-[#8B7349]  px-4 py-3 rounded-lg font-semibold'
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Apply for Access
+                Join Protocol
               </NavbarButton>
             </div>
           </div>
