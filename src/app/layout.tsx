@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 import { Playfair_Display, Source_Sans_3 } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LenisProvider from "@/components/LenisProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -95,6 +96,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -121,12 +129,14 @@ export default function RootLayout({
       >
         <Analytics />
         <SpeedInsights />
-        <Header />
-        <main className='mt-[var(--header-height)]'>
-          {/* <Spotlight /> */}
-          {children}
-        </main>
-        <Footer />
+        <LenisProvider>
+          <Header />
+          <main className='mt-[var(--header-height)]'>
+            {/* <Spotlight /> */}
+            {children}
+          </main>
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );

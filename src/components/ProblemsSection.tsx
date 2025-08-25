@@ -40,7 +40,7 @@ export default function ProblemsSection() {
   ]
 
   return (
-    <section className="relative py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="w-full h-full" style={{
@@ -51,12 +51,12 @@ export default function ProblemsSection() {
         }} />
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4">
+      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -67,19 +67,19 @@ export default function ProblemsSection() {
             THE PROBLEM
           </motion.div>
           
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="">The Architecture of</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
+            <span className="text-[#dcd7ce]">The Architecture of</span>
             <br />
             <span className="bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent">Access is Broken</span>
           </h2>
           
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             The best ideas often never get seen. The current system is designed to filter them out.
           </p>
         </motion.div>
 
         {/* Problems Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {problems.map((problem, index) => (
             <motion.div
               key={problem.title}
@@ -88,24 +88,24 @@ export default function ProblemsSection() {
               transition={{ delay: 0.2 + index * 0.1 }}
               className="group relative"
             >
-              <div className="relative p-8 rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent hover:border-red-500/40 transition-all duration-300">
+              <div className="relative p-6 sm:p-8 rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent hover:border-red-500/40 transition-all duration-300">
                 {/* Problem Icon */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-red-500/20 to-red-400/20 flex items-center justify-center mb-6">
-                  <problem.icon className="w-8 h-8 text-red-400" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-r from-red-500/20 to-red-400/20 flex items-center justify-center mb-4 sm:mb-6">
+                  <problem.icon className="w-6 h-6 sm:w-8 sm:h-8 text-red-400" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-[#dcd7ce] mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#dcd7ce] mb-3 sm:mb-4">
                   {problem.title}
                 </h3>
                 
-                <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+                <p className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
                   {problem.description}
                 </p>
 
                 {/* Stats */}
-                <div className="px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/20 inline-block">
-                  <div className="text-red-400 font-semibold text-sm">
+                <div className="px-3 sm:px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/20 inline-block">
+                  <div className="text-red-400 font-semibold text-xs sm:text-sm">
                     {problem.stats}
                   </div>
                 </div>
