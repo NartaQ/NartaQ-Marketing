@@ -8,37 +8,6 @@ export default function ProblemsSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
-  const problems = [
-    {
-      icon: Clock,
-      title: 'Biased Game',
-      description: 'Fundraising is "warm intro roulette"—exceptional builders outside major hubs get systematically overlooked.',
-      stats: 'Location bias = lost opportunity',
-      visual: 'clock'
-    },
-    {
-      icon: AlertTriangle,
-      title: 'High Noise, Low Signal',
-      description: 'Investors lack tools to find hidden gems that don\'t come through traditional channels.',
-      stats: 'Signal buried in noise',
-      visual: 'warning'
-    },
-    {
-      icon: EyeOff,
-      title: 'Network, Location, Pedigree',
-      description: 'The current system filters out great ideas based on zip code and alumni networks, not merit.',
-      stats: 'Best ideas never get seen',
-      visual: 'hidden'
-    },
-    {
-      icon: TrendingDown,
-      title: 'Massive Misallocation',
-      description: 'The result: systemic failure to fund the best innovation. Capital flows to connections, not competence.',
-      stats: 'Capital ≠ Best Innovation',
-      visual: 'decline'
-    }
-  ]
-
   return (
     <section className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden">
       {/* Background Pattern */}
@@ -67,54 +36,92 @@ export default function ProblemsSection() {
             THE PROBLEM
           </motion.div>
           
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
-            <span className="text-[#dcd7ce]">The Architecture of</span>
-            <br />
-            <span className="bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent">Access is Broken</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8">
+            <span className="bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent">
+              The Old Rules of Startup Funding Are Broken
+            </span>
           </h2>
           
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-            The best ideas often never get seen. The current system is designed to filter them out.
+          <p className="text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto px-4 mb-12">
+            Today's funding system creates two fundamental problems that waste billions in potential and leave exceptional founders unable to access capital.
           </p>
         </motion.div>
 
-        {/* Problems Grid */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
-          {problems.map((problem, index) => (
-            <motion.div
-              key={problem.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + index * 0.1 }}
-              className="group relative"
-            >
-              <div className="relative p-6 sm:p-8 rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent hover:border-red-500/40 transition-all duration-300">
-                {/* Problem Icon */}
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-r from-red-500/20 to-red-400/20 flex items-center justify-center mb-4 sm:mb-6">
-                  <problem.icon className="w-6 h-6 sm:w-8 sm:h-8 text-red-400" />
-                </div>
-
-                {/* Content */}
-                <h3 className="text-xl sm:text-2xl font-bold text-[#dcd7ce] mb-3 sm:mb-4">
-                  {problem.title}
-                </h3>
-                
-                <p className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
-                  {problem.description}
-                </p>
-
-                {/* Stats */}
-                <div className="px-3 sm:px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/20 inline-block">
-                  <div className="text-red-400 font-semibold text-xs sm:text-sm">
-                    {problem.stats}
-                  </div>
-                </div>
-
-                {/* Subtle Background Effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+        {/* Two-Column Problem Structure */}
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto mb-16">
+          {/* Investors Problem */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.3 }}
+            className="relative"
+          >
+            <div className="p-8 rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-red-500/20 to-red-400/20 flex items-center justify-center mb-6">
+                <EyeOff className="w-8 h-8 text-red-400" />
               </div>
-            </motion.div>
-          ))}
+              
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#dcd7ce] mb-4">
+                For Investors: Signal vs. Noise
+              </h3>
+              
+              <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+                You're drowning in pitch decks and warm intros, but the best opportunities never reach your inbox. The founders solving the biggest problems are building outside Silicon Valley—and you'll never find them through traditional channels.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <span className="text-gray-300">1,000+ decks reviewed per quarter</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <span className="text-gray-300">90% from the same networks</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <span className="text-gray-300">Best deals happen in private</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Founders Problem */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.4 }}
+            className="relative"
+          >
+            <div className="p-8 rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-red-500/20 to-red-400/20 flex items-center justify-center mb-6">
+                <Clock className="w-8 h-8 text-red-400" />
+              </div>
+              
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#dcd7ce] mb-4">
+                For Founders: The Network Game
+              </h3>
+              
+              <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+                Your idea could change the world, but if you don't know someone who knows someone, you're locked out. The funding game is "warm intro roulette"—and most exceptional builders don't even get to play.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <span className="text-gray-300">6 months average fundraising time</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <span className="text-gray-300">200+ investor emails sent</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <span className="text-gray-300">95% never get a response</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Bottom CTA */}
@@ -125,7 +132,7 @@ export default function ProblemsSection() {
           className="text-center mt-16"
         >
           <p className="text-xl text-gray-400 mb-4">
-            We need a coordinated, data-rich, incentive-aligned model.
+            We need a merit-based, transparent, and globally accessible funding system.
           </p>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto" />
         </motion.div>

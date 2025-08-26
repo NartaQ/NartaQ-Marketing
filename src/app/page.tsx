@@ -1,6 +1,6 @@
 import FaqSection from '../components/FaqSection'
 import NewsletterSection from '../components/NewsletterSection'
-import DAOSection from '../components/DAOSection'
+import VisionSection from '../components/VisionSection'
 import TrustComplianceSection from '../components/TrustComplianceSection'
 import HowItWorksSection from '../components/HowItWorksSection'
 
@@ -10,38 +10,41 @@ import SolutionsSection from '../components/SolutionsSection'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'NartaQ - The AI-Powered Protocol for Startup Funding',
+  title: 'NartaQ | The AI-Powered Startup Funding Platform',
   description:
-    'Decentralize discovery, simplify execution. AI-powered venture matchmaking protocol connects founders with the right investors through trustless matching and automated deal execution.',
+    'NartaQ is an AI-powered platform connecting the best founders with the right capital. Discover pre-seed startups in the France-Tunisia corridor or streamline your fundraising process. Join our founding community.',
   keywords: [
     'AI venture matching',
-    'startup funding protocol',
+    'startup funding platform',
     'venture capital automation',
     'dealflow matching',
     'automated deal execution',
     'venture matchmaking',
     'AI powered funding',
-    'decentralized venture capital',
     'startup investor matching',
     'AI deal sourcing',
+    'funding platform development',
+    'France Tunisia startups',
+    'pre-seed funding',
+    'fundraising process',
   ],
   openGraph: {
-    title: 'NartaQ - The AI-Powered Protocol for Startup Funding',
+    title: 'NartaQ | The AI-Powered Startup Funding Platform',
     description:
-      'Decentralize discovery, simplify execution. AI-powered venture matchmaking protocol connects founders with the right investors.',
+      'NartaQ is an AI-powered platform connecting the best founders with the right capital. Join our founding community.',
     images: [
       {
         url: '/images/home-og.png',
         width: 1200,
         height: 630,
-        alt: 'NartaQ - AI-Powered Protocol for Startup Funding',
+        alt: 'NartaQ - AI-Powered Platform for Startup Funding',
       },
     ],
   },
   twitter: {
-    title: 'NartaQ - The AI-Powered Protocol for Startup Funding',
+    title: 'NartaQ | The AI-Powered Startup Funding Platform',
     description:
-      'Decentralize discovery, simplify execution. AI-powered venture matchmaking protocol.',
+      'AI-powered platform connecting the best founders with the right capital. Join our founding community.',
   },
   alternates: {
     canonical: '/',
@@ -64,7 +67,7 @@ export default function Home() {
       <HowItWorksSection />
       
       {/* Main Content Sections */}
-      <DAOSection />
+      <VisionSection />
 
       {/* <EcosystemSection /> */}
       <TrustComplianceSection />

@@ -13,25 +13,25 @@ export default function DAOSection() {
     {
       icon: Users,
       title: 'Contribute & Earn',
-      description: 'Source quality deals, provide diligence, or contribute to protocol development to earn governance tokens.',
+      description: 'Source quality deals, provide diligence, or contribute to platform development to earn governance tokens.',
       color: '#a98b5d'
     },
     {
       icon: Vote,
       title: 'Govern & Decide',
-      description: 'Shape matching algorithms, set quality standards, and guide protocol evolution through democratic governance.',
+      description: 'Shape matching algorithms, set quality standards, and guide platform evolution through democratic governance.',
       color: '#dcd7ce'
     },
     {
       icon: Coins,
       title: 'Share in Success',
-      description: 'Benefit from protocol growth through token appreciation and fee sharing as the network scales globally.',
+      description: 'Benefit from platform growth through token appreciation and fee sharing as the network scales globally.',
       color: '#a98b5d'
     }
   ]
 
   return (
-    <section ref={ref} className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden">
+    <section ref={ref} className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0a0a0a] via-black to-[#0a0a0a] overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-72 h-72 bg-[#a98b5d] rounded-full filter blur-3xl" />
@@ -47,7 +47,7 @@ export default function DAOSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6">
             <Sparkles className="w-4 h-4 text-[#a98b5d]" />
-            <span className="text-xs sm:text-sm font-medium text-[#dcd7ce]">PROTOCOL GOVERNANCE</span>
+            <span className="text-xs sm:text-sm font-medium text-[#dcd7ce]">PLATFORM GOVERNANCE</span>
           </div>
           
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
@@ -57,7 +57,7 @@ export default function DAOSection() {
           </h2>
 
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-            The protocol belongs to its users. We&apos;re building a DAO to align incentives and ensure sustainable value creation for all participants.
+            The platform belongs to its users. We&apos;re building a DAO to align incentives and ensure sustainable value creation for all participants.
           </p>
         </motion.div>
 
@@ -69,7 +69,7 @@ export default function DAOSection() {
           className="mb-16 sm:mb-20"
         >
           <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-[#dcd7ce]">
-            How Protocol Governance Works
+            How Platform Governance Works
           </h3>
           
           <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -127,7 +127,7 @@ export default function DAOSection() {
                 },
                 {
                   title: 'Transparent Operations',
-                  description: 'All governance decisions and protocol changes are recorded on-chain for full auditability.'
+                  description: 'All governance decisions and platform changes are recorded on-chain for full auditability.'
                 },
                 {
                   title: 'Network Effects',
@@ -226,7 +226,7 @@ export default function DAOSection() {
           className="text-center mt-16 sm:mt-20"
         >
           <h3 className="text-2xl sm:text-3xl font-bold text-[#dcd7ce] mb-4 sm:mb-6">
-            Join the Protocol as a Founding Participant
+            Join the Platform as a Founding Participant
           </h3>
           
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
@@ -234,7 +234,7 @@ export default function DAOSection() {
             <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-[#a98b5d]/10 to-transparent border border-[#a98b5d]/30 backdrop-blur-xl">
               <h4 className="text-lg sm:text-xl font-bold text-[#dcd7ce] mb-3 sm:mb-4">For Investors & VCs</h4>
               <p className="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base">
-                Access AI-curated dealflow and help shape the future of venture capital through protocol governance.
+                Access AI-curated dealflow and help shape the future of venture capital through platform governance.
               </p>
               <button className="w-full px-4 sm:px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
                 Join as Investor
@@ -246,7 +246,7 @@ export default function DAOSection() {
             <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-[#dcd7ce]/10 to-transparent border border-[#dcd7ce]/30 backdrop-blur-xl">
               <h4 className="text-lg sm:text-xl font-bold text-[#dcd7ce] mb-3 sm:mb-4">For Startups & Contributors</h4>
               <p className="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base">
-                Get matched with aligned investors and contribute to protocol development to earn governance tokens.
+                Get matched with aligned investors and contribute to platform development to earn governance tokens.
               </p>
               <button className="w-full px-4 sm:px-6 py-3 border-2 border-[#dcd7ce]/50 text-[#dcd7ce] font-semibold rounded-xl hover:bg-[#dcd7ce]/10 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
                 Join as Founder

@@ -36,7 +36,7 @@ export default function NeonHeroSection() {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8"
         >
           <Sparkles className="w-4 h-4 text-[#a98b5d]" />
-          <span className="text-sm font-medium text-[#dcd7ce]">AI-POWERED PROTOCOL</span>
+          <span className="text-sm font-medium text-[#dcd7ce]">AI-POWERED PLATFORM IN DEVELOPMENT</span>
         </motion.div>
 
         {/* Main Headline */}
@@ -46,10 +46,10 @@ export default function NeonHeroSection() {
           transition={{ delay: 0.4 }}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 px-2"
         >
-          <span className="text-[#dcd7ce]">The AI-Powered </span>
+          <span className="text-[#dcd7ce]">Building the AI-Powered </span>
           <br />
           <span className="text-glow bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent">
-            Protocol
+            Platform
           </span>{' '}
           <span className="text-[#dcd7ce]">for Startup Funding</span>
         </motion.h1>
@@ -59,35 +59,44 @@ export default function NeonHeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4"
+          className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4"
         >
-          Decentralize discovery, simplify execution. AI-powered matching connects the best founders with the right capital—no bias, no barriers.
+          We're building a merit-based platform that connects the best founders with the right capital, regardless of location or network. Get matched with investors or discover your next investment with NartaQ.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 sm:mb-16 px-4"
+          className="flex justify-center items-center mb-8 sm:mb-12 px-4"
         >
           <Link
-            href="/solutions/startups"
-            className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 text-center"
+            href="mailto:contact@nartaq.com?subject=Join%20Founding%20Cohort"
+            className="group relative px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-[#a98b5d]/50"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="relative flex items-center justify-center gap-2">
-              Join as Founder
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+              <Sparkles className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
+              Join the Founding Cohort
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
-          
-          <Link
-            href="/solutions/investors"
-            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-[#a98b5d]/50 text-[#dcd7ce] font-semibold rounded-xl backdrop-blur-xl hover:bg-[#a98b5d]/10 transition-all duration-300 hover:border-[#a98b5d] hover:scale-105 text-center"
-          >
-            Join as Investor
-          </Link>
+        </motion.div>
+
+        {/* Current Status/Milestone */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+          className="mb-8 px-4"
+        >
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#a98b5d]/10 border border-[#a98b5d]/30 rounded-full backdrop-blur-xl">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-sm text-[#dcd7ce] font-medium">
+              Phase 1: Building our founding community of 1,000+ participants
+            </span>
+          </div>
         </motion.div>
 
         {/* Key Features Pills */}
@@ -98,9 +107,9 @@ export default function NeonHeroSection() {
           className="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-2xl mx-auto px-4"
         >
           {[
-            { icon: Users, text: "Sourcing DAO" },
-            { icon: Target, text: "AI Vetting" },
-            { icon: Zap, text: "Shared Success" }
+            { icon: Users, text: "Community Sourcing" },
+            { icon: Target, text: "AI-Powered Matching" },
+            { icon: Zap, text: "Transparent Process" }
           ].map((feature, index) => (
             <div
               key={index}

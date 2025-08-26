@@ -5,8 +5,10 @@ Allow: /
 Sitemap: https://nartaq.com/sitemap.xml
 
 # Specific crawling rules
+Allow: /about/
 Allow: /solutions/
-Allow: /products/
+Allow: /faq/
+Allow: /legal/
 
 # Allow popular bots
 User-agent: Googlebot

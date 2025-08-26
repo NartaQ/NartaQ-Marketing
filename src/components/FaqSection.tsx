@@ -12,7 +12,7 @@ export default function FaqSection() {
     },
     {
       q: 'What makes this different from other platforms?',
-      a: 'We\'re a protocol, not a platform. Decentralized governance, AI-driven matching, and trustless execution mean no single party controls the process. Plus, contributors earn tokens for quality participation.',
+      a: 'We\'re building an AI-powered platform that democratizes access to funding. Smart matching, transparent processes, and streamlined execution mean faster, fairer deals for everyone.',
     },
     {
       q: 'How do you verify participants?',
@@ -20,14 +20,14 @@ export default function FaqSection() {
     },
     {
       q: 'Is this only for specific regions?',
-      a: 'No. While we started with specific corridors, the protocol is designed to work globally. Any qualified investor or startup can participate, regardless of geography.',
+      a: 'No. While we started with specific corridors, the platform is designed to work globally. Any qualified investor or startup can participate, regardless of geography.',
     },
     {
       q: 'How do governance tokens work?',
-      a: 'Contribute quality deals, participate in due diligence, or help with protocol development to earn tokens. Token holders vote on algorithm improvements, quality standards, and protocol evolution.',
+      a: 'Contribute quality deals, participate in due diligence, or help with platform development to earn tokens. Token holders vote on algorithm improvements, quality standards, and platform evolution.',
     },
     {
-      q: 'Who can join the protocol?',
+      q: 'Who can join the platform?',
       a: 'Accredited investors, institutional VCs, qualified startups, and ecosystem contributors. We maintain high standards but welcome applications from serious participants worldwide.',
     },
   ]
@@ -61,7 +61,7 @@ export default function FaqSection() {
           <div className='w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
 
           <p className='text-lg sm:text-xl text-[#dcd7ce] font-light leading-relaxed max-w-3xl mx-auto'>
-            Have questions about the protocol? We have detailed answers.
+            Have questions about the platform? We have detailed answers.
             <br />
             Clear explanations, no technical jargon.
           </p>

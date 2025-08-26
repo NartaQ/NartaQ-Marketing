@@ -51,7 +51,7 @@ export default function TrustComplianceSection() {
           <div className='flex justify-center mb-4'>
             <div className='premium-glass px-6 sm:px-8 py-2 sm:py-3 rounded-full border border-[#a98b5d]/20'>
               <span className='text-xs sm:text-sm font-medium text-[#a98b5d] tracking-wider'>
-                REGULATORY COMPLIANT
+                OUR COMMITMENT TO TRUST & COMPLIANCE
               </span>
             </div>
           </div>
@@ -66,12 +66,11 @@ export default function TrustComplianceSection() {
           <div className='w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
 
           <p className='text-lg sm:text-xl text-[#dcd7ce] font-light leading-relaxed max-w-4xl mx-auto'>
-            Every participant is verified. All transactions are compliant. Complete audit trails ensure regulatory adherence across jurisdictions.
+            We are building our platform with a focus on enterprise-grade security and a clear path to regulatory compliance in all relevant jurisdictions.
             <br />
             <br />
             <span className='text-[#a98b5d]/80'>
-              Smart contracts enforce legal compliance. Automated reporting meets regulatory requirements. 
-              Your reputation and data remain protected.
+              Every participant will be verified. All transactions will be compliant. Complete audit trails will ensure regulatory adherence as we scale globally.
             </span>
           </p>
         </div>
@@ -116,19 +115,19 @@ export default function TrustComplianceSection() {
         <div className='flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-[#dcd7ce] text-xs sm:text-sm font-light'>
           <div className='flex items-center space-x-2'>
             <span className='w-2 h-2 bg-[#a98b5d] rounded-full'></span>
-            <span>SEC Compliant</span>
+            <span>Building for SEC Compliance</span>
           </div>
           <div className='flex items-center space-x-2'>
             <span className='w-2 h-2 bg-[#a98b5d] rounded-full'></span>
-            <span>GDPR Ready</span>
+            <span>GDPR Foundation</span>
           </div>
           <div className='flex items-center space-x-2'>
             <span className='w-2 h-2 bg-[#a98b5d] rounded-full'></span>
-            <span>SOX Auditable</span>
+            <span>Enterprise Security</span>
           </div>
           <div className='flex items-center space-x-2'>
             <span className='w-2 h-2 bg-[#a98b5d] rounded-full'></span>
-            <span>Enterprise Grade</span>
+            <span>Multi-Jurisdiction Ready</span>
           </div>
         </div>
       </div>

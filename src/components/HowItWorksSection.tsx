@@ -26,61 +26,61 @@ export default function HowItWorksSection() {
       icon: UserCheck,
       title: 'Connect & Verify',
       shortTitle: 'Connect',
-      description: 'Create your verified protocol profile with on-chain credentials, KYC verification, and investment history. Our AI analyzes your preferences, risk profile, and deal criteria.',
-      highlights: ['On-chain verification', 'AI preference mapping', 'Global KYC compliance'],
+      description: 'Create your verified profile with identity confirmation and investment preferences. In this phase, our team will personally learn your criteria and preferences to prepare for AI-powered learning.',
+      highlights: ['Identity verification', 'Personal consultation', 'Preparation for AI learning'],
       color: '#a98b5d',
       bgGradient: 'from-[#a98b5d]/20 to-[#a98b5d]/5'
     },
     {
       id: 2,
       icon: Brain,
-      title: 'AI-Powered Matching',
+      title: 'Intelligent Matching',
       shortTitle: 'Match',
-      description: 'Our advanced AI engine analyzes thousands of data points to create high-probability matches. Get personalized deal flow based on compatibility scoring and market signals.',
-      highlights: ['Smart compatibility scoring', 'Real-time market analysis', 'Personalized deal flow'],
+      description: 'Our AI engine will analyze multiple data points to identify high-potential matches, providing personalized deal recommendations based on compatibility and success patterns.',
+      highlights: ['Smart compatibility analysis', 'Real-time opportunities', 'Personalized recommendations'],
       color: '#dcd7ce',
       bgGradient: 'from-[#dcd7ce]/20 to-[#dcd7ce]/5'
     },
     {
       id: 3,
       icon: Handshake,
-      title: 'Secure Negotiation',
+      title: 'Secure Discussion',
       shortTitle: 'Negotiate',
-      description: 'Enter a secure negotiation environment with smart contract templates. AI assists with market-standard terms, valuation guidance, and deal structure optimization.',
-      highlights: ['Smart contract templates', 'AI deal guidance', 'Secure environment'],
+      description: 'Enter a protected environment with conversation templates and market guidance. AI will assist with standard terms and deal structure recommendations.',
+      highlights: ['Guided templates', 'Market insights', 'Secure environment'],
       color: '#a98b5d',
       bgGradient: 'from-[#a98b5d]/20 to-[#a98b5d]/5'
     },
     {
       id: 4,
       icon: FileSignature,
-      title: 'Automated Execution',
+      title: 'Automated Documentation',
       shortTitle: 'Execute',
-      description: 'One-click deal closure generates all legal documentation (SAFEs, equity docs, SPV formation), manages e-signatures, and handles compliance across jurisdictions.',
-      highlights: ['One-click closure', 'Auto-generated legal docs', 'Global compliance'],
+      description: 'Streamlined deal closure will generate all necessary legal documentation (investment agreements, compliance forms), manage signatures, and handle regulatory requirements.',
+      highlights: ['Automated documentation', 'Digital signatures', 'Compliance handling'],
       color: '#dcd7ce',
       bgGradient: 'from-[#dcd7ce]/20 to-[#dcd7ce]/5'
     },
     {
       id: 5,
       icon: Banknote,
-      title: 'Trustless Settlement',
+      title: 'Transparent Fund Transfer',
       shortTitle: 'Fund',
-      description: 'Funds are held in protocol escrow with automated release upon milestone completion. Smart contracts ensure trustless, transparent, and efficient capital deployment.',
-      highlights: ['Protocol escrow', 'Milestone automation', 'Trustless settlement'],
+      description: 'Funds will be held securely with automated release based on agreed milestones. Smart contracts will ensure transparent and efficient capital deployment.',
+      highlights: ['Secure escrow', 'Milestone tracking', 'Transparent settlement'],
       color: '#a98b5d',
       bgGradient: 'from-[#a98b5d]/20 to-[#a98b5d]/5'
     }
   ]
 
-  const protocolFeatures = [
-    { icon: Zap, text: 'Lightning Fast', subtext: '10x faster than traditional VC' },
-    { icon: Shield, text: 'Bank-Level Security', subtext: 'Multi-layer protection' },
-    { icon: Globe, text: 'Global Access', subtext: '24/7 worldwide operations' }
+  const platformFeatures = [
+    { icon: Zap, text: 'Fast & Efficient', subtext: 'Streamlined processes' },
+    { icon: Shield, text: 'Secure & Verified', subtext: 'Built-in trust layer' },
+    { icon: Globe, text: 'Global Access', subtext: 'Open to everyone' }
   ]
 
   return (
-    <section className="relative py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-[#0a0a0a] via-black to-[#0a0a0a] overflow-hidden">
+    <section className="relative py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-black via-black to-[#0a0a0a] overflow-hidden">
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
         {/* Grid Pattern */}
@@ -112,28 +112,28 @@ export default function HowItWorksSection() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#a98b5d]/40 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/10 backdrop-blur-sm text-[#a98b5d] text-sm font-semibold mb-8 shadow-lg"
           >
             <CheckCircle2 className="w-4 h-4" />
-            AI-POWERED PROTOCOL WORKFLOW
+            OUR PLANNED WORKFLOW
           </motion.div>
           
           <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mb-6 sm:mb-8 tracking-tight">
             <span className="bg-gradient-to-r from-[#dcd7ce] via-white to-[#dcd7ce] bg-clip-text text-transparent">
-              How It Works
+              How It Will Work
             </span>
           </h2>
           
           <p className="text-xl sm:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
-            From first contact to funded startup — our AI-powered protocol automates the entire venture capital process
+            We are building a simple, guided process that automates the early stages of fundraising
           </p>
         </motion.div>
 
-        {/* Protocol Features Bar */}
+        {/* Platform Features Bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}
           className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-16 sm:mb-20"
         >
-          {protocolFeatures.map((feature, index) => (
+          {platformFeatures.map((feature, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -143,7 +143,7 @@ export default function HowItWorksSection() {
             >
               <feature.icon className="w-5 h-5 text-[#a98b5d]" />
               <div className="text-left">
-                <div className="text-sm font-semibold text-white">{feature.text}</div>
+                <div className="text-sm  text-white">{feature.text}</div>
                 <div className="text-xs text-gray-400">{feature.subtext}</div>
               </div>
             </motion.div>
@@ -298,95 +298,8 @@ export default function HowItWorksSection() {
           transition={{ delay: 1.2 }}
           className="text-center mt-24 sm:mt-32"
         >
-          {/* Protocol Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 1.3 }}
-              className="text-center"
-            >
-              <div className="text-3xl sm:text-4xl font-black text-[#a98b5d] mb-2">10x</div>
-              <div className="text-sm text-gray-400 font-medium">Faster than traditional VC</div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 1.4 }}
-              className="text-center"
-            >
-              <div className="text-3xl sm:text-4xl font-black text-[#dcd7ce] mb-2">24/7</div>
-              <div className="text-sm text-gray-400 font-medium">Global protocol operation</div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 1.5 }}
-              className="text-center"
-            >
-              <div className="text-3xl sm:text-4xl font-black text-[#a98b5d] mb-2">100%</div>
-              <div className="text-sm text-gray-400 font-medium">Automated execution</div>
-            </motion.div>
-          </div>
+      
 
-          {/* Main CTA */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 1.6 }}
-            className="bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/10 border border-[#a98b5d]/30 rounded-2xl p-8 sm:p-12 backdrop-blur-sm max-w-4xl mx-auto"
-          >
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-              Ready to Experience the Future of VC?
-            </h3>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Join the AI-powered protocol that&apos;s transforming how startups get funded. 
-              No brokers, no delays, just pure automated efficiency.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
-              >
-                Start Your Journey
-              </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border border-[#a98b5d]/40 text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d]/10 transition-all duration-300"
-              >
-                View Live Demo
-              </motion.button>
-            </div>
-          </motion.div>
-
-          {/* Protocol Compliance */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 1.8 }}
-            className="mt-12 pt-8 border-t border-[#a98b5d]/20"
-          >
-            <div className="flex flex-wrap justify-center items-center gap-6 text-xs text-gray-500 font-medium">
-              <span className="flex items-center gap-2">
-                <Shield className="w-3 h-3" />
-                SEC Compliant Protocol
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="w-3 h-3" />
-                GDPR Ready
-              </span>
-              <span className="flex items-center gap-2">
-                <Globe className="w-3 h-3" />
-                Global Regulatory Framework
-              </span>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

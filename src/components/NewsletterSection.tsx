@@ -45,82 +45,100 @@ export default function NewsletterSection() {
 
           {/* Header */}
           <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-6'>
-            <span className='text-[#dcd7ce]'>Protocol</span>
-            <br />
-            <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>Updates</span>
+            <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+              Ready to Join the Future of Startup Funding?
+            </span>
           </h2>
 
-          <p className='text-xl text-gray-400 mb-12 max-w-2xl mx-auto'>
-            Get early access to new features, governance proposals, and protocol developments. 
-            Be part of the future of venture capital.
+          <p className='text-xl text-gray-400 mb-8 max-w-3xl mx-auto'>
+            Whether you're a founder seeking capital or an investor looking for the next breakthrough—NartaQ connects you with the right opportunities.
           </p>
         </motion.div>
 
-        {/* Newsletter Form */}
+        {/* Dual CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className='premium-glass rounded-2xl p-8 sm:p-10 border border-[#a98b5d]/20 backdrop-blur-xl'
+          className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12'
         >
+          {/* Founders CTA */}
+          <div className='premium-glass rounded-2xl p-8 border border-[#a98b5d]/20 backdrop-blur-xl text-center group hover:border-[#a98b5d]/40 transition-all duration-300'>
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <Sparkles className='w-8 h-8 text-[#a98b5d]' />
+            </div>
+            
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>For Founders</h3>
+            <p className='text-gray-400 mb-6'>Connect with investors who understand your vision and want to fund your growth.</p>
+            
+            <a 
+              href='/apply/founders' 
+              className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
+            >
+              Get Funding
+              <ArrowRight className='w-4 h-4' />
+            </a>
+          </div>
+
+          {/* Investors CTA */}
+          <div className='premium-glass rounded-2xl p-8 border border-[#a98b5d]/20 backdrop-blur-xl text-center group hover:border-[#a98b5d]/40 transition-all duration-300'>
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <Mail className='w-8 h-8 text-[#a98b5d]' />
+            </div>
+            
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>For Investors</h3>
+            <p className='text-gray-400 mb-6'>Discover exceptional startups and founders before they hit the mainstream radar.</p>
+            
+            <a 
+              href='/apply/investors' 
+              className='inline-flex items-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
+            >
+              Find Deals
+              <ArrowRight className='w-4 h-4' />
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Newsletter Signup */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className='text-center'
+        >
+          <p className='text-lg text-gray-400 mb-6'>Or stay updated with our progress:</p>
+          
           <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4 max-w-lg mx-auto'>
             <div className='flex-1 relative'>
-              <Mail className='absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400' />
               <input
                 type='email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder='Enter your email address'
+                placeholder='Enter your email'
                 required
-                className='w-full h-14 pl-12 pr-4 rounded-xl bg-black/50 border border-[#a98b5d]/30 text-[#dcd7ce] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#a98b5d]/50 focus:border-[#a98b5d] transition-all duration-300'
+                className='w-full h-12 px-4 rounded-xl bg-black/50 border border-[#a98b5d]/30 text-[#dcd7ce] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#a98b5d]/50 focus:border-[#a98b5d] transition-all duration-300'
               />
             </div>
             
             <button
               type='submit'
               disabled={isSubmitting || !email}
-              className='group relative px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100'
+              className='px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
             >
-              <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-              <div className='relative flex items-center justify-center gap-2'>
-                {isSubmitting ? (
-                  <div className='w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin' />
-                ) : (
-                  <>
-                    Subscribe
-                    <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform' />
-                  </>
-                )}
-              </div>
+              {isSubmitting ? 'Subscribing...' : 'Get Updates'}
             </button>
           </form>
-
-          {/* Trust Indicators */}
-          <div className='flex flex-wrap justify-center items-center gap-6 mt-8 pt-6 border-t border-[#a98b5d]/20'>
-            <div className='flex items-center gap-2 text-gray-400 text-sm'>
-              <div className='w-2 h-2 bg-[#a98b5d] rounded-full' />
-              <span>No spam, ever</span>
-            </div>
-            <div className='flex items-center gap-2 text-gray-400 text-sm'>
-              <div className='w-2 h-2 bg-[#a98b5d] rounded-full' />
-              <span>Unsubscribe anytime</span>
-            </div>
-            <div className='flex items-center gap-2 text-gray-400 text-sm'>
-              <div className='w-2 h-2 bg-[#a98b5d] rounded-full' />
-              <span>Weekly updates only</span>
-            </div>
-          </div>
         </motion.div>
 
         {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className='mt-12 text-center'
+          transition={{ delay: 0.7, duration: 0.6 }}
+          className='mt-8 text-center'
         >
           <p className='text-gray-500 text-sm'>
-            Join 1,000+ investors, founders, and contributors already shaping the future of venture capital
+            Join 250+ founders and investors already part of our founding community
           </p>
         </motion.div>
       </div>

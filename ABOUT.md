@@ -142,7 +142,7 @@ Once we establish the DAO creation infrastructure, we can expand to enable cross
 ### For Startups  
 - **Explore DAO funding models**: Learn how to structure community-driven funding rounds and investor syndicates through DAO governance
 - **Beta program participation**: Access early platform features for creating startup-focused DAOs and community governance structures
-- **Email**: startups@nartaq.com
+- **Email**: founders@nartaq.com
 
 ### For Ecosystem Partners
 - **Platform integration opportunities**: Explore partnerships for DAO creation services, legal framework development, and compliance automation

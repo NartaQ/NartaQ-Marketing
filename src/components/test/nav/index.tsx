@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation'
 import { menuSlide } from '../anim'
 import NavLink from './Link'
 import Curve from './Curve'
-import Footer from './Footer'
 
 const navItems = [
   {
@@ -12,20 +11,28 @@ const navItems = [
     href: '/',
   },
   {
-    title: 'Work',
-    href: '/work',
+    title: 'For Founders',
+    href: '/for-founders',
+  },
+  {
+    title: 'For Investors',
+    href: '/for-investors',
   },
   {
     title: 'About',
     href: '/about',
   },
   {
-    title: 'Contact',
-    href: '/contact',
+    title: 'FAQ',
+    href: '/faq',
+  },
+  {
+    title: 'Legal',
+    href: '/legal',
   },
 ]
 
-export default function index() {
+export default function NavMenu() {
   const pathname = usePathname()
   const [selectedIndicator, setSelectedIndicator] = useState(pathname)
 
@@ -58,7 +65,6 @@ export default function index() {
             )
           })}
         </div>
-        <Footer />
       </div>
       <Curve />
     </motion.div>

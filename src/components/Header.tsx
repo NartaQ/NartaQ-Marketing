@@ -49,46 +49,44 @@ export default function Header({ className }: { className?: string }) {
           {/* Desktop Menu Items - Centered */}
           <div className='absolute left-1/2 transform -translate-x-1/2 hidden lg:flex'>
             <Menu setActive={setActive}>
-              <MenuItem setActive={setActive} active={active} item='Platform'>
+              <MenuItem setActive={setActive} active={active} item='About'>
                 <div className='flex flex-col space-y-4 text-sm p-4'>
-                  <HoveredLink href='/solutions/investors'>
-                    For Investors
+                  <HoveredLink href='/about'>
+                    Our Story
                   </HoveredLink>
-                  <HoveredLink href='/solutions/startups'>
-                    For Startups
+                  <HoveredLink href='/about#team'>
+                    The Team
                   </HoveredLink>
-                  <HoveredLink href='/products/dealflow'>
-                    Dealflow Platform
+                  <HoveredLink href='/about#corridor'>
+                    France-Tunisia Corridor
                   </HoveredLink>
                 </div>
               </MenuItem>
-              <MenuItem setActive={setActive} active={active} item='Protocol'>
-                <div className='text-sm flex flex-col space-y-4 p-4'>
-                  <div className='text-neutral-700 dark:text-neutral-300 text-xs uppercase tracking-wide mb-2'>
-                    AI-Powered Protocol
-                  </div>
+              <MenuItem setActive={setActive} active={active} item='Platform'>
+                <div className='flex flex-col space-y-4 text-sm p-4'>
+                  <HoveredLink href='/solutions/founders'>
+                    For Founders
+                  </HoveredLink>
+                  <HoveredLink href='/solutions/investors'>
+                    For Investors
+                  </HoveredLink>
                   <HoveredLink href='/#how-it-works'>
                     How It Works
                   </HoveredLink>
-                  <HoveredLink href='/#dao-governance'>
-                    Protocol Governance
-                  </HoveredLink>
-                  <HoveredLink href='/#tokenomics'>Token Economics</HoveredLink>
-                  <HoveredLink href='/#community'>Join Community</HoveredLink>
                 </div>
               </MenuItem>
               <MenuItem
                 setActive={setActive}
                 active={active}
-                item='Our Corridor'
+                item='FAQ'
               >
                 <div className='flex flex-col space-y-4 text-sm p-4'>
-                  <HoveredLink href='/solutions/investors'>
-                    France ↔ Tunisia Thesis
+                  <HoveredLink href='/faq'>
+                    Frequently Asked Questions
                   </HoveredLink>
-                  <HoveredLink href='/#faq'>FAQ</HoveredLink>
-                  <HoveredLink href='/legal/terms'>Terms of Service</HoveredLink>
-                  <HoveredLink href='/legal/privacy'>Privacy Policy</HoveredLink>
+                  <HoveredLink href='/legal'>
+                    Legal & Compliance
+                  </HoveredLink>
                 </div>
               </MenuItem>
             </Menu>
@@ -98,9 +96,9 @@ export default function Header({ className }: { className?: string }) {
           <div className='hidden lg:flex'>
             <NavbarButton
               className='text-sm bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] px-7 py-2 font-semibold hover:bg-[#8B7349] transition-colors rounded-lg'
-              href='/solutions/startups'
+              href='/solutions/founders'
             >
-              Apply for Access
+              Join Founding Cohort
             </NavbarButton>
           </div>
         </div>
@@ -147,6 +145,47 @@ export default function Header({ className }: { className?: string }) {
           onClose={() => setMobileMenuOpen(false)}
         >
           <div className='flex flex-col space-y-2 w-full max-h-[70vh] overflow-y-auto'>
+            {/* About Section */}
+            <div className='w-full'>
+              <button
+                onClick={() => toggleSection('about')}
+                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+              >
+                <span className='font-medium'>About</span>
+                <ChevronDown
+                  className={cn(
+                    'w-4 h-4 transition-transform duration-200',
+                    expandedSection === 'about' && 'rotate-180'
+                  )}
+                />
+              </button>
+              {expandedSection === 'about' && (
+                <div className='ml-4 mt-2 space-y-2'>
+                  <Link
+                    href='/about'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Our Story
+                  </Link>
+                  <Link
+                    href='/about#team'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    The Team
+                  </Link>
+                  <Link
+                    href='/about#corridor'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    France-Tunisia Corridor
+                  </Link>
+                </div>
+              )}
+            </div>
+
             {/* Platform Section */}
             <div className='w-full'>
               <button
@@ -164,6 +203,13 @@ export default function Header({ className }: { className?: string }) {
               {expandedSection === 'platform' && (
                 <div className='ml-4 mt-2 space-y-2'>
                   <Link
+                    href='/solutions/founders'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    For Founders
+                  </Link>
+                  <Link
                     href='/solutions/investors'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
@@ -171,165 +217,45 @@ export default function Header({ className }: { className?: string }) {
                     For Investors
                   </Link>
                   <Link
-                    href='/solutions/startups'
+                    href='/#how-it-works'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    For Startups
-                  </Link>
-                  <Link
-                    href='/products/dealflow'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Dealflow Platform
+                    How It Works
                   </Link>
                 </div>
               )}
             </div>
 
-            {/* Protocol Section */}
+            {/* FAQ & Legal */}
             <div className='w-full'>
-              <button
-                onClick={() => toggleSection('dao')}
-                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+              <Link
+                href='/faq'
+                className='block px-3 py-2 text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                onClick={() => setMobileMenuOpen(false)}
               >
-                <span className='font-medium'>The DAO</span>
-                <ChevronDown
-                  className={cn(
-                    'w-4 h-4 transition-transform duration-200',
-                    expandedSection === 'dao' && 'rotate-180'
-                  )}
-                />
-              </button>
-              {expandedSection === 'dao' && (
-                <div className='ml-4 mt-2 space-y-3'>
-                  <Link
-                    href='/#dao-governance'
-                    className='block px-3 py-2 hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <div className='font-medium text-sm text-[#232428] dark:text-[#dcd7ce]'>
-                      How DAO Works
-                    </div>
-                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
-                      Community governance and decision making
-                    </div>
-                  </Link>
-                  <Link
-                    href='/#tokenomics'
-                    className='block px-3 py-2 hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <div className='font-medium text-sm text-[#232428] dark:text-[#dcd7ce]'>
-                      Token Economics
-                    </div>
-                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
-                      Rewards and value sharing model
-                    </div>
-                  </Link>
-                  <Link
-                    href='/#community'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Join Community
-                  </Link>
-                </div>
-              )}
+                <span className='font-medium'>FAQ</span>
+              </Link>
             </div>
 
-            {/* Corridor Section */}
             <div className='w-full'>
-              <button
-                onClick={() => toggleSection('corridor')}
-                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+              <Link
+                href='/legal'
+                className='block px-3 py-2 text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                onClick={() => setMobileMenuOpen(false)}
               >
-                <span className='font-medium'>Our Corridor</span>
-                <ChevronDown
-                  className={cn(
-                    'w-4 h-4 transition-transform duration-200',
-                    expandedSection === 'protocol' && 'rotate-180'
-                  )}
-                />
-              </button>
-              {expandedSection === 'protocol' && (
-                <div className='ml-4 mt-2 space-y-3'>
-                  <Link
-                    href='/solutions/investors'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
-                      How It Works
-                    </div>
-                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
-                      AI-powered protocol workflow
-                    </div>
-                  </Link>
-                  <Link
-                    href='/#dao-governance'
-                    className='block px-3 py-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
-                      Protocol Governance
-                    </div>
-                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
-                      Community governance and decision making
-                    </div>
-                  </Link>
-                  <Link
-                    href='/#trust-compliance'
-                    className='block px-3 py-2 hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <div className='font-medium text-sm text-[#3e3f44] dark:text-[#dcd7ce]'>
-                      Security & Compliance
-                    </div>
-                    <div className='text-xs text-[#5c5d63] dark:text-[#5c5d63] mt-1'>
-                      Bank-level security and regulatory compliance
-                    </div>
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Resources Section */}
-            <div className='w-full'>
-              <button
-                onClick={() => toggleSection('resources')}
-                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#3e3f44] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/10 dark:hover:bg-[#5c5d63]/20 rounded-lg transition-colors'
-              >
-                <span className='font-medium'>Resources</span>
-                <ChevronDown
-                  className={cn(
-                    'w-4 h-4 transition-transform duration-200',
-                    expandedSection === 'resources' && 'rotate-180'
-                  )}
-                />
-              </button>
-              {expandedSection === 'resources' && (
-                <div className='ml-4 mt-2 space-y-2'>
-                  <Link
-                    href='/#faq'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    FAQ
-                  </Link>
-                </div>
-              )}
+                <span className='font-medium'>Legal & Compliance</span>
+              </Link>
             </div>
 
             {/* CTA Button */}
             <div className='pt-4 mt-4 border-t border-[#5c5d63]/40 dark:border-[#5c5d63]/50'>
               <NavbarButton
-                href='/solutions/startups'
+                href='/solutions/founders'
                 className='w-full text-center bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d]  hover:bg-[#8B7349]  px-4 py-3 rounded-lg font-semibold'
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Join Protocol
+                Join Founding Cohort
               </NavbarButton>
             </div>
           </div>

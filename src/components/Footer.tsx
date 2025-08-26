@@ -17,7 +17,7 @@ export default function Footer() {
             />
             <div className='text-center'>
               <div className='text-sm font-medium text-[#a98b5d]'>
-                The Collective Intelligence Deal Engine
+                Building the Future of Startup Funding
               </div>
               <div className='text-xs text-gray-500 mt-1'>
                 France-Tunisia Corridor
@@ -67,22 +67,22 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div className='flex h-full min-w-[180px] flex-col gap-4'>
-          <h2 className='text-xl'>Quick Links</h2>
+          <h2 className='text-xl'>Platform</h2>
           <div className='flex flex-col gap-3'>
+            <Link href='/solutions/founders' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Founders</Link>
             <Link href='/solutions/investors' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Investors</Link>
-            <Link href='/solutions/startups' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Startups</Link>
-            <Link href='/products/dealflow' className='footer-link hover:text-black dark:hover:text-white transition-colors'>Dealflow</Link>
-            <Link href='/#faq' className='footer-link hover:text-black dark:hover:text-white transition-colors'>FAQ</Link>
+            <Link href='/#how-it-works' className='footer-link hover:text-black dark:hover:text-white transition-colors'>How It Works</Link>
+            <Link href='/faq' className='footer-link hover:text-black dark:hover:text-white transition-colors'>FAQ</Link>
           </div>
         </div>
 
-        {/* DAO / Governance */}
+        {/* About */}
         <div className='flex h-full min-w-[180px] flex-col gap-4'>
-          <h2 className='text-xl'>Governance</h2>
+          <h2 className='text-xl'>About</h2>
             <div className='flex flex-col gap-3'>
-              <Link href='/#dao-governance' className='footer-link hover:text-black dark:hover:text-white transition-colors'>How It Works</Link>
-              <Link href='/#community' className='footer-link hover:text-black dark:hover:text-white transition-colors'>Community</Link>
-              <Link href='/#newsletter' className='footer-link hover:text-black dark:hover:text-white transition-colors'>Apply for Access</Link>
+              <Link href='/about' className='footer-link hover:text-black dark:hover:text-white transition-colors'>Our Story</Link>
+              <Link href='/about#team' className='footer-link hover:text-black dark:hover:text-white transition-colors'>The Team</Link>
+              <Link href='/about#corridor' className='footer-link hover:text-black dark:hover:text-white transition-colors'>Our Corridor</Link>
             </div>
         </div>
 
@@ -104,14 +104,14 @@ export default function Footer() {
             <input type='email' placeholder='email address' className='px-3 py-2 rounded-md bg-transparent border border-gray-400/30 focus:border-[#a98b5d] outline-none text-xs' />
             <button className='px-3 py-2 rounded-md bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black text-xs font-semibold hover:scale-[1.02] transition-transform'>Subscribe</button>
           </form>
-          <div className='text-xs mt-2'>Contact: <a href='mailto:invest@nartaq.com' className='underline hover:text-[#a98b5d]'>invest@nartaq.com</a></div>
+          <div className='text-xs mt-2'>Contact: <a href='mailto:contact@nartaq.com' className='underline hover:text-[#a98b5d]'>contact@nartaq.com</a></div>
         </div>
       </div>
 
       <hr className='mt-8 border-gray-300 dark:border-gray-600' />
 
       <div className='mt-2 flex gap-2 flex-col text-gray-700 dark:text-gray-300 items-center text-[11px] w-full text-center'>
-        <span>© 2024 NartaQ. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} NartaQ. All rights reserved.</span>
         <span>Pre-seed. Vision under active build. France–Tunisia corridor focus.</span>
       </div>
     </footer>

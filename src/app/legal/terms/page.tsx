@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Shield, FileText, Clock, Mail, ExternalLink, CheckCircle2, AlertTriangle, ChevronRight } from 'lucide-react'
-import Header from '@/components/Header'
 
 const LAST_UPDATED = '2025-08-24'
 
@@ -44,7 +43,6 @@ export default function TermsOfServicePage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <Header />
       
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-black" />
