@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { menuSlide } from '../anim'
 import NavLink from './Link'
@@ -32,6 +33,29 @@ const navItems = [
   },
 ]
 
+const socialLinks = [
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/nartaq_inv',
+    aria: 'NartaQ on Instagram',
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/nartaq',
+    aria: 'NartaQ on LinkedIn',
+  },
+  {
+    name: 'X',
+    href: 'https://x.com/NartaQ_',
+    aria: 'NartaQ on X',
+  },
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/nartaq/',
+    aria: 'NartaQ on Facebook',
+  },
+]
+
 export default function NavMenu() {
   const pathname = usePathname()
   const [selectedIndicator, setSelectedIndicator] = useState(pathname)
@@ -51,9 +75,6 @@ export default function NavMenu() {
           }}
           className='flex flex-col text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl gap-2 sm:gap-3 mt-16 sm:mt-20 md:mt-24'
         >
-          <div className='text-gray-400 border-b border-[#f7a6101e] uppercase text-xs mb-4 sm:mb-6 md:mb-8 lg:mb-10 pb-2'>
-            <p>Navigation</p>
-          </div>
           {navItems.map((data, index) => {
             return (
               <NavLink
@@ -64,6 +85,54 @@ export default function NavMenu() {
               />
             )
           })}
+        </div>
+        {/* CTAs - vertically centered */}
+        <div className='flex-1 flex flex-col items-center justify-center gap-4'>
+          <a
+            href='/apply/founders'
+            className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
+            onMouseEnter={() => setSelectedIndicator('/apply/founders')}
+            onMouseLeave={() => setSelectedIndicator(pathname)}
+          >
+            Get Funding
+            <ArrowRight className='w-4 h-4' />
+          </a>
+
+          <a
+            href='/apply/investors'
+            className='inline-flex items-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
+            onMouseEnter={() => setSelectedIndicator('/apply/investors')}
+            onMouseLeave={() => setSelectedIndicator(pathname)}
+          >
+            Find Deals
+            <ArrowRight className='w-4 h-4' />
+          </a>
+        </div>
+        {/* Bottom area: social follow block placed here so it sits at the bottom */}
+        <div className='mt-6 sm:mt-8'>
+          <div className='flex gap-4 items-center'>
+            {socialLinks.map((s) => (
+              <React.Fragment key={s.name}>
+                <a
+                  key={s.name}
+                  href={s.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label={s.aria}
+                  onMouseEnter={() => setSelectedIndicator(s.href)}
+                  onMouseLeave={() => setSelectedIndicator(pathname)}
+                  className='text-white hover:text-gray-300 transition-colors font-serif'
+                >
+                  <span className='inline-flex items-center justify-center rounded-full bg-white/3'>
+                    {s.name}
+                  </span>
+                </a>
+                {s.name !== 'Facebook' && (
+                  <span className=' border-2 opacity-30 rounded'></span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </div>
       <Curve />

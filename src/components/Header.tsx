@@ -51,12 +51,8 @@ export default function Header({ className }: { className?: string }) {
             <Menu setActive={setActive}>
               <MenuItem setActive={setActive} active={active} item='About'>
                 <div className='flex flex-col space-y-4 text-sm p-4'>
-                  <HoveredLink href='/about'>
-                    Our Story
-                  </HoveredLink>
-                  <HoveredLink href='/about#team'>
-                    The Team
-                  </HoveredLink>
+                  <HoveredLink href='/about'>Our Story</HoveredLink>
+                  <HoveredLink href='/about#team'>The Team</HoveredLink>
                   <HoveredLink href='/about#corridor'>
                     France-Tunisia Corridor
                   </HoveredLink>
@@ -70,23 +66,15 @@ export default function Header({ className }: { className?: string }) {
                   <HoveredLink href='/solutions/investors'>
                     For Investors
                   </HoveredLink>
-                  <HoveredLink href='/#how-it-works'>
-                    How It Works
-                  </HoveredLink>
+                  <HoveredLink href='/#how-it-works'>How It Works</HoveredLink>
                 </div>
               </MenuItem>
-              <MenuItem
-                setActive={setActive}
-                active={active}
-                item='FAQ'
-              >
+              <MenuItem setActive={setActive} active={active} item='FAQ'>
                 <div className='flex flex-col space-y-4 text-sm p-4'>
                   <HoveredLink href='/faq'>
                     Frequently Asked Questions
                   </HoveredLink>
-                  <HoveredLink href='/legal'>
-                    Legal & Compliance
-                  </HoveredLink>
+                  <HoveredLink href='/legal'>Legal & Compliance</HoveredLink>
                 </div>
               </MenuItem>
             </Menu>

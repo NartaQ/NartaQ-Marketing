@@ -23,7 +23,7 @@ export default function NewsletterSection() {
   return (
     <section
       ref={ref}
-      className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden'
+      className='relative py-16 sm:py-24 lg:py-32 bg-black overflow-hidden'
     >
       {/* Background Elements */}
       <div className='absolute inset-0 opacity-10'>
@@ -40,7 +40,9 @@ export default function NewsletterSection() {
           {/* Badge */}
           <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8'>
             <Sparkles className='w-4 h-4 text-[#a98b5d]' />
-            <span className='text-sm font-medium text-[#dcd7ce]'>STAY INFORMED</span>
+            <span className='text-sm font-medium text-[#dcd7ce]'>
+              STAY INFORMED
+            </span>
           </div>
 
           {/* Header */}
@@ -51,7 +53,9 @@ export default function NewsletterSection() {
           </h2>
 
           <p className='text-xl text-gray-400 mb-8 max-w-3xl mx-auto'>
-            Whether you're a founder seeking capital or an investor looking for the next breakthrough—NartaQ connects you with the right opportunities.
+            Whether you're a founder seeking capital or an investor looking for
+            the next breakthrough—NartaQ connects you with the right
+            opportunities.
           </p>
         </motion.div>
 
@@ -63,16 +67,21 @@ export default function NewsletterSection() {
           className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12'
         >
           {/* Founders CTA */}
-          <div className='premium-glass rounded-2xl p-8 border border-[#a98b5d]/20 backdrop-blur-xl text-center group hover:border-[#a98b5d]/40 transition-all duration-300'>
+          <div className='rounded-2xl p-8 border backdrop-blur-xl text-center group hover:border-[#a98b5d]/40 transition-all duration-300 border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent'>
             <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
               <Sparkles className='w-8 h-8 text-[#a98b5d]' />
             </div>
-            
-            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>For Founders</h3>
-            <p className='text-gray-400 mb-6'>Connect with investors who understand your vision and want to fund your growth.</p>
-            
-            <a 
-              href='/apply/founders' 
+
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
+              For Founders
+            </h3>
+            <p className='text-gray-400 mb-6'>
+              Connect with investors who understand your vision and want to fund
+              your growth.
+            </p>
+
+            <a
+              href='/apply/founders'
               className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
             >
               Get Funding
@@ -81,16 +90,21 @@ export default function NewsletterSection() {
           </div>
 
           {/* Investors CTA */}
-          <div className='premium-glass rounded-2xl p-8 border border-[#a98b5d]/20 backdrop-blur-xl text-center group hover:border-[#a98b5d]/40 transition-all duration-300'>
+          <div className='rounded-2xl p-8 border  backdrop-blur-xl text-center group hover:border-[#a98b5d]/40 transition-all duration-300 border-[#a98b5d]/20 bg-gradient-to-bl from-[#a98b5d]/5 to-transparent'>
             <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
               <Mail className='w-8 h-8 text-[#a98b5d]' />
             </div>
-            
-            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>For Investors</h3>
-            <p className='text-gray-400 mb-6'>Discover exceptional startups and founders before they hit the mainstream radar.</p>
-            
-            <a 
-              href='/apply/investors' 
+
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
+              For Investors
+            </h3>
+            <p className='text-gray-400 mb-6'>
+              Discover exceptional startups and founders before they hit the
+              mainstream radar.
+            </p>
+
+            <a
+              href='/apply/investors'
               className='inline-flex items-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
             >
               Find Deals
@@ -106,9 +120,14 @@ export default function NewsletterSection() {
           transition={{ delay: 0.5, duration: 0.6 }}
           className='text-center'
         >
-          <p className='text-lg text-gray-400 mb-6'>Or stay updated with our progress:</p>
-          
-          <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4 max-w-lg mx-auto'>
+          <p className='text-lg text-gray-400 mb-6'>
+            Or stay updated with our progress:
+          </p>
+
+          <form
+            onSubmit={handleSubmit}
+            className='flex flex-col sm:flex-row gap-4 max-w-lg mx-auto'
+          >
             <div className='flex-1 relative'>
               <input
                 type='email'
@@ -119,7 +138,7 @@ export default function NewsletterSection() {
                 className='w-full h-12 px-4 rounded-xl bg-black/50 border border-[#a98b5d]/30 text-[#dcd7ce] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#a98b5d]/50 focus:border-[#a98b5d] transition-all duration-300'
               />
             </div>
-            
+
             <button
               type='submit'
               disabled={isSubmitting || !email}
@@ -138,7 +157,8 @@ export default function NewsletterSection() {
           className='mt-8 text-center'
         >
           <p className='text-gray-500 text-sm'>
-            Join 250+ founders and investors already part of our founding community
+            Join 250+ founders and investors already part of our founding
+            community
           </p>
         </motion.div>
       </div>

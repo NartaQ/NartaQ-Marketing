@@ -66,11 +66,15 @@ export default function TrustComplianceSection() {
           <div className='w-32 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto'></div>
 
           <p className='text-lg sm:text-xl text-[#dcd7ce] font-light leading-relaxed max-w-4xl mx-auto'>
-            We are building our platform with a focus on enterprise-grade security and a clear path to regulatory compliance in all relevant jurisdictions.
+            We are building our platform with a focus on enterprise-grade
+            security and a clear path to regulatory compliance in all relevant
+            jurisdictions.
             <br />
             <br />
             <span className='text-[#a98b5d]/80'>
-              Every participant will be verified. All transactions will be compliant. Complete audit trails will ensure regulatory adherence as we scale globally.
+              Every participant will be verified. All transactions will be
+              compliant. Complete audit trails will ensure regulatory adherence
+              as we scale globally.
             </span>
           </p>
         </div>
@@ -80,11 +84,11 @@ export default function TrustComplianceSection() {
         {trustFeatures.map((card, i) => (
           <div
             key={i}
-            className='group premium-glass elite-hover rounded-3xl p-6 sm:p-8 border border-[#a98b5d]/20  relative overflow-hidden'
+            className=' elite-hover rounded-3xl p-6 sm:p-8 border border-[#a98b5d]/20  relative overflow-hidden'
           >
             {/* Card background gradient */}
             <div
-              className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-50 rounded-3xl`}
+              className={`absolute inset-0 border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent rounded-3xl`}
             ></div>
 
             <div className='relative z-10'>

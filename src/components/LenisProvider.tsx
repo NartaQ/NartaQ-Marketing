@@ -8,20 +8,8 @@ interface LenisProviderProps {
 }
 
 export default function LenisProvider({ children }: LenisProviderProps) {
-  useEffect(() => {
-    const handleResize = () => {
-      window.dispatchEvent(new Event('resize'))
-    }
-    
-    window.addEventListener('resize', handleResize)
-    
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
   return (
-    <ReactLenis 
+    <ReactLenis
       root
       options={{
         lerp: 0.1,

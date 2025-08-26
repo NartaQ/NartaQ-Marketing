@@ -35,7 +35,7 @@ export default function Index({
     >
       <Link
         href={href}
-        className='text-white no-underline font-light hover:text-gray-300 transition-colors duration-300 font-serif'
+        className='text-white no-underline font-light hover:text-gray-300 transition-colors duration-300 font-serif text-5xl'
       >
         {title}
       </Link>
