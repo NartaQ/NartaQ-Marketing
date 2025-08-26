@@ -130,12 +130,12 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <LenisProvider>
-          <UnifiedNavigation />
+          {/* <UnifiedNavigation /> */}
           <main className='mt-[var(--header-height)]'>
             {/* <Spotlight /> */}
             {children}
           </main>
-          <Footer />
+          {/* <Footer /> */}
         </LenisProvider>
       </body>
     </html>

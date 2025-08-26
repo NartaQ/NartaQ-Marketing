@@ -16,27 +16,27 @@ export default function InvestorApplicationPage() {
     targetGeography: [] as string[],
     referralSource: '',
     otherFocus: '',
-    otherSource: ''
+    otherSource: '',
   })
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const investmentFocusOptions = [
     'Tech',
-    'Fintech', 
+    'Fintech',
     'SaaS',
     'Deep Tech',
     'E-commerce',
     'AI/ML',
-    'Other'
+    'Other',
   ]
 
   const ticketSizeOptions = [
     'Pre-Seed ($50k - $250k)',
     'Seed ($250k - $1M)',
     'Series A ($1M - $5M)',
-    'Series B+ ($5M+)'
+    'Series B+ ($5M+)',
   ]
 
   const geographyOptions = [
@@ -44,7 +44,7 @@ export default function InvestorApplicationPage() {
     'Tunisia',
     'MENA Region',
     'Europe',
-    'Global'
+    'Global',
   ]
 
   const referralOptions = [
@@ -52,30 +52,37 @@ export default function InvestorApplicationPage() {
     'Referral',
     'Article',
     'Twitter',
-    'Other'
+    'Other',
   ]
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
+    setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleMultiSelect = (field: 'investmentFocus' | 'targetGeography', value: string) => {
-    setFormData(prev => ({
+  const handleMultiSelect = (
+    field: 'investmentFocus' | 'targetGeography',
+    value: string
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [field]: prev[field].includes(value) 
-        ? prev[field].filter(item => item !== value)
-        : [...prev[field], value]
+      [field]: prev[field].includes(value)
+        ? prev[field].filter((item) => item !== value)
+        : [...prev[field], value],
     }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+
     setIsSubmitting(false)
     setIsSubmitted(true)
   }
@@ -91,16 +98,17 @@ export default function InvestorApplicationPage() {
           <div className='w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] flex items-center justify-center'>
             <CheckCircle className='w-10 h-10 text-black' />
           </div>
-          
+
           <h1 className='text-3xl sm:text-4xl font-bold mb-4 text-[#dcd7ce]'>
             Application Received!
           </h1>
-          
+
           <p className='text-lg text-gray-400 mb-8 leading-relaxed'>
-            Thank you! Your application to join the Founding Investor Cohort has been received. 
-            Our team will review your information and be in touch soon. Welcome to the future of venture capital.
+            Thank you! Your application to join the Founding Investor Cohort has
+            been received. Our team will review your information and be in touch
+            soon. Welcome to the future of venture capital.
           </p>
-          
+
           <Link
             href='/'
             className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
@@ -118,22 +126,23 @@ export default function InvestorApplicationPage() {
       {/* Header */}
       <div className='border-b border-gray-800'>
         <div className='max-w-4xl mx-auto px-4 py-6'>
-          <Link 
+          <Link
             href='/for-investors'
             className='inline-flex items-center gap-2 text-gray-400 hover:text-[#a98b5d] transition-colors mb-4'
           >
             <ArrowLeft className='w-4 h-4' />
             Back to Investors
           </Link>
-          
+
           <h1 className='text-3xl sm:text-4xl font-bold mb-2'>
             <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
               Apply to Join the NartaQ Founding Cohort as an Investor
             </span>
           </h1>
-          
+
           <p className='text-gray-400'>
-            Join an exclusive group of forward-thinking investors shaping the future of startup funding.
+            Join an exclusive group of forward-thinking investors shaping the
+            future of startup funding.
           </p>
         </div>
       </div>
@@ -211,7 +220,7 @@ export default function InvestorApplicationPage() {
               What sectors do you invest in? *
             </label>
             <div className='grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4'>
-              {investmentFocusOptions.map(option => (
+              {investmentFocusOptions.map((option) => (
                 <button
                   key={option}
                   type='button'
@@ -251,7 +260,7 @@ export default function InvestorApplicationPage() {
               className='w-full h-12 px-4 rounded-xl bg-black/50 border border-[#a98b5d]/30 text-[#dcd7ce] focus:outline-none focus:ring-2 focus:ring-[#a98b5d]/50 focus:border-[#a98b5d] transition-all duration-300'
             >
               <option value=''>Select ticket size range</option>
-              {ticketSizeOptions.map(option => (
+              {ticketSizeOptions.map((option) => (
                 <option key={option} value={option} className='bg-black'>
                   {option}
                 </option>
@@ -265,7 +274,7 @@ export default function InvestorApplicationPage() {
               Target Geography *
             </label>
             <div className='grid grid-cols-2 sm:grid-cols-3 gap-3'>
-              {geographyOptions.map(option => (
+              {geographyOptions.map((option) => (
                 <button
                   key={option}
                   type='button'
@@ -294,7 +303,7 @@ export default function InvestorApplicationPage() {
               className='w-full h-12 px-4 rounded-xl bg-black/50 border border-[#a98b5d]/30 text-[#dcd7ce] focus:outline-none focus:ring-2 focus:ring-[#a98b5d]/50 focus:border-[#a98b5d] transition-all duration-300 mb-4'
             >
               <option value=''>Select source (optional)</option>
-              {referralOptions.map(option => (
+              {referralOptions.map((option) => (
                 <option key={option} value={option} className='bg-black'>
                   {option}
                 </option>
@@ -315,7 +324,16 @@ export default function InvestorApplicationPage() {
           {/* Submit Button */}
           <button
             type='submit'
-            disabled={isSubmitting || !formData.fullName || !formData.workEmail || !formData.companyName || !formData.title || formData.investmentFocus.length === 0 || !formData.ticketSize || formData.targetGeography.length === 0}
+            disabled={
+              isSubmitting ||
+              !formData.fullName ||
+              !formData.workEmail ||
+              !formData.companyName ||
+              !formData.title ||
+              formData.investmentFocus.length === 0 ||
+              !formData.ticketSize ||
+              formData.targetGeography.length === 0
+            }
             className='w-full py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100'
           >
             {isSubmitting ? (
