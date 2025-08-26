@@ -15,26 +15,25 @@ export default function ForInvestorsPage() {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-            Stop Sifting.
-            <span className="block bg-gradient-to-r from-[#a98b5d] via-yellow-400 to-[#a98b5d] bg-clip-text text-transparent">
-              Start Sourcing.
+            <span className="bg-gradient-to-r from-[#a98b5d] via-yellow-400 to-[#a98b5d] bg-clip-text text-transparent">
+              Your Next Investment, Curated by AI.
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-            The AI-Powered Platform for Curated Deal Flow. We're building a merit-based engine that identifies the next generation of founders, delivering a vetted, high-signal deal pipeline straight to your inbox.
+            Stop sifting through noise. NartaQ is the AI-powered platform for investors seeking high-signal, pre-vetted startups in the France-Tunisia corridor.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/apply/investors" className="group relative bg-[#a98b5d] hover:bg-[#a98b5d]/90 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#a98b5d]/25">
               <span className="relative z-10 flex items-center">
                 <TrendingUp className="w-5 h-5 mr-2" />
-                Join the Founding Cohort
+                Join the Founding Investor Cohort
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#a98b5d] to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
             </Link>
             <p className="text-gray-400 text-sm">
-              Early access • No commitment required
+              Get first access to exclusive deal flow. <span className="text-[#a98b5d] font-semibold">Limited spots.</span>
             </p>
           </div>
         </div>
@@ -58,7 +57,7 @@ export default function ForInvestorsPage() {
               <div className="w-16 h-16 bg-red-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Search className="w-8 h-8 text-red-400" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-red-300">High Noise</h3>
+              <h3 className="text-2xl font-bold mb-4 text-red-300">Endless Sifting, Zero Signal</h3>
               <p className="text-gray-300 leading-relaxed">
                 Endless decks and cold emails from unvetted founders. Your inbox is flooded with irrelevant opportunities.
               </p>
@@ -68,7 +67,7 @@ export default function ForInvestorsPage() {
               <div className="w-16 h-16 bg-orange-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Shield className="w-8 h-8 text-orange-400" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-orange-300">Access Bias</h3>
+              <h3 className="text-2xl font-bold mb-4 text-orange-300">The Best Deals Are Hidden</h3>
               <p className="text-gray-300 leading-relaxed">
                 Your deal flow is limited by your personal network and geography. Missing hidden gems outside your circle.
               </p>
@@ -78,7 +77,7 @@ export default function ForInvestorsPage() {
               <div className="w-16 h-16 bg-yellow-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Clock className="w-8 h-8 text-yellow-400" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-yellow-300">Time-Consuming</h3>
+              <h3 className="text-2xl font-bold mb-4 text-yellow-300">Your Time Is Your Most Valuable Asset</h3>
               <p className="text-gray-300 leading-relaxed">
                 Hours wasted on manual sourcing, filtering, and vetting. Your time should be spent on making great investments.
               </p>
@@ -142,37 +141,45 @@ export default function ForInvestorsPage() {
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-[#a98b5d]/10 to-yellow-400/5 rounded-2xl p-8 border border-[#a98b5d]/20">
-                <div className="text-center mb-6">
-                  <h4 className="text-lg font-semibold text-[#a98b5d] mb-2">AI Analyzer Filtering</h4>
-                  <p className="text-sm text-gray-400">Thousands of profiles analyzed daily</p>
+                          <div className="bg-gradient-to-br from-[#a98b5d]/10 to-gray-900/30 rounded-3xl p-8 border border-[#a98b5d]/20 backdrop-blur-xl">
+              <div className="text-center mb-8">
+                <h4 className="text-lg font-semibold text-[#a98b5d] mb-2">AI-Powered Filtering Process</h4>
+                <p className="text-sm text-gray-400">From noise to signal in three steps</p>
+              </div>
+              
+              <div className="space-y-6">
+                {/* Visual representation of filtering */}
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-400">Raw Applications</span>
+                  <div className="flex gap-1">
+                    {[...Array(20)].map((_, i) => (
+                      <div key={i} className="w-2 h-6 bg-gray-600 rounded-sm"></div>
+                    ))}
+                  </div>
                 </div>
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">Signal Quality</span>
-                    <span className="text-2xl font-bold text-[#a98b5d]">94%</span>
+                
+                <div className="flex items-center justify-center">
+                  <div className="w-8 h-1 bg-[#a98b5d] rounded-full"></div>
+                  <div className="mx-2 text-[#a98b5d] text-xs font-semibold">AI FILTER</div>
+                  <div className="w-8 h-1 bg-[#a98b5d] rounded-full"></div>
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-400">High-Quality Matches</span>
+                  <div className="flex gap-1">
+                    {[...Array(3)].map((_, i) => (
+                      <div key={i} className="w-2 h-6 bg-[#a98b5d] rounded-sm"></div>
+                    ))}
                   </div>
-                  <div className="w-full bg-gray-800 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-[#a98b5d] to-yellow-400 h-2 rounded-full" style={{width: '94%'}}></div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">Match Accuracy</span>
-                    <span className="text-2xl font-bold text-[#a98b5d]">87%</span>
-                  </div>
-                  <div className="w-full bg-gray-800 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-[#a98b5d] to-yellow-400 h-2 rounded-full" style={{width: '87%'}}></div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-400">Time Saved</span>
-                    <span className="text-2xl font-bold text-[#a98b5d]">75%</span>
-                  </div>
-                  <div className="w-full bg-gray-800 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-[#a98b5d] to-yellow-400 h-2 rounded-full" style={{width: '75%'}}></div>
-                  </div>
+                </div>
+                
+                <div className="text-center pt-4 border-t border-gray-700">
+                  <p className="text-xs text-gray-500 italic">
+                    Focus on what matters: the right opportunities, at the right time.
+                  </p>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -193,7 +200,7 @@ export default function ForInvestorsPage() {
               <div className="w-20 h-20 bg-gradient-to-br from-[#a98b5d] to-yellow-400 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-black">1</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Set Your Criteria</h3>
+              <h3 className="text-2xl font-bold mb-4">Define Your Criteria</h3>
               <p className="text-gray-300 leading-relaxed">
                 Create your profile and tell us your investment preferences. Define your sectors, stages, check sizes, and deal criteria.
               </p>
@@ -205,7 +212,7 @@ export default function ForInvestorsPage() {
               <div className="w-20 h-20 bg-gradient-to-br from-[#a98b5d] to-yellow-400 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-black">2</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Get Matched</h3>
+              <h3 className="text-2xl font-bold mb-4">Get Matched with Precision</h3>
               <p className="text-gray-300 leading-relaxed">
                 Our AI delivers a curated list of high-probability matches. Each founder is pre-vetted and scored based on your criteria.
               </p>
@@ -217,9 +224,9 @@ export default function ForInvestorsPage() {
               <div className="w-20 h-20 bg-gradient-to-br from-[#a98b5d] to-yellow-400 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-black">3</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Connect & Close</h3>
+              <h3 className="text-2xl font-bold mb-4">Connect, Close & Fund</h3>
               <p className="text-gray-300 leading-relaxed">
-                Enter a secure environment to connect with founders and manage the deal from first contact to funding.
+                Our platform provides a secure environment for communication and streamlined tools for deal execution, including automated documentation and fund transfer.
               </p>
             </div>
           </div>
@@ -268,16 +275,16 @@ export default function ForInvestorsPage() {
             </div>
           </div>
           
-          {/* Metrics */}
+          {/* Platform Stats */}
           <div className="bg-gradient-to-r from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 rounded-2xl p-8">
             <div className="grid md:grid-cols-2 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-[#a98b5d] mb-2">50+</div>
-                <p className="text-gray-300">Beta Investors Onboarded</p>
+                <div className="text-4xl font-bold text-[#a98b5d] mb-2">15</div>
+                <p className="text-gray-300">Select Beta Partners</p>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#a98b5d] mb-2">12</div>
-                <p className="text-gray-300">Deals in Progress</p>
+                <div className="text-4xl font-bold text-[#a98b5d] mb-2">Early</div>
+                <p className="text-gray-300">Access Program</p>
               </div>
             </div>
           </div>
@@ -288,24 +295,36 @@ export default function ForInvestorsPage() {
       <section className="py-16 px-4 bg-gradient-to-b from-gray-950 to-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Stop Sifting and
-            <span className="text-[#a98b5d]"> Start Sourcing</span>?
+            <span className="bg-gradient-to-r from-[#a98b5d] to-yellow-400 bg-clip-text text-transparent">
+              The Future of Funding is Being Built.
+            </span>
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join the founding cohort of investors who are getting first access to the next generation of exceptional founders.
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            Join the founding cohort of investors who are gaining first access to exceptional founders and shaping the future of venture capital.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Link href="/apply/investors" className="group relative bg-[#a98b5d] hover:bg-[#a98b5d]/90 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#a98b5d]/25">
               <span className="relative z-10 flex items-center text-lg">
                 <TrendingUp className="w-5 h-5 mr-2" />
-                Join the Founding Cohort
+                Join the Founding Investor Cohort
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#a98b5d] to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
             </Link>
+            <p className="text-gray-400 text-sm">
+              Applications are now open. <span className="text-[#a98b5d] font-semibold">Limited spots.</span>
+            </p>
+          </div>
+
+          {/* New Commitment Section */}
+          <div className="bg-gradient-to-br from-[#a98b5d]/10 to-gray-900/30 rounded-2xl p-6 border border-[#a98b5d]/20 backdrop-blur-xl">
+            <h3 className="text-lg font-semibold text-[#a98b5d] mb-3">Our Commitment</h3>
+            <p className="text-gray-300 leading-relaxed">
+              We're building this platform with trust and compliance at its core. Our commitment is to provide a secure and reliable experience for all participants.
+            </p>
           </div>
           
-          <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-gray-400">
+          <div className="mt-6 flex items-center justify-center space-x-6 text-sm text-gray-400">
             <div className="flex items-center">
               <Shield className="w-4 h-4 mr-1" />
               Accredited investors only
