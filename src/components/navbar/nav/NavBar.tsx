@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import { menuSlide } from '../anim'
-import NavLink from './Link'
+import { menuSlide } from '../animation'
+import NavLink from './LinkNav'
 import Curve from './Curve'
 import Footer from './Footer'
 
@@ -25,7 +25,7 @@ const navItems = [
   },
 ]
 
-export default function index() {
+export default function NavBar() {
   const pathname = usePathname()
   const [selectedIndicator, setSelectedIndicator] = useState(pathname)
 

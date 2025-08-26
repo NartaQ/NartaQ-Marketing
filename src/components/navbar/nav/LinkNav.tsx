@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { slide, scale } from '../../anim'
+import { slide, scale } from '../animation'
 
 interface LinkData {
   title: string
@@ -14,7 +14,7 @@ interface LinkProps {
   setSelectedIndicator: (href: string) => void
 }
 
-export default function Index({
+export default function LinkNav({
   data,
   isActive,
   setSelectedIndicator,

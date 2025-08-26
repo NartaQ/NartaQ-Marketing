@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import Nav from './nav'
+import Nav from './nav/NavBar'
 import { AnimatePresence } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
