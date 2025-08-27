@@ -1,0 +1,107 @@
+[
+  {
+    "_id": "post-ai-future",
+    "_type": "post", 
+    "title": "The Future of AI-Driven Business Operations",
+    "slug": {
+      "current": "future-of-ai-driven-business-operations"
+    },
+    "excerpt": "Explore how artificial intelligence is revolutionizing business operations and what it means for the future of work.",
+    "publishedAt": "2024-12-15T10:00:00.000Z",
+    "featured": true,
+    "categories": [
+      {
+        "_type": "reference",
+        "_ref": "category-ai"
+      }
+    ],
+    "content": [
+      {
+        "_type": "block",
+        "_key": "block1",
+        "children": [
+          {
+            "_type": "span", 
+            "_key": "span1",
+            "text": "Artificial intelligence is no longer a futuristic concept—it's transforming businesses today. From automating routine tasks to providing predictive analytics, AI is reshaping how organizations operate."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "seoTitle": "AI-Driven Business Operations: Future Trends & Insights",
+    "seoDescription": "Discover how AI is transforming business operations. Learn about key trends, implementation strategies, and future opportunities.",
+    "readTime": 8
+  },
+  {
+    "_id": "post-integration-challenges",
+    "_type": "post",
+    "title": "Overcoming System Integration Challenges in Modern Enterprises", 
+    "slug": {
+      "current": "overcoming-system-integration-challenges"
+    },
+    "excerpt": "Learn practical strategies to tackle common integration challenges and build robust, scalable system architectures.",
+    "publishedAt": "2024-12-10T14:30:00.000Z",
+    "featured": false,
+    "categories": [
+      {
+        "_type": "reference",
+        "_ref": "category-integration"
+      }
+    ],
+    "content": [
+      {
+        "_type": "block",
+        "_key": "block2", 
+        "children": [
+          {
+            "_type": "span",
+            "_key": "span2",
+            "text": "Modern enterprises rely on dozens of different systems and platforms. From CRM and ERP systems to marketing automation tools and custom applications, the challenge isn't just having these tools—it's making them work together seamlessly."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "seoTitle": "System Integration Challenges: Solutions for Modern Enterprises",
+    "seoDescription": "Practical solutions for enterprise system integration challenges. Build scalable, connected digital ecosystems.",
+    "readTime": 12
+  },
+  {
+    "_id": "post-automation-strategies",
+    "_type": "post",
+    "title": "Building Scalable Automation Strategies for Growing Teams",
+    "slug": {
+      "current": "building-scalable-automation-strategies" 
+    },
+    "excerpt": "Discover how to implement automation strategies that grow with your team and business needs.",
+    "publishedAt": "2024-11-28T16:45:00.000Z", 
+    "featured": true,
+    "categories": [
+      {
+        "_type": "reference",
+        "_ref": "category-automation"
+      }
+    ],
+    "content": [
+      {
+        "_type": "block",
+        "_key": "block3",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "span3", 
+            "text": "As organizations scale, the need for efficient, repeatable processes becomes critical. Automation isn't just about reducing manual work—it's about creating systems that can handle increased volume and complexity without proportional increases in overhead."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "seoTitle": "Scalable Automation Strategies for Growing Business Teams",
+    "seoDescription": "Build automation strategies that scale with your team. Learn frameworks for sustainable business growth.",
+    "readTime": 15
+  }
+]

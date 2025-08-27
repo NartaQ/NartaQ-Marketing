@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "category-ai",
+    "_type": "category",
+    "title": "Artificial Intelligence",
+    "slug": {
+      "current": "artificial-intelligence"
+    },
+    "description": "Insights on AI advancements and applications in business"
+  },
+  {
+    "_id": "category-automation", 
+    "_type": "category",
+    "title": "Automation",
+    "slug": {
+      "current": "automation"
+    },
+    "description": "Business process automation and optimization strategies"
+  },
+  {
+    "_id": "category-integration",
+    "_type": "category", 
+    "title": "System Integration",
+    "slug": {
+      "current": "system-integration"
+    },
+    "description": "Connecting systems and platforms effectively"
+  },
+  {
+    "_id": "category-analytics",
+    "_type": "category",
+    "title": "Data Analytics", 
+    "slug": {
+      "current": "data-analytics"
+    },
+    "description": "Data-driven insights and business intelligence"
+  }
+]

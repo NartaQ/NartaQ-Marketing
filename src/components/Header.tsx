@@ -69,6 +69,15 @@ export default function Header({ className }: { className?: string }) {
                   <HoveredLink href='/#how-it-works'>How It Works</HoveredLink>
                 </div>
               </MenuItem>
+              <MenuItem setActive={setActive} active={active} item='Insights'>
+                <div className='flex flex-col space-y-4 text-sm p-4'>
+                  <HoveredLink href='/insights'>Latest Insights</HoveredLink>
+                  <HoveredLink href='/insights#case-studies'>
+                    Case Studies
+                  </HoveredLink>
+                  <HoveredLink href='/insights#company-news'>Company News</HoveredLink>
+                </div>
+              </MenuItem>
               <MenuItem setActive={setActive} active={active} item='FAQ'>
                 <div className='flex flex-col space-y-4 text-sm p-4'>
                   <HoveredLink href='/faq'>
@@ -210,6 +219,47 @@ export default function Header({ className }: { className?: string }) {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     How It Works
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Insights Section */}
+            <div className='w-full'>
+              <button
+                onClick={() => toggleSection('insights')}
+                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+              >
+                <span className='font-medium'>Insights</span>
+                <ChevronDown
+                  className={cn(
+                    'w-4 h-4 transition-transform duration-200',
+                    expandedSection === 'insights' && 'rotate-180'
+                  )}
+                />
+              </button>
+              {expandedSection === 'insights' && (
+                <div className='ml-4 mt-2 space-y-2'>
+                  <Link
+                    href='/insights'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Latest Insights
+                  </Link>
+                  <Link
+                    href='/insights#case-studies'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Case Studies
+                  </Link>
+                  <Link
+                    href='/insights#company-news'
+                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Company News
                   </Link>
                 </div>
               )}
