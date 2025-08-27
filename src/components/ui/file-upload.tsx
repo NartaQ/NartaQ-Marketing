@@ -34,7 +34,7 @@ export const FileUpload = ({
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const handleFileChange = (newFiles: File[]) => {
-    setFiles((prevFiles) => [...prevFiles, ...newFiles])
+    setFiles(newFiles) // Replace existing files instead of appending
     onChange && onChange(newFiles)
   }
 
@@ -45,6 +45,11 @@ export const FileUpload = ({
   const { getRootProps, isDragActive } = useDropzone({
     multiple: false,
     noClick: true,
+    accept: {
+      'application/pdf': ['.pdf'],
+      'application/vnd.ms-powerpoint': ['.ppt'],
+      'application/vnd.openxmlformats-officedocument.presentationml.presentation': ['.pptx'],
+    },
     onDrop: handleFileChange,
     onDropRejected: (error) => {
       console.log(error)
@@ -62,6 +67,7 @@ export const FileUpload = ({
           ref={fileInputRef}
           id='file-upload-handle'
           type='file'
+          accept='.pdf,.ppt,.pptx'
           onChange={(e) => handleFileChange(Array.from(e.target.files || []))}
           className='hidden'
         />
@@ -70,10 +76,10 @@ export const FileUpload = ({
         </div>
         <div className='flex flex-col items-center justify-center'>
           <p className='relative z-20 font-sans font-bold text-neutral-700 dark:text-neutral-300 text-base'>
-            Upload file
+            Upload Pitch Deck
           </p>
           <p className='relative z-20 font-sans font-normal text-neutral-400 dark:text-neutral-400 text-base mt-2'>
-            Drag or drop your files here or click to upload
+            Drag or drop your pitch deck here or click to upload (PDF, PPT, PPTX)
           </p>
           <div className='relative w-full mt-10 max-w-xl mx-auto'>
             {files.length > 0 &&

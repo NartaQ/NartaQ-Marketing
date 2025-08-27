@@ -125,7 +125,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${fontSans.variable} ${fontMono.variable} antialiased bg-black text-white`}
+        className={`w-screen overflow-x-hidden ${fontSans.variable} ${fontMono.variable} antialiased bg-black text-white`}
       >
         <Analytics />
         <SpeedInsights />
