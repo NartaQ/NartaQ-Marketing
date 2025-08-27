@@ -1,13 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import FoundersHeader from '@/components/ApplyFounders/FoundersHeader'
-import FounderForm from '@/components/ApplyFounders/FounderForm'
-import FounderSuccess from '@/components/ApplyFounders/FounderSuccess'
+import FoundersHeader from '@/components/ApplyFounders/founders/FoundersHeader'
+import FounderForm from '@/components/ApplyFounders/founders/FounderForm'
+import FounderSuccess from '@/components/ApplyFounders/founders/FounderSuccess'
 
 export default function FounderApplicationPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [pitchDeckFiles, setPitchDeckFiles] = useState<File[]>([])
 
   return (
     <div className='min-h-screen bg-black text-white pt-20'>
@@ -15,13 +14,12 @@ export default function FounderApplicationPage() {
 
       {!isSubmitted ? (
         <FounderForm
-          onSubmitted={(files) => {
-            setPitchDeckFiles(files)
+          onSubmitted={() => {
             setIsSubmitted(true)
           }}
         />
       ) : (
-        <FounderSuccess pitchDeckFiles={pitchDeckFiles} />
+        <FounderSuccess />
       )}
     </div>
   )

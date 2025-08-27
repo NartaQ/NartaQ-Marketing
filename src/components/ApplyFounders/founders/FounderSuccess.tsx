@@ -4,11 +4,7 @@ import { motion } from 'framer-motion'
 import { CheckCircle, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
-export default function FounderSuccess({
-  pitchDeckFiles,
-}: {
-  pitchDeckFiles: File[]
-}) {
+export default function FounderSuccess() {
   return (
     <div className='min-h-screen bg-black text-white flex items-center justify-center p-4'>
       <motion.div
@@ -29,15 +25,6 @@ export default function FounderSuccess({
           been received. Our team will review your information and be in touch
           soon. We look forward to connecting you with the right investors.
         </p>
-
-        {pitchDeckFiles.length === 0 && (
-          <div className='p-4 border border-[#a98b5d]/30 rounded-xl bg-[#a98b5d]/10 mb-6'>
-            <p className='text-sm text-gray-300'>
-              💡 Don't forget to send us your pitch deck at founders@nartaq.com
-              to complete your application!
-            </p>
-          </div>
-        )}
 
         <Link
           href='/'
