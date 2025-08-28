@@ -94,7 +94,7 @@ export default function FinalCTASection() {
           </div>
 
           {/* Triple CTA Buttons */}
-          <div className='cta-element grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto'>
+          <div className='cta-element grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
             {/* For Startups */}
             <Link
               href='/investors-startups'
@@ -188,7 +188,7 @@ export default function FinalCTASection() {
           </div>
 
           {/* Trust Indicators */}
-          <div className='cta-element grid grid-cols-3 gap-6 pt-8 border-t border-[#5c5d63]/20'>
+          <div className='cta-element grid grid-cols-3 gap-8 pt-8 border-t border-[#5c5d63]/20'>
             <div className='text-center space-y-1'>
               <div className='text-lg font-bold text-[#a98b5d]'>Secure</div>
               <div className='text-xs text-[#5c5d63]'>Platform</div>

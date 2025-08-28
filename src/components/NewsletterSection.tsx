@@ -64,7 +64,7 @@ export default function NewsletterSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12'
+          className='grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12'
         >
           {/* Founders CTA */}
           <div className='rounded-2xl p-8 border backdrop-blur-xl text-center group hover:border-[#a98b5d]/40 transition-all duration-300 border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent'>

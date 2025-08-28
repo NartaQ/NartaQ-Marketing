@@ -172,7 +172,7 @@ export default function ResourceHub() {
         </div>
 
         {/* Category Filters */}
-        <div className='flex flex-wrap justify-center gap-3 mb-12'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 justify-items-center mb-12'>
           {categories.map((category, index) => (
             <button
               key={index}
@@ -191,7 +191,7 @@ export default function ResourceHub() {
         </div>
 
         {/* Resource Cards Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16'>
           {resources.map((resource, index) => {
             const Icon = resource.icon
 

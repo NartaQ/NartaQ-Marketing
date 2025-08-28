@@ -263,7 +263,7 @@ export default function OrchestrationSection() {
                     {card.description}
                   </p>
 
-                  <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl w-full'>
+                  <div className='grid sm:grid-cols-2 gap-8 max-w-2xl w-full'>
                     {card.features.map((feature, featureIndex) => (
                       <div
                         key={featureIndex}
@@ -305,7 +305,7 @@ export default function OrchestrationSection() {
           </p>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto'>
           {orchestrationSteps.map((card) => (
             <div
               key={card.id}

@@ -409,7 +409,7 @@ export default function HookText() {
                       </div>
 
                       {/* Features List */}
-                      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6'>
+                      <div className='grid sm:grid-cols-2 gap-8'>
                         {card.features.map((feature, idx) => (
                           <div
                             key={idx}

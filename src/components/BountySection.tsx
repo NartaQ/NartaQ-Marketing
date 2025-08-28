@@ -83,7 +83,7 @@ export default function BountySection() {
 
       {/* Premium feature showcase with WobbleCard */}
       <div className='mt-20 max-w-7xl w-full px-4'>
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+        <div className='grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto'>
           {/* First card - spans 2 columns on large screens */}
           <WobbleCard
             containerClassName='col-span-1 lg:col-span-2 h-full bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 min-h-[400px] border border-[#a98b5d]/20'

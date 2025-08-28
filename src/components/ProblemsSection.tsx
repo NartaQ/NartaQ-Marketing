@@ -56,7 +56,7 @@ export default function ProblemsSection() {
         </motion.div>
 
         {/* Two-Column Problem Structure */}
-        <div className='grid md:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto mb-16'>
+        <div className='grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16'>
           {/* Investors Problem */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

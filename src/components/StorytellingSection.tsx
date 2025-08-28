@@ -106,7 +106,7 @@ export default function StorytellingSection() {
         </motion.div>
 
         {/* Interactive Story Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid lg:grid-cols-3 gap-8 mb-20 max-w-6xl mx-auto">
           {stories.map((story, index) => (
             <motion.div
               key={story.id}
@@ -198,7 +198,7 @@ export default function StorytellingSection() {
             </span>
           </motion.h3>
 
-          <div className='grid md:grid-cols-3 gap-4 mb-8'>
+          <div className='grid md:grid-cols-3 gap-8 mb-8'>
             {stories.map((story, index) => (
               <motion.div
                 key={`solution-${story.id}`}
