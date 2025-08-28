@@ -211,7 +211,7 @@ export default function CoreToolsShowcase() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6 }}
-          className="grid lg:grid-cols-3 gap-8 mb-20"
+          className="grid lg:grid-cols-3 gap-8 mb-20 max-w-6xl mx-auto"
         >
           {tools.map((tool, index) => {
             const toolData = tool[activeTab as keyof typeof tool] as {

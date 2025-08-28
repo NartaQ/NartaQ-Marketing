@@ -96,15 +96,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Contact & Updates */}
-        <div className='flex h-full min-w-[240px] flex-col gap-4'>
-          <h2 className='text-xl'>Stay Updated</h2>
-          <p className='text-xs text-gray-500 dark:text-gray-400 leading-relaxed'>Gain early insight as we onboard the founding cohort. No spam.</p>
-          <form className='flex flex-col gap-2'>
-            <input type='email' placeholder='email address' className='px-3 py-2 rounded-md bg-transparent border border-gray-400/30 focus:border-[#a98b5d] outline-none text-xs' />
-            <button className='px-3 py-2 rounded-md bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black text-xs font-semibold hover:scale-[1.02] transition-transform'>Subscribe</button>
-          </form>
-          <div className='text-xs mt-2'>Contact: <a href='mailto:contact@nartaq.com' className='underline hover:text-[#a98b5d]'>contact@nartaq.com</a></div>
+        {/* Contact */}
+        <div className='flex h-full min-w-[180px] flex-col gap-4'>
+          <h2 className='text-xl'>Contact</h2>
+          <div className='flex flex-col gap-3'>
+            <div className='text-sm'>Email: <a href='mailto:contact@nartaq.com' className='underline hover:text-[#a98b5d]'>contact@nartaq.com</a></div>
+          </div>
         </div>
       </div>
 

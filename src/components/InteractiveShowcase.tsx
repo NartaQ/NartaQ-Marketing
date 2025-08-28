@@ -83,7 +83,7 @@ export default function InteractiveShowcase() {
               Black Box. We&apos;re Opening It.
             </span>
           </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
             <div className="text-center">
               <div className="text-red-400 font-semibold mb-2">Time-Consuming</div>
               <p className="text-gray-400 text-sm">Endless unvetted decks, cold outreach, and fragmented networks.</p>

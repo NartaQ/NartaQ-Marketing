@@ -72,7 +72,7 @@ export default function DAOSection() {
             How Platform Governance Works
           </h3>
           
-          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {daoFeatures.map((feature, index) => (
               <motion.div
                 key={index}
@@ -229,7 +229,7 @@ export default function DAOSection() {
             Join the Platform as a Founding Participant
           </h3>
           
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* For Investors */}
             <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-[#a98b5d]/10 to-transparent border border-[#a98b5d]/30 backdrop-blur-xl">
               <h4 className="text-lg sm:text-xl font-bold text-[#dcd7ce] mb-3 sm:mb-4">For Investors & VCs</h4>

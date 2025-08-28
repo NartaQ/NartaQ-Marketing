@@ -39,7 +39,7 @@ export default function EcosystemSection() {
 
       {/* Premium pathway cards */}
 
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16 max-w-7xl w-full px-4'>
+      <div className='grid lg:grid-cols-2 gap-8 mt-16 max-w-6xl mx-auto px-4'>
         <Link href='/investors-startups' className='group relative'>
           <div className='premium-glass elite-hover rounded-3xl p-10 border border-[#a98b5d]/20  h-full'>
             {/* Card header with icon */}

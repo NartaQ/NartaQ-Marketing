@@ -104,7 +104,7 @@ export default function NeonHeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.0 }}
-          className="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-2xl mx-auto px-4"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto px-4"
         >
           {[
             { icon: Users, text: "Community Sourcing" },

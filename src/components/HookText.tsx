@@ -147,8 +147,8 @@ export default function HookText() {
       description:
         'Connect with smart investors who understand your market and can accelerate your growth trajectory.',
       features: [
-        'Access to 5,000+ verified investors',
-        'AI-powered matching with 95% accuracy',
+        'Access to verified investors globally',
+        'AI-powered intelligent matching',
         'Streamlined due diligence process',
         'Expert term sheet negotiation support',
       ],
@@ -409,7 +409,7 @@ export default function HookText() {
                       </div>
 
                       {/* Features List */}
-                      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6'>
+                      <div className='grid sm:grid-cols-2 gap-8'>
                         {card.features.map((feature, idx) => (
                           <div
                             key={idx}

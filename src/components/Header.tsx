@@ -60,10 +60,10 @@ export default function Header({ className }: { className?: string }) {
               </MenuItem>
               <MenuItem setActive={setActive} active={active} item='Platform'>
                 <div className='flex flex-col space-y-4 text-sm p-4'>
-                  <HoveredLink href='/solutions/founders'>
+                  <HoveredLink href='/for-founders'>
                     For Founders
                   </HoveredLink>
-                  <HoveredLink href='/solutions/investors'>
+                  <HoveredLink href='/for-investors'>
                     For Investors
                   </HoveredLink>
                   <HoveredLink href='/#how-it-works'>How It Works</HoveredLink>
