@@ -113,6 +113,20 @@ export default function RootLayout({
       <head>
         <meta name='apple-mobile-web-app-title' content='NartaQ' />
         <meta name='application-name' content='NartaQ' />
+        
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ3D93J3CR"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-CZ3D93J3CR');
+            `,
+          }}
+        />
+        
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
