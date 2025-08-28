@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { ArrowRight, Mail, Sparkles } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 
 export default function NewsletterSection() {
   const ref = useRef(null)

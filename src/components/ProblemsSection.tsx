@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Clock, AlertTriangle, EyeOff, TrendingDown } from 'lucide-react'
+import { Clock, AlertTriangle, EyeOff } from 'lucide-react'
 
 export default function ProblemsSection() {
   const ref = useRef(null)

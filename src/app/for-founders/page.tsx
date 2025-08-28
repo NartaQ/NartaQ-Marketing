@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Sparkles, ArrowRight, Target, Zap, Users, Clock, CheckCircle, HelpCircle, Rocket } from 'lucide-react'
+import { Sparkles, ArrowRight, Target, Users, Clock, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 import { useRive } from '@rive-app/react-canvas'
 

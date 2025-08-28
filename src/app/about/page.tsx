@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Users, Globe, Target, Heart, Star, Linkedin, Github, Twitter } from 'lucide-react'
+import { Users, Globe, Target, Heart, Star, Linkedin, Twitter } from 'lucide-react'
 
 export default function AboutPage() {
   return (
