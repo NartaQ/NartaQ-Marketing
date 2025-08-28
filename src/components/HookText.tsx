@@ -147,8 +147,8 @@ export default function HookText() {
       description:
         'Connect with smart investors who understand your market and can accelerate your growth trajectory.',
       features: [
-        'Access to 5,000+ verified investors',
-        'AI-powered matching with 95% accuracy',
+        'Access to verified investors globally',
+        'AI-powered intelligent matching',
         'Streamlined due diligence process',
         'Expert term sheet negotiation support',
       ],

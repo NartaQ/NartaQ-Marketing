@@ -197,9 +197,7 @@ export default function AboutPage() {
                   <a href="https://linkedin.com/in/jesser-bedoui" className="w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </a>
-                  <a href="https://github.com/bedouijesser" className="w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors">
-                    <Github className="w-5 h-5" />
-                  </a>
+        
                   <a href="https://twitter.com/jesserbedoui" className="w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors">
                     <Twitter className="w-5 h-5" />
                   </a>

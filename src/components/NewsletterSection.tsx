@@ -59,94 +59,66 @@ export default function NewsletterSection() {
           </p>
         </motion.div>
 
-        {/* Dual CTA Section */}
+        {/* Simplified Single CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className='grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12'
+          className='max-w-2xl mx-auto mb-12'
         >
-          {/* Founders CTA */}
-          <div className='rounded-2xl p-8 border backdrop-blur-xl text-center group hover:border-[#a98b5d]/40 transition-all duration-300 border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent'>
-            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
-              <Sparkles className='w-8 h-8 text-[#a98b5d]' />
-            </div>
-
-            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
-              For Founders
+          <div className='rounded-2xl p-8 border backdrop-blur-xl text-center border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent'>
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-6'>
+              Join the Founding Community
             </h3>
-            <p className='text-gray-400 mb-6'>
-              Connect with investors who understand your vision and want to fund
-              your growth.
-            </p>
-
-            <a
-              href='/apply/founders'
-              className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
-            >
-              Get Funding
-              <ArrowRight className='w-4 h-4' />
-            </a>
-          </div>
-
-          {/* Investors CTA */}
-          <div className='rounded-2xl p-8 border  backdrop-blur-xl text-center group hover:border-[#a98b5d]/40 transition-all duration-300 border-[#a98b5d]/20 bg-gradient-to-bl from-[#a98b5d]/5 to-transparent'>
-            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
-              <Mail className='w-8 h-8 text-[#a98b5d]' />
+            
+            <div className='flex flex-col sm:flex-row gap-4 mb-6'>
+              <a
+                href='/apply/founders'
+                className='flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
+              >
+                I'm a Founder
+                <ArrowRight className='w-4 h-4' />
+              </a>
+              
+              <a
+                href='/apply/investors'
+                className='flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
+              >
+                I'm an Investor
+                <ArrowRight className='w-4 h-4' />
+              </a>
             </div>
 
-            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
-              For Investors
-            </h3>
-            <p className='text-gray-400 mb-6'>
-              Discover exceptional startups and founders before they hit the
-              mainstream radar.
-            </p>
+            <div className='border-t border-[#a98b5d]/20 pt-6'>
+              <p className='text-gray-400 mb-4 text-sm'>
+                Or get updates on our progress:
+              </p>
+              
+              <form
+                onSubmit={handleSubmit}
+                className='flex flex-col sm:flex-row gap-3'
+              >
+                <div className='flex-1 relative'>
+                  <input
+                    type='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder='Enter your email'
+                    required
+                    className='w-full h-10 px-4 rounded-lg bg-black/50 border border-[#a98b5d]/30 text-[#dcd7ce] placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#a98b5d]/50 focus:border-[#a98b5d] transition-all duration-300 text-sm'
+                  />
+                </div>
 
-            <a
-              href='/apply/investors'
-              className='inline-flex items-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
-            >
-              Find Deals
-              <ArrowRight className='w-4 h-4' />
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Newsletter Signup */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className='text-center'
-        >
-          <p className='text-lg text-gray-400 mb-6'>
-            Or stay updated with our progress:
-          </p>
-
-          <form
-            onSubmit={handleSubmit}
-            className='flex flex-col sm:flex-row gap-4 max-w-lg mx-auto'
-          >
-            <div className='flex-1 relative'>
-              <input
-                type='email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder='Enter your email'
-                required
-                className='w-full h-12 px-4 rounded-xl bg-black/50 border border-[#a98b5d]/30 text-[#dcd7ce] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#a98b5d]/50 focus:border-[#a98b5d] transition-all duration-300'
-              />
+                <button
+                  type='submit'
+                  disabled={isSubmitting || !email}
+                  className='px-4 py-2 bg-[#a98b5d]/20 border border-[#a98b5d]/30 text-[#a98b5d] font-medium rounded-lg hover:bg-[#a98b5d]/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm'
+                >
+                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+                </button>
+              </form>
             </div>
-
-            <button
-              type='submit'
-              disabled={isSubmitting || !email}
-              className='px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'
-            >
-              {isSubmitting ? 'Subscribing...' : 'Get Updates'}
-            </button>
-          </form>
+          </div>
         </motion.div>
 
         {/* Bottom CTA */}

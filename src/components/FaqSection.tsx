@@ -12,7 +12,7 @@ export default function FaqSection() {
   const faqs = [
     {
       question: 'How does AI-powered matching work?',
-      answer: 'Our algorithm analyzes 200+ data points including market metrics, team experience, business model fit, and investor preferences to create high-probability matches. The more data we process, the smarter it gets.',
+      answer: 'Our algorithm analyzes multiple data points including market metrics, team experience, business model fit, and investor preferences to create high-probability matches. The more data we process, the smarter it gets.',
     },
     {
       question: 'What makes this different from other platforms?',

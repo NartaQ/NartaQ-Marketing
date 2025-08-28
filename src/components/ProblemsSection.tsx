@@ -84,13 +84,13 @@ export default function ProblemsSection() {
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    1,000+ decks reviewed per quarter
+                    Endless deck reviews every quarter
                   </span>
                 </div>
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    90% from the same networks
+                    Deal flow limited by personal networks
                   </span>
                 </div>
                 <div className='flex items-center gap-3'>
@@ -130,19 +130,19 @@ export default function ProblemsSection() {
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    6 months average fundraising time
+                    Long, unpredictable fundraising cycles
                   </span>
                 </div>
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    200+ investor emails sent
+                    Hundreds of investor emails sent
                   </span>
                 </div>
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    95% never get a response
+                    Most never get a response
                   </span>
                 </div>
               </div>
