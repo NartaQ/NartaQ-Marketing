@@ -2,6 +2,7 @@
 import React from 'react'
 import { motion } from 'motion/react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const transition = {
   type: 'spring' as const,
@@ -88,7 +89,7 @@ export const ProductItem = ({
   src: string
 }) => {
   return (
-    <a href={href} className='flex space-x-2'>
+    <Link href={href} className='flex space-x-2'>
       <Image
         src={src}
         width={140}
@@ -104,7 +105,7 @@ export const ProductItem = ({
           {description}
         </p>
       </div>
-    </a>
+    </Link>
   )
 }
 
@@ -115,8 +116,12 @@ export const HoveredLink = ({
   children: React.ReactNode
 }) => {
   return (
-    <a {...rest} className='text-[#dcd7ce7c] hover:text-[#dcd7ce]'>
+    <Link
+      href={rest.href!}
+      {...rest}
+      className='text-[#dcd7ce7c] hover:text-[#dcd7ce]'
+    >
       {children}
-    </a>
+    </Link>
   )
 }

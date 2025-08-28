@@ -15,14 +15,34 @@ import {
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
+import { usePathname, useRouter } from 'next/navigation'
+import { animatePageOut } from './test/transition/animations'
 
 export default function Header({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
+  const router = useRouter()
+  const pathname = usePathname()
 
   const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section)
+  }
+
+  const handleNavigation = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault()
+
+    // Close mobile menu if open
+    setMobileMenuOpen(false)
+
+    // Don't animate if we're already on the page
+    if (pathname === href) return
+
+    // Trigger page transition animation
+    animatePageOut(href, router)
   }
 
   return (
@@ -34,6 +54,7 @@ export default function Header({ className }: { className?: string }) {
           <Link
             className='flex items-center gap-2 p-1 group relative z-20'
             href='/'
+            onClick={(e) => handleNavigation(e, '/')}
           >
             <div className='h-[24px] sm:h-[28px] md:h-[32px] flex items-center gap-2 relative'>
               <Image
@@ -51,30 +72,78 @@ export default function Header({ className }: { className?: string }) {
             <Menu setActive={setActive}>
               <MenuItem setActive={setActive} active={active} item='About'>
                 <div className='flex flex-col space-y-4 text-sm p-4'>
-                  <HoveredLink href='/about'>Our Story</HoveredLink>
-                  <HoveredLink href='/about#team'>The Team</HoveredLink>
-                  <HoveredLink href='/about#corridor'>
+                  <HoveredLink
+                    href='/about'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/about')
+                    }
+                  >
+                    Our Story
+                  </HoveredLink>
+                  <HoveredLink
+                    href='/about#team'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/about#team')
+                    }
+                  >
+                    The Team
+                  </HoveredLink>
+                  <HoveredLink
+                    href='/about#corridor'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/about#corridor')
+                    }
+                  >
                     France-Tunisia Corridor
                   </HoveredLink>
                 </div>
               </MenuItem>
               <MenuItem setActive={setActive} active={active} item='Platform'>
                 <div className='flex flex-col space-y-4 text-sm p-4'>
-                  <HoveredLink href='/for-founders'>
+                  <HoveredLink
+                    href='/for-founders'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/for-founders')
+                    }
+                  >
                     For Founders
                   </HoveredLink>
-                  <HoveredLink href='/for-investors'>
+                  <HoveredLink
+                    href='/for-investors'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/for-investors')
+                    }
+                  >
                     For Investors
                   </HoveredLink>
-                  <HoveredLink href='/#how-it-works'>How It Works</HoveredLink>
+                  <HoveredLink
+                    href='/#how-it-works'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/#how-it-works')
+                    }
+                  >
+                    How It Works
+                  </HoveredLink>
                 </div>
               </MenuItem>
               <MenuItem setActive={setActive} active={active} item='FAQ'>
                 <div className='flex flex-col space-y-4 text-sm p-4'>
-                  <HoveredLink href='/faq'>
+                  <HoveredLink
+                    href='/faq'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/faq')
+                    }
+                  >
                     Frequently Asked Questions
                   </HoveredLink>
-                  <HoveredLink href='/legal'>Legal & Compliance</HoveredLink>
+                  <HoveredLink
+                    href='/legal'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/legal')
+                    }
+                  >
+                    Legal & Compliance
+                  </HoveredLink>
                 </div>
               </MenuItem>
             </Menu>
@@ -85,6 +154,9 @@ export default function Header({ className }: { className?: string }) {
             <NavbarButton
               className='text-sm bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] px-7 py-2 font-semibold hover:bg-[#8B7349] transition-colors rounded-lg'
               href='/solutions/founders'
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                handleNavigation(e, '/solutions/founders')
+              }
             >
               Join Founding Cohort
             </NavbarButton>
@@ -100,7 +172,9 @@ export default function Header({ className }: { className?: string }) {
             <Link
               className='flex items-center gap-1 sm:gap-2 p-1 group relative z-20'
               href='/'
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                handleNavigation(e, '/')
+              }}
             >
               <div className='h-[24px] sm:h-[28px] flex items-center gap-1 sm:gap-2 relative'>
                 <Image
@@ -152,21 +226,21 @@ export default function Header({ className }: { className?: string }) {
                   <Link
                     href='/about'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => handleNavigation(e, '/about')}
                   >
                     Our Story
                   </Link>
                   <Link
                     href='/about#team'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => handleNavigation(e, '/about#team')}
                   >
                     The Team
                   </Link>
                   <Link
                     href='/about#corridor'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => handleNavigation(e, '/about#corridor')}
                   >
                     France-Tunisia Corridor
                   </Link>
@@ -193,21 +267,21 @@ export default function Header({ className }: { className?: string }) {
                   <Link
                     href='/solutions/founders'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => handleNavigation(e, '/solutions/founders')}
                   >
                     For Founders
                   </Link>
                   <Link
                     href='/solutions/investors'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => handleNavigation(e, '/solutions/investors')}
                   >
                     For Investors
                   </Link>
                   <Link
                     href='/#how-it-works'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => handleNavigation(e, '/#how-it-works')}
                   >
                     How It Works
                   </Link>
@@ -220,7 +294,7 @@ export default function Header({ className }: { className?: string }) {
               <Link
                 href='/faq'
                 className='block px-3 py-2 text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleNavigation(e, '/faq')}
               >
                 <span className='font-medium'>FAQ</span>
               </Link>
@@ -230,7 +304,7 @@ export default function Header({ className }: { className?: string }) {
               <Link
                 href='/legal'
                 className='block px-3 py-2 text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleNavigation(e, '/legal')}
               >
                 <span className='font-medium'>Legal & Compliance</span>
               </Link>
@@ -240,8 +314,10 @@ export default function Header({ className }: { className?: string }) {
             <div className='pt-4 mt-4 border-t border-[#5c5d63]/40 dark:border-[#5c5d63]/50'>
               <NavbarButton
                 href='/solutions/founders'
-                className='w-full text-center bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d]  hover:bg-[#8B7349]  px-4 py-3 rounded-lg font-semibold'
-                onClick={() => setMobileMenuOpen(false)}
+                className='w-full text-center bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] hover:bg-[#8B7349] px-4 py-3 rounded-lg font-semibold'
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                  handleNavigation(e, '/solutions/founders')
+                }
               >
                 Join Founding Cohort
               </NavbarButton>
