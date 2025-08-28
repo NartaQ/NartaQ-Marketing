@@ -131,7 +131,7 @@ export default function RootLayout({
         <SpeedInsights />
         <LenisProvider>
           <UnifiedNavigation />
-          <main className='mt-[var(--header-height)]'>
+          <main className='main mt-[var(--header-height)]'>
             {/* <Spotlight /> */}
             {children}
           </main>
