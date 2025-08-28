@@ -97,7 +97,7 @@ export default function FinalCTASection() {
           <div className='cta-element grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
             {/* For Startups */}
             <Link
-              href='/investors-startups'
+              href='/for-founders'
               className='cta-button group premium-glass elite-hover rounded-2xl p-8 border border-[#a98b5d]/20 text-center space-y-4 transition-all duration-500 hover:border-[#a98b5d]/50'
             >
               <div className='w-16 h-16 rounded-2xl bg-[#a98b5d]/10 flex items-center justify-center mx-auto group-hover:bg-[#a98b5d]/20 transition-colors duration-300'>
@@ -119,7 +119,7 @@ export default function FinalCTASection() {
 
             {/* For Investors */}
             <Link
-              href='/investors-startups'
+              href='/for-investors'
               className='cta-button group premium-glass elite-hover rounded-2xl p-8 border border-[#a98b5d]/20 text-center space-y-4 transition-all duration-500 hover:border-[#a98b5d]/50 md:scale-105'
             >
               <div className='w-16 h-16 rounded-2xl bg-[#a98b5d]/10 flex items-center justify-center mx-auto group-hover:bg-[#a98b5d]/20 transition-colors duration-300'>
@@ -148,7 +148,7 @@ export default function FinalCTASection() {
 
             {/* For Service Providers */}
             <Link
-              href='/companies-providers#bounties'
+              href='/faq'
               className='cta-button group premium-glass elite-hover rounded-2xl p-8 border border-[#a98b5d]/20 text-center space-y-4 transition-all duration-500 hover:border-[#a98b5d]/50'
             >
               <div className='w-16 h-16 rounded-2xl bg-[#a98b5d]/10 flex items-center justify-center mx-auto group-hover:bg-[#a98b5d]/20 transition-colors duration-300'>

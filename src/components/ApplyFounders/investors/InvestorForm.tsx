@@ -26,9 +26,7 @@ import {
 } from '@/components/ui/select'
 import {
   submitInvestorApplication,
-  type InvestorApplicationData,
 } from '@/app/actions/investor-application'
-import { Separator } from '@/components/ui/separator'
 
 const formSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),

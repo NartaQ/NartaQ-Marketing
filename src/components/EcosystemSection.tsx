@@ -40,7 +40,7 @@ export default function EcosystemSection() {
       {/* Premium pathway cards */}
 
       <div className='grid lg:grid-cols-2 gap-8 mt-16 max-w-6xl mx-auto px-4'>
-        <Link href='/investors-startups' className='group relative'>
+        <Link href='/for-investors' className='group relative'>
           <div className='premium-glass elite-hover rounded-3xl p-10 border border-[#a98b5d]/20  h-full'>
             {/* Card header with icon */}
             <div className='flex items-center gap-4 mb-6'>
@@ -89,7 +89,7 @@ export default function EcosystemSection() {
             </div>
           </div>
         </Link>
-        <Link href='/companies-providers' className='group relative'>
+        <Link href='/for-founders' className='group relative'>
           <div className='premium-glass elite-hover rounded-3xl p-10 border border-[#a98b5d]/20  h-full'>
             {/* Card header with icon */}
             <div className='flex items-center gap-4 mb-6'>

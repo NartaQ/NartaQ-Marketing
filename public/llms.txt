@@ -1,0 +1,32 @@
+# NartaQ - AI-Driven Investment Platform
+
+## About
+NartaQ is an AI-powered platform connecting founders with investors through intelligent matching and automated due diligence. We leverage advanced AI models to streamline the investment process and provide comprehensive startup analytics.
+
+## Key Features
+- AI-driven founder-investor matching
+- Automated due diligence reports
+- Real-time market analysis
+- Comprehensive startup valuations
+- Multi-platform integrations
+
+## Target Audience
+- Early-stage founders seeking investment
+- Angel investors and VCs
+- Startup accelerators and incubators
+
+## Technology Stack
+- Advanced AI/ML models for analysis
+
+## Contact
+- Website: https://nartaq.com
+- Email: contact@nartaq.com
+- Focus: Pre-seed to Series A investments
+
+## Content Structure
+- Homepage: Platform overview and value proposition
+- For Founders: Fundraising tools and resources
+- For Investors: Deal flow and analytics
+- About: Company story and team
+- FAQ: Common questions and answers
+- Legal: Terms, privacy, and compliance

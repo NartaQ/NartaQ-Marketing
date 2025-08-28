@@ -69,8 +69,8 @@ export default function Footer() {
         <div className='flex h-full min-w-[180px] flex-col gap-4'>
           <h2 className='text-xl'>Platform</h2>
           <div className='flex flex-col gap-3'>
-            <Link href='/solutions/founders' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Founders</Link>
-            <Link href='/solutions/investors' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Investors</Link>
+            <Link href='/for-founders' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Founders</Link>
+            <Link href='/for-investors' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Investors</Link>
             <Link href='/#how-it-works' className='footer-link hover:text-black dark:hover:text-white transition-colors'>How It Works</Link>
             <Link href='/faq' className='footer-link hover:text-black dark:hover:text-white transition-colors'>FAQ</Link>
           </div>

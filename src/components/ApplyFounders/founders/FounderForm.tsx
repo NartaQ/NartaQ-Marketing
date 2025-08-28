@@ -11,7 +11,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
-import { FileUpload } from '@/components/ui/file-upload'
 import {
   Form,
   FormControl,
@@ -30,7 +29,6 @@ import {
 } from '@/components/ui/select'
 import {
   submitFounderApplication,
-  type FounderApplicationData,
 } from '@/app/actions/founder-application'
 
 const formSchema = z.object({

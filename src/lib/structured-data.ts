@@ -2,33 +2,27 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "NartaQ",
-  "description": "Elite platform connecting funded startups with smart investors and expert talent",
+  "description": "AI-powered platform connecting founders with investors through intelligent matching and automated due diligence",
   "url": "https://nartaq.com",
   "logo": "https://nartaq.com/logo/main-tr.svg",
   "contactPoint": [
     {
       "@type": "ContactPoint",
-      "telephone": "+33-1-234-567-89",
       "contactType": "customer service",
       "email": "contact@nartaq.com"
     }
   ],
-  "sameAs": [
-    "https://linkedin.com/company/nartaq",
-    "https://twitter.com/nartaq"
-  ],
-  "founders": [
-    {
-      "@type": "Person",
-      "name": "NartaQ Team"
-    }
-  ],
   "foundingDate": "2024",
-  "industry": "Technology",
-  "numberOfEmployees": "10-50",
+  "knowsAbout": [
+    "Investment Matching",
+    "Startup Funding",
+    "Due Diligence",
+    "Artificial Intelligence",
+    "Financial Technology"
+  ],
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "FR"
+    "addressCountry": "US"
   }
 }
 
@@ -37,50 +31,23 @@ export const websiteSchema = {
   "@type": "WebSite",
   "name": "NartaQ",
   "url": "https://nartaq.com",
-  "description": "Elite platform connecting funded startups with smart investors and expert talent",
+  "description": "AI-powered platform connecting founders with investors through intelligent matching and automated due diligence",
   "publisher": {
     "@type": "Organization",
     "name": "NartaQ"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://nartaq.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
   }
 }
 
 export const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Premium Investment & Talent Platform",
-  "description": "Exclusive platform connecting funded startups, smart investors, and expert service providers",
+  "name": "AI-Powered Investment Platform",
+  "description": "Connecting founders with investors through intelligent matching and automated due diligence",
   "provider": {
     "@type": "Organization",
-    "name": "NartaQ"
+    "name": "NartaQ",
+    "url": "https://nartaq.com"
   },
-  "areaServed": [
-    {
-      "@type": "Country",
-      "name": "France"
-    },
-    {
-      "@type": "Country", 
-      "name": "Tunisia"
-    }
-  ],
   "serviceType": "Investment Platform",
-  "audience": [
-    {
-      "@type": "Audience",
-      "name": "Startups"
-    },
-    {
-      "@type": "Audience",
-      "name": "Investors" 
-    },
-    {
-      "@type": "Audience",
-      "name": "Service Providers"
-    }
-  ]
+  "category": "Financial Technology"
 }

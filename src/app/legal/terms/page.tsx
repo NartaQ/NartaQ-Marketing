@@ -334,7 +334,7 @@ export default function TermsOfServicePage() {
                   <div className="space-y-2 text-sm">
                     <div><strong className="text-[#a98b5d]">Privacy Inquiries:</strong> <a href="mailto:privacy@nartaq.com" className="text-[#dcd7ce] hover:underline">privacy@nartaq.com</a></div>
                     <div><strong className="text-[#a98b5d]">Data Protection Officer:</strong> <a href="mailto:riadh@nartaq.com" className="text-[#dcd7ce] hover:underline">riadh@nartaq.com</a></div>
-                    <div><strong className="text-[#a98b5d]">Data Requests:</strong> <a href="http://www.nartaq.com/data-request" className="text-[#dcd7ce] hover:underline">www.nartaq.com/data-request</a></div>
+                    <div><strong className="text-[#a98b5d]">Data Requests:</strong> <a href="mailto:privacy@nartaq.com?subject=Data%20Request" className="text-[#dcd7ce] hover:underline">privacy@nartaq.com</a></div>
                     <div><strong className="text-[#a98b5d]">Phone:</strong> +33.784616068</div>
                   </div>
                 </div>
@@ -442,7 +442,7 @@ export default function TermsOfServicePage() {
                   <Link href="/legal/dmca" className="text-[#a98b5d] hover:text-[#dcd7ce] transition-colors">
                     DMCA Policy
                   </Link>
-                  <Link href="http://www.nartaq.com/data-request" className="text-[#a98b5d] hover:text-[#dcd7ce] transition-colors">
+                  <Link href="mailto:privacy@nartaq.com?subject=Data%20Request" className="text-[#a98b5d] hover:text-[#dcd7ce] transition-colors">
                     Data Request
                   </Link>
                   <span>© 2025 NartaQ SA. All rights reserved.</span>

@@ -84,7 +84,7 @@ export default function Header({ className }: { className?: string }) {
           <div className='hidden lg:flex'>
             <NavbarButton
               className='text-sm bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] px-7 py-2 font-semibold hover:bg-[#8B7349] transition-colors rounded-lg'
-              href='/solutions/founders'
+              href='/for-founders'
             >
               Join Founding Cohort
             </NavbarButton>
@@ -191,14 +191,14 @@ export default function Header({ className }: { className?: string }) {
               {expandedSection === 'platform' && (
                 <div className='ml-4 mt-2 space-y-2'>
                   <Link
-                    href='/solutions/founders'
+                    href='/for-founders'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     For Founders
                   </Link>
                   <Link
-                    href='/solutions/investors'
+                    href='/for-investors'
                     className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -239,7 +239,7 @@ export default function Header({ className }: { className?: string }) {
             {/* CTA Button */}
             <div className='pt-4 mt-4 border-t border-[#5c5d63]/40 dark:border-[#5c5d63]/50'>
               <NavbarButton
-                href='/solutions/founders'
+                href='/for-founders'
                 className='w-full text-center bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d]  hover:bg-[#8B7349]  px-4 py-3 rounded-lg font-semibold'
                 onClick={() => setMobileMenuOpen(false)}
               >
