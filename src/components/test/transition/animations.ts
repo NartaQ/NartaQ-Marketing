@@ -21,15 +21,22 @@ export const animatePageIn = () => {
       attr: { d: 'M 0,0 Q 50,-5 100,0 L 100,100 L 0,100 Z' }, // Curve covers screen completely
     })
       .set(pageNameDisplay, {
-        opacity: 1,
-        scale: 1,
+        opacity: 0,
+        scale: 0.7,
+        y: 30,
       })
       .set(curveTransition, {
         visibility: 'visible',
       })
 
-      // STEP 2: Show page title (brief display)
-      .to({}, { duration: 0.3 }) // Brief pause to show title
+      // STEP 2: Smooth page title entrance with beautiful animation
+      .to(pageNameDisplay, {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'back.out(1.4)',
+      })
 
       // STEP 3: Curve exits smoothly (title fades simultaneously)
       .to(pageNameDisplay, {
@@ -59,7 +66,7 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
   if (curvePath && pageNameDisplay && curveTransition) {
     const tl = gsap.timeline()
 
-    // STEP 1: Show curve sweeping up to cover screen
+    // STEP 1: Show curve sweeping up to cover screen (no page name shown)
     tl.set(curveTransition, {
       visibility: 'visible',
     })
@@ -76,15 +83,7 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
         ease: 'power3.out',
       })
 
-      // STEP 2: Show page title when screen is covered
-      .to(pageNameDisplay, {
-        opacity: 1,
-        scale: 1,
-        duration: 0.2,
-        ease: 'power2.out',
-      })
-
-      // STEP 3: Navigate immediately (no pause)
+      // STEP 2: Navigate immediately when screen is covered (no page name display)
       .call(() => {
         router.push(href)
       })

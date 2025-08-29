@@ -12,6 +12,13 @@ export default function Template({ children }: { children: React.ReactNode }) {
     // Extract page name from pathname
     const name = pathname === '/' ? 'Home' : pathname.slice(1).replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
     setPageName(name)
+
+    // Update the page name in the DOM immediately, then animate
+    const pageNameElement = document.querySelector('#page-name-display h1')
+    if (pageNameElement) {
+      pageNameElement.textContent = name
+    }
+
     animatePageIn()
   }, [pathname])
 
