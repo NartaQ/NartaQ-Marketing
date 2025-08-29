@@ -16,7 +16,7 @@ export default function UnifiedNavigation() {
   // Close nav when pathname changes
   useEffect(() => {
     if (isNavOpen) setIsNavOpen(false)
-  }, [pathname])
+  }, [pathname, isNavOpen])
 
   // Handle scroll detection
   useEffect(() => {
@@ -77,6 +77,7 @@ export default function UnifiedNavigation() {
           ease: [0.25, 0.46, 0.45, 0.94],
         }}
         className='fixed top-0 left-0 right-0 z-50'
+        style={{ minHeight: 'var(--header-height)' }}
       >
         <Header />
       </motion.div>
@@ -95,6 +96,7 @@ export default function UnifiedNavigation() {
         className='fixed top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 z-50'
         style={{
           pointerEvents: showFloatingNav || isNavOpen ? 'auto' : 'none',
+          position: 'fixed', // Ensure it stays fixed regardless of content
         }}
       >
         <button
@@ -104,14 +106,12 @@ export default function UnifiedNavigation() {
         >
           <div className='w-full relative'>
             <div
-              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${
-                isNavOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'
-              }`}
+              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${isNavOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'
+                }`}
             ></div>
             <div
-              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${
-                isNavOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'
-              }`}
+              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${isNavOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'
+                }`}
             ></div>
           </div>
         </button>
