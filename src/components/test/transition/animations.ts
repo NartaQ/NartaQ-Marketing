@@ -16,7 +16,7 @@ export const animatePageIn = () => {
     const tl = gsap.timeline()
     // STEP 1: Start with curve covering the screen (continuing from animatePageOut)
     tl.set(curvePath, {
-      attr: { d: 'M 0,0 Q 50,-5 100,0 L 100,100 L 0,100 Z' }, // Curve covers screen completely
+      attr: { d: 'M 0,0 Q 50,-5 100,0 L 100,100 Q 50,105 0,100 Z' }, // Curve covers screen with centered curves
     })
       .set(pageNameDisplay, {
         opacity: 0,
@@ -34,7 +34,7 @@ export const animatePageIn = () => {
         duration: 0.8, // Increased from 0.5
         ease: 'back.out(1.4)',
       })
-      // STEP 3: Curve exits through the TOP (title fades simultaneously)
+      // STEP 3: Curve exits through the TOP with curved bottom (title fades simultaneously)
       .to(pageNameDisplay, {
         opacity: 0,
         scale: 0.9,
@@ -45,7 +45,7 @@ export const animatePageIn = () => {
       .to(
         curvePath,
         {
-          attr: { d: 'M 0,-100 Q 50,-105 100,-100 L 100,0 L 0,0 Z' }, // Curve exits through TOP
+          attr: { d: 'M 0,-100 Q 50,-105 100,-100 L 100,0 Q 50,5 0,0 Z' }, // Curve exits through TOP with centered bottom curve
           duration: 0.6, // Increased from 0.4
           ease: 'power3.in',
         },
@@ -69,14 +69,14 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
       visibility: 'visible',
     })
       .set(curvePath, {
-        attr: { d: 'M 0,120 Q 50,115 100,120 L 100,100 L 0,100 Z' }, // Start below screen
+        attr: { d: 'M 0,120 Q 50,125 100,120 L 100,100 Q 50,95 0,100 Z' }, // Start below screen with centered curves
       })
       .set(pageNameDisplay, {
         opacity: 0,
         scale: 0.9,
       })
       .to(curvePath, {
-        attr: { d: 'M 0,0 Q 50,-5 100,0 L 100,100 L 0,100 Z' }, // Curve covers screen
+        attr: { d: 'M 0,0 Q 50,-5 100,0 L 100,100 Q 50,105 0,100 Z' }, // Curve covers screen with centered curves
         duration: 0.6, // Increased from 0.4
         ease: 'power3.out',
       })
@@ -96,7 +96,7 @@ export const animatePageInWave = () => {
     const tl = gsap.timeline()
 
     tl.set(curvePath, {
-      attr: { d: 'M 0,0 Q 25,5 50,0 Q 75,5 100,0 L 100,0 L 0,0 Z' }, // Wave at top
+      attr: { d: 'M 0,0 Q 25,-5 50,0 Q 75,-5 100,0 L 100,100 Q 50,105 0,100 Z' }, // Wave at top with centered bottom curve
     })
       .set(pageNameDisplay, {
         opacity: 1,
@@ -117,7 +117,7 @@ export const animatePageInWave = () => {
         curvePath,
         {
           attr: {
-            d: 'M 0,120 Q 25,125 50,120 Q 75,125 100,120 L 100,0 L 0,0 Z',
+            d: 'M 0,-120 Q 25,-125 50,-120 Q 75,-125 100,-120 L 100,0 Q 50,5 0,0 Z', // Exit through top with centered wave curve
           },
           duration: 0.6,
           ease: 'power4.in',
@@ -141,7 +141,7 @@ export const animatePageInLiquid = () => {
     const tl = gsap.timeline()
 
     tl.set(curvePath, {
-      attr: { d: 'M 0,0 Q 20,3 40,0 Q 60,3 80,0 Q 90,1 100,0 L 100,0 L 0,0 Z' },
+      attr: { d: 'M 0,0 Q 20,-3 40,0 Q 60,-3 80,0 Q 90,-1 100,0 L 100,100 Q 50,105 0,100 Z' }, // Liquid at top with centered bottom curve
     })
       .set(pageNameDisplay, {
         opacity: 1,
@@ -163,7 +163,7 @@ export const animatePageInLiquid = () => {
         curvePath,
         {
           attr: {
-            d: 'M 0,120 Q 20,125 40,120 Q 60,125 80,120 Q 90,122 100,120 L 100,0 L 0,0 Z',
+            d: 'M 0,-120 Q 20,-125 40,-120 Q 60,-125 80,-120 Q 90,-122 100,-120 L 100,0 Q 50,5 0,0 Z', // Exit through top with centered liquid curve
           },
           duration: 0.5,
           ease: 'power4.in',
@@ -175,4 +175,19 @@ export const animatePageInLiquid = () => {
         visibility: 'hidden',
       })
   }
+}
+
+// Animate curved bottom on scroll or interaction
+export const animateCurvedBottom = () => {
+  const curvedBottomElements = document.querySelectorAll('.curved-bottom-animated')
+
+  curvedBottomElements.forEach((element) => {
+    gsap.to(element, {
+      y: -10,
+      duration: 2,
+      ease: 'sine.inOut',
+      yoyo: true,
+      repeat: -1,
+    })
+  })
 }

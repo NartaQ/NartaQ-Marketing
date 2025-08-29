@@ -23,7 +23,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
   }, [pathname])
 
   return (
-    <div>
+    <div className="relative min-h-screen">
       {/* Curved Transition Element */}
       <div
         id='curve-transition'
@@ -66,7 +66,42 @@ export default function Template({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      {children}
+      {/* Main content wrapper */}
+      <div className="relative z-10">
+        {children}
+      </div>
+
+      {/* Curved Bottom Section */}
+      <div className="curved-bottom-section relative z-20 -mt-1">
+        <svg
+          className="w-full h-24 md:h-32 lg:h-40 curved-bottom-animated"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="bottomCurveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#232428" />
+              <stop offset="25%" stopColor="#3e3f44" />
+              <stop offset="50%" stopColor="#5c5d63" />
+              <stop offset="75%" stopColor="#a98b5d" />
+              <stop offset="100%" stopColor="#dcd7ce" />
+            </linearGradient>
+            <filter id="bottomCurveGlow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+              <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <path
+            d="M0,0 C150,120 350,120 600,60 C850,0 1050,0 1200,60 L1200,120 L0,120 Z"
+            fill="url(#bottomCurveGradient)"
+            filter="url(#bottomCurveGlow)"
+            className="drop-shadow-lg"
+          />
+        </svg>
+      </div>
     </div>
   )
 }

@@ -1174,3 +1174,58 @@ svg {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Curved Bottom Styles */
+.curved-bottom-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.curved-bottom-section svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateZ(0);
+  /* Force hardware acceleration */
+}
+
+.curved-bottom-section path {
+  will-change: transform;
+  filter: drop-shadow(0 -4px 20px rgba(0, 0, 0, 0.2));
+}
+
+/* Responsive curve heights */
+@media (max-width: 640px) {
+  .curved-bottom-section svg {
+    height: 60px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .curved-bottom-section svg {
+    height: 80px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .curved-bottom-section svg {
+    height: 100px;
+  }
+}
+
+/* Enhanced curved bottom with animation */
+.curved-bottom-animated {
+  animation: gentle-wave 8s ease-in-out infinite;
+}
+
+@keyframes gentle-wave {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
