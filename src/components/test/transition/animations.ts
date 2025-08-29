@@ -7,15 +7,13 @@ gsap.defaults({
   duration: 0.3,
 })
 
-// Three-step curve animation: 1) Curve covers screen, 2) Show page title, 3) Curve exits
+// Three-step curve animation: 1) Curve covers screen, 2) Show page title, 3) Curve exits through top
 export const animatePageIn = () => {
   const curvePath = document.getElementById('curve-path')
   const pageNameDisplay = document.getElementById('page-name-display')
   const curveTransition = document.getElementById('curve-transition')
-
   if (curvePath && pageNameDisplay && curveTransition) {
     const tl = gsap.timeline()
-
     // STEP 1: Start with curve covering the screen (continuing from animatePageOut)
     tl.set(curvePath, {
       attr: { d: 'M 0,0 Q 50,-5 100,0 L 100,100 L 0,100 Z' }, // Curve covers screen completely
@@ -28,29 +26,31 @@ export const animatePageIn = () => {
       .set(curveTransition, {
         visibility: 'visible',
       })
-
       // STEP 2: Smooth page title entrance with beautiful animation
       .to(pageNameDisplay, {
         opacity: 1,
         scale: 1,
         y: 0,
-        duration: 0.5,
+        duration: 0.8, // Increased from 0.5
         ease: 'back.out(1.4)',
       })
-
-      // STEP 3: Curve exits smoothly (title fades simultaneously)
+      // STEP 3: Curve exits through the TOP (title fades simultaneously)
       .to(pageNameDisplay, {
         opacity: 0,
         scale: 0.9,
-        duration: 0.4,
+        y: -20, // Move text up slightly as it fades
+        duration: 0.6, // Increased from 0.4
         ease: 'power3.in',
       })
-      .to(curvePath, {
-        attr: { d: 'M 0,120 Q 50,115 100,120 L 100,100 L 0,100 Z' }, // Curve exits bottom
-        duration: 0.4,
-        ease: 'power3.in',
-      }, '<') // Start at the same time as title fade
-
+      .to(
+        curvePath,
+        {
+          attr: { d: 'M 0,-100 Q 50,-105 100,-100 L 100,0 L 0,0 Z' }, // Curve exits through TOP
+          duration: 0.6, // Increased from 0.4
+          ease: 'power3.in',
+        },
+        '<'
+      ) // Start at the same time as title fade
       // Hide transition element
       .set(curveTransition, {
         visibility: 'hidden',
@@ -62,11 +62,9 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
   const curvePath = document.getElementById('curve-path')
   const pageNameDisplay = document.getElementById('page-name-display')
   const curveTransition = document.getElementById('curve-transition')
-
   if (curvePath && pageNameDisplay && curveTransition) {
     const tl = gsap.timeline()
-
-    // STEP 1: Show curve sweeping up to cover screen (no page name shown)
+    // STEP 1: Show curve sweeping up from bottom to cover screen
     tl.set(curveTransition, {
       visibility: 'visible',
     })
@@ -79,17 +77,15 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
       })
       .to(curvePath, {
         attr: { d: 'M 0,0 Q 50,-5 100,0 L 100,100 L 0,100 Z' }, // Curve covers screen
-        duration: 0.4,
+        duration: 0.6, // Increased from 0.4
         ease: 'power3.out',
       })
-
-      // STEP 2: Navigate immediately when screen is covered (no page name display)
+      // STEP 2: Navigate immediately when screen is covered
       .call(() => {
         router.push(href)
       })
   }
 }
-
 // Fast wave curve animation
 export const animatePageInWave = () => {
   const curvePath = document.getElementById('curve-path')
@@ -117,11 +113,17 @@ export const animatePageInWave = () => {
         duration: 0.2,
         ease: 'power3.in',
       })
-      .to(curvePath, {
-        attr: { d: 'M 0,120 Q 25,125 50,120 Q 75,125 100,120 L 100,0 L 0,0 Z' },
-        duration: 0.6,
-        ease: 'power4.in',
-      }, '-=0.1')
+      .to(
+        curvePath,
+        {
+          attr: {
+            d: 'M 0,120 Q 25,125 50,120 Q 75,125 100,120 L 100,0 L 0,0 Z',
+          },
+          duration: 0.6,
+          ease: 'power4.in',
+        },
+        '-=0.1'
+      )
 
       .set(curveTransition, {
         visibility: 'hidden',
@@ -157,11 +159,17 @@ export const animatePageInLiquid = () => {
         duration: 0.2,
         ease: 'power3.in',
       })
-      .to(curvePath, {
-        attr: { d: 'M 0,120 Q 20,125 40,120 Q 60,125 80,120 Q 90,122 100,120 L 100,0 L 0,0 Z' },
-        duration: 0.5,
-        ease: 'power4.in',
-      }, '-=0.1')
+      .to(
+        curvePath,
+        {
+          attr: {
+            d: 'M 0,120 Q 20,125 40,120 Q 60,125 80,120 Q 90,122 100,120 L 100,0 L 0,0 Z',
+          },
+          duration: 0.5,
+          ease: 'power4.in',
+        },
+        '-=0.1'
+      )
 
       .set(curveTransition, {
         visibility: 'hidden',
