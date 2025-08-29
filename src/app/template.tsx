@@ -38,19 +38,28 @@ export default function Template({ children }: { children: React.ReactNode }) {
         >
           <defs>
             <linearGradient id='curveGradient' x1='0%' y1='0%' x2='100%' y2='100%'>
-              <stop offset='0%' stopColor='#232428' />
-              <stop offset='25%' stopColor='#5c5d63' />
-              <stop offset='50%' stopColor='#8B7349' />
-              <stop offset='75%' stopColor='#a98b5d' />
+              <stop offset='0%' stopColor='#1a1b1f' />
+              <stop offset='20%' stopColor='#232428' />
+              <stop offset='40%' stopColor='#3e3f44' />
+              <stop offset='60%' stopColor='#5c5d63' />
+              <stop offset='80%' stopColor='#a98b5d' />
               <stop offset='100%' stopColor='#dcd7ce' />
             </linearGradient>
+            <filter id='curveGlow' x='-50%' y='-50%' width='200%' height='200%'>
+              <feGaussianBlur stdDeviation='4' result='coloredBlur' />
+              <feMerge>
+                <feMergeNode in='coloredBlur' />
+                <feMergeNode in='SourceGraphic' />
+              </feMerge>
+            </filter>
           </defs>
           <path
             id='curve-path'
             d='M 0,100 Q 50,80 100,100 L 100,0 L 0,0 Z'
             fill='url(#curveGradient)'
+            filter='url(#curveGlow)'
             style={{
-              filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.3))',
+              filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.5))',
             }}
           />
         </svg>
@@ -60,9 +69,12 @@ export default function Template({ children }: { children: React.ReactNode }) {
           id='page-name-display'
           className='absolute inset-0 flex items-center justify-center opacity-0'
         >
-          <h1 className='text-6xl md:text-8xl font-bold text-white tracking-wider'>
-            {pageName}
-          </h1>
+          <div className='text-center'>
+            <h1 className='text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-wider mb-2 page-title-gradient'>
+              {pageName}
+            </h1>
+            <div className='w-24 h-1 bg-gradient-to-r from-transparent via-lion to-transparent mx-auto opacity-80'></div>
+          </div>
         </div>
       </div>
 
@@ -80,10 +92,11 @@ export default function Template({ children }: { children: React.ReactNode }) {
         >
           <defs>
             <linearGradient id="bottomCurveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#232428" />
-              <stop offset="25%" stopColor="#3e3f44" />
-              <stop offset="50%" stopColor="#5c5d63" />
-              <stop offset="75%" stopColor="#a98b5d" />
+              <stop offset="0%" stopColor="#1a1b1f" />
+              <stop offset="20%" stopColor="#232428" />
+              <stop offset="40%" stopColor="#3e3f44" />
+              <stop offset="60%" stopColor="#5c5d63" />
+              <stop offset="80%" stopColor="#a98b5d" />
               <stop offset="100%" stopColor="#dcd7ce" />
             </linearGradient>
             <filter id="bottomCurveGlow">
@@ -95,7 +108,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
             </filter>
           </defs>
           <path
-            d="M0,0 C150,120 350,120 600,60 C850,0 1050,0 1200,60 L1200,120 L0,120 Z"
+            d="M0,0 C200,80 400,80 600,40 C800,0 1000,0 1200,40 L1200,120 L0,120 Z"
             fill="url(#bottomCurveGradient)"
             filter="url(#bottomCurveGlow)"
             className="drop-shadow-lg"

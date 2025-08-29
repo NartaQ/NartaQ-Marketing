@@ -1229,3 +1229,64 @@ svg {
     transform: translateY(-5px);
   }
 }
+
+/* Beautiful Page Title Styling */
+.page-title-gradient {
+  background: linear-gradient(135deg,
+      #dcd7ce 0%,
+      #a98b5d 25%,
+      #ffffff 50%,
+      #a98b5d 75%,
+      #dcd7ce 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  animation: page-title-shimmer 4s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(169, 139, 93, 0.3);
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+.page-title-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(169, 139, 93, 0.1) 0%,
+      rgba(220, 215, 206, 0.2) 50%,
+      rgba(169, 139, 93, 0.1) 100%);
+  border-radius: 12px;
+  filter: blur(20px);
+  z-index: -1;
+  animation: page-title-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes page-title-shimmer {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes page-title-glow {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
