@@ -4,12 +4,29 @@ import { motion, useInView } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import { animatePageOut } from '../pageTransition/animations'
 
 export default function NewsletterSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const handleNavigation = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault()
+
+    // Don't animate if we're already on the page
+    if (pathname === href) return
+
+    // Trigger page transition animation
+    animatePageOut(href, router)
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -76,6 +93,7 @@ export default function NewsletterSection() {
               <Link
                 href='/apply/founders'
                 className='flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
+                onClick={(e) => handleNavigation(e, '/apply/founders')}
               >
                 I'm a Founder
                 <ArrowRight className='w-4 h-4' />
@@ -84,6 +102,7 @@ export default function NewsletterSection() {
               <Link
                 href='/apply/investors'
                 className='flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
+                onClick={(e) => handleNavigation(e, '/apply/investors')}
               >
                 I'm an Investor
                 <ArrowRight className='w-4 h-4' />
