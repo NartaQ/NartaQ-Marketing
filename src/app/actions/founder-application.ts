@@ -1,6 +1,6 @@
 'use server'
-
-import { PrismaClient } from '@/generated/prisma'
+import { PrismaClient } from '@prisma/client'
+// import { PrismaClient } from '@/generated/prisma'
 import { z } from 'zod'
 import { azureBlobService } from '@/lib/azure-blob-service'
 
@@ -25,7 +25,7 @@ const founderApplicationSchema = z.object({
 export type FounderApplicationData = z.infer<typeof founderApplicationSchema>
 
 export async function submitFounderApplication(
-  data: FounderApplicationData, 
+  data: FounderApplicationData,
   pitchDeckFile?: File
 ) {
   try {

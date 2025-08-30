@@ -1,9 +1,9 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Sparkles, ArrowRight, Target, Zap, Users, Clock, CheckCircle, HelpCircle, Rocket } from 'lucide-react'
-import Link from 'next/link'
 import { useRive } from '@rive-app/react-canvas'
+import { motion } from 'framer-motion'
+import { ArrowRight, CheckCircle, Clock, Sparkles, Target, Users } from 'lucide-react'
+import Link from 'next/link'
 
 export default function ForFoundersPage() {
   const { RiveComponent } = useRive({

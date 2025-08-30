@@ -21,6 +21,8 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
   transitionClass = 'page-transition',
   disabled = false,
   onClick,
+  target,
+  onKeyDown,
   ...props
 }) => {
   const router = useRouter()
@@ -41,7 +43,7 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
         href.startsWith('mailto:') ||
         href.startsWith('tel:')
       ) {
-        window.open(href, props.target || '_self')
+        window.open(href, target || '_self')
         return
       }
 
@@ -75,17 +77,59 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
         isTransitioning.current = false
       }
     },
-    [href, router, transitionDuration, transitionClass, disabled, onClick]
+    [href, router, transitionDuration, transitionClass, disabled, onClick, target]
   )
+
+  const handleKeyboardNavigation = useCallback(async () => {
+    if (isTransitioning.current || disabled) {
+      return
+    }
+
+    if (
+      href.startsWith('http') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:')
+    ) {
+      window.open(href, target || '_self')
+      return
+    }
+
+    if (href === window.location.pathname + window.location.search) {
+      return
+    }
+
+    try {
+      isTransitioning.current = true
+      const body = document.querySelector('body')
+
+      if (!body) {
+        console.warn('TransitionLink: body element not found')
+        router.push(href)
+        return
+      }
+
+      body.classList.add(transitionClass)
+      await sleep(transitionDuration)
+      router.push(href)
+      await sleep(transitionDuration)
+      body.classList.remove(transitionClass)
+    } catch (error) {
+      console.error('TransitionLink: Navigation failed', error)
+      router.push(href)
+    } finally {
+      isTransitioning.current = false
+    }
+  }, [href, router, transitionDuration, transitionClass, disabled, target])
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLAnchorElement>) => {
       if (e.key === 'Enter' && !disabled) {
-        handleTransition(e as any)
+        e.preventDefault()
+        handleKeyboardNavigation()
       }
-      props.onKeyDown?.(e)
+      onKeyDown?.(e)
     },
-    [handleTransition, disabled, props.onKeyDown]
+    [handleKeyboardNavigation, disabled, onKeyDown]
   )
 
   return (

@@ -2,11 +2,11 @@ export const menuSlide = {
   initial: { x: 'calc(100% + 100px)' },
   enter: {
     x: '0',
-    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as any },
+    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const },
   },
   exit: {
     x: 'calc(100% + 100px)',
-    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as any },
+    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const },
   },
 }
 
@@ -16,7 +16,7 @@ export const slide = {
     x: 0,
     transition: {
       duration: 0.8,
-      ease: [0.76, 0, 0.24, 1] as any,
+      ease: [0.76, 0, 0.24, 1] as const,
       delay: 0.05 * i,
     },
   }),
@@ -24,7 +24,7 @@ export const slide = {
     x: 80,
     transition: {
       duration: 0.8,
-      ease: [0.76, 0, 0.24, 1] as any,
+      ease: [0.76, 0, 0.24, 1] as const,
       delay: 0.05 * i,
     },
   }),

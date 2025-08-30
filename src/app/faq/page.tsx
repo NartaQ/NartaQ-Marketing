@@ -3,8 +3,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown, HelpCircle, Search } from 'lucide-react'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
 import { cn } from '../../lib/utils'
 
 export default function FAQPage() {

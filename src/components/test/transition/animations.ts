@@ -75,6 +75,7 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
         opacity: 0,
         scale: 0.9,
       })
+
       .to(curvePath, {
         attr: { d: 'M 0,0 Q 50,-15 100,0 L 100,100 Q 50,115 0,100 Z' }, // More curved covering position
         duration: 0.6, // Increased from 0.4
@@ -85,109 +86,4 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
         router.push(href)
       })
   }
-}
-// Fast wave curve animation
-export const animatePageInWave = () => {
-  const curvePath = document.getElementById('curve-path')
-  const pageNameDisplay = document.getElementById('page-name-display')
-  const curveTransition = document.getElementById('curve-transition')
-
-  if (curvePath && pageNameDisplay && curveTransition) {
-    const tl = gsap.timeline()
-
-    tl.set(curvePath, {
-      attr: { d: 'M 0,0 Q 25,-12 50,0 Q 75,-12 100,0 L 100,100 Q 50,115 0,100 Z' }, // More curved wave pattern
-    })
-      .set(pageNameDisplay, {
-        opacity: 1,
-        scale: 1,
-      })
-      .set(curveTransition, {
-        visibility: 'visible',
-      })
-
-      // Immediately start wave animation
-      .to(pageNameDisplay, {
-        opacity: 0,
-        scale: 0.9,
-        duration: 0.2,
-        ease: 'power3.in',
-      })
-      .to(
-        curvePath,
-        {
-          attr: {
-            d: 'M 0,-120 Q 25,-135 50,-120 Q 75,-135 100,-120 L 100,0 Q 50,15 0,0 Z', // More curved wave exit
-          },
-          duration: 0.6,
-          ease: 'power4.in',
-        },
-        '-=0.1'
-      )
-
-      .set(curveTransition, {
-        visibility: 'hidden',
-      })
-  }
-}
-
-// Fast liquid curve animation
-export const animatePageInLiquid = () => {
-  const curvePath = document.getElementById('curve-path')
-  const pageNameDisplay = document.getElementById('page-name-display')
-  const curveTransition = document.getElementById('curve-transition')
-
-  if (curvePath && pageNameDisplay && curveTransition) {
-    const tl = gsap.timeline()
-
-    tl.set(curvePath, {
-      attr: { d: 'M 0,0 Q 20,-8 40,0 Q 60,-8 80,0 Q 90,-4 100,0 L 100,100 Q 50,115 0,100 Z' }, // More curved liquid pattern
-    })
-      .set(pageNameDisplay, {
-        opacity: 1,
-        scale: 1,
-        rotation: 0,
-      })
-      .set(curveTransition, {
-        visibility: 'visible',
-      })
-
-      // Fast liquid motion
-      .to(pageNameDisplay, {
-        opacity: 0,
-        scale: 0.9,
-        duration: 0.2,
-        ease: 'power3.in',
-      })
-      .to(
-        curvePath,
-        {
-          attr: {
-            d: 'M 0,-120 Q 20,-135 40,-120 Q 60,-135 80,-120 Q 90,-132 100,-120 L 100,0 Q 50,15 0,0 Z', // More curved liquid exit
-          },
-          duration: 0.5,
-          ease: 'power4.in',
-        },
-        '-=0.1'
-      )
-
-      .set(curveTransition, {
-        visibility: 'hidden',
-      })
-  }
-}
-
-// Animate curved bottom on scroll or interaction
-export const animateCurvedBottom = () => {
-  const curvedBottomElements = document.querySelectorAll('.curved-bottom-animated')
-
-  curvedBottomElements.forEach((element) => {
-    gsap.to(element, {
-      y: -10,
-      duration: 2,
-      ease: 'sine.inOut',
-      yoyo: true,
-      repeat: -1,
-    })
-  })
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import { ReactLenis } from 'lenis/react'
 
 interface LenisProviderProps {

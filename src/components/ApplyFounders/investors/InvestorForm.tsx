@@ -1,13 +1,13 @@
 'use client'
 
+import { zodResolver } from '@hookform/resolvers/zod'
 import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
+import { submitInvestorApplication } from '@/app/actions/investor-application'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import {
   Form,
@@ -17,6 +17,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
@@ -24,11 +25,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import {
-  submitInvestorApplication,
-  type InvestorApplicationData,
-} from '@/app/actions/investor-application'
-import { Separator } from '@/components/ui/separator'
 
 const formSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
@@ -248,7 +244,7 @@ export default function InvestorForm({
                           key={option}
                           control={form.control}
                           name='investmentFocus'
-                          render={({ field }) => (
+                          render={() => (
                             <FormItem>
                               <motion.label
                                 initial={{ scale: 1 }}
@@ -456,7 +452,7 @@ export default function InvestorForm({
                           key={option}
                           control={form.control}
                           name='targetGeography'
-                          render={({ field }) => (
+                          render={() => (
                             <FormItem>
                               <motion.label
                                 initial={{ scale: 1 }}

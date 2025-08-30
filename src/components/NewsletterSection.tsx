@@ -1,8 +1,8 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { useRef, useState } from 'react'
-import { ArrowRight, Mail, Sparkles } from 'lucide-react'
 
 export default function NewsletterSection() {
   const ref = useRef(null)
@@ -70,7 +70,7 @@ export default function NewsletterSection() {
             <h3 className='text-2xl font-bold text-[#dcd7ce] mb-6'>
               Join the Founding Community
             </h3>
-            
+
             <div className='flex flex-col sm:flex-row gap-4 mb-6'>
               <a
                 href='/apply/founders'
@@ -79,7 +79,7 @@ export default function NewsletterSection() {
                 I'm a Founder
                 <ArrowRight className='w-4 h-4' />
               </a>
-              
+
               <a
                 href='/apply/investors'
                 className='flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
@@ -93,7 +93,7 @@ export default function NewsletterSection() {
               <p className='text-gray-400 mb-4 text-sm'>
                 Or get updates on our progress:
               </p>
-              
+
               <form
                 onSubmit={handleSubmit}
                 className='flex flex-col sm:flex-row gap-3'

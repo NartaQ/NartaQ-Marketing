@@ -1,26 +1,27 @@
 'use client'
 
-import { useState } from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
+import {
+  submitFounderApplication
+} from '@/app/actions/founder-application'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
-import { FileUpload } from '@/components/ui/file-upload'
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-  FormDescription,
 } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
@@ -28,10 +29,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import {
-  submitFounderApplication,
-  type FounderApplicationData,
-} from '@/app/actions/founder-application'
+import { Textarea } from '@/components/ui/textarea'
 
 const formSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
@@ -56,7 +54,7 @@ export default function FounderForm({
 }: {
   onSubmitted: (files: File[]) => void
 }) {
-  const [pitchDeckFiles, setPitchDeckFiles] = useState<File[]>([])
+  const [pitchDeckFiles] = useState<File[]>([])
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -241,7 +239,7 @@ export default function FounderForm({
                           key={option}
                           control={form.control}
                           name='sector'
-                          render={({ field }) => (
+                          render={() => (
                             <FormItem>
                               <motion.label
                                 initial={{ scale: 1 }}
@@ -253,11 +251,10 @@ export default function FounderForm({
                                   stiffness: 140,
                                   damping: 18,
                                 }}
-                                className={`flex items-center gap-3 p-3 rounded-xl border transition-colors duration-250 cursor-pointer select-none ${
-                                  checked
+                                className={`flex items-center gap-3 p-3 rounded-xl border transition-colors duration-250 cursor-pointer select-none ${checked
                                     ? 'border-[#a98b5d] bg-[#a98b5d]/20 text-[#a98b5d]'
                                     : 'border-gray-600 bg-black/30 text-gray-300 hover:border-[#a98b5d]/50'
-                                }`}
+                                  }`}
                               >
                                 <FormControl>
                                   <Checkbox
@@ -284,11 +281,10 @@ export default function FounderForm({
                                   className='w-6 h-6 rounded-full flex items-center justify-center'
                                 >
                                   <div
-                                    className={`rounded-full ${
-                                      checked
+                                    className={`rounded-full ${checked
                                         ? 'bg-[#a98b5d] text-black'
                                         : 'bg-transparent'
-                                    } w-6 h-6 flex items-center justify-center`}
+                                      } w-6 h-6 flex items-center justify-center`}
                                   >
                                     <Check className='w-4 h-4' />
                                   </div>

@@ -132,10 +132,10 @@ const Hero = () => {
   const { width: windowWidth } = useWindowSize()
 
   useEffect(() => {
-    const setIsMobile = (_isMobile: boolean) => {
-      // Mobile state logic would go here if needed
-    }
-    setIsMobile(windowWidth <= IS_MOBILE_SCREEN_WIDTH)
+    // Mobile state logic would go here if needed
+    const isMobile = windowWidth <= IS_MOBILE_SCREEN_WIDTH
+    // Use isMobile if needed for mobile-specific logic
+    console.log('Is mobile:', isMobile)
   }, [windowWidth])
 
   return (

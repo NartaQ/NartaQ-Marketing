@@ -10,6 +10,7 @@ export default function ResponsiveNavigation() {
 
   useEffect(() => {
     if (isActive) setIsActive(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
   // Toggle body classes to blur page content and disable scroll when nav is open

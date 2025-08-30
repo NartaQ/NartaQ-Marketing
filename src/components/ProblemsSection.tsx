@@ -1,8 +1,8 @@
 'use client'
 
-import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Clock, AlertTriangle, EyeOff, TrendingDown } from 'lucide-react'
+import { AlertTriangle, Clock, EyeOff } from 'lucide-react'
+import { useRef } from 'react'
 
 export default function ProblemsSection() {
   const ref = useRef(null)

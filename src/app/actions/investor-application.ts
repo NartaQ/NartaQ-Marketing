@@ -1,6 +1,6 @@
 'use server'
 
-import { PrismaClient } from '@/generated/prisma'
+import { PrismaClient } from '@prisma/client'
 import { z } from 'zod'
 
 const prisma = new PrismaClient()
@@ -10,10 +10,14 @@ const investorApplicationSchema = z.object({
   workEmail: z.string().email('Please enter a valid email address'),
   companyName: z.string().min(1, 'Company/Firm name is required'),
   title: z.string().min(1, 'Title is required'),
-  investmentFocus: z.array(z.string()).min(1, 'Please select at least one investment focus'),
+  investmentFocus: z
+    .array(z.string())
+    .min(1, 'Please select at least one investment focus'),
   otherFocus: z.string().optional(),
   ticketSize: z.string().min(1, 'Please select a ticket size'),
-  targetGeography: z.array(z.string()).min(1, 'Please select at least one target geography'),
+  targetGeography: z
+    .array(z.string())
+    .min(1, 'Please select at least one target geography'),
   referralSource: z.string().min(1, 'Please select a referral source'),
   otherSource: z.string().optional(),
 })

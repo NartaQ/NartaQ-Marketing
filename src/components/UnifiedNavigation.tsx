@@ -16,6 +16,7 @@ export default function UnifiedNavigation() {
   // Close nav when pathname changes
   useEffect(() => {
     if (isNavOpen) setIsNavOpen(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
   // Handle scroll detection

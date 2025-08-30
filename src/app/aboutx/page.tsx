@@ -10,6 +10,7 @@ import {
   Linkedin,
   Twitter,
 } from 'lucide-react'
+import Image from 'next/image';
 
 export default function AboutPage() {
   return (
@@ -167,7 +168,7 @@ export default function AboutPage() {
               >
                 <div className='w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] p-0.5'>
                   <div className='w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center'>
-                    <img
+                    <Image
                       src='/images/team/riadh.jpeg'
                       alt='Riadh Jouini'
                       className='w-full h-full object-cover rounded-2xl'
@@ -214,7 +215,7 @@ export default function AboutPage() {
               >
                 <div className='w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] p-0.5'>
                   <div className='w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center'>
-                    <img
+                    <Image
                       src='/images/team/jesser.jpeg'
                       alt='Jesser Bedoui'
                       className='w-full h-full object-cover rounded-2xl'

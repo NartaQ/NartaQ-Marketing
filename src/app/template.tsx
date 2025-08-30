@@ -81,9 +81,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
           id='page-name-display'
           className='absolute inset-0 flex items-center justify-center opacity-0'
         >
-          <h1 className='text-6xl md:text-8xl font-bold  tracking-wide'>
+          <span className='text-6xl md:text-8xl font-bold  tracking-wide text-white font-serif'>
             {pageName}
-          </h1>
+          </span>
         </div>
       </div>
 
@@ -105,6 +105,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
               x2='100%'
               y2='100%'
             >
+              {/* in case you want to change the bg of the transition change this hex colors */}
               <stop offset='0%' stopColor='#1a1918' />
               <stop offset='20%' stopColor='#232428' />
               <stop offset='40%' stopColor='#3e3f44' />

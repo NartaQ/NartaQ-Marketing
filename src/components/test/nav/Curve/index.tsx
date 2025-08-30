@@ -22,12 +22,10 @@ export default function Index() {
     return () => window.removeEventListener('resize', updateDimensions)
   }, [])
 
-  const initialPath = `M100 0 L200 0 L200 ${dimensions.height} L100 ${
-    dimensions.height
-  } Q-100 ${dimensions.height / 2} 100 0`
-  const targetPath = `M100 0 L200 0 L200 ${dimensions.height} L100 ${
-    dimensions.height
-  } Q100 ${dimensions.height / 2} 100 0`
+  const initialPath = `M100 0 L200 0 L200 ${dimensions.height} L100 ${dimensions.height
+    } Q-100 ${dimensions.height / 2} 100 0`
+  const targetPath = `M100 0 L200 0 L200 ${dimensions.height} L100 ${dimensions.height
+    } Q100 ${dimensions.height / 2} 100 0`
 
   const curve = {
     initial: {
@@ -35,11 +33,11 @@ export default function Index() {
     },
     enter: {
       d: targetPath,
-      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] as any },
+      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] as const },
     },
     exit: {
       d: initialPath,
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as any },
+      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const },
     },
   }
 

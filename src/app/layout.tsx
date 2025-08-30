@@ -1,19 +1,18 @@
 import type { Metadata, Viewport } from 'next'
 
-import './globals.css'
-import { Playfair_Display, Source_Sans_3 } from 'next/font/google'
 import Footer from '@/components/Footer'
 import LenisProvider from '@/components/LenisProvider'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Playfair_Display, Source_Sans_3 } from 'next/font/google'
+import './globals.css'
 
+import UnifiedNavigation from '@/components/UnifiedNavigation'
 import {
   organizationSchema,
-  websiteSchema,
   serviceSchema,
+  websiteSchema,
 } from '@/lib/structured-data'
-import UnifiedNavigation from '@/components/UnifiedNavigation'
-import Navigation from '@/components/test/transition/Navigation'
 
 const fontSans = Playfair_Display({
   subsets: ['latin'],

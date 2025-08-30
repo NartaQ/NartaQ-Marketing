@@ -42,6 +42,19 @@ interface ParticlesProps {
   vy?: number
 }
 
+type Circle = {
+  x: number
+  y: number
+  translateX: number
+  translateY: number
+  size: number
+  alpha: number
+  targetAlpha: number
+  dx: number
+  dy: number
+  magnetism: number
+}
+
 function hexToRgb(hex: string): number[] {
   hex = hex.replace('#', '')
   const hexInt = parseInt(hex, 16)
@@ -67,7 +80,7 @@ const Particles: React.FC<ParticlesProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasContainerRef = useRef<HTMLDivElement>(null)
   const context = useRef<CanvasRenderingContext2D | null>(null)
-  const circles = useRef<any[]>([])
+  const circles = useRef<Circle[]>([])
   const mousePosition = MousePosition()
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 })
@@ -78,6 +91,7 @@ const Particles: React.FC<ParticlesProps> = ({
   const initCanvas = useCallback(() => {
     resizeCanvas()
     drawParticles()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quantity, color])
 
   useEffect(() => {
@@ -109,10 +123,12 @@ const Particles: React.FC<ParticlesProps> = ({
     return () => {
       window.removeEventListener('resize', initCanvas)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color, initCanvas])
 
   useEffect(() => {
     onMouseMove()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mousePosition.x, mousePosition.y])
 
   useEffect(() => {
@@ -133,18 +149,7 @@ const Particles: React.FC<ParticlesProps> = ({
     }
   }
 
-  type Circle = {
-    x: number
-    y: number
-    translateX: number
-    translateY: number
-    size: number
-    alpha: number
-    targetAlpha: number
-    dx: number
-    dy: number
-    magnetism: number
-  }
+
 
   const resizeCanvas = () => {
     if (canvasRef.current && context.current) {

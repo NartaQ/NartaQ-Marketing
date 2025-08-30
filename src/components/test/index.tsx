@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     if (isActive) setIsActive(false)
-  }, [pathname])
+  }, [pathname, isActive])
 
   return (
     <>
@@ -24,14 +24,12 @@ export default function Home() {
           >
             <div className='w-full relative'>
               <div
-                className={`w-2/5 h-px bg-white block mx-auto relative transition-transform duration-300 ${
-                  isActive ? 'rotate-45 top-0' : '-top-1.5'
-                }`}
+                className={`w-2/5 h-px bg-white block mx-auto relative transition-transform duration-300 ${isActive ? 'rotate-45 top-0' : '-top-1.5'
+                  }`}
               ></div>
               <div
-                className={`w-2/5 h-px bg-white block mx-auto relative transition-transform duration-300 ${
-                  isActive ? '-rotate-45 top-0' : 'top-1.5'
-                }`}
+                className={`w-2/5 h-px bg-white block mx-auto relative transition-transform duration-300 ${isActive ? '-rotate-45 top-0' : 'top-1.5'
+                  }`}
               ></div>
             </div>
           </div>
