@@ -16,7 +16,7 @@ export default function UnifiedNavigation() {
   // Close nav when pathname changes
   useEffect(() => {
     if (isNavOpen) setIsNavOpen(false)
-  }, [pathname, isNavOpen])
+  }, [pathname])
 
   // Handle scroll detection
   useEffect(() => {
@@ -106,12 +106,14 @@ export default function UnifiedNavigation() {
         >
           <div className='w-full relative'>
             <div
-              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${isNavOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'
-                }`}
+              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${
+                isNavOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'
+              }`}
             ></div>
             <div
-              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${isNavOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'
-                }`}
+              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${
+                isNavOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'
+              }`}
             ></div>
           </div>
         </button>
