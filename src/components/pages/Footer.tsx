@@ -20,7 +20,11 @@ export default function Footer() {
                 Building the Future of Startup Funding
               </div>
               <div className='text-xs text-gray-500 mt-1'>
-                France-Tunisia Corridor
+                  Our AI-powered platform revolutionizes startup funding by eliminating network bias and geographic 
+                  barriers. We use advanced algorithms to analyze market opportunities, team capabilities, and 
+                  investor preferences, creating optimal matches based on merit and compatibility rather than 
+                  connections. Join the founding cohort of entrepreneurs and investors building the future of 
+                  equitable startup funding.
               </div>
             </div>
           </Link>
@@ -69,30 +73,10 @@ export default function Footer() {
         <div className='flex h-full min-w-[180px] flex-col gap-4'>
           <h2 className='text-xl'>Platform</h2>
           <div className='flex flex-col gap-3'>
-            <Link
-              href='/solutions/founders'
-              className='footer-link hover:text-black dark:hover:text-white transition-colors'
-            >
-              For Founders
-            </Link>
-            <Link
-              href='/solutions/investors'
-              className='footer-link hover:text-black dark:hover:text-white transition-colors'
-            >
-              For Investors
-            </Link>
-            <Link
-              href='/#how-it-works'
-              className='footer-link hover:text-black dark:hover:text-white transition-colors'
-            >
-              How It Works
-            </Link>
-            <Link
-              href='/faq'
-              className='footer-link hover:text-black dark:hover:text-white transition-colors'
-            >
-              FAQ
-            </Link>
+            <Link href='/for-founders' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Founders</Link>
+            <Link href='/for-investors' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Investors</Link>
+            <Link href='/#how-it-works' className='footer-link hover:text-black dark:hover:text-white transition-colors'>How It Works</Link>
+            <Link href='/faq' className='footer-link hover:text-black dark:hover:text-white transition-colors'>FAQ</Link>
           </div>
         </div>
 

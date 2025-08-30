@@ -1405,26 +1405,9 @@ export default function PrivacyPolicyPage() {
                   14. How Can You Review, Update, or Delete the Data We Collect
                   From You?
                 </h2>
-                <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-xl p-6'>
-                  <div className='space-y-4 text-gray-300 text-sm'>
-                    <p>
-                      Based on the applicable laws of your country, you may have
-                      the right to request access to the personal information we
-                      collect from you, details about how we have processed it,
-                      correct inaccuracies, or delete your personal information.
-                      You may also have the right to withdraw your consent to
-                      our processing of your personal information. These rights
-                      may be limited in some circumstances by applicable law. To
-                      request to review, update, or delete your personal
-                      information, please visit:{' '}
-                      <Link
-                        href='http://www.nartaq.com/data-request'
-                        className='text-[#a98b5d] hover:underline'
-                      >
-                        http://www.nartaq.com/data-request
-                      </Link>
-                      .
-                    </p>
+                <div className="bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-xl p-6">
+                  <div className="space-y-4 text-gray-300 text-sm">
+                    <p>Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please contact us at <a href="mailto:privacy@nartaq.com?subject=Data%20Request" className="text-[#a98b5d] hover:underline">privacy@nartaq.com</a>.</p>
                   </div>
                 </div>
               </section>

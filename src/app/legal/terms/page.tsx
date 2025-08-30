@@ -674,10 +674,7 @@ export default function TermsOfServicePage() {
                   >
                     DMCA Policy
                   </Link>
-                  <Link
-                    href='http://www.nartaq.com/data-request'
-                    className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors'
-                  >
+                  <Link href="mailto:privacy@nartaq.com?subject=Data%20Request" className="text-[#a98b5d] hover:text-[#dcd7ce] transition-colors">
                     Data Request
                   </Link>
                   <span>© 2025 NartaQ SA. All rights reserved.</span>

@@ -10,10 +10,10 @@ export default function InvestorApplicationPage() {
 
   return (
     <div className='min-h-screen bg-black text-white pt-20'>
+      <InvestorsHeader />
       {!isSubmitted ? (
         <>
           {/* Header */}
-          <InvestorsHeader />
           <InvestorForm onSubmitted={() => setIsSubmitted(true)} />
         </>
       ) : (

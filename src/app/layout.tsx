@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 
 import Footer from '@/components/pages/Footer'
 import LenisProvider from '@/components/pages/LenisProvider'
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://nartaq.com'),
+  metadataBase: new URL('https://wwww.nartaq.com'),
   alternates: {
     canonical: '/',
   },
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     title: 'NartaQ - Premium Investment & Talent Platform',
     description:
       'Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.',
-    url: 'https://nartaq.com',
+    url: 'https://wwww.nartaq.com',
     siteName: 'NartaQ',
     images: [
       {
@@ -113,6 +114,9 @@ export default function RootLayout({
       <head>
         <meta name='apple-mobile-web-app-title' content='NartaQ' />
         <meta name='application-name' content='NartaQ' />
+        
+        {/* Google Analytics moved to body for Next.js Script */}
+        
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
@@ -127,6 +131,18 @@ export default function RootLayout({
       <body
         className={`w-screen overflow-x-hidden ${fontSans.variable} ${fontMono.variable} antialiased bg-black text-white`}
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-CZ3D93J3CR"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CZ3D93J3CR');
+          `}
+        </Script>
         <Analytics />
         <SpeedInsights />
         <LenisProvider>

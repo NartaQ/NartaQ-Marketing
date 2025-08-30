@@ -59,9 +59,10 @@ export default function NeonHeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4"
+          className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-6 leading-relaxed px-4"
         >
-          We're building a merit-based platform that connects the best founders with the right capital, regardless of location or network. Get matched with investors or discover your next investment with NartaQ.
+          We're building a merit-based platform that connects the best founders with the right capital, 
+          regardless of location or network. Get matched with investors or discover your next investment with NartaQ.
         </motion.p>
 
         {/* CTA Button */}

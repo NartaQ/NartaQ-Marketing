@@ -89,25 +89,25 @@ export default function HowItWorksSection() {
         </motion.div>
 
         {/* Steps Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => (
             <motion.div
               key={step.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 + index * 0.1 }}
-              className="group text-center"
+              className="group text-center flex-1 min-w-[280px] max-w-[350px]"
             >
               <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                <step.icon className="w-10 h-10 text-[#a98b5d]" />
+          <step.icon className="w-10 h-10 text-[#a98b5d]" />
               </div>
               
               <h3 className="text-2xl font-bold text-[#dcd7ce] mb-4">
-                {step.title}
+          {step.title}
               </h3>
               
               <p className="text-gray-400 text-lg leading-relaxed">
-                {step.description}
+          {step.description}
               </p>
             </motion.div>
           ))}

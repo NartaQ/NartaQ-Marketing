@@ -52,10 +52,8 @@ type FormData = z.infer<typeof formSchema>
 export default function FounderForm({
   onSubmitted,
 }: {
-  onSubmitted: (files: File[]) => void
+  onSubmitted: () => void
 }) {
-  const [pitchDeckFiles] = useState<File[]>([])
-
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -105,18 +103,11 @@ export default function FounderForm({
     }
   }
 
-  // const handleFileUpload = (files: File[]) => {
-  //   setPitchDeckFiles(files)
-  //   if (files.length > 0) {
-  //     form.setValue('pitchDeckUrl', `uploaded-${files[0].name}`)
-  //   }
-  // }
-
   const onSubmit = async (data: FormData) => {
     try {
-      const result = await submitFounderApplication(data, pitchDeckFiles[0])
+      const result = await submitFounderApplication(data)
       if (result.success) {
-        onSubmitted(pitchDeckFiles)
+        onSubmitted()
       } else {
         console.error('Submission failed:', result.error)
       }

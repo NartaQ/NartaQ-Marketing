@@ -177,10 +177,21 @@ export default function FAQPage() {
               </span>
             </h1>
             <p className='text-xl text-gray-400 max-w-3xl mx-auto mb-8'>
-              Find answers to common questions about our platform, the
-              application process, and our vision for democratizing startup
-              funding.
+              Find answers to common questions about our AI-powered investment platform, 
+              the application process for founders and investors, our technology approach, 
+              and our vision for democratizing startup funding through intelligent matching 
+              and automated due diligence processes.
             </p>
+            
+            <div className='bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/5 border border-[#a98b5d]/20 rounded-xl p-6 max-w-2xl mx-auto mb-8'>
+              <p className='text-gray-300 text-base leading-relaxed'>
+                NartaQ is transforming how startups connect with investors by replacing 
+                traditional network-based introductions with merit-driven AI matching. 
+                Our platform analyzes business models, market opportunities, founder 
+                backgrounds, and investor preferences to create optimal partnerships 
+                that drive successful funding outcomes.
+              </p>
+            </div>
 
             {/* Search Bar */}
             <div className='relative max-w-md mx-auto'>

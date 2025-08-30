@@ -55,16 +55,16 @@ export default function NotFoundPage() {
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 text-sm'>
        <Link
-        href='/investors-startups'
-        className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors'
+        href='/for-founders'
+        className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors duration-300'
        >
-        → Startups & Investors
+        → For Founders
        </Link>
        <Link
-        href='/companies-providers'
-        className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors'
+        href='/for-investors'
+        className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors duration-300'
        >
-        → Companies & Providers
+        → For Investors
        </Link>
       </div>
      </div>

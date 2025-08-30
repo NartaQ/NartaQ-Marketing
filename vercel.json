@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "src/app/**/*.{js,ts,tsx}": {
+      "maxDuration": 30
+    }
+  },
+  "crons": []
+}
