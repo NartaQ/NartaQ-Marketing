@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
-import { HoveredLink, Menu, MenuItem } from './ui/navbar-menu'
+import { HoveredLink, Menu, MenuItem } from '../ui/navbar-menu'
 import {
   Navbar,
   NavBody,
@@ -11,12 +11,12 @@ import {
   MobileNavMenu,
   MobileNavToggle,
   NavbarButton,
-} from './ui/resizable-navbar'
+} from '../ui/resizable-navbar'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
-import { animatePageOut } from './test/transition/animations'
+import { animatePageOut } from '../pageTransition/animations'
 
 export default function Header({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null)

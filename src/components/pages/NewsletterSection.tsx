@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
+import Link from 'next/link'
 import { useRef, useState } from 'react'
 
 export default function NewsletterSection() {
@@ -72,21 +73,21 @@ export default function NewsletterSection() {
             </h3>
 
             <div className='flex flex-col sm:flex-row gap-4 mb-6'>
-              <a
+              <Link
                 href='/apply/founders'
                 className='flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
               >
                 I'm a Founder
                 <ArrowRight className='w-4 h-4' />
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href='/apply/investors'
                 className='flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
               >
                 I'm an Investor
                 <ArrowRight className='w-4 h-4' />
-              </a>
+              </Link>
             </div>
 
             <div className='border-t border-[#a98b5d]/20 pt-6'>

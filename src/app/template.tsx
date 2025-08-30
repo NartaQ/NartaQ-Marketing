@@ -1,6 +1,6 @@
 'use client'
 
-import { animatePageIn } from '@/components/test/transition/animations'
+import { animatePageIn } from '@/components/pageTransition/animations'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 

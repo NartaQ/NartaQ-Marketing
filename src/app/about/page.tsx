@@ -169,15 +169,17 @@ export default function AboutPage() {
                 <div className='w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] p-0.5'>
                   <div className='w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center'>
                     <Image
+                      width={100}
+                      height={100}
                       src='/images/team/riadh.jpeg'
                       alt='Riadh Jouini'
                       className='w-full h-full object-cover rounded-2xl'
                       onError={(e) => {
-                        ;(e.target as HTMLImageElement).style.display = 'none'
-                        ;(
-                          e.target as HTMLImageElement
-                        ).parentElement!.innerHTML =
-                          '<span class="text-2xl font-bold text-black">RJ</span>'
+                        ; (e.target as HTMLImageElement).style.display = 'none'
+                          ; (
+                            e.target as HTMLImageElement
+                          ).parentElement!.innerHTML =
+                            '<span class="text-2xl font-bold text-black">RJ</span>'
                       }}
                     />
                   </div>
@@ -216,15 +218,17 @@ export default function AboutPage() {
                 <div className='w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] p-0.5'>
                   <div className='w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center'>
                     <Image
+                      width={100}
+                      height={100}
                       src='/images/team/jesser.jpeg'
                       alt='Jesser Bedoui'
                       className='w-full h-full object-cover rounded-2xl'
                       onError={(e) => {
-                        ;(e.target as HTMLImageElement).style.display = 'none'
-                        ;(
-                          e.target as HTMLImageElement
-                        ).parentElement!.innerHTML =
-                          '<span class="text-2xl font-bold text-black">JB</span>'
+                        ; (e.target as HTMLImageElement).style.display = 'none'
+                          ; (
+                            e.target as HTMLImageElement
+                          ).parentElement!.innerHTML =
+                            '<span class="text-2xl font-bold text-black">JB</span>'
                       }}
                     />
                   </div>

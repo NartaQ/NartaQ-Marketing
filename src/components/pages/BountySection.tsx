@@ -1,5 +1,5 @@
 import { FileText, Lock, DollarSign } from 'lucide-react'
-import { WobbleCard } from './ui/wobble-card'
+import { WobbleCard } from '../ui/wobble-card'
 
 export default function BountySection() {
   const bountyFeatures = [

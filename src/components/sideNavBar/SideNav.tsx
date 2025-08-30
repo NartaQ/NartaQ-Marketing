@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { usePathname } from 'next/navigation'
-import { menuSlide } from '../anim'
-import NavLink from './Link'
+import { menuSlide } from './anim'
+import NavLink from './LinkNav'
 import Curve from './Curve'
 
 const navItems = [

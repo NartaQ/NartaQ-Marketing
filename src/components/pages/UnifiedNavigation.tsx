@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import Header from './Header'
-import Nav from './test/nav'
+import Nav from '../sideNavBar/SideNav'
 
 export default function UnifiedNavigation() {
   const [scrollY, setScrollY] = useState(0)

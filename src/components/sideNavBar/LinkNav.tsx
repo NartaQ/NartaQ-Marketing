@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { slide, scale } from '../../anim'
+import { slide, scale } from './anim'
 
 interface LinkData {
   title: string

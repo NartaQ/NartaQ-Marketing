@@ -1,12 +1,12 @@
-import FaqSection from '../components/FaqSection'
-import NewsletterSection from '../components/NewsletterSection'
-import VisionSection from '../components/VisionSection'
-import TrustComplianceSection from '../components/TrustComplianceSection'
-import HowItWorksSection from '../components/HowItWorksSection'
+import FaqSection from '../components/pages/FaqSection'
+import NewsletterSection from '../components/pages/NewsletterSection'
+import VisionSection from '../components/pages/VisionSection'
+import TrustComplianceSection from '../components/pages/TrustComplianceSection'
+import HowItWorksSection from '../components/pages/HowItWorksSection'
 
-import NeonHeroSection from '../components/NeonHeroSection'
-import ProblemsSection from '../components/ProblemsSection'
-import SolutionsSection from '../components/SolutionsSection'
+import NeonHeroSection from '../components/pages/NeonHeroSection'
+import ProblemsSection from '../components/pages/ProblemsSection'
+import SolutionsSection from '../components/pages/SolutionsSection'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -56,16 +56,16 @@ export default function Home() {
     <div className='flex min-h-screen flex-col bg-black text-white relative overflow-hidden'>
       {/* New Neon-Style Hero Section */}
       <NeonHeroSection />
-      
+
       {/* Problems Section - What we're solving */}
       <ProblemsSection />
-      
+
       {/* Solutions Section - How we're solving it */}
       <SolutionsSection />
-      
+
       {/* How It Works - The Full Journey */}
       <HowItWorksSection />
-      
+
       {/* Main Content Sections */}
       <VisionSection />
 
