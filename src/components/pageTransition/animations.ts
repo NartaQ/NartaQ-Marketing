@@ -20,7 +20,6 @@ export const animatePageIn = () => {
     })
       .set(pageNameDisplay, {
         opacity: 0,
-        scale: 0.7,
         y: 30,
       })
       .set(curveTransition, {
@@ -29,7 +28,6 @@ export const animatePageIn = () => {
       // STEP 2: Smooth page title entrance with beautiful animation
       .to(pageNameDisplay, {
         opacity: 1,
-        scale: 1,
         y: 0,
         duration: 0.8, // Increased from 0.5
         ease: 'back.out(1.4)',
@@ -38,7 +36,7 @@ export const animatePageIn = () => {
       .to(pageNameDisplay, {
         opacity: 0,
         scale: 0.9,
-        y: -20, // Move text up slightly as it fades
+        y: -500, // Move text up slightly as it fades
         duration: 0.6, // Increased from 0.4
         ease: 'power3.in',
       })

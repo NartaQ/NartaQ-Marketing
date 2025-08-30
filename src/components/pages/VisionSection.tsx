@@ -31,9 +31,14 @@ export default function VisionSection() {
   return (
     <section ref={ref} className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-[#a98b5d] rounded-full filter blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#dcd7ce] rounded-full filter blur-3xl" />
+      <div className="absolute inset-0 grid-pattern opacity-20">
+        <div className="w-full h-full" style={{
+          backgroundImage: `
+            linear-gradient(rgba(169, 139, 93, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(169, 139, 93, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
+        }} />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,7 +76,7 @@ export default function VisionSection() {
                 transition={{ delay: 0.2 + index * 0.1 }}
                 className="group text-center"
               >
-                <div className="relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full">
+                <div className="relative p-8 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full">
                   <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center">
                     <Icon className="w-8 h-8 text-[#a98b5d]" />
                   </div>

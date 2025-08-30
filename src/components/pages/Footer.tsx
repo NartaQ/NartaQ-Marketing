@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import NewsletterForm from '../NewsletterForm'
 
 export default function Footer() {
   return (
-    <footer className='mt-auto flex flex-col w-full gap-8 text-sm pt-[5%] pb-10 px-[10%] text-black dark:text-white max-md:flex-col'>
+    <footer className='mt-auto flex flex-col w-full gap-8 text-sm pt-[5%] pb-10 px-[10%] text-white max-md:flex-col'>
       <div className='flex max-md:flex-col max-md:gap-10 gap-10 w-full justify-between flex-wrap'>
         {/* Logo Section */}
         <div className='flex h-full w-[250px] flex-col items-center gap-6 max-md:w-full'>
@@ -19,7 +20,7 @@ export default function Footer() {
               <div className='text-sm font-medium text-[#a98b5d]'>
                 Building the Future of Startup Funding
               </div>
-              <div className='text-xs text-gray-500 mt-1'>
+              <div className='text-xs  text-gray-400 mt-1'>
                   Our AI-powered platform revolutionizes startup funding by eliminating network bias and geographic 
                   barriers. We use advanced algorithms to analyze market opportunities, team capabilities, and 
                   investor preferences, creating optimal matches based on merit and compatibility rather than 
@@ -128,6 +129,20 @@ export default function Footer() {
               DMCA
             </Link>
           </div>
+        </div>
+
+        {/* Newsletter */}
+        <div className='flex h-full min-w-[280px] flex-col gap-4'>
+          <h2 className='text-xl'>Stay Updated</h2>
+          <NewsletterForm
+            source='footer'
+            title=''
+            description='Get notified when we launch and receive exclusive updates.'
+            placeholder='Your email'
+            buttonText='Join Waitlist'
+            showName={false}
+            className='text-left'
+          />
         </div>
 
         {/* Contact */}

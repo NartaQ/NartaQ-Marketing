@@ -404,7 +404,7 @@ export default function FounderForm({
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className='text-right text-gray-500'>
+                  <FormDescription className='text-right text-gray-400'>
                     {watchedPitch?.length || 0}/300 characters
                   </FormDescription>
                   <FormMessage />

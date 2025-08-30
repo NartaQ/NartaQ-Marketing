@@ -29,7 +29,7 @@ export default function TrustComplianceSection() {
   return (
     <section className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden">
       {/* Background Grid */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 grid-pattern opacity-20">
         <div className="w-full h-full" style={{
           backgroundImage: `
             linear-gradient(rgba(169, 139, 93, 0.1) 1px, transparent 1px),

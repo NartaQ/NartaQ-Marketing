@@ -1421,7 +1421,7 @@ export default function PrivacyPolicyPage() {
                     information in connection with NartaQ's AI-powered protocol
                     for startup funding.
                   </p>
-                  <div className='flex flex-wrap gap-4 text-xs text-gray-500'>
+                  <div className='flex flex-wrap gap-4 text-xs text-gray-400'>
                     <Link
                       href='/legal/terms'
                       className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors'

@@ -23,16 +23,11 @@ export default function FoundersHeader() {
           </p>
           
           <p>
-            As a founding cohort member, you'll get exclusive access to our AI-powered investor 
-            matching platform, comprehensive due diligence support, and direct connections to 
-            vetted angel investors and VCs actively seeking opportunities in your sector.
-          </p>
-
-          <p>
-            Our platform has helped founders raise over $50M in combined funding through 
-            intelligent matching algorithms that connect startups with the right investors 
+            Our platform is designed to help founders raise capital through 
+            intelligent matching algorithms that will connect startups with the right investors 
             based on industry focus, stage preferences, and investment criteria.
           </p>
+
         </div>
 
         <div className='bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/5 border border-[#a98b5d]/20 rounded-xl p-6'>
@@ -40,7 +35,7 @@ export default function FoundersHeader() {
           <ul className='text-gray-300 space-y-2 text-sm'>
             <li>• AI-powered investor matching based on your startup profile</li>
             <li>• Automated due diligence preparation and documentation</li>
-            <li>• Direct access to our curated network of 500+ active investors</li>
+            <li>• Direct access to our growing network of vetted active investors</li>
             <li>• Real-time feedback on your pitch deck and funding strategy</li>
             <li>• Priority placement in investor deal flow and exclusive events</li>
             <li>• Comprehensive valuation analysis using our proprietary AI models</li>

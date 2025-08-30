@@ -11,16 +11,14 @@ export default function ProblemsSection() {
   return (
     <section className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden'>
       {/* Background Pattern */}
-      <div className='absolute inset-0 opacity-10'>
-        <div
-          className='w-full h-full'
-          style={{
-            backgroundImage: `
-            radial-gradient(circle at 25% 25%, rgba(220, 215, 206, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 75% 75%, rgba(169, 139, 93, 0.1) 0%, transparent 50%)
+      <div className="absolute inset-0 grid-pattern opacity-20">
+        <div className="w-full h-full" style={{
+          backgroundImage: `
+            linear-gradient(rgba(169, 139, 93, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(169, 139, 93, 0.1) 1px, transparent 1px)
           `,
-          }}
-        />
+          backgroundSize: '60px 60px'
+        }} />
       </div>
 
       <div

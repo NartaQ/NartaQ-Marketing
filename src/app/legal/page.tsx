@@ -243,7 +243,7 @@ export default function LegalPage() {
                 </p>
               </div>
               <div className='mt-6 pt-6 border-t border-[#a98b5d]/20'>
-                <p className='text-xs text-gray-500'>
+                <p className='text-xs text-gray-400'>
                   NartaQ SA • 14 Boulevard Victor Schoelcher, Lieusaint,
                   Seine-et-Marne 77127, France
                 </p>

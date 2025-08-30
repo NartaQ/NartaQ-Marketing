@@ -1130,7 +1130,6 @@ h3 {
 
 #page-name-display {
   will-change: opacity, transform;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   transform: translateZ(0);
   /* Force hardware acceleration */
 }

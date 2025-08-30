@@ -12,7 +12,7 @@ export default function DMCAPage() {
   return (
     <main className='prose prose-sm dark:prose-invert max-w-3xl mx-auto px-6 py-12'>
       <h1 className='text-3xl font-semibold tracking-tight'>DMCA / Content Takedown</h1>
-      <p className='text-sm text-gray-500 -mt-2 mb-8'>Last updated: {LAST_UPDATED}</p>
+      <p className='text-sm text-gray-400 -mt-2 mb-8'>Last updated: {LAST_UPDATED}</p>
 
       <p>
         This page explains how to report content you believe infringes copyrights or violates applicable
@@ -89,7 +89,7 @@ export default function DMCAPage() {
         We may refine this process as our legal entity finalizes. Material changes will update the date at the top.
       </p>
 
-      <p className='mt-10 text-sm text-gray-500'>Thank you for helping keep the platform accurate, lawful and fair.</p>
+      <p className='mt-10 text-sm text-gray-400'>Thank you for helping keep the platform accurate, lawful and fair.</p>
     </main>
   )
 }

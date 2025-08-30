@@ -37,24 +37,24 @@ const navItems = [
 
 const socialLinks = [
   {
-    name: 'Instagram',
-    href: 'https://www.instagram.com/nartaq_inv',
-    aria: 'NartaQ on Instagram',
-  },
-  {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/company/nartaq',
     aria: 'NartaQ on LinkedIn',
   },
   {
-    name: 'X',
-    href: 'https://x.com/NartaQ_',
-    aria: 'NartaQ on X',
-  },
-  {
     name: 'Facebook',
     href: 'https://www.facebook.com/nartaq/',
     aria: 'NartaQ on Facebook',
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/nartaq_inv',
+    aria: 'NartaQ on Instagram',
+  },
+  {
+    name: 'X',
+    href: 'https://x.com/NartaQ_',
+    aria: 'NartaQ on X',
   },
 ]
 
@@ -145,7 +145,7 @@ export default function NavMenu() {
                     {s.name}
                   </span>
                 </Link>
-                {s.name !== 'Facebook' && (
+                {s.name !== 'X' && (
                   <span className=' border-2 opacity-30 rounded'></span>
                 )}
               </React.Fragment>

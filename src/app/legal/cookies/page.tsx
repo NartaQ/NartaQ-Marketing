@@ -29,7 +29,7 @@ export default function CookiePolicyPage() {
               Learn about how NartaQ uses cookies and similar technologies to
               improve your experience.
             </p>
-            <p className='text-sm text-gray-500 mt-4'>
+            <p className='text-sm text-gray-400 mt-4'>
               Last updated: August 24, 2025
             </p>
           </motion.div>

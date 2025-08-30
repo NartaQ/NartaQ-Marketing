@@ -655,7 +655,7 @@ export default function TermsOfServicePage() {
                   personal information, please review our comprehensive Privacy
                   Policy.
                 </p>
-                <div className='flex flex-wrap gap-4 text-xs text-gray-500'>
+                <div className='flex flex-wrap gap-4 text-xs text-gray-400'>
                   <Link
                     href='/legal/privacy'
                     className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors'

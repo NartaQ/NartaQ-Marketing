@@ -70,30 +70,30 @@ export default function ForInvestorsPage() {
               </div>
             </div>
             
-            <div className="relative p-8 rounded-2xl border border-gray-500/20 bg-gradient-to-br from-gray-500/5 to-transparent hover:border-gray-500/40 transition-all duration-300 h-full">
+            <div className="relative p-8 rounded-2xl border border-gray-500/20 bg-gradient-to-br from-red-500/5 to-transparent hover:border-gray-500/40 transition-all duration-300 h-full">
               <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-gray-500/20 to-gray-500/5 flex items-center justify-center">
-                <Shield className="w-8 h-8 text-gray-400" />
+                <Shield className="w-8 h-8 text-red-400" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-400 mb-4">The Best Deals Are Hidden</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-red-400 mb-4">The Best Deals Are Hidden</h3>
               <div className="w-12 h-0.5 bg-gray-400 mx-auto mb-4"></div>
               <p className="text-[#dcd7ce] leading-relaxed mb-4">
                 Your deal flow is limited by your personal network and geography. Missing hidden gems outside your circle.
               </p>
-              <div className="text-sm font-semibold text-gray-400 bg-gray-500/10 px-3 py-1 rounded-full inline-block">
+              <div className="text-sm font-semibold text-red-400 bg-gray-500/10 px-3 py-1 rounded-full inline-block">
                 Network bias
               </div>
             </div>
             
-            <div className="relative p-8 rounded-2xl border border-gray-500/20 bg-gradient-to-br from-gray-500/5 to-transparent hover:border-gray-500/40 transition-all duration-300 h-full">
+            <div className="relative p-8 rounded-2xl border border-gray-500/20 bg-gradient-to-br from-red-500/5 to-transparent hover:border-gray-500/40 transition-all duration-300 h-full">
               <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-gray-500/20 to-gray-500/5 flex items-center justify-center">
-                <Clock className="w-8 h-8 text-gray-400" />
+                <Clock className="w-8 h-8 text-red-400" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-400 mb-4">Your Time Is Your Most Valuable Asset</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-red-400 mb-4">Your Time Is Your Most Valuable Asset</h3>
               <div className="w-12 h-0.5 bg-gray-400 mx-auto mb-4"></div>
               <p className="text-[#dcd7ce] leading-relaxed mb-4">
                 Hours wasted on manual sourcing, filtering, and vetting. Your time should be spent on making great investments.
               </p>
-              <div className="text-sm font-semibold text-gray-400 bg-gray-500/10 px-3 py-1 rounded-full inline-block">
+              <div className="text-sm font-semibold text-red-400 bg-gray-500/10 px-3 py-1 rounded-full inline-block">
                 Time waste
               </div>
             </div>
@@ -193,7 +193,7 @@ export default function ForInvestorsPage() {
                 </div>
                 
                 <div className="text-center pt-4 border-t border-gray-700">
-                  <p className="text-xs text-gray-500 italic">
+                  <p className="text-xs text-gray-400 italic">
                     Focus on what matters: the right opportunities, at the right time.
                   </p>
                 </div>
@@ -261,106 +261,9 @@ export default function ForInvestorsPage() {
         </div>
       </section>
 
-      {/* Testimonials / Founding Cohort Metrics */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6">
-              <Eye className="w-4 h-4 text-[#a98b5d]" />
-              <span className="text-sm font-medium text-[#dcd7ce]">TESTIMONIALS</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-[#dcd7ce]">What Our Founding</span>{' '}
-              <span className="text-[#a98b5d]">Investors Are Saying</span>
-            </h2>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300"
-            >
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[#a98b5d] rounded-2xl flex items-center justify-center mr-4">
-                  <span className="text-black font-bold">JK</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-[#dcd7ce]">John Kim</h4>
-                  <p className="text-gray-400 text-sm">Seed Investor</p>
-                </div>
-              </div>
-              <div className="w-12 h-0.5 bg-[#a98b5d] mb-4"></div>
-              <p className="text-[#dcd7ce] leading-relaxed italic">
-                "The quality of deal flow through NartaQ has been exceptional. I'm seeing founders I would never have discovered through my traditional networks."
-              </p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300"
-            >
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[#a98b5d] rounded-2xl flex items-center justify-center mr-4">
-                  <span className="text-black font-bold">SM</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-[#dcd7ce]">Sarah Martinez</h4>
-                  <p className="text-gray-400 text-sm">Early Stage VC</p>
-                </div>
-              </div>
-              <div className="w-12 h-0.5 bg-[#a98b5d] mb-4"></div>
-              <p className="text-[#dcd7ce] leading-relaxed italic">
-                "NartaQ has saved me countless hours of sourcing. The quality of matches has been impressive - I'm only seeing deals that truly fit my thesis."
-              </p>
-            </motion.div>
-          </div>
-          
-          {/* Enhanced Metrics Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="relative p-12 rounded-2xl border-2 border-[#a98b5d]/30 bg-gradient-to-br from-[#a98b5d]/10 to-transparent max-w-4xl mx-auto backdrop-blur-sm"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#a98b5d]/5 to-transparent rounded-2xl"></div>
-            <div className="relative z-10">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-[#dcd7ce] mb-2">Building the Future of Venture Capital</h3>
-                <p className="text-gray-400">Join our exclusive community of forward-thinking investors</p>
-              </div>
-              <div className="grid md:grid-cols-2 gap-12 text-center">
-                <div className="group">
-                  <div className="text-5xl font-bold text-[#a98b5d] mb-3 group-hover:scale-105 transition-transform">15</div>
-                  <div className="w-16 h-0.5 bg-[#a98b5d] mx-auto mb-3"></div>
-                  <p className="text-[#dcd7ce] font-medium text-lg">Select Beta Partners</p>
-                  <p className="text-gray-400 text-sm mt-2">Pioneering investors shaping our platform</p>
-                </div>
-                <div className="group">
-                  <div className="text-5xl font-bold text-[#a98b5d] mb-3 group-hover:scale-105 transition-transform">Early</div>
-                  <div className="w-16 h-0.5 bg-[#a98b5d] mx-auto mb-3"></div>
-                  <p className="text-[#dcd7ce] font-medium text-lg">Access Program</p>
-                  <p className="text-gray-400 text-sm mt-2">Join the exclusive founding investor cohort</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
+      
       {/* Final CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-[#0a0a0a] to-black">
+      <section className="py-24 bg-gradient-to-b from-black to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-[#dcd7ce]">The Future of Funding</span>{' '}
@@ -388,14 +291,6 @@ export default function ForInvestorsPage() {
             Get first access to an exclusive pipeline of vetted founders. <span className="text-[#a98b5d] font-semibold">Limited spots available.</span>
           </p>
 
-          {/* New Commitment Section */}
-          <div className="bg-gradient-to-br from-[#a98b5d]/10 to-gray-900/30 rounded-2xl p-6 border border-[#a98b5d]/20 backdrop-blur-xl">
-            <h3 className="text-lg font-semibold text-[#a98b5d] mb-3">Our Commitment</h3>
-            <p className="text-gray-300 leading-relaxed">
-              We're building this platform with trust and compliance at its core. Our commitment is to provide a secure and reliable experience for all participants.
-            </p>
-          </div>
-          
           <div className="mt-6 flex items-center justify-center space-x-6 text-sm text-gray-400">
             <div className="flex items-center">
               <Shield className="w-4 h-4 mr-1" />

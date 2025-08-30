@@ -3,15 +3,14 @@
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { animatePageOut } from '../pageTransition/animations'
+import NewsletterForm from '../NewsletterForm'
 
 export default function NewsletterSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
-  const [email, setEmail] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
 
@@ -28,25 +27,21 @@ export default function NewsletterSection() {
     animatePageOut(href, router)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    // Add newsletter submission logic here
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setEmail('')
-    }, 1000)
-  }
-
   return (
     <section
       ref={ref}
       className='relative py-16 sm:py-24 lg:py-32 bg-black overflow-hidden'
     >
       {/* Background Elements */}
-      <div className='absolute inset-0 opacity-10'>
-        <div className='absolute top-1/3 left-1/4 w-80 h-80 bg-[#a98b5d] rounded-full filter blur-3xl' />
-        <div className='absolute bottom-1/3 right-1/4 w-96 h-96 bg-[#dcd7ce] rounded-full filter blur-3xl' />
+
+      <div className="absolute inset-0 grid-pattern opacity-20">
+        <div className="w-full h-full" style={{
+          backgroundImage: `
+            linear-gradient(rgba(169, 139, 93, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(169, 139, 93, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
+        }} />
       </div>
 
       <div className='relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
@@ -114,45 +109,19 @@ export default function NewsletterSection() {
                 Or get updates on our progress:
               </p>
 
-              <form
-                onSubmit={handleSubmit}
-                className='flex flex-col sm:flex-row gap-3'
-              >
-                <div className='flex-1 relative'>
-                  <input
-                    type='email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder='Enter your email'
-                    required
-                    className='w-full h-10 px-4 rounded-lg bg-black/50 border border-[#a98b5d]/30 text-[#dcd7ce] placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#a98b5d]/50 focus:border-[#a98b5d] transition-all duration-300 text-sm'
-                  />
-                </div>
-
-                <button
-                  type='submit'
-                  disabled={isSubmitting || !email}
-                  className='px-4 py-2 bg-[#a98b5d]/20 border border-[#a98b5d]/30 text-[#a98b5d] font-medium rounded-lg hover:bg-[#a98b5d]/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm'
-                >
-                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
-                </button>
-              </form>
+              <NewsletterForm
+                source='homepage-newsletter-section'
+                title=''
+                description=''
+                placeholder='Enter your email'
+                buttonText='Subscribe'
+                showName={false}
+                className='text-left'
+              />
             </div>
           </div>
         </motion.div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.7, duration: 0.6 }}
-          className='mt-8 text-center'
-        >
-          <p className='text-gray-500 text-sm'>
-            Join 250+ founders and investors already part of our founding
-            community
-          </p>
-        </motion.div>
       </div>
     </section>
   )

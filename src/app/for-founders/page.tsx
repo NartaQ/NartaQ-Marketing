@@ -270,7 +270,7 @@ export default function ForFoundersPage() {
                 <h3 className="text-xl sm:text-2xl font-bold text-[#a98b5d] mb-4">A Vetted Network</h3>
                 <div className="w-12 h-0.5 bg-[#a98b5d] mx-auto mb-4"></div>
                 <p className="text-[#dcd7ce] leading-relaxed mb-4">
-                  Access a curated network of active investors who are pre-vetted by NartaQ and actively looking to invest in companies like yours.
+                  Access a growing network of active investors who will be vetted by NartaQ and actively looking to invest in companies like yours.
                 </p>
                 <div className="text-sm font-semibold text-[#a98b5d] bg-[#a98b5d]/10 px-3 py-1 rounded-full inline-block">
                   Quality network
@@ -356,7 +356,7 @@ export default function ForFoundersPage() {
                 <h3 className="text-xl sm:text-2xl font-bold text-[#a98b5d] mb-4">Intelligent Matching</h3>
                 <div className="w-12 h-0.5 bg-[#a98b5d] mx-auto mb-4"></div>
                 <p className="text-[#dcd7ce] leading-relaxed">
-                  Get a curated list of high-probability matches. Our AI finds investors whose thesis matches your business, saving you countless hours of research.
+                  Get a curated list of high-probability matches. Our AI will find investors whose thesis matches your business, saving you countless hours of research.
                 </p>
               </div>
             </motion.div>

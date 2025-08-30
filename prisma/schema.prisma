@@ -48,3 +48,14 @@ model InvestorApplication {
 
   @@map("investor_applications")
 }
+
+model Newsletter {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  source    String? // Where they subscribed from (homepage, footer, etc.)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("newsletter_subscribers")
+}

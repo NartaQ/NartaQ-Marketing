@@ -59,7 +59,7 @@ export default function InteractiveShowcase() {
   return (
     <section className="relative py-32 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden">
       {/* Background Grid */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 grid-pattern opacity-20">
         <div className="w-full h-full" style={{
           backgroundImage: `
             linear-gradient(rgba(169, 139, 93, 0.1) 1px, transparent 1px),
@@ -140,12 +140,12 @@ export default function InteractiveShowcase() {
                       <ArrowRight className={`w-4 h-4 transition-all duration-300 ${
                         activeFeature === index 
                           ? 'text-[#a98b5d] translate-x-1' 
-                          : 'text-gray-500'
+                          : 'text-gray-400'
                       }`} />
                     </div>
-                    <p className="text-sm text-gray-500 mb-2">{feature.subtitle}</p>
+                    <p className="text-sm text-gray-400 mb-2">{feature.subtitle}</p>
                     <p className={`text-sm transition-colors duration-300 ${
-                      activeFeature === index ? 'text-gray-300' : 'text-gray-500'
+                      activeFeature === index ? 'text-gray-300' : 'text-gray-400'
                     }`}>
                       {feature.description}
                     </p>
