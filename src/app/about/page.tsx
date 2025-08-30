@@ -11,6 +11,7 @@ import {
   Twitter,
 } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function AboutPage() {
   return (
@@ -175,11 +176,11 @@ export default function AboutPage() {
                       alt='Riadh Jouini'
                       className='w-full h-full object-cover rounded-2xl'
                       onError={(e) => {
-                        ; (e.target as HTMLImageElement).style.display = 'none'
-                          ; (
-                            e.target as HTMLImageElement
-                          ).parentElement!.innerHTML =
-                            '<span class="text-2xl font-bold text-black">RJ</span>'
+                        ;(e.target as HTMLImageElement).style.display = 'none'
+                        ;(
+                          e.target as HTMLImageElement
+                        ).parentElement!.innerHTML =
+                          '<span class="text-2xl font-bold text-black">RJ</span>'
                       }}
                     />
                   </div>
@@ -224,11 +225,11 @@ export default function AboutPage() {
                       alt='Jesser Bedoui'
                       className='w-full h-full object-cover rounded-2xl'
                       onError={(e) => {
-                        ; (e.target as HTMLImageElement).style.display = 'none'
-                          ; (
-                            e.target as HTMLImageElement
-                          ).parentElement!.innerHTML =
-                            '<span class="text-2xl font-bold text-black">JB</span>'
+                        ;(e.target as HTMLImageElement).style.display = 'none'
+                        ;(
+                          e.target as HTMLImageElement
+                        ).parentElement!.innerHTML =
+                          '<span class="text-2xl font-bold text-black">JB</span>'
                       }}
                     />
                   </div>
@@ -407,18 +408,18 @@ export default function AboutPage() {
                 there's a place for you in this revolution.
               </p>
               <div className='grid sm:grid-cols-2 gap-4 max-w-md mx-auto'>
-                <a
+                <Link
                   href='/for-founders'
                   className='px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
                 >
                   Join as Founder
-                </a>
-                <a
+                </Link>
+                <Link
                   href='/for-investors'
                   className='px-8 py-4 border border-[#a98b5d]/50 text-[#dcd7ce] font-semibold rounded-xl hover:bg-[#a98b5d]/10 transition-all duration-300'
                 >
                   Join as Investor
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

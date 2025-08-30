@@ -69,30 +69,80 @@ export default function Footer() {
         <div className='flex h-full min-w-[180px] flex-col gap-4'>
           <h2 className='text-xl'>Platform</h2>
           <div className='flex flex-col gap-3'>
-            <Link href='/solutions/founders' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Founders</Link>
-            <Link href='/solutions/investors' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Investors</Link>
-            <Link href='/#how-it-works' className='footer-link hover:text-black dark:hover:text-white transition-colors'>How It Works</Link>
-            <Link href='/faq' className='footer-link hover:text-black dark:hover:text-white transition-colors'>FAQ</Link>
+            <Link
+              href='/solutions/founders'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+            >
+              For Founders
+            </Link>
+            <Link
+              href='/solutions/investors'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+            >
+              For Investors
+            </Link>
+            <Link
+              href='/#how-it-works'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+            >
+              How It Works
+            </Link>
+            <Link
+              href='/faq'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+            >
+              FAQ
+            </Link>
           </div>
         </div>
 
         {/* About */}
         <div className='flex h-full min-w-[180px] flex-col gap-4'>
           <h2 className='text-xl'>About</h2>
-            <div className='flex flex-col gap-3'>
-              <Link href='/about' className='footer-link hover:text-black dark:hover:text-white transition-colors'>Our Story</Link>
-              <Link href='/about#team' className='footer-link hover:text-black dark:hover:text-white transition-colors'>The Team</Link>
-              <Link href='/about#corridor' className='footer-link hover:text-black dark:hover:text-white transition-colors'>Our Corridor</Link>
-            </div>
+          <div className='flex flex-col gap-3'>
+            <Link
+              href='/about'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+            >
+              Our Story
+            </Link>
+            <Link
+              href='/about#team'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+            >
+              The Team
+            </Link>
+            <Link
+              href='/about#corridor'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+            >
+              Our Corridor
+            </Link>
+          </div>
         </div>
 
         {/* Legal */}
         <div className='flex h-full min-w-[180px] flex-col gap-4'>
           <h2 className='text-xl'>Legal</h2>
           <div className='flex flex-col gap-3'>
-            <Link href='/legal/terms' className='footer-link hover:text-black dark:hover:text-white transition-colors'>Terms</Link>
-            <Link href='/legal/privacy' className='footer-link hover:text-black dark:hover:text-white transition-colors'>Privacy</Link>
-            <Link href='/legal/dmca' className='footer-link hover:text-black dark:hover:text-white transition-colors'>DMCA</Link>
+            <Link
+              href='/legal/terms'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+            >
+              Terms
+            </Link>
+            <Link
+              href='/legal/privacy'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+            >
+              Privacy
+            </Link>
+            <Link
+              href='/legal/dmca'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+            >
+              DMCA
+            </Link>
           </div>
         </div>
 
@@ -100,7 +150,15 @@ export default function Footer() {
         <div className='flex h-full min-w-[180px] flex-col gap-4'>
           <h2 className='text-xl'>Contact</h2>
           <div className='flex flex-col gap-3'>
-            <div className='text-sm'>Email: <a href='mailto:contact@nartaq.com' className='underline hover:text-[#a98b5d]'>contact@nartaq.com</a></div>
+            <div className='text-sm'>
+              Email:{' '}
+              <Link
+                href='mailto:contact@nartaq.com'
+                className='underline hover:text-[#a98b5d]'
+              >
+                contact@nartaq.com
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -109,7 +167,9 @@ export default function Footer() {
 
       <div className='mt-2 flex gap-2 flex-col text-gray-700 dark:text-gray-300 items-center text-[11px] w-full text-center'>
         <span>© {new Date().getFullYear()} NartaQ. All rights reserved.</span>
-        <span>Pre-seed. Vision under active build. France–Tunisia corridor focus.</span>
+        <span>
+          Pre-seed. Vision under active build. France–Tunisia corridor focus.
+        </span>
       </div>
     </footer>
   )

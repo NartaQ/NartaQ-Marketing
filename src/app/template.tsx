@@ -20,7 +20,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     setPageName(name)
 
     // Update the page name in the DOM immediately, then animate
-    const pageNameElement = document.querySelector('#page-name-display h1')
+    const pageNameElement = document.querySelector('#page-name-display span')
     if (pageNameElement) {
       pageNameElement.textContent = name
     }
