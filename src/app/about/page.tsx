@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Users, Globe, Target, Heart, Star, Linkedin, Twitter } from 'lucide-react'
+import { Users, Globe, Target, Heart, Star, Linkedin } from 'lucide-react'
+import Image from 'next/image';
 
 export default function AboutPage() {
   return (
@@ -24,9 +25,31 @@ export default function AboutPage() {
               <br />
               <span className="bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent">Merit-Based Future</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              We believe exceptional founders deserve access to capital regardless of their network, location, or background. NartaQ is our answer to a broken system.
+            <p className="text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed mb-8">
+              We believe exceptional founders deserve access to capital regardless of their network, 
+              location, or background. NartaQ is our answer to a broken system that favors connections 
+              over innovation and perpetuates inequality in startup funding.
             </p>
+            
+            <div className="bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/5 border border-[#a98b5d]/20 rounded-2xl p-8 max-w-5xl mx-auto">
+              <p className="text-gray-300 leading-relaxed mb-4">
+                The traditional venture capital model relies heavily on warm introductions, alumni networks, 
+                and geographic proximity to Silicon Valley. This system inadvertently excludes brilliant 
+                founders from underrepresented regions, backgrounds, and industries who lack the "right" 
+                connections but possess groundbreaking ideas and execution capability.
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-4">
+                Our platform leverages artificial intelligence and comprehensive data analysis to evaluate 
+                startups based on merit: market opportunity, team capability, product innovation, traction 
+                metrics, and growth potential. By removing human bias and network dependencies from initial 
+                screening, we create equal opportunities for all exceptional founders.
+              </p>
+              <p className="text-gray-300 leading-relaxed">
+                Starting with the France-Tunisia corridor, we're proving that geography shouldn't determine 
+                access to capital. Our vision extends globally, connecting underserved startup ecosystems 
+                with appropriate investors who value innovation over introductions.
+              </p>
+            </div>
           </motion.div>
 
           {/* Our Vision Section */}
@@ -145,7 +168,7 @@ export default function AboutPage() {
               >
                 <div className="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] p-0.5">
                   <div className="w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center">
-                    <img 
+                    <Image 
                       src="/images/team/riadh.jpeg" 
                       alt="Riadh Jouini"
                       className="w-full h-full object-cover rounded-2xl"
@@ -164,9 +187,6 @@ export default function AboutPage() {
                   <a href="https://linkedin.com/in/riadh-jouini" className="w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </a>
-                  <a href="https://twitter.com/riadhjouini" className="w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors">
-                    <Twitter className="w-5 h-5" />
-                  </a>
                 </div>
               </motion.div>
 
@@ -179,8 +199,8 @@ export default function AboutPage() {
               >
                 <div className="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] p-0.5">
                   <div className="w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center">
-                    <img 
-                      src="/images/team/jesser.jpeg" 
+                    <Image
+                      src="/images/team/jesser.jpeg"
                       alt="Jesser Bedoui"
                       className="w-full h-full object-cover rounded-2xl"
                       onError={(e) => {
@@ -196,10 +216,6 @@ export default function AboutPage() {
                 <div className="flex justify-center gap-4">
                   <a href="https://linkedin.com/in/jesser-bedoui" className="w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors">
                     <Linkedin className="w-5 h-5" />
-                  </a>
-        
-                  <a href="https://twitter.com/jesserbedoui" className="w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors">
-                    <Twitter className="w-5 h-5" />
                   </a>
                 </div>
               </motion.div>

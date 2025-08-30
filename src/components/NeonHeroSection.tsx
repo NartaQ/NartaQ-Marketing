@@ -59,10 +59,27 @@ export default function NeonHeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4"
+          className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-6 leading-relaxed px-4"
         >
-          We're building a merit-based platform that connects the best founders with the right capital, regardless of location or network. Get matched with investors or discover your next investment with NartaQ.
+          We're building a merit-based platform that connects the best founders with the right capital, 
+          regardless of location or network. Get matched with investors or discover your next investment with NartaQ.
         </motion.p>
+
+        {/* Enhanced Description */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          className="bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/5 border border-[#a98b5d]/20 rounded-2xl p-6 max-w-5xl mx-auto mb-8 sm:mb-12"
+        >
+          <p className="text-gray-300 leading-relaxed text-base sm:text-lg">
+            Our AI-powered platform revolutionizes startup funding by eliminating network bias and geographic 
+            barriers. We use advanced algorithms to analyze market opportunities, team capabilities, and 
+            investor preferences, creating optimal matches based on merit and compatibility rather than 
+            connections. Join the founding cohort of entrepreneurs and investors building the future of 
+            equitable startup funding.
+          </p>
+        </motion.div>
 
         {/* CTA Button */}
         <motion.div

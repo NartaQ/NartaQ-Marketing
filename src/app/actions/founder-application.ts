@@ -1,10 +1,7 @@
 'use server'
 
-import { PrismaClient } from '@/generated/prisma'
+import { prisma } from '@/lib/prisma'
 import { z } from 'zod'
-import { azureBlobService } from '@/lib/azure-blob-service'
-
-const prisma = new PrismaClient()
 
 const founderApplicationSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
@@ -25,30 +22,11 @@ const founderApplicationSchema = z.object({
 export type FounderApplicationData = z.infer<typeof founderApplicationSchema>
 
 export async function submitFounderApplication(
-  data: FounderApplicationData, 
-  pitchDeckFile?: File
+  data: FounderApplicationData
 ) {
   try {
     // Validate the data
     const validatedData = founderApplicationSchema.parse(data)
-
-    let pitchDeckUrl = validatedData.pitchDeckUrl
-
-    // Upload pitch deck if provided
-    if (pitchDeckFile) {
-      try {
-        const bytes = await pitchDeckFile.arrayBuffer()
-        const buffer = Buffer.from(bytes)
-        pitchDeckUrl = await azureBlobService.uploadFile(
-          buffer,
-          pitchDeckFile.name,
-          pitchDeckFile.type
-        )
-      } catch (uploadError) {
-        console.error('Error uploading pitch deck:', uploadError)
-        // Continue with submission even if file upload fails
-      }
-    }
 
     // Save to database
     const application = await prisma.founderApplication.create({
@@ -62,7 +40,7 @@ export async function submitFounderApplication(
         fundingStage: validatedData.fundingStage,
         location: validatedData.location,
         shortPitch: validatedData.shortPitch,
-        pitchDeckUrl: pitchDeckUrl,
+        pitchDeckUrl: validatedData.pitchDeckUrl,
       },
     })
 
