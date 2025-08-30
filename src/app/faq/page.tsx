@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown, HelpCircle, Search } from 'lucide-react'
 import { cn } from '../../lib/utils'
+import Link from 'next/link'
 
 export default function FAQPage() {
   const [openQuestions, setOpenQuestions] = useState<number[]>([])
@@ -266,18 +267,18 @@ export default function FAQPage() {
                 Can't find what you're looking for? We're here to help.
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-                <a
+                <Link
                   href='mailto:contact@nartaq.com'
                   className='px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
                 >
                   Contact Us
-                </a>
-                <a
+                </Link>
+                <Link
                   href='/apply/founders'
                   className='px-6 py-3 border border-[#a98b5d]/50 text-[#dcd7ce] font-semibold rounded-xl hover:bg-[#a98b5d]/10 transition-all duration-300'
                 >
                   Join Founding Cohort
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

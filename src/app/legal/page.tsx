@@ -225,21 +225,21 @@ export default function LegalPage() {
                   <strong className='text-[#a98b5d]'>
                     Privacy & Data Protection:
                   </strong>{' '}
-                  <a
+                  <Link
                     href='mailto:privacy@nartaq.com'
                     className='underline hover:text-[#a98b5d]'
                   >
                     privacy@nartaq.com
-                  </a>
+                  </Link>
                 </p>
                 <p>
                   <strong className='text-[#a98b5d]'>DMCA & Copyright:</strong>{' '}
-                  <a
+                  <Link
                     href='mailto:dmca@nartaq.com'
                     className='underline hover:text-[#a98b5d]'
                   >
                     dmca@nartaq.com
-                  </a>
+                  </Link>
                 </p>
               </div>
               <div className='mt-6 pt-6 border-t border-[#a98b5d]/20'>

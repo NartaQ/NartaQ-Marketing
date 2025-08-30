@@ -131,11 +131,10 @@ export default function TermsOfServicePage() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 + index * 0.05 }}
-                    className={`block py-2 px-3 rounded-lg text-sm transition-all duration-200 ${
-                      activeSection === item.id
-                        ? 'bg-[#a98b5d]/20 text-[#a98b5d] border-l-2 border-[#a98b5d]'
-                        : 'text-gray-400 hover:text-gray-200 hover:bg-[#a98b5d]/5'
-                    } ${item.level > 1 ? 'ml-4' : ''}`}
+                    className={`block py-2 px-3 rounded-lg text-sm transition-all duration-200 ${activeSection === item.id
+                      ? 'bg-[#a98b5d]/20 text-[#a98b5d] border-l-2 border-[#a98b5d]'
+                      : 'text-gray-400 hover:text-gray-200 hover:bg-[#a98b5d]/5'
+                      } ${item.level > 1 ? 'ml-4' : ''}`}
                   >
                     <span className='flex items-center justify-between'>
                       {item.title}
@@ -230,23 +229,23 @@ export default function TermsOfServicePage() {
                         <strong className='text-[#a98b5d]'>
                           Privacy Contact:
                         </strong>{' '}
-                        <a
+                        <Link
                           href='mailto:privacy@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
                           privacy@nartaq.com
-                        </a>
+                        </Link>
                       </div>
                       <div>
                         <strong className='text-[#a98b5d]'>
                           Data Protection:
                         </strong>{' '}
-                        <a
+                        <Link
                           href='mailto:riadh@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
                           riadh@nartaq.com
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -349,12 +348,12 @@ export default function TermsOfServicePage() {
                         </h4>
                         <p className='text-gray-300 text-sm'>
                           Visit our website at{' '}
-                          <a
+                          <Link
                             href='http://www.nartaq.com'
                             className='text-[#dcd7ce] hover:underline'
                           >
                             www.nartaq.com
-                          </a>{' '}
+                          </Link>{' '}
                           or any website of ours that links to this notice.
                         </p>
                       </div>
@@ -450,32 +449,32 @@ export default function TermsOfServicePage() {
                       <strong className='text-[#a98b5d]'>
                         Privacy Inquiries:
                       </strong>{' '}
-                      <a
+                      <Link
                         href='mailto:privacy@nartaq.com'
                         className='text-[#dcd7ce] hover:underline'
                       >
                         privacy@nartaq.com
-                      </a>
+                      </Link>
                     </div>
                     <div>
                       <strong className='text-[#a98b5d]'>
                         Data Protection Officer:
                       </strong>{' '}
-                      <a
+                      <Link
                         href='mailto:riadh@nartaq.com'
                         className='text-[#dcd7ce] hover:underline'
                       >
                         riadh@nartaq.com
-                      </a>
+                      </Link>
                     </div>
                     <div>
                       <strong className='text-[#a98b5d]'>Data Requests:</strong>{' '}
-                      <a
+                      <Link
                         href='http://www.nartaq.com/data-request'
                         className='text-[#dcd7ce] hover:underline'
                       >
                         www.nartaq.com/data-request
-                      </a>
+                      </Link>
                     </div>
                     <div>
                       <strong className='text-[#a98b5d]'>Phone:</strong>{' '}
@@ -565,12 +564,12 @@ export default function TermsOfServicePage() {
                     <div className='space-y-2 text-sm'>
                       <div>
                         <strong className='text-[#a98b5d]'>Email:</strong>{' '}
-                        <a
+                        <Link
                           href='mailto:legal@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
                           legal@nartaq.com
-                        </a>
+                        </Link>
                       </div>
                       <div>
                         <strong className='text-[#a98b5d]'>
@@ -601,12 +600,12 @@ export default function TermsOfServicePage() {
                       </div>
                       <div>
                         <strong className='text-blue-400'>Email:</strong>{' '}
-                        <a
+                        <Link
                           href='mailto:riadh@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
                           riadh@nartaq.com
-                        </a>
+                        </Link>
                       </div>
                       <div>
                         <strong className='text-blue-400'>Phone:</strong>{' '}
@@ -616,12 +615,12 @@ export default function TermsOfServicePage() {
                         <strong className='text-blue-400'>
                           Privacy Requests:
                         </strong>{' '}
-                        <a
+                        <Link
                           href='mailto:privacy@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
                           privacy@nartaq.com
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

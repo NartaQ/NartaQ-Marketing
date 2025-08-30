@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Sparkles, Users, Globe, Scale } from 'lucide-react'
 import { useRef } from 'react'
 import { useInView } from 'framer-motion'
+import Link from 'next/link'
 
 export default function VisionSection() {
   const ref = useRef(null)
@@ -16,7 +17,7 @@ export default function VisionSection() {
       Icon: Users
     },
     {
-      title: "Globally Accessible", 
+      title: "Globally Accessible",
       description: "Breaking down geographical barriers to connect the best ideas with the right capital, anywhere in the world.",
       Icon: Globe
     },
@@ -46,7 +47,7 @@ export default function VisionSection() {
             <Sparkles className="w-4 h-4 text-[#a98b5d]" />
             <span className="text-sm font-medium text-[#dcd7ce]">OUR VISION</span>
           </div>
-          
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             <span className="text-[#dcd7ce]">The Future of Funding</span>
             <br />
@@ -74,13 +75,13 @@ export default function VisionSection() {
                   <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center">
                     <Icon className="w-8 h-8 text-[#a98b5d]" />
                   </div>
-                  
+
                   <h3 className="text-xl sm:text-2xl font-bold text-[#a98b5d] mb-4">
                     {pillar.title}
                   </h3>
-                  
+
                   <div className="w-12 h-0.5 bg-[#a98b5d] mx-auto mb-4"></div>
-                  
+
                   <p className="text-[#dcd7ce] leading-relaxed">
                     {pillar.description}
                   </p>
@@ -97,13 +98,13 @@ export default function VisionSection() {
           transition={{ delay: 0.6 }}
           className="text-center mt-16"
         >
-          <a
+          <Link
             href="/about"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/10 border border-[#a98b5d]/30 rounded-xl text-[#dcd7ce] font-medium hover:bg-[#a98b5d]/20 transition-all duration-300"
           >
             Learn About Our Journey
             <Sparkles className="w-4 h-4" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

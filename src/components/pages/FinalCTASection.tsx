@@ -177,13 +177,13 @@ export default function FinalCTASection() {
               <p className='text-[#5c5d63]'>
                 Ready to join? Get exclusive insights first.
               </p>
-              <a
+              <Link
                 href='mailto:contact@nartaq.com?subject=Investor%20Memo%20Request'
                 className='inline-flex items-center gap-2 px-8 py-3 rounded-xl border border-[#5c5d63]/30 text-[#5c5d63] font-medium hover:border-[#a98b5d]/50 hover:text-[#a98b5d] transition-all duration-300'
               >
                 <span>Request Access (NDA)</span>
                 <ArrowRight className='w-4 h-4' />
-              </a>
+              </Link>
             </div>
           </div>
 

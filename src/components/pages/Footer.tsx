@@ -26,7 +26,7 @@ export default function Footer() {
           </Link>
 
           <div className='flex gap-4'>
-            <a
+            <Link
               href='https://twitter.com/nartaq'
               target='_blank'
               rel='noopener noreferrer'
@@ -34,8 +34,8 @@ export default function Footer() {
               aria-label='Follow us on Twitter'
             >
               <i className='bi bi-twitter' />
-            </a>
-            <a
+            </Link>
+            <Link
               href='https://linkedin.com/company/nartaq'
               target='_blank'
               rel='noopener noreferrer'
@@ -43,8 +43,8 @@ export default function Footer() {
               aria-label='Connect on LinkedIn'
             >
               <i className='bi bi-linkedin' />
-            </a>
-            <a
+            </Link>
+            <Link
               href='https://discord.gg/nartaq'
               target='_blank'
               rel='noopener noreferrer'
@@ -52,8 +52,8 @@ export default function Footer() {
               aria-label='Join our Discord'
             >
               <i className='bi bi-discord' />
-            </a>
-            <a
+            </Link>
+            <Link
               href='https://github.com/nartaq'
               target='_blank'
               rel='noopener noreferrer'
@@ -61,7 +61,7 @@ export default function Footer() {
               aria-label='View on GitHub'
             >
               <i className='bi bi-github' />
-            </a>
+            </Link>
           </div>
         </div>
 

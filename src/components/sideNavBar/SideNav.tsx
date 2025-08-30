@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { menuSlide } from './anim'
 import NavLink from './LinkNav'
 import Curve from './Curve'
+import Link from 'next/link'
 
 const navItems = [
   {
@@ -88,7 +89,7 @@ export default function NavMenu() {
         </div>
         {/* CTAs - vertically centered */}
         <div className='flex-1 flex flex-col items-center justify-center gap-4'>
-          <a
+          <Link
             href='/apply/founders'
             className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
             onMouseEnter={() => setSelectedIndicator('/apply/founders')}
@@ -96,9 +97,9 @@ export default function NavMenu() {
           >
             Get Funding
             <ArrowRight className='w-4 h-4' />
-          </a>
+          </Link>
 
-          <a
+          <Link
             href='/apply/investors'
             className='inline-flex items-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
             onMouseEnter={() => setSelectedIndicator('/apply/investors')}
@@ -106,14 +107,14 @@ export default function NavMenu() {
           >
             Find Deals
             <ArrowRight className='w-4 h-4' />
-          </a>
+          </Link>
         </div>
         {/* Bottom area: social follow block placed here so it sits at the bottom */}
         <div className='mt-6 sm:mt-8'>
           <div className='flex gap-4 items-center'>
             {socialLinks.map((s) => (
               <React.Fragment key={s.name}>
-                <a
+                <Link
                   key={s.name}
                   href={s.href}
                   target='_blank'
@@ -126,7 +127,7 @@ export default function NavMenu() {
                   <span className='inline-flex items-center justify-center rounded-full bg-white/3'>
                     {s.name}
                   </span>
-                </a>
+                </Link>
                 {s.name !== 'Facebook' && (
                   <span className=' border-2 opacity-30 rounded'></span>
                 )}

@@ -8,6 +8,7 @@ import {
   useMotionValueEvent,
 } from 'motion/react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import React, { useRef, useState } from 'react'
 
@@ -74,9 +75,9 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible }
-            )
+            child as React.ReactElement<{ visible?: boolean }>,
+            { visible }
+          )
           : child
       )}
     </motion.div>
@@ -125,7 +126,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       )}
     >
       {items.map((item, idx) => (
-        <a
+        <Link
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
           className='relative px-4 py-2 text-[#3e3f44] dark:text-[#dcd7ce]'
@@ -139,7 +140,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             />
           )}
           <span className='relative z-20'>{item.name}</span>
-        </a>
+        </Link>
       ))}
     </motion.div>
   )
@@ -234,7 +235,7 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <a
+    <Link
       href='#'
       className='relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-[#232428] dark:text-[#dcd7ce]'
     >
@@ -247,7 +248,7 @@ export const NavbarLogo = () => {
       <span className='font-medium text-[#232428] dark:text-[#dcd7ce]'>
         Startup
       </span>
-    </a>
+    </Link>
   )
 }
 
@@ -265,9 +266,9 @@ export const NavbarButton = ({
   className?: string
   variant?: 'primary' | 'secondary' | 'dark' | 'gradient'
 } & (
-  | React.ComponentPropsWithoutRef<'a'>
-  | React.ComponentPropsWithoutRef<'button'>
-)) => {
+    | React.ComponentPropsWithoutRef<'a'>
+    | React.ComponentPropsWithoutRef<'button'>
+  )) => {
   const baseStyles =
     'px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center'
 

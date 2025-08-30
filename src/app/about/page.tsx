@@ -176,11 +176,11 @@ export default function AboutPage() {
                       alt='Riadh Jouini'
                       className='w-full h-full object-cover rounded-2xl'
                       onError={(e) => {
-                        ;(e.target as HTMLImageElement).style.display = 'none'
-                        ;(
-                          e.target as HTMLImageElement
-                        ).parentElement!.innerHTML =
-                          '<span class="text-2xl font-bold text-black">RJ</span>'
+                        ; (e.target as HTMLImageElement).style.display = 'none'
+                          ; (
+                            e.target as HTMLImageElement
+                          ).parentElement!.innerHTML =
+                            '<span class="text-2xl font-bold text-black">RJ</span>'
                       }}
                     />
                   </div>
@@ -194,18 +194,18 @@ export default function AboutPage() {
                 <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-6'></div>
 
                 <div className='flex justify-center gap-4'>
-                  <a
+                  <Link
                     href='https://linkedin.com/in/riadh-jouini'
                     className='w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors'
                   >
                     <Linkedin className='w-5 h-5' />
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href='https://twitter.com/riadhjouini'
                     className='w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors'
                   >
                     <Twitter className='w-5 h-5' />
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
 
@@ -225,11 +225,11 @@ export default function AboutPage() {
                       alt='Jesser Bedoui'
                       className='w-full h-full object-cover rounded-2xl'
                       onError={(e) => {
-                        ;(e.target as HTMLImageElement).style.display = 'none'
-                        ;(
-                          e.target as HTMLImageElement
-                        ).parentElement!.innerHTML =
-                          '<span class="text-2xl font-bold text-black">JB</span>'
+                        ; (e.target as HTMLImageElement).style.display = 'none'
+                          ; (
+                            e.target as HTMLImageElement
+                          ).parentElement!.innerHTML =
+                            '<span class="text-2xl font-bold text-black">JB</span>'
                       }}
                     />
                   </div>
@@ -242,19 +242,19 @@ export default function AboutPage() {
                 </p>
                 <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-6'></div>
                 <div className='flex justify-center gap-4'>
-                  <a
+                  <Link
                     href='https://linkedin.com/in/jesser-bedoui'
                     className='w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors'
                   >
                     <Linkedin className='w-5 h-5' />
-                  </a>
+                  </Link>
 
-                  <a
+                  <Link
                     href='https://twitter.com/jesserbedoui'
                     className='w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors'
                   >
                     <Twitter className='w-5 h-5' />
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             </div>

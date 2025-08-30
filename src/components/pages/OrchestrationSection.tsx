@@ -10,6 +10,7 @@ import {
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Link from 'next/link'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -362,7 +363,7 @@ export default function OrchestrationSection() {
             </p>
 
             <div className='flex justify-center pt-2'>
-              <a
+              <Link
                 href='mailto:contact@nartaq.com?subject=Orchestration%20Inquiry'
                 className='premium-glass elite-hover px-6 md:px-8 py-3 md:py-4 rounded-lg md:rounded-xl border border-[#a98b5d]/30 hover:border-[#a98b5d]/60 transition-all duration-300 inline-flex items-center gap-2 md:gap-3'
               >
@@ -370,7 +371,7 @@ export default function OrchestrationSection() {
                   Learn about orchestration
                 </span>
                 <ArrowRight className='w-3 h-3 md:w-4 md:h-4 text-[#a98b5d]' />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
