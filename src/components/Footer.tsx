@@ -20,7 +20,11 @@ export default function Footer() {
                 Building the Future of Startup Funding
               </div>
               <div className='text-xs text-gray-500 mt-1'>
-                France-Tunisia Corridor
+                  Our AI-powered platform revolutionizes startup funding by eliminating network bias and geographic 
+                  barriers. We use advanced algorithms to analyze market opportunities, team capabilities, and 
+                  investor preferences, creating optimal matches based on merit and compatibility rather than 
+                  connections. Join the founding cohort of entrepreneurs and investors building the future of 
+                  equitable startup funding.
               </div>
             </div>
           </Link>

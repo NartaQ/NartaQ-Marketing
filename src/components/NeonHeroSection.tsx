@@ -65,22 +65,6 @@ export default function NeonHeroSection() {
           regardless of location or network. Get matched with investors or discover your next investment with NartaQ.
         </motion.p>
 
-        {/* Enhanced Description */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/5 border border-[#a98b5d]/20 rounded-2xl p-6 max-w-5xl mx-auto mb-8 sm:mb-12"
-        >
-          <p className="text-gray-300 leading-relaxed text-base sm:text-lg">
-            Our AI-powered platform revolutionizes startup funding by eliminating network bias and geographic 
-            barriers. We use advanced algorithms to analyze market opportunities, team capabilities, and 
-            investor preferences, creating optimal matches based on merit and compatibility rather than 
-            connections. Join the founding cohort of entrepreneurs and investors building the future of 
-            equitable startup funding.
-          </p>
-        </motion.div>
-
         {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

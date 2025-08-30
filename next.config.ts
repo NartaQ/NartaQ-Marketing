@@ -1,10 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ['@prisma/client', 'prisma'],
-  optimizePackageImports: [
-    '@prisma/client',
-  ],
+  experimental: {
+    optimizePackageImports: [
+      '@prisma/client', 'prisma'
+    ],
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.externals.push({
