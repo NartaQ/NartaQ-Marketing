@@ -8,26 +8,31 @@ import {
   NavBody,
   MobileNav,
   MobileNavHeader,
-  MobileNavMenu,
   MobileNavToggle,
   NavbarButton,
 } from '../ui/resizable-navbar'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
 import { animatePageOut } from '../pageTransition/animations'
 
-export default function Header({ className }: { className?: string }) {
+interface HeaderProps {
+  className?: string
+  onMobileMenuToggle?: () => void
+  isMobileMenuOpen?: boolean
+}
+
+export default function Header({
+  className,
+  onMobileMenuToggle,
+  isMobileMenuOpen = false
+}: HeaderProps) {
   const [active, setActive] = useState<string | null>(null)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [expandedSection, setExpandedSection] = useState<string | null>(null)
   const router = useRouter()
   const pathname = usePathname()
 
-  const toggleSection = (section: string) => {
-    setExpandedSection(expandedSection === section ? null : section)
-  }
+  // Provide a default no-op function if onMobileMenuToggle is undefined
+  const handleMobileToggle = onMobileMenuToggle || (() => { })
 
   const handleNavigation = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -35,8 +40,10 @@ export default function Header({ className }: { className?: string }) {
   ) => {
     e.preventDefault()
 
-    // Close mobile menu if open
-    setMobileMenuOpen(false)
+    // Close mobile menu if open (via parent callback)
+    if (isMobileMenuOpen) {
+      handleMobileToggle()
+    }
 
     // Don't animate if we're already on the page
     if (pathname === href) return
@@ -189,141 +196,19 @@ export default function Header({ className }: { className?: string }) {
 
             {/* Mobile Menu Toggle Button */}
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={handleMobileToggle}
               className='p-2 rounded-lg hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 transition-colors'
-              aria-label='Toggle mobile menu'
+              aria-label='Toggle navigation menu'
             >
               <MobileNavToggle
-                isOpen={mobileMenuOpen}
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                isOpen={isMobileMenuOpen}
+                onClick={handleMobileToggle}
               />
             </button>
           </div>
         </MobileNavHeader>
 
-        {/* Mobile Menu */}
-        <MobileNavMenu
-          isOpen={mobileMenuOpen}
-          onClose={() => setMobileMenuOpen(false)}
-        >
-          <div className='flex flex-col space-y-2 w-full max-h-[70vh] overflow-y-auto'>
-            {/* About Section */}
-            <div className='w-full'>
-              <button
-                onClick={() => toggleSection('about')}
-                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-              >
-                <span className='font-medium'>About</span>
-                <ChevronDown
-                  className={cn(
-                    'w-4 h-4 transition-transform duration-200',
-                    expandedSection === 'about' && 'rotate-180'
-                  )}
-                />
-              </button>
-              {expandedSection === 'about' && (
-                <div className='ml-4 mt-2 space-y-2'>
-                  <Link
-                    href='/about'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={(e) => handleNavigation(e, '/about')}
-                  >
-                    Our Story
-                  </Link>
-                  <Link
-                    href='/about#team'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={(e) => handleNavigation(e, '/about#team')}
-                  >
-                    The Team
-                  </Link>
-                  <Link
-                    href='/about#corridor'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={(e) => handleNavigation(e, '/about#corridor')}
-                  >
-                    France-Tunisia Corridor
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Platform Section */}
-            <div className='w-full'>
-              <button
-                onClick={() => toggleSection('platform')}
-                className='w-full flex items-center justify-between px-3 py-2 text-left text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-              >
-                <span className='font-medium'>Platform</span>
-                <ChevronDown
-                  className={cn(
-                    'w-4 h-4 transition-transform duration-200',
-                    expandedSection === 'platform' && 'rotate-180'
-                  )}
-                />
-              </button>
-              {expandedSection === 'platform' && (
-                <div className='ml-4 mt-2 space-y-2'>
-                  <Link
-                    href='/solutions/founders'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={(e) => handleNavigation(e, '/solutions/founders')}
-                  >
-                    For Founders
-                  </Link>
-                  <Link
-                    href='/solutions/investors'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={(e) => handleNavigation(e, '/solutions/investors')}
-                  >
-                    For Investors
-                  </Link>
-                  <Link
-                    href='/#how-it-works'
-                    className='block px-3 py-2 text-sm text-[#5c5d63] dark:text-[#5c5d63] hover:text-[#232428] dark:hover:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                    onClick={(e) => handleNavigation(e, '/#how-it-works')}
-                  >
-                    How It Works
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* FAQ & Legal */}
-            <div className='w-full'>
-              <Link
-                href='/faq'
-                className='block px-3 py-2 text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                onClick={(e) => handleNavigation(e, '/faq')}
-              >
-                <span className='font-medium'>FAQ</span>
-              </Link>
-            </div>
-
-            <div className='w-full'>
-              <Link
-                href='/legal'
-                className='block px-3 py-2 text-[#232428] dark:text-[#dcd7ce] hover:bg-[#5c5d63]/20 dark:hover:bg-[#5c5d63]/30 rounded-lg transition-colors'
-                onClick={(e) => handleNavigation(e, '/legal')}
-              >
-                <span className='font-medium'>Legal & Compliance</span>
-              </Link>
-            </div>
-
-            {/* CTA Button */}
-            <div className='pt-4 mt-4 border-t border-[#5c5d63]/40 dark:border-[#5c5d63]/50'>
-              <NavbarButton
-                href='/solutions/founders'
-                className='w-full text-center bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] hover:bg-[#8B7349] px-4 py-3 rounded-lg font-semibold'
-                onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-                  handleNavigation(e, '/apply/founders')
-                }
-              >
-                Join Founding Cohort
-              </NavbarButton>
-            </div>
-          </div>
-        </MobileNavMenu>
+        {/* Mobile Menu - Now handled by SideNav in UnifiedNavigation */}
       </MobileNav>
     </Navbar>
   )

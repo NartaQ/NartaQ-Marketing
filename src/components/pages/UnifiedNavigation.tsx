@@ -80,7 +80,10 @@ export default function UnifiedNavigation() {
         className='fixed top-0 left-0 right-0 z-50'
         style={{ minHeight: 'var(--header-height)' }}
       >
-        <Header />
+        <Header
+          onMobileMenuToggle={() => setIsNavOpen(!isNavOpen)}
+          isMobileMenuOpen={isNavOpen}
+        />
       </motion.div>
 
       {/* Floating Navigation Button */}
@@ -107,14 +110,12 @@ export default function UnifiedNavigation() {
         >
           <div className='w-full relative'>
             <div
-              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${
-                isNavOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'
-              }`}
+              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${isNavOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'
+                }`}
             ></div>
             <div
-              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${
-                isNavOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'
-              }`}
+              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${isNavOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'
+                }`}
             ></div>
           </div>
         </button>
