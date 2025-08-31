@@ -161,9 +161,9 @@ export default function Header({
           <div className='hidden lg:flex'>
             <NavbarButton
               className='text-sm bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] px-7 py-2 font-semibold hover:bg-[#8B7349] transition-colors rounded-lg'
-              href='/apply/founders'
+              href='/apply'
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-                handleNavigation(e, '/apply/founders')
+                handleNavigation(e, '/apply')
               }
             >
               Join Founding Cohort

@@ -1,24 +1,14 @@
 'use client'
 
-import { useState } from 'react'
-import InvestorForm from '@/components/ApplyFounders/investors/InvestorForm'
-import InvestorSuccess from '@/components/ApplyFounders/investors/InvestorSuccess'
-import InvestorsHeader from '@/components/ApplyFounders/investors/InvestorsHeader'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-export default function InvestorApplicationPage() {
-  const [isSubmitted, setIsSubmitted] = useState(false)
+export default function InvestorApplicationRedirect() {
+  const router = useRouter()
 
-  return (
-    <div className='min-h-screen bg-black text-white pt-20'>
-      <InvestorsHeader />
-      {!isSubmitted ? (
-        <>
-          {/* Header */}
-          <InvestorForm onSubmitted={() => setIsSubmitted(true)} />
-        </>
-      ) : (
-        <InvestorSuccess />
-      )}
-    </div>
-  )
+  useEffect(() => {
+    router.replace('/apply')
+  }, [router])
+
+  return null
 }

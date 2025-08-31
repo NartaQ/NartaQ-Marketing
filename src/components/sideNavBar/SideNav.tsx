@@ -105,24 +105,13 @@ export default function NavMenu() {
         {/* CTAs - vertically centered */}
         <div className='flex-1 flex flex-col items-center justify-center gap-4'>
           <Link
-            href='/apply/founders'
+            href='/apply'
             className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
-            onMouseEnter={() => setSelectedIndicator('/apply/founders')}
+            onMouseEnter={() => setSelectedIndicator('/apply')}
             onMouseLeave={() => setSelectedIndicator(pathname)}
-            onClick={(e) => handleNavigation(e, '/apply/founders')}
+            onClick={(e) => handleNavigation(e, '/apply')}
           >
-            Get Funding
-            <ArrowRight className='w-4 h-4' />
-          </Link>
-
-          <Link
-            href='/apply/investors'
-            className='inline-flex items-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
-            onMouseEnter={() => setSelectedIndicator('/apply/investors')}
-            onMouseLeave={() => setSelectedIndicator(pathname)}
-            onClick={(e) => handleNavigation(e, '/apply/investors')}
-          >
-            Find Deals
+            Apply Now
             <ArrowRight className='w-4 h-4' />
           </Link>
         </div>

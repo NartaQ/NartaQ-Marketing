@@ -71,7 +71,7 @@ export default function ForFoundersPage() {
             className="flex justify-center items-center mb-12"
           >
             <Link
-              href="/apply/founders"
+              href="/apply"
               className="group relative px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-[#a98b5d]/50"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -494,7 +494,7 @@ export default function ForFoundersPage() {
             </div>
             
             <motion.a
-              href="/apply/founders"
+              href="/apply"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/50"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

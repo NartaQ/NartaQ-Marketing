@@ -285,7 +285,7 @@ export default function FAQPage() {
                   Contact Us
                 </Link>
                 <Link
-                  href='/apply/founders'
+                  href='/apply'
                   className='px-6 py-3 border border-[#a98b5d]/50 text-[#dcd7ce] font-semibold rounded-xl hover:bg-[#a98b5d]/10 transition-all duration-300'
                 >
                   Join Founding Cohort

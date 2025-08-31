@@ -25,7 +25,7 @@ export default function ForInvestorsPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/apply/investors" className="group relative bg-[#a98b5d] hover:bg-[#a98b5d]/90 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#a98b5d]/25">
+            <Link href="/apply" className="group relative bg-[#a98b5d] hover:bg-[#a98b5d]/90 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#a98b5d]/25">
               <span className="relative z-10 flex items-center">
                 <TrendingUp className="w-5 h-5 mr-2" />
                 Join the Founding Investor Cohort
@@ -276,7 +276,7 @@ export default function ForInvestorsPage() {
           
           <div className="flex justify-center items-center mb-12">
             <motion.a
-              href="/apply/investors"
+              href="/apply"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/50"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

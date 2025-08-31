@@ -1,26 +1,14 @@
 'use client'
 
-import { useState } from 'react'
-import FoundersHeader from '@/components/ApplyFounders/founders/FoundersHeader'
-import FounderForm from '@/components/ApplyFounders/founders/FounderForm'
-import FounderSuccess from '@/components/ApplyFounders/founders/FounderSuccess'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-export default function FounderApplicationPage() {
-  const [isSubmitted, setIsSubmitted] = useState(false)
+export default function FounderApplicationRedirect() {
+  const router = useRouter()
 
-  return (
-    <div className='min-h-screen bg-black text-white pt-20'>
-      <FoundersHeader />
+  useEffect(() => {
+    router.replace('/apply')
+  }, [router])
 
-      {!isSubmitted ? (
-        <FounderForm
-          onSubmitted={() => {
-            setIsSubmitted(true)
-          }}
-        />
-      ) : (
-        <FounderSuccess />
-      )}
-    </div>
-  )
+  return null
 }

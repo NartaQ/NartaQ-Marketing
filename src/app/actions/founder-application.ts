@@ -28,6 +28,29 @@ export async function submitFounderApplication(
     // Validate the data
     const validatedData = founderApplicationSchema.parse(data)
 
+    // Check for existing application by email or name+company combination
+    const existingApplication = await prisma.founderApplication.findFirst({
+      where: {
+        OR: [
+          { workEmail: validatedData.workEmail },
+          {
+            AND: [
+              { fullName: validatedData.fullName },
+              { companyName: validatedData.companyName }
+            ]
+          }
+        ]
+      }
+    })
+
+    if (existingApplication) {
+      return {
+        success: false,
+        error: 'Application already exists',
+        message: 'An application with this email or founder/company combination has already been submitted. Please contact us if you need to update your application.',
+      }
+    }
+
     // Save to database
     const application = await prisma.founderApplication.create({
       data: {

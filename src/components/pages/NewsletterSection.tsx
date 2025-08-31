@@ -84,22 +84,13 @@ export default function NewsletterSection() {
               Join the Founding Community
             </h3>
 
-            <div className='flex flex-col sm:flex-row gap-4 mb-6'>
+            <div className='flex justify-center mb-6'>
               <Link
-                href='/apply/founders'
-                className='flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
-                onClick={(e) => handleNavigation(e, '/apply/founders')}
+                href='/apply'
+                className='inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
+                onClick={(e) => handleNavigation(e, '/apply')}
               >
-                I'm a Founder
-                <ArrowRight className='w-4 h-4' />
-              </Link>
-
-              <Link
-                href='/apply/investors'
-                className='flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#a98b5d] text-[#a98b5d] font-semibold rounded-xl hover:bg-[#a98b5d] hover:text-black transition-all duration-300'
-                onClick={(e) => handleNavigation(e, '/apply/investors')}
-              >
-                I'm an Investor
+                Apply Now
                 <ArrowRight className='w-4 h-4' />
               </Link>
             </div>

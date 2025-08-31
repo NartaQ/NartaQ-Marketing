@@ -27,6 +27,29 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
     // Validate the data
     const validatedData = investorApplicationSchema.parse(data)
 
+    // Check for existing application by email or name+company combination
+    const existingApplication = await prisma.investorApplication.findFirst({
+      where: {
+        OR: [
+          { workEmail: validatedData.workEmail },
+          {
+            AND: [
+              { fullName: validatedData.fullName },
+              { companyName: validatedData.companyName }
+            ]
+          }
+        ]
+      }
+    })
+
+    if (existingApplication) {
+      return {
+        success: false,
+        error: 'Application already exists',
+        message: 'An application with this email or investor/company combination has already been submitted. Please contact us if you need to update your application.',
+      }
+    }
+
     // Save to database
     const application = await prisma.investorApplication.create({
       data: {
