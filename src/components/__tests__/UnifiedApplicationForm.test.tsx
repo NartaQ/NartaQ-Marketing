@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import UnifiedApplicationForm from '../UnifiedApplicationForm'
 
@@ -283,9 +283,7 @@ describe('UnifiedApplicationForm', () => {
   })
 
   describe('Error Handling', () => {
-    it('handles form submission errors gracefully', async () => {
-      const user = userEvent.setup()
-      
+    it('handles form submission errors gracefully', async () => {      
       // Mock console.error to avoid error output in tests
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
       

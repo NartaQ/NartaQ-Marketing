@@ -16,12 +16,13 @@ beforeAll(() => {
 })
 
 describe('submitFounderApplication', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let submitFounderApplication: any
 
   beforeAll(async () => {
     // Import after mocking
-    const module = await import('../founder-application')
-    submitFounderApplication = module.submitFounderApplication
+    const moduleImport = await import('../founder-application')
+    submitFounderApplication = moduleImport.submitFounderApplication
   })
   
   afterAll(() => {
@@ -302,7 +303,7 @@ describe('submitFounderApplication', () => {
 
     it('should handle Prisma unique constraint errors', async () => {
       const prismaError = new Error('Unique constraint failed')
-      // @ts-ignore - Adding Prisma-specific properties
+      // @ts-expect-error - Adding Prisma-specific properties
       prismaError.code = 'P2002'
       prismaMock.founderApplication.create.mockRejectedValue(prismaError)
 
