@@ -36,8 +36,30 @@ export default function FaqSection() {
     },
   ]
 
+  // Generate FAQ structured data for Google's FAQ rich snippets
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  }
+
   return (
     <section className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden">
+      {/* SEO: FAQ Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqStructuredData)
+        }}
+      />
+      
       {/* Background Grid */}
       <div className="absolute inset-0 grid-pattern opacity-20">
         <div className="w-full h-full" style={{

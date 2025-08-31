@@ -6,6 +6,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   // Static pages with their priorities and update frequencies
   const staticPages: MetadataRoute.Sitemap = [
+    // Core pages - highest priority
     {
       url: baseUrl,
       lastModified: currentDate,
@@ -18,6 +19,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    
+    // Main product pages - high priority
     {
       url: `${baseUrl}/for-founders`,
       lastModified: currentDate,
@@ -30,6 +33,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    
+    // Application pages - high priority for conversions
     {
       url: `${baseUrl}/apply`,
       lastModified: currentDate,
@@ -37,11 +42,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/apply/founders`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/apply/investors`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    
+    // Support pages
+    {
       url: `${baseUrl}/faq`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    
+    // Legal pages - lower priority but important for trust
     {
       url: `${baseUrl}/legal`,
       lastModified: currentDate,
@@ -74,24 +95,52 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // In the future, you can add dynamic pages from your database:
-  // Example for when you have blog posts, user profiles, or other dynamic content:
+  // Future: Add dynamic content from database
+  // This is where you'd add blog posts, user profiles, etc.
+  const dynamicPages: MetadataRoute.Sitemap = []
+  
+  // Example for future blog implementation:
   /*
   try {
-    const dynamicPages = await fetchDynamicPages() // Your database query
-    const dynamicSitemapEntries = dynamicPages.map(page => ({
-      url: `${baseUrl}/${page.slug}`,
-      lastModified: new Date(page.updatedAt),
-      changeFrequency: 'weekly' as const,
+    const blogPosts = await fetchBlogPosts() // Your database query
+    const blogSitemapEntries = blogPosts.map(post => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.updatedAt),
+      changeFrequency: 'monthly' as const,
       priority: 0.7,
     }))
     
-    return [...staticPages, ...dynamicSitemapEntries]
+    dynamicPages.push(...blogSitemapEntries)
   } catch (error) {
-    console.error('Error fetching dynamic pages for sitemap:', error)
-    return staticPages
+    console.error('Error fetching blog posts for sitemap:', error)
   }
   */
+  
+  // Example for future resource/guide pages:
+  /*
+  const resourcePages = [
+    {
+      url: `${baseUrl}/resources/startup-funding-guide`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/resources/investor-matching-guide`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/resources/due-diligence-checklist`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+  ]
+  
+  dynamicPages.push(...resourcePages)
+  */
 
-  return staticPages
+  return [...staticPages, ...dynamicPages]
 }

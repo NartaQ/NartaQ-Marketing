@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://wwww.nartaq.com'),
+  metadataBase: new URL('https://www.nartaq.com'),
   alternates: {
     canonical: '/',
   },
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: 'NartaQ - Premium Investment & Talent Platform',
     description:
       'Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.',
-    url: 'https://wwww.nartaq.com',
+    url: 'https://www.nartaq.com',
     siteName: 'NartaQ',
     images: [
       {
