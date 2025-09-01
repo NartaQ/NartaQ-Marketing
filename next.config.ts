@@ -3,9 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: [
-      '@prisma/client', 'prisma'
-    ],
+      'lucide-react', 'framer-motion'
+    ]
   },
+  serverExternalPackages: ['@prisma/client', 'prisma'],
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.externals.push({

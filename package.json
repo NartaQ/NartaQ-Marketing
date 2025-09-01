@@ -10,7 +10,12 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "postinstall": "prisma generate && prisma db push --accept-data-loss"
+    "test:e2e": "npm run test:smoke && npm run test:health",
+    "test:smoke": "tsx scripts/smoke-tests.ts",
+    "test:health": "tsx scripts/health-check.ts",
+    "test:post-deployment": "tsx scripts/post-deployment-tests.ts",
+    "postinstall": "prisma generate",
+    "vercel-build": "prisma generate && next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
