@@ -1,14 +1,18 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import InvestorMultiStepForm from '../InvestorMultiStepForm'
 
 // Mock framer-motion
 jest.mock('framer-motion', () => ({
   motion: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     label: ({ children, ...props }: any) => <label {...props}>{children}</label>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
   },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   AnimatePresence: ({ children }: any) => <>{children}</>,
   useMotionValue: jest.fn(() => ({ set: jest.fn() })),
   useMotionTemplate: jest.fn(() => 'transparent'),
@@ -31,17 +35,20 @@ jest.mock('@/app/actions/investor-application', () => ({
   submitInvestorApplication: jest.fn(),
 }))
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const { submitInvestorApplication } = require('@/app/actions/investor-application')
 
 // Enhanced Select Component Mock with Context Awareness
 jest.mock('@/components/ui/select', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const React = require('react')
   
   // Create a context for Select state management
   const SelectContext = React.createContext(null)
   
   return {
-    Select: React.forwardRef(({ onValueChange, children, defaultValue, value, ...props }: any, ref: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    Select: React.forwardRef(function Select({ onValueChange, children, defaultValue, value, ...props }: any, ref: any) {
       const [internalValue, setInternalValue] = React.useState(defaultValue || value || '')
       
       const contextValue = React.useMemo(() => ({
@@ -66,9 +73,11 @@ jest.mock('@/components/ui/select', () => {
     
     SelectContent: ({ children }: any) => <div role="listbox">{children}</div>,
     
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     SelectItem: ({ value, children, onSelect }: any) => (
       <div 
         role="option" 
+        aria-selected={false}
         data-value={value}
         onClick={() => onSelect?.(value)}
       >
@@ -76,17 +85,20 @@ jest.mock('@/components/ui/select', () => {
       </div>
     ),
     
-    SelectTrigger: React.forwardRef(({ children, ...props }: any, ref: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    SelectTrigger: React.forwardRef(function SelectTrigger({ children, ...props }: any, ref: any) {
       const context = React.useContext(SelectContext)
       
       return (
         <button 
           type="button"
           role="combobox" 
-          aria-expanded="false"
+          aria-expanded={false}
+          aria-controls=""
           ref={ref}
           data-testid="select-trigger"
           {...props}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onClick={(e: any) => {
             // Call original onClick if provided
             props.onClick?.(e)

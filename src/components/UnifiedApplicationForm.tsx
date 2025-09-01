@@ -30,10 +30,6 @@ export default function UnifiedApplicationForm() {
     setStatus('success')
   }
 
-  const handleStartOver = () => {
-    setSelectedType(null)
-    setStatus('selecting')
-  }
 
   return (
     <div className='min-h-screen bg-black flex items-center justify-center p-4'>

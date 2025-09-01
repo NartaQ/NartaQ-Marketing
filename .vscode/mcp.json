@@ -12,6 +12,11 @@
     "aceternityui": {
       "command": "npx",
       "args": ["aceternityui-mcp"]
+    }, 
+    "lighthouse": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["lighthouse-mcp"]
     }
   }
 }

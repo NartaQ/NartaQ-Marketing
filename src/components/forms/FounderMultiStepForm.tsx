@@ -29,7 +29,7 @@ import {
 
 const formSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
-  workEmail: z.string().email('Please enter a valid email address'),
+  workEmail: z.email('Please enter a valid email address'),
   companyName: z.string().min(1, 'Company name is required'),
   website: z.string().url('Please enter a valid website URL'),
   sector: z.array(z.string()).min(1, 'Please select at least one sector'),
@@ -135,27 +135,21 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
   }
 
   const onSubmit = async (data: FormData) => {
-    // Prevent double submission
-    if (isSubmitted || form.formState.isSubmitting) {
-      return
-    }
-
     setSubmissionError('')
-    setIsSubmitted(true)
 
     try {
       const result = await submitFounderApplication(data)
+      
       if (result.success) {
+        setIsSubmitted(true)
         onSubmissionSuccess()
       } else {
         console.error('Submission failed:', result.error)
         setSubmissionError(result.message || result.error || 'Failed to submit application')
-        setIsSubmitted(false) // Allow retry if it's not a duplicate
       }
     } catch (error) {
       console.error('Error submitting form:', error)
       setSubmissionError('An unexpected error occurred. Please try again.')
-      setIsSubmitted(false)
     }
   }
 
@@ -518,6 +512,32 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                     </FormItem>
                   )}
                 />
+
+                {/* Data Processing Disclaimer */}
+                <div className='mt-8 p-6 bg-black/20 border border-[#a98b5d]/30 rounded-xl'>
+                  <p className='font-serif text-sm text-gray-300 leading-relaxed'>
+                    By submitting this application, you agree to our processing of your personal data 
+                    in accordance with our{' '}
+                    <a 
+                      href='/legal/privacy' 
+                      target='_blank' 
+                      rel='noopener noreferrer'
+                      className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
+                    >
+                      Privacy Policy
+                    </a>
+                    {' '}and{' '}
+                    <a 
+                      href='/legal/terms' 
+                      target='_blank' 
+                      rel='noopener noreferrer'
+                      className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
+                    >
+                      Terms of Service
+                    </a>
+                    . We will use this information to evaluate your application and communicate with you about potential opportunities.
+                  </p>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>

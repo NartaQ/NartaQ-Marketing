@@ -3,10 +3,11 @@
  */
 
 import type { PrismaClient } from '@prisma/client'
-import type { mockDeep, MockProxy } from 'jest-mock-extended'
+import type { MockProxy } from 'jest-mock-extended'
 
 // Mock Prisma client
 let prismaMock: MockProxy<PrismaClient>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let submitInvestorApplicationAction: any
 
 beforeAll(async () => {
@@ -23,8 +24,8 @@ beforeAll(async () => {
   }))
 
   // Dynamic import to ensure we get the mocked version
-  const module = await import('../investor-application')
-  submitInvestorApplicationAction = module.submitInvestorApplication
+  const moduleImport = await import('../investor-application')
+  submitInvestorApplicationAction = moduleImport.submitInvestorApplication
 })
 
 afterAll(() => {
@@ -72,6 +73,7 @@ describe('submitInvestorApplication', () => {
   describe('Successful Submission', () => {
     it('should successfully submit a valid investor application', async () => {
       const mockApplication = createMockApplication()
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ;(prismaMock.investorApplication.create as jest.MockedFunction<any>).mockResolvedValue(mockApplication)
 
       const result = await submitInvestorApplicationAction(validInvestorData)

@@ -3,6 +3,7 @@ import type { PrismaClient } from '@prisma/client'
 
 describe('Newsletter Subscription Server Action', () => {
   let prismaMock: DeepMockProxy<PrismaClient>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let subscribeToNewsletter: any
 
   beforeAll(async () => {
@@ -10,18 +11,19 @@ describe('Newsletter Subscription Server Action', () => {
     jest.spyOn(console, 'error').mockImplementation(() => {})
     
     // Mock Prisma before importing the server action
+    const { prismaMock: mockInstance } = await import('../../../lib/__mocks__/prisma')
     jest.doMock('@/lib/prisma', () => ({
-      prisma: require('../../../lib/__mocks__/prisma').prismaMock
+      prisma: mockInstance
     }))
 
     // Dynamically import the server action and mock
-    const [newsletterModule, { prismaMock: mockInstance }] = await Promise.all([
+    const [newsletterModule, { prismaMock: mockInstanceAgain }] = await Promise.all([
       import('../newsletter'),
       import('../../../lib/__mocks__/prisma')
     ])
     
     subscribeToNewsletter = newsletterModule.subscribeToNewsletter
-    prismaMock = mockInstance
+    prismaMock = mockInstanceAgain
   })
   
   afterAll(() => {
