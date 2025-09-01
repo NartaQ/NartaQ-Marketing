@@ -15,15 +15,16 @@ export const animatePageIn = () => {
   if (curvePath && pageNameDisplay && curveTransition) {
     const tl = gsap.timeline()
     // STEP 1: Start with curve covering the screen (continuing from animatePageOut)
-    tl.set(curvePath, {
-      attr: { d: 'M 0,0 Q 50,-15 100,0 L 100,100 Q 50,115 0,100 Z' }, // More curved with deeper curves
+    // Set initial state immediately to prevent any flash
+    tl.set(curveTransition, {
+      visibility: 'visible',
     })
+      .set(curvePath, {
+        attr: { d: 'M 0,0 Q 50,-15 100,0 L 100,100 Q 50,115 0,100 Z' }, // More curved with deeper curves
+      })
       .set(pageNameDisplay, {
         opacity: 0,
         y: 30,
-      })
-      .set(curveTransition, {
-        visibility: 'visible',
       })
       // STEP 2: Smooth page title entrance with beautiful animation
       .to(pageNameDisplay, {

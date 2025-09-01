@@ -25,6 +25,14 @@ export default function Template({ children }: { children: React.ReactNode }) {
       pageNameElement.textContent = name;
     }
 
+    // Ensure transition element is immediately visible and positioned
+    const curveTransition = document.getElementById('curve-transition');
+    const curvePath = document.getElementById('curve-path');
+    if (curveTransition && curvePath) {
+      curveTransition.style.visibility = 'visible';
+      curvePath.setAttribute('d', 'M 0,0 Q 50,-15 100,0 L 100,100 Q 50,115 0,100 Z');
+    }
+
     animatePageIn();
   }, [pathname]);
 
@@ -34,6 +42,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       <div
         id="curve-transition"
         className="fixed inset-0 z-[100] pointer-events-none overflow-hidden"
+        style={{ visibility: 'visible' }}
       >
         {/* Main curve shape */}
         <svg
@@ -63,7 +72,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
           </defs>
           <path
             id="curve-path"
-            d="M 0,100 Q 50,80 100,100 L 100,0 L 0,0 Z"
+            d="M 0,0 Q 50,-15 100,0 L 100,100 Q 50,115 0,100 Z"
             fill="url(#curveGradient)"
             filter="url(#curveGlow)"
             style={{
