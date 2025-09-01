@@ -29,9 +29,9 @@ import {
 
 const formSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
-  workEmail: z.string().email('Please enter a valid email address'),
+  workEmail: z.email('Please enter a valid email address'),
   companyName: z.string().min(1, 'Company name is required'),
-  website: z.string().url('Please enter a valid website URL'),
+  website: z.url('Please enter a valid website URL').optional(),
   sector: z.array(z.string()).min(1, 'Please select at least one sector'),
   otherSector: z.string().optional(),
   fundingStage: z.string().min(1, 'Please select a funding stage'),
@@ -41,6 +41,9 @@ const formSchema = z.object({
     .min(10, 'Please provide a short pitch (minimum 10 characters)')
     .max(300, 'Pitch must be under 300 characters'),
   pitchDeckUrl: z.string().optional(),
+  dataProcessingAgreement: z.boolean().refine(val => val === true, {
+    message: 'You must agree to the data processing and privacy policy to continue'
+  }),
 })
 
 type FormData = z.infer<typeof formSchema>
@@ -68,6 +71,7 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
       location: '',
       shortPitch: '',
       pitchDeckUrl: '',
+      dataProcessingAgreement: false,
     },
   })
 
@@ -579,6 +583,32 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                     </FormItem>
                   )}
                 />
+
+                {/* Data Processing Disclaimer */}
+                <div className='mt-8 p-6 bg-black/20 border border-[#a98b5d]/30 rounded-xl'>
+                  <p className='font-serif text-sm text-gray-300 leading-relaxed'>
+                    By submitting this application, you agree to our processing of your personal data 
+                    in accordance with our{' '}
+                    <a 
+                      href='/legal/privacy' 
+                      target='_blank' 
+                      rel='noopener noreferrer'
+                      className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
+                    >
+                      Privacy Policy
+                    </a>
+                    {' '}and{' '}
+                    <a 
+                      href='/legal/terms' 
+                      target='_blank' 
+                      rel='noopener noreferrer'
+                      className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
+                    >
+                      Terms of Service
+                    </a>
+                    . We will use this information to evaluate your application and communicate with you about potential opportunities.
+                  </p>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
