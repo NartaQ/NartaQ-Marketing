@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ArrowLeft, Check } from 'lucide-react'
 import { useForm } from 'react-hook-form'
@@ -31,7 +31,7 @@ const formSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
   workEmail: z.email('Please enter a valid email address'),
   companyName: z.string().min(1, 'Company name is required'),
-  website: z.url('Please enter a valid website URL').optional(),
+  website: z.string().url('Please enter a valid website URL'),
   sector: z.array(z.string()).min(1, 'Please select at least one sector'),
   otherSector: z.string().optional(),
   fundingStage: z.string().min(1, 'Please select a funding stage'),
@@ -41,9 +41,6 @@ const formSchema = z.object({
     .min(10, 'Please provide a short pitch (minimum 10 characters)')
     .max(300, 'Pitch must be under 300 characters'),
   pitchDeckUrl: z.string().optional(),
-  dataProcessingAgreement: z.boolean().refine(val => val === true, {
-    message: 'You must agree to the data processing and privacy policy to continue'
-  }),
 })
 
 type FormData = z.infer<typeof formSchema>
@@ -71,39 +68,8 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
       location: '',
       shortPitch: '',
       pitchDeckUrl: '',
-      dataProcessingAgreement: false,
     },
   })
-
-  // Debug logging for component initialization
-  useEffect(() => {
-    console.log('🏗️ FounderMultiStepForm initialized')
-    console.log('📊 Initial state:', {
-      currentStep,
-      totalSteps,
-      isSubmitted,
-      submissionError
-    })
-    
-    // Reset isSubmitted on component mount to prevent stale state
-    console.log('🔄 Resetting isSubmitted state on mount')
-    setIsSubmitted(false)
-  }, [])
-
-  // Debug logging for step changes
-  useEffect(() => {
-    console.log('📍 Step changed to:', currentStep, '/', totalSteps)
-  }, [currentStep])
-
-  // Debug logging for isSubmitted state changes
-  useEffect(() => {
-    console.log('🏁 isSubmitted state changed to:', isSubmitted)
-  }, [isSubmitted])
-
-  // Debug logging for form submission state changes
-  useEffect(() => {
-    console.log('⏳ Form isSubmitting state changed to:', form.formState.isSubmitting)
-  }, [form.formState.isSubmitting])
 
   const sectorOptions = [
     'Fintech',
@@ -139,20 +105,11 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
   }
 
   const nextStep = async () => {
-    console.log('➡️ Moving to next step from:', currentStep)
     const fieldsToValidate = getFieldsForStep(currentStep)
-    console.log('🔍 Validating fields for step', currentStep, ':', fieldsToValidate)
     const isValid = await form.trigger(fieldsToValidate)
-    console.log('✅ Step validation result:', isValid)
     
     if (isValid && currentStep < totalSteps) {
-      const newStep = currentStep + 1
-      console.log('🚀 Moving to step:', newStep)
-      setCurrentStep(newStep)
-    } else if (!isValid) {
-      console.log('❌ Validation failed for step', currentStep, ', errors:', form.formState.errors)
-    } else {
-      console.log('🏁 Already at final step:', currentStep, '/', totalSteps)
+      setCurrentStep(currentStep + 1)
     }
   }
 
@@ -178,36 +135,21 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
   }
 
   const onSubmit = async (data: FormData) => {
-    console.log('🚀 Founder form submission started')
-    console.log('📋 Form data:', data)
-    console.log('⚡ Form state:', form.formState)
-    console.log('🔄 Current step:', currentStep)
-    console.log('✅ Is form valid?', form.formState.isValid)
-    console.log('❌ Form errors:', form.formState.errors)
-    console.log('🏁 isSubmitted state:', isSubmitted)
-    console.log('⏳ isSubmitting state:', form.formState.isSubmitting)
-    
-    // Reset any previous errors
     setSubmissionError('')
 
     try {
-      console.log('📤 Calling submitFounderApplication...')
       const result = await submitFounderApplication(data)
-      console.log('📨 Server response:', result)
       
       if (result.success) {
-        console.log('✅ Submission successful, calling onSubmissionSuccess')
-        setIsSubmitted(true) // Only set this after successful submission
+        setIsSubmitted(true)
         onSubmissionSuccess()
       } else {
-        console.error('❌ Submission failed:', result.error)
+        console.error('Submission failed:', result.error)
         setSubmissionError(result.message || result.error || 'Failed to submit application')
-        // Don't set isSubmitted=true on failure, allow retry
       }
     } catch (error) {
-      console.error('💥 Error submitting form:', error)
+      console.error('Error submitting form:', error)
       setSubmissionError('An unexpected error occurred. Please try again.')
-      // Don't set isSubmitted=true on error, allow retry
     }
   }
 
@@ -243,20 +185,7 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
       </div>
 
       <Form {...form}>
-        <form onSubmit={(e) => {
-          console.log('🎯 Form onSubmit triggered')
-          console.log('📄 Form event:', e)
-          console.log('🔍 Form state before submit:', {
-            isValid: form.formState.isValid,
-            errors: form.formState.errors,
-            isSubmitting: form.formState.isSubmitting,
-            isDirty: form.formState.isDirty,
-            isSubmitted: isSubmitted,
-            currentStep: currentStep
-          })
-          console.log('📊 Form values:', form.getValues())
-          return form.handleSubmit(onSubmit)(e)
-        }} className='space-y-8'>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
           <AnimatePresence mode='wait'>
             {/* Step 1: Personal Information */}
             {currentStep === 1 && (
@@ -624,30 +553,6 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
             </motion.div>
           )}
 
-          {/* Debug Reset Button - Remove this after fixing the issue */}
-          {(isSubmitted || submissionError) && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className='mt-6 p-4 bg-yellow-900/20 border border-yellow-500/30 rounded-xl text-center'
-            >
-              <p className='font-serif text-yellow-400 mb-3'>Debug: Form submission state issue detected</p>
-              <Button
-                type='button'
-                onClick={() => {
-                  console.log('🔄 Manual reset triggered')
-                  setIsSubmitted(false)
-                  setSubmissionError('')
-                  form.reset()
-                }}
-                variant='outline'
-                className='font-serif text-yellow-400 border-yellow-500/30 hover:bg-yellow-500/20'
-              >
-                Reset Form (Debug)
-              </Button>
-            </motion.div>
-          )}
-
           {/* Navigation Buttons */}
           <div className='flex justify-between pt-8'>
             <Button
@@ -675,20 +580,6 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                 type='submit'
                 disabled={form.formState.isSubmitting || isSubmitted}
                 className='font-serif text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl'
-                onClick={(e) => {
-                  console.log('🖱️ Submit button clicked!')
-                  console.log('👆 Click event:', e)
-                  console.log('🔘 Button disabled?', form.formState.isSubmitting || isSubmitted)
-                  console.log('⚙️ Current form state:', {
-                    isSubmitting: form.formState.isSubmitting,
-                    isSubmitted: isSubmitted,
-                    isValid: form.formState.isValid,
-                    errors: form.formState.errors,
-                    currentStep: currentStep
-                  })
-                  console.log('📋 Form values at button click:', form.getValues())
-                  // Let the natural form submission flow continue
-                }}
               >
                 {form.formState.isSubmitting || isSubmitted ? (
                   <div className='flex items-center gap-2'>
