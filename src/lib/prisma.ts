@@ -8,17 +8,12 @@ export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
     log: process.env.NODE_ENV === 'development' ? ['query', 'error'] : ['error'],
-    // Add connection pooling for better Vercel performance
-    datasourceUrl: process.env.DATABASE_URL,
-    // Configure for serverless environments
-    ...(process.env.NODE_ENV === 'production' && {
-      // Disable connection pooling in serverless environments
-      datasources: {
-        db: {
-          url: process.env.DATABASE_URL,
-        },
+    // Use datasources configuration for both development and production
+    datasources: {
+      db: {
+        url: process.env.DATABASE_URL,
       },
-    }),
+    },
   })
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
