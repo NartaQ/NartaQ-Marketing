@@ -55,22 +55,6 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
   const [isSubmitted, setIsSubmitted] = useState(false)
   const totalSteps = 4
 
-  // Debug logging for component initialization
-  useEffect(() => {
-    console.log('🏗️ FounderMultiStepForm initialized')
-    console.log('📊 Initial state:', {
-      currentStep,
-      totalSteps,
-      isSubmitted,
-      submissionError
-    })
-  }, [])
-
-  // Debug logging for step changes
-  useEffect(() => {
-    console.log('📍 Step changed to:', currentStep, '/', totalSteps)
-  }, [currentStep])
-
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -86,6 +70,36 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
       pitchDeckUrl: '',
     },
   })
+
+  // Debug logging for component initialization
+  useEffect(() => {
+    console.log('🏗️ FounderMultiStepForm initialized')
+    console.log('📊 Initial state:', {
+      currentStep,
+      totalSteps,
+      isSubmitted,
+      submissionError
+    })
+    
+    // Reset isSubmitted on component mount to prevent stale state
+    console.log('🔄 Resetting isSubmitted state on mount')
+    setIsSubmitted(false)
+  }, [])
+
+  // Debug logging for step changes
+  useEffect(() => {
+    console.log('📍 Step changed to:', currentStep, '/', totalSteps)
+  }, [currentStep])
+
+  // Debug logging for isSubmitted state changes
+  useEffect(() => {
+    console.log('🏁 isSubmitted state changed to:', isSubmitted)
+  }, [isSubmitted])
+
+  // Debug logging for form submission state changes
+  useEffect(() => {
+    console.log('⏳ Form isSubmitting state changed to:', form.formState.isSubmitting)
+  }, [form.formState.isSubmitting])
 
   const sectorOptions = [
     'Fintech',
@@ -166,15 +180,11 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
     console.log('🔄 Current step:', currentStep)
     console.log('✅ Is form valid?', form.formState.isValid)
     console.log('❌ Form errors:', form.formState.errors)
+    console.log('🏁 isSubmitted state:', isSubmitted)
+    console.log('⏳ isSubmitting state:', form.formState.isSubmitting)
     
-    // Prevent double submission
-    if (isSubmitted || form.formState.isSubmitting) {
-      console.log('🚫 Submission blocked - already submitting or submitted')
-      return
-    }
-
+    // Reset any previous errors
     setSubmissionError('')
-    setIsSubmitted(true)
 
     try {
       console.log('📤 Calling submitFounderApplication...')
@@ -183,16 +193,17 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
       
       if (result.success) {
         console.log('✅ Submission successful, calling onSubmissionSuccess')
+        setIsSubmitted(true) // Only set this after successful submission
         onSubmissionSuccess()
       } else {
         console.error('❌ Submission failed:', result.error)
         setSubmissionError(result.message || result.error || 'Failed to submit application')
-        setIsSubmitted(false) // Allow retry if it's not a duplicate
+        // Don't set isSubmitted=true on failure, allow retry
       }
     } catch (error) {
       console.error('💥 Error submitting form:', error)
       setSubmissionError('An unexpected error occurred. Please try again.')
-      setIsSubmitted(false)
+      // Don't set isSubmitted=true on error, allow retry
     }
   }
 
@@ -580,6 +591,30 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
               className='mt-6 p-4 bg-red-900/20 border border-red-500/30 rounded-xl'
             >
               <p className='font-serif text-red-400 text-center'>{submissionError}</p>
+            </motion.div>
+          )}
+
+          {/* Debug Reset Button - Remove this after fixing the issue */}
+          {(isSubmitted || submissionError) && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className='mt-6 p-4 bg-yellow-900/20 border border-yellow-500/30 rounded-xl text-center'
+            >
+              <p className='font-serif text-yellow-400 mb-3'>Debug: Form submission state issue detected</p>
+              <Button
+                type='button'
+                onClick={() => {
+                  console.log('🔄 Manual reset triggered')
+                  setIsSubmitted(false)
+                  setSubmissionError('')
+                  form.reset()
+                }}
+                variant='outline'
+                className='font-serif text-yellow-400 border-yellow-500/30 hover:bg-yellow-500/20'
+              >
+                Reset Form (Debug)
+              </Button>
             </motion.div>
           )}
 
