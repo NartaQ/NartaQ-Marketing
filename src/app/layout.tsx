@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Playfair_Display, Source_Sans_3 } from 'next/font/google'
 import './globals.css'
-
+import 'lenis/dist/lenis.css'
 import UnifiedNavigation from '@/components/pages/UnifiedNavigation'
 import {
   organizationSchema,
@@ -114,7 +114,7 @@ export default function RootLayout({
       <head>
         <meta name='apple-mobile-web-app-title' content='NartaQ' />
         <meta name='application-name' content='NartaQ' />
-        
+
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{

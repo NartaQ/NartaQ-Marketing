@@ -69,7 +69,6 @@ export default function Home() {
       {/* Main Content Sections */}
       <VisionSection />
 
-      {/* <EcosystemSection /> */}
       <TrustComplianceSection />
       {/* Pricing and Resources */}
       <FaqSection />
