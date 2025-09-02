@@ -5,8 +5,6 @@ const nextConfig: NextConfig = {
     optimizePackageImports: [
       'lucide-react', 'framer-motion'
     ],
-    // Enable Turbopack persistent caching for faster builds
-    turbopackPersistentCaching: true,
   },
   serverExternalPackages: ['@prisma/client', 'prisma'],
   turbopack: {
