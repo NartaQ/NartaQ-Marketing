@@ -4,17 +4,27 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: [
       'lucide-react', 'framer-motion'
-    ]
+    ],
+    // Enable Turbopack persistent caching for faster builds
+    turbopackPersistentCaching: true,
   },
   serverExternalPackages: ['@prisma/client', 'prisma'],
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.externals.push({
-        '@prisma/client': '@prisma/client',
-      })
-    }
-    return config
+  turbopack: {
+    // Turbopack-specific optimizations
+    resolveAlias: {
+      // Add any module aliases if needed
+    },
+    resolveExtensions: ['.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
+    // Configure loaders for specific file types if needed
+    rules: {
+      // Example: if you need SVG support
+      // '*.svg': {
+      //   loaders: ['@svgr/webpack'],
+      //   as: '*.js',
+      // },
+    },
   },
+  // Remove webpack config as Turbopack handles optimization automatically
   // Ensure static files are properly handled
   distDir: '.next'
 };
