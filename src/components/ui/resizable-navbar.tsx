@@ -69,11 +69,11 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
       className={cn('fixed inset-x-0 top-0 z-50 w-full', className)}
     >
-      {React.Children.map(children, (child) =>
+      {React.Children.map(children, (child, index) =>
         React.isValidElement(child)
           ? React.cloneElement(
             child as React.ReactElement<{ visible?: boolean }>,
-            { visible }
+            { visible, key: index }
           )
           : child
       )}

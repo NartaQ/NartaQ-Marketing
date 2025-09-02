@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Upload, X, FileText } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -11,7 +11,6 @@ import { uploadFileToAzure } from '@/app/actions/file-upload'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { FileUpload } from '@/components/ui/file-upload'
 import {
   Form,
   FormControl,
@@ -44,74 +43,10 @@ interface CareerMultiStepFormProps {
 export default function CareerMultiStepForm({
   onSubmissionSuccess,
 }: CareerMultiStepFormProps) {
-  // Add error boundary state
-  const [hasError, setHasError] = useState(false)
-
-  // Wrap onSubmissionSuccess to handle any errors
-  const safeOnSubmissionSuccess = useCallback(() => {
-    try {
-      onSubmissionSuccess()
-    } catch (error: unknown) {
-      setHasError(true)
-    }
-  }, [onSubmissionSuccess])
-
-  // Add global error handler to catch any unhandled errors
-  useEffect(() => {
-    const handleError = (event: ErrorEvent) => {
-      // Only handle errors related to our form
-      if (event.error?.message?.includes('Application already exists')) {
-        event.preventDefault()
-        // Silently handle duplicate application errors
-        safeOnSubmissionSuccess()
-      }
-    }
-
-    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-      // Handle promise rejections
-      const reasonMessage = (event.reason as Error)?.message || String(event.reason) || ''
-      if (reasonMessage.includes('Application already exists')) {
-        event.preventDefault()
-        safeOnSubmissionSuccess()
-      }
-    }
-
-    window.addEventListener('error', handleError)
-    window.addEventListener('unhandledrejection', handleUnhandledRejection)
-
-    return () => {
-      window.removeEventListener('error', handleError)
-      window.removeEventListener('unhandledrejection', handleUnhandledRejection)
-    }
-  }, [safeOnSubmissionSuccess])
-
-  // If there's an error, show a fallback UI
-  if (hasError) {
-    return (
-      <div className='max-w-3xl mx-auto'>
-        <div className='bg-gradient-to-br from-[#232428]/80 to-[#3e3f44]/60 backdrop-blur-sm border border-[#a98b5d]/20 rounded-3xl p-8 md:p-12 text-center'>
-          <h2 className='font-serif text-2xl font-bold text-white mb-4'>
-            Something went wrong
-          </h2>
-          <p className='font-serif text-[#dcd7ce]/80 mb-6'>
-            Please refresh the page and try again.
-          </p>
-          <Button
-            onClick={() => window.location.reload()}
-            className='font-serif text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black rounded-xl'
-          >
-            Refresh Page
-          </Button>
-        </div>
-      </div>
-    )
-  }
   const [submissionError, setSubmissionError] = useState<string>('')
-  const [isSubmitted, setIsSubmitted] = useState(false)
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
-  const [isUploading, setIsUploading] = useState(false)
-  const [uploadError, setUploadError] = useState<string>('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [uploadError, setUploadError] = useState<string>('')
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -126,17 +61,17 @@ export default function CareerMultiStepForm({
     },
   })
 
-  const handleFileSelect = useCallback((files: File[]) => {
-    try {
-      if (files.length === 0) return
+  const handleFileSelect = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0]
+      if (!file) return
 
       setUploadError('')
-      const file = files[0]
 
-      // File size validation (10MB limit)
-      const maxSize = 10 * 1024 * 1024 // 10MB in bytes
+      // File size validation (5MB limit to be safe)
+      const maxSize = 5 * 1024 * 1024 // 5MB in bytes
       if (file.size > maxSize) {
-        setUploadError('File size must be less than 10MB')
+        setUploadError('File size must be less than 5MB')
         return
       }
 
@@ -145,51 +80,25 @@ export default function CareerMultiStepForm({
         'application/pdf',
         'application/msword',
         'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-        'application/vnd.ms-powerpoint',
-        'application/vnd.openxmlformats-officedocument.presentationml.presentation'
       ]
 
       if (!allowedTypes.includes(file.type)) {
-        setUploadError('Only PDF, Word documents (.doc, .docx), and PowerPoint files (.ppt, .pptx) are allowed')
+        setUploadError('Only PDF and Word documents (.doc, .docx) are allowed')
         return
       }
 
-      // Just store the file, don't upload yet
       setSelectedFile(file)
       setUploadError('')
-    } catch (error: unknown) {
-      setUploadError('Error selecting file. Please try again.')
-    }
-  }, [])
-
-  const uploadFileToServer = async (file: File): Promise<string | null> => {
-    try {
-      const formData = new FormData()
-      formData.append('file', file)
-
-      const result = await uploadFileToAzure(formData)
-
-      if (result.success && result.url) {
-        return result.url
-      } else {
-        throw new Error(result.error || 'Failed to upload file')
-      }
-    } catch (error: unknown) {
-      // Don't log to console, just throw for handling upstream
-      throw error
-    }
-  }
+    },
+    []
+  )
 
   const handleFileRemove = useCallback(() => {
-    try {
-      setSelectedFile(null)
-      setUploadError('')
-      form.setValue('cvUrl', '')
-    } catch (error: unknown) {
-      // Silently handle any errors during file removal
-    }
+    setSelectedFile(null)
+    setUploadError('')
+    form.setValue('cvUrl', '')
   }, [form])
-  console.log("'kjhksjdhfjksdf")
+
   const onSubmit = async (data: FormData) => {
     setSubmissionError('')
     setIsSubmitting(true)
@@ -197,61 +106,47 @@ export default function CareerMultiStepForm({
     try {
       // Upload file first if one is selected
       if (selectedFile) {
-        setIsUploading(true)
         try {
-          const cvUrl = await uploadFileToServer(selectedFile)
-          data.cvUrl = cvUrl || ''
+          const formData = new FormData()
+          formData.append('file', selectedFile)
+
+          const uploadResult = await uploadFileToAzure(formData)
+
+          if (uploadResult.success && uploadResult.url) {
+            data.cvUrl = uploadResult.url
+          } else {
+            throw new Error(uploadResult.error || 'Failed to upload file')
+          }
         } catch (uploadErr) {
           setUploadError('Failed to upload CV. Please try again.')
           setIsSubmitting(false)
-          setIsUploading(false)
           return
-        } finally {
-          setIsUploading(false)
         }
       }
 
       const result = await submitCareerApplication(data)
 
       if (result.success) {
-        setIsSubmitted(true)
-        safeOnSubmissionSuccess()
+        onSubmissionSuccess()
       } else {
-        // Handle specific error messages without logging to console
-        const errorMessage = result.error || result.message || ''
-
-        if (errorMessage.includes('Application already exists') || errorMessage.includes('already exists')) {
-          // Don't show error for duplicate applications - just inform user
-          setSubmissionError('')
-          // You could show a success message instead or redirect
-          safeOnSubmissionSuccess()
+        if (result.error === 'Application already exists') {
+          setSubmissionError(
+            'You have already submitted an application. Please contact us if you need to update it.'
+          )
         } else {
           setSubmissionError(
             result.message || result.error || 'Failed to submit application'
           )
         }
       }
-    } catch (error: unknown) {
-      // Handle network errors and other exceptions
-      const errorMessage = (error as Error)?.message || String(error) || ''
-
-      if (errorMessage.includes('Application already exists') || errorMessage.includes('already exists')) {
-        // Don't show error for duplicate applications
-        setSubmissionError('')
-        safeOnSubmissionSuccess()
-      } else {
-        setSubmissionError('An unexpected error occurred. Please try again.')
-      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmissionError('An unexpected error occurred. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
   }
 
-  // Use getValues instead of watch to avoid re-renders
-  const getMotivationLength = () => {
-    const motivation = form.getValues('motivation')
-    return motivation?.length || 0
-  }
   return (
     <div className='max-w-3xl mx-auto'>
       <Form {...form}>
@@ -375,8 +270,8 @@ export default function CareerMultiStepForm({
                     <FormControl>
                       <Textarea
                         placeholder='Tell us what excites you about this opportunity and how you can contribute to our mission. Share your passion, experience, and what makes you unique...'
-                        rows={8}
-                        className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none min-h-[200px] transition-all duration-300'
+                        rows={6}
+                        className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
                         {...field}
                       />
                     </FormControl>
@@ -414,76 +309,75 @@ export default function CareerMultiStepForm({
                 )}
               />
 
-              {/* CV Upload */}
-              <FormField
-                control={form.control}
-                name='cvUrl'
-                render={() => (
-                  <FormItem>
-                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
-                      Upload your CV (optional)
-                    </FormLabel>
-                    <p className='font-serif text-sm text-[#5c5d63] mb-4'>
-                      Accepted formats: PDF, Word (.doc, .docx), PowerPoint (.ppt, .pptx) - Maximum size: 10MB
-                      <br />
-                      <span className='text-xs text-[#a98b5d]'>Your file will be uploaded when you submit the form</span>
-                    </p>
-                    <div className='bg-[#232428]/40 border border-[#5c5d63]/30 rounded-xl p-6 hover:border-[#a98b5d]/30 transition-colors'>
-                      <FileUpload
+              {/* CV Upload - Simplified */}
+              <div className='space-y-4'>
+                <label className='font-serif text-xl text-[#dcd7ce] block'>
+                  Upload your CV (optional)
+                </label>
+                <p className='font-serif text-sm text-[#5c5d63]'>
+                  Accepted formats: PDF, Word (.doc, .docx) - Maximum size: 5MB
+                </p>
+
+                <div className='bg-[#232428]/40 border border-[#5c5d63]/30 rounded-xl p-6 hover:border-[#a98b5d]/30 transition-colors'>
+                  {!selectedFile ? (
+                    <div className='text-center'>
+                      <input
+                        type='file'
+                        accept='.pdf,.doc,.docx'
                         onChange={handleFileSelect}
-                        onRemove={handleFileRemove}
+                        className='hidden'
+                        id='cv-upload'
                       />
-
-                      {/* Upload Error Message */}
-                      {uploadError && (
-                        <div className='mt-4 p-3 bg-red-900/20 border border-red-500/30 rounded-lg'>
-                          <p className='font-serif text-red-400 text-sm'>{uploadError}</p>
-                        </div>
-                      )}
-
-                      {/* File Selected Indicator */}
-                      {selectedFile && !isUploading && (
-                        <div className='mt-4 p-3 bg-blue-900/20 border border-blue-500/30 rounded-lg'>
-                          <div className='flex items-center justify-between'>
-                            <div className='flex items-center text-blue-400'>
-                              <span className='font-serif'>
-                                {selectedFile.name} ready to upload ({(selectedFile.size / (1024 * 1024)).toFixed(2)} MB)
-                              </span>
-                            </div>
-                            <button
-                              type='button'
-                              onClick={handleFileRemove}
-                              className='font-serif text-sm text-red-400 hover:text-red-300 transition-colors underline'
-                            >
-                              Remove
-                            </button>
-                          </div>
-                          <p className='font-serif text-xs text-blue-300 mt-1'>
-                            File will be uploaded when you submit the form
+                      <label
+                        htmlFor='cv-upload'
+                        className='cursor-pointer inline-flex items-center gap-3 px-6 py-3 bg-[#a98b5d]/20 hover:bg-[#a98b5d]/30 border border-[#a98b5d]/50 rounded-lg text-[#dcd7ce] transition-all duration-300'
+                      >
+                        <Upload className='w-5 h-5' />
+                        Choose File
+                      </label>
+                      <p className='font-serif text-sm text-[#5c5d63] mt-2'>
+                        Or drag and drop your file here
+                      </p>
+                    </div>
+                  ) : (
+                    <div className='flex items-center justify-between p-3 bg-[#a98b5d]/10 border border-[#a98b5d]/30 rounded-lg'>
+                      <div className='flex items-center gap-3'>
+                        <FileText className='w-5 h-5 text-[#a98b5d]' />
+                        <div>
+                          <p className='font-serif text-[#dcd7ce] text-sm'>
+                            {selectedFile.name}
+                          </p>
+                          <p className='font-serif text-[#5c5d63] text-xs'>
+                            {(selectedFile.size / (1024 * 1024)).toFixed(2)} MB
                           </p>
                         </div>
-                      )}
-
-                      {/* Upload Progress */}
-                      {isUploading && (
-                        <div className='flex items-center justify-center mt-4'>
-                          <div className='w-6 h-6 border-2 border-[#a98b5d] border-t-transparent rounded-full animate-spin mr-2' />
-                          <span className='font-serif text-[#dcd7ce]/80'>
-                            Uploading CV...
-                          </span>
-                        </div>
-                      )}
+                      </div>
+                      <button
+                        type='button'
+                        onClick={handleFileRemove}
+                        className='p-1 hover:bg-red-500/20 rounded-full transition-colors'
+                      >
+                        <X className='w-4 h-4 text-red-400' />
+                      </button>
                     </div>
-                  </FormItem>
-                )}
-              />
+                  )}
+
+                  {uploadError && (
+                    <div className='mt-4 p-3 bg-red-900/20 border border-red-500/30 rounded-lg'>
+                      <p className='font-serif text-red-400 text-sm'>
+                        {uploadError}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* Data Processing Information */}
             <div className='mt-12 p-6 bg-[#232428]/40 border border-[#5c5d63]/30 rounded-xl'>
-              <p className='font-serif text-sm text-[#5c5d63] leading-relaxed'>
-                By submitting this application, you consent to the processing of your personal data in
-                accordance with our{' '}
+              <p className='font-serif text-sm text-[#a8a8a8] leading-relaxed'>
+                By submitting this application, you consent to the processing of
+                your personal data in accordance with our{' '}
                 <a
                   href='/legal/privacy'
                   target='_blank'
@@ -491,8 +385,8 @@ export default function CareerMultiStepForm({
                   className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
                 >
                   Privacy Policy
-                </a>
-                {' '}and{' '}
+                </a>{' '}
+                and{' '}
                 <a
                   href='/legal/terms'
                   target='_blank'
@@ -501,7 +395,8 @@ export default function CareerMultiStepForm({
                 >
                   Terms of Service
                 </a>
-                . This information will be used to evaluate your application and communicate about potential opportunities.
+                . This information will be used to evaluate your application and
+                communicate about potential opportunities.
               </p>
             </div>
 
@@ -522,28 +417,17 @@ export default function CareerMultiStepForm({
             <div className='flex justify-center pt-8'>
               <Button
                 type='submit'
-                disabled={isSubmitting || isSubmitted || isUploading}
+                disabled={isSubmitting}
                 className='font-serif text-lg px-12 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl shadow-lg hover:shadow-[#a98b5d]/20'
               >
-                {isUploading ? (
-                  <div className='flex items-center gap-2'>
-                    <div className='w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin' />
-                    Uploading CV...
-                  </div>
-                ) : isSubmitting ? (
+                {isSubmitting ? (
                   <div className='flex items-center gap-2'>
                     <div className='w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin' />
                     Submitting Application...
                   </div>
-                ) : isSubmitted ? (
-                  <div className='flex items-center gap-2'>
-                    <div className='w-5 h-5 border-2 border-green-600 border-t-transparent rounded-full animate-spin' />
-                    Application Submitted!
-                  </div>
                 ) : (
                   <>
                     Submit Application
-                    {selectedFile && <span className='text-sm opacity-75'>(+ Upload CV)</span>}
                     <ArrowRight className='w-5 h-5 ml-2' />
                   </>
                 )}

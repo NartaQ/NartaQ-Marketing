@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useRef } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { animatePageOut } from '../pageTransition/animations'
-import NewsletterForm from '../NewsletterForm'
+
 
 export default function NewsletterSection() {
   const ref = useRef(null)
@@ -95,21 +95,7 @@ export default function NewsletterSection() {
               </Link>
             </div>
 
-            <div className='border-t border-[#a98b5d]/20 pt-6'>
-              <p className='text-gray-400 mb-4 text-sm'>
-                Or get updates on our progress:
-              </p>
 
-              <NewsletterForm
-                source='homepage-newsletter-section'
-                title=''
-                description=''
-                placeholder='Enter your email'
-                buttonText='Subscribe'
-                showName={false}
-                className='text-left'
-              />
-            </div>
           </div>
         </motion.div>
 
