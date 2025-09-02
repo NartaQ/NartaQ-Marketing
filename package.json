@@ -40,6 +40,8 @@
     "lucide-react": "^0.539.0",
     "motion": "^12.23.12",
     "next": "15.4.6",
+    "posthog-js": "^1.261.3",
+    "posthog-node": "^5.8.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-dropzone": "^14.3.8",

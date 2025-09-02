@@ -24,7 +24,20 @@ const nextConfig: NextConfig = {
   },
   // Remove webpack config as Turbopack handles optimization automatically
   // Ensure static files are properly handled
-  distDir: '.next'
+  distDir: '.next',
+  async rewrites() {
+    return [
+      {
+        source: '/ingest/static/:path*',
+        destination: 'https://eu-assets.i.posthog.com/static/:path*',
+      },
+      {
+        source: '/ingest/:path*',
+        destination: 'https://eu.i.posthog.com/:path*',
+      },
+    ];
+  },
+  skipTrailingSlashRedirect: true,
 };
 
 export default nextConfig;
