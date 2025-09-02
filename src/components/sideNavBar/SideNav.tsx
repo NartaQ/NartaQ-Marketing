@@ -30,8 +30,8 @@ const navItems = [
     href: '/faq',
   },
   {
-    title: 'Legal',
-    href: '/legal',
+    title: 'Careers',
+    href: '/careers',
   },
 ]
 

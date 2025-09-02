@@ -23,8 +23,25 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
+import { animatePageOut } from '@/components/pageTransition/animations'
 
 export default function CareersPage() {
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const handleNavigation = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault()
+
+    // Don't animate if we're already on the page
+    if (pathname === href) return
+
+    // Trigger page transition animation
+    animatePageOut(href, router)
+  }
   return (
     <div className='min-h-screen bg-black text-white relative overflow-hidden'>
       {/* Enhanced Animated Grid Background */}
@@ -132,7 +149,10 @@ export default function CareersPage() {
               transition={{ duration: 0.8, delay: 0.9 }}
               className='flex flex-col sm:flex-row gap-6 justify-center items-center mb-16'
             >
-              <Link href='/careers/apply'>
+              <Link
+                href='/careers/apply'
+                onClick={(e) => handleNavigation(e, '/careers/apply')}
+              >
                 <Button className='group relative px-12 py-5 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold text-lg rounded-full hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/30'>
                   <Rocket className='w-6 h-6 mr-3 group-hover:animate-pulse' />
                   Apply Now - Shape the Future
@@ -440,7 +460,10 @@ export default function CareersPage() {
                 talent. Send us your application and let's explore how you can
                 contribute to our mission.
               </p>
-              <Link href='/careers/apply'>
+              <Link
+                href='/careers/apply'
+                onClick={(e) => handleNavigation(e, '/careers/apply')}
+              >
                 <Button className='group px-12 py-5 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold text-lg rounded-full hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/30'>
                   <Zap className='w-6 h-6 mr-3 group-hover:animate-pulse' />
                   Apply Now - Join NartaQ

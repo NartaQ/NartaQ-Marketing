@@ -25,14 +25,14 @@ interface HeaderProps {
 export default function Header({
   className,
   onMobileMenuToggle,
-  isMobileMenuOpen = false
+  isMobileMenuOpen = false,
 }: HeaderProps) {
   const [active, setActive] = useState<string | null>(null)
   const router = useRouter()
   const pathname = usePathname()
 
   // Provide a default no-op function if onMobileMenuToggle is undefined
-  const handleMobileToggle = onMobileMenuToggle || (() => { })
+  const handleMobileToggle = onMobileMenuToggle || (() => {})
 
   const handleNavigation = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -88,21 +88,14 @@ export default function Header({
                   >
                     Our Story
                   </HoveredLink>
+
                   <HoveredLink
-                    href='/about#team'
+                    href='/careers'
                     onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-                      handleNavigation(e, '/about#team')
+                      handleNavigation(e, '/careers')
                     }
                   >
-                    The Team
-                  </HoveredLink>
-                  <HoveredLink
-                    href='/about#corridor'
-                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-                      handleNavigation(e, '/about#corridor')
-                    }
-                  >
-                    France-Tunisia Corridor
+                    Careers
                   </HoveredLink>
                 </div>
               </MenuItem>
@@ -209,7 +202,6 @@ export default function Header({
             </button>
           </div>
         </MobileNavHeader>
-
       </MobileNav>
     </Navbar>
   )

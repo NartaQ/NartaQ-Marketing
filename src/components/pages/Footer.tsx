@@ -1,14 +1,52 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
+import { animatePageOut } from '../pageTransition/animations'
 
+interface FooterProps {
+  onMobileMenuToggle?: () => void
+  isMobileMenuOpen?: boolean
+}
 
-export default function Footer() {
+export default function Footer({
+  onMobileMenuToggle,
+  isMobileMenuOpen = false
+}: FooterProps) {
+  const router = useRouter()
+  const pathname = usePathname()
+
+  // Provide a default no-op function if onMobileMenuToggle is undefined
+  const handleMobileToggle = onMobileMenuToggle || (() => { })
+
+  const handleNavigation = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault()
+
+    // Close mobile menu if open (via parent callback)
+    if (isMobileMenuOpen) {
+      handleMobileToggle()
+    }
+
+    // Don't animate if we're already on the page
+    if (pathname === href) return
+
+    // Trigger page transition animation
+    animatePageOut(href, router)
+  }
   return (
     <footer className='mt-auto flex flex-col w-full gap-8 text-sm pt-[5%] pb-10 px-[10%] text-white max-md:flex-col'>
       <div className='flex max-md:flex-col max-md:gap-10 gap-10 w-full justify-between flex-wrap'>
         {/* Logo Section */}
         <div className='flex h-full w-[250px] flex-col items-center gap-6 max-md:w-full'>
-          <Link href='/' className='w-full items-center flex flex-col gap-4'>
+          <Link
+            href='/'
+            className='w-full items-center flex flex-col gap-4'
+            onClick={(e) => handleNavigation(e, '/')}
+          >
             <Image
               src='/logo/main-tr.svg'
               alt='NartaQ Logo'
@@ -74,10 +112,34 @@ export default function Footer() {
         <div className='flex h-full min-w-[180px] flex-col gap-4'>
           <h2 className='text-xl'>Platform</h2>
           <div className='flex flex-col gap-3'>
-            <Link href='/for-founders' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Founders</Link>
-            <Link href='/for-investors' className='footer-link hover:text-black dark:hover:text-white transition-colors'>For Investors</Link>
-            <Link href='/#how-it-works' className='footer-link hover:text-black dark:hover:text-white transition-colors'>How It Works</Link>
-            <Link href='/faq' className='footer-link hover:text-black dark:hover:text-white transition-colors'>FAQ</Link>
+            <Link
+              href='/for-founders'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/for-founders')}
+            >
+              For Founders
+            </Link>
+            <Link
+              href='/for-investors'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/for-investors')}
+            >
+              For Investors
+            </Link>
+            <Link
+              href='/#how-it-works'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/#how-it-works')}
+            >
+              How It Works
+            </Link>
+            <Link
+              href='/faq'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/faq')}
+            >
+              FAQ
+            </Link>
           </div>
         </div>
 
@@ -88,18 +150,21 @@ export default function Footer() {
             <Link
               href='/about'
               className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/about')}
             >
               Our Story
             </Link>
             <Link
               href='/about#team'
               className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/about#team')}
             >
               The Team
             </Link>
             <Link
               href='/about#corridor'
               className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/about#corridor')}
             >
               Our Corridor
             </Link>
@@ -113,18 +178,21 @@ export default function Footer() {
             <Link
               href='/legal/terms'
               className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/legal/terms')}
             >
               Terms
             </Link>
             <Link
               href='/legal/privacy'
               className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/legal/privacy')}
             >
               Privacy
             </Link>
             <Link
               href='/legal/dmca'
               className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/legal/dmca')}
             >
               DMCA
             </Link>
