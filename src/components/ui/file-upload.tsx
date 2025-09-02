@@ -27,8 +27,10 @@ const secondaryVariant = {
 
 export const FileUpload = ({
   onChange,
+  onRemove,
 }: {
   onChange?: (files: File[]) => void
+  onRemove?: () => void
 }) => {
   const [files, setFiles] = useState<File[]>([])
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -38,6 +40,11 @@ export const FileUpload = ({
     onChange?.(newFiles)
   }
 
+  const handleRemoveFile = () => {
+    setFiles([])
+    onRemove?.()
+  }
+
   const handleClick = () => {
     fileInputRef.current?.click()
   }
@@ -45,14 +52,17 @@ export const FileUpload = ({
   const { getRootProps, isDragActive } = useDropzone({
     multiple: false,
     noClick: true,
+    maxSize: 10 * 1024 * 1024, // 10MB
     accept: {
       'application/pdf': ['.pdf'],
+      'application/msword': ['.doc'],
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
       'application/vnd.ms-powerpoint': ['.ppt'],
       'application/vnd.openxmlformats-officedocument.presentationml.presentation': ['.pptx'],
     },
     onDrop: handleFileChange,
-    onDropRejected: (error) => {
-      console.log(error)
+    onDropRejected: (rejectedFiles) => {
+      console.log('Rejected files:', rejectedFiles)
     },
   })
 
@@ -65,9 +75,9 @@ export const FileUpload = ({
       >
         <input
           ref={fileInputRef}
-          id='file-upload-handle'
+          id='cv-upload-handle'
           type='file'
-          accept='.pdf,.ppt,.pptx'
+          accept='.pdf,.doc,.docx,.ppt,.pptx'
           onChange={(e) => handleFileChange(Array.from(e.target.files || []))}
           className='hidden'
         />
@@ -76,17 +86,20 @@ export const FileUpload = ({
         </div>
         <div className='flex flex-col items-center justify-center'>
           <p className='relative z-20 font-sans font-bold text-neutral-700 dark:text-neutral-300 text-base'>
-            Upload Pitch Deck
+            Upload CV/Resume
           </p>
           <p className='relative z-20 font-sans font-normal text-neutral-400 dark:text-neutral-400 text-base mt-2'>
-            Drag or drop your pitch deck here or click to upload (PDF, PPT, PPTX)
+            Drag or drop your file here or click to upload
+          </p>
+          <p className='relative z-20 font-sans font-normal text-neutral-500 dark:text-neutral-500 text-sm mt-1'>
+            PDF, Word (.doc/.docx), PowerPoint (.ppt/.pptx) - Max 10MB
           </p>
           <div className='relative w-full mt-10 max-w-xl mx-auto'>
             {files.length > 0 &&
               files.map((file, idx) => (
                 <motion.div
                   key={'file' + idx}
-                  layoutId={idx === 0 ? 'file-upload' : 'file-upload-' + idx}
+                  layoutId={idx === 0 ? 'cv-upload' : 'cv-upload-' + idx}
                   className={cn(
                     'relative overflow-hidden z-40 bg-white dark:bg-neutral-900 flex flex-col items-start justify-start md:h-24 p-4 mt-4 w-full mx-auto rounded-md',
                     'shadow-sm'
@@ -101,14 +114,23 @@ export const FileUpload = ({
                     >
                       {file.name}
                     </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      layout
-                      className='rounded-lg px-2 py-1 w-fit shrink-0 text-sm text-neutral-600 dark:bg-neutral-800 dark:text-white shadow-input'
-                    >
-                      {(file.size / (1024 * 1024)).toFixed(2)} MB
-                    </motion.p>
+                    <div className='flex items-center gap-2'>
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        layout
+                        className='rounded-lg px-2 py-1 w-fit shrink-0 text-sm text-neutral-600 dark:bg-neutral-800 dark:text-white shadow-input'
+                      >
+                        {(file.size / (1024 * 1024)).toFixed(2)} MB
+                      </motion.p>
+                      <button
+                        type='button'
+                        onClick={handleRemoveFile}
+                        className='text-red-500 hover:text-red-400 text-sm underline transition-colors'
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </div>
 
                   <div className='flex text-sm md:flex-row flex-col items-start md:items-center w-full mt-2 justify-between text-neutral-600 dark:text-neutral-400'>
@@ -134,7 +156,7 @@ export const FileUpload = ({
               ))}
             {!files.length && (
               <motion.div
-                layoutId='file-upload'
+                layoutId='cv-upload'
                 variants={mainVariant}
                 transition={{
                   type: 'spring',
@@ -186,8 +208,8 @@ export function GridPattern() {
             <div
               key={`${col}-${row}`}
               className={`w-10 h-10 flex shrink-0 rounded-[2px] ${index % 2 === 0
-                  ? 'bg-gray-50 dark:bg-neutral-950'
-                  : 'bg-gray-50 dark:bg-neutral-950 shadow-[0px_0px_1px_3px_rgba(255,255,255,1)_inset] dark:shadow-[0px_0px_1px_3px_rgba(0,0,0,1)_inset]'
+                ? 'bg-gray-50 dark:bg-neutral-950'
+                : 'bg-gray-50 dark:bg-neutral-950 shadow-[0px_0px_1px_3px_rgba(255,255,255,1)_inset] dark:shadow-[0px_0px_1px_3px_rgba(0,0,0,1)_inset]'
                 }`}
             />
           )
