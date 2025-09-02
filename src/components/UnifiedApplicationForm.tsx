@@ -2,7 +2,13 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ArrowLeft, Users, Building2, CheckCircle } from 'lucide-react'
+import {
+  ArrowRight,
+  ArrowLeft,
+  Users,
+  Building2,
+  CheckCircle,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import FounderMultiStepForm from './forms/FounderMultiStepForm'
 import InvestorMultiStepForm from './forms/InvestorMultiStepForm'
@@ -29,7 +35,6 @@ export default function UnifiedApplicationForm() {
   const handleSubmissionSuccess = () => {
     setStatus('success')
   }
-
 
   return (
     <div className='min-h-screen bg-black flex items-center justify-center p-4'>
@@ -64,7 +69,7 @@ export default function UnifiedApplicationForm() {
                   onClick={() => handleTypeSelect('founder')}
                   className='group cursor-pointer'
                 >
-                  <div className='bg-gradient-to-br from-gray-900/80 to-black/80 border border-[#a98b5d]/20 rounded-3xl p-8 hover:border-[#a98b5d]/50 transition-all duration-300'>
+                  <div className='bg-gradient-to-br from-[#a98b5d]/30 to-black/80 border border-[#a98b5d]/20 rounded-3xl p-8 hover:border-[#a98b5d]/50 transition-all duration-300'>
                     <div className='flex flex-col items-center text-center'>
                       <div className='w-16 h-16 bg-[#a98b5d]/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                         <Building2 className='w-8 h-8 text-[#a98b5d]' />
@@ -73,7 +78,8 @@ export default function UnifiedApplicationForm() {
                         I'm a Founder
                       </h3>
                       <p className='font-serif text-gray-300 leading-relaxed mb-6'>
-                        Looking for investment and want to connect with the right investors for my startup
+                        Looking for investment and want to connect with the
+                        right investors
                       </p>
                       <div className='flex items-center text-[#a98b5d] font-medium group-hover:translate-x-1 transition-transform'>
                         <span>Apply as Founder</span>
@@ -89,7 +95,7 @@ export default function UnifiedApplicationForm() {
                   onClick={() => handleTypeSelect('investor')}
                   className='group cursor-pointer'
                 >
-                  <div className='bg-gradient-to-br from-gray-900/80 to-black/80 border border-[#a98b5d]/20 rounded-3xl p-8 hover:border-[#a98b5d]/50 transition-all duration-300'>
+                  <div className='bg-gradient-to-br from-[#a98b5d]/30 to-black/80 border border-[#a98b5d]/20 rounded-3xl p-8 hover:border-[#a98b5d]/50 transition-all duration-300'>
                     <div className='flex flex-col items-center text-center'>
                       <div className='w-16 h-16 bg-[#a98b5d]/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                         <Users className='w-8 h-8 text-[#a98b5d]' />
@@ -98,7 +104,8 @@ export default function UnifiedApplicationForm() {
                         I'm an Investor
                       </h3>
                       <p className='font-serif text-gray-300 leading-relaxed mb-6'>
-                        Looking to discover and invest in promising startups in our network
+                        Looking to discover and invest in promising startups in
+                        our network
                       </p>
                       <div className='flex items-center text-[#a98b5d] font-medium group-hover:translate-x-1 transition-transform'>
                         <span>Apply as Investor</span>
@@ -134,21 +141,26 @@ export default function UnifiedApplicationForm() {
               {/* Form Header */}
               <div className='text-center mb-12'>
                 <h1 className='font-serif text-4xl md:text-5xl font-bold text-white mb-4'>
-                  {selectedType === 'founder' ? 'Founder Application' : 'Investor Application'}
+                  {selectedType === 'founder'
+                    ? 'Founder Application'
+                    : 'Investor Application'}
                 </h1>
                 <p className='font-serif text-lg text-gray-300'>
-                  {selectedType === 'founder' 
-                    ? 'Tell us about your startup and vision' 
-                    : 'Tell us about your investment focus and criteria'
-                  }
+                  {selectedType === 'founder'
+                    ? 'Tell us about your startup and vision'
+                    : 'Tell us about your investment focus and criteria'}
                 </p>
               </div>
 
               {/* Form Component */}
               {selectedType === 'founder' ? (
-                <FounderMultiStepForm onSubmissionSuccess={handleSubmissionSuccess} />
+                <FounderMultiStepForm
+                  onSubmissionSuccess={handleSubmissionSuccess}
+                />
               ) : (
-                <InvestorMultiStepForm onSubmissionSuccess={handleSubmissionSuccess} />
+                <InvestorMultiStepForm
+                  onSubmissionSuccess={handleSubmissionSuccess}
+                />
               )}
             </motion.div>
           )}
@@ -170,19 +182,19 @@ export default function UnifiedApplicationForm() {
                 >
                   <CheckCircle className='w-12 h-12 text-green-400' />
                 </motion.div>
-                
+
                 <h1 className='font-serif text-4xl md:text-5xl font-bold text-white mb-6'>
                   Application Submitted!
                 </h1>
-                
+
                 <p className='font-serif text-xl text-gray-300 mb-8 leading-relaxed'>
-                  Thank you for your application. Our team will review it and get back to you as soon as possible.
+                  Thank you for your application. Our team will review it and
+                  get back to you as soon as possible.
                 </p>
-                
+
                 <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-                 
                   <Button
-                    onClick={() => window.location.href = '/'}
+                    onClick={() => (window.location.href = '/')}
                     className='font-serif text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform'
                   >
                     Back to Home
