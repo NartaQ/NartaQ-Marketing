@@ -77,37 +77,7 @@ export const Menu = ({
   )
 }
 
-export const ProductItem = ({
-  title,
-  description,
-  href,
-  src,
-}: {
-  title: string
-  description: string
-  href: string
-  src: string
-}) => {
-  return (
-    <Link href={href} className='flex space-x-2'>
-      <Image
-        src={src}
-        width={140}
-        height={70}
-        alt={title}
-        className='shrink-0 rounded-md shadow-2xl'
-      />
-      <div>
-        <h4 className='text-xl font-bold mb-1 text-[#232428] dark:text-[#dcd7ce]'>
-          {title}
-        </h4>
-        <p className='text-[#3e3f44] text-sm max-w-[10rem] dark:text-[#5c5d63]'>
-          {description}
-        </p>
-      </div>
-    </Link>
-  )
-}
+
 
 export const HoveredLink = ({
   children,

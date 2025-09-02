@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import NewsletterForm from '../NewsletterForm'
+
 
 export default function Footer() {
   return (
@@ -21,11 +21,11 @@ export default function Footer() {
                 Building the Future of Startup Funding
               </div>
               <div className='text-xs  text-gray-400 mt-1'>
-                  Our AI-powered platform revolutionizes startup funding by eliminating network bias and geographic 
-                  barriers. We use advanced algorithms to analyze market opportunities, team capabilities, and 
-                  investor preferences, creating optimal matches based on merit and compatibility rather than 
-                  connections. Join the founding cohort of entrepreneurs and investors building the future of 
-                  equitable startup funding.
+                Our AI-powered platform revolutionizes startup funding by eliminating network bias and geographic
+                barriers. We use advanced algorithms to analyze market opportunities, team capabilities, and
+                investor preferences, creating optimal matches based on merit and compatibility rather than
+                connections. Join the founding cohort of entrepreneurs and investors building the future of
+                equitable startup funding.
               </div>
             </div>
           </Link>
@@ -129,20 +129,6 @@ export default function Footer() {
               DMCA
             </Link>
           </div>
-        </div>
-
-        {/* Newsletter */}
-        <div className='flex h-full min-w-[280px] flex-col gap-4'>
-          <h2 className='text-xl'>Stay Updated</h2>
-          <NewsletterForm
-            source='footer'
-            title=''
-            description='Get notified when we launch and receive exclusive updates.'
-            placeholder='Your email'
-            buttonText='Join Waitlist'
-            showName={false}
-            className='text-left'
-          />
         </div>
 
         {/* Contact */}

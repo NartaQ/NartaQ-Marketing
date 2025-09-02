@@ -1,10 +1,11 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizePackageImports: [
-      'lucide-react', 'framer-motion'
-    ],
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    serverActions: {
+      bodySizeLimit: '20mb',
+    },
   },
   serverExternalPackages: ['@prisma/client', 'prisma'],
   turbopack: {
@@ -35,9 +36,9 @@ const nextConfig: NextConfig = {
         source: '/ingest/:path*',
         destination: 'https://eu.i.posthog.com/:path*',
       },
-    ];
+    ]
   },
   skipTrailingSlashRedirect: true,
-};
+}
 
-export default nextConfig;
+export default nextConfig
