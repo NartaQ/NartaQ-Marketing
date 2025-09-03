@@ -1,5 +1,5 @@
-import type { DeepMockProxy } from 'jest-mock-extended'
 import type { PrismaClient } from '@prisma/client'
+import type { DeepMockProxy } from 'jest-mock-extended'
 
 describe('Newsletter Subscription Server Action', () => {
   let prismaMock: DeepMockProxy<PrismaClient>
@@ -9,23 +9,26 @@ describe('Newsletter Subscription Server Action', () => {
   beforeAll(async () => {
     // Suppress console errors during testing
     jest.spyOn(console, 'error').mockImplementation(() => {})
-    
+
     // Mock Prisma before importing the server action
-    const { prismaMock: mockInstance } = await import('../../../lib/__mocks__/prisma')
+    const { prismaMock: mockInstance } = await import(
+      '../../../lib/__mocks__/prisma'
+    )
     jest.doMock('@/lib/prisma', () => ({
-      prisma: mockInstance
+      prisma: mockInstance,
     }))
 
     // Dynamically import the server action and mock
-    const [newsletterModule, { prismaMock: mockInstanceAgain }] = await Promise.all([
-      import('../newsletter'),
-      import('../../../lib/__mocks__/prisma')
-    ])
-    
+    const [newsletterModule, { prismaMock: mockInstanceAgain }] =
+      await Promise.all([
+        import('../newsletter'),
+        import('../../../lib/__mocks__/prisma'),
+      ])
+
     subscribeToNewsletter = newsletterModule.subscribeToNewsletter
     prismaMock = mockInstanceAgain
   })
-  
+
   afterAll(() => {
     // Restore all mocks after tests
     jest.restoreAllMocks()
@@ -54,7 +57,7 @@ describe('Newsletter Subscription Server Action', () => {
   describe('Successful Subscription', () => {
     it('should successfully subscribe a user to newsletter with all fields', async () => {
       const testData = createValidNewsletterData()
-      
+
       prismaMock.newsletter.findUnique.mockResolvedValue(null)
       prismaMock.newsletter.create.mockResolvedValue(mockNewsletterSubscription)
 
@@ -65,7 +68,7 @@ describe('Newsletter Subscription Server Action', () => {
         data: mockNewsletterSubscription,
       })
       expect(prismaMock.newsletter.findUnique).toHaveBeenCalledWith({
-        where: { email: testData.email }
+        where: { email: testData.email },
       })
       expect(prismaMock.newsletter.create).toHaveBeenCalledWith({
         data: {
@@ -84,7 +87,7 @@ describe('Newsletter Subscription Server Action', () => {
         name: null,
         source: 'unknown',
       }
-      
+
       prismaMock.newsletter.findUnique.mockResolvedValue(null)
       prismaMock.newsletter.create.mockResolvedValue(minimalSubscription)
 
@@ -110,7 +113,7 @@ describe('Newsletter Subscription Server Action', () => {
         name: null,
         source: 'unknown',
       }
-      
+
       prismaMock.newsletter.findUnique.mockResolvedValue(null)
       prismaMock.newsletter.create.mockResolvedValue(subscription)
 
@@ -140,9 +143,9 @@ describe('Newsletter Subscription Server Action', () => {
           expect.objectContaining({
             code: 'invalid_format',
             path: ['email'],
-            message: 'Please enter a valid email address'
-          })
-        ])
+            message: 'Please enter a valid email address',
+          }),
+        ]),
       })
       expect(prismaMock.newsletter.findUnique).not.toHaveBeenCalled()
       expect(prismaMock.newsletter.create).not.toHaveBeenCalled()
@@ -159,8 +162,8 @@ describe('Newsletter Subscription Server Action', () => {
         expect.arrayContaining([
           expect.objectContaining({
             path: ['email'],
-            message: 'Please enter a valid email address'
-          })
+            message: 'Please enter a valid email address',
+          }),
         ])
       )
     })
@@ -177,8 +180,8 @@ describe('Newsletter Subscription Server Action', () => {
         expect.arrayContaining([
           expect.objectContaining({
             path: ['email'],
-            code: 'invalid_type'
-          })
+            code: 'invalid_type',
+          }),
         ])
       )
     })
@@ -187,8 +190,10 @@ describe('Newsletter Subscription Server Action', () => {
   describe('Database Errors', () => {
     it('should handle duplicate email subscription', async () => {
       const testData = createValidNewsletterData()
-      
-      prismaMock.newsletter.findUnique.mockResolvedValue(mockNewsletterSubscription)
+
+      prismaMock.newsletter.findUnique.mockResolvedValue(
+        mockNewsletterSubscription
+      )
 
       const result = await subscribeToNewsletter(testData)
 
@@ -197,15 +202,17 @@ describe('Newsletter Subscription Server Action', () => {
         error: 'This email is already subscribed to our newsletter',
       })
       expect(prismaMock.newsletter.findUnique).toHaveBeenCalledWith({
-        where: { email: testData.email }
+        where: { email: testData.email },
       })
       expect(prismaMock.newsletter.create).not.toHaveBeenCalled()
     })
 
     it('should handle database connection error on findUnique', async () => {
       const testData = createValidNewsletterData()
-      
-      prismaMock.newsletter.findUnique.mockRejectedValue(new Error('Database connection failed'))
+
+      prismaMock.newsletter.findUnique.mockRejectedValue(
+        new Error('Database connection failed')
+      )
 
       const result = await subscribeToNewsletter(testData)
 
@@ -217,9 +224,11 @@ describe('Newsletter Subscription Server Action', () => {
 
     it('should handle database error on create', async () => {
       const testData = createValidNewsletterData()
-      
+
       prismaMock.newsletter.findUnique.mockResolvedValue(null)
-      prismaMock.newsletter.create.mockRejectedValue(new Error('Database write failed'))
+      prismaMock.newsletter.create.mockRejectedValue(
+        new Error('Database write failed')
+      )
 
       const result = await subscribeToNewsletter(testData)
 
@@ -234,7 +243,7 @@ describe('Newsletter Subscription Server Action', () => {
     it('should handle very long email addresses', async () => {
       const longEmail = 'a'.repeat(100) + '@example.com'
       const testData = createValidNewsletterData({ email: longEmail })
-      
+
       prismaMock.newsletter.findUnique.mockResolvedValue(null)
       prismaMock.newsletter.create.mockResolvedValue({
         ...mockNewsletterSubscription,
@@ -258,7 +267,7 @@ describe('Newsletter Subscription Server Action', () => {
         name: 'John "Special" O\'Malley & Co.',
         source: 'social-media/instagram-#ad',
       })
-      
+
       prismaMock.newsletter.findUnique.mockResolvedValue(null)
       prismaMock.newsletter.create.mockResolvedValue({
         ...mockNewsletterSubscription,
@@ -297,7 +306,7 @@ describe('Newsletter Subscription Server Action', () => {
         name: "'; DROP TABLE newsletter; --",
         source: "'; DELETE FROM newsletter; --",
       })
-      
+
       prismaMock.newsletter.findUnique.mockResolvedValue(null)
       prismaMock.newsletter.create.mockResolvedValue({
         ...mockNewsletterSubscription,

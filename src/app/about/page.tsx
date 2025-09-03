@@ -27,29 +27,35 @@ export default function AboutPage() {
                 Merit-Based Future
               </span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed mb-8">
-              We believe exceptional founders deserve access to capital regardless of their network, 
-              location, or background. NartaQ is our answer to a broken system that favors connections 
-              over innovation and perpetuates inequality in startup funding.
+            <p className='text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed mb-8'>
+              We believe exceptional founders deserve access to capital
+              regardless of their network, location, or background. NartaQ is
+              our answer to a broken system that favors connections over
+              innovation and perpetuates inequality in startup funding.
             </p>
-            
-            <div className="bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/5 border border-[#a98b5d]/20 rounded-2xl p-8 max-w-5xl mx-auto">
-              <p className="text-gray-300 leading-relaxed mb-4">
-                The traditional venture capital model relies heavily on warm introductions, alumni networks, 
-                and geographic proximity to Silicon Valley. This system inadvertently excludes brilliant 
-                founders from underrepresented regions, backgrounds, and industries who lack the "right" 
-                connections but possess groundbreaking ideas and execution capability.
+
+            <div className='bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/5 border border-[#a98b5d]/20 rounded-2xl p-8 max-w-5xl mx-auto'>
+              <p className='text-gray-300 leading-relaxed mb-4'>
+                The traditional venture capital model relies heavily on warm
+                introductions, alumni networks, and geographic proximity to
+                Silicon Valley. This system inadvertently excludes brilliant
+                founders from underrepresented regions, backgrounds, and
+                industries who lack the "right" connections but possess
+                groundbreaking ideas and execution capability.
               </p>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Our platform leverages artificial intelligence and comprehensive data analysis to evaluate 
-                startups based on merit: market opportunity, team capability, product innovation, traction 
-                metrics, and growth potential. By removing human bias and network dependencies from initial 
-                screening, we create equal opportunities for all exceptional founders.
+              <p className='text-gray-300 leading-relaxed mb-4'>
+                Our platform leverages artificial intelligence and comprehensive
+                data analysis to evaluate startups based on merit: market
+                opportunity, team capability, product innovation, traction
+                metrics, and growth potential. By removing human bias and
+                network dependencies from initial screening, we create equal
+                opportunities for all exceptional founders.
               </p>
-              <p className="text-gray-300 leading-relaxed">
-                Starting with the France-Tunisia corridor, we're proving that geography shouldn't determine 
-                access to capital. Our vision extends globally, connecting underserved startup ecosystems 
-                with appropriate investors who value innovation over introductions.
+              <p className='text-gray-300 leading-relaxed'>
+                Starting with the France-Tunisia corridor, we're proving that
+                geography shouldn't determine access to capital. Our vision
+                extends globally, connecting underserved startup ecosystems with
+                appropriate investors who value innovation over introductions.
               </p>
             </div>
           </motion.div>
@@ -65,7 +71,7 @@ export default function AboutPage() {
               <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6'>
                 <Target className='w-4 h-4 text-[#a98b5d]' />
                 <span className='text-sm font-medium text-[#dcd7ce]'>
-                  OUR VISION 
+                  OUR VISION
                 </span>
               </div>
               <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-[#dcd7ce] mb-6'>
@@ -182,17 +188,18 @@ export default function AboutPage() {
                 <div className='w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] p-0.5'>
                   <div className='w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center'>
                     <Image
+                      title='riadhjouini'
                       width={100}
                       height={100}
                       src='/images/team/riadh.jpeg'
                       alt='Riadh Jouini'
                       className='w-full h-full object-cover rounded-2xl'
                       onError={(e) => {
-                        ; (e.target as HTMLImageElement).style.display = 'none'
-                          ; (
-                            e.target as HTMLImageElement
-                          ).parentElement!.innerHTML =
-                            '<span class="text-2xl font-bold text-black">RJ</span>'
+                        ;(e.target as HTMLImageElement).style.display = 'none'
+                        ;(
+                          e.target as HTMLImageElement
+                        ).parentElement!.innerHTML =
+                          '<span class="text-2xl font-bold text-black">RJ</span>'
                       }}
                     />
                   </div>
@@ -212,7 +219,6 @@ export default function AboutPage() {
                   >
                     <Linkedin className='w-5 h-5' />
                   </Link>
-                  
                 </div>
               </motion.div>
 
@@ -231,12 +237,13 @@ export default function AboutPage() {
                       src='/images/team/jesser.jpeg'
                       alt='Jesser Bedoui'
                       className='w-full h-full object-cover rounded-2xl'
+                      title='jesserbedoui'
                       onError={(e) => {
-                        ; (e.target as HTMLImageElement).style.display = 'none'
-                          ; (
-                            e.target as HTMLImageElement
-                          ).parentElement!.innerHTML =
-                            '<span class="text-2xl font-bold text-black">JB</span>'
+                        ;(e.target as HTMLImageElement).style.display = 'none'
+                        ;(
+                          e.target as HTMLImageElement
+                        ).parentElement!.innerHTML =
+                          '<span class="text-2xl font-bold text-black">JB</span>'
                       }}
                     />
                   </div>

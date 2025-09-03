@@ -1,24 +1,21 @@
 'use client'
 
+import { animatePageOut } from '@/components/pageTransition/animations'
+import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import {
   ArrowLeft,
   ArrowRight,
-  Cloud,
-  Server,
-  Shield,
-  Globe,
   Award,
   CheckCircle,
+  Cloud,
+  Globe,
   Heart,
-  Zap,
   Users,
-  Settings,
+  Zap,
 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { animatePageOut } from '@/components/pageTransition/animations'
 
 export default function DevOpsEngineerPage() {
   const router = useRouter()

@@ -1,30 +1,29 @@
 'use client'
 
+import { animatePageOut } from '@/components/pageTransition/animations'
+import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import {
   ArrowRight,
-  Sparkles,
-  Users,
-  Zap,
-  Heart,
-  Globe,
-  Trophy,
-  Rocket,
-  Brain,
-  Shield,
-  Target,
   Award,
-  TrendingUp,
-  CheckCircle,
+  Brain,
   Building,
-  MapPin,
+  CheckCircle,
   Clock,
   DollarSign,
+  Globe,
+  MapPin,
+  Rocket,
+  Shield,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Trophy,
+  Users,
+  Zap
 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { animatePageOut } from '@/components/pageTransition/animations'
 
 export default function CareersPage() {
   const router = useRouter()

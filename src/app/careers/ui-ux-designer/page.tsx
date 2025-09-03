@@ -1,23 +1,22 @@
 'use client'
 
+import { animatePageOut } from '@/components/pageTransition/animations'
+import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import {
   ArrowLeft,
   ArrowRight,
-  Palette,
-  Users,
-  Figma,
-  Globe,
   Award,
   CheckCircle,
+  Globe,
   Heart,
-  Zap,
+  Palette,
   Settings,
+  Users,
+  Zap
 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { animatePageOut } from '@/components/pageTransition/animations'
 
 export default function UIUXDesignerPage() {
   const router = useRouter()

@@ -1,24 +1,22 @@
 'use client'
 
+import { animatePageOut } from '@/components/pageTransition/animations'
+import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import {
   ArrowLeft,
   ArrowRight,
-  TrendingUp,
-  BarChart3,
-  Target,
-  Globe,
   Award,
+  BarChart3,
   CheckCircle,
-  Heart,
+  Globe,
   Search,
+  Target,
+  TrendingUp,
   Users,
-  Zap,
 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { animatePageOut } from '@/components/pageTransition/animations'
 
 export default function DigitalMarketingAnalystPage() {
   const router = useRouter()
