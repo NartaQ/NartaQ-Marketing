@@ -337,84 +337,10 @@ export default function ForFoundersPage() {
         </div>
       </section>
 
-      {/* Testimonials / Founding Cohort Metrics */}
-      <section className='py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0a0a0a] to-black'>
-        <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='text-center mb-16'>
-            <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6'>
-              <Users className='w-4 h-4 text-[#a98b5d]' />
-              <span className='text-sm font-medium text-[#dcd7ce]'>
-                TESTIMONIALS
-              </span>
-            </div>
-            <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-6'>
-              <span className='text-[#dcd7ce]'>What Our Founding</span>{' '}
-              <span className='text-[#a98b5d]'>Founders Are Saying</span>
-            </h2>
-          </div>
-
-          <div className='grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16'>
-            <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300'>
-              <div className='flex items-center mb-6'>
-                <div className='w-12 h-12 bg-[#a98b5d] rounded-2xl flex items-center justify-center mr-4'>
-                  <span className='text-black font-bold'>ML</span>
-                </div>
-                <div>
-                  <h4 className='font-semibold text-[#dcd7ce]'>Maria Lopez</h4>
-                  <p className='text-gray-400 text-sm'>Fintech Founder</p>
-                </div>
-              </div>
-              <div className='w-12 h-0.5 bg-[#a98b5d] mb-4'></div>
-              <p className='text-[#dcd7ce] leading-relaxed italic'>
-                "NartaQ connected me with the right investors quickly. The
-                process was transparent, efficient, and merit-based - exactly
-                what founders need."
-              </p>
-            </div>
-
-            <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300'>
-              <div className='flex items-center mb-6'>
-                <div className='w-12 h-12 bg-[#a98b5d] rounded-2xl flex items-center justify-center mr-4'>
-                  <span className='text-black font-bold'>DK</span>
-                </div>
-                <div>
-                  <h4 className='font-semibold text-[#dcd7ce]'>David Kim</h4>
-                  <p className='text-gray-400 text-sm'>AI Startup Founder</p>
-                </div>
-              </div>
-              <div className='w-12 h-0.5 bg-[#a98b5d] mb-4'></div>
-              <p className='text-[#dcd7ce] leading-relaxed italic'>
-                "The quality of investors I was matched with was incredible.
-                They understood my vision and invested based on our traction,
-                not my network."
-              </p>
-            </div>
-          </div>
-
-          {/* Metrics */}
-          <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent max-w-4xl mx-auto'>
-            <div className='grid md:grid-cols-2 gap-8 text-center'>
-              <div>
-                <div className='text-4xl font-bold text-[#a98b5d] mb-2'>
-                  250+
-                </div>
-                <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-2'></div>
-                <p className='text-[#dcd7ce]'>Founders Onboarded</p>
-              </div>
-              <div>
-                <div className='text-4xl font-bold text-[#a98b5d] mb-2'>10</div>
-                <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-2'></div>
-                <p className='text-[#dcd7ce]'>
-                  Investor-Founder Matches Initiated
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
       {/* Final CTA Section */}
-      <section className='py-24 bg-gradient-to-b from-black to-[#0a0a0a]'>
+      <section className='py-24 bg-gradient-to-b from-[#0a0a0a] to-black'>
         <div className='max-w-4xl mx-auto px-4 text-center'>
           <div>
             <h2 className='text-4xl md:text-5xl font-bold mb-6'>

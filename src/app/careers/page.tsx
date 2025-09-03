@@ -43,29 +43,22 @@ export default function CareersPage() {
   }
   return (
     <div className='min-h-screen bg-black text-white relative overflow-hidden'>
-      {/* Enhanced Animated Grid Background */}
-      <div className='absolute inset-0 grid-pattern opacity-20' />
-      <div className='absolute inset-0 bg-gradient-to-br from-black via-gray-900/50 to-black' />
-
-      {/* Premium Gradient Orbs */}
-      <div className='absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-[#a98b5d]/30 to-[#dcd7ce]/30 rounded-full blur-3xl animate-pulse' />
-      <div className='absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-[#dcd7ce]/20 to-[#a98b5d]/20 rounded-full blur-3xl animate-pulse delay-1000' />
-      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/10 rounded-full blur-2xl animate-pulse delay-500' />
-
+ 
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Hero Section */}
         <div className='min-h-screen flex items-center justify-center'>
-          <div className='max-w-6xl mx-auto px-4 text-center'>
+          <div className='max-w-6xl mx-auto px-4 sm:px-6 text-center'>
             {/* Premium Badge */}
-            <div className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/40 rounded-full text-sm font-semibold text-[#dcd7ce] mb-8 backdrop-blur-sm'>
-              <Trophy className='w-4 h-4 text-[#a98b5d]' />
-              Pre-Seed Startup • Series A Track
-              <Sparkles className='w-4 h-4 text-[#a98b5d]' />
+            <div className='inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 rounded-full text-xs sm:text-sm font-semibold text-[#dcd7ce] mb-6 sm:mb-8 backdrop-blur-xl'>
+              <Trophy className='w-3 h-3 sm:w-4 sm:h-4 text-[#a98b5d]' />
+              <span className='hidden sm:inline'>Pre-Seed Startup • Series A Track</span>
+              <span className='sm:hidden'>Pre-Seed Startup</span>
+              <Sparkles className='w-3 h-3 sm:w-4 sm:h-4 text-[#a98b5d]' />
             </div>
 
             {/* Main Headline */}
-            <h1 className='text-5xl md:text-7xl lg:text-8xl font-bold mb-8 tracking-tight leading-none'>
+            <h1 className='text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 sm:mb-8 tracking-tight leading-none'>
               <span className='bg-gradient-to-r from-white via-[#dcd7ce] to-white bg-clip-text text-transparent'>
                 Join the Future of
               </span>
@@ -76,84 +69,43 @@ export default function CareersPage() {
             </h1>
 
             {/* Enhanced Subtitle */}
-            <p className='text-xl md:text-2xl text-gray-300/90 max-w-4xl mx-auto mb-8 leading-relaxed'>
+            <p className='text-lg sm:text-xl md:text-2xl text-gray-300/90 max-w-4xl mx-auto mb-6 sm:mb-8 leading-relaxed px-4'>
               Build the AI-powered DAO creation platform revolutionizing how
               elite investors and exceptional startups collaborate in the
               France-Tunisia corridor.
             </p>
 
-            {/* Company Highlights */}
-            <div className='flex flex-wrap justify-center gap-8 mb-12'>
-              {[
-                {
-                  icon: <Building className='w-5 h-5' />,
-                  label: 'Pre-Seed Stage',
-                  sublabel: 'High Growth Potential',
-                },
-                {
-                  icon: <Users className='w-5 h-5' />,
-                  label: 'Remote-First',
-                  sublabel: 'Global Team',
-                },
-                {
-                  icon: <Target className='w-5 h-5' />,
-                  label: 'Mission-Driven',
-                  sublabel: 'Impact-Focused',
-                },
-                {
-                  icon: <DollarSign className='w-5 h-5' />,
-                  label: 'Competitive Equity',
-                  sublabel: 'Early Employee Benefits',
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className='flex flex-col items-center gap-2 text-center'
-                >
-                  <div className='flex items-center gap-2 text-[#a98b5d]'>
-                    {item.icon}
-                    <span className='text-sm font-semibold text-white'>
-                      {item.label}
-                    </span>
-                  </div>
-                  <span className='text-xs text-gray-400'>{item.sublabel}</span>
-                </div>
-              ))}
-            </div>
-
+          
             {/* Main CTA */}
-            <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mb-16'>
+            <div className='flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16'>
               <Link
                 href='/careers/apply'
                 onClick={(e) => handleNavigation(e, '/careers/apply')}
+                className='w-full sm:w-auto'
               >
-                <Button className='group relative px-12 py-5 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold text-lg rounded-full hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/30'>
-                  <Rocket className='w-6 h-6 mr-3 group-hover:animate-pulse' />
-                  Apply Now - Shape the Future
-                  <ArrowRight className='w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform' />
+                <Button className='group relative w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold text-base sm:text-lg rounded-full hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/30'>
+                  <Rocket className='w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 group-hover:animate-pulse' />
+                  <span className='hidden sm:inline'>Apply Now - Shape the Future</span>
+                  <span className='sm:hidden'>Apply Now</span>
+                  <ArrowRight className='w-5 h-5 sm:w-6 sm:h-6 ml-2 sm:ml-3 group-hover:translate-x-2 transition-transform' />
                 </Button>
               </Link>
 
-              <div className='flex items-center gap-2 text-gray-400'>
-                <CheckCircle className='w-4 h-4 text-green-400' />
-                <span className='text-sm'>
-                  Early-stage equity • Remote-first • Competitive packages
-                </span>
-              </div>
+              
             </div>
           </div>
         </div>
 
         {/* Why NartaQ is a Dream Opportunity */}
-        <div className='py-20 px-4'>
+        <div className='py-12 sm:py-16 md:py-20 px-4 sm:px-6'>
           <div className='max-w-7xl mx-auto'>
-            <div className='text-center mb-16'>
-              <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+            <div className='text-center mb-12 sm:mb-16'>
+              <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6'>
                 <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                   Why NartaQ is Your Dream Opportunity
                 </span>
               </h2>
-              <p className='text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed'>
+              <p className='text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed'>
                 Join a pre-seed startup building the infrastructure for the
                 future of investment. We're creating the platform that enables
                 DAO creation and governance for elite investors and exceptional
@@ -161,7 +113,7 @@ export default function CareersPage() {
               </p>
             </div>
 
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16'>
               {[
                 {
                   icon: <Rocket className='w-8 h-8' />,
@@ -208,7 +160,7 @@ export default function CareersPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className='group p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-[#a98b5d]/40 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm'
+                  className='group p-8 rounded-2xl bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 hover:border-[#a98b5d]/40 hover:bg-[#a98b5d]/10 transition-all duration-300 backdrop-blur-sm'
                 >
                   <div className='flex items-start justify-between mb-6'>
                     <div className='w-16 h-16 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 rounded-2xl flex items-center justify-center text-[#a98b5d] group-hover:scale-110 transition-transform duration-300'>
@@ -230,22 +182,22 @@ export default function CareersPage() {
           </div>
         </div>
         {/* Current Openings */}
-        <div className='py-20 px-4 bg-gradient-to-r from-black via-gray-900/30 to-black'>
+        <div className='py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-r from-black via-gray-900/30 to-black'>
           <div className='max-w-7xl mx-auto'>
-            <div className='text-center mb-16'>
-              <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+            <div className='text-center mb-12 sm:mb-16'>
+              <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6'>
                 <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                   Open Positions
                 </span>
               </h2>
-              <p className='text-xl text-gray-300 max-w-4xl mx-auto'>
+              <p className='text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto'>
                 Join our team and help build the future of DAO-powered
                 investment infrastructure. All positions offer competitive
                 equity packages and remote-first flexibility.
               </p>
             </div>
 
-            <div className='grid lg:grid-cols-2 gap-8 mb-16'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16'>
               {[
                 {
                   title: 'Community Manager',
@@ -350,7 +302,7 @@ export default function CareersPage() {
               ].map((job, index) => (
                 <div
                   key={index}
-                  className='group p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-[#a98b5d]/40 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm cursor-pointer relative overflow-hidden'
+                  className='group p-8 rounded-2xl bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 hover:border-[#a98b5d]/40 hover:bg-[#a98b5d]/10 transition-all duration-300 backdrop-blur-sm cursor-pointer relative overflow-hidden'
                   onClick={() => {
                     const href = `/careers/${job.slug}`
                     if (pathname === href) return
@@ -361,22 +313,26 @@ export default function CareersPage() {
                   <div className='absolute inset-0 bg-gradient-to-r from-[#a98b5d]/5 to-[#dcd7ce]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
                   <div className='relative z-10'>
-                    <div className='flex justify-between items-start mb-6'>
-                      <div className='flex-1'>
-                        <h3 className='text-2xl font-bold text-white group-hover:text-[#dcd7ce] transition-colors mb-2'>
-                          {job.title}
-                        </h3>
+                    <div className='mb-6'>
+                      <div className='flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4'>
+                        <div className='flex-1'>
+                          <h3 className='text-xl sm:text-2xl font-bold text-white group-hover:text-[#dcd7ce] transition-colors mb-2'>
+                            {job.title}
+                          </h3>
+                        </div>
+                        <div className='flex flex-wrap gap-2 items-center'>
+                          <span className='text-xs text-[#a98b5d] font-bold px-3 py-1 bg-[#a98b5d]/10 rounded-full border border-[#a98b5d]/20'>
+                            Open
+                          </span>
+                          <span className='text-xs text-green-400 font-bold px-3 py-1 bg-green-400/10 rounded-full border border-green-400/20'>
+                            Remote
+                          </span>
+                        </div>
                       </div>
-                      <div className='flex gap-2 items-center'>
-                        <span className='text-xs text-[#a98b5d] font-bold px-3 py-1 bg-[#a98b5d]/10 rounded-full border border-[#a98b5d]/20'>
-                          Open
-                        </span>
-                        <span className='text-xs text-green-400 font-bold px-3 py-1 bg-green-400/10 rounded-full border border-green-400/20'>
-                          Remote
-                        </span>
+                      <div className='mt-4 sm:mt-0'>
                         <Button
                           size='sm'
-                          className='ml-2 px-4 py-2 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold text-xs rounded-lg hover:scale-105 transition-all duration-300 shadow-lg'
+                          className='w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold text-xs rounded-lg hover:scale-105 transition-all duration-300 shadow-lg'
                           onClick={(e) => {
                             e.stopPropagation()
                             const href = `/careers/${job.slug}`
@@ -432,11 +388,11 @@ export default function CareersPage() {
             </div>
 
             {/* Final CTA Section */}
-            <div className='text-center bg-gradient-to-r from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'>
-              <h3 className='text-3xl font-bold text-white mb-4'>
+            <div className='text-center bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 rounded-2xl p-6 sm:p-8 md:p-12 backdrop-blur-sm'>
+              <h3 className='text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4'>
                 Ready to Shape the Future?
               </h3>
-              <p className='text-xl text-gray-300 mb-8 max-w-3xl mx-auto'>
+              <p className='text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed'>
                 Don't see the perfect role? We're always looking for exceptional
                 talent. Send us your application and let's explore how you can
                 contribute to our mission.
@@ -445,13 +401,14 @@ export default function CareersPage() {
                 href='/careers/apply'
                 onClick={(e) => handleNavigation(e, '/careers/apply')}
               >
-                <Button className='group px-12 py-5 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold text-lg rounded-full hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/30'>
-                  <Zap className='w-6 h-6 mr-3 group-hover:animate-pulse' />
-                  Apply Now - Join NartaQ
-                  <ArrowRight className='w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform' />
+                <Button className='group w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold text-base sm:text-lg rounded-full hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/30'>
+                  <Zap className='w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 group-hover:animate-pulse' />
+                  <span className='hidden sm:inline'>Apply Now - Join NartaQ</span>
+                  <span className='sm:hidden'>Apply Now</span>
+                  <ArrowRight className='w-5 h-5 sm:w-6 sm:h-6 ml-2 sm:ml-3 group-hover:translate-x-2 transition-transform' />
                 </Button>
               </Link>
-              <div className='flex items-center justify-center gap-6 mt-8 text-sm text-gray-400'>
+              <div className='flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 text-sm text-gray-400'>
                 <div className='flex items-center gap-2'>
                   <MapPin className='w-4 h-4' />
                   <span>Remote-First</span>
@@ -470,21 +427,21 @@ export default function CareersPage() {
         </div>
 
         {/* Company Values & Culture */}
-        <div className='py-20 px-4'>
+        <div className='py-12 sm:py-16 md:py-20 px-4 sm:px-6'>
           <div className='max-w-6xl mx-auto'>
-            <div className='text-center mb-16'>
-              <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+            <div className='text-center mb-12 sm:mb-16'>
+              <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6'>
                 <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                   Our Culture & Values
                 </span>
               </h2>
-              <p className='text-xl text-gray-300 max-w-4xl mx-auto'>
+              <p className='text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto'>
                 Built on excellence, driven by impact, united by our mission to
                 revolutionize investment technology.
               </p>
             </div>
 
-            <div className='grid md:grid-cols-3 gap-8'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8'>
               {[
                 {
                   icon: <Brain className='w-8 h-8' />,
@@ -518,7 +475,7 @@ export default function CareersPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className='group p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-[#a98b5d]/40 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm text-center'
+                  className='group p-8 rounded-2xl bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 hover:border-[#a98b5d]/40 hover:bg-[#a98b5d]/10 transition-all duration-300 backdrop-blur-sm text-center'
                 >
                   <div className='w-16 h-16 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 rounded-2xl flex items-center justify-center text-[#a98b5d] group-hover:scale-110 transition-transform duration-300 mx-auto mb-6'>
                     {item.icon}

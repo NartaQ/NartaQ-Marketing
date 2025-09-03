@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next'
-import Script from 'next/script'
 
 import Footer from '@/components/pages/Footer'
 import LenisProvider from '@/components/pages/LenisProvider'
@@ -15,15 +14,19 @@ import {
   serviceSchema,
   websiteSchema,
 } from '@/lib/structured-data'
+import Script from 'next/script'
 
 const fontSans = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-serif',
+  preload: false,
+  weight: ['400', '700', '900'],
 })
 
 const fontMono = Source_Sans_3({
   subsets: ['latin'],
   variable: '--font-sans',
+  preload: false,
 })
 
 export const metadata: Metadata = {
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
     template: '%s | NartaQ',
   },
   description:
-    'AI-powered venture matchmaking protocol. Connect founders with the right investors through trustless matching, automated deal execution, and guided closing. Decentralized, democratic, data-driven.',
+    'AI-powered venture matchmaking protocol connecting founders with the right investors through automated deal execution and guided closing.',
   keywords: [
     'AI venture matching',
     'startup funding protocol',

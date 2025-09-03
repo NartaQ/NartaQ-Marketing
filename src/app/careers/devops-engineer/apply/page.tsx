@@ -14,7 +14,7 @@ export default function DevOpsEngineerApplyPage() {
     return (
       <div className='min-h-screen bg-black text-white flex items-center justify-center'>
         <div className='max-w-2xl mx-auto px-4 text-center'>
-          <div className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'>
+          <div className='bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 rounded-2xl p-12 backdrop-blur-sm'>
             <CheckCircle className='w-16 h-16 text-green-400 mx-auto mb-6' />
             <h1 className='text-3xl font-bold text-white mb-4'>
               Application Submitted!

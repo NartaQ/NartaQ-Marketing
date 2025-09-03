@@ -12,7 +12,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'NartaQ | The AI-Powered Startup Funding Platform',
   description:
-    'NartaQ is an AI-powered platform connecting the best founders with the right capital. Discover pre-seed startups in the France-Tunisia corridor or streamline your fundraising process. Join our founding community.',
+    'AI-powered platform connecting founders with the right investors. Discover pre-seed startups or streamline your fundraising process.',
   keywords: [
     'AI venture matching',
     'startup funding platform',

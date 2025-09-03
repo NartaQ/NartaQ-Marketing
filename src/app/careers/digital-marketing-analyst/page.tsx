@@ -33,14 +33,7 @@ export default function DigitalMarketingAnalystPage() {
 
   return (
     <div className='min-h-screen bg-black text-white relative overflow-hidden'>
-      {/* Enhanced Animated Grid Background */}
-      <div className='absolute inset-0 grid-pattern opacity-20' />
-      <div className='absolute inset-0 bg-gradient-to-br from-black via-gray-900/50 to-black' />
-
-      {/* Premium Gradient Orbs */}
-      <div className='absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-[#a98b5d]/30 to-[#dcd7ce]/30 rounded-full blur-3xl animate-pulse' />
-      <div className='absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-[#dcd7ce]/20 to-[#a98b5d]/20 rounded-full blur-3xl animate-pulse delay-1000' />
-
+      
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Navigation Header */}
@@ -62,7 +55,7 @@ export default function DigitalMarketingAnalystPage() {
           <div className='max-w-6xl mx-auto'>
             <div className='text-center mb-16'>
               {/* Position Badge */}
-              <div className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/40 rounded-full text-sm font-semibold text-[#dcd7ce] mb-8 backdrop-blur-sm'>
+              <div className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 rounded-full text-sm font-semibold text-[#dcd7ce] mb-8 backdrop-blur-xl'>
                 <TrendingUp className='w-4 h-4 text-[#a98b5d]' />
                 Digital Marketing Analyst
                 <span className='text-green-400'>• Open Position</span>
@@ -107,7 +100,7 @@ export default function DigitalMarketingAnalystPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className='text-center p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 backdrop-blur-sm'
+                  className='text-center p-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 backdrop-blur-sm'
                 >
                   <div className='w-12 h-12 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 rounded-xl flex items-center justify-center text-[#a98b5d] mx-auto mb-4'>
                     {item.icon}
@@ -223,7 +216,7 @@ export default function DigitalMarketingAnalystPage() {
           className='py-20 px-4 bg-gradient-to-r from-black via-gray-900/30 to-black'
         >
           <div className='max-w-4xl mx-auto text-center'>
-            <div className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'>
+            <div className='bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 rounded-2xl p-12 backdrop-blur-sm'>
               <h3 className='text-3xl md:text-4xl font-bold text-white mb-6'>
                 Ready to Drive Our Growth?
               </h3>
