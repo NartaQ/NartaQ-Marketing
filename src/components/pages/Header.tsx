@@ -68,6 +68,7 @@ export default function Header({
                 src='/logo/main-tr-hor.svg'
                 alt='Nartaq Icon'
                 width={100}
+                title='nartaqLogo'
                 height={18}
                 priority
                 className='h-6 sm:h-7 md:h-8 w-auto relative z-10'
@@ -179,6 +180,7 @@ export default function Header({
             >
               <div className='h-[24px] sm:h-[28px] flex items-center gap-1 sm:gap-2 relative'>
                 <Image
+                  title='nartaqLogo'
                   src='/logo/main-tr-hor.svg'
                   alt='Nartaq Icon'
                   width={100}

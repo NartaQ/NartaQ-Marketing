@@ -12,13 +12,13 @@ interface FooterProps {
 
 export default function Footer({
   onMobileMenuToggle,
-  isMobileMenuOpen = false
+  isMobileMenuOpen = false,
 }: FooterProps) {
   const router = useRouter()
   const pathname = usePathname()
 
   // Provide a default no-op function if onMobileMenuToggle is undefined
-  const handleMobileToggle = onMobileMenuToggle || (() => { })
+  const handleMobileToggle = onMobileMenuToggle || (() => {})
 
   const handleNavigation = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -48,6 +48,7 @@ export default function Footer({
             onClick={(e) => handleNavigation(e, '/')}
           >
             <Image
+              title='nartaqLogo'
               src='/logo/main-tr.svg'
               alt='NartaQ Logo'
               width={120}
@@ -59,11 +60,13 @@ export default function Footer({
                 Building the Future of Startup Funding
               </div>
               <div className='text-xs  text-gray-400 mt-1'>
-                Our AI-powered platform revolutionizes startup funding by eliminating network bias and geographic
-                barriers. We use advanced algorithms to analyze market opportunities, team capabilities, and
-                investor preferences, creating optimal matches based on merit and compatibility rather than
-                connections. Join the founding cohort of entrepreneurs and investors building the future of
-                equitable startup funding.
+                Our AI-powered platform revolutionizes startup funding by
+                eliminating network bias and geographic barriers. We use
+                advanced algorithms to analyze market opportunities, team
+                capabilities, and investor preferences, creating optimal matches
+                based on merit and compatibility rather than connections. Join
+                the founding cohort of entrepreneurs and investors building the
+                future of equitable startup funding.
               </div>
             </div>
           </Link>
