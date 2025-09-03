@@ -1,8 +1,11 @@
 import { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nartaq.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nartaq.com'
   const currentDate = new Date()
+  
+  // Note: For proper image sitemaps with XML structure, see /image-sitemap.xml
+  // This function generates the standard URL sitemap
   
   // Static pages with their priorities and update frequencies
   const staticPages: MetadataRoute.Sitemap = [
@@ -92,6 +95,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.5,
+    },
+    
+    // Privacy compliance page
+    {
+      url: `${baseUrl}/data-request`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    
+    // Career pages
+    {
+      url: `${baseUrl}/careers`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
   ]
 
