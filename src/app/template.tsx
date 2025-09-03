@@ -29,6 +29,7 @@ const PAGE_ROUTES = [
   { pathname: '/legal/dmca', name: 'DMCA Policy' },
   { pathname: '/legal/privacy', name: 'Privacy Policy' },
   { pathname: '/legal/terms', name: 'Terms of Service' },
+  { pathname: '/data-request', name: 'Data Request' },
 ] as const
 
 // Export the routes array for use in other components if needed
