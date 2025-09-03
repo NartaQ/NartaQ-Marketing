@@ -15,9 +15,42 @@ const careerApplicationSchema = z.object({
     .optional()
     .or(z.literal('')),
   cvUrl: z.string().optional(),
+  position: z.string().optional().default('General'),
 })
 
 export type CareerApplicationData = z.infer<typeof careerApplicationSchema>
+
+export async function checkExistingCareerApplication(email: string) {
+  try {
+    const existingApplication = await prisma.careerApplication.findFirst({
+      where: {
+        email: email,
+      },
+    })
+
+    if (existingApplication) {
+      return {
+        success: false,
+        exists: true,
+        error: 'Application already exists',
+        message:
+          'You have already submitted an application. Please contact us if you need to update your application.',
+      }
+    }
+
+    return {
+      success: true,
+      exists: false,
+    }
+  } catch (error) {
+    console.error('Error checking existing application:', error)
+    return {
+      success: false,
+      exists: false,
+      error: 'Failed to check existing application',
+    }
+  }
+}
 
 export async function submitCareerApplication(data: CareerApplicationData) {
   try {
@@ -49,6 +82,7 @@ export async function submitCareerApplication(data: CareerApplicationData) {
         motivation: validatedData.motivation || '',
         portfolioUrl: validatedData.portfolioUrl,
         cvUrl: validatedData.cvUrl,
+        position: validatedData.position || 'General',
       },
     })
 

@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Upload, X, FileText } from 'lucide-react'
+import { ArrowRight, Upload, X, FileText, Users } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -28,27 +28,44 @@ const formSchema = z.object({
   lastName: z.string().min(1, 'Last name is required'),
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().optional(),
-  motivation: z.string().optional(),
+  motivation: z
+    .string()
+    .min(
+      50,
+      'Please tell us more about your motivation (at least 50 characters)'
+    ),
   portfolioUrl: z
     .string()
     .url('Please enter a valid URL')
     .optional()
     .or(z.literal('')),
   cvUrl: z.string().optional(),
-  position: z.string().min(1, 'Position is required'),
+  communityExperience: z
+    .string()
+    .min(
+      50,
+      'Please describe your community management experience (at least 50 characters)'
+    ),
+  socialMediaStrategy: z
+    .string()
+    .min(
+      50,
+      'Please describe your social media strategy approach (at least 50 characters)'
+    ),
+  eventExperience: z.string().optional(),
+  languageSkills: z.string().min(1, 'Please list your language skills'),
+  position: z.literal('Community Manager'),
 })
 
 type FormData = z.infer<typeof formSchema>
 
-interface CareerMultiStepFormProps {
+interface CommunityManagerFormProps {
   onSubmissionSuccess: () => void
-  position?: string
 }
 
-export default function CareerMultiStepForm({
+export default function CommunityManagerForm({
   onSubmissionSuccess,
-  position = 'General',
-}: CareerMultiStepFormProps) {
+}: CommunityManagerFormProps) {
   const [submissionError, setSubmissionError] = useState<string>('')
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -64,7 +81,11 @@ export default function CareerMultiStepForm({
       motivation: '',
       portfolioUrl: '',
       cvUrl: '',
-      position: position,
+      communityExperience: '',
+      socialMediaStrategy: '',
+      eventExperience: '',
+      languageSkills: '',
+      position: 'Community Manager',
     },
   })
 
@@ -75,14 +96,12 @@ export default function CareerMultiStepForm({
 
       setUploadError('')
 
-      // File size validation (5MB limit to be safe)
-      const maxSize = 5 * 1024 * 1024 // 5MB in bytes
+      const maxSize = 5 * 1024 * 1024 // 5MB
       if (file.size > maxSize) {
         setUploadError('File size must be less than 5MB')
         return
       }
 
-      // File type validation
       const allowedTypes = [
         'application/pdf',
         'application/msword',
@@ -124,7 +143,6 @@ export default function CareerMultiStepForm({
       }
 
       // Only upload file if the user doesn't have an existing application
-      let cvUrl = ''
       if (selectedFile) {
         try {
           const formData = new FormData()
@@ -133,7 +151,7 @@ export default function CareerMultiStepForm({
           const uploadResult = await uploadFileToAzure(formData)
 
           if (uploadResult.success && uploadResult.url) {
-            cvUrl = uploadResult.url
+            data.cvUrl = uploadResult.url
           } else {
             throw new Error(uploadResult.error || 'Failed to upload file')
           }
@@ -144,27 +162,14 @@ export default function CareerMultiStepForm({
         }
       }
 
-      // Prepare the submission data
-      const submissionData = {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        phone: data.phone || '',
-        motivation: data.motivation || '',
-        portfolioUrl: data.portfolioUrl || '',
-        cvUrl: cvUrl,
-        position: data.position || position,
-      }
-
-      // Now submit the application
-      const result = await submitCareerApplication(submissionData)
+      const result = await submitCareerApplication(data)
 
       if (result.success) {
         onSubmissionSuccess()
       } else {
         if (result.error === 'Application already exists') {
           setSubmissionError(
-            'You have already submitted an application. Please contact us if you need to update it.'
+            'You have already submitted an application for this position. Please contact us if you need to update it.'
           )
         } else {
           setSubmissionError(
@@ -190,19 +195,23 @@ export default function CareerMultiStepForm({
             transition={{ duration: 0.5 }}
             className='bg-gradient-to-br from-[#232428]/80 to-[#3e3f44]/60 backdrop-blur-sm border border-[#a98b5d]/20 rounded-3xl p-8 md:p-12'
           >
+            {/* Header */}
+            <div className='text-center mb-12'>
+              <div className='w-16 h-16 bg-[#a98b5d]/20 rounded-full flex items-center justify-center mx-auto mb-6'>
+                <Users className='w-8 h-8 text-[#a98b5d]' />
+              </div>
+              <h2 className='font-serif text-3xl font-bold text-white mb-4'>
+                <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+                  Community Manager Application
+                </span>
+              </h2>
+              <p className='font-serif text-lg text-[#dcd7ce]/80'>
+                Help us build and nurture our growing community
+              </p>
+            </div>
+
             {/* Personal Information */}
             <div className='space-y-8 mb-12'>
-              <div className='text-center mb-12'>
-                <h2 className='font-serif text-3xl font-bold text-white mb-4'>
-                  <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                    Tell Us About Yourself
-                  </span>
-                </h2>
-                <p className='font-serif text-lg text-[#dcd7ce]/80'>
-                  We'd love to learn more about you and what drives you
-                </p>
-              </div>
-
               <div className='grid md:grid-cols-2 gap-8'>
                 <FormField
                   control={form.control}
@@ -290,6 +299,92 @@ export default function CareerMultiStepForm({
               </div>
             </div>
 
+            {/* Position-Specific Questions */}
+            <div className='space-y-8 mb-12'>
+              <FormField
+                control={form.control}
+                name='communityExperience'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      Community Management Experience *
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder='Describe your experience managing online communities, including platforms used, community size, engagement strategies, and notable achievements...'
+                        rows={5}
+                        className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className='font-serif text-red-400 mt-2' />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name='socialMediaStrategy'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      Social Media Strategy Approach *
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder='How would you approach building our social media presence and engagement strategy? Include specific tactics and metrics you would focus on...'
+                        rows={5}
+                        className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className='font-serif text-red-400 mt-2' />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name='languageSkills'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      Language Skills *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder='e.g., French (native), English (fluent), Arabic (conversational)'
+                        {...field}
+                        className='font-serif text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
+                      />
+                    </FormControl>
+                    <FormMessage className='font-serif text-red-400 mt-2' />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name='eventExperience'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      Event Management Experience (optional)
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder='Describe any experience organizing virtual or in-person events, webinars, or community meetups...'
+                        rows={4}
+                        className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className='font-serif text-red-400 mt-2' />
+                  </FormItem>
+                )}
+              />
+            </div>
+
             {/* Motivation */}
             <div className='space-y-8 mb-12'>
               <FormField
@@ -298,22 +393,17 @@ export default function CareerMultiStepForm({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
-                      Why do you want to join NartaQ? (optional)
+                      Why do you want to join NartaQ as a Community Manager? *
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder='Tell us what excites you about this opportunity and how you can contribute to our mission. Share your passion, experience, and what makes you unique...'
+                        placeholder='Tell us what excites you about building communities in the investment and startup space, and how you can contribute to our mission...'
                         rows={6}
                         className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
                         {...field}
                       />
                     </FormControl>
-                    <div className='flex justify-between items-center mt-2'>
-                      <FormMessage className='font-serif text-red-400' />
-                      <span className='font-serif text-[#5c5d63] text-sm'>
-                        {field.value?.length || 0}/1000 characters
-                      </span>
-                    </div>
+                    <FormMessage className='font-serif text-red-400 mt-2' />
                   </FormItem>
                 )}
               />
@@ -332,7 +422,7 @@ export default function CareerMultiStepForm({
                     <FormControl>
                       <Input
                         type='url'
-                        placeholder='https://linkedin.com/in/yourprofile or https://yourportfolio.com'
+                        placeholder='https://linkedin.com/in/yourprofile or portfolio showcasing community work'
                         {...field}
                         className='font-serif text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
                       />
@@ -342,7 +432,7 @@ export default function CareerMultiStepForm({
                 )}
               />
 
-              {/* CV Upload - Simplified */}
+              {/* CV Upload */}
               <div className='space-y-4'>
                 <label className='font-serif text-xl text-[#dcd7ce] block'>
                   Upload your CV (optional)
@@ -368,9 +458,6 @@ export default function CareerMultiStepForm({
                         <Upload className='w-5 h-5' />
                         Choose File
                       </label>
-                      <p className='font-serif text-sm text-[#5c5d63] mt-2'>
-                        Or drag and drop your file here
-                      </p>
                     </div>
                   ) : (
                     <div className='flex items-center justify-between p-3 bg-[#a98b5d]/10 border border-[#a98b5d]/30 rounded-lg'>
@@ -418,18 +505,7 @@ export default function CareerMultiStepForm({
                   className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
                 >
                   Privacy Policy
-                </a>{' '}
-                and{' '}
-                <a
-                  href='/legal/terms'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
-                >
-                  Terms of Service
                 </a>
-                . This information will be used to evaluate your application and
-                communicate about potential opportunities.
               </p>
             </div>
 
