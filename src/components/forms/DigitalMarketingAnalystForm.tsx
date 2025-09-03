@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Upload, X, FileText } from 'lucide-react'
+import { ArrowRight, Upload, X, FileText, TrendingUp } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -28,27 +28,48 @@ const formSchema = z.object({
   lastName: z.string().min(1, 'Last name is required'),
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().optional(),
-  motivation: z.string().optional(),
+  motivation: z
+    .string()
+    .min(
+      50,
+      'Please tell us more about your motivation (at least 50 characters)'
+    ),
   portfolioUrl: z
     .string()
     .url('Please enter a valid URL')
     .optional()
     .or(z.literal('')),
   cvUrl: z.string().optional(),
-  position: z.string().min(1, 'Position is required'),
+  marketingExperience: z
+    .string()
+    .min(
+      50,
+      'Please describe your marketing experience (at least 50 characters)'
+    ),
+  analyticsExperience: z
+    .string()
+    .min(
+      50,
+      'Please describe your analytics experience (at least 50 characters)'
+    ),
+  campaignExample: z
+    .string()
+    .min(50, 'Please provide a campaign example (at least 50 characters)'),
+  toolsExperience: z
+    .string()
+    .min(1, 'Please list the marketing tools you have experience with'),
+  position: z.literal('Digital Marketing Analyst'),
 })
 
 type FormData = z.infer<typeof formSchema>
 
-interface CareerMultiStepFormProps {
+interface DigitalMarketingAnalystFormProps {
   onSubmissionSuccess: () => void
-  position?: string
 }
 
-export default function CareerMultiStepForm({
+export default function DigitalMarketingAnalystForm({
   onSubmissionSuccess,
-  position = 'General',
-}: CareerMultiStepFormProps) {
+}: DigitalMarketingAnalystFormProps) {
   const [submissionError, setSubmissionError] = useState<string>('')
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -64,7 +85,11 @@ export default function CareerMultiStepForm({
       motivation: '',
       portfolioUrl: '',
       cvUrl: '',
-      position: position,
+      marketingExperience: '',
+      analyticsExperience: '',
+      campaignExample: '',
+      toolsExperience: '',
+      position: 'Digital Marketing Analyst',
     },
   })
 
@@ -75,14 +100,12 @@ export default function CareerMultiStepForm({
 
       setUploadError('')
 
-      // File size validation (5MB limit to be safe)
-      const maxSize = 5 * 1024 * 1024 // 5MB in bytes
+      const maxSize = 5 * 1024 * 1024 // 5MB
       if (file.size > maxSize) {
         setUploadError('File size must be less than 5MB')
         return
       }
 
-      // File type validation
       const allowedTypes = [
         'application/pdf',
         'application/msword',
@@ -124,7 +147,6 @@ export default function CareerMultiStepForm({
       }
 
       // Only upload file if the user doesn't have an existing application
-      let cvUrl = ''
       if (selectedFile) {
         try {
           const formData = new FormData()
@@ -133,7 +155,7 @@ export default function CareerMultiStepForm({
           const uploadResult = await uploadFileToAzure(formData)
 
           if (uploadResult.success && uploadResult.url) {
-            cvUrl = uploadResult.url
+            data.cvUrl = uploadResult.url
           } else {
             throw new Error(uploadResult.error || 'Failed to upload file')
           }
@@ -144,27 +166,14 @@ export default function CareerMultiStepForm({
         }
       }
 
-      // Prepare the submission data
-      const submissionData = {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        phone: data.phone || '',
-        motivation: data.motivation || '',
-        portfolioUrl: data.portfolioUrl || '',
-        cvUrl: cvUrl,
-        position: data.position || position,
-      }
-
-      // Now submit the application
-      const result = await submitCareerApplication(submissionData)
+      const result = await submitCareerApplication(data)
 
       if (result.success) {
         onSubmissionSuccess()
       } else {
         if (result.error === 'Application already exists') {
           setSubmissionError(
-            'You have already submitted an application. Please contact us if you need to update it.'
+            'You have already submitted an application for this position. Please contact us if you need to update it.'
           )
         } else {
           setSubmissionError(
@@ -190,19 +199,23 @@ export default function CareerMultiStepForm({
             transition={{ duration: 0.5 }}
             className='bg-gradient-to-br from-[#232428]/80 to-[#3e3f44]/60 backdrop-blur-sm border border-[#a98b5d]/20 rounded-3xl p-8 md:p-12'
           >
+            {/* Header */}
+            <div className='text-center mb-12'>
+              <div className='w-16 h-16 bg-[#a98b5d]/20 rounded-full flex items-center justify-center mx-auto mb-6'>
+                <TrendingUp className='w-8 h-8 text-[#a98b5d]' />
+              </div>
+              <h2 className='font-serif text-3xl font-bold text-white mb-4'>
+                <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+                  Digital Marketing Analyst Application
+                </span>
+              </h2>
+              <p className='font-serif text-lg text-[#dcd7ce]/80'>
+                Drive growth through data-driven marketing strategies
+              </p>
+            </div>
+
             {/* Personal Information */}
             <div className='space-y-8 mb-12'>
-              <div className='text-center mb-12'>
-                <h2 className='font-serif text-3xl font-bold text-white mb-4'>
-                  <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                    Tell Us About Yourself
-                  </span>
-                </h2>
-                <p className='font-serif text-lg text-[#dcd7ce]/80'>
-                  We'd love to learn more about you and what drives you
-                </p>
-              </div>
-
               <div className='grid md:grid-cols-2 gap-8'>
                 <FormField
                   control={form.control}
@@ -290,6 +303,92 @@ export default function CareerMultiStepForm({
               </div>
             </div>
 
+            {/* Position-Specific Questions */}
+            <div className='space-y-8 mb-12'>
+              <FormField
+                control={form.control}
+                name='marketingExperience'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      B2B Marketing Experience *
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder='Describe your B2B marketing experience, including types of campaigns, target audiences, channels used, and results achieved...'
+                        rows={5}
+                        className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className='font-serif text-red-400 mt-2' />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name='analyticsExperience'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      Analytics & Data Experience *
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder='Describe your experience with marketing analytics, data analysis tools, KPI tracking, and how you use data to optimize campaigns...'
+                        rows={5}
+                        className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className='font-serif text-red-400 mt-2' />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name='campaignExample'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      Successful Campaign Example *
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder='Share a specific example of a successful marketing campaign you led or contributed to. Include objectives, strategy, execution, and measurable results...'
+                        rows={5}
+                        className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className='font-serif text-red-400 mt-2' />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name='toolsExperience'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      Marketing Tools & Platforms *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder='e.g., Google Analytics, HubSpot, Salesforce, LinkedIn Ads, Google Ads, SEMrush, etc.'
+                        {...field}
+                        className='font-serif text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
+                      />
+                    </FormControl>
+                    <FormMessage className='font-serif text-red-400 mt-2' />
+                  </FormItem>
+                )}
+              />
+            </div>
+
             {/* Motivation */}
             <div className='space-y-8 mb-12'>
               <FormField
@@ -298,22 +397,18 @@ export default function CareerMultiStepForm({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
-                      Why do you want to join NartaQ? (optional)
+                      Why do you want to join NartaQ as a Digital Marketing
+                      Analyst? *
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder='Tell us what excites you about this opportunity and how you can contribute to our mission. Share your passion, experience, and what makes you unique...'
+                        placeholder='Tell us what excites you about marketing in the fintech/investment space, and how you can contribute to our growth strategy...'
                         rows={6}
                         className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
                         {...field}
                       />
                     </FormControl>
-                    <div className='flex justify-between items-center mt-2'>
-                      <FormMessage className='font-serif text-red-400' />
-                      <span className='font-serif text-[#5c5d63] text-sm'>
-                        {field.value?.length || 0}/1000 characters
-                      </span>
-                    </div>
+                    <FormMessage className='font-serif text-red-400 mt-2' />
                   </FormItem>
                 )}
               />
@@ -332,7 +427,7 @@ export default function CareerMultiStepForm({
                     <FormControl>
                       <Input
                         type='url'
-                        placeholder='https://linkedin.com/in/yourprofile or https://yourportfolio.com'
+                        placeholder='https://linkedin.com/in/yourprofile or portfolio showcasing marketing campaigns'
                         {...field}
                         className='font-serif text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
                       />
@@ -342,7 +437,7 @@ export default function CareerMultiStepForm({
                 )}
               />
 
-              {/* CV Upload - Simplified */}
+              {/* CV Upload */}
               <div className='space-y-4'>
                 <label className='font-serif text-xl text-[#dcd7ce] block'>
                   Upload your CV (optional)
@@ -368,9 +463,6 @@ export default function CareerMultiStepForm({
                         <Upload className='w-5 h-5' />
                         Choose File
                       </label>
-                      <p className='font-serif text-sm text-[#5c5d63] mt-2'>
-                        Or drag and drop your file here
-                      </p>
                     </div>
                   ) : (
                     <div className='flex items-center justify-between p-3 bg-[#a98b5d]/10 border border-[#a98b5d]/30 rounded-lg'>
@@ -418,18 +510,7 @@ export default function CareerMultiStepForm({
                   className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
                 >
                   Privacy Policy
-                </a>{' '}
-                and{' '}
-                <a
-                  href='/legal/terms'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
-                >
-                  Terms of Service
                 </a>
-                . This information will be used to evaluate your application and
-                communicate about potential opportunities.
               </p>
             </div>
 

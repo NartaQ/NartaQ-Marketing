@@ -1,14 +1,7 @@
 'use client'
 import { cn } from '@/lib/utils'
 import { IconMenu2, IconX } from '@tabler/icons-react'
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from 'motion/react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { motion, useScroll, useMotionValueEvent } from 'motion/react'
 
 import React, { useRef, useState } from 'react'
 
@@ -21,15 +14,6 @@ interface NavBodyProps {
   children: React.ReactNode
   className?: string
   visible?: boolean
-}
-
-interface NavItemsProps {
-  items: {
-    name: string
-    link: string
-  }[]
-  className?: string
-  onItemClick?: () => void
 }
 
 interface MobileNavProps {
@@ -72,9 +56,9 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       {React.Children.map(children, (child, index) =>
         React.isValidElement(child)
           ? React.cloneElement(
-            child as React.ReactElement<{ visible?: boolean }>,
-            { visible, key: index }
-          )
+              child as React.ReactElement<{ visible?: boolean }>,
+              { visible, key: index }
+            )
           : child
       )}
     </motion.div>
@@ -102,7 +86,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       }}
       className={cn(
         'relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent',
-        visible && 'bg-[#dcd7ce]/90 dark:bg-[#232428]/90',
+
         className
       )}
     >
@@ -110,7 +94,6 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
     </motion.div>
   )
 }
-
 
 export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
@@ -133,7 +116,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       }}
       className={cn(
         'relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden',
-        visible && 'bg-[#dcd7ce]/90 dark:bg-[#232428]/90',
+
         className
       )}
     >
@@ -158,8 +141,6 @@ export const MobileNavHeader = ({
   )
 }
 
-
-
 export const MobileNavToggle = ({
   isOpen,
   onClick,
@@ -177,8 +158,6 @@ export const MobileNavToggle = ({
   )
 }
 
-
-
 export const NavbarButton = ({
   href,
   as: Tag = 'a',
@@ -193,9 +172,9 @@ export const NavbarButton = ({
   className?: string
   variant?: 'primary' | 'secondary' | 'dark' | 'gradient'
 } & (
-    | React.ComponentPropsWithoutRef<'a'>
-    | React.ComponentPropsWithoutRef<'button'>
-  )) => {
+  | React.ComponentPropsWithoutRef<'a'>
+  | React.ComponentPropsWithoutRef<'button'>
+)) => {
   const baseStyles =
     'px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center'
 
