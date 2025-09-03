@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -180,12 +180,7 @@ export default function UIUXDesignerForm() {
     return (
       <div className='min-h-screen bg-black text-white flex items-center justify-center'>
         <div className='max-w-2xl mx-auto px-4 text-center'>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'
-          >
+          <div className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'>
             <CheckCircle className='w-16 h-16 text-green-400 mx-auto mb-6' />
             <h1 className='text-3xl font-bold text-white mb-4'>
               Application Submitted!
@@ -199,7 +194,7 @@ export default function UIUXDesignerForm() {
                 Back to Careers
               </Button>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
     )
@@ -230,12 +225,7 @@ export default function UIUXDesignerForm() {
         <div className='py-12 px-4'>
           <div className='max-w-4xl mx-auto'>
             {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className='text-center mb-12'
-            >
+            <div className='text-center mb-12'>
               <div className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/40 rounded-full text-sm font-semibold text-[#dcd7ce] mb-6'>
                 <Palette className='w-4 h-4 text-[#a98b5d]' />
                 UI/UX Designer Application
@@ -249,15 +239,10 @@ export default function UIUXDesignerForm() {
                 Share your design portfolio and tell us about your experience
                 creating exceptional user experiences.
               </p>
-            </motion.div>
+            </div>
 
             {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-8 backdrop-blur-sm'
-            >
+            <div className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-8 backdrop-blur-sm'>
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
@@ -601,7 +586,7 @@ export default function UIUXDesignerForm() {
                   </div>
                 </form>
               </Form>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

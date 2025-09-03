@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+
 import {
   ArrowLeft,
   ArrowRight,
@@ -42,12 +42,7 @@ export default function CommunityManagerPage() {
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Navigation Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className='pt-8 px-4'
-        >
+        <div className='pt-8 px-4'>
           <div className='max-w-6xl mx-auto'>
             <Link
               href='/careers'
@@ -58,17 +53,12 @@ export default function CommunityManagerPage() {
               <span className='font-serif text-lg'>Back to Careers</span>
             </Link>
           </div>
-        </motion.div>
+        </div>
 
         {/* Hero Section */}
         <div className='py-20 px-4'>
           <div className='max-w-6xl mx-auto'>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className='text-center mb-16'
-            >
+            <div className='text-center mb-16'>
               {/* Position Badge */}
               <div className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/40 rounded-full text-sm font-semibold text-[#dcd7ce] mb-8 backdrop-blur-sm'>
                 <Users className='w-4 h-4 text-[#a98b5d]' />
@@ -92,17 +82,12 @@ export default function CommunityManagerPage() {
                 investors, and innovators. Shape conversations, drive
                 engagement, and help build the future of investment technology.
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Role Overview */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className='py-20 px-4 bg-gradient-to-r from-black via-gray-900/30 to-black'
-        >
+        <div className='py-20 px-4 bg-gradient-to-r from-black via-gray-900/30 to-black'>
           <div className='max-w-6xl mx-auto'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
@@ -194,15 +179,10 @@ export default function CommunityManagerPage() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.4 }}
-          className='py-20 px-4 bg-gradient-to-r from-black via-gray-900/30 to-black'
-        >
+        <div className='py-20 px-4 bg-gradient-to-r from-black via-gray-900/30 to-black'>
           <div className='max-w-4xl mx-auto text-center'>
             <div className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'>
               <h3 className='text-3xl md:text-4xl font-bold text-white mb-6'>
@@ -238,7 +218,7 @@ export default function CommunityManagerPage() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Enhanced Grid Pattern Styles */}

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+
 import { ArrowLeft, CheckCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
@@ -14,12 +14,7 @@ export default function DevOpsEngineerApplyPage() {
     return (
       <div className='min-h-screen bg-black text-white flex items-center justify-center'>
         <div className='max-w-2xl mx-auto px-4 text-center'>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'
-          >
+          <div className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'>
             <CheckCircle className='w-16 h-16 text-green-400 mx-auto mb-6' />
             <h1 className='text-3xl font-bold text-white mb-4'>
               Application Submitted!
@@ -33,7 +28,7 @@ export default function DevOpsEngineerApplyPage() {
                 Back to Careers
               </Button>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
     )
@@ -64,12 +59,7 @@ export default function DevOpsEngineerApplyPage() {
         <div className='py-12 px-4'>
           <div className='max-w-4xl mx-auto'>
             {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className='text-center mb-12'
-            >
+            <div className='text-center mb-12'>
               <h1 className='text-4xl md:text-5xl font-bold mb-4'>
                 <span className='bg-gradient-to-r from-white via-[#dcd7ce] to-white bg-clip-text text-transparent'>
                   Apply for DevOps Engineer
@@ -79,19 +69,15 @@ export default function DevOpsEngineerApplyPage() {
                 Join our team as a DevOps Engineer and help build scalable
                 infrastructure for our investment platform.
               </p>
-            </motion.div>
+            </div>
 
             {/* Application Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <div>
               <CareerMultiStepForm
                 onSubmissionSuccess={() => setApplicationSubmitted(true)}
                 position='DevOps Engineer'
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

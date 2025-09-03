@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+
 import { Sparkles, ArrowRight, Zap, Users, Target } from 'lucide-react'
 import Link from 'next/link'
 import { useRive } from '@rive-app/react-canvas'
@@ -34,29 +34,19 @@ export default function NeonHeroSection() {
       <div className='absolute inset-0 grid-pattern opacity-30' />
 
       {/* Rive Logo Animation */}
-      <motion.div
-        className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[30vw] md:h-[30vw] blur-[2px] opacity-0'
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        transition={{ duration: 3, ease: 'easeInOut' }}
-      >
+      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[30vw] md:h-[30vw] blur-[2px] opacity-0'>
         <RiveComponent className='w-full h-full' />
-      </motion.div>
+      </div>
 
       {/* Main Content */}
       <div className='relative z-10 max-w-6xl mx-auto px-4 text-center bg-blend-difference '>
         {/* Premium Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8'
-        >
+        <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8'>
           <Sparkles className='w-4 h-4 text-[#a98b5d]' />
           <span className='text-sm font-medium text-[#dcd7ce]'>
             AI-POWERED PLATFORM IN DEVELOPMENT
           </span>
-        </motion.div>
+        </div>
 
         {/* Main Headline */}
         <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 px-2'>
@@ -69,24 +59,14 @@ export default function NeonHeroSection() {
         </h1>
 
         {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className='text-lg sm:text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-6 leading-relaxed px-4'
-        >
+        <p className='text-lg sm:text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-6 leading-relaxed px-4'>
           We're building a merit-based platform that connects the best founders
           with the right capital, regardless of location or network. Get matched
           with investors or discover your next investment with NartaQ.
-        </motion.p>
+        </p>
 
         {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className='flex justify-center items-center mb-8 sm:mb-12 px-4'
-        >
+        <div className='flex justify-center items-center mb-8 sm:mb-12 px-4'>
           <Link
             href='/apply'
             onClick={(e) => handleNavigation(e, '/apply')}
@@ -99,30 +79,20 @@ export default function NeonHeroSection() {
               <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
             </div>
           </Link>
-        </motion.div>
+        </div>
 
         {/* Current Status/Milestone */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          className='mb-8 px-4'
-        >
+        <div className='mb-8 px-4'>
           <div className='inline-flex items-center gap-3 px-4 py-2 bg-[#a98b5d]/10 border border-[#a98b5d]/30 rounded-full backdrop-blur-xl'>
             <div className='w-2 h-2 bg-green-500 rounded-full animate-pulse' />
             <span className='text-sm text-[#dcd7ce] font-medium'>
               Phase 1: Building our founding community of 1,000+ participants
             </span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Key Features Pills */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0 }}
-          className='grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto px-4'
-        >
+        <div className='grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto px-4'>
           {[
             { icon: Users, text: 'Community Sourcing' },
             { icon: Target, text: 'AI-Powered Matching' },
@@ -138,7 +108,7 @@ export default function NeonHeroSection() {
               </span>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Bottom Gradient Fade */}

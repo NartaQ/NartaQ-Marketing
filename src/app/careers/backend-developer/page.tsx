@@ -43,12 +43,7 @@ export default function BackendDeveloperPage() {
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Navigation Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className='pt-8 px-4'
-        >
+        <div className='pt-8 px-4'>
           <div className='max-w-6xl mx-auto'>
             <Link
               href='/careers'
@@ -59,17 +54,12 @@ export default function BackendDeveloperPage() {
               <span className='font-serif text-lg'>Back to Careers</span>
             </Link>
           </div>
-        </motion.div>
+        </div>
 
         {/* Hero Section */}
         <div className='py-20 px-4'>
           <div className='max-w-6xl mx-auto'>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className='text-center mb-16'
-            >
+            <div className='text-center mb-16'>
               {/* Position Badge */}
               <div className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/40 rounded-full text-sm font-semibold text-[#dcd7ce] mb-8 backdrop-blur-sm'>
                 <Code className='w-4 h-4 text-[#a98b5d]' />
@@ -93,13 +83,12 @@ export default function BackendDeveloperPage() {
                 Work on AI-powered matching algorithms and data processing for
                 our enterprise DAO platform.
               </p>
-            </motion.div>
+            </div>
 
             {/* Job Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+            <div
+       
+ 
               className='max-w-4xl mx-auto'
             >
               <div className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-8 backdrop-blur-sm'>
@@ -225,7 +214,7 @@ export default function BackendDeveloperPage() {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

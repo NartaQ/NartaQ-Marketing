@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     serverActions: {
       bodySizeLimit: '20mb',
     },
-    turbopackMinify: true,
+    // turbopackMinify: true,
   },
 
   serverExternalPackages: ['@prisma/client', 'prisma'],

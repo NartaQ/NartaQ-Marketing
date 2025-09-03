@@ -20,7 +20,7 @@ import {
   TrendingUp,
   Trophy,
   Users,
-  Zap
+  Zap,
 } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
@@ -58,24 +58,14 @@ export default function CareersPage() {
         <div className='min-h-screen flex items-center justify-center'>
           <div className='max-w-6xl mx-auto px-4 text-center'>
             {/* Premium Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/40 rounded-full text-sm font-semibold text-[#dcd7ce] mb-8 backdrop-blur-sm'
-            >
+            <div className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/40 rounded-full text-sm font-semibold text-[#dcd7ce] mb-8 backdrop-blur-sm'>
               <Trophy className='w-4 h-4 text-[#a98b5d]' />
               Pre-Seed Startup • Series A Track
               <Sparkles className='w-4 h-4 text-[#a98b5d]' />
-            </motion.div>
+            </div>
 
             {/* Main Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className='text-5xl md:text-7xl lg:text-8xl font-bold mb-8 tracking-tight leading-none'
-            >
+            <h1 className='text-5xl md:text-7xl lg:text-8xl font-bold mb-8 tracking-tight leading-none'>
               <span className='bg-gradient-to-r from-white via-[#dcd7ce] to-white bg-clip-text text-transparent'>
                 Join the Future of
               </span>
@@ -83,27 +73,17 @@ export default function CareersPage() {
               <span className='bg-gradient-to-r from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] bg-clip-text text-transparent glow-text'>
                 Investment Technology
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Enhanced Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className='text-xl md:text-2xl text-gray-300/90 max-w-4xl mx-auto mb-8 leading-relaxed'
-            >
+            <p className='text-xl md:text-2xl text-gray-300/90 max-w-4xl mx-auto mb-8 leading-relaxed'>
               Build the AI-powered DAO creation platform revolutionizing how
               elite investors and exceptional startups collaborate in the
               France-Tunisia corridor.
-            </motion.p>
+            </p>
 
             {/* Company Highlights */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className='flex flex-wrap justify-center gap-8 mb-12'
-            >
+            <div className='flex flex-wrap justify-center gap-8 mb-12'>
               {[
                 {
                   icon: <Building className='w-5 h-5' />,
@@ -139,15 +119,10 @@ export default function CareersPage() {
                   <span className='text-xs text-gray-400'>{item.sublabel}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
             {/* Main CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className='flex flex-col sm:flex-row gap-6 justify-center items-center mb-16'
-            >
+            <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mb-16'>
               <Link
                 href='/careers/apply'
                 onClick={(e) => handleNavigation(e, '/careers/apply')}
@@ -165,17 +140,12 @@ export default function CareersPage() {
                   Early-stage equity • Remote-first • Competitive packages
                 </span>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Why NartaQ is a Dream Opportunity */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.0 }}
-          className='py-20 px-4'
-        >
+        <div className='py-20 px-4'>
           <div className='max-w-7xl mx-auto'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
@@ -236,11 +206,8 @@ export default function CareersPage() {
                   highlight: 'Work-Life Balance',
                 },
               ].map((item, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
                   className='group p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-[#a98b5d]/40 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm'
                 >
                   <div className='flex items-start justify-between mb-6'>
@@ -257,18 +224,13 @@ export default function CareersPage() {
                   <p className='text-gray-300 leading-relaxed'>
                     {item.description}
                   </p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
         {/* Current Openings */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.6 }}
-          className='py-20 px-4 bg-gradient-to-r from-black via-gray-900/30 to-black'
-        >
+        <div className='py-20 px-4 bg-gradient-to-r from-black via-gray-900/30 to-black'>
           <div className='max-w-7xl mx-auto'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
@@ -386,11 +348,8 @@ export default function CareersPage() {
                   ],
                 },
               ].map((job, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1.8 + index * 0.1 }}
                   className='group p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-[#a98b5d]/40 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm cursor-pointer relative overflow-hidden'
                   onClick={() => {
                     const href = `/careers/${job.slug}`
@@ -468,17 +427,12 @@ export default function CareersPage() {
                       </ul>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
             {/* Final CTA Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.2 }}
-              className='text-center bg-gradient-to-r from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'
-            >
+            <div className='text-center bg-gradient-to-r from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'>
               <h3 className='text-3xl font-bold text-white mb-4'>
                 Ready to Shape the Future?
               </h3>
@@ -511,17 +465,12 @@ export default function CareersPage() {
                   <span>Competitive Equity</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Company Values & Culture */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 2.4 }}
-          className='py-20 px-4'
-        >
+        <div className='py-20 px-4'>
           <div className='max-w-6xl mx-auto'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl md:text-5xl font-bold text-white mb-6'>
@@ -567,11 +516,8 @@ export default function CareersPage() {
                   ],
                 },
               ].map((item, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 2.6 + index * 0.2 }}
                   className='group p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-[#a98b5d]/40 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm text-center'
                 >
                   <div className='w-16 h-16 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 rounded-2xl flex items-center justify-center text-[#a98b5d] group-hover:scale-110 transition-transform duration-300 mx-auto mb-6'>
@@ -594,11 +540,11 @@ export default function CareersPage() {
                       </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Enhanced Grid Pattern Styles */}

@@ -2,7 +2,7 @@
 
 import { animatePageOut } from '@/components/pageTransition/animations'
 import { Button } from '@/components/ui/button'
-import { motion } from 'framer-motion'
+
 import {
   ArrowLeft,
   ArrowRight,
@@ -43,12 +43,7 @@ export default function DevOpsEngineerPage() {
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Navigation Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className='pt-8 px-4'
-        >
+        <div className='pt-8 px-4'>
           <div className='max-w-6xl mx-auto'>
             <Link
               href='/careers'
@@ -59,17 +54,12 @@ export default function DevOpsEngineerPage() {
               <span className='font-serif text-lg'>Back to Careers</span>
             </Link>
           </div>
-        </motion.div>
+        </div>
 
         {/* Hero Section */}
         <div className='py-20 px-4'>
           <div className='max-w-6xl mx-auto'>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className='text-center mb-16'
-            >
+            <div className='text-center mb-16'>
               {/* Position Badge */}
               <div className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/40 rounded-full text-sm font-semibold text-[#dcd7ce] mb-8 backdrop-blur-sm'>
                 <Cloud className='w-4 h-4 text-[#a98b5d]' />
@@ -93,15 +83,10 @@ export default function DevOpsEngineerPage() {
                 enterprise-grade DAO creation platform. Ensure high availability
                 and security for institutional clients.
               </p>
-            </motion.div>
+            </div>
 
             {/* Job Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className='max-w-4xl mx-auto'
-            >
+            <div className='max-w-4xl mx-auto'>
               <div className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-8 backdrop-blur-sm'>
                 <h2 className='text-3xl font-bold text-white mb-6'>
                   About the Role
@@ -225,7 +210,7 @@ export default function DevOpsEngineerPage() {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

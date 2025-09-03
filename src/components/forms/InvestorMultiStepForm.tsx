@@ -49,7 +49,9 @@ interface InvestorMultiStepFormProps {
   onSubmissionSuccess: () => void
 }
 
-export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorMultiStepFormProps) {
+export default function InvestorMultiStepForm({
+  onSubmissionSuccess,
+}: InvestorMultiStepFormProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [submissionError, setSubmissionError] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -83,6 +85,7 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
   ]
 
   const ticketSizeOptions = [
+    'Early Bird ($5k - $50k)',
     'Pre-Seed ($50k - $250k)',
     'Seed ($250k - $1M)',
     'Series A ($1M - $5M)',
@@ -124,7 +127,7 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
   const nextStep = async () => {
     const fieldsToValidate = getFieldsForStep(currentStep)
     const isValid = await form.trigger(fieldsToValidate)
-    
+
     if (isValid && currentStep < totalSteps) {
       setCurrentStep(currentStep + 1)
     }
@@ -156,9 +159,9 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
     if (isSubmitted || isPending) {
       return
     }
-    
+
     setSubmissionError('')
-    
+
     startTransition(async () => {
       try {
         const result = await submitInvestorApplication(data)
@@ -167,11 +170,16 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
           onSubmissionSuccess()
         } else {
           console.error('Submission failed:', result.error)
-          setSubmissionError(result.error || 'An error occurred while submitting your application. Please try again.')
+          setSubmissionError(
+            result.error ||
+              'An error occurred while submitting your application. Please try again.'
+          )
         }
       } catch (error) {
         console.error('Error submitting form:', error)
-        setSubmissionError('An unexpected error occurred. Please try again later.')
+        setSubmissionError(
+          'An unexpected error occurred. Please try again later.'
+        )
       }
     })
   }
@@ -183,7 +191,7 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
   const stepVariants = {
     hidden: { opacity: 0, x: 50 },
     visible: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -50 }
+    exit: { opacity: 0, x: -50 },
   }
 
   return (
@@ -366,7 +374,8 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
                       </FormLabel>
                       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                         {investmentFocusOptions.map((option) => {
-                          const checked = watchedInvestmentFocus?.includes(option)
+                          const checked =
+                            watchedInvestmentFocus?.includes(option)
                           return (
                             <motion.label
                               key={option}
@@ -401,7 +410,9 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
                               >
                                 {checked && <Check className='w-4 h-4' />}
                               </div>
-                              <span className='font-serif text-lg'>{option}</span>
+                              <span className='font-serif text-lg'>
+                                {option}
+                              </span>
                             </motion.label>
                           )
                         })}
@@ -436,7 +447,10 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
                       <FormLabel className='font-serif text-xl text-white mb-3 block'>
                         Typical investment stage & ticket size? *
                       </FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger className='font-serif text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
                             <SelectValue placeholder='Select ticket size' />
@@ -491,7 +505,8 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
                       </FormLabel>
                       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                         {geographyOptions.map((option) => {
-                          const checked = watchedTargetGeography?.includes(option)
+                          const checked =
+                            watchedTargetGeography?.includes(option)
                           return (
                             <motion.label
                               key={option}
@@ -526,7 +541,9 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
                               >
                                 {checked && <Check className='w-4 h-4' />}
                               </div>
-                              <span className='font-serif text-lg'>{option}</span>
+                              <span className='font-serif text-lg'>
+                                {option}
+                              </span>
                             </motion.label>
                           )
                         })}
@@ -544,7 +561,10 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
                       <FormLabel className='font-serif text-xl text-white mb-3 block'>
                         How did you hear about us? *
                       </FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger className='font-serif text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
                             <SelectValue placeholder='Select referral source' />
@@ -598,7 +618,9 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
               animate={{ opacity: 1, y: 0 }}
               className='mt-6 p-4 bg-red-50 border border-red-200 rounded-lg'
             >
-              <p className='text-red-700 text-sm font-medium'>{submissionError}</p>
+              <p className='text-red-700 text-sm font-medium'>
+                {submissionError}
+              </p>
             </motion.div>
           )}
 
@@ -627,10 +649,12 @@ export default function InvestorMultiStepForm({ onSubmissionSuccess }: InvestorM
             ) : (
               <Button
                 type='submit'
-                disabled={isSubmitted || isPending || form.formState.isSubmitting}
+                disabled={
+                  isSubmitted || isPending || form.formState.isSubmitting
+                }
                 className='font-serif text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl'
               >
-                {(isPending || form.formState.isSubmitting) ? (
+                {isPending || form.formState.isSubmitting ? (
                   <div className='flex items-center gap-2'>
                     <div className='w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin' />
                     {isPending ? 'Processing...' : 'Submitting...'}

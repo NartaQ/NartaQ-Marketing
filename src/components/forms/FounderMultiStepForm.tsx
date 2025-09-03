@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { ArrowRight, ArrowLeft, Check } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -49,7 +49,9 @@ interface FounderMultiStepFormProps {
   onSubmissionSuccess: () => void
 }
 
-export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMultiStepFormProps) {
+export default function FounderMultiStepForm({
+  onSubmissionSuccess,
+}: FounderMultiStepFormProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [submissionError, setSubmissionError] = useState<string>('')
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -107,7 +109,7 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
   const nextStep = async () => {
     const fieldsToValidate = getFieldsForStep(currentStep)
     const isValid = await form.trigger(fieldsToValidate)
-    
+
     if (isValid && currentStep < totalSteps) {
       setCurrentStep(currentStep + 1)
     }
@@ -139,13 +141,15 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
 
     try {
       const result = await submitFounderApplication(data)
-      
+
       if (result.success) {
         setIsSubmitted(true)
         onSubmissionSuccess()
       } else {
         console.error('Submission failed:', result.error)
-        setSubmissionError(result.message || result.error || 'Failed to submit application')
+        setSubmissionError(
+          result.message || result.error || 'Failed to submit application'
+        )
       }
     } catch (error) {
       console.error('Error submitting form:', error)
@@ -159,7 +163,7 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
   const stepVariants = {
     hidden: { opacity: 0, x: 50 },
     visible: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -50 }
+    exit: { opacity: 0, x: -50 },
   }
 
   return (
@@ -175,12 +179,7 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
           </span>
         </div>
         <div className='w-full bg-gray-800 rounded-full h-2'>
-          <motion.div
-            className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] h-2 rounded-full'
-            initial={{ width: 0 }}
-            animate={{ width: `${(currentStep / totalSteps) * 100}%` }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-          />
+          <div className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] h-2 rounded-full' />
         </div>
       </div>
 
@@ -189,15 +188,7 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
           <AnimatePresence mode='wait'>
             {/* Step 1: Personal Information */}
             {currentStep === 1 && (
-              <motion.div
-                key='step1'
-                variants={stepVariants}
-                initial='hidden'
-                animate='visible'
-                exit='exit'
-                transition={{ duration: 0.3 }}
-                className='space-y-8'
-              >
+              <div key='step1' className='space-y-8'>
                 <div className='text-center mb-12'>
                   <h2 className='font-serif text-3xl font-bold text-white mb-4'>
                     Let's start with the basics
@@ -247,20 +238,12 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                     </FormItem>
                   )}
                 />
-              </motion.div>
+              </div>
             )}
 
             {/* Step 2: Company Information */}
             {currentStep === 2 && (
-              <motion.div
-                key='step2'
-                variants={stepVariants}
-                initial='hidden'
-                animate='visible'
-                exit='exit'
-                transition={{ duration: 0.3 }}
-                className='space-y-8'
-              >
+              <div key='step2' className='space-y-8'>
                 <div className='text-center mb-12'>
                   <h2 className='font-serif text-3xl font-bold text-white mb-4'>
                     Now about your company
@@ -310,20 +293,12 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                     </FormItem>
                   )}
                 />
-              </motion.div>
+              </div>
             )}
 
             {/* Step 3: Business Details */}
             {currentStep === 3 && (
-              <motion.div
-                key='step3'
-                variants={stepVariants}
-                initial='hidden'
-                animate='visible'
-                exit='exit'
-                transition={{ duration: 0.3 }}
-                className='space-y-8'
-              >
+              <div key='step3' className='space-y-8'>
                 <div className='text-center mb-12'>
                   <h2 className='font-serif text-3xl font-bold text-white mb-4'>
                     Business specifics
@@ -345,11 +320,8 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                         {sectorOptions.map((option) => {
                           const checked = watchedSectors?.includes(option)
                           return (
-                            <motion.label
+                            <label
                               key={option}
-                              initial={{ scale: 1 }}
-                              whileHover={{ scale: 1.02 }}
-                              whileTap={{ scale: 0.98 }}
                               className={`flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
                                 checked
                                   ? 'border-[#a98b5d] bg-[#a98b5d]/20 text-[#a98b5d]'
@@ -374,8 +346,10 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                               >
                                 {checked && <Check className='w-4 h-4' />}
                               </div>
-                              <span className='font-serif text-lg'>{option}</span>
-                            </motion.label>
+                              <span className='font-serif text-lg'>
+                                {option}
+                              </span>
+                            </label>
                           )
                         })}
                       </div>
@@ -410,7 +384,10 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                         <FormLabel className='font-serif text-xl text-white mb-3 block'>
                           Current funding stage? *
                         </FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger className='font-serif text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
                               <SelectValue placeholder='Select stage' />
@@ -441,7 +418,10 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                         <FormLabel className='font-serif text-xl text-white mb-3 block'>
                           Primary location? *
                         </FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger className='font-serif text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
                               <SelectValue placeholder='Select location' />
@@ -464,20 +444,12 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                     )}
                   />
                 </div>
-              </motion.div>
+              </div>
             )}
 
             {/* Step 4: Pitch */}
             {currentStep === 4 && (
-              <motion.div
-                key='step4'
-                variants={stepVariants}
-                initial='hidden'
-                animate='visible'
-                exit='exit'
-                transition={{ duration: 0.3 }}
-                className='space-y-8'
-              >
+              <div key='step4' className='space-y-8'>
                 <div className='text-center mb-12'>
                   <h2 className='font-serif text-3xl font-bold text-white mb-4'>
                     Tell us about your vision
@@ -516,41 +488,40 @@ export default function FounderMultiStepForm({ onSubmissionSuccess }: FounderMul
                 {/* Data Processing Disclaimer */}
                 <div className='mt-8 p-6 bg-black/20 border border-[#a98b5d]/30 rounded-xl'>
                   <p className='font-serif text-sm text-gray-300 leading-relaxed'>
-                    By submitting this application, you agree to our processing of your personal data 
-                    in accordance with our{' '}
-                    <a 
-                      href='/legal/privacy' 
-                      target='_blank' 
+                    By submitting this application, you agree to our processing
+                    of your personal data in accordance with our{' '}
+                    <a
+                      href='/legal/privacy'
+                      target='_blank'
                       rel='noopener noreferrer'
                       className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
                     >
                       Privacy Policy
-                    </a>
-                    {' '}and{' '}
-                    <a 
-                      href='/legal/terms' 
-                      target='_blank' 
+                    </a>{' '}
+                    and{' '}
+                    <a
+                      href='/legal/terms'
+                      target='_blank'
                       rel='noopener noreferrer'
                       className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
                     >
                       Terms of Service
                     </a>
-                    . We will use this information to evaluate your application and communicate with you about potential opportunities.
+                    . We will use this information to evaluate your application
+                    and communicate with you about potential opportunities.
                   </p>
                 </div>
-              </motion.div>
+              </div>
             )}
           </AnimatePresence>
 
           {/* Error Display */}
           {submissionError && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className='mt-6 p-4 bg-red-900/20 border border-red-500/30 rounded-xl'
-            >
-              <p className='font-serif text-red-400 text-center'>{submissionError}</p>
-            </motion.div>
+            <div className='mt-6 p-4 bg-red-900/20 border border-red-500/30 rounded-xl'>
+              <p className='font-serif text-red-400 text-center'>
+                {submissionError}
+              </p>
+            </div>
           )}
 
           {/* Navigation Buttons */}

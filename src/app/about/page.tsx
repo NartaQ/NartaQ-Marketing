@@ -1,9 +1,9 @@
 'use client'
 
-import { motion } from 'framer-motion'
+
 import { Users, Globe, Target, Heart, Star, Linkedin } from 'lucide-react'
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function AboutPage() {
   return (
@@ -11,11 +11,7 @@ export default function AboutPage() {
       <div className='pt-32 pb-16'>
         <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
           {/* Hero Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className='text-center mb-20'
-          >
+          <div className='text-center mb-20'>
             <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#a98b5d]/30 bg-[#a98b5d]/10 text-[#a98b5d] text-sm font-medium mb-8'>
               <Heart className='w-4 h-4' />
               OUR STORY
@@ -58,16 +54,11 @@ export default function AboutPage() {
                 appropriate investors who value innovation over introductions.
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Our Vision Section */}
           <section className='py-16 sm:py-24 lg:py-32'>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className='text-center mb-16'
-            >
+            <div className='text-center mb-16'>
               <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6'>
                 <Target className='w-4 h-4 text-[#a98b5d]' />
                 <span className='text-sm font-medium text-[#dcd7ce]'>
@@ -82,16 +73,10 @@ export default function AboutPage() {
                 The current venture capital system prioritizes networks over
                 merit. We're building the infrastructure to change that.
               </p>
-            </motion.div>
+            </div>
 
             <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className='text-center'
-              >
+              <div className='text-center'>
                 <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
                   <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
                     <Users className='w-8 h-8 text-[#a98b5d]' />
@@ -106,15 +91,9 @@ export default function AboutPage() {
                     recognition they deserve.
                   </p>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className='text-center'
-              >
+              <div className='text-center'>
                 <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
                   <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
                     <Globe className='w-8 h-8 text-[#a98b5d]' />
@@ -128,15 +107,9 @@ export default function AboutPage() {
                     Tunis have the same access to capital as those in Palo Alto.
                   </p>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className='text-center'
-              >
+              <div className='text-center'>
                 <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
                   <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
                     <Target className='w-8 h-8 text-[#a98b5d]' />
@@ -150,18 +123,13 @@ export default function AboutPage() {
                     based on potential impact rather than pedigree or location.
                   </p>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </section>
 
           {/* The Team Section */}
           <section id='team' className='py-16 sm:py-24 lg:py-32'>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className='text-center mb-16'
-            >
+            <div className='text-center mb-16'>
               <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6'>
                 <Users className='w-4 h-4 text-[#a98b5d]' />
                 <span className='text-sm font-medium text-[#dcd7ce]'>
@@ -175,16 +143,11 @@ export default function AboutPage() {
                 Two founders united by a shared vision of democratizing startup
                 funding
               </p>
-            </motion.div>
+            </div>
 
             <div className='grid md:grid-cols-2 gap-8 max-w-6xl mx-auto'>
               {/* Riadh Profile */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 text-center'
-              >
+              <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 text-center'>
                 <div className='w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] p-0.5'>
                   <div className='w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center'>
                     <Image
@@ -220,13 +183,11 @@ export default function AboutPage() {
                     <Linkedin className='w-5 h-5' />
                   </Link>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Jesser Profile */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+              <div
+     
                 className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 text-center'
               >
                 <div className='w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] p-0.5'>
@@ -263,18 +224,13 @@ export default function AboutPage() {
                     <Linkedin className='w-5 h-5' />
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </section>
 
           {/* Our Corridor Section */}
           <section id='corridor' className='py-16 sm:py-24 lg:py-32'>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className='text-center mb-16'
-            >
+            <div className='text-center mb-16'>
               <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6'>
                 <Globe className='w-4 h-4 text-[#a98b5d]' />
                 <span className='text-sm font-medium text-[#dcd7ce]'>
@@ -289,16 +245,10 @@ export default function AboutPage() {
                 Our strategic focus on a corridor with exceptional talent
                 density, cultural alignment, and untapped potential
               </p>
-            </motion.div>
+            </div>
 
             <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className='text-center'
-              >
+              <div className='text-center'>
                 <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
                   <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
                     <Users className='w-8 h-8 text-[#a98b5d]' />
@@ -314,15 +264,9 @@ export default function AboutPage() {
                     cost structures.
                   </p>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className='text-center'
-              >
+              <div className='text-center'>
                 <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
                   <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
                     <Globe className='w-8 h-8 text-[#a98b5d]' />
@@ -337,15 +281,9 @@ export default function AboutPage() {
                     support for tech innovation and cross-border partnerships.
                   </p>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className='text-center'
-              >
+              <div className='text-center'>
                 <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
                   <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
                     <Target className='w-8 h-8 text-[#a98b5d]' />
@@ -361,15 +299,10 @@ export default function AboutPage() {
                     returns.
                   </p>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className='mt-16 max-w-4xl mx-auto text-center'
-            >
+            <div className='mt-16 max-w-4xl mx-auto text-center'>
               <div className='relative p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent'>
                 <h4 className='text-xl sm:text-2xl font-bold text-[#a98b5d] mb-6'>
                   Why Start Here?
@@ -391,16 +324,11 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </section>
 
           {/* Call to Action */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className='text-center py-16 sm:py-24 lg:py-32'
-          >
+          <div className='text-center py-16 sm:py-24 lg:py-32'>
             <div className='relative p-12 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent max-w-4xl mx-auto'>
               <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
                 <Star className='w-8 h-8 text-[#a98b5d]' />
@@ -429,7 +357,7 @@ export default function AboutPage() {
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>
