@@ -65,7 +65,7 @@ export default function AboutPage() {
               <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6'>
                 <Target className='w-4 h-4 text-[#a98b5d]' />
                 <span className='text-sm font-medium text-[#dcd7ce]'>
-                  OUR VISION
+                  OUR VISION 
                 </span>
               </div>
               <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-[#dcd7ce] mb-6'>

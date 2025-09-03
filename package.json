@@ -14,7 +14,7 @@
     "test:smoke": "tsx scripts/smoke-tests.ts",
     "test:health": "tsx scripts/health-check.ts",
     "test:post-deployment": "tsx scripts/post-deployment-tests.ts",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate && prisma db push",
     "vercel-build": "prisma generate && next build",
     "knip": "knip"
   },
