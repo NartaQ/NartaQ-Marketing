@@ -77,6 +77,7 @@ export default function OptimizedHeroSection() {
         {/* CTA Button using critical CSS */}
         <div className='flex justify-center items-center mb-8 sm:mb-12 px-4'>
           <Link
+            title='Join the Founding Cohort'
             href='/apply'
             onClick={(e) => handleNavigation(e, '/apply')}
             className='cta-button'

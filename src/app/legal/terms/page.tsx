@@ -146,6 +146,7 @@ export default function TermsOfServicePage() {
 
               <div className='mt-6 pt-6 border-t border-[#a98b5d]/20'>
                 <Link
+                  title='View Privacy Policy'
                   href='/legal/privacy'
                   className='flex items-center gap-2 text-sm text-[#a98b5d] hover:text-[#dcd7ce] transition-colors'
                 >
@@ -219,6 +220,7 @@ export default function TermsOfServicePage() {
                           Legal Contact:
                         </strong>{' '}
                         <Link
+                          title='Send Legal Inquiries'
                           href='mailto:legal@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
@@ -230,6 +232,7 @@ export default function TermsOfServicePage() {
                           Privacy Contact:
                         </strong>{' '}
                         <Link
+                          title='Send Privacy & Data Protection Inquiries'
                           href='mailto:privacy@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
@@ -241,6 +244,7 @@ export default function TermsOfServicePage() {
                           Data Protection:
                         </strong>{' '}
                         <Link
+                          title='Send Privacy & Data Protection Inquiries'
                           href='mailto:riadh@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
@@ -349,7 +353,8 @@ export default function TermsOfServicePage() {
                         <p className='text-gray-300 text-sm'>
                           Visit our website at{' '}
                           <Link
-                            href='http://www.nartaq.com'
+                            title='Visit NartaQ Website'
+                            href='https://www.nartaq.com'
                             className='text-[#dcd7ce] hover:underline'
                           >
                             www.nartaq.com
@@ -450,6 +455,7 @@ export default function TermsOfServicePage() {
                         Privacy Inquiries:
                       </strong>{' '}
                       <Link
+                        title='Send Privacy & Data Protection Inquiries'
                         href='mailto:privacy@nartaq.com'
                         className='text-[#dcd7ce] hover:underline'
                       >
@@ -461,6 +467,7 @@ export default function TermsOfServicePage() {
                         Data Protection Officer:
                       </strong>{' '}
                       <Link
+                        title='Send Privacy & Data Protection Inquiries'
                         href='mailto:riadh@nartaq.com'
                         className='text-[#dcd7ce] hover:underline'
                       >
@@ -470,7 +477,8 @@ export default function TermsOfServicePage() {
                     <div>
                       <strong className='text-[#a98b5d]'>Data Requests:</strong>{' '}
                       <Link
-                        href='http://www.nartaq.com/data-request'
+                        title='Submit a Data Request'
+                        href='https://www.nartaq.com/data-request'
                         className='text-[#dcd7ce] hover:underline'
                       >
                         www.nartaq.com/data-request
@@ -565,6 +573,7 @@ export default function TermsOfServicePage() {
                       <div>
                         <strong className='text-[#a98b5d]'>Email:</strong>{' '}
                         <Link
+                          title='Send Legal Inquiries'
                           href='mailto:legal@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
@@ -601,6 +610,7 @@ export default function TermsOfServicePage() {
                       <div>
                         <strong className='text-blue-400'>Email:</strong>{' '}
                         <Link
+                          title='Send Privacy & Data Protection Inquiries'
                           href='mailto:riadh@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
@@ -616,6 +626,7 @@ export default function TermsOfServicePage() {
                           Privacy Requests:
                         </strong>{' '}
                         <Link
+                          title='Submit a Data Request'
                           href='mailto:privacy@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
@@ -657,24 +668,27 @@ export default function TermsOfServicePage() {
                 </p>
                 <div className='flex flex-wrap gap-4 text-xs text-gray-400'>
                   <Link
+                    title='View Privacy Policy'
                     href='/legal/privacy'
                     className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors'
                   >
                     Privacy Policy
                   </Link>
                   <Link
+                    title='View Cookie Notice'
                     href='/legal/cookies'
                     className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors'
                   >
                     Cookie Notice
                   </Link>
                   <Link
+                    title='View DMCA Policy'
                     href='/legal/dmca'
                     className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors'
                   >
                     DMCA Policy
                   </Link>
-                  <Link href="mailto:privacy@nartaq.com?subject=Data%20Request" className="text-[#a98b5d] hover:text-[#dcd7ce] transition-colors">
+                  <Link title='Submit a Data Request' href="mailto:privacy@nartaq.com?subject=Data%20Request" className="text-[#a98b5d] hover:text-[#dcd7ce] transition-colors">
                     Data Request
                   </Link>
                   <span>© 2025 NartaQ SA. All rights reserved.</span>

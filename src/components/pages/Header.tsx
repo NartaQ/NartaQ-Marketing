@@ -59,6 +59,7 @@ export default function Header({
         <div className='w-full flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           {/* Logo */}
           <Link
+            title='Go to Home'
             className='flex items-center gap-2 p-1 group relative z-20'
             href='/'
             onClick={(e) => handleNavigation(e, '/')}
@@ -172,6 +173,7 @@ export default function Header({
           <div className='w-full flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6'>
             {/* Mobile Logo */}
             <Link
+              title='Go to Home'
               className='flex items-center gap-1 sm:gap-2 p-1 group relative z-20'
               href='/'
               onClick={(e) => {

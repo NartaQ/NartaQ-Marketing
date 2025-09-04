@@ -16,6 +16,7 @@
     "test:smoke": "tsx scripts/smoke-tests.ts",
     "test:health": "tsx scripts/health-check.ts",
     "test:post-deployment": "tsx scripts/post-deployment-tests.ts",
+    "bundle:analyze": "tsx scripts/bundle-analyzer.ts",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:bundle": "next build && npx @next/bundle-analyzer",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",

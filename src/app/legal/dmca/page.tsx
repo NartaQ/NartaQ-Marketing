@@ -52,7 +52,7 @@ export default function DMCAPage() {
         Use this process for: (a) alleged copyright infringement (Digital Millennium Copyright Act / EU equivalent),
         (b) requests to remove personal data published without a valid legal basis, (c) defamation or unlawful content
         under French law. For privacy rights exercises unrelated to public content (e.g. access, deletion of your account
-        data) please use our <Link href='/legal/privacy'>Privacy Policy</Link> instructions instead.
+        data) please use our <Link title='View Privacy Policy' href='/legal/privacy'>Privacy Policy</Link> instructions instead.
       </p>
 
       <h2>2. What To Send</h2>

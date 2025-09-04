@@ -78,9 +78,9 @@ export default function DataRequestPage() {
             <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center">
               <Download className="w-8 h-8 text-[#a98b5d]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#dcd7ce] mb-4 text-center">
+            <h2 className="text-2xl font-bold text-[#dcd7ce] mb-4 text-center">
               Access Request
-            </h3>
+            </h2>
             <div className="w-12 h-0.5 bg-[#a98b5d] mx-auto mb-6"></div>
             <p className="text-gray-300 leading-relaxed text-center mb-6">
               Download a copy of all personal data we have about you, including
@@ -88,6 +88,7 @@ export default function DataRequestPage() {
             </p>
             <div className="text-center">
               <Link
+                title='Request Data Access'
                 className="border-[#a98b5d]/50 text-[#a98b5d] hover:bg-[#a98b5d]/10"
                 href="mailto:privacy@nartaq.com?subject=Data Access Request&body=Please provide me with a copy of all my personal data held by NartaQ.%0A%0AName: %0AEmail: %0AAccount Details: "
               >
@@ -101,9 +102,9 @@ export default function DataRequestPage() {
             <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center">
               <Trash2 className="w-8 h-8 text-[#a98b5d]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#dcd7ce] mb-4 text-center">
+            <h2 className="text-2xl font-bold text-[#dcd7ce] mb-4 text-center">
               Deletion Request
-            </h3>
+            </h2>
             <div className="w-12 h-0.5 bg-[#a98b5d] mx-auto mb-6"></div>
             <p className="text-gray-300 leading-relaxed text-center mb-6">
               Request permanent deletion of your personal data from our systems
@@ -111,6 +112,7 @@ export default function DataRequestPage() {
             </p>
             <div className="text-center">
               <Link
+                title='Request Data Deletion'
                 href="mailto:privacy@nartaq.com?subject=Data Deletion Request&body=I request the deletion of all my personal data from NartaQ systems.%0A%0AName: %0AEmail: %0AAccount Details: %0A%0APlease confirm this request and provide a timeline for completion."
                 className="border-[#a98b5d]/50 text-[#a98b5d] hover:bg-[#a98b5d]/10"
               >
@@ -124,9 +126,9 @@ export default function DataRequestPage() {
             <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center">
               <FileText className="w-8 h-8 text-[#a98b5d]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#dcd7ce] mb-4 text-center">
+            <h2 className="text-2xl font-bold text-[#dcd7ce] mb-4 text-center">
               Processing Info
-            </h3>
+            </h2>
             <div className="w-12 h-0.5 bg-[#a98b5d] mx-auto mb-6"></div>
             <p className="text-gray-300 leading-relaxed text-center mb-6">
               Learn how we process your data, what information we collect, and
@@ -134,6 +136,7 @@ export default function DataRequestPage() {
             </p>
             <div className="text-center">
               <Link
+                title='View Privacy Policy'
                 href="/legal/privacy"
                 className="border-[#a98b5d]/50 text-[#a98b5d] hover:bg-[#a98b5d]/10"
               >
@@ -149,9 +152,9 @@ export default function DataRequestPage() {
             <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center">
               <Clock className="w-8 h-8 text-[#a98b5d]" />
             </div>
-            <h3 className="text-3xl font-bold text-[#dcd7ce] mb-4">
+            <h2 className="text-3xl font-bold text-[#dcd7ce] mb-4">
               Request Processing
-            </h3>
+            </h2>
             <div className="w-12 h-0.5 bg-[#a98b5d] mx-auto mb-6"></div>
           </div>
 
@@ -204,9 +207,9 @@ export default function DataRequestPage() {
             <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center">
               <Shield className="w-8 h-8 text-[#a98b5d]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#dcd7ce] mb-4">
+            <h2 className="text-2xl font-bold text-[#dcd7ce] mb-4">
               Privacy & Data Protection
-            </h3>
+            </h2>
             <div className="w-12 h-0.5 bg-[#a98b5d] mx-auto mb-6"></div>
             <p className="text-gray-300 leading-relaxed mb-6">
               For all data requests and privacy-related inquiries, contact our
@@ -222,7 +225,7 @@ export default function DataRequestPage() {
               </a>
             </div>
             <div className="space-x-4">
-              <Link href="/legal/privacy">
+              <Link title='View Privacy Policy' href="/legal/privacy">
                 <Button
                   variant="outline"
                   className="border-[#a98b5d]/30 text-[#a98b5d] hover:bg-[#a98b5d]/10"
@@ -230,7 +233,7 @@ export default function DataRequestPage() {
                   Privacy Policy
                 </Button>
               </Link>
-              <Link href="/">
+              <Link title='Return Home' href="/">
                 <Button
                   variant="outline"
                   className="border-[#a98b5d]/30 text-[#a98b5d] hover:bg-[#a98b5d]/10"

@@ -203,6 +203,7 @@ export default function RootLayout({
             `,
           }}
         />
+      
         <Analytics />
         <SpeedInsights />
         <LenisProvider>

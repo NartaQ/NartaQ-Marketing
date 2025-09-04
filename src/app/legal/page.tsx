@@ -66,7 +66,7 @@ export default function LegalPage() {
           <div className='grid md:grid-cols-2 gap-8 mb-20'>
             <div
             >
-              <Link href='/legal/terms' className='group block'>
+              <Link title='View Terms of Service' href='/legal/terms' className='group block'>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-2xl p-8 hover:border-[#a98b5d]/40 transition-all duration-300'>
                   <div className='w-12 h-12 bg-[#a98b5d]/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                     <FileText className='w-6 h-6 text-[#a98b5d]' />
@@ -88,7 +88,7 @@ export default function LegalPage() {
 
             <div
             >
-              <Link href='/legal/privacy' className='group block'>
+              <Link title='View Privacy Policy' href='/legal/privacy' className='group block'>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-2xl p-8 hover:border-[#a98b5d]/40 transition-all duration-300'>
                   <div className='w-12 h-12 bg-[#a98b5d]/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                     <Eye className='w-6 h-6 text-[#a98b5d]' />
@@ -110,7 +110,7 @@ export default function LegalPage() {
 
             <div
             >
-              <Link href='/legal/dmca' className='group block'>
+              <Link title='View DMCA Policy' href='/legal/dmca' className='group block'>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-2xl p-8 hover:border-[#a98b5d]/40 transition-all duration-300'>
                   <div className='w-12 h-12 bg-[#a98b5d]/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                     <AlertTriangle className='w-6 h-6 text-[#a98b5d]' />
@@ -132,7 +132,7 @@ export default function LegalPage() {
 
             <div
             >
-              <Link href='/legal/cookies' className='group block'>
+              <Link title='View Cookie Policy' href='/legal/cookies' className='group block'>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-2xl p-8 hover:border-[#a98b5d]/40 transition-all duration-300'>
                   <div className='w-12 h-12 bg-[#a98b5d]/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                     <Shield className='w-6 h-6 text-[#a98b5d]' />
@@ -226,6 +226,7 @@ export default function LegalPage() {
                     General Legal Inquiries:
                   </strong>{' '}
                   <Link
+                    title='Send General Legal Inquiries'
                     href='mailto:legal@nartaq.com'
                     className='underline hover:text-[#a98b5d]'
                   >
@@ -237,6 +238,7 @@ export default function LegalPage() {
                     Privacy & Data Protection:
                   </strong>{' '}
                   <Link
+                    title='Send Privacy & Data Protection Inquiries'
                     href='mailto:privacy@nartaq.com'
                     className='underline hover:text-[#a98b5d]'
                   >
@@ -246,6 +248,7 @@ export default function LegalPage() {
                 <p>
                   <strong className='text-[#a98b5d]'>DMCA & Copyright:</strong>{' '}
                   <Link
+                    title='Send DMCA & Copyright Inquiries'
                     href='mailto:dmca@nartaq.com'
                     className='underline hover:text-[#a98b5d]'
                   >

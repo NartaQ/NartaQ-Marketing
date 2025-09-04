@@ -57,6 +57,7 @@ export default function NeonHeroSection() {
         {/* CTA Button */}
         <div className='flex justify-center items-center mb-8 sm:mb-12 px-4'>
           <Link
+            title='Join the Founding Cohort'
             href='/apply'
             onClick={(e) => handleNavigation(e, '/apply')}
             className='group relative px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-[#a98b5d]/50'

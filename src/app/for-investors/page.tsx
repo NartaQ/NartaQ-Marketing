@@ -66,6 +66,7 @@ export default function ForInvestorsPage() {
 
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <Link
+              title='Join the Founding Investor Cohort'
               href='/apply'
               className='group relative bg-[#a98b5d] hover:bg-[#a98b5d]/90 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#a98b5d]/25'
             >
@@ -380,6 +381,7 @@ export default function ForInvestorsPage() {
 
           <div className='flex justify-center items-center mb-12'>
             <Link
+              title='Join the Founding Investor Cohort'
               href='/apply'
               className='inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/50'
             >

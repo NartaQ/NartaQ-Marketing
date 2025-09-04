@@ -39,6 +39,7 @@ export default function Index({
       exit='exit'
     >
       <Link
+        title={title}
         href={href}
         className='text-white no-underline font-light hover:text-gray-300 transition-colors duration-300 font-serif text-5xl'
         onClick={

@@ -106,6 +106,7 @@ export default function NavMenu() {
         {/* CTAs - vertically centered */}
         <div className='flex-1 flex flex-col items-center justify-center gap-4'>
           <Link
+            title='Apply Now'
             href='/apply'
             className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
             onMouseEnter={() => setSelectedIndicator('/apply')}
@@ -122,6 +123,7 @@ export default function NavMenu() {
             {socialLinks.map((s) => (
               <React.Fragment key={s.name}>
                 <Link
+                  title={s.aria}
                   key={s.name}
                   href={s.href}
                   target='_blank'

@@ -284,6 +284,7 @@ export default function CookiePolicyPage() {
                 <p>
                   <strong className="text-[#a98b5d]">Email:</strong>{" "}
                   <Link
+                    title='Send Privacy & Data Protection Inquiries'
                     href="mailto:privacy@nartaq.com"
                     className="underline hover:text-[#a98b5d]"
                   >

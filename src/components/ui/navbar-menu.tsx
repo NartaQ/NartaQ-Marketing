@@ -87,6 +87,7 @@ export const HoveredLink = ({
 }) => {
   return (
     <Link
+      title={rest['aria-label']}
       href={rest.href!}
       {...rest}
       className='text-[#dcd7ce7c] hover:text-[#dcd7ce]'

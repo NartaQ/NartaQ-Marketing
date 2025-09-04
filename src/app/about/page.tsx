@@ -196,10 +196,11 @@ export default function AboutPage() {
 
                 <div className='flex justify-center gap-4'>
                   <Link
+                    title='Riadh Jouini LinkedIn Profile'
                     href='https://linkedin.com/in/riadh-jouini'
                     className='w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors'
                   >
-                    <Linkedin className='w-5 h-5' />
+                    <Linkedin aria-label='LinkedIn Profile' className='w-5 h-5' />
                   </Link>
                 </div>
               </div>
@@ -231,9 +232,10 @@ export default function AboutPage() {
                 <div className='flex justify-center gap-4'>
                   <Link
                     href='https://linkedin.com/in/jesser-bedoui'
+                    title='Jesser Bedoui LinkedIn Profile'
                     className='w-10 h-10 rounded-xl bg-[#a98b5d]/20 flex items-center justify-center text-[#a98b5d] hover:bg-[#a98b5d]/30 transition-colors'
                   >
-                    <Linkedin className='w-5 h-5' />
+                    <Linkedin aria-label='LinkedIn Profile' className='w-5 h-5' />
                   </Link>
                 </div>
               </div>
@@ -356,12 +358,14 @@ export default function AboutPage() {
               <div className='grid sm:grid-cols-2 gap-4 max-w-md mx-auto'>
                 <Link
                   href='/for-founders'
+                  title='For Founders'
                   className='px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
                 >
                   Join as Founder
                 </Link>
                 <Link
                   href='/for-investors'
+                  title='For Investors'
                   className='px-8 py-4 border border-[#a98b5d]/50 text-[#dcd7ce] font-semibold rounded-xl hover:bg-[#a98b5d]/10 transition-all duration-300'
                 >
                   Join as Investor

@@ -167,6 +167,7 @@ export default function PrivacyPolicyPage() {
                 <nav className="space-y-2 max-h-96 overflow-y-auto">
                   {tableOfContents.map((item, index) => (
                     <Link
+                      title={item.title}
                       key={item.id}
                       href={`#${item.id}`}
                       className={`block py-1.5 px-3 rounded-lg text-xs transition-all duration-200 ${
@@ -185,6 +186,7 @@ export default function PrivacyPolicyPage() {
 
                 <div className="mt-6 pt-6 border-t border-[#a98b5d]/20">
                   <Link
+                    title='View Terms of Service'
                     href="/legal/terms"
                     className="flex items-center gap-2 text-sm text-[#a98b5d] hover:text-[#dcd7ce] transition-colors"
                   >
@@ -211,7 +213,7 @@ export default function PrivacyPolicyPage() {
                     </p>
                     <ul className="space-y-2 text-gray-300 mb-4">
                       <li>
-                        • Visit our website at http://www.nartaq.com or any
+                        • Visit our website at https://www.nartaq.com or any
                         website of ours that links to this Privacy Notice
                       </li>
                       <li>
@@ -238,6 +240,7 @@ export default function PrivacyPolicyPage() {
                       Services. If you still have any questions or concerns,
                       please contact us at{" "}
                       <Link
+                        title='Send Privacy & Data Protection Inquiries'
                         href="mailto:privacy@nartaq.com"
                         className="text-[#a98b5d] hover:underline"
                       >
@@ -346,10 +349,11 @@ export default function PrivacyPolicyPage() {
                         </strong>{" "}
                         The easiest way to exercise your rights is by visiting{" "}
                         <Link
-                          href="http://www.nartaq.com/data-request"
+                          title='Submit a Data Request'
+                          href="https://www.nartaq.com/data-request"
                           className="text-[#dcd7ce] hover:underline"
                         >
-                          http://www.nartaq.com/data-request
+                          https://www.nartaq.com/data-request
                         </Link>
                         , or by contacting us. We will consider and act upon any
                         request in accordance with applicable data protection
@@ -494,10 +498,11 @@ export default function PrivacyPolicyPage() {
                         through cookies and similar technologies. You can find
                         out more about this in our Cookie Notice:{" "}
                         <Link
-                          href="http://www.nartaq.com/legal/cookies"
+                          title='View Cookie Notice'
+                          href="https://www.nartaq.com/legal/cookies"
                           className="text-[#a98b5d] hover:underline"
                         >
-                          http://www.nartaq.com/legal/cookies
+                          https://www.nartaq.com/legal/cookies
                         </Link>
                         .
                       </p>
@@ -634,10 +639,11 @@ export default function PrivacyPolicyPage() {
                         location, and more. For more information see our Cookie
                         Notice:{" "}
                         <Link
-                          href="http://www.nartaq.com/legal/cookies"
+                          title='View Cookie Notice'
+                          href="https://www.nartaq.com/legal/cookies"
                           className="text-[#a98b5d] hover:underline"
                         >
-                          http://www.nartaq.com/legal/cookies
+                          https://www.nartaq.com/legal/cookies
                         </Link>
                         .
                       </li>
@@ -934,10 +940,11 @@ export default function PrivacyPolicyPage() {
                         and how you can refuse certain cookies is set out in our
                         Cookie Notice:{" "}
                         <Link
-                          href="http://www.nartaq.com/legal/cookies"
+                          title='View Cookie Notice'
+                          href="https://www.nartaq.com/legal/cookies"
                           className="text-[#a98b5d] hover:underline"
                         >
-                          http://www.nartaq.com/legal/cookies
+                          https://www.nartaq.com/legal/cookies
                         </Link>
                         .
                       </p>
@@ -954,6 +961,7 @@ export default function PrivacyPolicyPage() {
                           Reporting. To opt out of being tracked by Google
                           Analytics across the Services, visit{" "}
                           <Link
+                            title='Opt Out of Google Analytics'
                             href="https://tools.google.com/dlpage/gaoptout"
                             className="text-[#a98b5d] hover:underline"
                           >
@@ -963,17 +971,19 @@ export default function PrivacyPolicyPage() {
                           Features through Ads Settings and Ad Settings for
                           mobile apps. Other opt out means include{" "}
                           <Link
-                            href="http://optout.networkadvertising.org/"
+                            title='Opt Out of Network Advertising'
+                            href="https://optout.networkadvertising.org/?c=1/"
                             className="text-[#a98b5d] hover:underline"
                           >
-                            http://optout.networkadvertising.org/
+                            https://optout.networkadvertising.org/?c=1/
                           </Link>{" "}
                           and{" "}
                           <Link
-                            href="http://www.networkadvertising.org/mobile-choice"
+                            title='Opt Out of Mobile Advertising'
+                            href="https://thenai.org//opt-out/mobile-opt-out/"
                             className="text-[#a98b5d] hover:underline"
                           >
-                            http://www.networkadvertising.org/mobile-choice
+                            https://thenai.org//opt-out/mobile-opt-out/
                           </Link>
                           . For more information on the privacy practices of
                           Google, please visit the Google Privacy & Terms page.
@@ -1146,6 +1156,7 @@ export default function PrivacyPolicyPage() {
                         become aware of any data we may have collected from
                         children under age 18, please contact us at{" "}
                         <Link
+                          title='Send Privacy & Data Protection Inquiries'
                           href="mailto:riadh@nartaq.com"
                           className="text-[#a98b5d] hover:underline"
                         >
@@ -1263,10 +1274,11 @@ export default function PrivacyPolicyPage() {
                             services of our Services. For further information,
                             please see our Cookie Notice:{" "}
                             <Link
-                              href="http://www.nartaq.com/legal/cookies"
+                              title='View Cookie Notice'
+                              href="https://www.nartaq.com/legal/cookies"
                               className="text-[#a98b5d] hover:underline"
                             >
-                              http://www.nartaq.com/legal/cookies
+                              https://www.nartaq.com/legal/cookies
                             </Link>
                             .
                           </p>
@@ -1277,6 +1289,7 @@ export default function PrivacyPolicyPage() {
                         If you have questions or comments about your privacy
                         rights, you may email us at{" "}
                         <Link
+                          title='Send Privacy & Data Protection Inquiries'
                           href="mailto:privacy@nartaq.com"
                           className="text-[#a98b5d] hover:underline"
                         >
@@ -1375,6 +1388,7 @@ export default function PrivacyPolicyPage() {
                         in the EEA. You can contact them directly regarding our
                         processing of your information, by email at{" "}
                         <Link
+                          title='Send Privacy & Data Protection Inquiries'
                           href="mailto:riadh@nartaq.com"
                           className="text-[#a98b5d] hover:underline"
                         >
@@ -1382,10 +1396,11 @@ export default function PrivacyPolicyPage() {
                         </Link>
                         , by visiting{" "}
                         <Link
-                          href="http://www.nartaq.com"
+                          title='Visit NartaQ Website'
+                          href="https://www.nartaq.com"
                           className="text-[#a98b5d] hover:underline"
                         >
-                          http://www.nartaq.com
+                          https://www.nartaq.com
                         </Link>
                         , by phone at +33.784616068, or by post to:
                       </p>
@@ -1440,12 +1455,14 @@ export default function PrivacyPolicyPage() {
                     </p>
                     <div className="flex flex-wrap gap-4 text-xs text-gray-400">
                       <Link
+                        title='View Terms of Service'
                         href="/legal/terms"
                         className="text-[#a98b5d] hover:text-[#dcd7ce] transition-colors"
                       >
                         Terms of Service
                       </Link>
                       <Link
+                        title='View Cookie Notice'
                         href="/legal/dmca"
                         className="text-[#a98b5d] hover:text-[#dcd7ce] transition-colors"
                       >

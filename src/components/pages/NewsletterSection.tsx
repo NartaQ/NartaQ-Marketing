@@ -78,6 +78,7 @@ export default function NewsletterSection() {
 
             <div className='flex justify-center mb-6'>
               <Link
+                title='Apply to Join the Founding Cohort'
                 href='/apply'
                 className='inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
                 onClick={(e) => handleNavigation(e, '/apply')}
