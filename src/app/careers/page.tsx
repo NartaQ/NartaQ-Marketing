@@ -42,7 +42,8 @@ export default function CareersPage() {
     animatePageOut(href, router)
   }
   return (
-    <div className='min-h-screen bg-black text-white relative overflow-hidden'>
+    <>
+      <div className='min-h-screen bg-black text-white relative overflow-hidden'>
  
       {/* Main Content */}
       <div className='relative z-10'>
@@ -529,5 +530,6 @@ export default function CareersPage() {
         }
       `}</style>
     </div>
+    </>
   )
 }

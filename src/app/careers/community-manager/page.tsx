@@ -108,7 +108,7 @@ export default function CommunityManagerPage() {
                       icon: <MessageSquare className='w-6 h-6' />,
                       title: 'Community Engagement',
                       description:
-                        'Manage our social media presence across LinkedIn, Twitter, Discord, and other platforms. Create compelling content that drives conversations and engagement.',
+                        'Manage our social media presence across LinkedIn, FB, IG, Twitter, and other platforms. Create compelling content that drives conversations and engagement.',
                     },
                     {
                       icon: <Calendar className='w-6 h-6' />,

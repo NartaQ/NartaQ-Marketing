@@ -1,4 +1,3 @@
-'use client'
 
 import {
   Eye,
@@ -12,10 +11,39 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'For Investors - AI-Curated Deal Flow | NartaQ',
+  description: 'Stop sifting through noise. Access pre-vetted, high-signal startups through our AI-powered investor platform. Join the founding cohort for exclusive deal access.',
+  keywords: [
+    'investor deal flow',
+    'startup investing', 
+    'venture capital platform',
+    'AI investor matching',
+    'pre-vetted startups',
+    'investment opportunities',
+    'startup vetting',
+    'investor network'
+  ],
+  openGraph: {
+    title: 'For Investors - AI-Curated Deal Flow | NartaQ',
+    description: 'Your next investment, curated by AI. Access pre-vetted startups through our intelligent matching platform designed for serious investors.',
+    siteName: 'NartaQ',
+  },
+  twitter: {
+    title: 'For Investors - AI-Curated Deal Flow | NartaQ',
+    description: 'Your next investment, curated by AI. Access pre-vetted startups through our intelligent matching platform designed for serious investors.',
+  },
+  alternates: {
+    canonical: 'https://www.nartaq.com/for-investors',
+  },
+}
 
 export default function ForInvestorsPage() {
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <>
+      <div className='min-h-screen bg-black text-white'>
       {/* Hero Section */}
       <section className='py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a]'>
         <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
@@ -33,8 +61,7 @@ export default function ForInvestorsPage() {
           <div className='w-24 h-0.5 bg-[#a98b5d] mx-auto mb-8'></div>
           <p className='text-lg sm:text-xl text-[#dcd7ce]/80 mb-12 max-w-3xl mx-auto leading-relaxed'>
             Stop sifting through noise. NartaQ is the AI-powered platform for
-            investors seeking high-signal, pre-vetted startups in the
-            France-Tunisia corridor.
+            investors seeking high-signal, pre-vetted startups globally.
           </p>
 
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
@@ -382,5 +409,6 @@ export default function ForInvestorsPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

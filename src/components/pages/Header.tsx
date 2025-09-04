@@ -63,15 +63,15 @@ export default function Header({
             href='/'
             onClick={(e) => handleNavigation(e, '/')}
           >
-            <div className='h-[24px] sm:h-[28px] md:h-[32px] flex items-center gap-2 relative'>
+            <div className='relative'>
               <Image
                 src='/logo/main-tr-hor.svg'
                 alt='Nartaq Icon'
-                width={100}
+                width={167}
                 title='nartaqLogo'
-                height={18}
-                priority
-                className='h-6 sm:h-7 md:h-8 w-auto relative z-10'
+                height={32}
+                fetchPriority='low'
+                className='relative z-10'
               />
             </div>
           </Link>
@@ -178,15 +178,15 @@ export default function Header({
                 handleNavigation(e, '/')
               }}
             >
-              <div className='h-[24px] sm:h-[28px] flex items-center gap-1 sm:gap-2 relative'>
+              <div className='flex items-center gap-1 sm:gap-2 relative'>
                 <Image
                   title='nartaqLogo'
                   src='/logo/main-tr-hor.svg'
                   alt='Nartaq Icon'
                   width={100}
                   height={24}
-                  priority
-                  className='h-6 sm:h-7 w-auto relative z-10'
+                  fetchPriority='low'
+                  className=' relative z-10'
                 />
               </div>
             </Link>

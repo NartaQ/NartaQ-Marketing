@@ -1,13 +1,38 @@
-'use client'
-
-
 import { Users, Globe, Target, Heart, Star, Linkedin } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About NartaQ - Building a Merit-Based Future for Startup Funding',
+  description: 'Learn about NartaQ\'s mission to democratize startup funding through AI-powered venture matchmaking. Connecting exceptional founders with the right investors globally.',
+  keywords: [
+    'merit-based funding',
+    'venture capital democratization',
+    'AI venture matching',
+    'startup ecosystem',
+    'equal opportunity funding',
+    'geographic bias',
+    'venture capital reform'
+  ],
+  openGraph: {
+    title: 'About NartaQ - Building a Merit-Based Future for Startup Funding',
+    description: 'Learn about NartaQ\'s mission to democratize startup funding through AI-powered venture matchmaking globally.',
+    siteName: 'NartaQ',
+  },
+  twitter: {
+    title: 'About NartaQ - Building a Merit-Based Future for Startup Funding',
+    description: 'Learn about NartaQ\'s mission to democratize startup funding through AI-powered venture matchmaking globally.',
+  },
+  alternates: {
+    canonical: 'https://www.nartaq.com/about',
+  },
+}
 
 export default function AboutPage() {
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <>
+      <div className='min-h-screen bg-black text-white'>
       <div className='pt-32 pb-16'>
         <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
           {/* Hero Section */}
@@ -48,7 +73,7 @@ export default function AboutPage() {
                 opportunities for all exceptional founders.
               </p>
               <p className='text-gray-300 leading-relaxed'>
-                Starting with the France-Tunisia corridor, we're proving that
+                Starting with emerging markets, we're proving that
                 geography shouldn't determine access to capital. Our vision
                 extends globally, connecting underserved startup ecosystems with
                 appropriate investors who value innovation over introductions.
@@ -103,8 +128,8 @@ export default function AboutPage() {
                   </h3>
                   <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-4'></div>
                   <p className='text-[#dcd7ce] leading-relaxed'>
-                    Breaking down geographic barriers so brilliant founders in
-                    Tunis have the same access to capital as those in Palo Alto.
+                    Breaking down geographic barriers so brilliant founders
+                    everywhere have equal access to capital and opportunities.
                   </p>
                 </div>
               </div>
@@ -154,16 +179,10 @@ export default function AboutPage() {
                       title='riadhjouini'
                       width={100}
                       height={100}
-                      src='/images/team/riadh.jpeg'
+                      src='/images/team/riadh.avif'
                       alt='Riadh Jouini'
                       className='w-full h-full object-cover rounded-2xl'
-                      onError={(e) => {
-                        ;(e.target as HTMLImageElement).style.display = 'none'
-                        ;(
-                          e.target as HTMLImageElement
-                        ).parentElement!.innerHTML =
-                          '<span class="text-2xl font-bold text-black">RJ</span>'
-                      }}
+                      
                     />
                   </div>
                 </div>
@@ -195,17 +214,10 @@ export default function AboutPage() {
                     <Image
                       width={100}
                       height={100}
-                      src='/images/team/jesser.jpeg'
+                      src='/images/team/jesser.avif'
                       alt='Jesser Bedoui'
                       className='w-full h-full object-cover rounded-2xl'
                       title='jesserbedoui'
-                      onError={(e) => {
-                        ;(e.target as HTMLImageElement).style.display = 'none'
-                        ;(
-                          e.target as HTMLImageElement
-                        ).parentElement!.innerHTML =
-                          '<span class="text-2xl font-bold text-black">JB</span>'
-                      }}
                     />
                   </div>
                 </div>
@@ -228,8 +240,8 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* Our Corridor Section */}
-          <section id='corridor' className='py-16 sm:py-24 lg:py-32'>
+          {/* Our Focus Section */}
+          <section id='focus' className='py-16 sm:py-24 lg:py-32'>
             <div className='text-center mb-16'>
               <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6'>
                 <Globe className='w-4 h-4 text-[#a98b5d]' />
@@ -238,12 +250,12 @@ export default function AboutPage() {
                 </span>
               </div>
               <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-[#dcd7ce] mb-6'>
-                The France-Tunisia{' '}
-                <span className='text-[#a98b5d]'>Corridor</span>
+                Emerging Markets{' '}
+                <span className='text-[#a98b5d]'>Innovation</span>
               </h2>
               <p className='text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed'>
-                Our strategic focus on a corridor with exceptional talent
-                density, cultural alignment, and untapped potential
+                Our strategic focus on regions with exceptional talent
+                density, cultural diversity, and untapped potential
               </p>
             </div>
 
@@ -258,10 +270,9 @@ export default function AboutPage() {
                   </h3>
                   <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-4'></div>
                   <p className='text-[#dcd7ce] leading-relaxed'>
-                    Tunisia produces world-class engineers, researchers, and
-                    entrepreneurs, with French fluency and European cultural
-                    alignment. High-caliber technical expertise at competitive
-                    cost structures.
+                    Emerging markets produce world-class engineers, researchers, and
+                    entrepreneurs with diverse cultural perspectives and
+                    competitive advantages in global markets.
                   </p>
                 </div>
               </div>
@@ -276,8 +287,8 @@ export default function AboutPage() {
                   </h3>
                   <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-4'></div>
                   <p className='text-[#dcd7ce] leading-relaxed'>
-                    Mediterranean bridge between Europe and Africa, with GDPR
-                    compliance, EU-aligned time zones, and growing policy
+                    Strategic positioning in key global markets with
+                    regulatory compatibility, timezone alignment, and growing policy
                     support for tech innovation and cross-border partnerships.
                   </p>
                 </div>
@@ -310,15 +321,15 @@ export default function AboutPage() {
                 <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-6'></div>
                 <div className='space-y-4 text-[#dcd7ce] leading-relaxed'>
                   <p>
-                    The France-Tunisia corridor represents the perfect testing
-                    ground for our vision: a defined geographic focus with
-                    cultural alignment, regulatory compatibility, and
+                    Emerging markets represent the perfect testing
+                    ground for our vision: focused geographic regions with
+                    cultural diversity, regulatory opportunities, and
                     exceptional founder quality that's systematically
                     undervalued by traditional VC.
                   </p>
                   <p>
-                    By proving our model here, we create a blueprint for
-                    expanding to other high-potential corridors
+                    By proving our model in these markets, we create a blueprint for
+                    expanding to other high-potential regions
                     globally—ultimately building the infrastructure for truly
                     merit-based startup funding worldwide.
                   </p>
@@ -360,6 +371,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }

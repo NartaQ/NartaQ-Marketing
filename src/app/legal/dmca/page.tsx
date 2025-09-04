@@ -2,9 +2,36 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'DMCA / Content Takedown | NartaQ',
-  description: 'How to request removal of infringing or unlawful content from NartaQ.'
-}
+  title: "DMCA / Content Takedown - NartaQ",
+  description:
+    "Learn how to report copyright infringement or request content removal on NartaQ. Our DMCA takedown process for protecting intellectual property rights.",
+  keywords: [
+    "NartaQ DMCA",
+    "NartaQ content takedown",
+    "NartaQ copyright infringement",
+    "NartaQ intellectual property",
+    "NartaQ content removal",
+    "NartaQ legal notice",
+    "NartaQ takedown request",
+  ],
+  openGraph: {
+    title: "DMCA / Content Takedown - NartaQ",
+    description: "Report copyright infringement or request content removal through our DMCA takedown process.",
+    siteName: "NartaQ",
+  },
+  twitter: {
+    title: "DMCA / Content Takedown - NartaQ",
+    description:
+      "Report copyright infringement or request content removal through our DMCA takedown process.",
+  },
+  alternates: {
+    canonical: "https://www.nartaq.com/legal/dmca",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const LAST_UPDATED = '2025-01-05'
 

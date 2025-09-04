@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "prisma generate && next build",
+    "build:analyze": "rm -rf .next && cross-env ANALYZE=true next build",
+    "build:profile": "next build --profile",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
@@ -14,6 +16,11 @@
     "test:smoke": "tsx scripts/smoke-tests.ts",
     "test:health": "tsx scripts/health-check.ts",
     "test:post-deployment": "tsx scripts/post-deployment-tests.ts",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:bundle": "next build && npx @next/bundle-analyzer",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "analyze:both": "cross-env BUNDLE_ANALYZE=both next build",
     "postinstall": "prisma generate && prisma db push",
     "vercel-build": "prisma generate && next build",
     "knip": "knip"
@@ -39,6 +46,7 @@
     "lucide-react": "^0.539.0",
     "motion": "^12.23.12",
     "next": "15.4.6",
+    "next-seo": "^6.8.0",
     "posthog-js": "^1.261.3",
     "posthog-node": "^5.8.1",
     "react": "19.1.0",
@@ -49,6 +57,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@next/bundle-analyzer": "^15.5.2",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
@@ -57,6 +66,8 @@
     "@types/node": "^20.19.11",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "critters": "^0.0.23",
+    "cross-env": "^10.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
     "jest": "^30.1.1",
@@ -67,6 +78,7 @@
     "tailwindcss": "^4",
     "tsx": "^4.20.5",
     "tw-animate-css": "^1.3.6",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }

@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     'startup investor matching',
     'AI deal sourcing',
     'funding platform development',
-    'France Tunisia startups',
     'pre-seed funding',
     'fundraising process',
   ],
@@ -32,14 +31,7 @@ export const metadata: Metadata = {
     title: 'NartaQ | The AI-Powered Startup Funding Platform',
     description:
       'NartaQ is an AI-powered platform connecting the best founders with the right capital. Join our founding community.',
-    images: [
-      {
-        url: '/images/home-og.png',
-        width: 1200,
-        height: 630,
-        alt: 'NartaQ - AI-Powered Platform for Startup Funding',
-      },
-    ],
+   
   },
   twitter: {
     title: 'NartaQ | The AI-Powered Startup Funding Platform',
@@ -53,7 +45,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className='flex min-h-screen flex-col bg-black text-white relative overflow-hidden'>
+    <div className='flex min-h-screen flex-col  relative overflow-hidden'>
       {/* New Neon-Style Hero Section */}
       <NeonHeroSection />
 

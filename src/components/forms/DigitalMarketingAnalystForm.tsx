@@ -159,7 +159,7 @@ export default function DigitalMarketingAnalystForm({
           } else {
             throw new Error(uploadResult.error || 'Failed to upload file')
           }
-        } catch (uploadErr) {
+        } catch (uploadErr: Error | any) {
           setUploadError('Failed to upload CV. Please try again.')
           setIsSubmitting(false)
           return

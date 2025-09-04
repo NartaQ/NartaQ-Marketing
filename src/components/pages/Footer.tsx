@@ -91,15 +91,6 @@ export default function Footer({
               <i className='bi bi-linkedin' />
             </Link>
             <Link
-              href='https://discord.gg/nartaq'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-2xl hover:text-[#a98b5d] transition-colors'
-              aria-label='Join our Discord'
-            >
-              <i className='bi bi-discord' />
-            </Link>
-            <Link
               href='https://github.com/nartaq'
               target='_blank'
               rel='noopener noreferrer'
