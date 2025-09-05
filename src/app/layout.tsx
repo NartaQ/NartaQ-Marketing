@@ -117,19 +117,12 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//vercel.live" />
         <link rel="dns-prefetch" href="//vitals.vercel-insights.com" />
 
-
         <link rel="manifest" href="/manifest.json" />
        
         <Script id="critical-sw-registration" strategy="lazyOnload">
           {`if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
               navigator.serviceWorker.register('/sw.js')
-                .then((registration) => {
-                  console.log('SW registered: ', registration);
-                })
-                .catch((registrationError) => {
-                  console.log('SW registration failed: ', registrationError);
-                });
             });
           }`}
         </Script>        
@@ -174,7 +167,7 @@ export default function RootLayout({
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
                     gtag('config', 'G-CZ3D93J3CR', {
-                      send_page_view: false // Prevent automatic page view
+                      send_page_view: true
                     });
                     window.gtag = gtag;
                   };
@@ -203,7 +196,6 @@ export default function RootLayout({
             `,
           }}
         />
-      
         <Analytics />
         <SpeedInsights />
         <LenisProvider>

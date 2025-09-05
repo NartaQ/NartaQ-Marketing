@@ -165,7 +165,7 @@ export default function PrivacyPolicyPage() {
                 </h3>
 
                 <nav className="space-y-2 max-h-96 overflow-y-auto">
-                  {tableOfContents.map((item, index) => (
+                  {tableOfContents.map((item) => (
                     <Link
                       title={item.title}
                       key={item.id}

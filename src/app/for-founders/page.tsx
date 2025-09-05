@@ -8,7 +8,6 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import RiveAnimation from '@/components/ui/RiveAnimation'
 
 export const metadata: Metadata = {
   title: 'For Founders - Get Matched, Not Rejected | NartaQ',
@@ -46,11 +45,6 @@ export default function ForFoundersPage() {
       <div className='relative min-h-screen flex items-center justify-center overflow-hidden'>
         {/* Animated Background */}
         <div className='absolute inset-0 grid-pattern opacity-20' />
-
-        {/* Rive Animation */}
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[30vw] md:h-[30vw] blur-[2px] opacity-40'>
-          <RiveAnimation className='w-full h-full' />
-        </div>
 
         <div className='relative z-10 max-w-6xl mx-auto px-4 text-center'>
           {/* Badge */}

@@ -48,8 +48,8 @@ const nextConfig: NextConfig = {
     const baseCSP = [
       "default-src 'self'",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "font-src 'self' https://fonts.gstatic.com data:",
-      "img-src 'self' data: blob: https://www.google-analytics.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://static.intercomcdn.com https://downloads.intercomcdn.com https://uploads.intercomusercontent.com https://eu.i.posthog.com",
+      "font-src 'self' https://fonts.gstatic.com https://fonts.intercomcdn.com data:",
+      "img-src 'self' data: blob: https://www.google-analytics.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://static.intercomcdn.com https://downloads.intercomcdn.com https://uploads.intercomusercontent.com https://eu.i.posthog.com https://js.intercomcdn.com https://static.intercomassets.com",
       "frame-src 'self' https://widget.intercom.io",
       "media-src 'self' blob:",
       "object-src 'none'",
@@ -158,6 +158,7 @@ const nextConfig: NextConfig = {
   distDir: ".next",
   async rewrites() {
     return [
+      // PostHog proxy rewrites
       {
         source: "/ingest/static/:path*",
         destination: "https://eu-assets.i.posthog.com/static/:path*",
@@ -165,6 +166,15 @@ const nextConfig: NextConfig = {
       {
         source: "/ingest/:path*",
         destination: "https://eu.i.posthog.com/:path*",
+      },
+      // Vercel Analytics proxy rewrites for development
+      {
+        source: "/_vercel/insights/:path*",
+        destination: "https://vitals.vercel-insights.com/:path*",
+      },
+      {
+        source: "/_vercel/speed-insights/:path*",
+        destination: "https://vitals.vercel-insights.com/:path*",
       },
     ];
   },
