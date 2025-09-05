@@ -38,6 +38,7 @@ export default function DigitalMarketingAnalystApplyPage() {
               {/* Navigation */}
               <div className='mb-8'>
                 <Link
+                  title='Back to Position Details'
                   href='/careers/digital-marketing-analyst'
                   onClick={(e) =>
                     handleNavigation(e, '/careers/digital-marketing-analyst')
@@ -94,6 +95,7 @@ export default function DigitalMarketingAnalystApplyPage() {
 
                 <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                   <Link
+                    title='View Position Details'
                     href='/careers/digital-marketing-analyst'
                     onClick={(e) =>
                       handleNavigation(e, '/careers/digital-marketing-analyst')
@@ -107,6 +109,7 @@ export default function DigitalMarketingAnalystApplyPage() {
                     </Button>
                   </Link>
                   <Link
+                    title='Back to Careers'
                     href='/careers'
                     onClick={(e) => handleNavigation(e, '/careers')}
                   >
@@ -114,7 +117,7 @@ export default function DigitalMarketingAnalystApplyPage() {
                       View Other Positions
                     </Button>
                   </Link>
-                  <Link href='/' onClick={(e) => handleNavigation(e, '/')}>
+                  <Link title='Back to Home' href='/' onClick={(e) => handleNavigation(e, '/')}>
                     <Button
                       variant='outline'
                       className='font-serif text-lg px-8 py-3 border-[#dcd7ce] text-[#dcd7ce] hover:bg-white hover:text-black transition-colors'

@@ -38,6 +38,7 @@ export default function CommunityManagerPage() {
         <div className='pt-6 sm:pt-8 px-4 sm:px-6'>
           <div className='max-w-6xl mx-auto'>
             <Link
+              title='Back to Careers'
               href='/careers'
               onClick={(e) => handleNavigation(e, '/careers')}
               className='inline-flex items-center gap-2 text-[#dcd7ce] hover:text-[#a98b5d] transition-colors group'
@@ -108,7 +109,7 @@ export default function CommunityManagerPage() {
                       icon: <MessageSquare className='w-6 h-6' />,
                       title: 'Community Engagement',
                       description:
-                        'Manage our social media presence across LinkedIn, Twitter, Discord, and other platforms. Create compelling content that drives conversations and engagement.',
+                        'Manage our social media presence across LinkedIn, FB, IG, Twitter, and other platforms. Create compelling content that drives conversations and engagement.',
                     },
                     {
                       icon: <Calendar className='w-6 h-6' />,
@@ -189,6 +190,7 @@ export default function CommunityManagerPage() {
 
               <div className='flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center'>
                 <Link
+                  title='Apply for This Position'
                   href='/careers/community-manager/apply'
                   onClick={(e) =>
                     handleNavigation(e, '/careers/community-manager/apply')
@@ -204,6 +206,7 @@ export default function CommunityManagerPage() {
                 </Link>
 
                 <Link
+                  title='Apply Generally'
                   href='/careers/apply'
                   onClick={(e) => handleNavigation(e, '/careers/apply')}
                   className='text-[#dcd7ce] hover:text-[#a98b5d] transition-colors text-lg font-semibold'

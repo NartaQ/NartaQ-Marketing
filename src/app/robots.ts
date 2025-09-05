@@ -7,11 +7,15 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: [
+          '/',
+          '/_next/static/', // Allow Next.js static assets (JS, CSS, images)
+          '/_next/image', // Allow Next.js optimized images
+        ],
         disallow: [
           '/api/', 
           '/admin/', 
-          '/_next/', 
+          '/_next/server/', // Block server-side routes
           '/_vercel/',
           '/private/',
           '/temp/',
@@ -21,12 +25,20 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'Googlebot',
-        allow: '/',
+        allow: [
+          '/',
+          '/_next/static/',
+          '/_next/image',
+        ],
         disallow: ['/api/', '/admin/', '/private/'],
       },
       {
         userAgent: 'Bingbot',
-        allow: '/',
+        allow: [
+          '/',
+          '/_next/static/',
+          '/_next/image',
+        ],
         disallow: ['/api/', '/admin/', '/private/'],
       }
     ],

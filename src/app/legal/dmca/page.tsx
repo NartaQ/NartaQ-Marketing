@@ -2,9 +2,36 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'DMCA / Content Takedown | NartaQ',
-  description: 'How to request removal of infringing or unlawful content from NartaQ.'
-}
+  title: "DMCA / Content Takedown - NartaQ",
+  description:
+    "Learn how to report copyright infringement or request content removal on NartaQ. Our DMCA takedown process for protecting intellectual property rights.",
+  keywords: [
+    "NartaQ DMCA",
+    "NartaQ content takedown",
+    "NartaQ copyright infringement",
+    "NartaQ intellectual property",
+    "NartaQ content removal",
+    "NartaQ legal notice",
+    "NartaQ takedown request",
+  ],
+  openGraph: {
+    title: "DMCA / Content Takedown - NartaQ",
+    description: "Report copyright infringement or request content removal through our DMCA takedown process.",
+    siteName: "NartaQ",
+  },
+  twitter: {
+    title: "DMCA / Content Takedown - NartaQ",
+    description:
+      "Report copyright infringement or request content removal through our DMCA takedown process.",
+  },
+  alternates: {
+    canonical: "https://www.nartaq.com/legal/dmca",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const LAST_UPDATED = '2025-01-05'
 
@@ -25,7 +52,7 @@ export default function DMCAPage() {
         Use this process for: (a) alleged copyright infringement (Digital Millennium Copyright Act / EU equivalent),
         (b) requests to remove personal data published without a valid legal basis, (c) defamation or unlawful content
         under French law. For privacy rights exercises unrelated to public content (e.g. access, deletion of your account
-        data) please use our <Link href='/legal/privacy'>Privacy Policy</Link> instructions instead.
+        data) please use our <Link title='View Privacy Policy' href='/legal/privacy'>Privacy Policy</Link> instructions instead.
       </p>
 
       <h2>2. What To Send</h2>

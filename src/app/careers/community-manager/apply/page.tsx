@@ -38,6 +38,7 @@ export default function CommunityManagerApplyPage() {
               {/* Navigation */}
               <div className='mb-8'>
                 <Link
+                  title='Back to Community Manager'
                   href='/careers/community-manager'
                   onClick={(e) =>
                     handleNavigation(e, '/careers/community-manager')
@@ -94,6 +95,7 @@ export default function CommunityManagerApplyPage() {
 
                 <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                   <Link
+                    title='View Position Details'
                     href='/careers/community-manager'
                     onClick={(e) =>
                       handleNavigation(e, '/careers/community-manager')
@@ -107,6 +109,7 @@ export default function CommunityManagerApplyPage() {
                     </Button>
                   </Link>
                   <Link
+                    title='Back to Careers'
                     href='/careers'
                     onClick={(e) => handleNavigation(e, '/careers')}
                   >
@@ -114,7 +117,7 @@ export default function CommunityManagerApplyPage() {
                       View Other Positions
                     </Button>
                   </Link>
-                  <Link href='/' onClick={(e) => handleNavigation(e, '/')}>
+                  <Link title='Back to Home' href='/' onClick={(e) => handleNavigation(e, '/')}>
                     <Button
                       variant='outline'
                       className='font-serif text-lg px-8 py-3 border-[#dcd7ce] text-[#dcd7ce] hover:bg-white hover:text-black transition-colors'

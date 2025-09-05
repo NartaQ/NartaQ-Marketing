@@ -279,12 +279,14 @@ export default function FAQPage() {
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <Link
+                  title='Request Data Access'
                   href='mailto:contact@nartaq.com'
                   className='px-6 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
                 >
                   Contact Us
                 </Link>
                 <Link
+                  title='Join Founding Cohort'
                   href='/apply'
                   className='px-6 py-3 border border-[#a98b5d]/50 text-[#dcd7ce] font-semibold rounded-xl hover:bg-[#a98b5d]/10 transition-all duration-300'
                 >

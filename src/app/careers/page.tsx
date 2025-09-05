@@ -2,15 +2,12 @@
 
 import { animatePageOut } from '@/components/pageTransition/animations'
 import { Button } from '@/components/ui/button'
-import { motion } from 'framer-motion'
 import {
   ArrowRight,
   Award,
   Brain,
-  Building,
   CheckCircle,
   Clock,
-  DollarSign,
   Globe,
   MapPin,
   Rocket,
@@ -42,7 +39,8 @@ export default function CareersPage() {
     animatePageOut(href, router)
   }
   return (
-    <div className='min-h-screen bg-black text-white relative overflow-hidden'>
+    <>
+      <div className='min-h-screen bg-black text-white relative overflow-hidden'>
  
       {/* Main Content */}
       <div className='relative z-10'>
@@ -79,6 +77,7 @@ export default function CareersPage() {
             {/* Main CTA */}
             <div className='flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16'>
               <Link
+                title='Apply for a Position'
                 href='/careers/apply'
                 onClick={(e) => handleNavigation(e, '/careers/apply')}
                 className='w-full sm:w-auto'
@@ -398,6 +397,7 @@ export default function CareersPage() {
                 contribute to our mission.
               </p>
               <Link
+                title='Apply for a Position'
                 href='/careers/apply'
                 onClick={(e) => handleNavigation(e, '/careers/apply')}
               >
@@ -529,5 +529,6 @@ export default function CareersPage() {
         }
       `}</style>
     </div>
+    </>
   )
 }

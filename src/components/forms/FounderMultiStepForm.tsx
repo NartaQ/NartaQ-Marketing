@@ -160,11 +160,6 @@ export default function FounderMultiStepForm({
   const watchedSectors = form.watch('sector')
   const watchedPitch = form.watch('shortPitch')
 
-  const stepVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -50 },
-  }
 
   return (
     <div className='max-w-2xl mx-auto'>

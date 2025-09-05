@@ -1,7 +1,3 @@
-'use client'
-
-import { useRive } from '@rive-app/react-canvas'
-
 import {
   ArrowRight,
   CheckCircle,
@@ -11,24 +7,44 @@ import {
   Users,
 } from 'lucide-react'
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'For Founders - Get Matched, Not Rejected | NartaQ',
+  description: 'Stop wasting time on cold outreach. Connect directly with vetted investors who are actively looking for companies like yours. Apply to NartaQ\'s founding cohort today.',
+  keywords: [
+    'startup fundraising',
+    'investor matching', 
+    'venture capital',
+    'cold outreach alternative',
+    'startup funding',
+    'investor network',
+    'AI matching',
+    'fundraising platform'
+  ],
+  openGraph: {
+    title: 'For Founders - Get Matched, Not Rejected | NartaQ',
+    description: 'Stop wasting time on cold outreach and rejections. Connect directly with vetted investors through our AI-powered matching platform.',
+    
+    siteName: 'NartaQ',
+  },
+  twitter: {
+    title: 'For Founders - Get Matched, Not Rejected | NartaQ',
+    description: 'Stop wasting time on cold outreach and rejections. Connect directly with vetted investors through our AI-powered matching platform.',
+  },
+  alternates: {
+    canonical: 'https://www.nartaq.com/for-founders',
+  },
+}
 
 export default function ForFoundersPage() {
-  const { RiveComponent } = useRive({
-    src: '/nartaq-logo.riv',
-    autoplay: true,
-  })
-
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <>      
+      <div className='min-h-screen bg-black text-white'>
       {/* Hero Section - Founder Focused */}
       <div className='relative min-h-screen flex items-center justify-center overflow-hidden'>
         {/* Animated Background */}
         <div className='absolute inset-0 grid-pattern opacity-20' />
-
-        {/* Rive Animation */}
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[30vw] md:h-[30vw] blur-[2px] opacity-40'>
-          <RiveComponent className='w-full h-full' />
-        </div>
 
         <div className='relative z-10 max-w-6xl mx-auto px-4 text-center'>
           {/* Badge */}
@@ -55,6 +71,7 @@ export default function ForFoundersPage() {
           {/* Single CTA */}
           <div className='flex justify-center items-center mb-12'>
             <Link
+              title='Apply to the Founding Cohort'
               href='/apply'
               className='group relative px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-[#a98b5d]/50'
             >
@@ -354,11 +371,6 @@ export default function ForFoundersPage() {
               here.
             </p>
 
-            <div className='mb-8 bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/10 rounded-full px-6 py-3 border border-[#a98b5d]/20 backdrop-blur-xl'>
-              <p className='text-[#a98b5d] font-semibold'>
-                Join 250+ founders already building a more equitable future
-              </p>
-            </div>
 
             <a
               href='/apply'
@@ -372,5 +384,6 @@ export default function ForFoundersPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

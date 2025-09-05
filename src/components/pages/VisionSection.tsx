@@ -102,6 +102,7 @@ export default function VisionSection() {
         {/* CTA Section */}
         <div className='text-center mt-16'>
           <Link
+            title='Learn About Our Journey'
             href='/about'
             className='inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/10 border border-[#a98b5d]/30 rounded-xl text-[#dcd7ce] font-medium hover:bg-[#a98b5d]/20 transition-all duration-300'
           >
