@@ -53,7 +53,7 @@ export default function Header({
   }
 
   return (
-    <Navbar className={cn('fixed top-4 z-50', className)}>
+    <Navbar className={cn('fixed top-15 z-50', className)}>
       {/* Desktop Navigation */}
       <NavBody>
         <div className='w-full flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
