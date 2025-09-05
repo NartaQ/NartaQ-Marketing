@@ -321,28 +321,20 @@ export default function CareersPage() {
                           </h3>
                         </div>
                         <div className='flex flex-wrap gap-2 items-center'>
-                          <span className='text-xs text-[#a98b5d] font-bold px-3 py-1 bg-[#a98b5d]/10 rounded-full border border-[#a98b5d]/20'>
-                            Open
-                          </span>
-                          <span className='text-xs text-green-400 font-bold px-3 py-1 bg-green-400/10 rounded-full border border-green-400/20'>
-                            Remote
-                          </span>
+                          <Button
+                            size='sm'
+                            className='w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold text-xs rounded-lg hover:scale-105 transition-all duration-300 shadow-lg'
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              const href = `/careers/${job.slug}`
+                              if (pathname === href) return
+                              animatePageOut(href, router)
+                            }}
+                          >
+                            View Details
+                            <ArrowRight className='w-3 h-3 ml-1' />
+                          </Button>
                         </div>
-                      </div>
-                      <div className='mt-4 sm:mt-0'>
-                        <Button
-                          size='sm'
-                          className='w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold text-xs rounded-lg hover:scale-105 transition-all duration-300 shadow-lg'
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            const href = `/careers/${job.slug}`
-                            if (pathname === href) return
-                            animatePageOut(href, router)
-                          }}
-                        >
-                          View Details
-                          <ArrowRight className='w-3 h-3 ml-1' />
-                        </Button>
                       </div>
                     </div>
 

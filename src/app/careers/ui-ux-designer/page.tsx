@@ -13,7 +13,7 @@ import {
   Palette,
   Settings,
   Users,
-  Zap
+  Zap,
 } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
@@ -33,7 +33,6 @@ export default function UIUXDesignerPage() {
 
   return (
     <div className='min-h-screen bg-black text-white relative overflow-hidden'>
-      
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Navigation Header */}
@@ -169,26 +168,13 @@ export default function UIUXDesignerPage() {
                           title: 'Remote Work',
                           desc: 'Work from anywhere with flexible hours',
                         },
-                        {
-                          icon: Heart,
-                          title: 'Health Benefits',
-                          desc: 'Comprehensive health insurance coverage',
-                        },
+
                         {
                           icon: Zap,
                           title: 'Growth Opportunity',
                           desc: 'Rapid career advancement in a scaling startup',
                         },
-                        {
-                          icon: Users,
-                          title: 'Amazing Team',
-                          desc: 'Work with passionate, talented professionals',
-                        },
-                        {
-                          icon: Award,
-                          title: 'Learning Budget',
-                          desc: '$2,000 annual budget for courses and conferences',
-                        },
+
                         {
                           icon: Settings,
                           title: 'Latest Tools',
@@ -235,8 +221,10 @@ export default function UIUXDesignerPage() {
           animation: float 20s ease-in-out infinite;
         }
         .glow-text {
-          text-shadow: 0 0 20px rgba(169, 139, 93, 0.5),
-            0 0 40px rgba(169, 139, 93, 0.3), 0 0 60px rgba(169, 139, 93, 0.1);
+          text-shadow:
+            0 0 20px rgba(169, 139, 93, 0.5),
+            0 0 40px rgba(169, 139, 93, 0.3),
+            0 0 60px rgba(169, 139, 93, 0.1);
         }
         @keyframes float {
           0%,

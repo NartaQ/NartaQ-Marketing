@@ -1,13 +1,25 @@
-import { client, urlFor } from '../../lib/sanity'
-import Link from 'next/link'
-import Image from 'next/image'
 import { formatDistance } from 'date-fns'
-import { Calendar, Clock, User, ArrowRight, BookOpen, Filter, TrendingUp, Globe, Target, Eye, MessageCircle } from 'lucide-react'
+import {
+  ArrowRight,
+  BookOpen,
+  Calendar,
+  Clock,
+  Eye,
+  Globe,
+  MessageCircle,
+  Target,
+  TrendingUp,
+  User,
+} from 'lucide-react'
 import { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import { client, urlFor } from '../../lib/sanity'
 
 export const metadata: Metadata = {
   title: 'Blog | NartaQ - Insights on AI-Powered Startup Funding',
-  description: 'Read the latest insights, updates, and stories about the future of startup funding, AI-powered venture matching, and democratizing access to capital.',
+  description:
+    'Read the latest insights, updates, and stories about the future of startup funding, AI-powered venture matching, and democratizing access to capital.',
   keywords: [
     'startup funding blog',
     'venture capital insights',
@@ -18,16 +30,18 @@ export const metadata: Metadata = {
     'venture capital news',
     'startup ecosystem',
     'funding strategies',
-    'investor insights'
+    'investor insights',
   ],
   openGraph: {
     title: 'Blog | NartaQ - Insights on AI-Powered Startup Funding',
-    description: 'Read the latest insights, updates, and stories about the future of startup funding and AI-powered venture matching.',
+    description:
+      'Read the latest insights, updates, and stories about the future of startup funding and AI-powered venture matching.',
     type: 'website',
   },
   twitter: {
     title: 'Blog | NartaQ - Insights on AI-Powered Startup Funding',
-    description: 'Read the latest insights, updates, and stories about the future of startup funding and AI-powered venture matching.',
+    description:
+      'Read the latest insights, updates, and stories about the future of startup funding and AI-powered venture matching.',
   },
 }
 
@@ -85,38 +99,43 @@ const postsQuery = `*[_type == "post" && defined(slug.current)] | order(publishe
 // Function to calculate reading time
 function calculateReadingTime(body: any[]): number {
   if (!body || body.length === 0) return 1
-  
+
   const wordsPerMinute = 200
   const totalWords = body.reduce((count, block) => {
     if (block._type === 'block' && block.children) {
-      return count + block.children.reduce((childCount: number, child: any) => {
-        return childCount + (child.text ? child.text.split(/\s+/).length : 0)
-      }, 0)
+      return (
+        count +
+        block.children.reduce((childCount: number, child: any) => {
+          return childCount + (child.text ? child.text.split(/\s+/).length : 0)
+        }, 0)
+      )
     }
     return count
   }, 0)
-  
+
   return Math.max(1, Math.ceil(totalWords / wordsPerMinute))
 }
 
 export default async function BlogPage() {
   const posts: Post[] = await client.fetch(postsQuery)
-  
+
   // Add reading time to posts
-  const postsWithReadingTime = posts.map(post => ({
+  const postsWithReadingTime = posts.map((post) => ({
     ...post,
     readingTime: calculateReadingTime(post.body || []),
     // Fallback values for missing fields
     author: post.author || { name: 'NartaQ Team' },
-    metadescription: post.metadescription || 'Discover insights about startup funding and venture capital.',
-    categories: post.categories || []
+    metadescription:
+      post.metadescription ||
+      'Discover insights about startup funding and venture capital.',
+    categories: post.categories || [],
   }))
 
   // Get unique categories for filtering
   const allCategories = postsWithReadingTime.reduce((acc: any[], post) => {
     if (post.categories) {
-      post.categories.forEach(category => {
-        if (!acc.find(c => c.slug.current === category.slug.current)) {
+      post.categories.forEach((category) => {
+        if (!acc.find((c) => c.slug.current === category.slug.current)) {
           acc.push(category)
         }
       })
@@ -163,23 +182,35 @@ export default async function BlogPage() {
 
           {/* Enhanced Subheadline */}
           <p className='text-xl md:text-2xl lg:text-3xl text-[#dcd7ce]/80 max-w-4xl mx-auto mb-12 leading-relaxed font-light'>
-            Deep insights into the future of startup funding, AI-powered venture matching, 
-            and the democratization of entrepreneurial capital
+            Deep insights into the future of startup funding, AI-powered venture
+            matching, and the democratization of entrepreneurial capital
           </p>
 
           {/* Stats Section */}
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12'>
             <div className='bg-[#1a1a1a]/60 backdrop-blur-xl border border-[#a98b5d]/20 rounded-2xl p-6 hover:border-[#a98b5d]/40 transition-all duration-300 hover:scale-105'>
-              <div className='text-3xl font-bold text-[#a98b5d] mb-2'>{postsWithReadingTime.length}+</div>
-              <div className='text-[#dcd7ce]/60 text-sm font-medium'>Articles Published</div>
+              <div className='text-3xl font-bold text-[#a98b5d] mb-2'>
+                {postsWithReadingTime.length}+
+              </div>
+              <div className='text-[#dcd7ce]/60 text-sm font-medium'>
+                Articles Published
+              </div>
             </div>
             <div className='bg-[#1a1a1a]/60 backdrop-blur-xl border border-[#a98b5d]/20 rounded-2xl p-6 hover:border-[#a98b5d]/40 transition-all duration-300 hover:scale-105'>
-              <div className='text-3xl font-bold text-[#a98b5d] mb-2'>{allCategories.length || 5}+</div>
-              <div className='text-[#dcd7ce]/60 text-sm font-medium'>Topic Categories</div>
+              <div className='text-3xl font-bold text-[#a98b5d] mb-2'>
+                {allCategories.length || 5}+
+              </div>
+              <div className='text-[#dcd7ce]/60 text-sm font-medium'>
+                Topic Categories
+              </div>
             </div>
             <div className='bg-[#1a1a1a]/60 backdrop-blur-xl border border-[#a98b5d]/20 rounded-2xl p-6 hover:border-[#a98b5d]/40 transition-all duration-300 hover:scale-105'>
-              <div className='text-3xl font-bold text-[#a98b5d] mb-2'>Weekly</div>
-              <div className='text-[#dcd7ce]/60 text-sm font-medium'>New Content</div>
+              <div className='text-3xl font-bold text-[#a98b5d] mb-2'>
+                Weekly
+              </div>
+              <div className='text-[#dcd7ce]/60 text-sm font-medium'>
+                New Content
+              </div>
             </div>
           </div>
 
@@ -200,46 +231,20 @@ export default async function BlogPage() {
         </div>
       </div>
 
-      {/* Featured Categories Section */}
-      {allCategories.length > 0 && (
-        <section className='py-16 bg-gradient-to-b from-black to-[#0a0a0a]'>
-          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-            <div className='text-center mb-12'>
-              <h2 className='text-3xl font-bold text-[#dcd7ce] mb-4'>Explore by Category</h2>
-              <p className='text-[#dcd7ce]/60 max-w-2xl mx-auto'>
-                Dive deep into specific areas of startup funding and venture capital insights
-              </p>
-            </div>
-            
-            <div className='flex flex-wrap justify-center gap-4'>
-              {allCategories.map((category) => (
-                <button
-                  key={category.slug.current}
-                  className='group px-6 py-3 bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-full hover:border-[#a98b5d]/40 hover:bg-[#a98b5d]/10 transition-all duration-300 flex items-center gap-2'
-                >
-                  <Filter className='w-4 h-4 text-[#a98b5d] group-hover:rotate-180 transition-transform duration-300' />
-                  <span className='text-[#dcd7ce] group-hover:text-[#a98b5d] transition-colors font-medium'>
-                    {category.title}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Blog Posts Grid */}
       <section className='py-16 sm:py-24 bg-gradient-to-b from-[#0a0a0a] to-black'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           {postsWithReadingTime.length > 0 ? (
             <>
               <div className='text-center mb-16'>
-                <h2 className='text-4xl font-bold text-[#dcd7ce] mb-4'>Latest Articles</h2>
+                <h2 className='text-4xl font-bold text-[#dcd7ce] mb-4'>
+                  Latest Articles
+                </h2>
                 <p className='text-[#dcd7ce]/60 text-lg max-w-2xl mx-auto'>
                   Stay ahead of the curve with our latest insights and analysis
                 </p>
               </div>
-              
+
               <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
                 {postsWithReadingTime.map((post, index) => (
                   <PostCard key={post._id} post={post} index={index} />
@@ -258,8 +263,8 @@ export default async function BlogPage() {
                 Amazing Content Coming Soon
               </h3>
               <p className='text-[#dcd7ce]/70 text-lg max-w-md mx-auto mb-8 leading-relaxed'>
-                We're crafting exceptional insights and stories about the future of startup funding. 
-                Stay tuned for groundbreaking content!
+                We're crafting exceptional insights and stories about the future
+                of startup funding. Stay tuned for groundbreaking content!
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <button className='px-6 py-3 bg-[#a98b5d] text-black rounded-xl font-semibold hover:bg-[#dcd7ce] transition-colors'>
@@ -280,7 +285,7 @@ export default async function BlogPage() {
 function PostCard({ post, index }: { post: Post; index: number }) {
   // Staggered animation delay
   const animationDelay = `${index * 100}ms`
-  
+
   return (
     <Link
       href={`/blog/${post.slug.current}`}
@@ -297,11 +302,13 @@ function PostCard({ post, index }: { post: Post; index: number }) {
             className='object-cover group-hover:scale-110 transition-transform duration-700'
           />
           <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent' />
-          
+
           {/* Reading Time Badge */}
           <div className='absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-[#a98b5d]/30 rounded-full px-3 py-1 flex items-center gap-1'>
             <Clock className='w-3 h-3 text-[#a98b5d]' />
-            <span className='text-xs text-[#dcd7ce] font-medium'>{post.readingTime} min read</span>
+            <span className='text-xs text-[#dcd7ce] font-medium'>
+              {post.readingTime} min read
+            </span>
           </div>
 
           {/* Category Badge */}
@@ -316,11 +323,13 @@ function PostCard({ post, index }: { post: Post; index: number }) {
       ) : (
         <div className='relative h-56 w-full bg-gradient-to-br from-[#a98b5d]/20 via-[#1a1a1a] to-[#a98b5d]/10 flex items-center justify-center'>
           <BookOpen className='w-16 h-16 text-[#a98b5d]/50' />
-          
+
           {/* Reading Time Badge */}
           <div className='absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-[#a98b5d]/30 rounded-full px-3 py-1 flex items-center gap-1'>
             <Clock className='w-3 h-3 text-[#a98b5d]' />
-            <span className='text-xs text-[#dcd7ce] font-medium'>{post.readingTime} min read</span>
+            <span className='text-xs text-[#dcd7ce] font-medium'>
+              {post.readingTime} min read
+            </span>
           </div>
         </div>
       )}
@@ -343,7 +352,9 @@ function PostCard({ post, index }: { post: Post; index: number }) {
                 <User className='w-4 h-4 text-black' />
               </div>
             )}
-            <span className='font-medium text-[#dcd7ce]'>{post.author?.name || 'NartaQ Team'}</span>
+            <span className='font-medium text-[#dcd7ce]'>
+              {post.author?.name || 'NartaQ Team'}
+            </span>
           </div>
 
           <div className='flex items-center gap-2'>
@@ -386,18 +397,9 @@ function PostCard({ post, index }: { post: Post; index: number }) {
             <span>Read Article</span>
             <ArrowRight className='w-5 h-5 group-hover:translate-x-2 transition-transform duration-300' />
           </div>
-          
+
           {/* Interaction Icons */}
-          <div className='flex items-center gap-4 text-[#dcd7ce]/40'>
-            <div className='flex items-center gap-1'>
-              <Eye className='w-4 h-4' />
-              <span className='text-xs'>2.1k</span>
-            </div>
-            <div className='flex items-center gap-1'>
-              <MessageCircle className='w-4 h-4' />
-              <span className='text-xs'>24</span>
-            </div>
-          </div>
+          <div className='flex items-center gap-4 text-[#dcd7ce]/40'></div>
         </div>
       </div>
     </Link>
