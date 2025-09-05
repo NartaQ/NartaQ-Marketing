@@ -165,11 +165,11 @@ export default function Footer({
               The Team
             </Link>
             <Link
-              href='/about#corridor'
+              href='/careers'
               className='footer-link hover:text-black dark:hover:text-white transition-colors'
-              onClick={(e) => handleNavigation(e, '/about#corridor')}
+              onClick={(e) => handleNavigation(e, '/careers')}
             >
-              Our Corridor
+              Careers
             </Link>
           </div>
         </div>

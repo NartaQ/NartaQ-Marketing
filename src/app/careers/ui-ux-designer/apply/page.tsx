@@ -18,7 +18,7 @@ export default function UIUXDesignerApplyPage() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'
+            className='bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 rounded-2xl p-12 backdrop-blur-sm'
           >
             <CheckCircle className='w-16 h-16 text-green-400 mx-auto mb-6' />
             <h1 className='text-3xl font-bold text-white mb-4'>

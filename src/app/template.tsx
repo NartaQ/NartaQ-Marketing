@@ -51,62 +51,6 @@ const PAGE_ROUTES = [
   { pathname: '/data-request', name: 'Data Request' },
 ] as const
 
-// Function to determine page name based on pathname
-function getPageName(pathname: string): string {
-  // First, check for exact matches
-  const exactMatch = PAGE_ROUTES.find((route) => route.pathname === pathname)
-  if (exactMatch) {
-    return exactMatch.name
-  }
-
-  // Handle dynamic blog routes
-  if (pathname.startsWith('/blog/') && pathname !== '/blog') {
-    return 'Blog Article'
-  }
-
-  // Handle dynamic career application routes
-  if (pathname.includes('/careers/') && pathname.endsWith('/apply')) {
-    const jobTitle = pathname.split('/careers/')[1]?.split('/apply')[0]
-    if (jobTitle) {
-      const formattedTitle = jobTitle
-        .split('-')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ')
-      return `${formattedTitle} Application`
-    }
-    return 'Career Application'
-  }
-
-  // Handle other dynamic career routes
-  if (pathname.startsWith('/careers/') && pathname !== '/careers') {
-    const jobTitle = pathname.split('/careers/')[1]
-    if (jobTitle) {
-      const formattedTitle = jobTitle
-        .split('-')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ')
-      return formattedTitle
-    }
-    return 'Career Position'
-  }
-
-  // Handle legal sub-routes
-  if (pathname.startsWith('/legal/')) {
-    const legalPage = pathname.split('/legal/')[1]
-    if (legalPage) {
-      const formattedTitle = legalPage
-        .split('-')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ')
-      return formattedTitle
-    }
-    return 'Legal'
-  }
-
-  // Default fallback
-  return 'Not Found'
-}
-
 // Export the routes array for use in other components if needed
 export { PAGE_ROUTES }
 
@@ -115,8 +59,11 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const [pageName, setPageName] = useState('')
 
   useEffect(() => {
-    // Find the page name using the new function
-    const name = getPageName(pathname)
+    // Find the page name from the routes mapping
+    const currentRoute = PAGE_ROUTES.find(
+      (route) => route.pathname === pathname
+    )
+    const name = currentRoute ? currentRoute.name : 'Not Found'
 
     setPageName(name)
 

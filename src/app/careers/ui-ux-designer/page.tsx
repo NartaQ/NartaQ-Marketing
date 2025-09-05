@@ -33,14 +33,7 @@ export default function UIUXDesignerPage() {
 
   return (
     <div className='min-h-screen bg-black text-white relative overflow-hidden'>
-      {/* Enhanced Animated Grid Background */}
-      <div className='absolute inset-0 grid-pattern opacity-20' />
-      <div className='absolute inset-0 bg-gradient-to-br from-black via-gray-900/50 to-black' />
-
-      {/* Premium Gradient Orbs */}
-      <div className='absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-[#a98b5d]/30 to-[#dcd7ce]/30 rounded-full blur-3xl animate-pulse' />
-      <div className='absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-[#dcd7ce]/20 to-[#a98b5d]/20 rounded-full blur-3xl animate-pulse delay-1000' />
-
+      
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Navigation Header */}
@@ -72,7 +65,7 @@ export default function UIUXDesignerPage() {
               className='text-center mb-16'
             >
               {/* Position Badge */}
-              <div className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/40 rounded-full text-sm font-semibold text-[#dcd7ce] mb-8 backdrop-blur-sm'>
+              <div className='inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 rounded-full text-sm font-semibold text-[#dcd7ce] mb-8 backdrop-blur-xl'>
                 <Palette className='w-4 h-4 text-[#a98b5d]' />
                 UI/UX Designer
                 <span className='text-green-400'>• Open Position</span>
@@ -103,7 +96,7 @@ export default function UIUXDesignerPage() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className='max-w-4xl mx-auto'
             >
-              <div className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-8 backdrop-blur-sm'>
+              <div className='bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 rounded-2xl p-8 backdrop-blur-sm'>
                 <h2 className='text-3xl font-bold text-white mb-6'>
                   About the Role
                 </h2>
