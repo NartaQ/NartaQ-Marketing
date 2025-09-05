@@ -368,12 +368,6 @@ export default function CareersPage() {
                         </h3>
                       </div>
                       <div className='flex gap-2 items-center'>
-                        <span className='text-xs text-[#a98b5d] font-bold px-3 py-1 bg-[#a98b5d]/10 rounded-full border border-[#a98b5d]/20'>
-                          Open
-                        </span>
-                        <span className='text-xs text-green-400 font-bold px-3 py-1 bg-green-400/10 rounded-full border border-green-400/20'>
-                          Remote
-                        </span>
                         <Button
                           size='sm'
                           className='ml-2 px-4 py-2 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold text-xs rounded-lg hover:scale-105 transition-all duration-300 shadow-lg'
@@ -558,8 +552,10 @@ export default function CareersPage() {
           animation: float 20s ease-in-out infinite;
         }
         .glow-text {
-          text-shadow: 0 0 20px rgba(169, 139, 93, 0.5),
-            0 0 40px rgba(169, 139, 93, 0.3), 0 0 60px rgba(169, 139, 93, 0.1);
+          text-shadow:
+            0 0 20px rgba(169, 139, 93, 0.5),
+            0 0 40px rgba(169, 139, 93, 0.3),
+            0 0 60px rgba(169, 139, 93, 0.1);
         }
         @keyframes float {
           0%,

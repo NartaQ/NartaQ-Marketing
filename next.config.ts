@@ -1,6 +1,9 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  images: {
+    domains: ['eu-assets.i.posthog.com', 'eu.i.posthog.com', 'cdn.sanity.io'],
+  },
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
     serverActions: {

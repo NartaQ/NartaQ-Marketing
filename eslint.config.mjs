@@ -1,38 +1,39 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import studio from '@sanity/eslint-config-studio'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import { FlatCompat } from '@eslint/eslintrc'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-});
+})
 
 const eslintConfig = [
   {
     ignores: [
-      "src/generated/**/*",
-      "node_modules/**/*",
-      ".next/**/*",
-      "out/**/*",
-      "build/**/*",
-      "src/components/test/**/*",
-      "src/components/ui/**/*"
-    ]
+      'src/generated/**/*',
+      'node_modules/**/*',
+      '.next/**/*',
+      'out/**/*',
+      'build/**/*',
+      'src/components/test/**/*',
+      'src/components/ui/**/*',
+    ],
   },
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
     rules: {
-      "react/no-unescaped-entities": "off",
-      "@typescript-eslint/no-unused-vars": "warn",
-      "@typescript-eslint/no-explicit-any": "warn", 
-      "react-hooks/exhaustive-deps": "warn",
-      "react-hooks/rules-of-hooks": "warn",
-      "@next/next/no-img-element": "warn",
-      "@typescript-eslint/no-unused-expressions": "warn"
-    }
-  }
-];
+      'react/no-unescaped-entities': 'off',
+      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'react-hooks/exhaustive-deps': 'warn',
+      'react-hooks/rules-of-hooks': 'warn',
+      '@next/next/no-img-element': 'warn',
+      '@typescript-eslint/no-unused-expressions': 'warn',
+    },
+  },
+]
 
-export default eslintConfig;
+export default [...studio, ...eslintConfig]
