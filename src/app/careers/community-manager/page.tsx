@@ -1,6 +1,5 @@
 'use client'
 
-
 import {
   ArrowLeft,
   ArrowRight,
@@ -31,7 +30,6 @@ export default function CommunityManagerPage() {
 
   return (
     <div className='min-h-screen bg-black text-white relative overflow-hidden'>
-      
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Navigation Header */}
@@ -44,7 +42,9 @@ export default function CommunityManagerPage() {
               className='inline-flex items-center gap-2 text-[#dcd7ce] hover:text-[#a98b5d] transition-colors group'
             >
               <ArrowLeft className='w-5 h-5 group-hover:-translate-x-1 transition-transform' />
-              <span className='font-serif text-base sm:text-lg'>Back to Careers</span>
+              <span className='font-serif text-base sm:text-lg'>
+                Back to Careers
+              </span>
             </Link>
           </div>
         </div>
@@ -199,7 +199,9 @@ export default function CommunityManagerPage() {
                 >
                   <Button className='group w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold text-base sm:text-lg rounded-full hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/30'>
                     <Users className='w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 group-hover:animate-pulse' />
-                    <span className='hidden sm:inline'>Apply for This Position</span>
+                    <span className='hidden sm:inline'>
+                      Apply for This Position
+                    </span>
                     <span className='sm:hidden'>Apply Now</span>
                     <ArrowRight className='w-5 h-5 sm:w-6 sm:h-6 ml-2 sm:ml-3 group-hover:translate-x-2 transition-transform' />
                   </Button>
@@ -230,8 +232,10 @@ export default function CommunityManagerPage() {
           animation: float 20s ease-in-out infinite;
         }
         .glow-text {
-          text-shadow: 0 0 20px rgba(169, 139, 93, 0.5),
-            0 0 40px rgba(169, 139, 93, 0.3), 0 0 60px rgba(169, 139, 93, 0.1);
+          text-shadow:
+            0 0 20px rgba(169, 139, 93, 0.5),
+            0 0 40px rgba(169, 139, 93, 0.3),
+            0 0 60px rgba(169, 139, 93, 0.1);
         }
         @keyframes float {
           0%,

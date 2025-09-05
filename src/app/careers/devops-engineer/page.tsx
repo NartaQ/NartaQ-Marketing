@@ -32,7 +32,6 @@ export default function DevOpsEngineerPage() {
 
   return (
     <div className='min-h-screen bg-black text-white relative overflow-hidden'>
-      
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Navigation Header */}
@@ -98,29 +97,6 @@ export default function DevOpsEngineerPage() {
                   <div className='grid md:grid-cols-2 gap-8'>
                     <div>
                       <h3 className='text-xl font-semibold text-white mb-4'>
-                        Key Responsibilities
-                      </h3>
-                      <ul className='space-y-2'>
-                        {[
-                          'Design and maintain Azure cloud infrastructure',
-                          'Implement CI/CD pipelines and automation tools',
-                          'Monitor system performance and security',
-                          'Manage containerized applications with Docker/Kubernetes',
-                          'Ensure database reliability and backup strategies',
-                          'Implement infrastructure as code with Terraform',
-                          'Set up monitoring, logging, and alerting systems',
-                          'Collaborate with development teams on deployment strategies',
-                        ].map((item, index) => (
-                          <li key={index} className='flex items-start gap-3'>
-                            <CheckCircle className='w-5 h-5 text-[#a98b5d] mt-0.5 flex-shrink-0' />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h3 className='text-xl font-semibold text-white mb-4'>
                         Requirements
                       </h3>
                       <ul className='space-y-2'>
@@ -133,6 +109,28 @@ export default function DevOpsEngineerPage() {
                           'Experience with monitoring tools (Prometheus, Grafana)',
                           'Strong scripting skills (Bash, PowerShell, Python)',
                           'Understanding of security best practices and compliance',
+                        ].map((item, index) => (
+                          <li key={index} className='flex items-start gap-3'>
+                            <CheckCircle className='w-5 h-5 text-[#a98b5d] mt-0.5 flex-shrink-0' />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className='text-xl font-semibold text-white mb-4'>
+                        Key Responsibilities
+                      </h3>
+                      <ul className='space-y-2'>
+                        {[
+                          'Design and maintain Azure cloud infrastructure',
+                          'Implement CI/CD pipelines and automation tools',
+                          'Monitor system performance and security',
+                          'Manage containerized applications with Docker/Kubernetes',
+                          'Ensure database reliability and backup strategies',
+                          'Implement infrastructure as code with Terraform',
+                          'Set up monitoring, logging, and alerting systems',
+                          'Collaborate with development teams on deployment strategies',
                         ].map((item, index) => (
                           <li key={index} className='flex items-start gap-3'>
                             <CheckCircle className='w-5 h-5 text-[#a98b5d] mt-0.5 flex-shrink-0' />
@@ -154,26 +152,13 @@ export default function DevOpsEngineerPage() {
                           title: 'Remote Work',
                           desc: 'Work from anywhere with flexible hours',
                         },
-                        {
-                          icon: Heart,
-                          title: 'Health Benefits',
-                          desc: 'Comprehensive health insurance coverage',
-                        },
+
                         {
                           icon: Zap,
                           title: 'Growth Opportunity',
                           desc: 'Rapid career advancement in a scaling startup',
                         },
-                        {
-                          icon: Users,
-                          title: 'Amazing Team',
-                          desc: 'Work with passionate, talented professionals',
-                        },
-                        {
-                          icon: Award,
-                          title: 'Learning Budget',
-                          desc: '$2,000 annual budget for courses and conferences',
-                        },
+
                         {
                           icon: Cloud,
                           title: 'Latest Tech',
@@ -220,8 +205,10 @@ export default function DevOpsEngineerPage() {
           animation: float 20s ease-in-out infinite;
         }
         .glow-text {
-          text-shadow: 0 0 20px rgba(169, 139, 93, 0.5),
-            0 0 40px rgba(169, 139, 93, 0.3), 0 0 60px rgba(169, 139, 93, 0.1);
+          text-shadow:
+            0 0 20px rgba(169, 139, 93, 0.5),
+            0 0 40px rgba(169, 139, 93, 0.3),
+            0 0 60px rgba(169, 139, 93, 0.1);
         }
         @keyframes float {
           0%,

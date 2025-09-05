@@ -31,7 +31,6 @@ export default function BackendDeveloperPage() {
 
   return (
     <div className='min-h-screen bg-black text-white relative overflow-hidden'>
-      
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Navigation Header */}
@@ -79,11 +78,7 @@ export default function BackendDeveloperPage() {
             </div>
 
             {/* Job Description */}
-            <div
-       
- 
-              className='max-w-4xl mx-auto'
-            >
+            <div className='max-w-4xl mx-auto'>
               <div className='bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 rounded-2xl p-8 backdrop-blur-sm'>
                 <h2 className='text-3xl font-bold text-white mb-6'>
                   About the Role
@@ -157,11 +152,7 @@ export default function BackendDeveloperPage() {
                           title: 'Remote Work',
                           desc: 'Work from anywhere with flexible hours',
                         },
-                        {
-                          icon: Heart,
-                          title: 'Health Benefits',
-                          desc: 'Comprehensive health insurance coverage',
-                        },
+
                         {
                           icon: Zap,
                           title: 'Growth Opportunity',
@@ -171,16 +162,6 @@ export default function BackendDeveloperPage() {
                           icon: Code,
                           title: 'Modern Tech Stack',
                           desc: 'Work with cutting-edge technologies',
-                        },
-                        {
-                          icon: Award,
-                          title: 'Learning Budget',
-                          desc: '$2,000 annual budget for courses and conferences',
-                        },
-                        {
-                          icon: Database,
-                          title: 'Complex Challenges',
-                          desc: 'Solve interesting technical problems at scale',
                         },
                       ].map((benefit, index) => (
                         <div key={index} className='text-center p-4'>
@@ -223,8 +204,10 @@ export default function BackendDeveloperPage() {
           animation: float 20s ease-in-out infinite;
         }
         .glow-text {
-          text-shadow: 0 0 20px rgba(169, 139, 93, 0.5),
-            0 0 40px rgba(169, 139, 93, 0.3), 0 0 60px rgba(169, 139, 93, 0.1);
+          text-shadow:
+            0 0 20px rgba(169, 139, 93, 0.5),
+            0 0 40px rgba(169, 139, 93, 0.3),
+            0 0 60px rgba(169, 139, 93, 0.1);
         }
         @keyframes float {
           0%,

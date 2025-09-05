@@ -33,7 +33,6 @@ export default function DigitalMarketingAnalystPage() {
 
   return (
     <div className='min-h-screen bg-black text-white relative overflow-hidden'>
-      
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Navigation Header */}
@@ -212,10 +211,7 @@ export default function DigitalMarketingAnalystPage() {
         </div>
 
         {/* Call to Action */}
-        <div
-
-          className='py-20 px-4 bg-gradient-to-r from-black via-gray-900/30 to-black'
-        >
+        <div className='py-20 px-4 bg-gradient-to-r from-black via-gray-900/30 to-black'>
           <div className='max-w-4xl mx-auto text-center'>
             <div className='bg-gradient-to-br from-[#a98b5d]/5 to-transparent border border-[#a98b5d]/20 rounded-2xl p-12 backdrop-blur-sm'>
               <h3 className='text-3xl md:text-4xl font-bold text-white mb-6'>
@@ -270,8 +266,10 @@ export default function DigitalMarketingAnalystPage() {
           animation: float 20s ease-in-out infinite;
         }
         .glow-text {
-          text-shadow: 0 0 20px rgba(169, 139, 93, 0.5),
-            0 0 40px rgba(169, 139, 93, 0.3), 0 0 60px rgba(169, 139, 93, 0.1);
+          text-shadow:
+            0 0 20px rgba(169, 139, 93, 0.5),
+            0 0 40px rgba(169, 139, 93, 0.3),
+            0 0 60px rgba(169, 139, 93, 0.1);
         }
         @keyframes float {
           0%,
