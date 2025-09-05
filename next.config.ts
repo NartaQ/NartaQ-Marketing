@@ -160,13 +160,7 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ['@prisma/client', 'prisma'],
   turbopack: {
     // Turbopack-specific optimizations
-    rules: {
-      // Optimize PostHog rrweb modules for better tree-shaking
-      '*.js': {
-        loaders: [],
-        as: '*.js',
-      },
-    },
+
     resolveAlias: {
       'react-dom/server': 'react-dom/server.browser',
     },

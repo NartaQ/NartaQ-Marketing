@@ -4,11 +4,8 @@ import {
   BookOpen,
   Calendar,
   Clock,
-  Eye,
   Globe,
-  MessageCircle,
   Target,
-  TrendingUp,
   User,
 } from 'lucide-react'
 import { Metadata } from 'next'
@@ -164,18 +161,11 @@ export default async function BlogPage() {
 
         <div className='relative z-10 max-w-6xl mx-auto px-4 text-center'>
           {/* Animated Badge */}
-          <div className='inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#a98b5d]/20 via-[#dcd7ce]/10 to-[#a98b5d]/20 border border-[#a98b5d]/40 backdrop-blur-xl mb-8 hover:border-[#a98b5d]/60 transition-all duration-300'>
-            <BookOpen className='w-5 h-5 text-[#a98b5d]' />
-            <span className='text-sm font-semibold text-[#dcd7ce] tracking-wide'>
-              INSIGHTS & THOUGHT LEADERSHIP
-            </span>
-            <TrendingUp className='w-4 h-4 text-[#a98b5d]' />
-          </div>
 
           {/* Main Headline with Animation */}
           <h1 className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8'>
             <span className='block text-[#dcd7ce] mb-2'>Discover</span>
-            <span className='block bg-gradient-to-r from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] bg-clip-text text-transparent animate-pulse'>
+            <span className='block bg-gradient-to-r from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] bg-clip-text text-transparent '>
               Innovation
             </span>
           </h1>

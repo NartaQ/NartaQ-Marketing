@@ -26,8 +26,8 @@ const navItems = [
     href: '/about',
   },
   {
-    title: 'FAQ',
-    href: '/faq',
+    title: 'Blogs',
+    href: '/blog',
   },
   {
     title: 'Careers',

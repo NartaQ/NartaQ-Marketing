@@ -127,6 +127,14 @@ export default function Header({
                   >
                     How It Works
                   </HoveredLink>
+                  <HoveredLink
+                    href='/blog'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/blog')
+                    }
+                  >
+                    Blogs
+                  </HoveredLink>
                 </div>
               </MenuItem>
               <MenuItem setActive={setActive} active={active} item='FAQ'>
