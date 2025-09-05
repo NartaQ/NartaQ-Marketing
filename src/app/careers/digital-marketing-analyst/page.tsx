@@ -39,6 +39,7 @@ export default function DigitalMarketingAnalystPage() {
         <div className='pt-8 px-4'>
           <div className='max-w-6xl mx-auto'>
             <Link
+              title='Back to Careers'
               href='/careers'
               onClick={(e) => handleNavigation(e, '/careers')}
               className='inline-flex items-center gap-2 text-[#dcd7ce] hover:text-[#a98b5d] transition-colors group'
@@ -224,6 +225,7 @@ export default function DigitalMarketingAnalystPage() {
 
               <div className='flex flex-col sm:flex-row gap-6 justify-center items-center'>
                 <Link
+                  title='Apply for This Position'
                   href='/careers/digital-marketing-analyst/apply'
                   onClick={(e) =>
                     handleNavigation(
@@ -237,6 +239,15 @@ export default function DigitalMarketingAnalystPage() {
                     Apply for This Position
                     <ArrowRight className='w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform' />
                   </Button>
+                </Link>
+
+                <Link
+                  title='Or Apply Generally'
+                  href='/careers/apply'
+                  onClick={(e) => handleNavigation(e, '/careers/apply')}
+                  className='text-[#dcd7ce] hover:text-[#a98b5d] transition-colors text-lg font-semibold'
+                >
+                  Or Apply Generally
                 </Link>
               </div>
             </div>

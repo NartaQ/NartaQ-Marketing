@@ -38,6 +38,7 @@ export default function DevOpsEngineerPage() {
         <div className='pt-8 px-4'>
           <div className='max-w-6xl mx-auto'>
             <Link
+              title='Back to Careers'
               href='/careers'
               onClick={(e) => handleNavigation(e, '/careers')}
               className='inline-flex items-center gap-2 text-[#dcd7ce] hover:text-[#a98b5d] transition-colors group'
@@ -180,7 +181,7 @@ export default function DevOpsEngineerPage() {
 
                 {/* Apply Button */}
                 <div className='mt-12 text-center'>
-                  <Link href='/careers/devops-engineer/apply'>
+                  <Link title='Apply for This Position' href='/careers/devops-engineer/apply'>
                     <Button className='px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold text-lg rounded-xl hover:scale-105 transition-all duration-300 shadow-2xl'>
                       Apply for This Position
                       <ArrowRight className='w-5 h-5 ml-2' />

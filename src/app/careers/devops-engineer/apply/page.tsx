@@ -23,7 +23,7 @@ export default function DevOpsEngineerApplyPage() {
               Thank you for applying for the DevOps Engineer position. We'll
               review your application and get back to you soon.
             </p>
-            <Link href='/careers'>
+            <Link title='Back to Careers' href='/careers'>
               <Button className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold'>
                 Back to Careers
               </Button>
@@ -46,6 +46,7 @@ export default function DevOpsEngineerApplyPage() {
         <div className='pt-8 px-4'>
           <div className='max-w-4xl mx-auto flex items-center justify-between'>
             <Link
+              title='Back to DevOps Engineer'
               href='/careers/devops-engineer'
               className='inline-flex items-center gap-2 text-[#dcd7ce] hover:text-[#a98b5d] transition-colors group'
             >

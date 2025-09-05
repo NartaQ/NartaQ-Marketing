@@ -1,17 +1,11 @@
 'use client'
 
-
 import { Sparkles, ArrowRight, Zap, Users, Target } from 'lucide-react'
 import Link from 'next/link'
-import { useRive } from '@rive-app/react-canvas'
 import { animatePageOut } from '../pageTransition/animations'
 import { usePathname, useRouter } from 'next/navigation'
 
 export default function NeonHeroSection() {
-  const { RiveComponent } = useRive({
-    src: '/nartaq-logo.riv',
-    autoplay: true,
-  })
   const pathname = usePathname()
   const router = useRouter()
 
@@ -31,13 +25,8 @@ export default function NeonHeroSection() {
   return (
     <div className='relative min-h-screen flex items-center justify-center overflow-hidden bg-black'>
       {/* Animated Grid Background */}
-      <div className='absolute inset-0 grid-pattern opacity-30' />
-
-      {/* Rive Logo Animation */}
-      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[30vw] md:h-[30vw] blur-[2px] opacity-0'>
-        <RiveComponent className='w-full h-full' />
-      </div>
-
+      <div className='absolute inset-0 grid-pattern opacity-40' />
+      
       {/* Main Content */}
       <div className='relative z-10 max-w-6xl mx-auto px-4 text-center bg-blend-difference '>
         {/* Premium Badge */}
@@ -68,6 +57,7 @@ export default function NeonHeroSection() {
         {/* CTA Button */}
         <div className='flex justify-center items-center mb-8 sm:mb-12 px-4'>
           <Link
+            title='Join the Founding Cohort'
             href='/apply'
             onClick={(e) => handleNavigation(e, '/apply')}
             className='group relative px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-[#a98b5d]/50'

@@ -93,7 +93,7 @@ export default function HowItWorksSection() {
 
         {/* Steps Grid */}
         <div className='flex flex-wrap justify-center gap-8 max-w-6xl mx-auto'>
-          {steps.map((step, index) => (
+          {steps.map((step) => (
             <div
               key={step.id}
               className='group text-center flex-1 min-w-[280px] max-w-[350px]'

@@ -32,6 +32,7 @@ export default function NotFoundPage() {
      <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mt-12'>
       <Link
        href='/'
+       title='Go to Home'
        className='px-8 py-4 bg-[#a98b5d] text-black font-semibold rounded-lg hover:bg-[#dcd7ce] transition-colors flex items-center gap-3'
       >
        <Home className='w-5 h-5' />
@@ -55,12 +56,14 @@ export default function NotFoundPage() {
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 text-sm'>
        <Link
+        title='For Founders'
         href='/for-founders'
         className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors duration-300'
        >
         → For Founders
        </Link>
        <Link
+        title='For Investors'
         href='/for-investors'
         className='text-[#a98b5d] hover:text-[#dcd7ce] transition-colors duration-300'
        >

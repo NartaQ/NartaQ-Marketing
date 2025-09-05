@@ -36,7 +36,7 @@ function shouldLoadIntercom(pathname: string): boolean {
   }
   
   // Explicitly enabled pages
-  if (INTERCOM_ENABLED_PAGES.includes(pathname as any)) {
+  if (INTERCOM_ENABLED_PAGES.includes(pathname as typeof INTERCOM_ENABLED_PAGES[number])) {
     return true
   }
   

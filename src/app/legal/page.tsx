@@ -1,18 +1,47 @@
-'use client'
 
-import { motion } from 'framer-motion'
 import { Shield, FileText, Eye, AlertTriangle } from 'lucide-react'
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Legal & Compliance - NartaQ',
+  description: 'Review NartaQ\'s legal policies, terms of service, privacy policy, and compliance documentation. Our commitment to transparency and user protection.',
+  keywords: [
+    'legal policies',
+    'terms of service',
+    'privacy policy',
+    'compliance',
+    'GDPR',
+    'data protection',
+    'user rights'
+  ],
+  openGraph: {
+    title: 'Legal & Compliance - NartaQ',
+    description: 'Review our legal policies, terms of service, privacy policy, and compliance documentation.',
+    
+    siteName: 'NartaQ',
+  },
+  twitter: {
+    title: 'Legal & Compliance - NartaQ',
+    description: 'Review our legal policies, terms of service, privacy policy, and compliance documentation.',
+  },
+  alternates: {
+    canonical: 'https://www.nartaq.com/legal',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function LegalPage() {
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <>      
+      <div className='min-h-screen bg-black text-white'>
       <div className='pt-32 pb-16'>
         <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
           {/* Hero Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+          <div
             className='text-center mb-20'
           >
             <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#a98b5d]/30 bg-[#a98b5d]/10 text-[#a98b5d] text-sm font-medium mb-8'>
@@ -31,16 +60,13 @@ export default function LegalPage() {
               operations. Review our policies and terms that govern your use of
               the NartaQ platform.
             </p>
-          </motion.div>
+          </div>
 
           {/* Legal Documents Grid */}
           <div className='grid md:grid-cols-2 gap-8 mb-20'>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+            <div
             >
-              <Link href='/legal/terms' className='group block'>
+              <Link title='View Terms of Service' href='/legal/terms' className='group block'>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-2xl p-8 hover:border-[#a98b5d]/40 transition-all duration-300'>
                   <div className='w-12 h-12 bg-[#a98b5d]/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                     <FileText className='w-6 h-6 text-[#a98b5d]' />
@@ -58,14 +84,11 @@ export default function LegalPage() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+            <div
             >
-              <Link href='/legal/privacy' className='group block'>
+              <Link title='View Privacy Policy' href='/legal/privacy' className='group block'>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-2xl p-8 hover:border-[#a98b5d]/40 transition-all duration-300'>
                   <div className='w-12 h-12 bg-[#a98b5d]/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                     <Eye className='w-6 h-6 text-[#a98b5d]' />
@@ -83,14 +106,11 @@ export default function LegalPage() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+            <div
             >
-              <Link href='/legal/dmca' className='group block'>
+              <Link title='View DMCA Policy' href='/legal/dmca' className='group block'>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-2xl p-8 hover:border-[#a98b5d]/40 transition-all duration-300'>
                   <div className='w-12 h-12 bg-[#a98b5d]/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                     <AlertTriangle className='w-6 h-6 text-[#a98b5d]' />
@@ -108,14 +128,11 @@ export default function LegalPage() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+            <div
             >
-              <Link href='/legal/cookies' className='group block'>
+              <Link title='View Cookie Policy' href='/legal/cookies' className='group block'>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-2xl p-8 hover:border-[#a98b5d]/40 transition-all duration-300'>
                   <div className='w-12 h-12 bg-[#a98b5d]/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                     <Shield className='w-6 h-6 text-[#a98b5d]' />
@@ -133,14 +150,11 @@ export default function LegalPage() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           </div>
 
           {/* Compliance Statement */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+          <div
             className='mb-16'
           >
             <div className='bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/10 border border-[#a98b5d]/20 rounded-2xl p-8'>
@@ -165,7 +179,7 @@ export default function LegalPage() {
                   </h3>
                   <p className='text-sm leading-relaxed'>
                     Our platform is designed to meet regulatory requirements
-                    across France, Tunisia, and EU jurisdictions, ensuring legal
+                    across multiple jurisdictions, ensuring legal
                     compliance for all cross-border investment activities.
                   </p>
                 </div>
@@ -192,13 +206,10 @@ export default function LegalPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
+          <div
             className='text-center'
           >
             <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-2xl p-8'>
@@ -215,6 +226,7 @@ export default function LegalPage() {
                     General Legal Inquiries:
                   </strong>{' '}
                   <Link
+                    title='Send General Legal Inquiries'
                     href='mailto:legal@nartaq.com'
                     className='underline hover:text-[#a98b5d]'
                   >
@@ -226,6 +238,7 @@ export default function LegalPage() {
                     Privacy & Data Protection:
                   </strong>{' '}
                   <Link
+                    title='Send Privacy & Data Protection Inquiries'
                     href='mailto:privacy@nartaq.com'
                     className='underline hover:text-[#a98b5d]'
                   >
@@ -235,6 +248,7 @@ export default function LegalPage() {
                 <p>
                   <strong className='text-[#a98b5d]'>DMCA & Copyright:</strong>{' '}
                   <Link
+                    title='Send DMCA & Copyright Inquiries'
                     href='mailto:dmca@nartaq.com'
                     className='underline hover:text-[#a98b5d]'
                   >
@@ -249,9 +263,10 @@ export default function LegalPage() {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>
+    </>
   )
 }
