@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   title: {
     default:
       'NartaQ - The AI-Powered Protocol for Startup Funding | Venture Matchmaking',
-    template: '%s | NartaQ',
+    template: '',
   },
   description:
     'AI-powered venture matchmaking protocol connecting founders with the right investors through automated deal execution and guided closing.',
