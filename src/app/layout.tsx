@@ -1,84 +1,84 @@
-import type { Metadata, Viewport } from 'next'
+import type { Metadata, Viewport } from "next";
 
-import Footer from '@/components/pages/Footer'
-import IntercomProvider from '@/components/lazyLoadIntercom'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import { Playfair_Display, Source_Sans_3 } from 'next/font/google'
-import './globals.css'
+import Footer from "@/components/pages/Footer";
+import IntercomProvider from "@/components/lazyLoadIntercom";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Playfair_Display, Source_Sans_3 } from "next/font/google";
+import "./globals.css";
 import {
   organizationSchema,
   serviceSchema,
   websiteSchema,
-} from '@/lib/structured-data'
-import Script from 'next/script'
-import UnifiedNavigation from '@/components/pages/UnifiedNavigation'
-import LenisProvider from '@/components/pages/LenisProvider'
+} from "@/lib/structured-data";
+import Script from "next/script";
+import UnifiedNavigation from "@/components/pages/UnifiedNavigation";
+import LenisProvider from "@/components/pages/LenisProvider";
 
 const fontSans = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-serif',
+  subsets: ["latin"],
+  variable: "--font-serif",
   preload: true, // Enable preloading for critical font
-  weight: ['400', '700', '900'],
-  display: 'swap', // Add font-display: swap
-})
+  weight: ["400", "700", "900"],
+  display: "swap", // Add font-display: swap
+});
 
 const fontMono = Source_Sans_3({
-  subsets: ['latin'],
-  variable: '--font-sans',
+  subsets: ["latin"],
+  variable: "--font-sans",
   preload: true, // Enable preloading for critical font
-  display: 'swap', // Add font-display: swap
-})
+  display: "swap", // Add font-display: swap
+});
 
 export const metadata: Metadata = {
   title: {
     default:
-      'NartaQ - The AI-Powered Protocol for Startup Funding | Venture Matchmaking',
-    template: '',
+      "NartaQ - The AI-Powered Protocol for Startup Funding | Venture Matchmaking",
+    template: "",
   },
   description:
-    'AI-powered venture matchmaking protocol connecting founders with the right investors through automated deal execution and guided closing.',
+    "AI-powered venture matchmaking protocol connecting founders with the right investors through automated deal execution and guided closing.",
   keywords: [
-    'AI venture matching',
-    'startup funding protocol',
-    'venture capital automation',
-    'dealflow matching',
-    'startup investor matching',
-    'AI powered funding',
-    'decentralized venture capital',
-    'automated deal execution',
-    'venture matchmaking',
-    'startup funding platform',
-    'investor startup matching',
-    'AI deal sourcing',
+    "AI venture matching",
+    "startup funding protocol",
+    "venture capital automation",
+    "dealflow matching",
+    "startup investor matching",
+    "AI powered funding",
+    "decentralized venture capital",
+    "automated deal execution",
+    "venture matchmaking",
+    "startup funding platform",
+    "investor startup matching",
+    "AI deal sourcing",
   ],
-  authors: [{ name: 'NartaQ' }],
-  creator: 'NartaQ',
-  publisher: 'NartaQ',
+  authors: [{ name: "NartaQ" }],
+  creator: "NartaQ",
+  publisher: "NartaQ",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://www.nartaq.com'),
+  metadataBase: new URL("https://www.nartaq.com"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
-    title: 'NartaQ - Premium Investment & Talent Platform',
+    title: "NartaQ - Premium Investment & Talent Platform",
     description:
-      'Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.',
-    url: 'https://www.nartaq.com',
-    siteName: 'NartaQ',
-    locale: 'en_US',
-    type: 'website',
+      "Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.",
+    url: "https://www.nartaq.com",
+    siteName: "NartaQ",
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'NartaQ - Premium Investment & Talent Platform',
+    card: "summary_large_image",
+    title: "NartaQ - Premium Investment & Talent Platform",
     description:
-      'Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.',
-    creator: '@nartaq',
+      "Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.",
+    creator: "@nartaq",
   },
   robots: {
     index: true,
@@ -86,31 +86,31 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
-}
+};
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='dark lenis' suppressHydrationWarning>
+    <html lang="en" className="dark lenis" suppressHydrationWarning>
       <head>
-        <meta name='apple-mobile-web-app-title' content='NartaQ' />
-        <meta name='application-name' content='NartaQ' />
-        
+        <meta name="apple-mobile-web-app-title" content="NartaQ" />
+        <meta name="application-name" content="NartaQ" />
+
         {/* Critical resource hints for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -118,17 +118,46 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//vitals.vercel-insights.com" />
 
         <link rel="manifest" href="/manifest.json" />
-       
+
+        {/* Meta Pixel Code */}
+        <Script
+          id="facebook-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '777686951638867');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=777686951638867&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+
         <Script id="critical-sw-registration" strategy="lazyOnload">
           {`if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
               navigator.serviceWorker.register('/sw.js')
             });
           }`}
-        </Script>        
+        </Script>
 
         <script
-          type='application/ld+json'
+          type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
               organizationSchema,
@@ -137,14 +166,13 @@ export default function RootLayout({
             ]),
           }}
         />
-        
       </head>
       <body
         className={`w-screen overflow-x-hidden ${fontSans.variable} ${fontMono.variable} antialiased bg-black text-white`}
       >
         <Script
-          id='deferred-google-analytics'
-          strategy='afterInteractive'
+          id="deferred-google-analytics"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               // Import and initialize deferred analytics
@@ -200,11 +228,11 @@ export default function RootLayout({
         <SpeedInsights />
         <LenisProvider>
           <UnifiedNavigation />
-          <main className='main mt-[var(--header-height)]'>{children}</main>
+          <main className="main mt-[var(--header-height)]">{children}</main>
           <Footer />
         </LenisProvider>
         <IntercomProvider />
       </body>
     </html>
-  )
+  );
 }
