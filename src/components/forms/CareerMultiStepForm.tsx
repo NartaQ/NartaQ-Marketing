@@ -5,7 +5,7 @@ import {
   submitCareerApplication,
 } from '@/app/actions/career-application'
 import { uploadFileToAzure } from '@/app/actions/file-upload'
-import { trackFormStart, trackFormSubmit, trackFormComplete, identifyUser } from '@/lib/analytics/unified-tracker'
+import { identifyUser } from '@/lib/analytics/unified-tracker'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -144,7 +144,7 @@ export default function CareerMultiStepForm({
           } else {
             throw new Error(uploadResult.error || 'Failed to upload file')
           }
-        } catch (uploadErr) {
+        } catch (_uploadErr) {
           setUploadError('Failed to upload CV. Please try again.')
           setIsSubmitting(false)
           return

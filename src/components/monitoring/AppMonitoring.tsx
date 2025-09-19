@@ -164,7 +164,7 @@ export function useFormAbandonment(formId: string, fields: string[]) {
   useEffect(() => {
     const startTime = Date.now()
     let interactionCount = 0
-    let fieldsInteracted: string[] = []
+    const fieldsInteracted: string[] = []
 
     const trackInteraction = (field: string) => {
       if (!fieldsInteracted.includes(field)) {

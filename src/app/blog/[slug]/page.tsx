@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { formatDistance } from 'date-fns'
-import { Calendar, Clock, User, ArrowLeft, Share2, BookOpen } from 'lucide-react'
+import { Calendar, User, ArrowLeft, BookOpen } from 'lucide-react'
 import { Metadata } from 'next'
 
 type Post = {

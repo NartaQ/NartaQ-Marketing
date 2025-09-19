@@ -160,9 +160,9 @@ export class AppBootstrap {
           }).format(new Date(date))
         },
         
-        debounce: (func: Function, wait: number) => {
+        debounce: <T extends unknown[]>(func: (...args: T) => void, wait: number) => {
           let timeout: NodeJS.Timeout
-          return function executedFunction(...args: any[]) {
+          return function executedFunction(...args: T) {
             const later = () => {
               clearTimeout(timeout)
               func(...args)
@@ -172,11 +172,11 @@ export class AppBootstrap {
           }
         },
         
-        throttle: (func: Function, limit: number) => {
+        throttle: <T extends unknown[]>(func: (...args: T) => void, limit: number) => {
           let inThrottle: boolean
-          return function(this: any, ...args: any[]) {
+          return function(...args: T) {
             if (!inThrottle) {
-              func.apply(this, args)
+              func(...args)
               inThrottle = true
               setTimeout(() => inThrottle = false, limit)
             }
@@ -263,8 +263,8 @@ declare global {
       utils: {
         formatCurrency: (amount: number, currency?: string) => string
         formatDate: (date: Date | string) => string
-        debounce: (func: Function, wait: number) => Function
-        throttle: (func: Function, limit: number) => Function
+        debounce: <T extends unknown[]>(func: (...args: T) => void, wait: number) => (...args: T) => void
+        throttle: <T extends unknown[]>(func: (...args: T) => void, limit: number) => (...args: T) => void
       }
     }
   }

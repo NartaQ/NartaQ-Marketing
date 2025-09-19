@@ -147,7 +147,7 @@ export default function FounderMultiStepForm({
             email: formData.workEmail,
             name: formData.fullName
           })
-        } catch (error) {
+        } catch (_error) {
           setEmailCheckError('Unable to verify email availability. Please try again.')
           setIsCheckingEmail(false)
           return

@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { submitInvestorApplication, checkExistingInvestorApplication } from '@/app/actions/investor-application'
-import { trackFormStart, trackFormStep, trackFormSubmit, trackFormComplete, trackFormError, trackCTAClick, identifyUser } from '@/lib/analytics/unified-tracker'
+import { trackFormStep, trackCTAClick, identifyUser } from '@/lib/analytics/unified-tracker'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -160,7 +160,7 @@ export default function InvestorMultiStepForm({
             email: formData.workEmail,
             name: formData.fullName
           })
-        } catch (error) {
+        } catch (_error) {
           setEmailCheckError('Unable to verify email availability. Please try again.')
           setIsCheckingEmail(false)
           return

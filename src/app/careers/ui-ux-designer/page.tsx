@@ -6,13 +6,10 @@ import { motion } from 'framer-motion'
 import {
   ArrowLeft,
   ArrowRight,
-  Award,
   CheckCircle,
   Globe,
-  Heart,
   Palette,
   Settings,
-  Users,
   Zap,
 } from 'lucide-react'
 import Link from 'next/link'

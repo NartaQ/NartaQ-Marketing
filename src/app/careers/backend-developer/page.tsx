@@ -5,12 +5,9 @@ import { Button } from '@/components/ui/button'
 import {
   ArrowLeft,
   ArrowRight,
-  Award,
   CheckCircle,
   Code,
-  Database,
   Globe,
-  Heart,
   Zap,
 } from 'lucide-react'
 import Link from 'next/link'

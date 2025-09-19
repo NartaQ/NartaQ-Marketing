@@ -6,12 +6,9 @@ import { Button } from '@/components/ui/button'
 import {
   ArrowLeft,
   ArrowRight,
-  Award,
   CheckCircle,
   Cloud,
   Globe,
-  Heart,
-  Users,
   Zap,
 } from 'lucide-react'
 import Link from 'next/link'
