@@ -121,6 +121,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//vitals.vercel-insights.com" />
         <link rel="dns-prefetch" href="//connect.facebook.net" />
         <link rel="dns-prefetch" href="//snap.licdn.com" />
+        <link rel="dns-prefetch" href="//js-eu1.hs-scripts.com" />
 
         <link rel="manifest" href="/manifest.json" />
 
@@ -153,6 +154,17 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Meta Pixel Code */}
+
+        {/* HubSpot Tracking Code */}
+        <Script
+          id="hubspot-tracking"
+          strategy="afterInteractive"
+          src="//js-eu1.hs-scripts.com/146926945.js"
+          async
+          defer
+        />
+        {/* End HubSpot Tracking Code */}
+
         {/* LinkedIn Insight Tag */}
         <Script
           id="linkedin-insight-tag"
