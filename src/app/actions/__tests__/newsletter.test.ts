@@ -8,7 +8,7 @@ describe('Newsletter Subscription Server Action', () => {
 
   beforeAll(async () => {
     // Suppress console errors during testing
-    jest.spyOn(console, 'error').mockImplementation(() => {})
+    jest.spyOn(console, 'error').mockImplementation(() => void 0)
 
     // Mock Prisma before importing the server action
     const { prismaMock: mockInstance } = await import(

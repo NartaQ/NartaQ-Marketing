@@ -131,7 +131,7 @@ export class LinkedInTracker implements BaseTracker {
     })
   }
 
-  fireNewsletterSubscribeEvent(data: EventData & { email: string }): void {
+  fireNewsletterSubscribeEvent(_data: EventData & { email: string }): void {
     if (!this.initialized || typeof window.lintrk !== 'function') return
     
     window.lintrk('track', { 

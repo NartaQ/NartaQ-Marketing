@@ -119,6 +119,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//vercel.live" />
         <link rel="dns-prefetch" href="//vitals.vercel-insights.com" />
+        <link rel="dns-prefetch" href="//connect.facebook.net" />
+        <link rel="dns-prefetch" href="//snap.licdn.com" />
 
         <link rel="manifest" href="/manifest.json" />
 

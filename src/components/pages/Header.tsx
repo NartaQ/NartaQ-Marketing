@@ -32,7 +32,7 @@ export default function Header({
   const pathname = usePathname()
 
   // Provide a default no-op function if onMobileMenuToggle is undefined
-  const handleMobileToggle = onMobileMenuToggle || (() => {})
+  const handleMobileToggle = onMobileMenuToggle || (() => void 0)
 
   const handleNavigation = (
     e: React.MouseEvent<HTMLAnchorElement>,

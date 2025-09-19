@@ -7,7 +7,6 @@ import { CookieConsentBanner } from '@/lib/cookie-consent'
 
 export default function AnalyticsProvider() {
   const [showCookieBanner, setShowCookieBanner] = useState(false)
-  const [analyticsEnabled, setAnalyticsEnabled] = useState(false)
 
   useEffect(() => {
     // Check if we should show cookie banner
@@ -18,8 +17,7 @@ export default function AnalyticsProvider() {
     // Initialize analytics based on consent
     const initializeAnalytics = () => {
       const hasAnalyticsConsent = cookieManager.hasConsent('analytics')
-      setAnalyticsEnabled(hasAnalyticsConsent)
-
+      
       // Initialize analytics if user has given consent OR if no consent system is in place
       if (hasAnalyticsConsent || !cookieManager.hasGivenConsent()) {
         analyticsTracker.initialize()

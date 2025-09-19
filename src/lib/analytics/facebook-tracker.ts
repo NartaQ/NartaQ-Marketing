@@ -128,7 +128,7 @@ export class FacebookTracker implements BaseTracker {
     })
   }
 
-  fireNewsletterSubscribeEvent(data: EventData & { email: string }): void {
+  fireNewsletterSubscribeEvent(_data: EventData & { email: string }): void {
     if (!this.initialized || typeof window.fbq !== 'function') return
     
     window.fbq('track', 'Subscribe', {

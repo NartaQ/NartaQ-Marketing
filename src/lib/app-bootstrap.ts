@@ -1,5 +1,3 @@
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { analyticsTracker } from '@/lib/analytics/unified-tracker'
 import { cookieManager } from '@/lib/cookie-consent'
 import { trackEvent } from '@/lib/analytics/unified-tracker'

@@ -276,7 +276,7 @@ describe('UnifiedApplicationForm', () => {
   describe('Error Handling', () => {
     it('handles form submission errors gracefully', async () => {      
       // Mock console.error to avoid error output in tests
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => void 0)
       
       render(<UnifiedApplicationForm />)
       

@@ -1,5 +1,22 @@
 import type { NextConfig } from 'next'
 
+/*
+ * Expected Console Warnings (Safe to Ignore):
+ * 
+ * 1. Facebook Pixel Warnings:
+ *    - "Unrecognized feature: 'attribution-reporting'"
+ *    - "Unrecognized feature: 'browsing-topics'"
+ *    These are harmless browser compatibility warnings for experimental web features
+ * 
+ * 2. Font Preload Warnings:
+ *    - "resource was preloaded using link preload but not used within a few seconds"
+ *    This occurs when fonts are preloaded but pages load very quickly
+ * 
+ * 3. Extension Logs:
+ *    - "truncate" logs from browser extensions (Google Tag Assistant, etc.)
+ *    These are from development tools and don't affect production
+ */
+
 const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: [

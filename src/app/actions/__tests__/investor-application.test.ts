@@ -12,7 +12,7 @@ let submitInvestorApplicationAction: any
 
 beforeAll(async () => {
   // Mock console.error to suppress error logs during testing
-  jest.spyOn(console, 'error').mockImplementation(() => {})
+  jest.spyOn(console, 'error').mockImplementation(() => void 0)
   
   // Import mock utilities
   const { mockDeep } = await import('jest-mock-extended')

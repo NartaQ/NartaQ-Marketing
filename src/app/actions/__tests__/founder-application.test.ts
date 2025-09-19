@@ -8,7 +8,7 @@ const prismaMock = mockDeep<PrismaClient>()
 // Mock the module before importing using dynamic mocking
 beforeAll(() => {
   // Mock console.error to suppress error logs during testing
-  jest.spyOn(console, 'error').mockImplementation(() => {})
+  jest.spyOn(console, 'error').mockImplementation(() => void 0)
   
   jest.doMock('@/lib/prisma', () => ({
     prisma: prismaMock,
