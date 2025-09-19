@@ -60,6 +60,12 @@ export class OptimizedPostHog {
 
   private async loadPostHog(): Promise<void> {
     try {
+      // Check if PostHog key is available
+      if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
+        console.warn('PostHog key not found - analytics disabled');
+        return;
+      }
+
       // Dynamic import with specific exclusion of rrweb to reduce bundle
       const posthogModule = await import('posthog-js');
       this.posthog = posthogModule.default;
@@ -105,10 +111,15 @@ export class OptimizedPostHog {
         }
       };
 
-      this.posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+      this.posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
         api_host: "/ingest",
         ui_host: "https://eu.posthog.com",
         ...config,
+        
+        // Disable toolbar to prevent CSP issues
+        opt_out_useragent_filter: false,
+        opt_out_capturing_by_default: false,
+        disable_external_dependency_loading: true,
         
         // Network optimizations
         batch_requests: true,
@@ -126,7 +137,7 @@ export class OptimizedPostHog {
         // Advanced performance settings
         cross_subdomain_cookie: false,
         persistence: 'localStorage',
-        persistence_name: 'ph_' + process.env.NEXT_PUBLIC_POSTHOG_KEY!.slice(0, 8),
+        persistence_name: 'ph_' + process.env.NEXT_PUBLIC_POSTHOG_KEY.slice(0, 8),
         
         // Reduce automatic data collection
         mask_all_element_attributes: true,
@@ -147,6 +158,7 @@ export class OptimizedPostHog {
       });
 
       this.initialized = true;
+      console.log('PostHog initialized successfully');
     } catch (error) {
       console.warn('Failed to initialize optimized PostHog:', error);
     }
@@ -197,11 +209,18 @@ export class OptimizedPostHog {
 export function initOptimizedPostHog(): void {
   if (typeof window === 'undefined') return;
 
+  // Check if PostHog key is available
+  if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
+    console.warn('NEXT_PUBLIC_POSTHOG_KEY not found - PostHog analytics disabled');
+    return;
+  }
+
   const posthog = OptimizedPostHog.getInstance();
   
   // Check user preferences
   if (navigator.doNotTrack === '1' || 
       localStorage.getItem('analytics-disabled') === 'true') {
+    console.log('Analytics disabled by user preferences');
     return;
   }
 
@@ -210,6 +229,8 @@ export function initOptimizedPostHog(): void {
   const loadAnalytics = () => {
     if (hasLoaded) return;
     hasLoaded = true;
+    
+    console.log('Initializing PostHog analytics...');
     
     // Use requestIdleCallback for non-blocking initialization
     if ('requestIdleCallback' in window) {
@@ -243,13 +264,27 @@ export function initOptimizedPostHog(): void {
     }
   });
 
-  // Conservative fallback - only load after 15 seconds of no interaction
+  // Conservative fallback - only load after 10 seconds of no interaction
   setTimeout(() => {
     if (!hasLoaded) {
+      console.log('Loading PostHog analytics after timeout...');
       loadAnalytics();
     }
-  }, 15000);
+  }, 10000);
 }
 
 // Export singleton for easy access
 export const analytics = OptimizedPostHog.getInstance();
+
+// Convenience functions for common tracking scenarios
+export const trackEvent = (event: string, properties?: Record<string, any>) => {
+  analytics.track(event, properties);
+};
+
+export const trackPageView = (properties?: Record<string, any>) => {
+  analytics.trackPageView(properties);
+};
+
+export const identifyUser = (userId: string, properties?: Record<string, any>) => {
+  analytics.identify(userId, properties);
+};

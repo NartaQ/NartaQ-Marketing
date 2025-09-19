@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import UnifiedApplicationForm from '../UnifiedApplicationForm'
@@ -55,7 +56,7 @@ describe('UnifiedApplicationForm', () => {
     it('displays founder and investor selection cards with correct descriptions', () => {
       render(<UnifiedApplicationForm />)
       
-      expect(screen.getByText('Looking for investment and want to connect with the right investors for my startup')).toBeInTheDocument()
+      expect(screen.getByText('Looking for investment and want to connect with the right investors')).toBeInTheDocument()
       expect(screen.getByText('Looking to discover and invest in promising startups in our network')).toBeInTheDocument()
     })
 
@@ -136,7 +137,7 @@ describe('UnifiedApplicationForm', () => {
       
       await waitFor(() => {
         expect(screen.getByText('Application Submitted!')).toBeInTheDocument()
-        expect(screen.getByText('Thank you for your application. Our team will review it and get back to you within 48 hours.')).toBeInTheDocument()
+        expect(screen.getByText('Thank you for your application. Our team will review it and get back to you as soon as possible.')).toBeInTheDocument()
       })
     })
   })
@@ -198,12 +199,11 @@ describe('UnifiedApplicationForm', () => {
       
       await waitFor(() => {
         expect(screen.getByText('Application Submitted!')).toBeInTheDocument()
-        expect(screen.getByText('Submit Another Application')).toBeInTheDocument()
         expect(screen.getByText('Back to Home')).toBeInTheDocument()
       })
     })
 
-    it('allows user to submit another application from success screen', async () => {
+    it('shows success screen with Back to Home button', async () => {
       const user = userEvent.setup()
       render(<UnifiedApplicationForm />)
       
@@ -218,16 +218,7 @@ describe('UnifiedApplicationForm', () => {
       
       await waitFor(() => {
         expect(screen.getByText('Application Submitted!')).toBeInTheDocument()
-      })
-      
-      // Click submit another application
-      const anotherAppButton = screen.getByText('Submit Another Application')
-      await user.click(anotherAppButton)
-      
-      await waitFor(() => {
-        expect(screen.getByText('Join NartaQ')).toBeInTheDocument()
-        expect(screen.getByText("I'm a Founder")).toBeInTheDocument()
-        expect(screen.getByText("I'm an Investor")).toBeInTheDocument()
+        expect(screen.getByText('Back to Home')).toBeInTheDocument()
       })
     })
 

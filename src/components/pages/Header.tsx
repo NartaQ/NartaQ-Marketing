@@ -71,7 +71,7 @@ export default function Header({
                 width={167}
                 title='nartaqLogo'
                 height={32}
-                fetchPriority='low'
+                priority
                 className='relative z-10'
               />
             </div>
@@ -187,7 +187,7 @@ export default function Header({
                   alt='Nartaq Icon'
                   width={100}
                   height={24}
-                  fetchPriority='low'
+                  priority
                   className=' relative z-10'
                 />
               </div>

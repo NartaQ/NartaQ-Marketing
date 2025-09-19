@@ -22,22 +22,43 @@ const investorApplicationSchema = z.object({
 
 export type InvestorApplicationData = z.infer<typeof investorApplicationSchema>
 
+export async function checkExistingInvestorApplication(email: string) {
+  try {
+    // Check if there's already an application with this email
+    const existingApplication = await prisma.investorApplication.findFirst({
+      where: {
+        workEmail: email
+      }
+    })
+
+    return {
+      success: true,
+      exists: !!existingApplication,
+      message: existingApplication 
+        ? 'An application with this email has already been submitted. Please contact us if you need to update your application.'
+        : 'Email is available for new application'
+    }
+  } catch (error) {
+    console.error('Error checking existing investor application:', error)
+    return {
+      success: false,
+      exists: false,
+      message: 'Unable to verify email availability. Please try again.'
+    }
+  }
+}
+
 export async function submitInvestorApplication(data: InvestorApplicationData) {
   try {
     // Validate the data
     const validatedData = investorApplicationSchema.parse(data)
 
-    // Check for existing application by email or name+company combination
+    // Check for existing application by name+company combination (final safeguard)
     const existingApplication = await prisma.investorApplication.findFirst({
       where: {
-        OR: [
-          { workEmail: validatedData.workEmail },
-          {
-            AND: [
-              { fullName: validatedData.fullName },
-              { companyName: validatedData.companyName }
-            ]
-          }
+        AND: [
+          { fullName: validatedData.fullName },
+          { companyName: validatedData.companyName }
         ]
       }
     })
@@ -46,7 +67,7 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
       return {
         success: false,
         error: 'Application already exists',
-        message: 'An application with this email or investor/company combination has already been submitted. Please contact us if you need to update your application.',
+        message: 'An application with this investor/company combination has already been submitted. Please contact us if you need to update your application.',
       }
     }
 
@@ -65,6 +86,17 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
         otherSource: validatedData.otherSource,
       },
     })
+
+    // Fire completion event for successful application (this is the LinkedIn conversion!)
+    try {
+      const { trackFormComplete } = await import('@/lib/analytics/unified-tracker')
+      await trackFormComplete('investor', application.id, {
+        email: validatedData.workEmail,
+        companyName: validatedData.companyName,
+      })
+    } catch (analyticsError) {
+      console.warn('Analytics tracking failed for investor application completion:', analyticsError)
+    }
 
     return {
       success: true,

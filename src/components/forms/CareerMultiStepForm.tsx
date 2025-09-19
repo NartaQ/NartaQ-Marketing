@@ -5,6 +5,7 @@ import {
   submitCareerApplication,
 } from '@/app/actions/career-application'
 import { uploadFileToAzure } from '@/app/actions/file-upload'
+import { trackFormStart, trackFormSubmit, trackFormComplete, identifyUser } from '@/lib/analytics/unified-tracker'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -109,6 +110,12 @@ export default function CareerMultiStepForm({
   const onSubmit = async (data: FormData) => {
     setSubmissionError('')
     setIsSubmitting(true)
+
+    // Identify user immediately when they submit
+    identifyUser({
+      email: data.email,
+      name: `${data.firstName} ${data.lastName}`
+    })
 
     try {
       // Check if user already has an application BEFORE uploading file

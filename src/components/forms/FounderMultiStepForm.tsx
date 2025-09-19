@@ -1,12 +1,13 @@
 'use client'
 
-import { useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, ArrowLeft, Check } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { submitFounderApplication } from '@/app/actions/founder-application'
+import { submitFounderApplication, checkExistingFounderApplication } from '@/app/actions/founder-application'
+import { trackFormStart, trackFormStep, trackFormSubmit, trackFormComplete, trackFormError, trackCTAClick, identifyUser } from '@/lib/analytics/unified-tracker'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -54,7 +55,9 @@ export default function FounderMultiStepForm({
 }: FounderMultiStepFormProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [submissionError, setSubmissionError] = useState<string>('')
+  const [emailCheckError, setEmailCheckError] = useState<string>('')
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isCheckingEmail, setIsCheckingEmail] = useState(false)
   const totalSteps = 4
 
   const form = useForm<FormData>({
@@ -72,6 +75,11 @@ export default function FounderMultiStepForm({
       pitchDeckUrl: '',
     },
   })
+
+  // Track form initialization
+  useEffect(() => {
+    trackFormStart('founder')
+  }, [])
 
   const sectorOptions = [
     'Fintech',
@@ -111,13 +119,74 @@ export default function FounderMultiStepForm({
     const isValid = await form.trigger(fieldsToValidate)
 
     if (isValid && currentStep < totalSteps) {
+      // Clear any previous errors
+      setEmailCheckError('')
+      
+      // Check for existing application when moving from step 1
+      if (currentStep === 1) {
+        setIsCheckingEmail(true)
+        const formData = form.getValues()
+        
+        try {
+          const existingCheck = await checkExistingFounderApplication(formData.workEmail)
+          
+          if (!existingCheck.success) {
+            setEmailCheckError(existingCheck.message)
+            setIsCheckingEmail(false)
+            return
+          }
+          
+          if (existingCheck.exists) {
+            setEmailCheckError(existingCheck.message)
+            setIsCheckingEmail(false)
+            return
+          }
+          
+          // If no existing application, identify user for analytics
+          identifyUser({
+            email: formData.workEmail,
+            name: formData.fullName
+          })
+        } catch (error) {
+          setEmailCheckError('Unable to verify email availability. Please try again.')
+          setIsCheckingEmail(false)
+          return
+        }
+        
+        setIsCheckingEmail(false)
+      }
+      
+      // Track CTA click for continue button
+      trackCTAClick(
+        'Continue',
+        'button',
+        `founder_form_step_${currentStep}`,
+        undefined,
+        'primary'
+      )
+      
       setCurrentStep(currentStep + 1)
+      
+      // Track step progression
+      trackFormStep('founder', currentStep + 1)
     }
   }
 
   const prevStep = () => {
     if (currentStep > 1) {
+      // Track CTA click for previous button
+      trackCTAClick(
+        'Previous',
+        'button',
+        `founder_form_step_${currentStep}`,
+        undefined,
+        'secondary'
+      )
+      
       setCurrentStep(currentStep - 1)
+      
+      // Track step regression
+      trackFormStep('founder', currentStep - 1, { action: 'back' })
     }
   }
 
@@ -138,6 +207,15 @@ export default function FounderMultiStepForm({
 
   const onSubmit = async (data: FormData) => {
     setSubmissionError('')
+    
+    // Track form submission start
+    trackFormSubmit('founder', {
+      sector: data.sector,
+      fundingStage: data.fundingStage,
+      location: data.location,
+      companyName: data.companyName,
+      email: data.workEmail // Add email for LinkedIn enhanced matching
+    })
 
     try {
       const result = await submitFounderApplication(data)
@@ -145,15 +223,26 @@ export default function FounderMultiStepForm({
       if (result.success) {
         setIsSubmitted(true)
         onSubmissionSuccess()
+        
+        // Track successful submission
+        trackFormComplete('founder', result.data?.id, {
+          email: data.workEmail // Add email for LinkedIn enhanced matching
+        })
       } else {
         console.error('Submission failed:', result.error)
         setSubmissionError(
           result.message || result.error || 'Failed to submit application'
         )
+        
+        // Track submission error
+        trackFormError('founder', result.error || 'Unknown error')
       }
     } catch (error) {
       console.error('Error submitting form:', error)
       setSubmissionError('An unexpected error occurred. Please try again.')
+      
+      // Track unexpected error
+      trackFormError('founder', String(error))
     }
   }
 
@@ -174,7 +263,12 @@ export default function FounderMultiStepForm({
           </span>
         </div>
         <div className='w-full bg-gray-800 rounded-full h-2'>
-          <div className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] h-2 rounded-full' />
+          <motion.div 
+            className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] h-2 rounded-full' 
+            initial={{ width: 0 }}
+            animate={{ width: `${(currentStep / totalSteps) * 100}%` }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+          />
         </div>
       </div>
 
@@ -519,6 +613,15 @@ export default function FounderMultiStepForm({
             </div>
           )}
 
+          {/* Email Check Error Display */}
+          {emailCheckError && (
+            <div className='mt-6 p-4 bg-red-900/20 border border-red-500/30 rounded-xl'>
+              <p className='font-serif text-red-400 text-center'>
+                {emailCheckError}
+              </p>
+            </div>
+          )}
+
           {/* Navigation Buttons */}
           <div className='flex justify-between pt-8'>
             <Button
@@ -536,15 +639,26 @@ export default function FounderMultiStepForm({
               <Button
                 type='button'
                 onClick={nextStep}
-                className='font-serif text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform rounded-xl'
+                disabled={isCheckingEmail}
+                className='font-serif text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl'
               >
-                Continue
+                {isCheckingEmail ? 'Checking...' : 'Continue'}
                 <ArrowRight className='w-5 h-5 ml-2' />
               </Button>
             ) : (
               <Button
                 type='submit'
                 disabled={form.formState.isSubmitting || isSubmitted}
+                onClick={() => {
+                  // Track submit button CTA click
+                  trackCTAClick(
+                    'Submit Application',
+                    'button',
+                    'founder_form_final_step',
+                    '/apply/founder',
+                    'primary'
+                  )
+                }}
                 className='font-serif text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl'
               >
                 {form.formState.isSubmitting || isSubmitted ? (

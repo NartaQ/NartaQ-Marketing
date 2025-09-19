@@ -54,6 +54,7 @@ export default function Footer({
               width={120}
               height={120}
               className='max-w-[120px]'
+              style={{ width: 'auto', height: 'auto' }}
             />
             <div className='text-center'>
               <div className='text-sm font-medium text-[#a98b5d]'>

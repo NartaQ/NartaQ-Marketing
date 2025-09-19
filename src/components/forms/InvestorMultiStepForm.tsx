@@ -6,7 +6,8 @@ import { ArrowRight, ArrowLeft, Check } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { submitInvestorApplication } from '@/app/actions/investor-application'
+import { submitInvestorApplication, checkExistingInvestorApplication } from '@/app/actions/investor-application'
+import { trackFormStart, trackFormStep, trackFormSubmit, trackFormComplete, trackFormError, trackCTAClick, identifyUser } from '@/lib/analytics/unified-tracker'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -54,7 +55,9 @@ export default function InvestorMultiStepForm({
 }: InvestorMultiStepFormProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [submissionError, setSubmissionError] = useState('')
+  const [emailCheckError, setEmailCheckError] = useState<string>('')
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isCheckingEmail, setIsCheckingEmail] = useState(false)
   const [isPending, startTransition] = useTransition()
   const totalSteps = 4
 
@@ -129,7 +132,56 @@ export default function InvestorMultiStepForm({
     const isValid = await form.trigger(fieldsToValidate)
 
     if (isValid && currentStep < totalSteps) {
+      // Clear any previous errors
+      setEmailCheckError('')
+      
+      // Check for existing application when moving from step 1
+      if (currentStep === 1) {
+        setIsCheckingEmail(true)
+        const formData = form.getValues()
+        
+        try {
+          const existingCheck = await checkExistingInvestorApplication(formData.workEmail)
+          
+          if (!existingCheck.success) {
+            setEmailCheckError(existingCheck.message)
+            setIsCheckingEmail(false)
+            return
+          }
+          
+          if (existingCheck.exists) {
+            setEmailCheckError(existingCheck.message)
+            setIsCheckingEmail(false)
+            return
+          }
+          
+          // If no existing application, identify user for analytics
+          identifyUser({
+            email: formData.workEmail,
+            name: formData.fullName
+          })
+        } catch (error) {
+          setEmailCheckError('Unable to verify email availability. Please try again.')
+          setIsCheckingEmail(false)
+          return
+        }
+        
+        setIsCheckingEmail(false)
+      }
+      
+      // Track CTA click for continue button
+      trackCTAClick(
+        'Continue',
+        'button',
+        `investor_form_step_${currentStep}`,
+        undefined,
+        'primary'
+      )
+      
       setCurrentStep(currentStep + 1)
+      
+      // Track step progression
+      trackFormStep('investor', currentStep + 1)
     }
   }
 
@@ -624,6 +676,19 @@ export default function InvestorMultiStepForm({
             </motion.div>
           )}
 
+          {/* Email Check Error Display */}
+          {emailCheckError && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className='mt-6 p-4 bg-red-50 border border-red-200 rounded-lg'
+            >
+              <p className='text-red-700 text-sm font-medium'>
+                {emailCheckError}
+              </p>
+            </motion.div>
+          )}
+
           {/* Navigation Buttons */}
           <div className='flex justify-between pt-8'>
             <Button
@@ -641,9 +706,10 @@ export default function InvestorMultiStepForm({
               <Button
                 type='button'
                 onClick={nextStep}
-                className='font-serif text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform rounded-xl'
+                disabled={isCheckingEmail}
+                className='font-serif text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl'
               >
-                Continue
+                {isCheckingEmail ? 'Checking...' : 'Continue'}
                 <ArrowRight className='w-5 h-5 ml-2' />
               </Button>
             ) : (

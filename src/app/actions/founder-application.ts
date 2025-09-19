@@ -21,6 +21,32 @@ const founderApplicationSchema = z.object({
 
 export type FounderApplicationData = z.infer<typeof founderApplicationSchema>
 
+export async function checkExistingFounderApplication(email: string) {
+  try {
+    // Check if there's already an application with this email
+    const existingApplication = await prisma.founderApplication.findFirst({
+      where: {
+        workEmail: email
+      }
+    })
+
+    return {
+      success: true,
+      exists: !!existingApplication,
+      message: existingApplication 
+        ? 'An application with this email has already been submitted. Please contact us if you need to update your application.'
+        : 'Email is available for new application'
+    }
+  } catch (error) {
+    console.error('Error checking existing founder application:', error)
+    return {
+      success: false,
+      exists: false,
+      message: 'Unable to verify email availability. Please try again.'
+    }
+  }
+}
+
 export async function submitFounderApplication(
   data: FounderApplicationData
 ) {
@@ -28,17 +54,12 @@ export async function submitFounderApplication(
     // Validate the data
     const validatedData = founderApplicationSchema.parse(data)
 
-    // Check for existing application by email or name+company combination
+    // Check for existing application by name+company combination (final safeguard)
     const existingApplication = await prisma.founderApplication.findFirst({
       where: {
-        OR: [
-          { workEmail: validatedData.workEmail },
-          {
-            AND: [
-              { fullName: validatedData.fullName },
-              { companyName: validatedData.companyName }
-            ]
-          }
+        AND: [
+          { fullName: validatedData.fullName },
+          { companyName: validatedData.companyName }
         ]
       }
     })
@@ -47,7 +68,7 @@ export async function submitFounderApplication(
       return {
         success: false,
         error: 'Application already exists',
-        message: 'An application with this email or founder/company combination has already been submitted. Please contact us if you need to update your application.',
+        message: 'An application with this founder/company combination has already been submitted. Please contact us if you need to update your application.',
       }
     }
 
@@ -66,6 +87,19 @@ export async function submitFounderApplication(
         pitchDeckUrl: validatedData.pitchDeckUrl,
       },
     })
+
+    // Fire completion event for successful application (this is the LinkedIn conversion!)
+    try {
+      const { trackFormComplete } = await import('@/lib/analytics/unified-tracker')
+      await trackFormComplete('founder', application.id, {
+        email: validatedData.workEmail,
+        companyName: validatedData.companyName,
+        sector: validatedData.sector,
+        fundingStage: validatedData.fundingStage,
+      })
+    } catch (analyticsError) {
+      console.warn('Analytics tracking failed for founder application completion:', analyticsError)
+    }
 
     return {
       success: true,

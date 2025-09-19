@@ -61,26 +61,26 @@ const nextConfig: NextConfig = {
     // Base CSP for production
     const baseCSP = [
       "default-src 'self'",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://eu.posthog.com",
       "font-src 'self' https://fonts.gstatic.com https://fonts.intercomcdn.com data:",
-      "img-src 'self' data: blob: https://www.google-analytics.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://static.intercomcdn.com https://downloads.intercomcdn.com https://uploads.intercomusercontent.com https://eu.i.posthog.com https://js.intercomcdn.com https://static.intercomassets.com",
-      "frame-src 'self' https://widget.intercom.io",
+      "img-src 'self' data: blob: https://www.google-analytics.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://static.intercomcdn.com https://downloads.intercomcdn.com https://uploads.intercomusercontent.com https://eu.i.posthog.com https://js.intercomcdn.com https://static.intercomassets.com https://www.facebook.com https://px.ads.linkedin.com",
+      "frame-src 'self' https://widget.intercom.io https://www.facebook.com",
       "media-src 'self' blob:",
       "object-src 'none'",
       "base-uri 'self'",
-      "form-action 'self'",
+      "form-action 'self' https://www.facebook.com",
       "frame-ancestors 'none'",
       'upgrade-insecure-requests',
     ]
 
     // Development-specific CSP adjustments
     const scriptSrc = isDevelopment
-      ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* https://localhost:* https://www.googletagmanager.com https://www.google-analytics.com https://vitals.vercel-insights.com https://vercel.live https://va.vercel-scripts.com https://widget.intercom.io https://js.intercomcdn.com https://eu.i.posthog.com https://eu-assets.i.posthog.com"
-      : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://vitals.vercel-insights.com https://vercel.live https://va.vercel-scripts.com https://widget.intercom.io https://js.intercomcdn.com https://eu.i.posthog.com https://eu-assets.i.posthog.com"
+      ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* https://localhost:* https://www.googletagmanager.com https://www.google-analytics.com https://vitals.vercel-insights.com https://vercel.live https://va.vercel-scripts.com https://widget.intercom.io https://js.intercomcdn.com https://eu.i.posthog.com https://eu-assets.i.posthog.com https://connect.facebook.net https://snap.licdn.com"
+      : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://vitals.vercel-insights.com https://vercel.live https://va.vercel-scripts.com https://widget.intercom.io https://js.intercomcdn.com https://eu.i.posthog.com https://eu-assets.i.posthog.com https://connect.facebook.net https://snap.licdn.com"
 
     const connectSrc = isDevelopment
-      ? "connect-src 'self' http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://www.google-analytics.com https://vitals.vercel-insights.com https://vercel.live https://va.vercel-scripts.com https://api-iam.intercom.io https://api.intercom.io https://nexus-websocket-a.intercom.io https://nexus-websocket-b.intercom.io wss://nexus-websocket-a.intercom.io wss://nexus-websocket-b.intercom.io https://eu.i.posthog.com https://eu-assets.i.posthog.com"
-      : "connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com https://vercel.live https://va.vercel-scripts.com https://api-iam.intercom.io https://api.intercom.io https://nexus-websocket-a.intercom.io https://nexus-websocket-b.intercom.io wss://nexus-websocket-a.intercom.io wss://nexus-websocket-b.intercom.io https://eu.i.posthog.com https://eu-assets.i.posthog.com"
+      ? "connect-src 'self' http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://www.google-analytics.com https://vitals.vercel-insights.com https://vercel.live https://va.vercel-scripts.com https://api-iam.intercom.io https://api.intercom.io https://nexus-websocket-a.intercom.io https://nexus-websocket-b.intercom.io wss://nexus-websocket-a.intercom.io wss://nexus-websocket-b.intercom.io https://eu.i.posthog.com https://eu-assets.i.posthog.com https://internal-j.posthog.com https://px.ads.linkedin.com"
+      : "connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com https://vercel.live https://va.vercel-scripts.com https://api-iam.intercom.io https://api.intercom.io https://nexus-websocket-a.intercom.io https://nexus-websocket-b.intercom.io wss://nexus-websocket-a.intercom.io wss://nexus-websocket-b.intercom.io https://eu.i.posthog.com https://eu-assets.i.posthog.com https://internal-j.posthog.com https://px.ads.linkedin.com"
 
     const cspString = [scriptSrc, connectSrc, ...baseCSP].join('; ')
 

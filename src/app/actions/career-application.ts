@@ -86,6 +86,16 @@ export async function submitCareerApplication(data: CareerApplicationData) {
       },
     })
 
+    // Fire completion event for successful application (this is the LinkedIn conversion!)
+    try {
+      const { trackFormComplete } = await import('@/lib/analytics/unified-tracker')
+      await trackFormComplete('career', application.id, {
+        email: validatedData.email,
+      })
+    } catch (analyticsError) {
+      console.warn('Analytics tracking failed for career application completion:', analyticsError)
+    }
+
     return {
       success: true,
       data: application,

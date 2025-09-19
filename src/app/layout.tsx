@@ -14,6 +14,9 @@ import {
 import Script from "next/script";
 import UnifiedNavigation from "@/components/pages/UnifiedNavigation";
 import LenisProvider from "@/components/pages/LenisProvider";
+import AnalyticsProvider from "@/components/analytics/PostHogProvider";
+import { CookieConsentBanner } from "@/lib/cookie-consent";
+import "@/lib/app-bootstrap"; // Initialize app utilities
 
 const fontSans = Playfair_Display({
   subsets: ["latin"],
@@ -148,24 +151,29 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Meta Pixel Code */}
-        {/* Linkedin Pixel Code */}
+        {/* LinkedIn Insight Tag */}
         <Script
-          id="linkedin-pixel"
+          id="linkedin-insight-tag"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               _linkedin_partner_id = "8697081";
               window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
               window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-              </script><script type="text/javascript">
               (function(l) {
-              if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-              window.lintrk.q=[]}
-              var s = document.getElementsByTagName("script")[0];
-              var b = document.createElement("script");
-              b.type = "text/javascript";b.async = true;
-              b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-              s.parentNode.insertBefore(b, s);})(window.lintrk);
+                if (!l) {
+                  window.lintrk = function(a,b) {
+                    window.lintrk.q.push([a,b]);
+                  };
+                  window.lintrk.q = [];
+                }
+                var s = document.getElementsByTagName("script")[0];
+                var b = document.createElement("script");
+                b.type = "text/javascript";
+                b.async = true;
+                b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+                s.parentNode.insertBefore(b, s);
+              })(window.lintrk);
             `,
           }}
         />
@@ -257,12 +265,14 @@ export default function RootLayout({
         />
         <Analytics />
         <SpeedInsights />
+        <AnalyticsProvider />
         <LenisProvider>
           <UnifiedNavigation />
           <main className="main mt-[var(--header-height)]">{children}</main>
           <Footer />
         </LenisProvider>
         <IntercomProvider />
+        <CookieConsentBanner />
       </body>
     </html>
   );
