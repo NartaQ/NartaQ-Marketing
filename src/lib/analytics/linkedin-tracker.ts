@@ -113,7 +113,7 @@ export class LinkedInTracker implements BaseTracker {
     
     // THIS is the only true conversion - successful application completion
     window.lintrk('track', { 
-      conversion_id: 8697081,
+      conversion_id: 23683433,
       event_name: 'ApplicationCompleted',
       application_type: data.applicationType
     })
@@ -124,7 +124,7 @@ export class LinkedInTracker implements BaseTracker {
     
     // LinkedIn doesn't have specific error tracking, but we can track custom events
     window.lintrk('track', { 
-      conversion_id: 8697081,
+      conversion_id: 23683433,
       event_name: 'ApplicationError',
       application_type: data.applicationType,
       error: data.error
@@ -135,7 +135,7 @@ export class LinkedInTracker implements BaseTracker {
     if (!this.initialized || typeof window.lintrk !== 'function') return
     
     window.lintrk('track', { 
-      conversion_id: 8697081,
+      conversion_id: 23683433,
       event_name: 'NewsletterSubscribe'
     })
   }
@@ -144,7 +144,7 @@ export class LinkedInTracker implements BaseTracker {
     if (!this.initialized || typeof window.lintrk !== 'function') return
     
     window.lintrk('track', { 
-      conversion_id: 8697081,
+      conversion_id: 23683433,
       event_name: eventName,
       ...data
     })
