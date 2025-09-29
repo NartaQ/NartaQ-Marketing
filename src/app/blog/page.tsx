@@ -13,6 +13,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { client, urlFor } from '../../lib/sanity'
+import NewsletterSection from '@/components/pages/NewsletterSection'
 
 export const metadata: Metadata = {
   title: 'Blog | NartaQ - Insights on AI-Powered Startup Funding',
@@ -216,21 +217,21 @@ export default async function BlogPage() {
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <div className='relative group'>
               <div className='absolute -inset-0.5 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200'></div>
-              <button className='relative px-8 py-4 bg-black rounded-2xl leading-none flex items-center gap-3 text-[#dcd7ce] hover:text-white transition-colors'>
+              <Link href='#latest' className='relative px-8 py-4 bg-black rounded-2xl leading-none flex items-center gap-3 text-[#dcd7ce] hover:text-white transition-colors'>
                 <Globe className='w-5 h-5' />
                 <span className='font-semibold'>Explore All Topics</span>
-              </button>
+              </Link>
             </div>
-            <button className='px-8 py-4 border border-[#a98b5d]/40 text-[#a98b5d] rounded-2xl hover:bg-[#a98b5d]/10 hover:border-[#a98b5d]/60 transition-all duration-300 flex items-center gap-3 font-semibold'>
+            <Link href='/apply' className='px-8 py-4 border border-[#a98b5d]/40 text-[#a98b5d] rounded-2xl hover:bg-[#a98b5d]/10 hover:border-[#a98b5d]/60 transition-all duration-300 flex items-center gap-3 font-semibold'>
               <Target className='w-5 h-5' />
               Subscribe to Updates
-            </button>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Blog Posts Grid */}
-      <section className='py-16 sm:py-24 bg-gradient-to-b from-[#0a0a0a] to-black'>
+  <section id='latest' className='py-16 sm:py-24 bg-gradient-to-b from-[#0a0a0a] to-black'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           {postsWithReadingTime.length > 0 ? (
             <>
@@ -276,6 +277,9 @@ export default async function BlogPage() {
           )}
         </div>
       </section>
+
+      {/* Newsletter/Apply CTA aligned with home aesthetic */}
+      <NewsletterSection />
     </div>
   )
 }

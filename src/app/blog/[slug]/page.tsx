@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import { formatDistance } from 'date-fns'
 import { Calendar, User, ArrowLeft, BookOpen } from 'lucide-react'
 import { Metadata } from 'next'
+import NewsletterSection from '@/components/pages/NewsletterSection'
 
 type Post = {
   _id: string
@@ -326,6 +327,9 @@ export default async function BlogPost({ params }: PageProps) {
           </div>
         </section>
       )}
+
+      {/* Newsletter CTA for continuity with home aesthetic */}
+      <NewsletterSection />
     </div>
   )
 }
