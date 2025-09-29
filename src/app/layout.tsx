@@ -121,7 +121,11 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//vitals.vercel-insights.com" />
         <link rel="dns-prefetch" href="//connect.facebook.net" />
         <link rel="dns-prefetch" href="//snap.licdn.com" />
-        <link rel="dns-prefetch" href="//js-eu1.hs-scripts.com" />
+        <link rel="preconnect" href="https://js-eu1.hs-scripts.com" />
+        <link rel="preconnect" href="https://js-eu1.hs-analytics.net" />
+        <link rel="preconnect" href="https://js-eu1.hs-banner.com" />
+        <link rel="preconnect" href="https://js-eu1.hscollectedforms.net" />
+        <link rel="preconnect" href="https://js-eu1.hsadspixel.net" />
 
         <link rel="manifest" href="/manifest.json" />
 
