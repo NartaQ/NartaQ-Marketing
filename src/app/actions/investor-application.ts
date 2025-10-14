@@ -1,6 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { sendInvestorConfirmation, sendAdminNotification } from '@/lib/sendgrid-service'
 import { z } from 'zod'
 
 const investorApplicationSchema = z.object({
@@ -97,6 +98,25 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
     } catch (analyticsError) {
       console.warn('Analytics tracking failed for investor application completion:', analyticsError)
     }
+
+    // Send confirmation email to investor (non-blocking)
+    sendInvestorConfirmation(
+      validatedData.workEmail,
+      validatedData.fullName,
+      validatedData.title
+    ).catch(error => {
+      console.error('Failed to send investor confirmation email:', error)
+    })
+
+    // Send admin notification (non-blocking)
+    sendAdminNotification('investor', {
+      name: validatedData.fullName,
+      email: validatedData.workEmail,
+      company: validatedData.companyName,
+      investorType: validatedData.title,
+    }).catch(error => {
+      console.error('Failed to send admin notification:', error)
+    })
 
     return {
       success: true,

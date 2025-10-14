@@ -43,6 +43,7 @@
     "@sanity/client": "^7.11.0",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.6.1",
+    "@sendgrid/mail": "^8.1.6",
     "@tabler/icons-react": "^3.34.1",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@types/gsap": "^1.20.2",
@@ -71,8 +72,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@sanity/eslint-config-studio": "^5.0.2",
     "@next/bundle-analyzer": "^15.5.2",
+    "@sanity/eslint-config-studio": "^5.0.2",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",

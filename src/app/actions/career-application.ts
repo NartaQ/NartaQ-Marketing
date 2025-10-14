@@ -1,6 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { sendCareerConfirmation, sendAdminNotification } from '@/lib/sendgrid-service'
 import { z } from 'zod'
 
 const careerApplicationSchema = z.object({
@@ -95,6 +96,24 @@ export async function submitCareerApplication(data: CareerApplicationData) {
     } catch (analyticsError) {
       console.warn('Analytics tracking failed for career application completion:', analyticsError)
     }
+
+    // Send confirmation email to applicant (non-blocking)
+    sendCareerConfirmation(
+      validatedData.email,
+      `${validatedData.firstName} ${validatedData.lastName}`,
+      validatedData.position || 'General'
+    ).catch(error => {
+      console.error('Failed to send career confirmation email:', error)
+    })
+
+    // Send admin notification (non-blocking)
+    sendAdminNotification('career', {
+      name: `${validatedData.firstName} ${validatedData.lastName}`,
+      email: validatedData.email,
+      position: validatedData.position || 'General',
+    }).catch(error => {
+      console.error('Failed to send admin notification:', error)
+    })
 
     return {
       success: true,

@@ -1,6 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { sendFounderConfirmation, sendAdminNotification } from '@/lib/sendgrid-service'
 import { z } from 'zod'
 
 const founderApplicationSchema = z.object({
@@ -100,6 +101,24 @@ export async function submitFounderApplication(
     } catch (analyticsError) {
       console.warn('Analytics tracking failed for founder application completion:', analyticsError)
     }
+
+    // Send confirmation email to founder (non-blocking)
+    sendFounderConfirmation(
+      validatedData.workEmail,
+      validatedData.fullName,
+      validatedData.companyName
+    ).catch(error => {
+      console.error('Failed to send founder confirmation email:', error)
+    })
+
+    // Send admin notification (non-blocking)
+    sendAdminNotification('founder', {
+      name: validatedData.fullName,
+      email: validatedData.workEmail,
+      company: validatedData.companyName,
+    }).catch(error => {
+      console.error('Failed to send admin notification:', error)
+    })
 
     return {
       success: true,
