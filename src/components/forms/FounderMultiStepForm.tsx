@@ -368,7 +368,7 @@ export default function FounderMultiStepForm({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className='font-serif text-xl text-white mb-3 block'>
-                        What's your company website? *
+                        What's your company website? 
                       </FormLabel>
                       <FormControl>
                         <Input

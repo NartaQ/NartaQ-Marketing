@@ -19,7 +19,7 @@ model FounderApplication {
   fullName     String
   workEmail    String
   companyName  String
-  website      String
+  website      String?
   sector       String[] // Array of sectors
   otherSector  String? // For when "Other" is selected
   fundingStage String
