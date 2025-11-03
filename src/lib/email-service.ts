@@ -1,8 +1,9 @@
 /**
- * SendGrid Email Service for NartaQ Platform
+ * Email Service for NartaQ Platform
  * 
  * Provides email sending functionality with templates,
  * error handling, and comprehensive logging.
+ * Uses SendGrid in production and Mailpit for local development.
  */
 
 import sgMail from '@sendgrid/mail'
@@ -12,20 +13,20 @@ import {
   investorApplicationConfirmation,
   careerApplicationConfirmation,
   adminApplicationNotification,
-} from './email-templates'
+} from './email-templates-enhanced'
 
-// Initialize SendGrid with API key from environment
+// Email configuration from environment
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
 const FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || 'noreply@nartaq.com'
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@nartaq.com'
 
-// Only initialize if API key is available
+// Initialize SendGrid if API key is available (production)
 if (SENDGRID_API_KEY) {
   sgMail.setApiKey(SENDGRID_API_KEY)
 } else {
   console.warn(
-    '⚠️  SendGrid API key not configured. Email sending will be disabled. ' +
-    'Set SENDGRID_API_KEY environment variable to enable emails.'
+    '⚠️  Email service not fully configured. Using development mode. ' +
+    'Set SENDGRID_API_KEY for production email sending.'
   )
 }
 
@@ -46,15 +47,15 @@ async function sendEmail(options: EmailOptions): Promise<{
   error?: string
   messageId?: string
 }> {
-  // Check if SendGrid is configured
+  // Check if email service is configured
   if (!SENDGRID_API_KEY) {
-    console.log('📧 Email sending skipped (SendGrid not configured):', {
+    console.log('📧 Email sending skipped (email service not configured):', {
       to: options.to,
       subject: options.subject,
     })
     return {
       success: false,
-      error: 'SendGrid API key not configured',
+      error: 'Email service not configured',
     }
   }
 
@@ -118,7 +119,7 @@ function stripHtml(html: string): string {
  */
 export async function sendNewsletterWelcome(
   email: string,
-  name?: string | null
+  name?: string
 ): Promise<{ success: boolean; error?: string }> {
   return sendEmail({
     to: email,
@@ -204,7 +205,7 @@ export async function sendAdminNotification(
   return sendEmail({
     to: ADMIN_EMAIL,
     subject: subjects[type],
-    html: adminApplicationNotification(type, details.name, details.email, additionalDetails),
+    html: adminApplicationNotification(type, details),
     replyTo: details.email,
   })
 }
@@ -229,7 +230,7 @@ export async function sendBulkEmails(
       failed: recipients.length,
       errors: recipients.map(r => ({
         email: r.email,
-        error: 'SendGrid not configured',
+        error: 'Email service not configured',
       })),
     }
   }
@@ -269,9 +270,9 @@ export async function sendBulkEmails(
 }
 
 /**
- * Verify SendGrid configuration
+ * Verify email service configuration
  */
-export function verifySendGridConfig(): {
+export function verifyEmailConfig(): {
   configured: boolean
   apiKeySet: boolean
   fromEmailSet: boolean
@@ -291,9 +292,9 @@ export async function sendTestEmail(
 ): Promise<{ success: boolean; error?: string }> {
   const testHtml = `
     <div style="font-family: Arial, sans-serif; padding: 20px;">
-      <h1 style="color: #a98b5d;">SendGrid Test Email ✓</h1>
+      <h1 style="color: #a98b5d;">Email Service Test ✓</h1>
       <p>This is a test email from NartaQ platform.</p>
-      <p>If you received this, SendGrid is configured correctly!</p>
+      <p>If you received this, the email service is configured correctly!</p>
       <p style="color: #888; font-size: 12px; margin-top: 30px;">
         Sent at: ${new Date().toISOString()}
       </p>
@@ -302,7 +303,7 @@ export async function sendTestEmail(
 
   return sendEmail({
     to: toEmail,
-    subject: 'NartaQ SendGrid Test Email',
+    subject: 'NartaQ Email Service Test',
     html: testHtml,
   })
 }

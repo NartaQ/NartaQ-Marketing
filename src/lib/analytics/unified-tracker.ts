@@ -3,7 +3,6 @@ import { PostHogTracker } from './posthog-tracker'
 import { GoogleAnalyticsTracker } from './google-analytics-tracker'
 import { FacebookTracker } from './facebook-tracker'
 import { LinkedInTracker } from './linkedin-tracker'
-import { HubSpotTracker } from './hubspot-tracker'
 
 export default class UnifiedAnalyticsTracker {
   private services: BaseTracker[]
@@ -22,7 +21,6 @@ export default class UnifiedAnalyticsTracker {
       new GoogleAnalyticsTracker(),
       new FacebookTracker(),
       new LinkedInTracker(),
-      new HubSpotTracker(),
     ]
   }
 

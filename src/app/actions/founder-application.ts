@@ -1,7 +1,8 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
-import { sendFounderConfirmation, sendAdminNotification } from '@/lib/sendgrid-service'
+import { queueFounderConfirmation } from '@/lib/email-queue-service'
+import { sendAdminNotification } from '@/lib/email-service'
 import { z } from 'zod'
 
 const founderApplicationSchema = z.object({
@@ -102,13 +103,13 @@ export async function submitFounderApplication(
       console.warn('Analytics tracking failed for founder application completion:', analyticsError)
     }
 
-    // Send confirmation email to founder (non-blocking)
-    sendFounderConfirmation(
+    // Queue confirmation email for founder (processed in background)
+    queueFounderConfirmation(
       validatedData.workEmail,
       validatedData.fullName,
       validatedData.companyName
     ).catch(error => {
-      console.error('Failed to send founder confirmation email:', error)
+      console.error('Failed to queue founder confirmation email:', error)
     })
 
     // Send admin notification (non-blocking)

@@ -73,47 +73,54 @@ export class FacebookTracker implements BaseTracker {
   fireApplicationStartEvent(data: ApplicationEventData): void {
     if (!this.initialized || typeof window.fbq !== 'function') return
     
-    window.fbq('trackCustom', 'ApplicationStarted', {
-      content_name: `${data.applicationType}_application_started`,
-      content_category: 'application',
-      application_type: data.applicationType,
-      value: 1,
+    // Track start with ViewContent (standard event for engagement, not conversion)
+    // This is NOT a conversion event - just tracking intent
+    window.fbq('track', 'ViewContent', {
+      content_name: `${data.applicationType}_application_form`,
+      content_category: 'application_form',
+      content_type: data.applicationType,
     })
   }
 
   fireApplicationStepEvent(data: ApplicationEventData): void {
     if (!this.initialized || typeof window.fbq !== 'function') return
     
-    window.fbq('trackCustom', 'ApplicationStepCompleted', {
-      content_name: `${data.applicationType}_step_${data.formStep}`,
-      content_category: 'application_progress',
-      application_type: data.applicationType,
-      step_number: data.formStep,
-      value: data.formStep,
+    // Track step progression but NOT as conversion
+    // Use ViewContent to show engagement without triggering conversion optimization
+    window.fbq('track', 'ViewContent', {
+      content_name: `${data.applicationType}_application_step_${data.formStep}`,
+      content_category: `${data.applicationType}_application_progress`,
+      content_type: data.applicationType,
+      step: data.formStep,
     })
   }
 
   fireApplicationSubmitEvent(data: ApplicationEventData): void {
     if (!this.initialized || typeof window.fbq !== 'function') return
     
-    window.fbq('trackCustom', 'ApplicationSubmitted', {
-      content_name: `${data.applicationType}_application_submitted`,
-      content_category: 'application',
-      application_type: data.applicationType,
-      value: 1,
-      content_ids: [data.applicationId || 'unknown'],
+    // THIS IS THE CONVERSION EVENT - Use Lead with proper parameters
+    // This is what Facebook should optimize for
+    window.fbq('track', 'Lead', {
+      content_name: `${data.applicationType}_application_completed`,
+      content_category: `${data.applicationType}_lead`,
+      content_type: data.applicationType,
+      value: 10, // Assign value for optimization (can adjust based on type)
+      currency: 'USD',
     })
   }
 
   fireApplicationCompleteEvent(data: ApplicationEventData): void {
     if (!this.initialized || typeof window.fbq !== 'function') return
     
+    // Secondary confirmation - CompleteRegistration is appropriate here
+    // This confirms the Lead event but with registration semantics
     window.fbq('track', 'CompleteRegistration', {
-      content_name: `${data.applicationType}_application_completed`,
-      content_category: 'application',
-      application_type: data.applicationType,
+      content_name: `${data.applicationType}_registration_complete`,
+      content_category: data.applicationType,
+      content_type: data.applicationType,
       status: 'completed',
-      value: 1,
+      value: 10,
+      currency: 'USD',
     })
   }
 

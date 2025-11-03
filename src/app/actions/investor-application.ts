@@ -1,7 +1,8 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
-import { sendInvestorConfirmation, sendAdminNotification } from '@/lib/sendgrid-service'
+import { queueInvestorConfirmation } from '@/lib/email-queue-service'
+import { sendAdminNotification } from '@/lib/email-service'
 import { z } from 'zod'
 
 const investorApplicationSchema = z.object({
@@ -99,13 +100,13 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
       console.warn('Analytics tracking failed for investor application completion:', analyticsError)
     }
 
-    // Send confirmation email to investor (non-blocking)
-    sendInvestorConfirmation(
+    // Queue confirmation email for investor (processed in background)
+    queueInvestorConfirmation(
       validatedData.workEmail,
       validatedData.fullName,
       validatedData.title
     ).catch(error => {
-      console.error('Failed to send investor confirmation email:', error)
+      console.error('Failed to queue investor confirmation email:', error)
     })
 
     // Send admin notification (non-blocking)

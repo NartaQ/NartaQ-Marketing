@@ -1,7 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
-import { sendNewsletterWelcome } from '@/lib/sendgrid-service'
+import { queueWelcomeEmail } from '@/lib/email-queue-service'
 import { z } from 'zod'
 
 const newsletterSchema = z.object({
@@ -38,10 +38,10 @@ export async function subscribeToNewsletter(data: NewsletterData) {
       },
     })
 
-    // Send welcome email (non-blocking - don't fail if email fails)
-    sendNewsletterWelcome(subscription.email, subscription.name).catch(error => {
-      console.error('Failed to send welcome email:', error)
-      // Continue execution - email failure shouldn't block subscription
+    // Queue welcome email for background processing
+    queueWelcomeEmail(subscription.email, subscription.name || undefined).catch(error => {
+      console.error('Failed to queue welcome email:', error)
+      // Continue execution - queuing failure shouldn't block subscription
     })
 
     return {
