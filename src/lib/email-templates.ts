@@ -103,10 +103,10 @@ const baseTemplate = (content: string) => `
           <tr>
             <td align="center" style="padding: 40px 0 0 0; border-top: 1px solid rgba(169, 139, 93, 0.3);">
               <p style="margin: 0 0 8px 0; color: #dcd7ce; font-size: 13px; font-weight: 600;">
-                <span style="color: #a98b5d;">NartaQ</span> - France-Tunisia Corridor
-              </p>
-              <p style="margin: 0 0 20px 0; color: rgba(220, 215, 206, 0.7); font-size: 12px;">
-                Paris, France | Tunis, Tunisia
+                                <span style="color: #a98b5d;">NartaQ</span> - Connecting Global Capital with African Innovation
+              </div>
+              <div style="color: #666; font-size: 12px; margin-top: 8px;">
+                Paris, France | Serving Developing Countries & Africa
               </p>
               <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center">
                 <tr>
@@ -198,7 +198,7 @@ export const newsletterWelcomeEmail = (name?: string | null) => {
         ${greeting}! Welcome to NartaQ 🎉
       </h1>
       <p style="margin: 0 0 20px 0; color: #dcd7ce; font-size: 16px; line-height: 1.7;">
-        Thank you for subscribing to our newsletter. You're now part of an exclusive community connecting ventures across the France-Tunisia corridor.
+        Thank you for subscribing to our newsletter. You're now part of an exclusive community connecting global capital with exceptional ventures from developing countries and Africa.
       </p>
       <p style="margin: 0 0 15px 0; color: rgba(220, 215, 206, 0.9); font-size: 15px; line-height: 1.7;">
         We'll keep you updated on:

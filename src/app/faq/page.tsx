@@ -58,12 +58,12 @@ export default function FAQPage() {
         {
           question: 'What does the application process look like?',
           answer:
-            "The application process involves submitting your company information, founding team details, and business overview. Selected founders will be invited to join our founding cohort, where you'll get early access to the platform, direct feedback from investors, and help shaping our product development.",
+            "The application process involves submitting your company information, founding team details, and business overview. Selected founders will get early access to the platform, direct feedback from investors, and can help shape our product development.",
         },
         {
           question: 'Is there a cost for founders to use the platform?',
           answer:
-            'During our founding cohort phase, there are no fees for selected founders. Our business model will focus on success-based fees and premium services, ensuring alignment between platform success and founder outcomes.',
+            'During early access, there are no fees for selected founders. Our business model will focus on success-based fees and premium services, ensuring alignment between platform success and founder outcomes.',
         },
       ],
     },
@@ -113,7 +113,7 @@ export default function FAQPage() {
         {
           question: 'Are you raising funding for NartaQ?',
           answer:
-            'We are currently in pre-seed stage and building our founding community before formal fundraising. Interested investors can join our founding cohort to get early access and help shape our development. Formal fundraising details will be shared with community members first.',
+            'We are currently in pre-seed stage and building our community before formal fundraising. Interested investors can apply for early access to help shape our development. Formal fundraising details will be shared with early members first.',
         },
       ],
     },
@@ -121,14 +121,14 @@ export default function FAQPage() {
       category: 'Getting Started',
       questions: [
         {
-          question: 'How do I join the founding cohort?',
+          question: 'How do I get early access?',
           answer:
-            "You can apply through our founder or investor application pages. We're selectively building a community of 1,000+ engaged participants who will help us validate our approach and provide feedback during development. Selected members get early platform access and direct input on product development.",
+            'Visit our Apply page to submit your application as either a founder or investor. We review applications on a rolling basis and will reach out to qualified candidates with next steps.',
         },
         {
           question: 'When will the platform launch publicly?',
           answer:
-            "We're currently focused on building and validating with our founding cohort. Public launch timing will depend on development progress and community feedback. Founding cohort members will get advance notice and early access to all platform features.",
+            "We're currently focused on building and validating with early access members. Public launch timing will depend on development progress and community feedback. Early access members will get advance notice and priority access to all platform features.",
         },
         {
           question: "Can I participate if I'm not in France or Tunisia?",
@@ -138,7 +138,7 @@ export default function FAQPage() {
         {
           question: "How can I stay updated on NartaQ's progress?",
           answer:
-            'Join our newsletter for regular updates on platform development, founding cohort progress, and early access opportunities. You can also follow us on social media or reach out directly at contact@nartaq.com for specific questions.',
+            'Join our newsletter for regular updates on platform development and launch progress. You can also follow us on social media or reach out directly at contact@nartaq.com for specific questions.',
         },
       ],
     },
@@ -286,11 +286,11 @@ export default function FAQPage() {
                   Contact Us
                 </Link>
                 <Link
-                  title='Join Founding Cohort'
+                  title='Get Early Access'
                   href='/apply'
                   className='px-6 py-3 border border-[#a98b5d]/50 text-[#dcd7ce] font-semibold rounded-xl hover:bg-[#a98b5d]/10 transition-all duration-300'
                 >
-                  Join Founding Cohort
+                  Get Early Access
                 </Link>
               </div>
             </div>

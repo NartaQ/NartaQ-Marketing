@@ -55,6 +55,8 @@ describe('submitFounderApplication', () => {
     fundingStage: string
     location: string
     shortPitch: string
+    founderLinkedIn: string | null
+    companyLinkedIn: string | null
     otherSector: string | null
     pitchDeckUrl: string | null
   }> = {}) => {
@@ -63,11 +65,13 @@ describe('submitFounderApplication', () => {
       fullName: overrides.fullName || validFounderData.fullName,
       workEmail: overrides.workEmail || validFounderData.workEmail,
       companyName: overrides.companyName || validFounderData.companyName,
-      website: overrides.website || validFounderData.website,
+      website: overrides.website || validFounderData.website || null,
       sector: overrides.sector || validFounderData.sector,
       fundingStage: overrides.fundingStage || validFounderData.fundingStage,
       location: overrides.location || validFounderData.location,
       shortPitch: overrides.shortPitch || validFounderData.shortPitch,
+      founderLinkedIn: overrides.founderLinkedIn !== undefined ? overrides.founderLinkedIn : null,
+      companyLinkedIn: overrides.companyLinkedIn !== undefined ? overrides.companyLinkedIn : null,
       otherSector: overrides.otherSector !== undefined ? overrides.otherSector : null,
       pitchDeckUrl: overrides.pitchDeckUrl !== undefined ? overrides.pitchDeckUrl : null,
       createdAt: new Date(),
@@ -190,24 +194,21 @@ describe('submitFounderApplication', () => {
       )
     })
 
-    it('should reject application with invalid website URL', async () => {
-      const dataWithInvalidURL = {
+    it('should accept application with any website string (validation is optional)', async () => {
+      const dataWithSimpleWebsite = {
         ...validFounderData,
         website: 'not-a-url',
       }
 
-      const result = await submitFounderApplication(dataWithInvalidURL)
+      const mockApplication = createMockApplication()
+      ;(prismaMock.founderApplication.findFirst as jest.MockedFunction<any>).mockResolvedValue(null)
+      ;(prismaMock.founderApplication.create as jest.MockedFunction<any>).mockResolvedValue(mockApplication)
 
-      expect(result.success).toBe(false)
-      expect(result.error).toBe('Validation failed')
-      expect(result.details).toEqual(
-        expect.arrayContaining([
-          expect.objectContaining({
-            path: ['website'],
-            message: 'Please enter a valid website URL',
-          }),
-        ])
-      )
+      const result = await submitFounderApplication(dataWithSimpleWebsite)
+
+      expect(result.success).toBe(true)
+      // Website field is optional and doesn't enforce URL format validation
+      // Frontend should handle URL formatting, backend stores as provided
     })
 
     it('should reject application with empty sector array', async () => {

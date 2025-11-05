@@ -51,12 +51,12 @@ export default function UnifiedApplicationForm() {
             >
               {/* Header */}
               <div className='mb-12'>
-                <h1 className='font-serif text-5xl md:text-6xl font-bold text-white mb-6 leading-tight'>
+                <h1 className=' text-5xl md:text-6xl font-bold text-white mb-6 leading-tight'>
                   <span className='text-glow bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                     Join NartaQ
                   </span>
                 </h1>
-                <p className='font-serif text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed'>
+                <p className=' text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed'>
                   Choose your path to be part of our ecosystem
                 </p>
               </div>
@@ -74,10 +74,10 @@ export default function UnifiedApplicationForm() {
                       <div className='w-16 h-16 bg-[#a98b5d]/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                         <Building2 className='w-8 h-8 text-[#a98b5d]' />
                       </div>
-                      <h3 className='font-serif text-2xl font-semibold text-white mb-4'>
+                      <h3 className=' text-2xl font-semibold text-white mb-4'>
                         I'm a Founder
                       </h3>
-                      <p className='font-serif text-gray-300 leading-relaxed mb-6'>
+                      <p className=' text-gray-300 leading-relaxed mb-6'>
                         Looking for investment and want to connect with the
                         right investors
                       </p>
@@ -100,10 +100,10 @@ export default function UnifiedApplicationForm() {
                       <div className='w-16 h-16 bg-[#a98b5d]/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
                         <Users className='w-8 h-8 text-[#a98b5d]' />
                       </div>
-                      <h3 className='font-serif text-2xl font-semibold text-white mb-4'>
+                      <h3 className=' text-2xl font-semibold text-white mb-4'>
                         I'm an Investor
                       </h3>
-                      <p className='font-serif text-gray-300 leading-relaxed mb-6'>
+                      <p className=' text-gray-300 leading-relaxed mb-6'>
                         Looking to discover and invest in promising startups in
                         our network
                       </p>
@@ -127,11 +127,11 @@ export default function UnifiedApplicationForm() {
               transition={{ duration: 0.5 }}
             >
               {/* Back Button */}
-              <div className='mb-8'>
+              <div className='mb-8 mt-8'>
                 <Button
                   onClick={handleBack}
                   variant='ghost'
-                  className='text-gray-400 hover:text-white font-serif text-lg p-0 h-auto'
+                  className='text-gray-400 hover:text-white cursor-pointer  text-lg p-0 h-auto'
                 >
                   <ArrowLeft className='w-5 h-5 mr-2' />
                   Back to selection
@@ -140,12 +140,12 @@ export default function UnifiedApplicationForm() {
 
               {/* Form Header */}
               <div className='text-center mb-12'>
-                <h1 className='font-serif text-4xl md:text-5xl font-bold text-white mb-4'>
+                <h1 className=' text-4xl md:text-5xl font-bold text-white mb-4'>
                   {selectedType === 'founder'
                     ? 'Founder Application'
                     : 'Investor Application'}
                 </h1>
-                <p className='font-serif text-lg text-gray-300'>
+                <p className=' text-lg text-gray-300'>
                   {selectedType === 'founder'
                     ? 'Tell us about your startup and vision'
                     : 'Tell us about your investment focus and criteria'}
@@ -183,11 +183,11 @@ export default function UnifiedApplicationForm() {
                   <CheckCircle className='w-12 h-12 text-green-400' />
                 </motion.div>
 
-                <h1 className='font-serif text-4xl md:text-5xl font-bold text-white mb-6'>
+                <h1 className=' text-4xl md:text-5xl font-bold text-white mb-6'>
                   Application Submitted!
                 </h1>
 
-                <p className='font-serif text-xl text-gray-300 mb-8 leading-relaxed'>
+                <p className=' text-xl text-gray-300 mb-8 leading-relaxed'>
                   Thank you for your application. Our team will review it and
                   get back to you as soon as possible.
                 </p>
@@ -195,7 +195,7 @@ export default function UnifiedApplicationForm() {
                 <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                   <Button
                     onClick={() => (window.location.href = '/')}
-                    className='font-serif text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform'
+                    className=' text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform'
                   >
                     Back to Home
                   </Button>

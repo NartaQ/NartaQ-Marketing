@@ -2,14 +2,17 @@
 
 import { prisma } from '@/lib/prisma'
 import { queueInvestorConfirmation } from '@/lib/email-queue-service'
-import { sendAdminNotification } from '@/lib/email-service'
 import { z } from 'zod'
 
 const investorApplicationSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
   workEmail: z.string().email('Please enter a valid email address'),
-  companyName: z.string().min(1, 'Company/Firm name is required'),
-  title: z.string().min(1, 'Title is required'),
+  investorType: z.string().min(1, 'Please select an investor type'),
+  personalLinkedIn: z.string().optional().or(z.literal('')),
+  companyName: z.string().optional().or(z.literal('')),
+  title: z.string().optional().or(z.literal('')),
+  website: z.string().optional().or(z.literal('')),
+  companyLinkedIn: z.string().optional().or(z.literal('')),
   investmentFocus: z
     .array(z.string())
     .min(1, 'Please select at least one investment focus'),
@@ -18,8 +21,27 @@ const investorApplicationSchema = z.object({
   targetGeography: z
     .array(z.string())
     .min(1, 'Please select at least one target geography'),
+  otherGeography: z.string().optional(),
   referralSource: z.string().min(1, 'Please select a referral source'),
   otherSource: z.string().optional(),
+}).superRefine((data, ctx) => {
+  // If investor type is NOT Angel Investor, require company details
+  if (data.investorType !== 'Angel Investor') {
+    if (!data.companyName || data.companyName.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Company/Firm name is required for institutional investors',
+        path: ['companyName'],
+      })
+    }
+    if (!data.title || data.title.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Title is required for institutional investors',
+        path: ['title'],
+      })
+    }
+  }
 })
 
 export type InvestorApplicationData = z.infer<typeof investorApplicationSchema>
@@ -56,13 +78,18 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
     const validatedData = investorApplicationSchema.parse(data)
 
     // Check for existing application by name+company combination (final safeguard)
+    // Only check company name if investor is institutional (has company)
+    const whereClause = validatedData.companyName
+      ? {
+          AND: [
+            { fullName: validatedData.fullName },
+            { companyName: validatedData.companyName }
+          ]
+        }
+      : { fullName: validatedData.fullName }
+    
     const existingApplication = await prisma.investorApplication.findFirst({
-      where: {
-        AND: [
-          { fullName: validatedData.fullName },
-          { companyName: validatedData.companyName }
-        ]
-      }
+      where: whereClause
     })
 
     if (existingApplication) {
@@ -78,12 +105,17 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
       data: {
         fullName: validatedData.fullName,
         workEmail: validatedData.workEmail,
-        companyName: validatedData.companyName,
-        title: validatedData.title,
+        investorType: validatedData.investorType,
+        personalLinkedIn: validatedData.personalLinkedIn || undefined,
+        companyName: validatedData.companyName || undefined,
+        title: validatedData.title || undefined,
+        website: validatedData.website || undefined,
+        companyLinkedIn: validatedData.companyLinkedIn || undefined,
         investmentFocus: validatedData.investmentFocus,
         otherFocus: validatedData.otherFocus,
         ticketSize: validatedData.ticketSize,
         targetGeography: validatedData.targetGeography,
+        otherGeography: validatedData.otherGeography,
         referralSource: validatedData.referralSource,
         otherSource: validatedData.otherSource,
       },
@@ -104,19 +136,9 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
     queueInvestorConfirmation(
       validatedData.workEmail,
       validatedData.fullName,
-      validatedData.title
+      validatedData.investorType
     ).catch(error => {
       console.error('Failed to queue investor confirmation email:', error)
-    })
-
-    // Send admin notification (non-blocking)
-    sendAdminNotification('investor', {
-      name: validatedData.fullName,
-      email: validatedData.workEmail,
-      company: validatedData.companyName,
-      investorType: validatedData.title,
-    }).catch(error => {
-      console.error('Failed to send admin notification:', error)
     })
 
     return {

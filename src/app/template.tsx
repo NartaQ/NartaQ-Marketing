@@ -63,7 +63,12 @@ export default function Template({ children }: { children: React.ReactNode }) {
     const currentRoute = PAGE_ROUTES.find(
       (route) => route.pathname === pathname
     )
-    const name = currentRoute ? currentRoute.name : 'Not Found'
+    // Do a second pass to handle dynamic routes if needed (not implemented here)
+    const dynamicRoute = PAGE_ROUTES.find((route) =>
+      pathname.startsWith(route.pathname + '/')
+    )
+    const finalRoute = currentRoute || dynamicRoute
+    const name = finalRoute ? finalRoute.name : 'Not Found'
 
     setPageName(name)
 

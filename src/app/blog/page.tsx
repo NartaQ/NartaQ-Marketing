@@ -14,6 +14,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { client, urlFor } from '../../lib/sanity'
 import NewsletterSection from '@/components/pages/NewsletterSection'
+import BlogCTAButtons from '@/components/pages/BlogCTAButtons'
 
 export const metadata: Metadata = {
   title: 'Blog | NartaQ - Insights on AI-Powered Startup Funding',
@@ -115,7 +116,14 @@ function calculateReadingTime(body: any[]): number {
   return Math.max(1, Math.ceil(totalWords / wordsPerMinute))
 }
 
-export default async function BlogPage() {
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ category?: string }>
+}) {
+  const params = await searchParams
+  const selectedCategory = params?.category
+
   const posts: Post[] = await client.fetch(postsQuery)
 
   // Add reading time to posts
@@ -134,13 +142,20 @@ export default async function BlogPage() {
   const allCategories = postsWithReadingTime.reduce((acc: any[], post) => {
     if (post.categories) {
       post.categories.forEach((category) => {
-        if (!acc.find((c) => c.slug.current === category.slug.current)) {
+        if (category?.slug?.current && !acc.find((c) => c.slug.current === category.slug.current)) {
           acc.push(category)
         }
       })
     }
     return acc
   }, [])
+
+  // Filter posts by selected category
+  const filteredPosts = selectedCategory
+    ? postsWithReadingTime.filter((post) =>
+        post.categories?.some((cat) => cat?.slug?.current === selectedCategory)
+      )
+    : postsWithReadingTime
 
   return (
     <div className='min-h-screen bg-black text-white'>
@@ -214,42 +229,85 @@ export default async function BlogPage() {
           </div>
 
           {/* CTA Buttons */}
-          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-            <div className='relative group'>
-              <div className='absolute -inset-0.5 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200'></div>
-              <Link href='#latest' className='relative px-8 py-4 bg-black rounded-2xl leading-none flex items-center gap-3 text-[#dcd7ce] hover:text-white transition-colors'>
-                <Globe className='w-5 h-5' />
-                <span className='font-semibold'>Explore All Topics</span>
-              </Link>
-            </div>
-            <Link href='/apply' className='px-8 py-4 border border-[#a98b5d]/40 text-[#a98b5d] rounded-2xl hover:bg-[#a98b5d]/10 hover:border-[#a98b5d]/60 transition-all duration-300 flex items-center gap-3 font-semibold'>
-              <Target className='w-5 h-5' />
-              Subscribe to Updates
-            </Link>
-          </div>
+          <BlogCTAButtons />
         </div>
       </div>
 
       {/* Blog Posts Grid */}
-  <section id='latest' className='py-16 sm:py-24 bg-gradient-to-b from-[#0a0a0a] to-black'>
+      <section id='latest' className='py-16 sm:py-24 bg-gradient-to-b from-[#0a0a0a] to-black'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          {postsWithReadingTime.length > 0 ? (
+          {/* Category Filter */}
+          {allCategories.length > 0 && (
+            <div className='mb-12'>
+              <div className='flex flex-wrap justify-center gap-3'>
+                <Link
+                  href='/blog'
+                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                    !selectedCategory
+                      ? 'bg-[#a98b5d] text-black shadow-lg shadow-[#a98b5d]/30'
+                      : 'bg-[#1a1a1a]/60 border border-[#a98b5d]/20 text-[#dcd7ce] hover:border-[#a98b5d]/40 hover:bg-[#a98b5d]/10'
+                  }`}
+                >
+                  All Articles
+                </Link>
+                {allCategories.map((category) => (
+                  <Link
+                    key={category.slug.current}
+                    href={`/blog?category=${category.slug.current}`}
+                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                      selectedCategory === category.slug.current
+                        ? 'bg-[#a98b5d] text-black shadow-lg shadow-[#a98b5d]/30'
+                        : 'bg-[#1a1a1a]/60 border border-[#a98b5d]/20 text-[#dcd7ce] hover:border-[#a98b5d]/40 hover:bg-[#a98b5d]/10'
+                    }`}
+                  >
+                    {category.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {filteredPosts.length > 0 ? (
             <>
               <div className='text-center mb-16'>
                 <h2 className='text-4xl font-bold text-[#dcd7ce] mb-4'>
-                  Latest Articles
+                  {selectedCategory
+                    ? `${allCategories.find((c) => c.slug.current === selectedCategory)?.title || 'Filtered'} Articles`
+                    : 'Latest Articles'}
                 </h2>
                 <p className='text-[#dcd7ce]/60 text-lg max-w-2xl mx-auto'>
-                  Stay ahead of the curve with our latest insights and analysis
+                  {selectedCategory
+                    ? `Showing ${filteredPosts.length} article${filteredPosts.length !== 1 ? 's' : ''} in this category`
+                    : 'Stay ahead of the curve with our latest insights and analysis'}
                 </p>
               </div>
 
               <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
-                {postsWithReadingTime.map((post, index) => (
+                {filteredPosts.map((post, index) => (
                   <PostCard key={post._id} post={post} index={index} />
                 ))}
               </div>
             </>
+          ) : selectedCategory ? (
+            <div className='text-center py-24'>
+              <div className='relative mb-8'>
+                <div className='w-24 h-24 mx-auto rounded-3xl bg-gradient-to-br from-[#a98b5d]/30 via-[#a98b5d]/10 to-transparent flex items-center justify-center border border-[#a98b5d]/20'>
+                  <BookOpen className='w-12 h-12 text-[#a98b5d]' />
+                </div>
+              </div>
+              <h3 className='text-3xl font-bold text-[#dcd7ce] mb-6'>
+                No Articles in This Category Yet
+              </h3>
+              <p className='text-[#dcd7ce]/70 text-lg max-w-md mx-auto mb-8 leading-relaxed'>
+                We're working on content for this topic. Check back soon or explore other categories!
+              </p>
+              <Link
+                href='/blog'
+                className='inline-block px-6 py-3 bg-[#a98b5d] text-black rounded-xl font-semibold hover:bg-[#dcd7ce] transition-colors'
+              >
+                View All Articles
+              </Link>
+            </div>
           ) : (
             <div className='text-center py-24'>
               <div className='relative mb-8'>

@@ -161,7 +161,7 @@ export default function Header({
                 handleNavigation(e, '/apply')
               }
             >
-              Join Founding Cohort
+              Get Early Access
             </NavbarButton>
           </div>
         </div>

@@ -7,28 +7,37 @@
  */
 
 import sgMail from '@sendgrid/mail'
-import {
-  newsletterWelcomeEmail,
-  founderApplicationConfirmation,
-  investorApplicationConfirmation,
-  careerApplicationConfirmation,
-  adminApplicationNotification,
-} from './email-templates-enhanced'
+import nodemailer from 'nodemailer'
+import { emailTemplateLoader } from './email-template-loader'
 
 // Email configuration from environment
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
 const FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || 'noreply@nartaq.com'
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@nartaq.com'
+
+// SMTP configuration for local development (Mailpit)
+const SMTP_HOST = process.env.SMTP_HOST || 'localhost'
+const SMTP_PORT = parseInt(process.env.SMTP_PORT || '1025', 10)
 
 // Initialize SendGrid if API key is available (production)
 if (SENDGRID_API_KEY) {
   sgMail.setApiKey(SENDGRID_API_KEY)
+  console.log('📧 Email service: SendGrid (production)')
 } else {
-  console.warn(
-    '⚠️  Email service not fully configured. Using development mode. ' +
-    'Set SENDGRID_API_KEY for production email sending.'
+  console.log(
+    `📧 Email service: Mailpit (development) at ${SMTP_HOST}:${SMTP_PORT}\n` +
+    `   View emails at http://localhost:8025`
   )
 }
+
+// Create nodemailer transporter for local development
+const smtpTransporter = nodemailer.createTransport({
+  host: SMTP_HOST,
+  port: SMTP_PORT,
+  secure: false, // Mailpit doesn't use TLS
+  tls: {
+    rejectUnauthorized: false
+  }
+})
 
 interface EmailOptions {
   to: string | string[]
@@ -47,18 +56,30 @@ async function sendEmail(options: EmailOptions): Promise<{
   error?: string
   messageId?: string
 }> {
-  // Check if email service is configured
-  if (!SENDGRID_API_KEY) {
-    console.log('📧 Email sending skipped (email service not configured):', {
-      to: options.to,
-      subject: options.subject,
-    })
+  try {
+    // Use SendGrid in production, Mailpit in development
+    if (SENDGRID_API_KEY) {
+      return await sendViaSendGrid(options)
+    } else {
+      return await sendViaMailpit(options)
+    }
+  } catch (error) {
+    console.error('❌ Error sending email:', error)
     return {
       success: false,
-      error: 'Email service not configured',
+      error: error instanceof Error ? error.message : 'Failed to send email',
     }
   }
+}
 
+/**
+ * Send email via SendGrid (production)
+ */
+async function sendViaSendGrid(options: EmailOptions): Promise<{
+  success: boolean
+  error?: string
+  messageId?: string
+}> {
   try {
     const msg = {
       to: options.to,
@@ -71,7 +92,7 @@ async function sendEmail(options: EmailOptions): Promise<{
 
     const [response] = await sgMail.send(msg)
 
-    console.log('✅ Email sent successfully:', {
+    console.log('✅ Email sent via SendGrid:', {
       to: options.to,
       subject: options.subject,
       statusCode: response.statusCode,
@@ -83,9 +104,9 @@ async function sendEmail(options: EmailOptions): Promise<{
       messageId: response.headers['x-message-id'] as string,
     }
   } catch (error) {
-    console.error('❌ Error sending email:', error)
+    console.error('❌ SendGrid error:', error)
     
-    let errorMessage = 'Failed to send email'
+    let errorMessage = 'Failed to send email via SendGrid'
     if (error && typeof error === 'object' && 'response' in error) {
       const sgError = error as { response?: { body?: { errors?: Array<{ message: string }> } } }
       errorMessage = sgError.response?.body?.errors?.[0]?.message || errorMessage
@@ -94,6 +115,44 @@ async function sendEmail(options: EmailOptions): Promise<{
     return {
       success: false,
       error: errorMessage,
+    }
+  }
+}
+
+/**
+ * Send email via Mailpit (local development)
+ */
+async function sendViaMailpit(options: EmailOptions): Promise<{
+  success: boolean
+  error?: string
+  messageId?: string
+}> {
+  try {
+    const info = await smtpTransporter.sendMail({
+      from: options.from || FROM_EMAIL,
+      to: Array.isArray(options.to) ? options.to.join(', ') : options.to,
+      subject: options.subject,
+      html: options.html,
+      text: options.text || stripHtml(options.html),
+      replyTo: options.replyTo,
+    })
+
+    console.log('✅ Email sent via Mailpit:', {
+      to: options.to,
+      subject: options.subject,
+      messageId: info.messageId,
+      preview: `http://localhost:8025`,
+    })
+
+    return {
+      success: true,
+      messageId: info.messageId,
+    }
+  } catch (error) {
+    console.error('❌ Mailpit error:', error)
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Failed to send email via Mailpit',
     }
   }
 }
@@ -124,7 +183,7 @@ export async function sendNewsletterWelcome(
   return sendEmail({
     to: email,
     subject: 'Welcome to NartaQ Community 🎉',
-    html: newsletterWelcomeEmail(name),
+    html: emailTemplateLoader.renderNewsletterWelcome({ name: name || 'there' }),
     replyTo: 'contact@nartaq.com',
   })
 }
@@ -140,7 +199,7 @@ export async function sendFounderConfirmation(
   return sendEmail({
     to: email,
     subject: `Application Received for ${companyName} ✓`,
-    html: founderApplicationConfirmation(founderName, companyName),
+    html: emailTemplateLoader.renderFounderConfirmation({ founderName, companyName }),
     replyTo: 'founders@nartaq.com',
   })
 }
@@ -156,7 +215,7 @@ export async function sendInvestorConfirmation(
   return sendEmail({
     to: email,
     subject: 'Welcome to NartaQ Investor Network ✓',
-    html: investorApplicationConfirmation(investorName, investorType),
+    html: emailTemplateLoader.renderInvestorConfirmation({ investorName, investorType }),
     replyTo: 'investors@nartaq.com',
   })
 }
@@ -172,41 +231,8 @@ export async function sendCareerConfirmation(
   return sendEmail({
     to: email,
     subject: `Application Received for ${position} ✓`,
-    html: careerApplicationConfirmation(applicantName, position),
+    html: emailTemplateLoader.renderCareerConfirmation({ applicantName, position }),
     replyTo: 'careers@nartaq.com',
-  })
-}
-
-/**
- * Send admin notification for new applications
- */
-export async function sendAdminNotification(
-  type: 'founder' | 'investor' | 'career',
-  details: {
-    name: string
-    email: string
-    company?: string
-    position?: string
-    investorType?: string
-  }
-): Promise<{ success: boolean; error?: string }> {
-  const subjects = {
-    founder: `New Founder Application: ${details.company || details.name}`,
-    investor: `New Investor Application: ${details.name}`,
-    career: `New Career Application: ${details.position || details.name}`,
-  }
-
-  // Extract relevant details for template
-  const additionalDetails: Record<string, string> = {}
-  if (details.company) additionalDetails.company = details.company
-  if (details.position) additionalDetails.position = details.position
-  if (details.investorType) additionalDetails['investor type'] = details.investorType
-
-  return sendEmail({
-    to: ADMIN_EMAIL,
-    subject: subjects[type],
-    html: adminApplicationNotification(type, details),
-    replyTo: details.email,
   })
 }
 
@@ -223,18 +249,6 @@ export async function sendBulkEmails(
   failed: number
   errors: Array<{ email: string; error: string }>
 }> {
-  if (!SENDGRID_API_KEY) {
-    return {
-      success: false,
-      sent: 0,
-      failed: recipients.length,
-      errors: recipients.map(r => ({
-        email: r.email,
-        error: 'Email service not configured',
-      })),
-    }
-  }
-
   const results = await Promise.allSettled(
     recipients.map(recipient =>
       sendEmail({
@@ -276,11 +290,13 @@ export function verifyEmailConfig(): {
   configured: boolean
   apiKeySet: boolean
   fromEmailSet: boolean
+  mode: 'sendgrid' | 'mailpit'
 } {
   return {
-    configured: !!SENDGRID_API_KEY,
+    configured: true, // Always configured (either SendGrid or Mailpit)
     apiKeySet: !!SENDGRID_API_KEY,
     fromEmailSet: !!FROM_EMAIL,
+    mode: SENDGRID_API_KEY ? 'sendgrid' : 'mailpit',
   }
 }
 

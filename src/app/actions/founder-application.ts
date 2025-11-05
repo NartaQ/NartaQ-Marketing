@@ -2,14 +2,15 @@
 
 import { prisma } from '@/lib/prisma'
 import { queueFounderConfirmation } from '@/lib/email-queue-service'
-import { sendAdminNotification } from '@/lib/email-service'
 import { z } from 'zod'
 
 const founderApplicationSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
   workEmail: z.string().email('Please enter a valid email address'),
+  founderLinkedIn: z.string().optional().or(z.literal('')),
   companyName: z.string().min(1, 'Company name is required'),
-  website: z.string().url('Please enter a valid website URL'),
+  website: z.string().optional().or(z.literal('')),
+  companyLinkedIn: z.string().optional().or(z.literal('')),
   sector: z.array(z.string()).min(1, 'Please select at least one sector'),
   otherSector: z.string().optional(),
   fundingStage: z.string().min(1, 'Please select a funding stage'),
@@ -18,7 +19,7 @@ const founderApplicationSchema = z.object({
     .string()
     .min(10, 'Please provide a short pitch (minimum 10 characters)')
     .max(300, 'Pitch must be under 300 characters'),
-  pitchDeckUrl: z.string().optional(),
+  pitchDeckUrl: z.string().optional().or(z.literal('')),
 })
 
 export type FounderApplicationData = z.infer<typeof founderApplicationSchema>
@@ -79,14 +80,16 @@ export async function submitFounderApplication(
       data: {
         fullName: validatedData.fullName,
         workEmail: validatedData.workEmail,
+        founderLinkedIn: validatedData.founderLinkedIn || undefined,
         companyName: validatedData.companyName,
-        website: validatedData.website,
+        website: validatedData.website || undefined,
+        companyLinkedIn: validatedData.companyLinkedIn || undefined,
         sector: validatedData.sector,
         otherSector: validatedData.otherSector,
         fundingStage: validatedData.fundingStage,
         location: validatedData.location,
         shortPitch: validatedData.shortPitch,
-        pitchDeckUrl: validatedData.pitchDeckUrl,
+        pitchDeckUrl: validatedData.pitchDeckUrl || undefined,
       },
     })
 
@@ -103,22 +106,13 @@ export async function submitFounderApplication(
       console.warn('Analytics tracking failed for founder application completion:', analyticsError)
     }
 
-    // Queue confirmation email for founder (processed in background)
+    // Queue confirmation email (non-blocking)
     queueFounderConfirmation(
       validatedData.workEmail,
       validatedData.fullName,
       validatedData.companyName
     ).catch(error => {
       console.error('Failed to queue founder confirmation email:', error)
-    })
-
-    // Send admin notification (non-blocking)
-    sendAdminNotification('founder', {
-      name: validatedData.fullName,
-      email: validatedData.workEmail,
-      company: validatedData.companyName,
-    }).catch(error => {
-      console.error('Failed to send admin notification:', error)
     })
 
     return {

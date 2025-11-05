@@ -3,6 +3,26 @@ import '@testing-library/jest-dom'
 // Mock React
 const React = require('react')
 
+// Mock analytics
+jest.mock('@/lib/analytics/unified-tracker', () => ({
+  trackFormStart: jest.fn().mockResolvedValue(undefined),
+  trackFormComplete: jest.fn().mockResolvedValue(undefined),
+  trackFormError: jest.fn().mockResolvedValue(undefined),
+}))
+
+// Mock email queue service
+jest.mock('@/lib/email-queue-service', () => ({
+  queueWelcomeEmail: jest.fn().mockResolvedValue(undefined),
+  queueFounderConfirmation: jest.fn().mockResolvedValue(undefined),
+  queueInvestorConfirmation: jest.fn().mockResolvedValue(undefined),
+  queueCareerConfirmation: jest.fn().mockResolvedValue(undefined),
+  processEmailQueue: jest.fn().mockResolvedValue({ processed: 0, sent: 0, failed: 0 }),
+  getQueueStats: jest.fn().mockResolvedValue({ pending: 0, sent: 0, failed: 0, total: 0 }),
+}))
+
+// Mock email template loader
+jest.mock('@/lib/email-template-loader')
+
 // Mock framer-motion
 jest.mock('framer-motion', () => ({
   motion: {

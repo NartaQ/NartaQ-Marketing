@@ -17,6 +17,7 @@
 
 import { prisma } from '@/lib/prisma'
 import { sendEmail } from '@/lib/email-service'
+import { emailTemplateLoader } from './email-template-loader'
 
 interface QueueEmailOptions {
   to: string
@@ -162,12 +163,10 @@ export async function processEmailQueue(maxBatch = 10): Promise<{
  * Queue a welcome email for new newsletter subscriber
  */
 export async function queueWelcomeEmail(email: string, name?: string): Promise<void> {
-  const { newsletterWelcomeEmail } = await import('@/lib/email-templates-enhanced')
-  
   await queueEmail({
     to: email,
     subject: 'Welcome to NartaQ Community 🎉',
-    htmlContent: newsletterWelcomeEmail(name),
+    htmlContent: emailTemplateLoader.renderNewsletterWelcome({ name: name || 'there' }),
     type: 'welcome',
   })
 }
@@ -180,12 +179,10 @@ export async function queueFounderConfirmation(
   name: string,
   company: string
 ): Promise<void> {
-  const { founderApplicationConfirmation } = await import('@/lib/email-templates-enhanced')
-  
   await queueEmail({
     to: email,
     subject: `Application Received for ${company} ✓`,
-    htmlContent: founderApplicationConfirmation(name, company),
+    htmlContent: emailTemplateLoader.renderFounderConfirmation({ founderName: name, companyName: company }),
     type: 'confirmation',
   })
 }
@@ -198,12 +195,10 @@ export async function queueInvestorConfirmation(
   name: string,
   investorType: string
 ): Promise<void> {
-  const { investorApplicationConfirmation } = await import('@/lib/email-templates-enhanced')
-  
   await queueEmail({
     to: email,
     subject: 'Welcome to NartaQ Investor Network ✓',
-    htmlContent: investorApplicationConfirmation(name, investorType),
+    htmlContent: emailTemplateLoader.renderInvestorConfirmation({ investorName: name, investorType }),
     type: 'confirmation',
   })
 }
@@ -216,12 +211,10 @@ export async function queueCareerConfirmation(
   name: string,
   position: string
 ): Promise<void> {
-  const { careerApplicationConfirmation } = await import('@/lib/email-templates-enhanced')
-  
   await queueEmail({
     to: email,
     subject: `Application Received for ${position} ✓`,
-    htmlContent: careerApplicationConfirmation(name, position),
+    htmlContent: emailTemplateLoader.renderCareerConfirmation({ applicantName: name, position }),
     type: 'confirmation',
   })
 }

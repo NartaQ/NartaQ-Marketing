@@ -24,9 +24,8 @@ describe('SendGrid Email Service', () => {
   let sendFounderConfirmation: any
   let sendInvestorConfirmation: any
   let sendCareerConfirmation: any
-  let sendAdminNotification: any
   let sendBulkEmails: any
-  let verifySendGridConfig: any
+  let verifyEmailConfig: any
   let sendTestEmail: any
 
   beforeAll(async () => {
@@ -56,9 +55,8 @@ describe('SendGrid Email Service', () => {
     sendFounderConfirmation = module.sendFounderConfirmation
     sendInvestorConfirmation = module.sendInvestorConfirmation
     sendCareerConfirmation = module.sendCareerConfirmation
-    sendAdminNotification = module.sendAdminNotification
     sendBulkEmails = module.sendBulkEmails
-    verifySendGridConfig = module.verifySendGridConfig
+    verifyEmailConfig = module.verifyEmailConfig
     sendTestEmail = module.sendTestEmail
   })
 
@@ -69,21 +67,24 @@ describe('SendGrid Email Service', () => {
 
   describe('Configuration', () => {
     it('should verify SendGrid configuration when API key is set', () => {
-      const config = verifySendGridConfig()
+      const config = verifyEmailConfig()
       
       expect(config.configured).toBe(true)
       expect(config.apiKeySet).toBe(true)
       expect(config.fromEmailSet).toBe(true)
+      expect(config.mode).toBe('sendgrid')
     })
 
     it('should detect missing API key', async () => {
       // Note: Due to module-level initialization, this test shows the configuration
-      // status at module load time. In practice, missing API key prevents email sends.
-      const config = verifySendGridConfig()
+      // status at module load time. In practice, missing API key switches to Mailpit.
+      const config = verifyEmailConfig()
       
       // The config reflects what was set when module was loaded
       expect(config).toBeDefined()
       expect(config.apiKeySet).toBeDefined()
+      expect(config.configured).toBe(true) // Always configured (SendGrid or Mailpit)
+      expect(config.mode).toBeDefined()
     })
   })
 
@@ -130,7 +131,7 @@ describe('SendGrid Email Service', () => {
       const result = await sendNewsletterWelcome('test@example.com', 'John')
 
       expect(result.success).toBe(false)
-      expect(result.error).toBe('Failed to send email')
+      expect(result.error).toBe('Failed to send email via SendGrid')
     })
   })
 
@@ -212,78 +213,6 @@ describe('SendGrid Email Service', () => {
     })
   })
 
-  describe('Admin Notifications', () => {
-    it('should send founder admin notification', async () => {
-      mockSend.mockResolvedValueOnce([
-        {
-          statusCode: 202,
-          headers: { 'x-message-id': 'admin-msg-id' },
-        },
-      ])
-
-      const result = await sendAdminNotification('founder', {
-        name: 'Jane Founder',
-        email: 'founder@example.com',
-        company: 'TechCo',
-      })
-
-      expect(result.success).toBe(true)
-      expect(mockSend).toHaveBeenCalledWith(
-        expect.objectContaining({
-          to: 'admin@nartaq.com',
-          subject: 'New Founder Application: TechCo',
-          replyTo: 'founder@example.com',
-        })
-      )
-    })
-
-    it('should send investor admin notification', async () => {
-      mockSend.mockResolvedValueOnce([
-        {
-          statusCode: 202,
-          headers: { 'x-message-id': 'admin-msg-id' },
-        },
-      ])
-
-      const result = await sendAdminNotification('investor', {
-        name: 'Bob Investor',
-        email: 'investor@example.com',
-        investorType: 'VC',
-      })
-
-      expect(result.success).toBe(true)
-      expect(mockSend).toHaveBeenCalledWith(
-        expect.objectContaining({
-          to: 'admin@nartaq.com',
-          subject: 'New Investor Application: Bob Investor',
-        })
-      )
-    })
-
-    it('should send career admin notification', async () => {
-      mockSend.mockResolvedValueOnce([
-        {
-          statusCode: 202,
-          headers: { 'x-message-id': 'admin-msg-id' },
-        },
-      ])
-
-      const result = await sendAdminNotification('career', {
-        name: 'Alice Applicant',
-        email: 'alice@example.com',
-        position: 'Designer',
-      })
-
-      expect(result.success).toBe(true)
-      expect(mockSend).toHaveBeenCalledWith(
-        expect.objectContaining({
-          to: 'admin@nartaq.com',
-          subject: 'New Career Application: Designer',
-        })
-      )
-    })
-  })
-
   describe('Bulk Emails', () => {
     it('should send bulk emails successfully', async () => {
       mockSend
@@ -346,7 +275,7 @@ describe('SendGrid Email Service', () => {
     })
 
     it('should skip bulk emails when SendGrid not configured', async () => {
-      // Mock sendGrid to simulate missing API key behavior
+      // With Mailpit, emails should still be sent even without SendGrid
       mockSend.mockRejectedValueOnce(new Error('API key not configured'))
       
       const recipients = [{ email: 'user1@example.com', name: 'User 1' }]
@@ -379,7 +308,7 @@ describe('SendGrid Email Service', () => {
       expect(mockSend).toHaveBeenCalledWith(
         expect.objectContaining({
           to: 'test@example.com',
-          subject: 'NartaQ SendGrid Test Email',
+          subject: 'NartaQ Email Service Test',
         })
       )
     })
@@ -407,11 +336,11 @@ describe('SendGrid Email Service', () => {
       const result = await sendNewsletterWelcome('test@example.com', 'John')
 
       expect(result.success).toBe(false)
-      expect(result.error).toBe('Failed to send email')
+      expect(result.error).toBe('Failed to send email via SendGrid')
     })
 
     it('should skip sending when API key is missing', async () => {
-      // Mock to simulate API key error
+      // With Mailpit integration, emails will be sent to local SMTP instead
       mockSend.mockRejectedValueOnce({
         response: {
           body: {

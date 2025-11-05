@@ -6,7 +6,7 @@ import { schemaTypes } from './schemaTypes'
 export default defineConfig({
   name: 'default',
   title: 'NartaQ Marketing Website',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
+  projectId: 'kdmsve3e',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],

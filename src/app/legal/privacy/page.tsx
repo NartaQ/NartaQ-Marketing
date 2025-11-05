@@ -202,10 +202,10 @@ export default function PrivacyPolicyPage() {
                 <section id="intro" className="scroll-mt-32">
                   <div className="bg-gradient-to-r from-blue-500/10 to-blue-600/10 border border-blue-500/30 rounded-xl p-6 mb-8">
                     <h2 className="text-2xl font-bold text-[#dcd7ce] mb-4">
-                      Privacy Notice for NartaQ SA
+                      Privacy Notice for NartaQ SAS
                     </h2>
                     <p className="text-gray-300 leading-relaxed mb-4">
-                      This Privacy Notice for NartaQ SA (doing business as
+                      This Privacy Notice for NartaQ SAS (doing business as
                       NartaQ) ("we," "us," or "our"), describes how and why we
                       might access, collect, store, use, and/or share
                       ("process") your personal information when you use our
@@ -217,7 +217,7 @@ export default function PrivacyPolicyPage() {
                         website of ours that links to this Privacy Notice
                       </li>
                       <li>
-                        • Use NartaQ. NartaQ is a protocol that uses AI for
+                        • Use NartaQ. NartaQ is a venture capital platform that uses AI for
                         high-signal matching and provides the legal tools for
                         seamless execution. Smarter Matching: Our AI analyzes
                         founder and investor DNA to facilitate perfect,
@@ -1157,10 +1157,10 @@ export default function PrivacyPolicyPage() {
                         children under age 18, please contact us at{" "}
                         <Link
                           title='Send Privacy & Data Protection Inquiries'
-                          href="mailto:riadh@nartaq.com"
+                          href="mailto:riadh.jouini@nartaq.com"
                           className="text-[#a98b5d] hover:underline"
                         >
-                          riadh@nartaq.com
+                          riadh.jouini@nartaq.com
                         </Link>
                         .
                       </p>
@@ -1363,22 +1363,23 @@ export default function PrivacyPolicyPage() {
                         may contact our Data Protection Officer (DPO) by email
                         at{" "}
                         <Link
-                          href="mailto:riadh@nartaq.com"
+                          href="mailto:riadh.jouini@nartaq.com"
                           className="text-[#a98b5d] hover:underline"
                         >
-                          riadh@nartaq.com
+                          riadh.jouini@nartaq.com
                         </Link>
                         , by phone at +33.784616068, or contact us by post at:
                       </p>
 
                       <div className="bg-[#0a0a0a]/50 border border-[#a98b5d]/10 rounded-lg p-4">
                         <p className="font-semibold text-[#a98b5d] mb-2">
-                          NartaQ SA
+                          NartaQ SAS
                         </p>
                         <p>Data Protection Officer</p>
-                        <p>14 Boulevard Victor Schoelcher</p>
-                        <p>Lieusaint, Seine-et-Marne 77127</p>
+                        <p>60 rue François 1er</p>
+                        <p>75008 Paris</p>
                         <p>France</p>
+                        <p className="text-xs mt-2">RCS Paris 992 848 242</p>
                       </div>
 
                       <p>
@@ -1389,10 +1390,10 @@ export default function PrivacyPolicyPage() {
                         processing of your information, by email at{" "}
                         <Link
                           title='Send Privacy & Data Protection Inquiries'
-                          href="mailto:riadh@nartaq.com"
+                          href="mailto:riadh.jouini@nartaq.com"
                           className="text-[#a98b5d] hover:underline"
                         >
-                          riadh@nartaq.com
+                          riadh.jouini@nartaq.com
                         </Link>
                         , by visiting{" "}
                         <Link
@@ -1451,7 +1452,7 @@ export default function PrivacyPolicyPage() {
                       This Privacy Policy was last updated on August 24, 2025,
                       and governs the collection and processing of personal
                       information in connection with NartaQ's AI-powered
-                      protocol for startup funding.
+                      platform for startup funding.
                     </p>
                     <div className="flex flex-wrap gap-4 text-xs text-gray-400">
                       <Link
@@ -1468,7 +1469,7 @@ export default function PrivacyPolicyPage() {
                       >
                         DMCA Policy
                       </Link>
-                      <span>© 2025 NartaQ SA. All rights reserved.</span>
+                      <span>© 2025 NartaQ SAS. All rights reserved.</span>
                     </div>
                   </div>
                 </div>

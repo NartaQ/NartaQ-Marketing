@@ -3,16 +3,19 @@
 import { useEffect, useState, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
-import { X } from 'lucide-react'
-import Link from 'next/link'
 import Header from './Header'
 import Nav from '../sideNavBar/SideNav'
+import Banner from '../layout/Banner'
+import { type BannerSettings } from '@/app/actions/banner-settings'
 
-export default function UnifiedNavigation() {
+interface UnifiedNavigationProps {
+  bannerSettings: BannerSettings
+}
+
+export default function UnifiedNavigation({ bannerSettings }: UnifiedNavigationProps) {
   const [scrollY, setScrollY] = useState(0)
   const [isNavOpen, setIsNavOpen] = useState(false)
   const [showFloatingNav, setShowFloatingNav] = useState(false)
-  const [isBannerVisible, setIsBannerVisible] = useState(true)
   const pathname = usePathname()
   const scrollPositionRef = useRef(0)
 
@@ -67,33 +70,13 @@ export default function UnifiedNavigation() {
     }
   }, [isNavOpen])
 
+  // Check if banner is enabled for layout calculations
+  const showBanner = bannerSettings?.bannerEnabled
+
   return (
     <>
-      {/* Hiring Banner */}
-      {isBannerVisible && (
-        <div className="fixed top-0 left-0 right-0 z-[100] bg-[var(--lion)] text-black">
-          <div className="relative flex items-center justify-center px-4 py-2 text-sm font-medium">
-            <div className="flex items-center gap-2">
-              <span className="hidden sm:inline">🚀</span>
-              <span>We're Hiring!</span>
-              <Link 
-                href="/careers"
-                className="underline hover:no-underline transition-all duration-200 font-semibold hover:opacity-80"
-              >
-                Join our team
-              </Link>
-            </div>
-            
-            <button
-              onClick={() => setIsBannerVisible(false)}
-              className="absolute right-2 p-1 hover:bg-black/10 rounded-full transition-colors duration-200"
-              aria-label="Close banner"
-            >
-              <X size={16} />
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Dynamic Banner */}
+      <Banner settings={bannerSettings} />
 
       {/* Header - only show when at top of page and nav is not open */}
       <motion.div
@@ -109,7 +92,7 @@ export default function UnifiedNavigation() {
         className='fixed left-0 right-0 z-50'
         style={{ 
           minHeight: 'var(--header-height)',
-          top: isBannerVisible ? 'var(--banner-height)' : '0'
+          top: showBanner ? 'var(--banner-height)' : '0'
         }}
       >
         <Header
@@ -130,7 +113,7 @@ export default function UnifiedNavigation() {
           ease: [0.25, 0.46, 0.45, 0.94],
         }}
         className={`fixed right-4 sm:right-6 md:right-8 z-50 ${
-          isBannerVisible ? 'top-[calc(1rem+var(--banner-height))] sm:top-[calc(1.5rem+var(--banner-height))] md:top-[calc(2rem+var(--banner-height))]' : 'top-4 sm:top-6 md:top-8'
+          showBanner ? 'top-[calc(1rem+var(--banner-height))] sm:top-[calc(1.5rem+var(--banner-height))] md:top-[calc(2rem+var(--banner-height))]' : 'top-4 sm:top-6 md:top-8'
         }`}
         style={{
           pointerEvents: showFloatingNav || isNavOpen ? 'auto' : 'none',

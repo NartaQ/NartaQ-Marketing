@@ -73,7 +73,7 @@ html {
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
   margin: 0px;
@@ -227,14 +227,13 @@ body:not(.nav-open)::after {
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply font-sans bg-background text-foreground;
   }
 }
 
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: var(--font-serif);
 }
 
