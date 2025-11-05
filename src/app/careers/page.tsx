@@ -251,33 +251,6 @@ export default async function CareersPage() {
           </div>
         </div>
       </div>
-
-      {/* Enhanced Grid Pattern Styles */}
-      <style jsx>{`
-        .grid-pattern {
-          background-image: radial-gradient(
-            rgba(169, 139, 93, 0.1) 1px,
-            transparent 1px
-          );
-          background-size: 40px 40px;
-          animation: float 20s ease-in-out infinite;
-        }
-        .glow-text {
-          text-shadow:
-            0 0 20px rgba(169, 139, 93, 0.5),
-            0 0 40px rgba(169, 139, 93, 0.3),
-            0 0 60px rgba(169, 139, 93, 0.1);
-        }
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-10px) rotate(1deg);
-          }
-        }
-      `}</style>
     </div>
   )
 }
