@@ -50,14 +50,14 @@ describe('SendGrid Email Service', () => {
     }
 
     // Dynamically import the service after env is set
-    const module = await import('../email-service')
-    sendNewsletterWelcome = module.sendNewsletterWelcome
-    sendFounderConfirmation = module.sendFounderConfirmation
-    sendInvestorConfirmation = module.sendInvestorConfirmation
-    sendCareerConfirmation = module.sendCareerConfirmation
-    sendBulkEmails = module.sendBulkEmails
-    verifyEmailConfig = module.verifyEmailConfig
-    sendTestEmail = module.sendTestEmail
+    const emailServiceModule = await import('../email-service')
+    sendNewsletterWelcome = emailServiceModule.sendNewsletterWelcome
+    sendFounderConfirmation = emailServiceModule.sendFounderConfirmation
+    sendInvestorConfirmation = emailServiceModule.sendInvestorConfirmation
+    sendCareerConfirmation = emailServiceModule.sendCareerConfirmation
+    sendBulkEmails = emailServiceModule.sendBulkEmails
+    verifyEmailConfig = emailServiceModule.verifyEmailConfig
+    sendTestEmail = emailServiceModule.sendTestEmail
   })
 
   afterAll(() => {
