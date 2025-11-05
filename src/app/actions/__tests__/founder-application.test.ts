@@ -50,7 +50,7 @@ describe('submitFounderApplication', () => {
     fullName: string
     workEmail: string
     companyName: string
-    website: string
+    website: string | null
     sector: string[]
     fundingStage: string
     location: string
@@ -148,6 +148,28 @@ describe('submitFounderApplication', () => {
       expect(prismaMock.founderApplication.create).toHaveBeenCalledWith({
         data: expect.objectContaining({
           sector: ['Tech', 'Fintech', 'AI/ML', 'SaaS'],
+        }),
+      })
+    })
+
+    it('should accept application without website (optional field)', async () => {
+      const dataWithoutWebsite = {
+        ...validFounderData,
+        website: '',
+      }
+
+      const mockApplication = createMockApplication({
+        website: null,
+      })
+
+      prismaMock.founderApplication.create.mockResolvedValue(mockApplication)
+
+      const result = await submitFounderApplication(dataWithoutWebsite)
+
+      expect(result.success).toBe(true)
+      expect(prismaMock.founderApplication.create).toHaveBeenCalledWith({
+        data: expect.objectContaining({
+          website: undefined,
         }),
       })
     })
