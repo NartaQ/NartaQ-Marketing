@@ -38,7 +38,7 @@ model InvestorApplication {
   id               String   @id @default(cuid())
   fullName         String
   workEmail        String
-  investorType     String // Angel Investor, VC, PE, etc.
+  investorType     String   @default("investor") // Angel Investor, VC, PE, etc.
   personalLinkedIn String? // Investor's personal LinkedIn
   companyName      String? // Optional for angel investors
   title            String? // Optional for angel investors
