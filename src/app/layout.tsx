@@ -4,7 +4,7 @@ import Footer from "@/components/pages/Footer";
 import IntercomProvider from "@/components/lazyLoadIntercom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Playfair_Display, Source_Sans_3 } from "next/font/google";
+import { Montserrat, Playfair_Display,  } from "next/font/google";
 import "./globals.css";
 import {
   organizationSchema,
@@ -17,8 +17,9 @@ import LenisProvider from "@/components/pages/LenisProvider";
 import AnalyticsProvider from "@/components/analytics/PostHogProvider";
 import { CookieConsentBanner } from "@/lib/cookie-consent";
 import "@/lib/app-bootstrap"; // Initialize app utilities
+import { getBannerSettings } from "@/app/actions/banner-settings";
 
-const fontSans = Playfair_Display({
+const fontSerif = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
   preload: true, // Enable preloading for critical font
@@ -26,7 +27,7 @@ const fontSans = Playfair_Display({
   display: "swap", // Add font-display: swap
 });
 
-const fontMono = Source_Sans_3({
+const fontSans = Montserrat({
   subsets: ["latin"],
   variable: "--font-sans",
   preload: true, // Enable preloading for critical font
@@ -36,14 +37,14 @@ const fontMono = Source_Sans_3({
 export const metadata: Metadata = {
   title: {
     default:
-      "NartaQ - The AI-Powered Protocol for Startup Funding | Venture Matchmaking",
+      "NartaQ - AI-Powered Venture Capital Platform | Startup Funding & Investor Matching",
     template: "",
   },
   description:
-    "AI-powered venture matchmaking protocol connecting founders with the right investors through automated deal execution and guided closing.",
+    "AI-powered venture capital platform connecting founders with the right investors. Modern AngelList alternative with automated deal execution and guided closing.",
   keywords: [
     "AI venture matching",
-    "startup funding protocol",
+    "venture capital platform",
     "venture capital automation",
     "dealflow matching",
     "startup investor matching",
@@ -103,11 +104,14 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Fetch banner settings server-side
+  const bannerSettings = await getBannerSettings()
+  
   return (
     <html lang="en" className="dark lenis" suppressHydrationWarning>
       <head>
@@ -158,16 +162,6 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Meta Pixel Code */}
-
-        {/* HubSpot Tracking Code */}
-        <Script
-          id="hubspot-tracking"
-          strategy="afterInteractive"
-          src="//js-eu1.hs-scripts.com/146926945.js"
-          async
-          defer
-        />
-        {/* End HubSpot Tracking Code */}
 
         {/* LinkedIn Insight Tag */}
         <Script
@@ -225,7 +219,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`w-screen overflow-x-hidden ${fontSans.variable} ${fontMono.variable} antialiased bg-black text-white`}
+        className={`w-screen overflow-x-hidden ${fontSerif.variable} ${fontSans.variable} antialiased bg-black text-white`}
       >
         <Script
           id="deferred-google-analytics"
@@ -285,7 +279,7 @@ export default function RootLayout({
         <SpeedInsights />
         <AnalyticsProvider />
         <LenisProvider>
-          <UnifiedNavigation />
+          <UnifiedNavigation bannerSettings={bannerSettings} />
           <main className="main mt-[var(--header-height)]">{children}</main>
           <Footer />
         </LenisProvider>

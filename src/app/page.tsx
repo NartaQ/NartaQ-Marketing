@@ -3,7 +3,7 @@ import NewsletterSection from '../components/pages/NewsletterSection'
 import VisionSection from '../components/pages/VisionSection'
 import TrustComplianceSection from '../components/pages/TrustComplianceSection'
 import HowItWorksSection from '../components/pages/HowItWorksSection'
-
+import GovernanceSection from '../components/pages/GovernanceSection'
 import NeonHeroSection from '../components/pages/NeonHeroSection'
 import ProblemsSection from '../components/pages/ProblemsSection'
 import SolutionsSection from '../components/pages/SolutionsSection'
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className='flex min-h-screen flex-col  relative overflow-hidden'>
+    <div className='flex min-h-screen flex-col relative overflow-hidden'>
       {/* New Neon-Style Hero Section */}
       <NeonHeroSection />
 
@@ -54,6 +54,9 @@ export default function Home() {
 
       {/* Solutions Section - How we're solving it */}
       <SolutionsSection />
+
+      {/* Governance Infrastructure - Blockchain value prop */}
+      <GovernanceSection />
 
       {/* How It Works - The Full Journey */}
       <HowItWorksSection />

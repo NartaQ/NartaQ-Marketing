@@ -57,7 +57,7 @@ export default function NeonHeroSection() {
         {/* CTA Button */}
         <div className='flex justify-center items-center mb-8 sm:mb-12 px-4'>
           <Link
-            title='Join the Founding Cohort'
+            title='Get Early Access'
             href='/apply'
             onClick={(e) => handleNavigation(e, '/apply')}
             className='group relative px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-[#a98b5d]/50'
@@ -65,7 +65,7 @@ export default function NeonHeroSection() {
             <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
             <div className='relative flex items-center justify-center gap-2'>
               <Sparkles className='w-5 h-5 group-hover:rotate-180 transition-transform duration-500' />
-              Join the Founding Cohort
+              Get Early Access
               <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
             </div>
           </Link>

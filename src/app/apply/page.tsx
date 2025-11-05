@@ -3,23 +3,23 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Apply to NartaQ - Join Our Founding Community',
-  description: 'Apply to join NartaQ\'s founding cohort as a founder or investor. Be part of building the future of merit-based startup funding and AI-powered venture matchmaking.',
+  description: 'Apply for early access to NartaQ as a founder or investor. Be among the first to access AI-powered venture matchmaking and merit-based startup funding.',
   keywords: [
     'startup application',
     'investor application',
-    'founding cohort',
+    'early access',
     'venture capital community',
     'AI matchmaking',
     'startup funding application'
   ],
   openGraph: {
     title: 'Apply to NartaQ - Join Our Founding Community',
-    description: 'Apply to join our founding cohort as a founder or investor. Be part of building the future of merit-based startup funding.',
+    description: 'Apply for early access as a founder or investor. Be among the first to experience merit-based startup funding.',
     siteName: 'NartaQ',
   },
   twitter: {
-    title: 'Apply to NartaQ - Join Our Founding Community',
-    description: 'Apply to join our founding cohort as a founder or investor. Be part of building the future of merit-based startup funding.',
+    title: 'Apply - NartaQ',
+    description: 'Apply for early access as a founder or investor. Be among the first to experience merit-based startup funding.',
   },
   alternates: {
     canonical: 'https://www.nartaq.com/apply',

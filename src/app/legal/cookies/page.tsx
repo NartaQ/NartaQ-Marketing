@@ -293,8 +293,7 @@ export default function CookiePolicyPage() {
                 </p>
                 <p>
                   <strong className="text-[#a98b5d]">Address:</strong> 14
-                  Boulevard Victor Schoelcher, Lieusaint, Seine-et-Marne 77127,
-                  France
+                  60 rue François 1er, 75008 Paris, France • RCS Paris 992 848 242
                 </p>
               </div>
             </section>

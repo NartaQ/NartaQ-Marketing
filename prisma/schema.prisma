@@ -15,37 +15,44 @@ datasource db {
 }
 
 model FounderApplication {
-  id           String   @id @default(cuid())
-  fullName     String
-  workEmail    String
-  companyName  String
-  website      String?
-  sector       String[] // Array of sectors
-  otherSector  String? // For when "Other" is selected
-  fundingStage String
-  location     String
-  shortPitch   String
-  pitchDeckUrl String? // URL to the uploaded pitch deck
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id              String   @id @default(cuid())
+  fullName        String
+  workEmail       String
+  founderLinkedIn String? // Founder's personal LinkedIn
+  companyName     String
+  website         String? // Company website
+  companyLinkedIn String? // Company LinkedIn page
+  sector          String[] // Array of sectors
+  otherSector     String? // For when "Other" is selected
+  fundingStage    String
+  location        String
+  shortPitch      String
+  pitchDeckUrl    String? // URL to the uploaded pitch deck
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
   @@map("founder_applications")
 }
 
 model InvestorApplication {
-  id              String   @id @default(cuid())
-  fullName        String
-  workEmail       String
-  companyName     String
-  title           String
-  investmentFocus String[] // Array of investment focus areas
-  otherFocus      String? // For when "Other" is selected
-  ticketSize      String
-  targetGeography String[] // Array of target geographies
-  referralSource  String
-  otherSource     String? // For when "Other" is selected
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id               String   @id @default(cuid())
+  fullName         String
+  workEmail        String
+  investorType     String // Angel Investor, VC, PE, etc.
+  personalLinkedIn String? // Investor's personal LinkedIn
+  companyName      String? // Optional for angel investors
+  title            String? // Optional for angel investors
+  website          String? // Company website
+  companyLinkedIn  String? // Company LinkedIn page
+  investmentFocus  String[] // Array of investment focus areas
+  otherFocus       String? // For when "Other" is selected
+  ticketSize       String
+  targetGeography  String[] // Array of target geographies
+  otherGeography   String? // For when "Other" is selected in geography
+  referralSource   String
+  otherSource      String? // For when "Other" is selected
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   @@map("investor_applications")
 }
@@ -74,4 +81,24 @@ model CareerApplication {
   updatedAt    DateTime @updatedAt
 
   @@map("career_applications")
+}
+
+// Email queue for scheduled/retry delivery (cost-effective alternative to cron)
+model EmailQueue {
+  id          String   @id @default(cuid())
+  to          String
+  subject     String
+  htmlContent String   @db.Text
+  type        String // 'welcome', 'confirmation', 'newsletter', 'campaign'
+  status      String   @default("pending") // 'pending', 'sent', 'failed'
+  attempts    Int      @default(0)
+  maxAttempts Int      @default(3)
+  lastError   String?  @db.Text
+  scheduledAt DateTime @default(now()) // When to send (for scheduled emails)
+  sentAt      DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([status, scheduledAt])
+  @@map("email_queue")
 }

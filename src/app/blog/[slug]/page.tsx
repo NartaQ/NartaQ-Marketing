@@ -3,10 +3,11 @@ import { PortableText } from '@portabletext/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { formatDistance } from 'date-fns'
-import { Calendar, User, ArrowLeft, BookOpen } from 'lucide-react'
+import { format, formatDistance } from 'date-fns'
+import { Clock, Calendar, BookOpen } from 'lucide-react'
 import { Metadata } from 'next'
 import NewsletterSection from '@/components/pages/NewsletterSection'
+import StickyArticleSidebar from '@/components/blog/StickyArticleSidebar'
 
 type Post = {
   _id: string
@@ -35,6 +36,7 @@ type Post = {
         _ref: string
       }
     }
+    bio?: string
   }
   categories?: Array<{
     title: string
@@ -57,7 +59,8 @@ const postQuery = `*[_type == "post" && slug.current == $slug][0] {
   ogImage,
   author->{
     name,
-    image
+    image,
+    bio
   },
   categories[]->{
     title,
@@ -83,6 +86,26 @@ const relatedPostsQuery = `*[_type == "post" && slug.current != $slug] | order(p
     slug
   }
 }`
+
+// Function to calculate reading time
+function calculateReadingTime(body: any[]): number {
+  if (!body || body.length === 0) return 1
+
+  const wordsPerMinute = 200
+  const totalWords = body.reduce((count, block) => {
+    if (block._type === 'block' && block.children) {
+      return (
+        count +
+        block.children.reduce((childCount: number, child: any) => {
+          return childCount + (child.text ? child.text.split(/\s+/).length : 0)
+        }, 0)
+      )
+    }
+    return count
+  }, 0)
+
+  return Math.max(1, Math.ceil(totalWords / wordsPerMinute))
+}
 
 interface PageProps {
   params: Promise<{
@@ -133,91 +156,85 @@ export default async function BlogPost({ params }: PageProps) {
     slug
   })
 
+  const readingTime = calculateReadingTime(post.body)
+  const primaryCategory = post.categories?.filter(c => c?.slug?.current)[0]
+  
+  // Extract plain text from author bio if it exists
+  const authorRole = post.author.bio && Array.isArray(post.author.bio)
+    ? post.author.bio
+        .filter((block: any) => block._type === 'block')
+        .map((block: any) => 
+          block.children
+            ?.filter((child: any) => child._type === 'span')
+            .map((child: any) => child.text)
+            .join('')
+        )
+        .join(' ')
+    : undefined
+
   return (
     <div className='min-h-screen bg-black text-white'>
-      {/* Hero Section */}
-      <div className='relative min-h-[70vh] flex items-end overflow-hidden'>
-        {/* Background Image */}
+      {/* Compact Hero Section */}
+      <div className='relative min-h-[50vh] flex items-end overflow-hidden border-b border-[#a98b5d]/20'>
+        {/* Background Image - More subtle */}
         {post.mainImage && (
           <div className='absolute inset-0'>
             <Image
               src={urlFor(post.mainImage).width(1920).height(1080).url()}
               alt={post.mainImage.alt || post.title}
               fill
-              className='object-cover'
+              className='object-cover opacity-30'
               priority
             />
-            <div className='absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20' />
+            <div className='absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40' />
           </div>
         )}
 
         {/* Animated Background Pattern */}
-        <div className='absolute inset-0 grid-pattern opacity-10' />
+        <div className='absolute inset-0 grid-pattern opacity-5' />
 
-        <div className='relative z-10 max-w-4xl mx-auto px-4 pb-16'>
-          {/* Back Button */}
-          <div className='mb-8'>
-            <Link
-              href='/blog'
-              className='inline-flex items-center gap-2 text-[#dcd7ce]/80 hover:text-[#a98b5d] transition-colors'
-            >
-              <ArrowLeft className='w-4 h-4' />
-              <span>Back to Blog</span>
-            </Link>
-          </div>
+        <div className='relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12'>
+          <div className='max-w-4xl'>
+            {/* Title */}
+            <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-[#dcd7ce]'>
+              {post.title}
+            </h1>
 
-          {/* Categories */}
-          {post.categories && post.categories.length > 0 && (
-            <div className='flex flex-wrap gap-2 mb-6'>
-              {post.categories.map((category) => (
-                <span
-                  key={category.slug.current}
-                  className='bg-[#a98b5d]/20 text-[#a98b5d] px-3 py-1 rounded-full text-sm font-medium backdrop-blur-xl border border-[#a98b5d]/30'
-                >
-                  {category.title}
-                </span>
-              ))}
-            </div>
-          )}
+            {/* Subtitle/Description */}
+            {post.metadescription && (
+              <p className='text-lg md:text-xl text-[#dcd7ce]/70 mb-6 max-w-3xl'>
+                {post.metadescription}
+              </p>
+            )}
 
-          {/* Title */}
-          <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-[#dcd7ce]'>
-            {post.title}
-          </h1>
-
-          {/* Meta Information */}
-          <div className='flex flex-wrap items-center gap-6 text-[#dcd7ce]/80'>
-            <div className='flex items-center gap-2'>
-              {post.author?.image && (
-                <div className='relative h-8 w-8 rounded-full overflow-hidden'>
-                  <Image
-                    src={urlFor(post.author.image).width(32).height(32).url()}
-                    alt={post.author.name}
-                    fill
-                    className='object-cover'
-                  />
-                </div>
-              )}
-              <User className='w-4 h-4' />
-              <span className='font-medium'>{post.author?.name}</span>
-            </div>
-
-            <div className='flex items-center gap-2'>
-              <Calendar className='w-4 h-4' />
-              <span>
-                {formatDistance(new Date(post.publishedAt), new Date(), {
-                  addSuffix: true,
-                })}
-              </span>
+            {/* Meta Information */}
+            <div className='flex flex-wrap items-center gap-4 text-sm text-[#dcd7ce]/60'>
+              <span>{format(new Date(post.publishedAt), 'MMM d, yyyy').toUpperCase()}</span>
+              <span>—</span>
+              <div className='flex items-center gap-1.5'>
+                <Clock className='w-4 h-4' />
+                <span>{readingTime} MIN READ</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Article Content */}
-      <article className='py-16 sm:py-24'>
-        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='prose prose-lg prose-invert max-w-none'>
+      {/* Main Content with Sidebar Layout */}
+      <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'>
+        <div className='lg:grid lg:grid-cols-[256px_1fr] lg:gap-12 xl:gap-16'>
+          {/* Sticky Sidebar - Hidden on mobile */}
+          <aside className='hidden lg:block'>
+            <StickyArticleSidebar
+              category={primaryCategory}
+              author={post.author}
+              authorRole={authorRole}
+            />
+          </aside>
+
+          {/* Article Content */}
+          <article className='max-w-3xl'>
+            <div className='prose prose-lg prose-invert max-w-none'>
             <PortableText
               value={post.body}
               components={{
@@ -300,8 +317,9 @@ export default async function BlogPost({ params }: PageProps) {
               }}
             />
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
+    </div>
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
@@ -380,7 +398,7 @@ function RelatedPostCard({ post }: { post: Post }) {
         {/* Categories */}
         {post.categories && post.categories.length > 0 && (
           <div className='flex flex-wrap gap-2'>
-            {post.categories.slice(0, 2).map((category) => (
+            {post.categories.filter(category => category?.slug?.current).slice(0, 2).map((category) => (
               <span
                 key={category.slug.current}
                 className='bg-[#a98b5d]/10 text-[#a98b5d] px-2 py-1 rounded-full text-xs font-medium'

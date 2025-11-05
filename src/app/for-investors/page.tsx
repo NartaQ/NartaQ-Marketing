@@ -15,7 +15,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'For Investors - AI-Curated Deal Flow | NartaQ',
-  description: 'Stop sifting through noise. Access pre-vetted, high-signal startups through our AI-powered investor platform. Join the founding cohort for exclusive deal access.',
+  description: 'Stop sifting through noise. Access pre-vetted, high-signal startups through our AI-powered investor platform. Get early access to exclusive deal flow.',
   keywords: [
     'investor deal flow',
     'startup investing', 
@@ -45,8 +45,22 @@ export default function ForInvestorsPage() {
     <>
       <div className='min-h-screen bg-black text-white'>
       {/* Hero Section */}
-      <section className='py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a]'>
-        <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+      <section className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden'>
+        {/* Background grid pattern */}
+        <div className='absolute inset-0 grid-pattern opacity-10'>
+          <div
+            className='w-full h-full'
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(169, 139, 93, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(169, 139, 93, 0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '60px 60px',
+            }}
+          />
+        </div>
+
+        <div className='relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8'>
             <Gem className='w-4 h-4 text-[#a98b5d]' />
             <span className='text-sm font-medium text-[#dcd7ce]'>
@@ -55,33 +69,37 @@ export default function ForInvestorsPage() {
           </div>
 
           <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8'>
-            <span className='text-[#dcd7ce]'>Your Next Investment,</span>{' '}
-            <span className='text-[#a98b5d]'>Curated by AI</span>
+            <span className='bg-gradient-to-r from-[#dcd7ce] to-white bg-clip-text text-transparent'>
+              Your Next Investment,
+            </span>
+            <br />
+            <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+              Curated by AI
+            </span>
           </h1>
-          <div className='w-24 h-0.5 bg-[#a98b5d] mx-auto mb-8'></div>
-          <p className='text-lg sm:text-xl text-[#dcd7ce]/80 mb-12 max-w-3xl mx-auto leading-relaxed'>
-            Stop sifting through noise. NartaQ is the AI-powered platform for
-            investors seeking high-signal, pre-vetted startups globally.
+          
+          <p className='text-lg sm:text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed'>
+            Stop sifting through noise. Access pre-vetted, high-signal startups through our AI-powered platform connecting the world's best founders with the right capital.
           </p>
 
-          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+          <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mb-12'>
             <Link
-              title='Join the Founding Investor Cohort'
+              title='Get Early Access as an Investor'
               href='/apply'
-              className='group relative bg-[#a98b5d] hover:bg-[#a98b5d]/90 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#a98b5d]/25'
+              className='inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/50'
             >
-              <span className='relative z-10 flex items-center'>
-                <TrendingUp className='w-5 h-5 mr-2' />
-                Join the Founding Investor Cohort
-              </span>
+              <TrendingUp className='w-5 h-5' />
+              Get Early Access
+              <ArrowRight className='w-5 h-5' />
             </Link>
-            <p className='text-gray-400 text-sm'>
-              Get first access to an exclusive pipeline of vetted founders.{' '}
-              <span className='text-[#a98b5d] font-semibold'>
-                Limited spots available.
-              </span>
-            </p>
           </div>
+
+          <p className='text-sm text-gray-400'>
+            Get first access to an exclusive pipeline of vetted founders.{' '}
+            <span className='text-[#a98b5d] font-semibold'>
+              Limited spots available.
+            </span>
+          </p>
         </div>
       </section>
 
@@ -374,19 +392,19 @@ export default function ForInvestorsPage() {
           </h2>
           <div className='w-24 h-0.5 bg-[#a98b5d] mx-auto mb-8'></div>
           <p className='text-xl text-[#dcd7ce]/80 mb-8 max-w-3xl mx-auto leading-relaxed'>
-            Join the founding cohort of investors who are getting first access
-            to the next generation of exceptional founders. Stop hunting for a
+            Join early access and be among the first investors to discover
+            the next generation of exceptional founders. Stop hunting for a
             signal and start investing in the future.
           </p>
 
           <div className='flex justify-center items-center mb-12'>
             <Link
-              title='Join the Founding Investor Cohort'
+              title='Get Early Access as an Investor'
               href='/apply'
               className='inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-bold rounded-xl hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-[#a98b5d]/50'
             >
               <Target className='w-5 h-5' />
-              Join the Founding Investor Cohort
+              Get Early Access
               <ArrowRight className='w-5 h-5' />
             </Link>
           </div>

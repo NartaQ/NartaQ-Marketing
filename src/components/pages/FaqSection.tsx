@@ -32,7 +32,7 @@ export default function FaqSection() {
     {
       question: 'How do governance tokens work?',
       answer:
-        'Contribute quality deals, participate in due diligence, or help with platform development to earn tokens. Token holders vote on algorithm improvements, quality standards, and platform evolution.',
+        'Each startup gets its own DAO with governance tokens representing company shares. These on-chain tokens enable founders to create proposals, verify legal documents, vote on strategic decisions, and maintain a transparent cap table. Token holders have voting rights proportional to their ownership stake. All governance actions—from fundraising rounds to equity assignments—are recorded on-chain with cryptographic proof, ensuring tamper-proof records and automated compliance.',
     },
     {
       question: 'Who can join the platform?',
@@ -125,14 +125,16 @@ export default function FaqSection() {
                 </div>
               </button>
 
-              <div className='overflow-hidden'>
-                <div className='px-6 pb-6'>
-                  <div className='w-full h-px bg-gradient-to-r from-[#a98b5d]/20 via-[#a98b5d]/40 to-[#a98b5d]/20 mb-4' />
-                  <p className='text-gray-400 text-lg leading-relaxed'>
-                    {faq.answer}
-                  </p>
+              {openFaq === index && (
+                <div className='overflow-hidden'>
+                  <div className='px-6 pb-6'>
+                    <div className='w-full h-px bg-gradient-to-r from-[#a98b5d]/20 via-[#a98b5d]/40 to-[#a98b5d]/20 mb-4' />
+                    <p className='text-gray-400 text-lg leading-relaxed'>
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </div>

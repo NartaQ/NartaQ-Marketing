@@ -77,13 +77,13 @@ export default function OptimizedHeroSection() {
         {/* CTA Button using critical CSS */}
         <div className='flex justify-center items-center mb-8 sm:mb-12 px-4'>
           <Link
-            title='Join the Founding Cohort'
+            title='Get Early Access'
             href='/apply'
             onClick={(e) => handleNavigation(e, '/apply')}
             className='cta-button'
           >
             <Sparkles className={`w-5 h-5 ${shouldLoadAnimations ? 'group-hover:rotate-180 transition-transform duration-500' : ''}`} />
-            Join the Founding Cohort
+            Get Early Access
             <ArrowRight className={`w-5 h-5 ${shouldLoadAnimations ? 'group-hover:translate-x-1 transition-transform' : ''}`} />
           </Link>
         </div>

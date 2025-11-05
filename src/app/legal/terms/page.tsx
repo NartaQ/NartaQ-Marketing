@@ -21,7 +21,7 @@ const tableOfContents = [
   { id: 'acceptance', title: 'Acceptance of Terms', level: 1 },
   { id: 'eligibility', title: 'Eligibility & Access', level: 1 },
   { id: 'services', title: 'Our Services', level: 1 },
-  { id: 'protocol-purpose', title: 'Protocol Purpose', level: 1 },
+  { id: 'platform-purpose', title: 'Platform Purpose', level: 1 },
   { id: 'data-privacy', title: 'Data & Privacy', level: 1 },
   { id: 'ai-services', title: 'AI Services', level: 1 },
   { id: 'contact', title: 'Contact Information', level: 1 },
@@ -87,7 +87,7 @@ export default function TermsOfServicePage() {
             </h1>
 
             <p className='text-xl text-gray-300 mb-8 max-w-3xl mx-auto'>
-              Legal terms governing your use of the NartaQ AI-powered protocol
+              Legal terms governing your use of the NartaQ AI-powered platform
               for startup funding
             </p>
 
@@ -171,7 +171,7 @@ export default function TermsOfServicePage() {
                     Important Notice
                   </h3>
                   <p className='text-sm text-gray-300 leading-relaxed'>
-                    NartaQ SA is an established AI-powered protocol for startup
+                    NartaQ SAS is a venture capital platform for startup
                     funding. These terms provide our legal framework and will be
                     updated as needed to ensure compliance with applicable
                     regulations and to reflect service enhancements.
@@ -189,17 +189,23 @@ export default function TermsOfServicePage() {
                   Who We Are (Publisher)
                 </h2>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-xl p-6'>
-                  <p className='text-gray-300 leading-relaxed mb-4'>
-                    NartaQ SA (doing business as NartaQ) operates as an
-                    AI-powered protocol for startup funding, facilitating
+                  <p className='text-gray-400 leading-relaxed mb-6'>
+                    NartaQ SAS is a venture capital platform for startup
+                    funding, connecting founders in emerging markets with global
+                    investors. Our platform serves as the marketplace and
+                    infrastructure for venture investment relationships.
+                  </p>
+                  <p className='text-gray-400 leading-relaxed mb-6'>
+                    NartaQ SAS (doing business as NartaQ) operates as an
+                    AI-powered venture capital platform, facilitating
                     automated matching between startups and investors through
-                    advanced machine learning and smart contract technology.
+                    advanced machine learning technology.
                   </p>
                   <div className='grid grid-cols-1 md:grid-cols-2 gap-4 text-sm'>
                     <div className='space-y-2'>
                       <div>
                         <strong className='text-[#a98b5d]'>Entity:</strong>{' '}
-                        NartaQ SA
+                        NartaQ SAS
                       </div>
                       <div>
                         <strong className='text-[#a98b5d]'>
@@ -209,9 +215,9 @@ export default function TermsOfServicePage() {
                       </div>
                       <div>
                         <strong className='text-[#a98b5d]'>
-                          Protocol Type:
+                          Platform Type:
                         </strong>{' '}
-                        AI-Powered Venture Matching
+                        AI-Powered Venture Capital Platform
                       </div>
                     </div>
                     <div className='space-y-2'>
@@ -245,10 +251,10 @@ export default function TermsOfServicePage() {
                         </strong>{' '}
                         <Link
                           title='Send Privacy & Data Protection Inquiries'
-                          href='mailto:riadh@nartaq.com'
+                          href='mailto:riadh.jouini@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
-                          riadh@nartaq.com
+                          riadh.jouini@nartaq.com
                         </Link>
                       </div>
                     </div>
@@ -264,10 +270,10 @@ export default function TermsOfServicePage() {
                   Acceptance of Terms
                 </h2>
                 <p className='text-gray-300 leading-relaxed'>
-                  By accessing, using, or participating in the NartaQ protocol,
+                  By accessing, using, or participating in the NartaQ platform,
                   you acknowledge that you have read, understood, and agree to
                   be bound by these Terms of Service. If you disagree with any
-                  part of these terms, you must not use our protocol or
+                  part of these terms, you must not use our platform or
                   services.
                 </p>
               </section>
@@ -281,7 +287,7 @@ export default function TermsOfServicePage() {
                 </h2>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-xl p-6'>
                   <p className='text-gray-300 mb-4'>
-                    Access to the NartaQ protocol is subject to verification and
+                    Access to the NartaQ platform is subject to verification and
                     eligibility requirements:
                   </p>
                   <ul className='space-y-2 text-gray-300'>
@@ -314,7 +320,7 @@ export default function TermsOfServicePage() {
                 </h2>
                 <div className='bg-[#1a1a1a]/50 border border-[#a98b5d]/20 rounded-xl p-6'>
                   <p className='text-gray-300 leading-relaxed mb-4'>
-                    NartaQ provides a protocol that uses AI for high-signal
+                    NartaQ provides a platform that uses AI for high-signal
                     matching and provides the legal tools for seamless
                     execution:
                   </p>
@@ -367,12 +373,12 @@ export default function TermsOfServicePage() {
                 </div>
               </section>
 
-              <section id='protocol-purpose' className='scroll-mt-32'>
+              <section id='platform-purpose' className='scroll-mt-32'>
                 <h2 className='text-3xl font-bold text-[#dcd7ce] mb-6 flex items-center gap-3'>
                   <div className='w-8 h-8 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] rounded-lg flex items-center justify-center text-black font-bold text-sm'>
                     5
                   </div>
-                  Protocol Purpose & Investment Disclaimers
+                  Platform Purpose & Investment Disclaimers
                 </h2>
                 <div className='bg-gradient-to-r from-red-500/5 to-red-600/5 border border-red-500/20 rounded-xl p-6 mb-6'>
                   <div className='flex items-start gap-3'>
@@ -391,7 +397,7 @@ export default function TermsOfServicePage() {
                   </div>
                 </div>
                 <p className='text-gray-300 leading-relaxed'>
-                  The protocol facilitates AI-powered matching between startups
+                  The platform facilitates AI-powered matching between startups
                   and investors, automated deal execution, and community
                   governance. We operate as a technology utility, not as a
                   broker-dealer or investment advisor.
@@ -418,9 +424,13 @@ export default function TermsOfServicePage() {
                         Information We Collect
                       </h4>
                       <ul className='space-y-1 text-sm text-gray-300'>
-                        <li>• Email addresses and names</li>
-                        <li>• Job titles and phone numbers</li>
-                        <li>• Contact preferences</li>
+                        <li>• Full name and work email address</li>
+                        <li>• Company name, job title, and website</li>
+                        <li>• LinkedIn profiles (personal and company)</li>
+                        <li>• Business information (sector, funding stage, investment focus)</li>
+                        <li>• Location and target geographies</li>
+                        <li>• Phone numbers (optional, for career applications)</li>
+                        <li>• Uploaded documents (pitch decks, CVs)</li>
                         <li>• Device and usage information</li>
                       </ul>
                     </div>
@@ -468,10 +478,10 @@ export default function TermsOfServicePage() {
                       </strong>{' '}
                       <Link
                         title='Send Privacy & Data Protection Inquiries'
-                        href='mailto:riadh@nartaq.com'
+                        href='mailto:riadh.jouini@nartaq.com'
                         className='text-[#dcd7ce] hover:underline'
                       >
-                        riadh@nartaq.com
+                        riadh.jouini@nartaq.com
                       </Link>
                     </div>
                     <div>
@@ -611,10 +621,10 @@ export default function TermsOfServicePage() {
                         <strong className='text-blue-400'>Email:</strong>{' '}
                         <Link
                           title='Send Privacy & Data Protection Inquiries'
-                          href='mailto:riadh@nartaq.com'
+                          href='mailto:riadh.jouini@nartaq.com'
                           className='text-[#dcd7ce] hover:underline'
                         >
-                          riadh@nartaq.com
+                          riadh.jouini@nartaq.com
                         </Link>
                       </div>
                       <div>
@@ -643,11 +653,12 @@ export default function TermsOfServicePage() {
                   </h4>
                   <div className='text-sm text-gray-300'>
                     <p>
-                      <strong>NartaQ SA</strong>
+                      <strong>NartaQ SAS</strong>
                     </p>
-                    <p>14 Boulevard Victor Schoelcher</p>
-                    <p>Lieusaint, Seine-et-Marne 77127</p>
+                    <p>60 rue François 1er</p>
+                    <p>75008 Paris</p>
                     <p>France</p>
+                    <p className='text-xs mt-2'>RCS Paris 992 848 242</p>
                   </div>
                   <p className='text-xs text-gray-400 mt-3'>
                     For EEA residents: We have appointed Riadh Jouini as our
@@ -662,7 +673,7 @@ export default function TermsOfServicePage() {
                 <p className='text-sm text-gray-400 leading-relaxed mb-4'>
                   <strong className='text-gray-300'>Last Updated:</strong>{' '}
                   August 24, 2025. These Terms govern your use of the NartaQ
-                  protocol. For detailed information about how we handle your
+                  platform. For detailed information about how we handle your
                   personal information, please review our comprehensive Privacy
                   Policy.
                 </p>
@@ -691,7 +702,7 @@ export default function TermsOfServicePage() {
                   <Link title='Submit a Data Request' href="mailto:privacy@nartaq.com?subject=Data%20Request" className="text-[#a98b5d] hover:text-[#dcd7ce] transition-colors">
                     Data Request
                   </Link>
-                  <span>© 2025 NartaQ SA. All rights reserved.</span>
+                  <span>© 2025 NartaQ SAS. All rights reserved.</span>
                 </div>
               </div>
             </div>

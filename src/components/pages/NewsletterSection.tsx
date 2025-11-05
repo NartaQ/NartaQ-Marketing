@@ -73,12 +73,12 @@ export default function NewsletterSection() {
         <div className='max-w-2xl mx-auto mb-12'>
           <div className='rounded-2xl p-8 border backdrop-blur-xl text-center border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent'>
             <h3 className='text-2xl font-bold text-[#dcd7ce] mb-6'>
-              Join the Founding Community
+              Get Early Access
             </h3>
 
             <div className='flex justify-center mb-6'>
               <Link
-                title='Apply to Join the Founding Cohort'
+                title='Apply for Early Access'
                 href='/apply'
                 className='inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
                 onClick={(e) => handleNavigation(e, '/apply')}
