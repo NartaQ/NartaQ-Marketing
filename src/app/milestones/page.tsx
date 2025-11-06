@@ -49,7 +49,6 @@ const milestones: Milestone[] = [
       'Enhanced matching algorithms based on pilot data',
       'Advanced analytics and insights dashboard',
       'Automated deal flow management',
-      'Integration with third-party data providers',
       'Mobile optimization',
       'Performance monitoring and optimization',
     ],
