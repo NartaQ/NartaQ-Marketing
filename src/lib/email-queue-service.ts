@@ -220,6 +220,22 @@ export async function queueCareerConfirmation(
 }
 
 /**
+ * Queue an SPV partner confirmation email
+ */
+export async function queueSPVPartnerConfirmation(
+  email: string,
+  name: string,
+  company: string
+): Promise<void> {
+  await queueEmail({
+    to: email,
+    subject: `SPV Partnership Application Received from ${company} ✓`,
+    htmlContent: emailTemplateLoader.renderSPVPartnerConfirmation({ partnerName: name, companyName: company }),
+    type: 'confirmation',
+  })
+}
+
+/**
  * Get queue statistics
  */
 export async function getQueueStats(): Promise<{

@@ -81,28 +81,10 @@ export default function NeonHeroSection() {
           </div>
         </div>
 
-        {/* Key Features Pills */}
-        <div className='grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto px-4'>
-          {[
-            { icon: Users, text: 'Community Sourcing' },
-            { icon: Target, text: 'AI-Powered Matching' },
-            { icon: Zap, text: 'Transparent Process' },
-          ].map((feature, index) => (
-            <div
-              key={index}
-              className='flex items-center gap-2 px-3 sm:px-4 py-2 bg-white/5 border border-[#a98b5d]/20 rounded-full backdrop-blur-xl'
-            >
-              <feature.icon className='w-3 h-3 sm:w-4 sm:h-4 text-[#a98b5d] flex-shrink-0' />
-              <span className='text-xs sm:text-sm text-[#dcd7ce] whitespace-nowrap'>
-                {feature.text}
-              </span>
-            </div>
-          ))}
-        </div>
+        
       </div>
 
       {/* Bottom Gradient Fade */}
-      <div className='absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none' />
     </div>
   )
 }

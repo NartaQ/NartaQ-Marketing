@@ -53,7 +53,7 @@ export default function HowItWorksSection() {
   ]
 
   return (
-    <section className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden'>
+    <section className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0a0a0a] to-[#0a0a0a] overflow-hidden'>
       {/* Background Grid */}
       <div className='absolute inset-0 grid-pattern opacity-20'>
         <div

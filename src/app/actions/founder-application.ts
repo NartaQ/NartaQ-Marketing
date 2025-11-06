@@ -117,7 +117,7 @@ export async function submitFounderApplication(
 
     return {
       success: true,
-      data: application,
+      message: 'Application submitted successfully',
     }
   } catch (error) {
     console.error('Error submitting founder application:', error)

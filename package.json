@@ -20,6 +20,7 @@
     "test:health": "tsx scripts/health-check.ts",
     "test:post-deployment": "tsx scripts/post-deployment-tests.ts",
     "test:emails": "tsx scripts/test-emails.ts",
+    "test:azure": "tsx scripts/test-azure-storage.ts",
     "send-email": "tsx scripts/send-test-email.ts",
     "bundle:analyze": "tsx scripts/bundle-analyzer.ts",
     "analyze": "cross-env ANALYZE=true next build",

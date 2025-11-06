@@ -143,7 +143,7 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
 
     return {
       success: true,
-      data: application,
+      message: 'Application submitted successfully',
     }
   } catch (error) {
     console.error('Error submitting investor application:', error)

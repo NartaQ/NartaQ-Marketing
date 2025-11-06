@@ -161,11 +161,25 @@ export default function Footer({
               For Investors
             </Link>
             <Link
+              href='/spv-partners'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/spv-partners')}
+            >
+              SPV Partners
+            </Link>
+            <Link
               href='/#how-it-works'
               className='footer-link hover:text-black dark:hover:text-white transition-colors'
               onClick={(e) => handleNavigation(e, '/#how-it-works')}
             >
               How It Works
+            </Link>
+            <Link
+              href='/blog'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/blog')}
+            >
+              Blog
             </Link>
             <Link
               href='/faq'
@@ -194,6 +208,13 @@ export default function Footer({
               onClick={(e) => handleNavigation(e, '/about#team')}
             >
               The Team
+            </Link>
+            <Link
+              href='/milestones'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/milestones')}
+            >
+              Milestones
             </Link>
             <Link
               href='/careers'

@@ -21,7 +21,10 @@ export interface BannerSettings {
 
 /**
  * Fetches banner settings from Sanity CMS
- * Returns default settings if not found or on error
+ * Returns default settings (including cohort urgency banner) if not found or on error
+ * 
+ * The cohort urgency banner is always included as the first banner by default.
+ * Marketing team can add additional banners in Sanity CMS which will rotate with it.
  */
 export async function getBannerSettings(): Promise<BannerSettings> {
   try {
@@ -42,37 +45,63 @@ export async function getBannerSettings(): Promise<BannerSettings> {
     
     const settings = await client.fetch(query)
     
+    
+    // If CMS has settings, merge with cohort urgency banner as first item
     if (settings && settings.banners && settings.banners.length > 0) {
-      return settings
+      const cohortBanner = {
+        bannerText: 'Cohort Urgency Banner',
+        bannerEmoji: '🚀',
+        bannerLinkText: 'Apply Now',
+        bannerLinkUrl: '/apply/cohort-urgency',
+        bannerBackgroundColor: '#a98b5d',
+        bannerTextColor: 'white',
+      }
+      
+      // Check if cohort urgency banner already exists in CMS
+      const hasCohortBanner = settings.banners.some(
+        (b: BannerItem) => b.bannerLinkUrl === '/apply/cohort-urgency'
+      )
+      
+      const result = {
+        ...settings,
+        banners: hasCohortBanner 
+          ? settings.banners 
+          : [cohortBanner, ...settings.banners]
+      }
+      
+      return result
     }
     
     // Return default settings if not found
-    return getDefaultBannerSettings()
+    const defaultSettings = getDefaultBannerSettings()
+    return defaultSettings
   } catch (error) {
     console.error('Error fetching banner settings:', error)
     // Return default settings on error
-    return getDefaultBannerSettings()
+    const defaultSettings = getDefaultBannerSettings()
+    console.log('Returning default settings after error:', defaultSettings)
+    return defaultSettings
   }
 }
 
 /**
- * Returns default banner settings with a single banner
+ * Returns default banner settings with cohort urgency banner as the first item
  */
 function getDefaultBannerSettings(): BannerSettings {
   return {
     bannerEnabled: true,
     banners: [
       {
-        bannerText: 'Get Early Access',
+        bannerText: 'Cohort Urgency Banner',
         bannerEmoji: '🚀',
         bannerLinkText: 'Apply Now',
-        bannerLinkUrl: '/apply',
-        bannerBackgroundColor: 'var(--lion)',
-        bannerTextColor: 'black',
+        bannerLinkUrl: '/apply/cohort-urgency',
+        bannerBackgroundColor: '#a98b5d',
+        bannerTextColor: 'white',
       }
     ],
     rotationInterval: 5,
     scrollSpeed: 50,
-    bannerDismissible: false,
+    bannerDismissible: true,
   }
 }

@@ -8,32 +8,17 @@ import Curve from './Curve'
 import Link from 'next/link'
 import { animatePageOut } from '../pageTransition/animations'
 
-const navItems = [
-  {
-    title: 'Home',
-    href: '/',
-  },
-  {
-    title: 'For Founders',
-    href: '/for-founders',
-  },
-  {
-    title: 'For Investors',
-    href: '/for-investors',
-  },
-  {
-    title: 'About',
-    href: '/about',
-  },
-  {
-    title: 'FAQ',
-    href: '/faq',
-  },
-  {
-    title: 'Careers',
-    href: '/careers',
-  },
-]
+  const navItems = [
+    { title: 'Home', href: '/' },
+    { title: 'For Founders', href: '/for-founders' },
+    { title: 'For Investors', href: '/for-investors' },
+    { title: 'SPV Partners', href: '/spv-partners' },
+    { title: 'About', href: '/about' },
+    { title: 'Milestones', href: '/milestones' },
+    { title: 'Blog', href: '/blog' },
+    { title: 'FAQ', href: '/faq' },
+    { title: 'Careers', href: '/careers' },
+  ]
 
 const socialLinks = [
   {
@@ -89,7 +74,7 @@ export default function NavMenu() {
           onMouseLeave={() => {
             setSelectedIndicator(pathname)
           }}
-          className='flex flex-col text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl gap-2 sm:gap-3 mt-16 sm:mt-20 md:mt-24'
+          className='flex flex-col text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl gap-1.5 sm:gap-2 mt-16 sm:mt-20 md:mt-24'
         >
           {navItems.map((data, index) => {
             return (

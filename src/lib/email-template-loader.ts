@@ -77,6 +77,14 @@ class EmailTemplateLoader {
     const template = this.loadTemplate('CareerConfirmation')
     return template(data)
   }
+
+  /**
+   * Render SPV partner application confirmation email
+   */
+  renderSPVPartnerConfirmation(data: { partnerName: string; companyName: string }): string {
+    const template = this.loadTemplate('SPVPartnerConfirmation')
+    return template(data)
+  }
 }
 
 // Export singleton instance

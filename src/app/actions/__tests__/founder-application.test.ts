@@ -88,7 +88,7 @@ describe('submitFounderApplication', () => {
       const result = await submitFounderApplication(validFounderData)
 
       expect(result.success).toBe(true)
-      expect(result.data).toEqual(mockApplication)
+      expect(result.message).toBe('Application submitted successfully')
       expect(prismaMock.founderApplication.create).toHaveBeenCalledWith({
         data: {
           fullName: validFounderData.fullName,
@@ -228,9 +228,9 @@ describe('submitFounderApplication', () => {
 
       const result = await submitFounderApplication(dataWithSimpleWebsite)
 
-      expect(result.success).toBe(true)
-      // Website field is optional and doesn't enforce URL format validation
-      // Frontend should handle URL formatting, backend stores as provided
+      expect(result.success).toBe(false)
+      expect(result.error).toBe('Validation failed')
+      // Website field must be a valid URL or empty string
     })
 
     it('should reject application with empty sector array', async () => {
@@ -442,7 +442,7 @@ describe('submitFounderApplication', () => {
       const result = await submitFounderApplication(dataWithSpecialChars)
 
       expect(result.success).toBe(true)
-      expect(result.data).toEqual(mockApplication)
+      expect(result.message).toBe('Application submitted successfully')
     })
 
     it('should handle applications with international domain names', async () => {

@@ -77,7 +77,7 @@ export default function ForFoundersPage() {
               <Link
                 title="Apply for Early Access"
                 href="/apply"
-                className="group relative bg-[#a98b5d] hover:bg-[#a98b5d]/90 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#a98b5d]/25"
+                className="group relative bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] hover:bg-[#a98b5d]/90 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#a98b5d]/25"
               >
                 <span className="relative z-10 flex items-center">
                   <Rocket className="w-5 h-5 mr-2" />

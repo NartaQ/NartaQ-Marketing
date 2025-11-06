@@ -21,9 +21,10 @@ import {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const position = await getCareerPosition(params.slug)
+  const { slug } = await params
+  const position = await getCareerPosition(slug)
 
   if (!position) {
     return {
@@ -50,9 +51,10 @@ export async function generateMetadata({
 export default async function CareerPositionPage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const position = await getCareerPosition(params.slug)
+  const { slug } = await params
+  const position = await getCareerPosition(slug)
 
   if (!position) {
     notFound()

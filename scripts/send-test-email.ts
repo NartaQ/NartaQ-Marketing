@@ -165,7 +165,7 @@ async function sendEmail() {
 
     if (result.success) {
       console.log('✅ Email sent successfully!')
-      if (result.messageId) {
+      if ('messageId' in result && result.messageId) {
         console.log(`   Message ID: ${result.messageId}`)
       }
       

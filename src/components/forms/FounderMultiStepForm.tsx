@@ -416,7 +416,7 @@ export default function FounderMultiStepForm({
         onSubmissionSuccess()
         
         // Track successful submission
-        trackFormComplete('founder', result.data?.id, {
+        trackFormComplete('founder', "", {
           email: data.workEmail // Add email for LinkedIn enhanced matching
         })
       } else {
@@ -784,7 +784,7 @@ export default function FounderMultiStepForm({
                 <FormField
                   control={form.control}
                   name='shortPitch'
-                  render={({ field }) => (
+                  render={({ field, formState }) => (
                     <FormItem>
                       <FormLabel className='text-xl text-white mb-3 block'>
                         Describe your company in 1-2 sentences *
@@ -793,7 +793,7 @@ export default function FounderMultiStepForm({
                         <Textarea
                           placeholder='We help businesses automate their customer service using AI, reducing response time by 80% while improving customer satisfaction...'
                           rows={6}
-                          className='text-lg bg-black/50 border-[#a98b5d]/30 text-white  focus:border-[#a98b5d] rounded-xl resize-none min-h-[150px]'
+                          className='text-lg bg-black/50 border-[#a98b5d]/30 placeholder:text-white/50  focus:border-[#a98b5d] rounded-xl resize-none min-h-[150px]'
                           {...field}
                         />
                       </FormControl>

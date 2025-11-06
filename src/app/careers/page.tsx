@@ -145,8 +145,7 @@ export default async function CareersPage() {
               </h2>
               <p className='text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto'>
                 Join our team and help build the future of blockchain-powered
-                startup governance. All positions offer competitive
-                equity packages and remote-first flexibility.
+                startup governance. Enjoy remote-first flexibility.
               </p>
             </div>
 
@@ -194,10 +193,6 @@ export default async function CareersPage() {
                 <div className='flex items-center gap-2'>
                   <Clock className='w-4 h-4' />
                   <span>Flexible Hours</span>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <Award className='w-4 h-4' />
-                  <span>Competitive Equity</span>
                 </div>
               </div>
             </div>

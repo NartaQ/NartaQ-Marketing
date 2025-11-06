@@ -55,8 +55,7 @@ if (isWatchMode) {
   chokidar
     .watch(templatesDir, {
       ignoreInitial: true,
-      ignored: (path: string, stats: Stats) =>
-        stats?.isFile() && !path.endsWith('.tsx'),
+      ignored: /(^|[\/\\])\../, // Ignore dot files
     })
     .on('change', (filePath) => {
       if (filePath.endsWith('.tsx')) {

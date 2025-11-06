@@ -115,7 +115,19 @@ export function CriticalLayout({ children }: CriticalLayoutProps) {
       </div>
     }>
       <LenisProvider>
-        <FullNavigation />
+        <FullNavigation bannerSettings={{ 
+          bannerEnabled: true,
+          banners: [{
+            bannerText: 'Cohort Urgency Banner',
+            bannerLinkText: 'Apply',
+            bannerLinkUrl: '/apply/cohort-urgency',
+            bannerBackgroundColor: '#a98b5d',
+            bannerTextColor: 'white',
+          }], 
+          rotationInterval: 5,
+          scrollSpeed: 50,
+          bannerDismissible: true
+        }} />
         <main className='main mt-[var(--header-height)]'>
           {children}
         </main>

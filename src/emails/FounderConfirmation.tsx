@@ -20,34 +20,35 @@ export default function FounderConfirmation({
         
         <Text style={text}>
           Thank you for applying to NartaQ with <strong style={strong}>{companyName}</strong>.
-          We've received your application and our team is reviewing it.
+          We've received your application and are thrilled to have you join us as we build the platform.
         </Text>
         
         <Section style={card}>
-          <Heading style={cardTitle}>What happens next?</Heading>
-          <ol style={orderedList}>
+          <Heading style={cardTitle}>You're among the first! 🎉</Heading>
+          <Text style={cardText}>
+            We're currently building NartaQ's matching platform and governance infrastructure.
+            As one of our founding cohort members, you'll get:
+          </Text>
+          <ul style={list}>
             <li style={listItem}>
-              <strong>Review (3-5 business days):</strong> Our team evaluates your application
-              based on market opportunity, traction, and team strength.
+              <strong>Early Access:</strong> First to use the platform when we launch
             </li>
             <li style={listItem}>
-              <strong>AI Matching:</strong> If approved, we match you with relevant investors
-              using our proprietary algorithm.
+              <strong>Priority Matching:</strong> Featured placement in our investor network
             </li>
             <li style={listItem}>
-              <strong>Investor Introductions:</strong> Connect with interested investors through
-              our platform.
+              <strong>DAO Infrastructure:</strong> Institutional-grade governance from day one
             </li>
             <li style={listItem}>
-              <strong>DAO Setup:</strong> Get institutional-grade governance infrastructure from
-              day one.
+              <strong>Community Benefits:</strong> Shape the platform alongside other exceptional founders
             </li>
-          </ol>
+          </ul>
         </Section>
         
         <Text style={text}>
-          In the meantime, make sure your pitch deck and metrics are up to date. Strong traction
-          data significantly increases your chances of getting matched.
+          We'll keep you updated on our progress through our website at{' '}
+          <strong style={strong}>www.nartaq.com</strong>. In the meantime, make sure your pitch
+          deck and traction metrics are ready—when we launch, we'll fast-track our founding cohort.
         </Text>
         
         <Section style={buttonContainer}>
@@ -111,6 +112,21 @@ const orderedList = {
   lineHeight: '1.6',
   margin: '0',
   paddingLeft: '20px',
+}
+
+const list = {
+  color: '#dcd7ce',
+  fontSize: '15px',
+  lineHeight: '1.6',
+  margin: '0',
+  paddingLeft: '20px',
+}
+
+const cardText = {
+  color: '#dcd7ce',
+  fontSize: '15px',
+  lineHeight: '1.6',
+  margin: '0 0 12px',
 }
 
 const listItem = {

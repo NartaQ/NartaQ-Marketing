@@ -92,6 +92,15 @@ export default function Header({
                   </HoveredLink>
 
                   <HoveredLink
+                    href='/milestones'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/milestones')
+                    }
+                  >
+                    Milestones
+                  </HoveredLink>
+
+                  <HoveredLink
                     href='/careers'
                     onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
                       handleNavigation(e, '/careers')
@@ -120,12 +129,12 @@ export default function Header({
                     For Investors
                   </HoveredLink>
                   <HoveredLink
-                    href='/#how-it-works'
+                    href='/blog'
                     onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-                      handleNavigation(e, '/#how-it-works')
+                      handleNavigation(e, '/blog')
                     }
                   >
-                    How It Works
+                    Blog
                   </HoveredLink>
                 </div>
               </MenuItem>

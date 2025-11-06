@@ -108,7 +108,7 @@ export async function submitCareerApplication(data: CareerApplicationData) {
 
     return {
       success: true,
-      data: application,
+      message: 'Application submitted successfully',
     }
   } catch (error) {
     console.error('Error submitting career application:', error)

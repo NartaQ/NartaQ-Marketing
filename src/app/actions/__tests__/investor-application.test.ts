@@ -90,7 +90,7 @@ describe('submitInvestorApplication', () => {
       const result = await submitInvestorApplicationAction(validInvestorData)
 
       expect(result.success).toBe(true)
-      expect(result.data).toEqual(mockApplication)
+      expect(result.message).toBe('Application submitted successfully')
       expect(prismaMock.investorApplication.create).toHaveBeenCalledWith({
         data: expect.objectContaining({
           fullName: validInvestorData.fullName,
@@ -118,7 +118,7 @@ describe('submitInvestorApplication', () => {
       const result = await submitInvestorApplicationAction(dataWithOptional)
 
       expect(result.success).toBe(true)
-      expect(result.data).toEqual(mockApplication)
+      expect(result.message).toBe('Application submitted successfully')
     })
 
     it('should handle multiple investment focuses', async () => {
@@ -134,7 +134,7 @@ describe('submitInvestorApplication', () => {
       const result = await submitInvestorApplicationAction(dataWithMultipleFocuses)
 
       expect(result.success).toBe(true)
-      expect(result.data).toEqual(mockApplication)
+      expect(result.message).toBe('Application submitted successfully')
     })
   })
 
@@ -281,7 +281,7 @@ describe('submitInvestorApplication', () => {
 
       results.forEach((result) => {
         expect(result.success).toBe(true)
-        expect(result.data).toEqual(mockApplication)
+        expect(result.message).toBe('Application submitted successfully')
       })
     })
   })

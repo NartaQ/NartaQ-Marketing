@@ -8,38 +8,11 @@ import { usePathname } from 'next/navigation'
 const PAGE_ROUTES = [
   { pathname: '/', name: 'Home' },
   { pathname: '/blog', name: 'Blogs' },
+  { pathname: '/milestones', name: 'Milestones' },
   { pathname: '/about', name: 'About' },
   { pathname: '/apply', name: 'Apply' },
   { pathname: '/careers', name: 'Careers' },
   { pathname: '/careers/apply', name: 'Career Application' },
-  { pathname: '/careers/backend-developer', name: 'Backend Developer' },
-  {
-    pathname: '/careers/backend-developer/apply',
-    name: 'Backend Developer Application',
-  },
-  { pathname: '/careers/community-manager', name: 'Community Manager' },
-  {
-    pathname: '/careers/community-manager/apply',
-    name: 'Community Manager Application',
-  },
-  { pathname: '/careers/devops-engineer', name: 'DevOps Engineer' },
-  {
-    pathname: '/careers/devops-engineer/apply',
-    name: 'DevOps Engineer Application',
-  },
-  {
-    pathname: '/careers/digital-marketing-analyst',
-    name: 'Digital Marketing Analyst',
-  },
-  {
-    pathname: '/careers/digital-marketing-analyst/apply',
-    name: 'Digital Marketing Analyst Application',
-  },
-  { pathname: '/careers/ui-ux-designer', name: 'UI/UX Designer' },
-  {
-    pathname: '/careers/ui-ux-designer/apply',
-    name: 'UI/UX Designer Application',
-  },
   { pathname: '/faq', name: 'FAQ' },
   { pathname: '/for-founders', name: 'For Founders' },
   { pathname: '/for-investors', name: 'For Investors' },

@@ -200,12 +200,12 @@ export default function CareerMultiStepForm({
             {/* Personal Information */}
             <div className='space-y-8 mb-12'>
               <div className='text-center mb-12'>
-                <h2 className='font-serif text-3xl font-bold text-white mb-4'>
+                <h2 className='text-3xl font-bold text-white mb-4'>
                   <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                     Tell Us About Yourself
                   </span>
                 </h2>
-                <p className='font-serif text-lg text-[#dcd7ce]/80'>
+                <p className='text-lg text-[#dcd7ce]/80'>
                   We'd love to learn more about you and what drives you
                 </p>
               </div>
@@ -216,17 +216,17 @@ export default function CareerMultiStepForm({
                   name='firstName'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      <FormLabel className='text-xl text-[#dcd7ce] mb-3 block'>
                         First Name *
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder='John'
                           {...field}
-                          className='font-serif text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
+                          className='text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
                         />
                       </FormControl>
-                      <FormMessage className='font-serif text-red-400 mt-2' />
+                      <FormMessage className='text-red-400 mt-2' />
                     </FormItem>
                   )}
                 />
@@ -236,17 +236,17 @@ export default function CareerMultiStepForm({
                   name='lastName'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      <FormLabel className='text-xl text-[#dcd7ce] mb-3 block'>
                         Last Name *
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder='Doe'
                           {...field}
-                          className='font-serif text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
+                          className='text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
                         />
                       </FormControl>
-                      <FormMessage className='font-serif text-red-400 mt-2' />
+                      <FormMessage className='text-red-400 mt-2' />
                     </FormItem>
                   )}
                 />
@@ -258,7 +258,7 @@ export default function CareerMultiStepForm({
                   name='email'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      <FormLabel className='text-xl text-[#dcd7ce] mb-3 block'>
                         Email Address *
                       </FormLabel>
                       <FormControl>
@@ -266,10 +266,10 @@ export default function CareerMultiStepForm({
                           type='email'
                           placeholder='john@example.com'
                           {...field}
-                          className='font-serif text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
+                          className='text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
                         />
                       </FormControl>
-                      <FormMessage className='font-serif text-red-400 mt-2' />
+                      <FormMessage className='text-red-400 mt-2' />
                     </FormItem>
                   )}
                 />
@@ -279,7 +279,7 @@ export default function CareerMultiStepForm({
                   name='phone'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                      <FormLabel className='text-xl text-[#dcd7ce] mb-3 block'>
                         Phone Number (optional)
                       </FormLabel>
                       <FormControl>
@@ -287,10 +287,10 @@ export default function CareerMultiStepForm({
                           type='tel'
                           placeholder='+33 1 23 45 67 89'
                           {...field}
-                          className='font-serif text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
+                          className='text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
                         />
                       </FormControl>
-                      <FormMessage className='font-serif text-red-400 mt-2' />
+                      <FormMessage className='text-red-400 mt-2' />
                     </FormItem>
                   )}
                 />
@@ -304,20 +304,20 @@ export default function CareerMultiStepForm({
                 name='motivation'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                    <FormLabel className='text-xl text-[#dcd7ce] mb-3 block'>
                       Why do you want to join NartaQ? (optional)
                     </FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder='Tell us what excites you about this opportunity and how you can contribute to our mission. Share your passion, experience, and what makes you unique...'
                         rows={6}
-                        className='font-serif text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
+                        className='text-lg bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl resize-none transition-all duration-300'
                         {...field}
                       />
                     </FormControl>
                     <div className='flex justify-between items-center mt-2'>
-                      <FormMessage className='font-serif text-red-400' />
-                      <span className='font-serif text-[#5c5d63] text-sm'>
+                      <FormMessage className='text-red-400' />
+                      <span className='text-[#5c5d63] text-sm'>
                         {field.value?.length || 0}/1000 characters
                       </span>
                     </div>
@@ -333,7 +333,7 @@ export default function CareerMultiStepForm({
                 name='portfolioUrl'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className='font-serif text-xl text-[#dcd7ce] mb-3 block'>
+                    <FormLabel className='text-xl text-[#dcd7ce] mb-3 block'>
                       Portfolio / LinkedIn URL (optional)
                     </FormLabel>
                     <FormControl>
@@ -341,20 +341,20 @@ export default function CareerMultiStepForm({
                         type='url'
                         placeholder='https://linkedin.com/in/yourprofile or https://yourportfolio.com'
                         {...field}
-                        className='font-serif text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
+                        className='text-lg h-14 bg-[#232428]/60 border-[#5c5d63]/50 text-[#dcd7ce] placeholder-[#5c5d63] focus:border-[#a98b5d] focus:ring-[#a98b5d]/20 rounded-xl transition-all duration-300'
                       />
                     </FormControl>
-                    <FormMessage className='font-serif text-red-400 mt-2' />
+                    <FormMessage className='text-red-400 mt-2' />
                   </FormItem>
                 )}
               />
 
               {/* CV Upload - Simplified */}
               <div className='space-y-4'>
-                <label className='font-serif text-xl text-[#dcd7ce] block'>
+                <label className='text-xl text-[#dcd7ce] block'>
                   Upload your CV (optional)
                 </label>
-                <p className='font-serif text-sm text-[#5c5d63]'>
+                <p className='text-sm text-[#5c5d63]'>
                   Accepted formats: PDF, Word (.doc, .docx) - Maximum size: 5MB
                 </p>
 
@@ -375,7 +375,7 @@ export default function CareerMultiStepForm({
                         <Upload className='w-5 h-5' />
                         Choose File
                       </label>
-                      <p className='font-serif text-sm text-[#5c5d63] mt-2'>
+                      <p className='text-sm text-[#5c5d63] mt-2'>
                         Or drag and drop your file here
                       </p>
                     </div>
@@ -384,10 +384,10 @@ export default function CareerMultiStepForm({
                       <div className='flex items-center gap-3'>
                         <FileText className='w-5 h-5 text-[#a98b5d]' />
                         <div>
-                          <p className='font-serif text-[#dcd7ce] text-sm'>
+                          <p className='text-[#dcd7ce] text-sm'>
                             {selectedFile.name}
                           </p>
-                          <p className='font-serif text-[#5c5d63] text-xs'>
+                          <p className='text-[#5c5d63] text-xs'>
                             {(selectedFile.size / (1024 * 1024)).toFixed(2)} MB
                           </p>
                         </div>
@@ -404,7 +404,7 @@ export default function CareerMultiStepForm({
 
                   {uploadError && (
                     <div className='mt-4 p-3 bg-red-900/20 border border-red-500/30 rounded-lg'>
-                      <p className='font-serif text-red-400 text-sm'>
+                      <p className='text-red-400 text-sm'>
                         {uploadError}
                       </p>
                     </div>
@@ -415,7 +415,7 @@ export default function CareerMultiStepForm({
 
             {/* Data Processing Information */}
             <div className='mt-12 p-6 bg-[#232428]/40 border border-[#5c5d63]/30 rounded-xl'>
-              <p className='font-serif text-sm text-[#a8a8a8] leading-relaxed'>
+              <p className='text-sm text-[#a8a8a8] leading-relaxed'>
                 By submitting this application, you consent to the processing of
                 your personal data in accordance with our{' '}
                 <a
@@ -447,7 +447,7 @@ export default function CareerMultiStepForm({
                 animate={{ opacity: 1, y: 0 }}
                 className='mt-6 p-4 bg-red-900/20 border border-red-500/30 rounded-xl'
               >
-                <p className='font-serif text-red-400 text-center'>
+                <p className='text-red-400 text-center'>
                   {submissionError}
                 </p>
               </motion.div>
@@ -458,7 +458,7 @@ export default function CareerMultiStepForm({
               <Button
                 type='submit'
                 disabled={isSubmitting}
-                className='font-serif text-lg px-12 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl shadow-lg hover:shadow-[#a98b5d]/20'
+                className='text-lg px-12 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl shadow-lg hover:shadow-[#a98b5d]/20'
               >
                 {isSubmitting ? (
                   <div className='flex items-center gap-2'>

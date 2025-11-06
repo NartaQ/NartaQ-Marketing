@@ -237,6 +237,22 @@ export async function sendCareerConfirmation(
 }
 
 /**
+ * Send SPV partner application confirmation
+ */
+export async function sendSPVPartnerConfirmation(
+  email: string,
+  partnerName: string,
+  companyName: string
+): Promise<{ success: boolean; error?: string }> {
+  return sendEmail({
+    to: email,
+    subject: `SPV Partnership Application Received from ${companyName} ✓`,
+    html: emailTemplateLoader.renderSPVPartnerConfirmation({ partnerName, companyName }),
+    replyTo: 'partners@nartaq.com',
+  })
+}
+
+/**
  * Send bulk emails (for newsletters or announcements)
  */
 export async function sendBulkEmails(

@@ -472,6 +472,66 @@ export function careerApplicationConfirmation(name: string, position: string): s
 }
 
 /**
+ * SPV Partner application confirmation email
+ */
+export function spvPartnerApplicationConfirmation(name: string, company: string): string {
+  const content = `
+    ${cardComponent(`
+      <h1 style="margin: 0 0 20px 0; padding: 0; color: #dcd7ce; font-size: 28px; font-weight: 700; line-height: 1.3;">
+        Partnership Application Received, ${name}! 🤝
+      </h1>
+      <p style="margin: 0 0 20px 0; padding: 0; color: #dcd7ce; font-size: 16px; line-height: 1.7;">
+        Thank you for <strong style="color: #a98b5d;">${company}</strong>'s interest in becoming an SPV partner with NartaQ. We're excited to explore this partnership opportunity.
+      </p>
+      
+      ${highlightBox(`
+        <p style="margin: 0 0 12px 0; padding: 0; color: #dcd7ce; font-size: 15px; line-height: 1.6; font-weight: 600;">
+          Next steps in our partnership process
+        </p>
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+            <td style="padding: 6px 0; color: rgba(220, 215, 206, 0.9); font-size: 14px; line-height: 1.6;">
+              <strong style="color: #a98b5d;">Initial Review:</strong> We'll evaluate your SPV capabilities and experience
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: rgba(220, 215, 206, 0.9); font-size: 14px; line-height: 1.6;">
+              <strong style="color: #a98b5d;">Technical Assessment:</strong> Our team will review your API integration capabilities
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: rgba(220, 215, 206, 0.9); font-size: 14px; line-height: 1.6;">
+              <strong style="color: #a98b5d;">Partnership Call:</strong> If qualified, we'll schedule a detailed discussion
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 6px 0; color: rgba(220, 215, 206, 0.9); font-size: 14px; line-height: 1.6;">
+              <strong style="color: #a98b5d;">Integration:</strong> We'll work together on API integration and testing
+            </td>
+          </tr>
+        </table>
+      `)}
+      
+      <p style="margin: 20px 0 0 0; padding: 0; color: rgba(220, 215, 206, 0.9); font-size: 15px; line-height: 1.7;">
+        Our SPV-as-a-Service platform enables clean cap tables and institutional-grade infrastructure for cross-border ventures. We're looking for partners who share our vision of making global venture capital accessible to all entrepreneurs.
+      </p>
+      
+      <p style="margin: 12px 0 0 0; padding: 0; color: rgba(220, 215, 206, 0.8); font-size: 14px; line-height: 1.7;">
+        We typically respond to partnership applications within <strong style="color: #a98b5d;">3-5 business days</strong>.
+      </p>
+    `)}
+    
+    ${buttonComponent('Learn About Our Platform', 'https://nartaq.com/about')}
+    
+    <p style="margin: 30px 0 0 0; padding: 0; color: rgba(220, 215, 206, 0.8); font-size: 14px; line-height: 1.7; text-align: center;">
+      Have questions about the partnership? <a href="mailto:partners@nartaq.com" style="color: #a98b5d; text-decoration: none; font-weight: 600;">partners@nartaq.com</a>
+    </p>
+  `;
+  
+  return baseTemplate(content);
+}
+
+/**
  * Admin notification email for new applications
  */
 export function adminApplicationNotification(

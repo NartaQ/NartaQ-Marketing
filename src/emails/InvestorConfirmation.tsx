@@ -23,33 +23,34 @@ export default function InvestorConfirmation({
         
         <Text style={text}>
           Thank you for joining NartaQ as a <strong style={strong}>{displayType}</strong>.
-          We're excited to connect you with exceptional founders across Africa and developing countries.
+          We're delighted to have you as one of our founding investors as we build the platform.
         </Text>
         
         <Section style={card}>
-          <Heading style={cardTitle}>What you get access to:</Heading>
+          <Heading style={cardTitle}>Welcome to the founding cohort! 🎉</Heading>
+          <Text style={cardText}>
+            We're currently building NartaQ's AI-powered matching engine and blockchain infrastructure.
+            As a founding member, you'll benefit from:
+          </Text>
           <ul style={list}>
             <li style={listItem}>
-              <strong>Curated Deal Flow:</strong> Pre-vetted startups with strong fundamentals
-              and verified traction metrics
+              <strong>First Access:</strong> Priority access to pre-vetted startups when we launch
             </li>
             <li style={listItem}>
-              <strong>AI-Powered Matching:</strong> Get matched with startups aligned to your
-              sector expertise and stage focus
+              <strong>Premium Deal Flow:</strong> Curated founders from Africa and emerging markets
             </li>
             <li style={listItem}>
-              <strong>Full Transparency:</strong> Blockchain-based cap tables with real-time
-              equity tracking
+              <strong>Transparent Infrastructure:</strong> Blockchain-based governance and cap tables
             </li>
             <li style={listItem}>
-              <strong>Early Access:</strong> First look at high-potential deals in emerging markets
+              <strong>Network Benefits:</strong> Connect with other exceptional investors in our community
             </li>
           </ul>
         </Section>
         
         <Text style={text}>
-          Our team is reviewing your profile and will notify you when we have relevant opportunities
-          that match your investment criteria.
+          We'll keep you updated on our launch progress through our website at{' '}
+          <strong style={strong}>www.nartaq.com</strong>. Stay tuned for exciting opportunities!
         </Text>
         
         <Section style={buttonContainer}>
@@ -113,6 +114,13 @@ const list = {
   lineHeight: '1.6',
   margin: '0',
   paddingLeft: '20px',
+}
+
+const cardText = {
+  color: '#dcd7ce',
+  fontSize: '15px',
+  lineHeight: '1.6',
+  margin: '0 0 12px',
 }
 
 const listItem = {

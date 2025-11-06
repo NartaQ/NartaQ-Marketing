@@ -4,8 +4,8 @@ import { useEffect, useState, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import Header from './Header'
-import Nav from '../sideNavBar/SideNav'
-import Banner from '../layout/Banner'
+import SideNav from '../sideNavBar/SideNav'
+import Banner from '../layout/Banner';
 import { type BannerSettings } from '@/app/actions/banner-settings'
 
 interface UnifiedNavigationProps {
@@ -75,7 +75,7 @@ export default function UnifiedNavigation({ bannerSettings }: UnifiedNavigationP
 
   return (
     <>
-      {/* Dynamic Banner */}
+      {/* Dynamic Cohort Banner - Always visible */}
       <Banner settings={bannerSettings} />
 
       {/* Header - only show when at top of page and nav is not open */}
@@ -146,7 +146,7 @@ export default function UnifiedNavigation({ bannerSettings }: UnifiedNavigationP
         />
       )}
 
-      <AnimatePresence mode='wait'>{isNavOpen && <Nav />}</AnimatePresence>
+      <AnimatePresence mode='wait'>{isNavOpen && <SideNav />}</AnimatePresence>
     </>
   )
 }

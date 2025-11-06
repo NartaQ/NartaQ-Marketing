@@ -118,6 +118,7 @@ class SmokeTestRunner {
       const invalidResult = await submitInvestorApplication({
         fullName: '', // Invalid: empty
         workEmail: 'invalid-email', // Invalid: not an email
+        investorType: 'angel', // Required field
         companyName: 'Test Firm',
         title: 'Partner',
         investmentFocus: [], // Invalid: empty array
