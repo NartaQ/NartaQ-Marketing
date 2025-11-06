@@ -161,13 +161,6 @@ export default function Footer({
               For Investors
             </Link>
             <Link
-              href='/spv-partners'
-              className='footer-link hover:text-black dark:hover:text-white transition-colors'
-              onClick={(e) => handleNavigation(e, '/spv-partners')}
-            >
-              SPV Partners
-            </Link>
-            <Link
               href='/#how-it-works'
               className='footer-link hover:text-black dark:hover:text-white transition-colors'
               onClick={(e) => handleNavigation(e, '/#how-it-works')}

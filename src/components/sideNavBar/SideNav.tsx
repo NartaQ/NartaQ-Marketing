@@ -12,7 +12,6 @@ import { animatePageOut } from '../pageTransition/animations'
     { title: 'Home', href: '/' },
     { title: 'For Founders', href: '/for-founders' },
     { title: 'For Investors', href: '/for-investors' },
-    { title: 'SPV Partners', href: '/spv-partners' },
     { title: 'About', href: '/about' },
     { title: 'Milestones', href: '/milestones' },
     { title: 'Blog', href: '/blog' },
