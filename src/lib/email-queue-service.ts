@@ -11,7 +11,6 @@
  * 
  * Processing:
  * - Vercel Cron: Every 4 hours automatically (requires Pro tier)
- * - Manual trigger: Call /api/cron/processe-mails anytime
  * - Rate limited to avoid SendGrid throttling
  */
 
@@ -41,6 +40,7 @@ export async function queueEmail(options: QueueEmailOptions): Promise<void> {
         scheduledAt: options.scheduledAt || new Date(),
       },
     })
+    processEmailQueue()
     
     console.log('📬 Email queued:', { to: options.to, subject: options.subject })
   } catch (error) {
