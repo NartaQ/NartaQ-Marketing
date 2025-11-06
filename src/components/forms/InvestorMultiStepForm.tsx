@@ -768,19 +768,23 @@ export default function InvestorMultiStepForm({
                           )
                         })}
                       </div>
-                      {watchedTargetGeography?.includes('Other') && (
+                      {watchedTargetGeography?.includes('Other (more specific)') && (
                         <FormField
                           control={form.control}
                           name='otherGeography'
                           render={({ field }) => (
                             <FormItem className='mt-4'>
+                              <FormLabel className='text-lg text-white mb-3 block'>
+                                Please specify your target geography
+                              </FormLabel>
                               <FormControl>
                                 <Input
                                   placeholder='Please specify your target geography'
                                   {...field}
-                                  className=' text-lg h-12 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                                  className='text-lg h-12 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                                 />
                               </FormControl>
+                              <FormMessage className='text-red-400 mt-2' />
                             </FormItem>
                           )}
                         />

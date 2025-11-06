@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowRight, ArrowLeft, Check } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Check, ChevronsUpDown } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -12,6 +12,20 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
+import { cn } from '@/lib/utils'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
 import {
   Select,
   SelectContent,
@@ -33,12 +47,44 @@ const formSchema = z.object({
   workEmail: z.email('Please enter a valid email address'),
   founderLinkedIn: z.string().url('Please enter a valid LinkedIn URL').optional().or(z.literal('')),
   companyName: z.string().min(1, 'Company name is required'),
-  website: z.string().url('Please enter a valid website URL').optional(),
+  website: z.string().url('Please enter a valid website URL').optional().or(z.literal('')),
   companyLinkedIn: z.string().url('Please enter a valid LinkedIn URL').optional().or(z.literal('')),
   sector: z.array(z.string()).min(1, 'Please select at least one sector'),
   otherSector: z.string().optional(),
   fundingStage: z.string().min(1, 'Please select a funding stage'),
-  location: z.string().min(1, 'Please select a location'),
+  location: z.string().min(1, 'Please select a location').refine(
+    (val) => [
+      'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda',
+      'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain',
+      'Bangladesh', 'Barbados', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia',
+      'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso',
+      'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic',
+      'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo', 'Costa Rica', 'Croatia',
+      'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic',
+      'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia',
+      'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia',
+      'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau',
+      'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iraq',
+      'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya',
+      'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho',
+      'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi',
+      'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius',
+      'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco',
+      'Mozambique', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua',
+      'Niger', 'Nigeria', 'North Macedonia', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama',
+      'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar',
+      'Romania', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia',
+      'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe',
+      'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore',
+      'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea',
+      'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Sweden', 'Switzerland',
+      'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga',
+      'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda',
+      'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay',
+      'Uzbekistan', 'Vanuatu', 'Vatican City', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'
+    ].includes(val),
+    'Please select a valid country from the list'
+  ),
   shortPitch: z
     .string()
     .min(10, 'Please provide a short pitch (minimum 10 characters)')
@@ -60,6 +106,7 @@ export default function FounderMultiStepForm({
   const [emailCheckError, setEmailCheckError] = useState<string>('')
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isCheckingEmail, setIsCheckingEmail] = useState(false)
+  const [openLocationPopover, setOpenLocationPopover] = useState(false)
   const totalSteps = 4
 
   const form = useForm<FormData>({
@@ -97,7 +144,6 @@ export default function FounderMultiStepForm({
   ]
 
   const fundingStageOptions = [
-    'Pre-Revenue',
     'Pre-Seed',
     'Seed',
     'Series A',
@@ -386,7 +432,7 @@ export default function FounderMultiStepForm({
       case 1:
         return ['fullName', 'workEmail']
       case 2:
-        return ['companyName', 'website']
+        return ['companyName']
       case 3:
         return ['sector', 'fundingStage', 'location']
       case 4:
@@ -525,7 +571,7 @@ export default function FounderMultiStepForm({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className='text-xl text-white mb-3 block'>
-                        Your LinkedIn profile (optional)
+                        Your LinkedIn profile
                       </FormLabel>
                       <FormControl>
                         <Input
@@ -579,7 +625,7 @@ export default function FounderMultiStepForm({
                   name='website'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='font-serif text-xl text-white mb-3 block'>
+                      <FormLabel className='text-xl text-white mb-3 block'>
                         What's your company website? 
                       </FormLabel>
                       <FormControl>
@@ -601,7 +647,7 @@ export default function FounderMultiStepForm({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className='text-xl text-white mb-3 block'>
-                        Company LinkedIn page (optional)
+                        Company LinkedIn page
                       </FormLabel>
                       <FormControl>
                         <Input
@@ -736,31 +782,61 @@ export default function FounderMultiStepForm({
                     control={form.control}
                     name='location'
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className='flex flex-col'>
                         <FormLabel className='text-xl text-white mb-3 block'>
                           Primary location? *
                         </FormLabel>
-                        <Select
-                          onValueChange={field.onChange}
-                          value={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger className='text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
-                              <SelectValue placeholder='Select your country' />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent className='bg-black border-[#a98b5d]/30 max-h-[300px] overflow-y-auto'>
-                            {locationOptions.map((option) => (
-                              <SelectItem
-                                key={option}
-                                value={option}
-                                className='text-white focus:bg-[#a98b5d]/20 '
+                        <Popover open={openLocationPopover} onOpenChange={setOpenLocationPopover}>
+                          <PopoverTrigger asChild>
+                            <FormControl>
+                              <Button
+                                variant='outline'
+                                role='combobox'
+                                className={cn(
+                                  'text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white justify-between hover:bg-black/60 hover:text-white rounded-xl',
+                                  !field.value && 'text-gray-500'
+                                )}
                               >
-                                {option}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                                {field.value || 'Select your country'}
+                                <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
+                              </Button>
+                            </FormControl>
+                          </PopoverTrigger>
+                          <PopoverContent className='w-full p-0 bg-black border-[#a98b5d]/30' align='start'>
+                            <Command className='bg-black'>
+                              <CommandInput 
+                                placeholder='Search country...' 
+                                className='h-12 bg-black/50 border-[#a98b5d]/30 text-white'
+                              />
+                              <CommandList className='max-h-[300px]'>
+                                <CommandEmpty className='text-gray-400 py-6 text-center'>
+                                  No country found.
+                                </CommandEmpty>
+                                <CommandGroup>
+                                  {locationOptions.map((country) => (
+                                    <CommandItem
+                                      key={country}
+                                      value={country}
+                                      onSelect={() => {
+                                        form.setValue('location', country)
+                                        setOpenLocationPopover(false)
+                                      }}
+                                      className='text-white hover:bg-[#a98b5d]/20 cursor-pointer'
+                                    >
+                                      <Check
+                                        className={cn(
+                                          'mr-2 h-4 w-4',
+                                          field.value === country ? 'opacity-100' : 'opacity-0'
+                                        )}
+                                      />
+                                      {country}
+                                    </CommandItem>
+                                  ))}
+                                </CommandGroup>
+                              </CommandList>
+                            </Command>
+                          </PopoverContent>
+                        </Popover>
                         <FormMessage className='text-red-400 mt-2' />
                       </FormItem>
                     )}
@@ -813,7 +889,7 @@ export default function FounderMultiStepForm({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className='text-xl text-white mb-3 block'>
-                        Pitch deck URL (optional)
+                        Pitch deck URL
                       </FormLabel>
                       <FormControl>
                         <Input
