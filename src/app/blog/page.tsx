@@ -126,6 +126,9 @@ export default async function BlogPage({
 
   const posts: Post[] = await client.fetch(postsQuery)
 
+  console.log('Fetched posts:', posts.length)
+  console.log('First post categories:', posts[0]?.categories)
+
   // Add reading time to posts
   const postsWithReadingTime = posts.map((post) => ({
     ...post,
@@ -140,15 +143,17 @@ export default async function BlogPage({
 
   // Get unique categories for filtering
   const allCategories = postsWithReadingTime.reduce((acc: any[], post) => {
-    if (post.categories) {
+    if (post.categories && Array.isArray(post.categories)) {
       post.categories.forEach((category) => {
-        if (category?.slug?.current && !acc.find((c) => c.slug.current === category.slug.current)) {
+        if (category?.title && category?.slug?.current && !acc.find((c) => c.slug?.current === category.slug.current)) {
           acc.push(category)
         }
       })
     }
     return acc
   }, [])
+
+  console.log('All categories found:', allCategories)
 
   // Filter posts by selected category
   const filteredPosts = selectedCategory
@@ -160,81 +165,22 @@ export default async function BlogPage({
   return (
     <div className='min-h-screen bg-black text-white'>
       {/* Hero Section */}
-      <div className='relative min-h-[85vh] flex items-center justify-center overflow-hidden'>
-        {/* Animated Background Grid */}
-        <div className='absolute inset-0'>
-          <div className='absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0a] to-black' />
-          <div className='absolute inset-0 opacity-30'>
-            <div className='h-full w-full bg-[linear-gradient(to_right,#a98b5d_1px,transparent_1px),linear-gradient(to_bottom,#a98b5d_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]' />
+      <div className='relative pt-32 pb-20 overflow-hidden'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='max-w-3xl'>
+            <h1 className='text-5xl sm:text-6xl md:text-7xl font-bold text-[#dcd7ce] mb-6'>
+              Blog
+            </h1>
+            <p className='text-xl text-[#dcd7ce]/70 mb-8'>
+              Insights on startup funding, venture capital, and building the future of entrepreneurship.
+            </p>
+            <BlogCTAButtons />
           </div>
-        </div>
-
-        {/* Floating Elements */}
-        <div className='absolute inset-0 overflow-hidden'>
-          <div className='absolute top-1/4 left-1/4 w-32 h-32 bg-[#a98b5d]/10 rounded-full blur-xl animate-pulse' />
-          <div className='absolute top-3/4 right-1/4 w-24 h-24 bg-[#dcd7ce]/10 rounded-full blur-xl animate-pulse delay-1000' />
-          <div className='absolute top-1/2 right-1/3 w-20 h-20 bg-[#a98b5d]/20 rounded-full blur-lg animate-bounce' />
-        </div>
-
-        <div className='relative z-10 max-w-6xl mx-auto px-4 text-center'>
-          {/* Animated Badge */}
-          <div className='inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#a98b5d]/20 via-[#dcd7ce]/10 to-[#a98b5d]/20 border border-[#a98b5d]/40 backdrop-blur-xl mb-8 hover:border-[#a98b5d]/60 transition-all duration-300'>
-            <BookOpen className='w-5 h-5 text-[#a98b5d]' />
-            <span className='text-sm font-semibold text-[#dcd7ce] tracking-wide'>
-              INSIGHTS & THOUGHT LEADERSHIP
-            </span>
-            <TrendingUp className='w-4 h-4 text-[#a98b5d]' />
-          </div>
-
-          {/* Main Headline with Animation */}
-          <h1 className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8'>
-            <span className='block text-[#dcd7ce] mb-2'>Discover</span>
-            <span className='block bg-gradient-to-r from-[#a98b5d] via-[#dcd7ce] to-[#a98b5d] bg-clip-text text-transparent animate-pulse'>
-              Innovation
-            </span>
-          </h1>
-
-          {/* Enhanced Subheadline */}
-          <p className='text-xl md:text-2xl lg:text-3xl text-[#dcd7ce]/80 max-w-4xl mx-auto mb-12 leading-relaxed font-light'>
-            Deep insights into the future of startup funding, AI-powered venture
-            matching, and the democratization of entrepreneurial capital
-          </p>
-
-          {/* Stats Section */}
-          <div className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12'>
-            <div className='bg-[#1a1a1a]/60 backdrop-blur-xl border border-[#a98b5d]/20 rounded-2xl p-6 hover:border-[#a98b5d]/40 transition-all duration-300 hover:scale-105'>
-              <div className='text-3xl font-bold text-[#a98b5d] mb-2'>
-                {postsWithReadingTime.length}+
-              </div>
-              <div className='text-[#dcd7ce]/60 text-sm font-medium'>
-                Articles Published
-              </div>
-            </div>
-            <div className='bg-[#1a1a1a]/60 backdrop-blur-xl border border-[#a98b5d]/20 rounded-2xl p-6 hover:border-[#a98b5d]/40 transition-all duration-300 hover:scale-105'>
-              <div className='text-3xl font-bold text-[#a98b5d] mb-2'>
-                {allCategories.length || 5}+
-              </div>
-              <div className='text-[#dcd7ce]/60 text-sm font-medium'>
-                Topic Categories
-              </div>
-            </div>
-            <div className='bg-[#1a1a1a]/60 backdrop-blur-xl border border-[#a98b5d]/20 rounded-2xl p-6 hover:border-[#a98b5d]/40 transition-all duration-300 hover:scale-105'>
-              <div className='text-3xl font-bold text-[#a98b5d] mb-2'>
-                Weekly
-              </div>
-              <div className='text-[#dcd7ce]/60 text-sm font-medium'>
-                New Content
-              </div>
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <BlogCTAButtons />
         </div>
       </div>
 
       {/* Blog Posts Grid */}
-      <section id='latest' className='py-16 sm:py-24 bg-gradient-to-b from-[#0a0a0a] to-black'>
+      <section id='latest' className='py-16 sm:py-24 bg-gradient-to-b from-black to-black'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           {/* Category Filter */}
           {allCategories.length > 0 && (

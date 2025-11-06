@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { X, Mail, CheckCircle, Loader2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { subscribeToNewsletter } from '@/app/actions/newsletter'
 
 interface NewsletterModalProps {
   isOpen: boolean
@@ -21,17 +22,12 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
     setError('')
 
     try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
+      const result = await subscribeToNewsletter({
+        email,
+        source: 'modal',
       })
 
-      const data = await response.json()
-
-      if (response.ok) {
+      if (result.success) {
         setIsSuccess(true)
         setEmail('')
         setTimeout(() => {
@@ -39,7 +35,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
           setIsSuccess(false)
         }, 2000)
       } else {
-        setError(data.error || 'Something went wrong. Please try again.')
+        setError(result.error || 'Something went wrong. Please try again.')
       }
     } catch (err) {
       setError('Network error. Please check your connection and try again.')

@@ -30,11 +30,11 @@
     "analyze:both": "cross-env BUNDLE_ANALYZE=both next build",
     "postinstall": "prisma generate && prisma db push",
     "vercel-build": "prisma generate && next build",
-    "sanitydev": "sanity dev",
-    "sanitystart": "sanity start",
-    "sanitybuild": "sanity build",
-    "sanitydeploy": "sanity deploy",
-    "sanitydeploy-graphql": "sanity graphql deploy"
+    "sanity:dev": "sanity dev",
+    "sanity:start": "sanity start",
+    "sanity:build": "sanity build",
+    "sanity:deploy": "sanity deploy",
+    "sanity:deploy-graphql": "sanity graphql deploy"
   },
   "dependencies": {
     "@azure/storage-blob": "^12.28.0",
