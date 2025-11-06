@@ -160,78 +160,73 @@ export async function processEmailQueue(maxBatch = 10): Promise<{
 }
 
 /**
- * Queue a welcome email for new newsletter subscriber
+ * Send a welcome email for new newsletter subscriber directly
  */
 export async function queueWelcomeEmail(email: string, name?: string): Promise<void> {
-  await queueEmail({
+  await sendEmail({
     to: email,
     subject: 'Welcome to NartaQ Community 🎉',
-    htmlContent: emailTemplateLoader.renderNewsletterWelcome({ name: name || 'there' }),
-    type: 'welcome',
+    html: emailTemplateLoader.renderNewsletterWelcome({ name: name || 'there' }),
   })
 }
 
 /**
- * Queue a founder confirmation email
+ * Send a founder confirmation email directly
  */
 export async function queueFounderConfirmation(
   email: string,
   name: string,
   company: string
 ): Promise<void> {
-  await queueEmail({
+  await sendEmail({
     to: email,
     subject: `Application Received for ${company} ✓`,
-    htmlContent: emailTemplateLoader.renderFounderConfirmation({ founderName: name, companyName: company }),
-    type: 'confirmation',
+    html: emailTemplateLoader.renderFounderConfirmation({ founderName: name, companyName: company }),
   })
 }
 
 /**
- * Queue an investor confirmation email
+ * Send an investor confirmation email directly
  */
 export async function queueInvestorConfirmation(
   email: string,
   name: string,
   investorType: string
 ): Promise<void> {
-  await queueEmail({
+  await sendEmail({
     to: email,
     subject: 'Welcome to NartaQ Investor Network ✓',
-    htmlContent: emailTemplateLoader.renderInvestorConfirmation({ investorName: name, investorType }),
-    type: 'confirmation',
+    html: emailTemplateLoader.renderInvestorConfirmation({ investorName: name, investorType }),
   })
 }
 
 /**
- * Queue a career confirmation email
+ * Send a career confirmation email directly
  */
 export async function queueCareerConfirmation(
   email: string,
   name: string,
   position: string
 ): Promise<void> {
-  await queueEmail({
+  await sendEmail({
     to: email,
     subject: `Application Received for ${position} ✓`,
-    htmlContent: emailTemplateLoader.renderCareerConfirmation({ applicantName: name, position }),
-    type: 'confirmation',
+    html: emailTemplateLoader.renderCareerConfirmation({ applicantName: name, position }),
   })
 }
 
 /**
- * Queue an SPV partner confirmation email
+ * Send an SPV partner confirmation email directly
  */
 export async function queueSPVPartnerConfirmation(
   email: string,
   name: string,
   company: string
 ): Promise<void> {
-  await queueEmail({
+  await sendEmail({
     to: email,
     subject: `SPV Partnership Application Received from ${company} ✓`,
-    htmlContent: emailTemplateLoader.renderSPVPartnerConfirmation({ partnerName: name, companyName: company }),
-    type: 'confirmation',
+    html: emailTemplateLoader.renderSPVPartnerConfirmation({ partnerName: name, companyName: company }),
   })
 }
 
