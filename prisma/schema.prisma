@@ -83,6 +83,31 @@ model CareerApplication {
   @@map("career_applications")
 }
 
+model SPVPartnerApplication {
+  id                       String   @id @default(cuid())
+  companyName              String
+  website                  String?
+  registrationNumber       String?
+  jurisdiction             String
+  yearsInBusiness          String
+  contactName              String
+  email                    String
+  phone                    String
+  linkedin                 String?
+  hasSPVExperience         Boolean  @default(false)
+  numberOfSPVsManaged      String
+  typicalSPVSize           String
+  primarySectors           String
+  jurisdictionsServed      String
+  operationalCapabilities  String   @db.Text
+  whyPartner               String   @db.Text
+  additionalInfo           String?  @db.Text
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+
+  @@map("spv_partner_applications")
+}
+
 // Email queue for scheduled/retry delivery (cost-effective alternative to cron)
 model EmailQueue {
   id          String   @id @default(cuid())

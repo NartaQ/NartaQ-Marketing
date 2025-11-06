@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * This is a build script that converts React Email templates into a static html(handlebars) files.
  * Why not use React Email in production?
@@ -9,7 +8,6 @@
 import { render } from '@react-email/render';
 import chokidar from 'chokidar';
 import * as fs from 'fs';
-import { Stats } from 'node:fs';
 import * as path from 'path';
 import * as React from 'react';
 

@@ -6,26 +6,23 @@ const accountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY
 const containerName = process.env.AZURE_STORAGE_CONTAINER_NAME || 'nartaq-uploads'
 
 // Validate required environment variables
-function validateAzureConfig() {
-  if (!accountName) {
-    throw new Error(
-      'AZURE_STORAGE_ACCOUNT_NAME is not set. Please add it to your environment variables.'
-    )
-  }
-  if (!accountKey) {
-    throw new Error(
-      'AZURE_STORAGE_ACCOUNT_KEY is not set. Please add it to your environment variables.'
-    )
-  }
-  // Validate account name format (lowercase, alphanumeric, 3-24 chars)
-  if (!/^[a-z0-9]{3,24}$/.test(accountName)) {
-    throw new Error(
-      `Invalid AZURE_STORAGE_ACCOUNT_NAME format: "${accountName}". Must be lowercase alphanumeric, 3-24 characters.`
-    )
-  }
+if (!accountName) {
+  throw new Error(
+    'AZURE_STORAGE_ACCOUNT_NAME is not set. Please add it to your environment variables.'
+  )
+}
+if (!accountKey) {
+  throw new Error(
+    'AZURE_STORAGE_ACCOUNT_KEY is not set. Please add it to your environment variables.'
+  )
+}
+// Validate account name format (lowercase, alphanumeric, 3-24 chars)
+if (!/^[a-z0-9]{3,24}$/.test(accountName)) {
+  throw new Error(
+    `Invalid AZURE_STORAGE_ACCOUNT_NAME format: "${accountName}". Must be lowercase alphanumeric, 3-24 characters.`
+  )
 }
 
-validateAzureConfig()
 
 const sharedKeyCredential = new StorageSharedKeyCredential(accountName, accountKey)
 const blobServiceClient = new BlobServiceClient(

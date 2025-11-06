@@ -11,7 +11,7 @@
  * 
  * Processing:
  * - Vercel Cron: Every 4 hours automatically (requires Pro tier)
- * - Manual trigger: Call /api/cron/process-emails anytime
+ * - Manual trigger: Call /api/cron/processe-mails anytime
  * - Rate limited to avoid SendGrid throttling
  */
 
