@@ -107,7 +107,7 @@ export async function submitFounderApplication(
     }
 
     // Queue confirmation email (non-blocking)
-    queueFounderConfirmation(
+    await queueFounderConfirmation(
       validatedData.workEmail,
       validatedData.fullName,
       validatedData.companyName

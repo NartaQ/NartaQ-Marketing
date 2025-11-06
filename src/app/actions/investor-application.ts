@@ -132,8 +132,8 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
       console.warn('Analytics tracking failed for investor application completion:', analyticsError)
     }
 
-    // Queue confirmation email for investor (processed in background)
-    queueInvestorConfirmation(
+    // Queue confirmation email for investor
+    await queueInvestorConfirmation(
       validatedData.workEmail,
       validatedData.fullName,
       validatedData.investorType

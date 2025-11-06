@@ -97,8 +97,8 @@ export async function submitCareerApplication(data: CareerApplicationData) {
       console.warn('Analytics tracking failed for career application completion:', analyticsError)
     }
 
-    // Queue confirmation email (non-blocking)
-    queueCareerConfirmation(
+    // Queue confirmation email
+    await queueCareerConfirmation(
       validatedData.email,
       `${validatedData.firstName} ${validatedData.lastName}`,
       validatedData.position || 'General'

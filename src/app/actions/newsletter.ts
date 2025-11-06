@@ -39,7 +39,7 @@ export async function subscribeToNewsletter(data: NewsletterData) {
     })
 
     // Queue welcome email for background processing
-    queueWelcomeEmail(subscription.email, subscription.name || undefined).catch(error => {
+    await queueWelcomeEmail(subscription.email, subscription.name || undefined).catch(error => {
       console.error('Failed to queue welcome email:', error)
       // Continue execution - queuing failure shouldn't block subscription
     })
