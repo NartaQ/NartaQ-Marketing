@@ -35,14 +35,13 @@ export default function ProblemsSection() {
 
           <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8'>
             <span className='bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent'>
-              The Old Rules of Startup Funding Are Broken
+              Why The Old Way Is Costing You Millions
             </span>
           </h2>
 
           <p className='text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto px-4 mb-12'>
-            Today's funding system creates two fundamental problems that waste
-            billions in potential and leave exceptional founders unable to
-            access capital.
+            The current funding landscape is broken. It relies on warm intros and geography,
+            leaving billions in potential returns on the table and exceptional founders unfunded.
           </p>
         </div>
 
@@ -50,39 +49,37 @@ export default function ProblemsSection() {
         <div className='grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16'>
           {/* Investors Problem */}
           <div className='relative'>
-            <div className='p-8 rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent'>
+            <div className='p-8 rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent h-full'>
               <div className='w-16 h-16 rounded-2xl bg-gradient-to-r from-red-500/20 to-red-400/20 flex items-center justify-center mb-6'>
                 <EyeOff className='w-8 h-8 text-red-400' />
               </div>
 
               <h3 className='text-2xl sm:text-3xl font-bold text-[#dcd7ce] mb-4'>
-                For Investors: Signal vs. Noise
+                For Investors: You're Missing The Best Deals
               </h3>
 
               <p className='text-gray-400 text-lg mb-6 leading-relaxed'>
-                You're drowning in pitch decks and warm intros, but the best
-                opportunities never reach your inbox. The founders solving the
-                biggest problems are building outside Silicon Valley—and you'll
-                never find them through traditional channels.
+                You're drowning in pitch decks from the same 50 connectors, while the next unicorn
+                is being built by a founder you'll never meet. If they aren't in your inbox, they don't exist.
               </p>
 
               <div className='space-y-3'>
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    Endless deck reviews every quarter
+                    Limited by your personal network
                   </span>
                 </div>
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    Deal flow limited by personal networks
+                    Wasting 100+ hours/month on bad pitches
                   </span>
                 </div>
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    Best deals happen in private
+                    Zero visibility into global talent
                   </span>
                 </div>
               </div>
@@ -91,39 +88,37 @@ export default function ProblemsSection() {
 
           {/* Founders Problem */}
           <div className='relative'>
-            <div className='p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent'>
+            <div className='p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent h-full'>
               <div className='w-16 h-16 flex items-center justify-center mb-6'>
                 <Clock className='w-8 h-8 text-red-400' />
               </div>
 
               <h3 className='text-2xl sm:text-3xl font-bold text-[#dcd7ce] mb-4'>
-                For Founders: The Network Game
+                For Founders: Stuck Begging For Intros
               </h3>
 
               <p className='text-gray-400 text-lg mb-6 leading-relaxed'>
-                Your idea could change the world, but if you don't know someone
-                who knows someone, you're locked out. The funding game is "warm
-                intro roulette"—and most exceptional builders don't even get to
-                play.
+                You're building the future, but you're spending 90% of your time chasing "warm intros"
+                instead of building your product. It's a rigged game, and you're losing time you don't have.
               </p>
 
               <div className='space-y-3'>
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    Long, unpredictable fundraising cycles
+                    Months wasted on "coffee chats"
                   </span>
                 </div>
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    Hundreds of investor emails sent
+                    Ghosted by investors who "loved it"
                   </span>
                 </div>
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    Most never get a response
+                    Running out of runway waiting for a "yes"
                   </span>
                 </div>
               </div>
@@ -134,8 +129,7 @@ export default function ProblemsSection() {
         {/* Bottom CTA */}
         <div className='text-center mt-16'>
           <p className='text-xl text-gray-400 mb-4'>
-            We need a merit-based, transparent, and globally accessible funding
-            system.
+            The system isn't just unfair. It's inefficient.
           </p>
           <div className='w-24 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto' />
         </div>

@@ -59,44 +59,65 @@ export default function VisionSection() {
           </div>
 
           <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-6'>
-            <span className='text-[#dcd7ce]'>The Future of Funding</span>
+            <span className='text-[#dcd7ce]'>The Old Gatekeepers Are Gone.</span>
             <br />
             <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-              is Community-Owned
+              Join The New Standard.
             </span>
           </h2>
 
           <p className='text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed'>
-            We're building more than a platform—we're creating a community-owned
-            future where the best ideas get funded, regardless of geography or
-            connections.
+            We're building a world where merit, not zip code, determines who gets funded.
+            No warm intros. No "pay to play". Just pure, efficient capital allocation.
           </p>
         </div>
 
         {/* Vision Pillars Grid */}
         <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
-          {visionPillars.map((pillar, index) => {
-            const Icon = pillar.Icon
-            return (
-              <div key={index} className='group text-center'>
-                <div className='relative p-8 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
-                  <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
-                    <Icon className='w-8 h-8 text-[#a98b5d]' />
-                  </div>
-
-                  <h3 className='text-xl sm:text-2xl font-bold text-[#a98b5d] mb-4'>
-                    {pillar.title}
-                  </h3>
-
-                  <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-4'></div>
-
-                  <p className='text-[#dcd7ce] leading-relaxed'>
-                    {pillar.description}
-                  </p>
-                </div>
+          <div className='group text-center'>
+            <div className='relative p-8 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
+              <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
+                <Users className='w-8 h-8 text-[#a98b5d]' />
               </div>
-            )
-          })}
+              <h3 className='text-xl sm:text-2xl font-bold text-[#a98b5d] mb-4'>
+                Built For Builders
+              </h3>
+              <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-4'></div>
+              <p className='text-[#dcd7ce] leading-relaxed'>
+                Every feature is designed to save you time and money. We only win when you close a round.
+              </p>
+            </div>
+          </div>
+
+          <div className='group text-center'>
+            <div className='relative p-8 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
+              <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
+                <Globe className='w-8 h-8 text-[#a98b5d]' />
+              </div>
+              <h3 className='text-xl sm:text-2xl font-bold text-[#a98b5d] mb-4'>
+                Capital Without Borders
+              </h3>
+              <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-4'></div>
+              <p className='text-[#dcd7ce] leading-relaxed'>
+                Great ideas are everywhere. We connect the best founders in Lagos to the best capital in New York.
+              </p>
+            </div>
+          </div>
+
+          <div className='group text-center'>
+            <div className='relative p-8 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
+              <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
+                <Scale className='w-8 h-8 text-[#a98b5d]' />
+              </div>
+              <h3 className='text-xl sm:text-2xl font-bold text-[#a98b5d] mb-4'>
+                You Own The Platform
+              </h3>
+              <div className='w-12 h-0.5 bg-[#a98b5d] mx-auto mb-4'></div>
+              <p className='text-[#dcd7ce] leading-relaxed'>
+                Decentralized governance means the community decides the future, not corporate shareholders.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* CTA Section */}

@@ -34,18 +34,18 @@ export default function AboutPage() {
     <div className='min-h-screen bg-black text-white'>
       <div className='pt-32 pb-16'>
         <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
-          
+
           {/* Hero Section */}
           <div className='text-center mb-32'>
             <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-8 leading-tight'>
-              <span className='block text-[#dcd7ce] mb-2'>Building the infrastructure for</span>
+              <span className='block text-[#dcd7ce] mb-2'>The Manifesto:</span>
               <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                merit-based startup funding
+                Why We Are Building NartaQ
               </span>
             </h1>
             <p className='text-xl sm:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed'>
-              We're connecting exceptional founders with the right investors across Africa and developing countries, 
-              where talent is abundant but access to capital remains broken.
+              The startup world is lying to you. They say it's about "merit."
+              But we all know it's about who you know. We are here to burn that system down and build a better one.
             </p>
           </div>
 
@@ -53,19 +53,19 @@ export default function AboutPage() {
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8 mb-32 max-w-5xl mx-auto'>
             <div className='text-center'>
               <div className='text-4xl font-bold text-[#a98b5d] mb-2'>850K+</div>
-              <div className='text-sm text-gray-400'>Market Opportunity<br/>(Startups Globally)</div>
+              <div className='text-sm text-gray-400'>Market Opportunity<br />(Startups Globally)</div>
             </div>
             <div className='text-center'>
               <div className='text-4xl font-bold text-[#a98b5d] mb-2'>$171B+</div>
-              <div className='text-sm text-gray-400'>Capital Flowing<br/>(VC Assets)</div>
+              <div className='text-sm text-gray-400'>Capital Flowing<br />(VC Assets)</div>
             </div>
             <div className='text-center'>
               <div className='text-4xl font-bold text-[#a98b5d] mb-2'>192</div>
-              <div className='text-sm text-gray-400'>Countries<br/>(Global Reach)</div>
+              <div className='text-sm text-gray-400'>Countries<br />(Global Reach)</div>
             </div>
             <div className='text-center'>
               <div className='text-4xl font-bold text-[#a98b5d] mb-2'>10x</div>
-              <div className='text-sm text-gray-400'>Potential Returns<br/>(Emerging Markets)</div>
+              <div className='text-sm text-gray-400'>Potential Returns<br />(Emerging Markets)</div>
             </div>
           </div>
 
@@ -83,13 +83,13 @@ export default function AboutPage() {
 
             <div className='max-w-4xl mx-auto mb-12'>
               <p className='text-lg text-gray-300 leading-relaxed mb-6'>
-                NartaQ is the <strong className='text-[#dcd7ce]'>first venture matchmaking platform</strong> purpose-built 
-                for Africa and developing countries. We combine intelligent founder-investor matching with institutional-grade 
+                NartaQ is the <strong className='text-[#dcd7ce]'>first venture matchmaking platform</strong> purpose-built
+                for Africa and developing countries. We combine intelligent founder-investor matching with institutional-grade
                 infrastructure—giving every startup the governance, transparency, and credibility they need from day one.
               </p>
               <p className='text-lg text-gray-300 leading-relaxed'>
-                Unlike traditional platforms that favor warm introductions and Silicon Valley networks, we use 
-                <strong className='text-[#dcd7ce]'> data-driven evaluation</strong> to assess startups based on what actually 
+                Unlike traditional platforms that favor warm introductions and Silicon Valley networks, we use
+                <strong className='text-[#dcd7ce]'> data-driven evaluation</strong> to assess startups based on what actually
                 matters: market opportunity, team capability, product innovation, and traction metrics.
               </p>
             </div>
@@ -118,63 +118,63 @@ export default function AboutPage() {
             <div className='text-center mb-16'>
               <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#a98b5d]/30 bg-[#a98b5d]/10 text-[#a98b5d] text-sm font-medium mb-6'>
                 <Target className='w-4 h-4' />
-                WHY IT MATTERS
+                THE RIGGED SYSTEM
               </div>
               <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-[#dcd7ce] mb-6'>
-                The old system is <span className='text-[#a98b5d]'>fundamentally broken</span>
+                Here Is How <span className='text-red-400'>They Keep You Out</span>
               </h2>
             </div>
 
             <div className='grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12'>
               <div className='p-8 rounded-2xl bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20'>
-                <h3 className='text-2xl font-bold text-red-400 mb-4'>The Problem</h3>
+                <h3 className='text-2xl font-bold text-red-400 mb-4'>The Rigged Game</h3>
                 <ul className='space-y-3 text-gray-300'>
                   <li className='flex items-start gap-3'>
                     <span className='text-red-400 mt-1'>•</span>
-                    <span><strong>Network bias:</strong> 70% of VC deals come from warm introductions, excluding brilliant founders without "connections"</span>
+                    <span><strong>Warm Intros Only:</strong> 70% of VC deals come from "warm introductions." If you don't know someone, you don't exist.</span>
                   </li>
                   <li className='flex items-start gap-3'>
                     <span className='text-red-400 mt-1'>•</span>
-                    <span><strong>Geographic inequality:</strong> Silicon Valley receives 50x more VC funding per capita than Africa</span>
+                    <span><strong>Geography Is Destiny:</strong> Silicon Valley gets 50x more VC funding per capita than Africa. Your zip code determines your future.</span>
                   </li>
                   <li className='flex items-start gap-3'>
                     <span className='text-red-400 mt-1'>•</span>
-                    <span><strong>Broken infrastructure:</strong> Traditional cap tables live in spreadsheets, creating opacity and governance chaos</span>
+                    <span><strong>Spreadsheet Chaos:</strong> Cap tables live in Excel. Governance is a mess. Investors have zero transparency.</span>
                   </li>
                   <li className='flex items-start gap-3'>
                     <span className='text-red-400 mt-1'>•</span>
-                    <span><strong>Missed opportunity:</strong> Exceptional founders in developing countries struggle to access capital despite massive market potential</span>
+                    <span><strong>Talent Goes Unfunded:</strong> The best founders in the world are building in places VCs will never visit.</span>
                   </li>
                 </ul>
               </div>
 
               <div className='p-8 rounded-2xl bg-gradient-to-br from-[#a98b5d]/10 to-transparent border border-[#a98b5d]/20'>
-                <h3 className='text-2xl font-bold text-[#a98b5d] mb-4'>Our Solution</h3>
+                <h3 className='text-2xl font-bold text-[#a98b5d] mb-4'>The New Standard</h3>
                 <ul className='space-y-3 text-gray-300'>
                   <li className='flex items-start gap-3'>
                     <span className='text-[#a98b5d] mt-1'>✓</span>
-                    <span><strong>Merit-based matching:</strong> AI evaluates startups on fundamentals—market size, traction, team quality—not pedigree</span>
+                    <span><strong>Merit Wins:</strong> Our AI evaluates you on what matters—traction, market, team. Not your LinkedIn connections.</span>
                   </li>
                   <li className='flex items-start gap-3'>
                     <span className='text-[#a98b5d] mt-1'>✓</span>
-                    <span><strong>Focus on underserved:</strong> Purpose-built for Africa and developing countries where talent density is high but capital access is low</span>
+                    <span><strong>Built For The Underdog:</strong> We focus on Africa and emerging markets. The talent is there. The capital isn't. We fix that.</span>
                   </li>
                   <li className='flex items-start gap-3'>
                     <span className='text-[#a98b5d] mt-1'>✓</span>
-                    <span><strong>Institutional infrastructure:</strong> Blockchain-based DAO governance gives startups enterprise-grade systems from day one</span>
+                    <span><strong>Institutional From Day One:</strong> Blockchain governance. Real-time cap tables. No spreadsheets. No chaos.</span>
                   </li>
                   <li className='flex items-start gap-3'>
                     <span className='text-[#a98b5d] mt-1'>✓</span>
-                    <span><strong>Global ambition:</strong> Prove the model in emerging markets, then scale to democratize startup funding worldwide</span>
+                    <span><strong>Global From The Start:</strong> We prove it works in emerging markets. Then we take it everywhere.</span>
                   </li>
                 </ul>
               </div>
             </div>
 
             <div className='max-w-4xl mx-auto p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent'>
-              <blockquote className='text-xl text-gray-300 italic leading-relaxed text-center'>
-                "Access to capital shouldn't depend on your alumni network or geographic proximity to Sand Hill Road. 
-                Exceptional founders deserve institutional-grade infrastructure and merit-based access to investors—regardless of where they're building."
+              <blockquote className='text-xl text-gray-300 leading-relaxed text-center font-semibold'>
+                "Your network shouldn't determine your net worth.
+                If you are building something real, you deserve a shot. That is what we are building."
               </blockquote>
             </div>
           </section>
@@ -259,9 +259,9 @@ export default function AboutPage() {
 
             <div className='max-w-3xl mx-auto text-center'>
               <p className='text-lg text-gray-300 leading-relaxed'>
-                Based in <strong className='text-[#dcd7ce]'>Paris, France</strong>, we're building the infrastructure 
-                that will power the next generation of African and developing country startups. Our team combines deep 
-                expertise in venture capital, blockchain technology, and emerging markets to deliver institutional-grade 
+                Based in <strong className='text-[#dcd7ce]'>Paris, France</strong>, we're building the infrastructure
+                that will power the next generation of African and developing country startups. Our team combines deep
+                expertise in venture capital, blockchain technology, and emerging markets to deliver institutional-grade
                 solutions purpose-built for underserved founders.
               </p>
             </div>
@@ -284,7 +284,7 @@ export default function AboutPage() {
                 <Rocket className='w-12 h-12 text-[#a98b5d] mb-6' />
                 <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>For Founders</h3>
                 <p className='text-gray-300 mb-4'>
-                  If you're building a scalable startup in Africa or developing countries and struggling to access capital 
+                  If you're building a scalable startup in Africa or developing countries and struggling to access capital
                   despite strong fundamentals, we're here for you.
                 </p>
                 <ul className='space-y-2 text-gray-400'>
@@ -307,7 +307,7 @@ export default function AboutPage() {
                 <TrendingUp className='w-12 h-12 text-[#a98b5d] mb-6' />
                 <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>For Investors</h3>
                 <p className='text-gray-300 mb-4'>
-                  If you're looking for high-potential deals outside traditional networks and want exposure to 
+                  If you're looking for high-potential deals outside traditional networks and want exposure to
                   emerging markets with 10x upside, we bring you curated opportunities.
                 </p>
                 <ul className='space-y-2 text-gray-400'>
@@ -329,9 +329,9 @@ export default function AboutPage() {
 
             <div className='mt-12 max-w-4xl mx-auto p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent text-center'>
               <p className='text-lg text-gray-300 leading-relaxed'>
-                <strong className='text-[#dcd7ce]'>Our focus:</strong> Tech-enabled startups in fintech, e-commerce, 
-                logistics, healthcare, education, and B2B SaaS across Africa, the Middle East, Latin America, 
-                Southeast Asia, and emerging Europe. If you're solving real problems with scalable solutions in these regions, 
+                <strong className='text-[#dcd7ce]'>Our focus:</strong> Tech-enabled startups in fintech, e-commerce,
+                logistics, healthcare, education, and B2B SaaS across Africa, the Middle East, Latin America,
+                Southeast Asia, and emerging Europe. If you're solving real problems with scalable solutions in these regions,
                 we want to connect you with the right investors.
               </p>
             </div>
@@ -410,23 +410,24 @@ export default function AboutPage() {
           <section className='text-center'>
             <div className='relative p-12 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent max-w-4xl mx-auto'>
               <h3 className='text-3xl sm:text-4xl font-bold text-[#dcd7ce] mb-6'>
-                Ready to <span className='text-[#a98b5d]'>get started?</span>
+                Are You <span className='text-[#a98b5d]'>Ready To Join Us?</span>
               </h3>
               <p className='text-lg text-gray-400 mb-8 max-w-2xl mx-auto'>
-                Join the founders and investors building the future of merit-based startup funding.
+                We are building the future of startup funding.
+                The Founding Cohort is capped at 1,000 members. Don't get left behind.
               </p>
               <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <Link
                   href='/apply'
                   className='px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
                 >
-                  Apply for Early Access
+                  Apply Now - Spots Filling Fast
                 </Link>
                 <Link
-                  href='/for-investors'
+                  href='/milestones'
                   className='px-8 py-4 border border-[#a98b5d]/50 text-[#dcd7ce] font-semibold rounded-xl hover:bg-[#a98b5d]/10 transition-all duration-300'
                 >
-                  Explore for Investors
+                  See The Roadmap
                 </Link>
               </div>
             </div>

@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: nartaq_db
     ports:
-      - '5432:5432'
+      - '5444:5432'
     volumes:
       - pgdata:/var/lib/postgresql/data
 
@@ -16,8 +16,8 @@ services:
     image: axllent/mailpit:latest
     restart: always
     ports:
-      - '8025:8025'  # Web UI
-      - '1025:1025'  # SMTP server
+      - '8026:8025'  # Web UI
+      - '1026:1025'  # SMTP server
     environment:
       MP_MAX_MESSAGES: 5000
       MP_SMTP_AUTH_ACCEPT_ANY: 1

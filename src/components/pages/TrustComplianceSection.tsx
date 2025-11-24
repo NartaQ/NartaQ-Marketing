@@ -57,34 +57,56 @@ export default function TrustComplianceSection() {
 
           <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8'>
             <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-              Trust & Compliance Built In
+              Your Data Is Safer Than In Your Bank
             </span>
           </h2>
 
           <p className='text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto px-4'>
-            Enterprise-grade security and regulatory compliance in all relevant
-            jurisdictions. Every participant verified, all transactions
-            compliant.
+            We use the same encryption as the world's largest financial institutions.
+            Your IP is yours, and your money is safe.
           </p>
         </div>
 
         {/* Trust Features Grid */}
         <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
-          {trustFeatures.map((feature, index) => (
-            <div key={index} className='group text-center'>
-              <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
-                <feature.icon className='w-10 h-10 text-[#a98b5d]' />
-              </div>
-
-              <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
-                {feature.title}
-              </h3>
-
-              <p className='text-gray-400 text-lg leading-relaxed'>
-                {feature.description}
-              </p>
+          <div className='group text-center'>
+            <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <Shield className='w-10 h-10 text-[#a98b5d]' />
             </div>
-          ))}
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
+              No Scammers Allowed
+            </h3>
+            <p className='text-gray-400 text-lg leading-relaxed'>
+              We manually verify every single investor and founder. If they aren't real,
+              they don't get in. Period.
+            </p>
+          </div>
+
+          <div className='group text-center'>
+            <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <Lock className='w-10 h-10 text-[#a98b5d]' />
+            </div>
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
+              Fort Knox Security
+            </h3>
+            <p className='text-gray-400 text-lg leading-relaxed'>
+              Enterprise-grade encryption protects your pitch deck, financial data,
+              and personal information from prying eyes.
+            </p>
+          </div>
+
+          <div className='group text-center'>
+            <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <Scale className='w-10 h-10 text-[#a98b5d]' />
+            </div>
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
+              Ironclad Legal Protection
+            </h3>
+            <p className='text-gray-400 text-lg leading-relaxed'>
+              Our smart contracts and legal templates are vetted by top-tier law firms
+              to ensure every deal is enforceable and compliant.
+            </p>
+          </div>
         </div>
       </div>
     </section>

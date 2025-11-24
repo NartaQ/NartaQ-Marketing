@@ -33,13 +33,13 @@ export default function SolutionsSection() {
 
           <h2 className='text-5xl md:text-6xl font-bold mb-6'>
             <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-              The Right Match. On Demand.
+              The Unfair Advantage For Founders & VCs
             </span>
           </h2>
 
           <p className='text-xl text-gray-400 max-w-4xl mx-auto'>
-            NartaQ uses AI to eliminate bias and inefficiency from startup
-            funding. We make quality connections based on merit, not networks.
+            NartaQ replaces "who you know" with "what you've built".
+            We use AI to give you the network you deserve, instantly.
           </p>
         </div>
 
@@ -51,13 +51,12 @@ export default function SolutionsSection() {
             </div>
 
             <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
-              Smart Matching Technology
+              Instant Deal Flow
             </h3>
 
             <p className='text-gray-400 text-lg leading-relaxed'>
-              Our AI analyzes compatibility beyond surface metrics—matching
-              founders and investors based on vision alignment, expertise, and
-              investment thesis.
+              Get matched with 50+ relevant investors in seconds. Our AI analyzes
+              investment thesis, check size, and sector focus to ensure every match is a potential "yes".
             </p>
           </div>
 
@@ -67,13 +66,12 @@ export default function SolutionsSection() {
             </div>
 
             <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
-              Trust Through Transparency
+              Zero-Risk Vetting
             </h3>
 
             <p className='text-gray-400 text-lg leading-relaxed'>
-              Verified profiles, transparent deal histories, and secure
-              communication create a foundation of trust that traditional
-              networks can't provide.
+              Stop wasting time on "tire kickers". Every founder and investor is verified.
+              Transparent deal histories and validated metrics mean you can trust who you're talking to.
             </p>
           </div>
 
@@ -83,13 +81,12 @@ export default function SolutionsSection() {
             </div>
 
             <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
-              Streamlined Deal Execution
+              Close Rounds In Weeks
             </h3>
 
             <p className='text-gray-400 text-lg leading-relaxed'>
-              From first conversation to term sheet signing—automated workflows,
-              integrated legal docs, and secure fund transfers eliminate the
-              typical 6-month fundraising timeline.
+              From first conversation to term sheet signing—automated workflows
+              and integrated legal docs eliminate the 6-month fundraising slog.
             </p>
           </div>
         </div>

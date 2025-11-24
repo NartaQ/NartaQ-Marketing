@@ -76,41 +76,61 @@ export default function HowItWorksSection() {
         <div className='text-center mb-16 sm:mb-20'>
           <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#a98b5d]/30 bg-[#a98b5d]/10 text-[#a98b5d] text-sm font-medium mb-6'>
             <CheckCircle2 className='w-4 h-4' />
-            OUR PLANNED WORKFLOW
+            THE PROCESS
           </div>
 
           <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8'>
             <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-              How It Will Work
+              3 Steps To Funded
             </span>
           </h2>
 
           <p className='text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto px-4'>
-            We are building a simple, guided process that automates the early
-            stages of fundraising
+            We stripped away the bureaucracy. Here is the simple, guided path from
+            "hello" to "wired funds".
           </p>
         </div>
 
         {/* Steps Grid */}
         <div className='flex flex-wrap justify-center gap-8 max-w-6xl mx-auto'>
-          {steps.map((step) => (
-            <div
-              key={step.id}
-              className='group text-center flex-1 min-w-[280px] max-w-[350px]'
-            >
-              <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
-                <step.icon className='w-10 h-10 text-[#a98b5d]' />
-              </div>
-
-              <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
-                {step.title}
-              </h3>
-
-              <p className='text-gray-400 text-lg leading-relaxed'>
-                {step.description}
-              </p>
+          <div className='group text-center flex-1 min-w-[280px] max-w-[350px]'>
+            <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <UserCheck className='w-10 h-10 text-[#a98b5d]' />
             </div>
-          ))}
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
+              1. Verify & Profile
+            </h3>
+            <p className='text-gray-400 text-lg leading-relaxed'>
+              Create your profile in minutes. We verify your identity and deal criteria
+              so you never waste time on fake leads.
+            </p>
+          </div>
+
+          <div className='group text-center flex-1 min-w-[280px] max-w-[350px]'>
+            <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <Brain className='w-10 h-10 text-[#a98b5d]' />
+            </div>
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
+              2. Get Matched
+            </h3>
+            <p className='text-gray-400 text-lg leading-relaxed'>
+              Our AI instantly scans thousands of profiles to find your perfect match.
+              Get introduced to investors who are actively looking for you.
+            </p>
+          </div>
+
+          <div className='group text-center flex-1 min-w-[280px] max-w-[350px]'>
+            <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <Banknote className='w-10 h-10 text-[#a98b5d]' />
+            </div>
+            <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
+              3. Close & Scale
+            </h3>
+            <p className='text-gray-400 text-lg leading-relaxed'>
+              Use our automated legal workflows to sign term sheets and transfer funds
+              securely. No lawyers, no delays.
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -51,21 +51,20 @@ export default function NewsletterSection() {
           <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8'>
             <Sparkles className='w-4 h-4 text-[#a98b5d]' />
             <span className='text-sm font-medium text-[#dcd7ce]'>
-              STAY INFORMED
+              JOIN THE REVOLUTION
             </span>
           </div>
 
           {/* Header */}
           <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-6'>
             <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-              Ready to Join the Future of Startup Funding?
+              Stop Chasing. Start Closing.
             </span>
           </h2>
 
           <p className='text-xl text-gray-400 mb-8 max-w-3xl mx-auto'>
-            Whether you're a founder seeking capital or an investor looking for
-            the next breakthrough—NartaQ connects you with the right
-            opportunities.
+            The next unicorn is being built right now. The only question is:
+            will you be part of it?
           </p>
         </div>
 
@@ -73,7 +72,7 @@ export default function NewsletterSection() {
         <div className='max-w-2xl mx-auto mb-12'>
           <div className='rounded-2xl p-8 border backdrop-blur-xl text-center border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent'>
             <h3 className='text-2xl font-bold text-[#dcd7ce] mb-6'>
-              Get Early Access
+              Get Matched Today
             </h3>
 
             <div className='flex justify-center mb-6'>
@@ -83,7 +82,7 @@ export default function NewsletterSection() {
                 className='inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
                 onClick={(e) => handleNavigation(e, '/apply')}
               >
-                Apply Now
+                Start Now
                 <ArrowRight className='w-4 h-4' />
               </Link>
             </div>

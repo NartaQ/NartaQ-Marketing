@@ -62,37 +62,69 @@ export default function GovernanceSection() {
 
           <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8'>
             <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-              Built on Secure Governance
+              The Infrastructure of Trust
             </span>
           </h2>
 
           <p className='text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto px-4'>
-            Beyond matching founders with investors, we provide the infrastructure for
-            startups to manage equity, raise capital, and maintain compliance through
-            blockchain-based governance.
+            We don't just match you. We give you the legal and technical rails to close deals
+            instantly and securely, without the $50k legal bill.
           </p>
         </div>
 
         {/* Features Grid */}
         <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto'>
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className='group text-center p-6 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/30 transition-all duration-300'
-            >
-              <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
-                <feature.icon className='w-8 h-8 text-[#a98b5d]' />
-              </div>
-
-              <h3 className='text-xl font-bold text-[#dcd7ce] mb-3'>
-                {feature.title}
-              </h3>
-
-              <p className='text-gray-400 leading-relaxed'>
-                {feature.description}
-              </p>
+          <div className='group text-center p-6 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/30 transition-all duration-300'>
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <Shield className='w-8 h-8 text-[#a98b5d]' />
             </div>
-          ))}
+            <h3 className='text-xl font-bold text-[#dcd7ce] mb-3'>
+              Instant Cap Table Updates
+            </h3>
+            <p className='text-gray-400 leading-relaxed'>
+              Forget messy spreadsheets. Your equity is tokenized and updated automatically
+              the second a deal closes.
+            </p>
+          </div>
+
+          <div className='group text-center p-6 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/30 transition-all duration-300'>
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <FileCheck className='w-8 h-8 text-[#a98b5d]' />
+            </div>
+            <h3 className='text-xl font-bold text-[#dcd7ce] mb-3'>
+              Voting Rights That Work
+            </h3>
+            <p className='text-gray-400 leading-relaxed'>
+              Proposals, legal docs, and strategic decisions are voted on-chain.
+              No more chasing signatures via email.
+            </p>
+          </div>
+
+          <div className='group text-center p-6 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/30 transition-all duration-300'>
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <Lock className='w-8 h-8 text-[#a98b5d]' />
+            </div>
+            <h3 className='text-xl font-bold text-[#dcd7ce] mb-3'>
+              Compliance on Autopilot
+            </h3>
+            <p className='text-gray-400 leading-relaxed'>
+              KYC, AML, and accreditation checks are handled automatically.
+              We keep you compliant so you can focus on building.
+            </p>
+          </div>
+
+          <div className='group text-center p-6 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/30 transition-all duration-300'>
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+              <TrendingUp className='w-8 h-8 text-[#a98b5d]' />
+            </div>
+            <h3 className='text-xl font-bold text-[#dcd7ce] mb-3'>
+              Full Audit Trail
+            </h3>
+            <p className='text-gray-400 leading-relaxed'>
+              Every decision and transaction is recorded forever.
+              Total transparency for investors, total protection for founders.
+            </p>
+          </div>
         </div>
 
         {/* Bottom CTA */}
