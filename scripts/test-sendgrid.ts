@@ -36,7 +36,8 @@ async function testSendGrid() {
     const result = await sendFounderConfirmation(
       recipient,
       'Jesser Bedoui',
-      'Test Startup'
+      'Test Startup',
+      1
     )
 
     if (result.success) {
@@ -54,7 +55,8 @@ async function testSendGrid() {
     const result = await sendInvestorConfirmation(
       recipient,
       'Jesser Bedoui',
-      'Angel Investor'
+      'Angel Investor',
+      1
     )
 
     if (result.success) {

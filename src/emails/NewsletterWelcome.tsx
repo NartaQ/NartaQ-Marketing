@@ -14,23 +14,23 @@ export default function NewsletterWelcome({ name = '{{name}}' }: NewsletterWelco
     <Layout preview={preview}>
       <Section style={content}>
         <Heading style={h1}>You're in.</Heading>
-        
+
         <Text style={text}>Hi {displayName},</Text>
-        
+
         <Text style={text}>
           You're on the list. You'll be the first to know when we launch, and you'll get access to our best content on startup funding.
         </Text>
-        
+
         <Text style={text}>
           We'll only email you when we have something valuable to share. No fluff.
         </Text>
-        
+
         <Section style={buttonContainer}>
           <Button style={button} href="https://www.nartaq.com">
             Explore NartaQ
           </Button>
         </Section>
-        
+
         <Text style={regards}>
           Talk soon,
           <br />
@@ -60,17 +60,6 @@ const text = {
   margin: '0 0 16px',
 }
 
-const list = {
-  color: '#dcd7ce',
-  fontSize: '16px',
-  lineHeight: '1.6',
-  margin: '0 0 24px',
-  paddingLeft: '20px',
-}
-
-const listItem = {
-  margin: '8px 0',
-}
 
 const buttonContainer = {
   margin: '32px 0',

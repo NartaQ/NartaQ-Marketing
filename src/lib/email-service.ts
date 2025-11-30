@@ -105,7 +105,7 @@ async function sendViaSendGrid(options: EmailOptions): Promise<{
     }
   } catch (error) {
     console.error('❌ SendGrid error:', error)
-    
+
     let errorMessage = 'Failed to send email via SendGrid'
     if (error && typeof error === 'object' && 'response' in error) {
       const sgError = error as { response?: { body?: { errors?: Array<{ message: string }> } } }
@@ -194,12 +194,13 @@ export async function sendNewsletterWelcome(
 export async function sendFounderConfirmation(
   email: string,
   founderName: string,
-  companyName: string
+  companyName: string,
+  memberNumber: number
 ): Promise<{ success: boolean; error?: string }> {
   return sendEmail({
     to: email,
     subject: `Application Received for ${companyName} ✓`,
-    html: emailTemplateLoader.renderFounderConfirmation({ founderName, companyName }),
+    html: emailTemplateLoader.renderFounderConfirmation({ founderName, companyName, memberNumber }),
     replyTo: 'founders@nartaq.com',
   })
 }
@@ -210,12 +211,13 @@ export async function sendFounderConfirmation(
 export async function sendInvestorConfirmation(
   email: string,
   investorName: string,
-  investorType: string
+  investorType: string,
+  memberNumber: number
 ): Promise<{ success: boolean; error?: string }> {
   return sendEmail({
     to: email,
     subject: 'Welcome to NartaQ Investor Network ✓',
-    html: emailTemplateLoader.renderInvestorConfirmation({ investorName, investorType }),
+    html: emailTemplateLoader.renderInvestorConfirmation({ investorName, investorType, memberNumber }),
     replyTo: 'investors@nartaq.com',
   })
 }
@@ -284,8 +286,8 @@ export async function sendBulkEmails(
         r.status === 'rejected'
           ? r.reason
           : r.status === 'fulfilled' && !r.value.success
-          ? r.value.error || 'Unknown error'
-          : null,
+            ? r.value.error || 'Unknown error'
+            : null,
     }))
     .filter(e => e.error !== null) as Array<{ email: string; error: string }>
 

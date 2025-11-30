@@ -61,7 +61,7 @@ export async function getCareerPositions(): Promise<CareerPosition[]> {
   }`
 
   try {
-    return await client.fetch(query)
+    return await sanityFetch(query)
   } catch (error) {
     console.error('Error fetching career positions:', error)
     return []
@@ -87,7 +87,7 @@ export async function getCareerPageSettings(): Promise<CareerPageSettings> {
   }`
 
   try {
-    const settings = await client.fetch(query)
+    const settings = await sanityFetch(query)
     return settings || getDefaultCareerPageSettings()
   } catch (error) {
     console.error('Error fetching career page settings:', error)
@@ -219,7 +219,7 @@ export async function getCareerPosition(slug: string): Promise<CareerPositionDet
   }`
 
   try {
-    return await client.fetch(query, { slug })
+    return await sanityFetch(query, { slug })
   } catch (error) {
     console.error('Error fetching career position:', error)
     return null

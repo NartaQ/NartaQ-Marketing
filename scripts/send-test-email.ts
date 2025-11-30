@@ -70,12 +70,12 @@ function showHelp() {
   console.log('\n📧 NartaQ Email Testing Tool\n')
   console.log('Send individual test emails to verify templates and delivery.\n')
   console.log('Available email types:\n')
-  
+
   Object.entries(EMAIL_TYPES).forEach(([type, config]) => {
     console.log(`  ${type.padEnd(18)} ${config.description}`)
     console.log(`  ${' '.repeat(18)} ${config.usage}\n`)
   })
-  
+
   console.log('Examples:')
   console.log('  npm run send-email test test@example.com')
   console.log('  npm run send-email newsletter john@example.com "John Doe"')
@@ -109,7 +109,7 @@ async function sendEmail() {
   console.log('\n📧 Email Service Configuration:')
   console.log(`   Mode: ${serviceConfig.mode}`)
   console.log(`   Configured: ${serviceConfig.configured}`)
-  
+
   if (serviceConfig.mode === 'mailpit') {
     console.log(`   📬 View at: http://localhost:8025\n`)
   } else {
@@ -139,7 +139,7 @@ async function sendEmail() {
           console.error('❌ Error: Founder email requires name and company')
           process.exit(1)
         }
-        result = await sendFounderConfirmation(recipientEmail, name, extraParam)
+        result = await sendFounderConfirmation(recipientEmail, name, extraParam, 1)
         break
 
       case 'investor':
@@ -147,7 +147,7 @@ async function sendEmail() {
           console.error('❌ Error: Investor email requires name and investor type')
           process.exit(1)
         }
-        result = await sendInvestorConfirmation(recipientEmail, name, extraParam)
+        result = await sendInvestorConfirmation(recipientEmail, name, extraParam, 1)
         break
 
       case 'career':
@@ -168,11 +168,11 @@ async function sendEmail() {
       if ('messageId' in result && result.messageId) {
         console.log(`   Message ID: ${result.messageId}`)
       }
-      
+
       if (serviceConfig.mode === 'mailpit') {
         console.log('\n📬 View email at: http://localhost:8025')
       }
-      
+
       console.log('')
       process.exit(0)
     } else {

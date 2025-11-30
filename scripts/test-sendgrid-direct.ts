@@ -35,7 +35,8 @@ async function testSendGridDirect() {
   try {
     const html = emailTemplateLoader.renderFounderConfirmation({
       founderName: 'Jesser Bedoui',
-      companyName: 'Test Startup'
+      companyName: 'Test Startup',
+      memberNumber: 1
     })
 
     const [response] = await sgMail.send({
@@ -59,7 +60,8 @@ async function testSendGridDirect() {
   try {
     const html = emailTemplateLoader.renderInvestorConfirmation({
       investorName: 'Jesser Bedoui',
-      investorType: 'Angel Investor'
+      investorType: 'Angel Investor',
+      memberNumber: 1
     })
 
     const [response] = await sgMail.send({
@@ -83,7 +85,7 @@ async function testSendGridDirect() {
   try {
     const html = emailTemplateLoader.renderCareerConfirmation({
       applicantName: 'Jesser Bedoui',
-      position: 'Full Stack Developer'
+      position: 'Full Stack Developer',
     })
 
     const [response] = await sgMail.send({
