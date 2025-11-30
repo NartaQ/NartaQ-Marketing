@@ -1,16 +1,25 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { unstable_cache } from 'next/cache'
 
-export async function getCohortStats() {
-  try {
-    const [foundersCount, investorsCount] = await Promise.all([
+const getCachedStats = unstable_cache(
+  async () => {
+    return Promise.all([
       prisma.founderApplication.count(),
       prisma.investorApplication.count(),
     ])
+  },
+  ['cohort-stats'],
+  { revalidate: 60 }
+)
+
+export async function getCohortStats() {
+  try {
+    const [foundersCount, investorsCount] = await getCachedStats()
 
     const totalApplications = foundersCount + investorsCount
-    const TARGET_LIMIT = 1000
+    const TARGET_LIMIT = 250
     const spotsRemaining = Math.max(0, TARGET_LIMIT - totalApplications)
     const percentageFilled = Math.min(100, (totalApplications / TARGET_LIMIT) * 100)
 
@@ -23,7 +32,7 @@ export async function getCohortStats() {
         spotsRemaining,
         percentageFilled: Math.round(percentageFilled),
         targetLimit: TARGET_LIMIT,
-        isNearCapacity: percentageFilled >= 80,
+        isNearCapacity: percentageFilled >= 50,
         isFull: totalApplications >= TARGET_LIMIT,
       },
     }

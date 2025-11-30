@@ -1,6 +1,6 @@
 'use server'
 
-import { client } from '@/lib/sanity'
+import { sanityFetch } from '@/lib/sanity'
 
 export interface BannerItem {
   bannerText: string
@@ -43,7 +43,7 @@ export async function getBannerSettings(): Promise<BannerSettings> {
       bannerDismissible
     }`
     
-    const settings = await client.fetch(query)
+    const settings = await sanityFetch(query, {}, { revalidate: 3600, tags: ['banner-settings'] })
     
     
     // If CMS has settings, merge with cohort urgency banner as first item

@@ -8,16 +8,17 @@ import Curve from './Curve'
 import Link from 'next/link'
 import { animatePageOut } from '../pageTransition/animations'
 
-  const navItems = [
-    { title: 'Home', href: '/' },
-    { title: 'For Founders', href: '/for-founders' },
-    { title: 'For Investors', href: '/for-investors' },
-    { title: 'About', href: '/about' },
-    { title: 'Milestones', href: '/milestones' },
-    { title: 'Blog', href: '/blog' },
-    { title: 'FAQ', href: '/faq' },
-    { title: 'Careers', href: '/careers' },
-  ]
+const navItems = [
+  { title: 'Home', href: '/' },
+  { title: 'For Founders', href: '/for-founders' },
+  { title: 'For Investors', href: '/for-investors' },
+  { title: 'About', href: '/about' },
+  { title: 'Milestones', href: '/milestones' },
+  { title: 'Blog', href: '/blog' },
+  { title: 'Talks', href: '/talks' },
+  { title: 'FAQ', href: '/faq' },
+  { title: 'Careers', href: '/careers' },
+]
 
 const socialLinks = [
   {

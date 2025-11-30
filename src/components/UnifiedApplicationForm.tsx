@@ -37,8 +37,8 @@ export default function UnifiedApplicationForm() {
   }
 
   return (
-    <div className='min-h-screen bg-black flex items-center justify-center p-4'>
-      <div className='w-full max-w-4xl'>
+    <div className='min-h-screen bg-[#0a0a0a] flex items-start justify-center pt-12 sm:pt-16 md:pt-20 pb-8 px-4 sm:px-6 md:px-8'>
+      <div className='w-full max-w-4xl px-2 sm:px-4'>
         <AnimatePresence mode='wait'>
           {status === 'selecting' && (
             <motion.div
@@ -50,34 +50,34 @@ export default function UnifiedApplicationForm() {
               className='text-center'
             >
               {/* Header */}
-              <div className='mb-12'>
-                <h1 className=' text-5xl md:text-6xl font-bold text-white mb-6 leading-tight'>
+              <div className='mb-8 sm:mb-12'>
+                <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2'>
                   <span className='text-glow bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
                     Join NartaQ
                   </span>
                 </h1>
-                <p className=' text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed'>
+                <p className='text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed px-2'>
                   Choose your path to be part of our ecosystem
                 </p>
               </div>
 
               {/* Type Selection Cards */}
-              <div className='grid md:grid-cols-2 gap-8 max-w-3xl mx-auto'>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-3xl mx-auto'>
                 <motion.div
                   whileHover={{ scale: 1.02, y: -5 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handleTypeSelect('founder')}
                   className='group cursor-pointer'
                 >
-                  <div className='bg-gradient-to-br from-[#a98b5d]/30 to-black/80 border border-[#a98b5d]/20 rounded-3xl p-8 hover:border-[#a98b5d]/50 transition-all duration-300'>
+                  <div className='bg-gradient-to-br from-[#a98b5d]/30 to-[#0a0a0a]/80 border border-[#a98b5d]/20 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-[#a98b5d]/50 transition-all duration-300'>
                     <div className='flex flex-col items-center text-center'>
-                      <div className='w-16 h-16 bg-[#a98b5d]/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
-                        <Building2 className='w-8 h-8 text-[#a98b5d]' />
+                      <div className='w-12 h-12 sm:w-16 sm:h-16 bg-[#a98b5d]/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
+                        <Building2 className='w-6 h-6 sm:w-8 sm:h-8 text-[#a98b5d]' />
                       </div>
-                      <h3 className=' text-2xl font-semibold text-white mb-4'>
+                      <h3 className='text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4'>
                         I'm a Founder
                       </h3>
-                      <p className=' text-gray-300 leading-relaxed mb-6'>
+                      <p className='text-sm sm:text-base text-gray-300 leading-relaxed mb-4 sm:mb-6'>
                         Looking for investment and want to connect with the
                         right investors
                       </p>
@@ -95,15 +95,15 @@ export default function UnifiedApplicationForm() {
                   onClick={() => handleTypeSelect('investor')}
                   className='group cursor-pointer'
                 >
-                  <div className='bg-gradient-to-br from-[#a98b5d]/30 to-black/80 border border-[#a98b5d]/20 rounded-3xl p-8 hover:border-[#a98b5d]/50 transition-all duration-300'>
+                  <div className='bg-gradient-to-br from-[#a98b5d]/30 to-[#0a0a0a]/80 border border-[#a98b5d]/20 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-[#a98b5d]/50 transition-all duration-300'>
                     <div className='flex flex-col items-center text-center'>
-                      <div className='w-16 h-16 bg-[#a98b5d]/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
-                        <Users className='w-8 h-8 text-[#a98b5d]' />
+                      <div className='w-12 h-12 sm:w-16 sm:h-16 bg-[#a98b5d]/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#a98b5d]/30 transition-colors'>
+                        <Users className='w-6 h-6 sm:w-8 sm:h-8 text-[#a98b5d]' />
                       </div>
-                      <h3 className=' text-2xl font-semibold text-white mb-4'>
+                      <h3 className='text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4'>
                         I'm an Investor
                       </h3>
-                      <p className=' text-gray-300 leading-relaxed mb-6'>
+                      <p className='text-sm sm:text-base text-gray-300 leading-relaxed mb-4 sm:mb-6'>
                         Looking to discover and invest in promising startups in
                         our network
                       </p>
@@ -127,25 +127,25 @@ export default function UnifiedApplicationForm() {
               transition={{ duration: 0.5 }}
             >
               {/* Back Button */}
-              <div className='mb-8 mt-8'>
+              <div className='mb-6 sm:mb-8 mt-4 sm:mt-8'>
                 <Button
                   onClick={handleBack}
                   variant='ghost'
-                  className='text-gray-400 hover:text-white cursor-pointer  text-lg p-0 h-auto'
+                  className='text-gray-400 hover:text-white cursor-pointer text-base sm:text-lg p-0 h-auto'
                 >
-                  <ArrowLeft className='w-5 h-5 mr-2' />
+                  <ArrowLeft className='w-4 h-4 sm:w-5 sm:h-5 mr-2' />
                   Back to selection
                 </Button>
               </div>
 
               {/* Form Header */}
-              <div className='text-center mb-12'>
-                <h1 className=' text-4xl md:text-5xl font-bold text-white mb-4'>
+              <div className='text-center mb-8 sm:mb-12 px-2'>
+                <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4'>
                   {selectedType === 'founder'
                     ? 'Founder Application'
                     : 'Investor Application'}
                 </h1>
-                <p className=' text-lg text-gray-300'>
+                <p className='text-base sm:text-lg text-gray-300'>
                   {selectedType === 'founder'
                     ? 'Tell us about your startup and vision'
                     : 'Tell us about your investment focus and criteria'}
@@ -183,11 +183,11 @@ export default function UnifiedApplicationForm() {
                   <CheckCircle className='w-12 h-12 text-green-400' />
                 </motion.div>
 
-                <h1 className=' text-4xl md:text-5xl font-bold text-white mb-6'>
+                <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 px-2'>
                   Application Submitted!
                 </h1>
 
-                <p className=' text-xl text-gray-300 mb-8 leading-relaxed'>
+                <p className='text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed px-2'>
                   Thank you for your application. Our team will review it and
                   get back to you as soon as possible.
                 </p>
@@ -195,7 +195,7 @@ export default function UnifiedApplicationForm() {
                 <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                   <Button
                     onClick={() => (window.location.href = '/')}
-                    className=' text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform'
+                    className='text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform'
                   >
                     Back to Home
                   </Button>

@@ -158,12 +158,12 @@ export default async function BlogPage({
   // Filter posts by selected category
   const filteredPosts = selectedCategory
     ? postsWithReadingTime.filter((post) =>
-        post.categories?.some((cat) => cat?.slug?.current === selectedCategory)
-      )
+      post.categories?.some((cat) => cat?.slug?.current === selectedCategory)
+    )
     : postsWithReadingTime
 
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <div className='min-h-screen bg-[#0a0a0a] text-white'>
       {/* Hero Section */}
       <div className='relative pt-32 pb-20 overflow-hidden'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -180,7 +180,7 @@ export default async function BlogPage({
       </div>
 
       {/* Blog Posts Grid */}
-      <section id='latest' className='py-16 sm:py-24 bg-gradient-to-b from-black to-black'>
+      <section id='latest' className='py-16 sm:py-24 '>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           {/* Category Filter */}
           {allCategories.length > 0 && (
@@ -188,11 +188,10 @@ export default async function BlogPage({
               <div className='flex flex-wrap justify-center gap-3'>
                 <Link
                   href='/blog'
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                    !selectedCategory
-                      ? 'bg-[#a98b5d] text-black shadow-lg shadow-[#a98b5d]/30'
-                      : 'bg-[#1a1a1a]/60 border border-[#a98b5d]/20 text-[#dcd7ce] hover:border-[#a98b5d]/40 hover:bg-[#a98b5d]/10'
-                  }`}
+                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${!selectedCategory
+                    ? 'bg-[#a98b5d] text-black shadow-lg shadow-[#a98b5d]/30'
+                    : 'bg-[#1a1a1a]/60 border border-[#a98b5d]/20 text-[#dcd7ce] hover:border-[#a98b5d]/40 hover:bg-[#a98b5d]/10'
+                    }`}
                 >
                   All Articles
                 </Link>
@@ -200,11 +199,10 @@ export default async function BlogPage({
                   <Link
                     key={category.slug.current}
                     href={`/blog?category=${category.slug.current}`}
-                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                      selectedCategory === category.slug.current
-                        ? 'bg-[#a98b5d] text-black shadow-lg shadow-[#a98b5d]/30'
-                        : 'bg-[#1a1a1a]/60 border border-[#a98b5d]/20 text-[#dcd7ce] hover:border-[#a98b5d]/40 hover:bg-[#a98b5d]/10'
-                    }`}
+                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.slug.current
+                      ? 'bg-[#a98b5d] text-black shadow-lg shadow-[#a98b5d]/30'
+                      : 'bg-[#1a1a1a]/60 border border-[#a98b5d]/20 text-[#dcd7ce] hover:border-[#a98b5d]/40 hover:bg-[#a98b5d]/10'
+                      }`}
                   >
                     {category.title}
                   </Link>
@@ -307,10 +305,10 @@ function PostCard({ post, index }: { post: Post; index: number }) {
             fill
             className='object-cover group-hover:scale-110 transition-transform duration-700'
           />
-          <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent' />
+          <div className='absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-black/20 to-transparent' />
 
           {/* Reading Time Badge */}
-          <div className='absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-[#a98b5d]/30 rounded-full px-3 py-1 flex items-center gap-1'>
+          <div className='absolute top-4 right-4 bg-[#0a0a0a]/60 backdrop-blur-md border border-[#a98b5d]/30 rounded-full px-3 py-1 flex items-center gap-1'>
             <Clock className='w-3 h-3 text-[#a98b5d]' />
             <span className='text-xs text-[#dcd7ce] font-medium'>
               {post.readingTime} min read
@@ -331,7 +329,7 @@ function PostCard({ post, index }: { post: Post; index: number }) {
           <BookOpen className='w-16 h-16 text-[#a98b5d]/50' />
 
           {/* Reading Time Badge */}
-          <div className='absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-[#a98b5d]/30 rounded-full px-3 py-1 flex items-center gap-1'>
+          <div className='absolute top-4 right-4 bg-[#0a0a0a]/60 backdrop-blur-md border border-[#a98b5d]/30 rounded-full px-3 py-1 flex items-center gap-1'>
             <Clock className='w-3 h-3 text-[#a98b5d]' />
             <span className='text-xs text-[#dcd7ce] font-medium'>
               {post.readingTime} min read

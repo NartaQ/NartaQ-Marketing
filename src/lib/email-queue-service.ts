@@ -40,8 +40,13 @@ export async function queueEmail(options: QueueEmailOptions): Promise<void> {
         scheduledAt: options.scheduledAt || new Date(),
       },
     })
-    processEmailQueue()
-    
+    // Await processing to ensure it runs in serverless environment
+    // We catch errors here to ensure the user request doesn't fail just because email sending failed
+    // (The email is safely queued and will be retried by cron if immediate sending fails)
+    await processEmailQueue().catch(err => {
+      console.error('⚠️ Immediate queue processing failed (email is queued):', err)
+    })
+
     console.log('📬 Email queued:', { to: options.to, subject: options.subject })
   } catch (error) {
     console.error('❌ Failed to queue email:', error)
@@ -110,7 +115,7 @@ export async function processEmailQueue(maxBatch = 10): Promise<{
           // Mark attempt and check if max reached
           const newAttempts = email.attempts + 1
           const status = newAttempts >= email.maxAttempts ? 'failed' : 'pending'
-          
+
           await prisma.emailQueue.update({
             where: { id: email.id },
             data: {
@@ -119,7 +124,7 @@ export async function processEmailQueue(maxBatch = 10): Promise<{
               lastError: result.error || 'Unknown error',
             },
           })
-          
+
           if (status === 'failed') {
             failed++
             console.error(`❌ Email failed after ${email.maxAttempts} attempts:`, {
@@ -132,7 +137,7 @@ export async function processEmailQueue(maxBatch = 10): Promise<{
         // Handle unexpected errors
         const newAttempts = email.attempts + 1
         const status = newAttempts >= email.maxAttempts ? 'failed' : 'pending'
-        
+
         await prisma.emailQueue.update({
           where: { id: email.id },
           data: {
@@ -141,7 +146,7 @@ export async function processEmailQueue(maxBatch = 10): Promise<{
             lastError: error instanceof Error ? error.message : 'Unknown error',
           },
         })
-        
+
         if (status === 'failed') {
           failed++
         }
@@ -176,13 +181,19 @@ export async function queueWelcomeEmail(email: string, name?: string): Promise<v
 export async function queueFounderConfirmation(
   email: string,
   name: string,
-  company: string
+  company: string,
+  memberNumber: number
 ): Promise<void> {
+  const subject = memberNumber > 0 ? `Founding Member #${memberNumber} (that's you)` : 'Application Received ✓';
   await sendEmail({
     to: email,
-    subject: `Application Received for ${company} ✓`,
-    html: emailTemplateLoader.renderFounderConfirmation({ founderName: name, companyName: company }),
-  })
+    subject: subject,
+    html: emailTemplateLoader.renderFounderConfirmation({
+      founderName: name,
+      companyName: company,
+      memberNumber,
+    }),
+  });
 }
 
 /**
@@ -191,13 +202,19 @@ export async function queueFounderConfirmation(
 export async function queueInvestorConfirmation(
   email: string,
   name: string,
-  investorType: string
+  investorType: string,
+  memberNumber: number
 ): Promise<void> {
+  const subject = memberNumber > 0 ? `Founding Member #${memberNumber} (that's you)` : 'Welcome to NartaQ Investor Network ✓';
   await sendEmail({
     to: email,
-    subject: 'Welcome to NartaQ Investor Network ✓',
-    html: emailTemplateLoader.renderInvestorConfirmation({ investorName: name, investorType }),
-  })
+    subject: subject,
+    html: emailTemplateLoader.renderInvestorConfirmation({
+      investorName: name,
+      investorType,
+      memberNumber,
+    }),
+  });
 }
 
 /**

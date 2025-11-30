@@ -32,8 +32,8 @@ export const metadata: Metadata = {
 
 export default function ApplyPage() {
   return (
-    <>      
-      <div className='min-h-screen bg-black text-white'>
+    <>
+      <div className='min-h-screen bg-[#0a0a0a] text-white'>
         <UnifiedApplicationForm />
       </div>
     </>

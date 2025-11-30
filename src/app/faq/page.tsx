@@ -21,24 +21,19 @@ export default function FAQPage() {
       category: 'Platform & Technology',
       questions: [
         {
-          question: 'What exactly is NartaQ building?',
+          question: 'Is this another LinkedIn for startups?',
           answer:
-            "NartaQ is building an AI-powered platform that democratizes access to startup funding by connecting founders with aligned investors based on merit, not networks. We're starting with the France-Tunisia corridor and will expand globally. The platform will use artificial intelligence to match founders and investors, streamline due diligence, and automate deal execution processes.",
+            "No. LinkedIn is a resume. We're a matchmaker. Our AI actually reads your pitch, understands your business model, and finds investors who've funded companies like yours. Then we introduce you. That's it.",
         },
         {
           question: 'How does the AI matching work?',
           answer:
-            'Our AI engine will analyze multiple data points from both founders and investors—including business models, market focus, investment thesis, risk profiles, and success patterns. Rather than relying on warm introductions, the system creates compatibility scores and suggests high-potential matches based on alignment and mutual benefit.',
+            'Our AI engine analyzes multiple data points from both founders and investors—including business models, market focus, investment thesis, risk profiles, and success patterns. Rather than relying on warm introductions, the system creates compatibility scores and suggests high-potential matches based on alignment and mutual benefit.',
         },
         {
           question: 'What stage is the platform currently in?',
           answer:
-            "We're currently in the pre-launch development phase, building our founding community of 1,000+ participants (founders, investors, and ecosystem partners). We're actively developing the core platform architecture while validating our approach with early community members.",
-        },
-        {
-          question: 'How is this different from existing VC platforms?',
-          answer:
-            'Traditional platforms focus on deal flow aggregation within existing networks. NartaQ is building infrastructure to create new connections based on merit and compatibility, specifically targeting underserved geographic corridors where exceptional founders lack access to capital due to network limitations.',
+            "We're currently in the pre-launch development phase, building our founding community of 250 members. We're actively developing the core platform architecture while validating our approach with our early community members.",
         },
       ],
     },
@@ -46,19 +41,19 @@ export default function FAQPage() {
       category: 'For Founders',
       questions: [
         {
-          question: 'Who can apply to join as a founder?',
+          question: 'Why only 250 spots?',
           answer:
-            "We're looking for exceptional founders building scalable technology companies, particularly those in the France-Tunisia corridor or with connections to these markets. While we welcome founders from all backgrounds, our initial focus is on startups that can benefit from Franco-Tunisian strategic partnerships.",
+            "Because we're building this WITH you, not FOR you. 250 is small enough that we can actually talk to every founding member, get feedback, and build what you need. After 250, we go into heads-down build mode for 6 months.",
+        },
+        {
+          question: "What if I apply and don't get in?",
+          answer:
+            "You'll get in. We're not rejecting people. We're capping at 250 total. First come, first served. When we hit 250, applications close. Period.",
         },
         {
           question: 'What stage companies are you targeting?',
           answer:
             "We're primarily focused on pre-seed to Series A companies that are seeking their first institutional funding rounds. However, we also welcome earlier stage founders who are preparing for future fundraising and want to build relationships with aligned investors.",
-        },
-        {
-          question: 'What does the application process look like?',
-          answer:
-            "The application process involves submitting your company information, founding team details, and business overview. Selected founders will get early access to the platform, direct feedback from investors, and can help shape our product development.",
         },
         {
           question: 'Is there a cost for founders to use the platform?',
@@ -85,36 +80,6 @@ export default function FAQPage() {
           answer:
             "Our AI system will provide personalized deal flow based on your stated investment thesis, past investment patterns, and sector preferences. Rather than seeing every deal, you'll receive high-signal opportunities that match your specific criteria and investment profile.",
         },
-        {
-          question: 'What due diligence support will you provide?',
-          answer:
-            "We're developing tools to streamline due diligence including verified founder profiles, standardized data rooms, automated compliance checks, and peer investor insights. The goal is to reduce time-to-decision while maintaining high-quality deal evaluation.",
-        },
-      ],
-    },
-    {
-      category: 'The Team & Company',
-      questions: [
-        {
-          question: 'Who are the founders of NartaQ?',
-          answer:
-            'NartaQ is founded by Riadh Jouini (CEO) and Jesser Bedoui (CTO). Riadh brings deep Franco-Tunisian business experience and strategic partnerships expertise. Jesser is a full-stack developer and security specialist with extensive fintech and blockchain experience. Together, they combine business development, technical execution, and corridor-specific knowledge.',
-        },
-        {
-          question: 'Why focus on the France-Tunisia corridor specifically?',
-          answer:
-            'The France-Tunisia corridor offers exceptional founder talent with cultural and linguistic alignment to European markets, but systematic underinvestment due to network limitations. This creates a perfect testing ground for our merit-based approach while addressing a specific market inefficiency with clear expansion potential.',
-        },
-        {
-          question: "What's the long-term vision for NartaQ?",
-          answer:
-            'Our vision is to democratize startup funding globally by proving that merit-based, AI-powered matching can outperform traditional network-dependent VC processes. Starting with France-Tunisia, we plan to expand to other high-potential corridors worldwide, ultimately building the infrastructure for truly equitable venture capital.',
-        },
-        {
-          question: 'Are you raising funding for NartaQ?',
-          answer:
-            'We are currently in pre-seed stage and building our community before formal fundraising. Interested investors can apply for early access to help shape our development. Formal fundraising details will be shared with early members first.',
-        },
       ],
     },
     {
@@ -123,12 +88,12 @@ export default function FAQPage() {
         {
           question: 'How do I get early access?',
           answer:
-            'Visit our Apply page to submit your application as either a founder or investor. We review applications on a rolling basis and will reach out to qualified candidates with next steps.',
+            'Visit our Apply page to submit your application as either a founder or investor. We review applications on a rolling basis. First come, first served until we hit 250 members.',
         },
         {
           question: 'When will the platform launch publicly?',
           answer:
-            "We're currently focused on building and validating with early access members. Public launch timing will depend on development progress and community feedback. Early access members will get advance notice and priority access to all platform features.",
+            "After the 250-member founding cohort is full, we're going into a 6-month build mode. Public launch will follow that. Founding members get access first.",
         },
         {
           question: "Can I participate if I'm not in France or Tunisia?",
@@ -156,7 +121,7 @@ export default function FAQPage() {
     .filter((category) => category.questions.length > 0)
 
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <div className='min-h-screen bg-[#0a0a0a] text-white'>
       <div className='pt-32 pb-16'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
           {/* Hero Section */}
@@ -165,33 +130,13 @@ export default function FAQPage() {
             animate={{ opacity: 1, y: 0 }}
             className='text-center mb-16'
           >
-            <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#a98b5d]/30 bg-[#a98b5d]/10 text-[#a98b5d] text-sm font-medium mb-8'>
-              <HelpCircle className='w-4 h-4' />
-              FREQUENTLY ASKED QUESTIONS
-            </div>
-            <h1 className='text-5xl md:text-6xl font-bold mb-6'>
-              <span className='text-[#dcd7ce]'>Got</span>
-              <br />
-              <span className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-                Questions?
-              </span>
+            <h1 className='text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
+              Questions? We Have Answers.
             </h1>
             <p className='text-xl text-gray-400 max-w-3xl mx-auto mb-8'>
-              Find answers to common questions about our AI-powered investment platform, 
-              the application process for founders and investors, our technology approach, 
-              and our vision for democratizing startup funding through intelligent matching 
-              and automated due diligence processes.
+              Straight answers, no fluff. Here's what you need to know about
+              how we're fixing startup funding.
             </p>
-            
-            <div className='bg-gradient-to-r from-[#a98b5d]/10 to-[#dcd7ce]/5 border border-[#a98b5d]/20 rounded-xl p-6 max-w-2xl mx-auto mb-8'>
-              <p className='text-gray-300 text-base leading-relaxed'>
-                NartaQ is transforming how startups connect with investors by replacing 
-                traditional network-based introductions with merit-driven AI matching. 
-                Our platform analyzes business models, market opportunities, founder 
-                backgrounds, and investor preferences to create optimal partnerships 
-                that drive successful funding outcomes.
-              </p>
-            </div>
 
             {/* Search Bar */}
             <div className='relative max-w-md mx-auto'>

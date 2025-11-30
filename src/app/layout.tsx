@@ -4,7 +4,7 @@ import Footer from "@/components/pages/Footer";
 import IntercomProvider from "@/components/lazyLoadIntercom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Montserrat, Playfair_Display,  } from "next/font/google";
+import { Montserrat, Playfair_Display, } from "next/font/google";
 import "./globals.css";
 import {
   organizationSchema,
@@ -37,19 +37,19 @@ const fontSans = Montserrat({
 export const metadata: Metadata = {
   title: {
     default:
-      "NartaQ - AI-Powered Venture Capital Platform | Startup Funding & Investor Matching",
+      "NartaQ - AI-Powered Dealflow Platform | Startup Funding & Investor Matching",
     template: "",
   },
   description:
-    "AI-powered venture capital platform connecting founders with the right investors. Modern AngelList alternative with automated deal execution and guided closing.",
+    "AI-powered dealflow platform connecting founders with the right investors. Modern AngelList alternative with automated deal execution and guided closing.",
   keywords: [
     "AI venture matching",
-    "venture capital platform",
-    "venture capital automation",
+    "dealflow platform",
+    "dealflow automation",
     "dealflow matching",
     "startup investor matching",
     "AI powered funding",
-    "decentralized venture capital",
+    "decentralized dealflow",
     "automated deal execution",
     "venture matchmaking",
     "startup funding platform",
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "NartaQ - Premium Investment & Talent Platform",
+    title: "NartaQ - AI-Powered Dealflow Platform",
     description:
-      "Elite platform connecting funded startups with smart investors and expert talent. Get investment, hire A-players, or find premium projects.",
+      "AI-powered dealflow platform connecting founders with the right investors. Modern AngelList alternative with automated deal execution and guided closing.",
     url: "https://www.nartaq.com",
     siteName: "NartaQ",
     locale: "en_US",
@@ -111,7 +111,7 @@ export default async function RootLayout({
 }>) {
   // Fetch banner settings server-side
   const bannerSettings = await getBannerSettings()
-  
+
   return (
     <html lang="en" className="dark lenis" suppressHydrationWarning>
       <head>
@@ -219,7 +219,7 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`w-screen overflow-x-hidden ${fontSerif.variable} ${fontSans.variable} antialiased bg-black text-white`}
+        className={`w-screen overflow-x-hidden ${fontSerif.variable} ${fontSans.variable} antialiased bg-[#0a0a0a] text-white`}
       >
         <Script
           id="deferred-google-analytics"

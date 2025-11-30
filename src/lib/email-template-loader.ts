@@ -54,7 +54,11 @@ class EmailTemplateLoader {
   /**
    * Render founder application confirmation email
    */
-  renderFounderConfirmation(data: { founderName: string; companyName: string }): string {
+  renderFounderConfirmation(data: {
+    founderName: string
+    companyName: string
+    memberNumber: number
+  }): string {
     const template = this.loadTemplate('FounderConfirmation')
     return template(data)
   }
@@ -62,11 +66,16 @@ class EmailTemplateLoader {
   /**
    * Render investor application confirmation email
    */
-  renderInvestorConfirmation(data: { investorName: string; investorType: string }): string {
+  renderInvestorConfirmation(data: {
+    investorName: string
+    investorType: string
+    memberNumber: number
+  }): string {
     const template = this.loadTemplate('InvestorConfirmation')
     return template({
       investorName: data.investorName,
       investorType: data.investorType || 'investor',
+      memberNumber: data.memberNumber,
     })
   }
 

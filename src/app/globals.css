@@ -17,7 +17,7 @@
   --footer-link-hover: #dcd7ce;
   --radius: 0.625rem;
 
-  --background: 240 6% 14%;
+  --background: 228 7% 15%;
 
   --foreground: 48 18% 85%;
 
@@ -129,6 +129,7 @@ body:not(.nav-open)::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   body::after,
   body.nav-open::after,
   body:not(.nav-open)::after {
@@ -151,6 +152,7 @@ body:not(.nav-open)::after {
 }
 
 @keyframes float {
+
   0%,
   100% {
     transform: translate3d(0, 0px, 0);
@@ -240,12 +242,10 @@ h2 {
 
 
 .premium-glass {
-  background: linear-gradient(
-    135deg,
-    rgba(35, 36, 40, 0.9) 0%,
-    rgba(62, 63, 68, 0.7) 50%,
-    rgba(35, 36, 40, 0.9) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(35, 36, 40, 0.9) 0%,
+      rgba(62, 63, 68, 0.7) 50%,
+      rgba(35, 36, 40, 0.9) 100%);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(169, 139, 93, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
@@ -258,6 +258,7 @@ h2 {
 }
 
 @keyframes floating {
+
   0%,
   100% {
     transform: translate3d(0, 0px, 0);
@@ -304,6 +305,7 @@ h2 {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -315,10 +317,8 @@ h2 {
 }
 
 .grid-pattern {
-  background-image: linear-gradient(
-      rgba(169, 139, 93, 0.1) 1px,
-      transparent 1px
-    ),
+  background-image: linear-gradient(rgba(169, 139, 93, 0.1) 1px,
+      transparent 1px),
     linear-gradient(90deg, rgba(169, 139, 93, 0.1) 1px, transparent 1px);
   background-size: 40px 40px;
 }

@@ -31,7 +31,7 @@ const SectionLoader = () => (
 
 export function FullApplication() {
   return (
-    <div className='flex min-h-screen flex-col bg-black text-white relative overflow-hidden'>
+    <div className='flex min-h-screen flex-col bg-[#0a0a0a] text-white relative overflow-hidden'>
       {/* Hero loads immediately within full app */}
       <OptimizedHeroSection />
 

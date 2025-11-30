@@ -1,6 +1,6 @@
 'use server'
 
-import { client } from '@/lib/sanity'
+import { sanityFetch } from '@/lib/sanity'
 
 export interface CareerPosition {
   _id: string

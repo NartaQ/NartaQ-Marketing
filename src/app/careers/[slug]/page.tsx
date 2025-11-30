@@ -61,7 +61,7 @@ export default async function CareerPositionPage({
   }
 
   return (
-    <div className='min-h-screen bg-black text-white relative overflow-hidden'>
+    <div className='min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden'>
       <div className='relative z-10'>
         {/* Header */}
         <div className='py-12 sm:py-16 px-4 sm:px-6'>

@@ -158,22 +158,22 @@ export default async function BlogPost({ params }: PageProps) {
 
   const readingTime = calculateReadingTime(post.body)
   const primaryCategory = post.categories?.filter(c => c?.slug?.current)[0]
-  
+
   // Extract plain text from author bio if it exists
   const authorRole = post.author.bio && Array.isArray(post.author.bio)
     ? post.author.bio
-        .filter((block: any) => block._type === 'block')
-        .map((block: any) => 
-          block.children
-            ?.filter((child: any) => child._type === 'span')
-            .map((child: any) => child.text)
-            .join('')
-        )
-        .join(' ')
+      .filter((block: any) => block._type === 'block')
+      .map((block: any) =>
+        block.children
+          ?.filter((child: any) => child._type === 'span')
+          .map((child: any) => child.text)
+          .join('')
+      )
+      .join(' ')
     : undefined
 
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <div className='min-h-screen bg-[#0a0a0a] text-white'>
       {/* Compact Hero Section */}
       <div className='relative min-h-[50vh] flex items-end overflow-hidden border-b border-[#a98b5d]/20'>
         {/* Background Image - More subtle */}
@@ -186,7 +186,7 @@ export default async function BlogPost({ params }: PageProps) {
               className='object-cover opacity-30'
               priority
             />
-            <div className='absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40' />
+            <div className='absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/80 to-[#0a0a0a]/40' />
           </div>
         )}
 
@@ -235,95 +235,95 @@ export default async function BlogPost({ params }: PageProps) {
           {/* Article Content */}
           <article className='max-w-3xl'>
             <div className='prose prose-lg prose-invert max-w-none'>
-            <PortableText
-              value={post.body}
-              components={{
-                types: {
-                  image: ({ value }) => (
-                    <div className='relative w-full h-96 my-8 rounded-2xl overflow-hidden'>
-                      <Image
-                        src={urlFor(value).width(800).height(400).url()}
-                        alt={value.alt || 'Blog post image'}
-                        fill
-                        className='object-cover'
-                      />
-                    </div>
-                  ),
-                },
-                block: {
-                  h1: ({ children }) => (
-                    <h1 className='text-4xl font-bold text-[#dcd7ce] mb-6 mt-12'>
-                      {children}
-                    </h1>
-                  ),
-                  h2: ({ children }) => (
-                    <h2 className='text-3xl font-bold text-[#dcd7ce] mb-4 mt-10'>
-                      {children}
-                    </h2>
-                  ),
-                  h3: ({ children }) => (
-                    <h3 className='text-2xl font-bold text-[#a98b5d] mb-4 mt-8'>
-                      {children}
-                    </h3>
-                  ),
-                  h4: ({ children }) => (
-                    <h4 className='text-xl font-semibold text-[#dcd7ce] mb-3 mt-6'>
-                      {children}
-                    </h4>
-                  ),
-                  normal: ({ children }) => (
-                    <p className='text-[#dcd7ce]/90 leading-relaxed mb-6 text-lg'>
-                      {children}
-                    </p>
-                  ),
-                  blockquote: ({ children }) => (
-                    <blockquote className='border-l-4 border-[#a98b5d] pl-6 my-8 bg-[#a98b5d]/5 py-4 rounded-r-lg'>
-                      <div className='text-[#dcd7ce] italic text-lg'>
-                        {children}
+              <PortableText
+                value={post.body}
+                components={{
+                  types: {
+                    image: ({ value }) => (
+                      <div className='relative w-full h-96 my-8 rounded-2xl overflow-hidden'>
+                        <Image
+                          src={urlFor(value).width(800).height(400).url()}
+                          alt={value.alt || 'Blog post image'}
+                          fill
+                          className='object-cover'
+                        />
                       </div>
-                    </blockquote>
-                  ),
-                },
-                marks: {
-                  link: ({ children, value }) => (
-                    <a
-                      href={value.href}
-                      className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
-                      target={value.href.startsWith('http') ? '_blank' : undefined}
-                      rel={value.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    >
-                      {children}
-                    </a>
-                  ),
-                  strong: ({ children }) => (
-                    <strong className='font-bold text-[#dcd7ce]'>{children}</strong>
-                  ),
-                  em: ({ children }) => (
-                    <em className='italic text-[#a98b5d]'>{children}</em>
-                  ),
-                },
-                list: {
-                  bullet: ({ children }) => (
-                    <ul className='list-disc list-inside space-y-2 mb-6 text-[#dcd7ce]/90'>
-                      {children}
-                    </ul>
-                  ),
-                },
-                listItem: {
-                  bullet: ({ children }) => (
-                    <li className='text-lg leading-relaxed'>{children}</li>
-                  ),
-                },
-              }}
-            />
-          </div>
-        </article>
+                    ),
+                  },
+                  block: {
+                    h1: ({ children }) => (
+                      <h1 className='text-4xl font-bold text-[#dcd7ce] mb-6 mt-12'>
+                        {children}
+                      </h1>
+                    ),
+                    h2: ({ children }) => (
+                      <h2 className='text-3xl font-bold text-[#dcd7ce] mb-4 mt-10'>
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({ children }) => (
+                      <h3 className='text-2xl font-bold text-[#a98b5d] mb-4 mt-8'>
+                        {children}
+                      </h3>
+                    ),
+                    h4: ({ children }) => (
+                      <h4 className='text-xl font-semibold text-[#dcd7ce] mb-3 mt-6'>
+                        {children}
+                      </h4>
+                    ),
+                    normal: ({ children }) => (
+                      <p className='text-[#dcd7ce]/90 leading-relaxed mb-6 text-lg'>
+                        {children}
+                      </p>
+                    ),
+                    blockquote: ({ children }) => (
+                      <blockquote className='border-l-4 border-[#a98b5d] pl-6 my-8 bg-[#a98b5d]/5 py-4 rounded-r-lg'>
+                        <div className='text-[#dcd7ce] italic text-lg'>
+                          {children}
+                        </div>
+                      </blockquote>
+                    ),
+                  },
+                  marks: {
+                    link: ({ children, value }) => (
+                      <a
+                        href={value.href}
+                        className='text-[#a98b5d] hover:text-[#dcd7ce] underline transition-colors'
+                        target={value.href.startsWith('http') ? '_blank' : undefined}
+                        rel={value.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      >
+                        {children}
+                      </a>
+                    ),
+                    strong: ({ children }) => (
+                      <strong className='font-bold text-[#dcd7ce]'>{children}</strong>
+                    ),
+                    em: ({ children }) => (
+                      <em className='italic text-[#a98b5d]'>{children}</em>
+                    ),
+                  },
+                  list: {
+                    bullet: ({ children }) => (
+                      <ul className='list-disc list-inside space-y-2 mb-6 text-[#dcd7ce]/90'>
+                        {children}
+                      </ul>
+                    ),
+                  },
+                  listItem: {
+                    bullet: ({ children }) => (
+                      <li className='text-lg leading-relaxed'>{children}</li>
+                    ),
+                  },
+                }}
+              />
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className='py-16 sm:py-24 bg-gradient-to-b from-[#0a0a0a] to-black border-t border-[#a98b5d]/20'>
+        <section className='py-16 sm:py-24  border-t border-[#a98b5d]/20'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-12'>
               <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6'>
@@ -366,7 +366,7 @@ function RelatedPostCard({ post }: { post: Post }) {
             fill
             className='object-cover group-hover:scale-105 transition-transform duration-300'
           />
-          <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent' />
+          <div className='absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-transparent' />
         </div>
       )}
 

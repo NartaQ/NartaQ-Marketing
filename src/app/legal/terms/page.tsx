@@ -46,16 +46,16 @@ export default function TermsOfServicePage() {
       }
     }
 
-  window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
 
-  return () => window.removeEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <div className='min-h-screen bg-[#0a0a0a] text-white'>
       <section className='relative pt-32 pb-16 overflow-hidden'>
-        <div className='absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-black' />
+        <div className='absolute inset-0 ' />
         <div className='absolute inset-0 opacity-10'>
           <div
             className='w-full h-full'

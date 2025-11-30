@@ -1,11 +1,18 @@
 'use client'
 
-import { Sparkles, ArrowRight, Zap, Users, Target } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { animatePageOut } from '../pageTransition/animations'
 import { usePathname, useRouter } from 'next/navigation'
+import type { getCohortStats } from '@/app/actions/cohort-stats'
 
-export default function NeonHeroSection() {
+type CohortStats = Awaited<ReturnType<typeof getCohortStats>>
+
+interface NeonHeroSectionProps {
+  cohortStats: CohortStats
+}
+
+export default function NeonHeroSection({ cohortStats }: NeonHeroSectionProps) {
   const pathname = usePathname()
   const router = useRouter()
 
@@ -14,16 +21,15 @@ export default function NeonHeroSection() {
     href: string
   ) => {
     e.preventDefault()
-
-    // Don't animate if we're already on the page
     if (pathname === href) return
-
-    // Trigger page transition animation
     animatePageOut(href, router)
   }
 
+  const spotsTaken = cohortStats.data?.totalApplications ?? 0
+  const totalSpots = cohortStats.data?.targetLimit ?? 250
+
   return (
-    <div className='relative min-h-screen flex items-center justify-center overflow-hidden bg-black'>
+    <div className='relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]'>
       {/* Animated Grid Background */}
       <div className='absolute inset-0 grid-pattern opacity-40' />
 
@@ -31,25 +37,25 @@ export default function NeonHeroSection() {
       <div className='relative z-10 max-w-6xl mx-auto px-4 text-center bg-blend-difference '>
         {/* Premium Badge */}
         <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8'>
-          <Sparkles className='w-4 h-4 text-[#a98b5d]' />
           <span className='text-sm font-medium text-[#dcd7ce]'>
-            LIMITED BETA ACCESS OPEN
+            FOUNDING COHORT NOW OPEN
           </span>
         </div>
 
         {/* Main Headline */}
         <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 px-2'>
-          <span className='text-[#dcd7ce]'>Raise Capital </span>
+          <span className='text-[#dcd7ce]'>AI-Powered </span>
           <br />
           <span className='text-glow bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-            Without The Warm Intro
+            Dealflow Platform
           </span>
         </h1>
 
         {/* Subheadline */}
         <p className='text-lg sm:text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-6 leading-relaxed px-4'>
-          NartaQ's AI instantly matches you with active investors looking for deals like yours.
-          Stop chasing leads. Start closing rounds.
+          Tired of pitching 100 VCs to get ghosted? We built an AI that does the matching for you.
+          <br />
+          <span className='text-[#a98b5d] font-semibold'>250 spots. That's it.</span>
         </p>
 
         {/* CTA Button */}
@@ -62,8 +68,7 @@ export default function NeonHeroSection() {
           >
             <div className='absolute inset-0 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
             <div className='relative flex items-center justify-center gap-2'>
-              <Sparkles className='w-5 h-5 group-hover:rotate-180 transition-transform duration-500' />
-              Get Matched Now
+              Claim Your Spot
               <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
             </div>
           </Link>
@@ -74,14 +79,11 @@ export default function NeonHeroSection() {
           <div className='inline-flex items-center gap-3 px-4 py-2 bg-[#a98b5d]/10 border border-[#a98b5d]/30 rounded-full backdrop-blur-xl'>
             <div className='w-2 h-2 bg-green-500 rounded-full animate-pulse' />
             <span className='text-sm text-[#dcd7ce] font-medium'>
-              Join 100+ Founders on the Waitlist
+              {totalSpots} founding spots. {spotsTaken} taken. Get in before we're full.
             </span>
           </div>
         </div>
-
       </div>
-
-      {/* Bottom Gradient Fade */}
     </div>
   )
 }

@@ -5,65 +5,59 @@ import { Layout } from './components/Layout'
 interface InvestorConfirmationProps {
   investorName: string
   investorType: string
+  memberNumber: number
 }
 
 export default function InvestorConfirmation({
   investorName = '{{investorName}}',
   investorType = '{{investorType}}',
+  memberNumber = 127,
 }: InvestorConfirmationProps) {
-  // Default to "investor" if type is missing or empty
-  const displayType = investorType && investorType !== '{{investorType}}' ? investorType : 'investor'
-  
+  const preview = `You're in, ${investorName}. (Save this email)`
+  const investorNameDisplay = investorName || 'investor'
+
   return (
-    <Layout preview="Welcome to NartaQ Investor Network ✓">
+    <Layout preview={preview}>
       <Section style={content}>
-        <Heading style={h1}>Welcome to NartaQ!</Heading>
-        
-        <Text style={text}>Hi {investorName},</Text>
-        
+        <Heading style={h1}>You're Founding Member #{memberNumber} of 250.</Heading>
+
+        <Text style={text}>Hey {investorNameDisplay},</Text>
+
         <Text style={text}>
-          Thank you for joining NartaQ as a <strong style={strong}>{displayType}</strong>.
-          We're delighted to have you as one of our founding investors as we build the platform.
+          Welcome to NartaQ. Your application as a <strong style={strong}>{investorType}</strong> is confirmed. You're officially one of the first 250 founding members.
         </Text>
-        
+
         <Section style={card}>
-          <Heading style={cardTitle}>Welcome to the founding cohort! 🎉</Heading>
-          <Text style={cardText}>
-            We're currently building NartaQ's AI-powered matching engine and blockchain infrastructure.
-            As a founding member, you'll benefit from:
-          </Text>
+          <Heading style={cardTitle}>Here's what happens next:</Heading>
           <ul style={list}>
             <li style={listItem}>
-              <strong>First Access:</strong> Priority access to pre-vetted startups when we launch
+              <strong>Early Access:</strong> You'll get first look at our curated deal flow.
             </li>
             <li style={listItem}>
-              <strong>Premium Deal Flow:</strong> Curated founders from Africa and emerging markets
+              <strong>Priority Access:</strong> We'll send you high-potential startups that match your thesis before anyone else.
             </li>
             <li style={listItem}>
-              <strong>Transparent Infrastructure:</strong> Blockchain-based governance and cap tables
-            </li>
-            <li style={listItem}>
-              <strong>Network Benefits:</strong> Connect with other exceptional investors in our community
+              <strong>Community:</strong> Connect with other top-tier investors and founders.
             </li>
           </ul>
         </Section>
-        
+
         <Text style={text}>
-          We'll keep you updated on our launch progress through our website at{' '}
-          <strong style={strong}>www.nartaq.com</strong>. Stay tuned for exciting opportunities!
+          Questions? Just send me an email to <a href="mailto:contact@nartaq.com">contact@nartaq.com</a>. I read every one.
         </Text>
-        
-        <Section style={buttonContainer}>
-          <Button style={button} href="https://www.nartaq.com/for-investors">
-            Explore Opportunities
-          </Button>
-        </Section>
-        
+
         <Text style={regards}>
-          Looking forward to working together,
+          - Riadh Jouini
           <br />
-          The NartaQ Team
+          Co-Founder, NartaQ
         </Text>
+
+        <Section style={{ borderTop: '1px solid #333333', marginTop: '32px', paddingTop: '32px' }}>
+          <Text style={{ ...text, fontSize: '14px', fontStyle: 'italic' }}>
+            P.S. We're at {memberNumber}/250. Tell your investor friends before we're full.
+          </Text>
+        </Section>
+
       </Section>
     </Layout>
   )

@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: #000;
+  background: #232428;
   color: #fff;
   font-family: system-ui, -apple-system, sans-serif;
   min-height: 100vh;
@@ -119,6 +119,11 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

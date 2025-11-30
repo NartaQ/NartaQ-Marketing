@@ -90,7 +90,7 @@ export default function UnifiedNavigation({ bannerSettings }: UnifiedNavigationP
           ease: [0.25, 0.46, 0.45, 0.94],
         }}
         className='fixed left-0 right-0 z-50'
-        style={{ 
+        style={{
           minHeight: 'var(--header-height)',
           top: showBanner ? 'var(--banner-height)' : '0'
         }}
@@ -112,9 +112,8 @@ export default function UnifiedNavigation({ bannerSettings }: UnifiedNavigationP
           duration: 0.3,
           ease: [0.25, 0.46, 0.45, 0.94],
         }}
-        className={`fixed right-4 sm:right-6 md:right-8 z-50 ${
-          showBanner ? 'top-[calc(1rem+var(--banner-height))] sm:top-[calc(1.5rem+var(--banner-height))] md:top-[calc(2rem+var(--banner-height))]' : 'top-4 sm:top-6 md:top-8'
-        }`}
+        className={`fixed right-4 sm:right-6 md:right-8 z-50 ${showBanner ? 'top-[calc(1rem+var(--banner-height))] sm:top-[calc(1.5rem+var(--banner-height))] md:top-[calc(2rem+var(--banner-height))]' : 'top-4 sm:top-6 md:top-8'
+          }`}
         style={{
           pointerEvents: showFloatingNav || isNavOpen ? 'auto' : 'none',
           position: 'fixed', // Ensure it stays fixed regardless of content
@@ -127,11 +126,11 @@ export default function UnifiedNavigation({ bannerSettings }: UnifiedNavigationP
         >
           <div className='w-full relative'>
             <div
-              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${isNavOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'
+              className={`w-2/5 h-px bg-[#0a0a0a] block mx-auto relative transition-transform duration-300 ${isNavOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'
                 }`}
             ></div>
             <div
-              className={`w-2/5 h-px bg-black block mx-auto relative transition-transform duration-300 ${isNavOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'
+              className={`w-2/5 h-px bg-[#0a0a0a] block mx-auto relative transition-transform duration-300 ${isNavOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'
                 }`}
             ></div>
           </div>

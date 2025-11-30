@@ -52,7 +52,7 @@ const formSchema = z.object({
 }).superRefine((data, ctx) => {
   // Validate institutional investor fields
   const institutionalTypes = ['Venture Capital', 'Corporate VC', 'Private Equity', 'Accelerator/Incubator', 'Family Office', 'Institutional Investor', 'Syndicate']
-  
+
   if (institutionalTypes.includes(data.investorType)) {
     if (!data.companyName || data.companyName.trim() === '') {
       ctx.addIssue({
@@ -181,27 +181,27 @@ export default function InvestorMultiStepForm({
     if (isValid && currentStep < totalSteps) {
       // Clear any previous errors
       setEmailCheckError('')
-      
+
       // Check for existing application when moving from step 1
       if (currentStep === 1) {
         setIsCheckingEmail(true)
         const formData = form.getValues()
-        
+
         try {
           const existingCheck = await checkExistingInvestorApplication(formData.workEmail)
-          
+
           if (!existingCheck.success) {
             setEmailCheckError(existingCheck.message)
             setIsCheckingEmail(false)
             return
           }
-          
+
           if (existingCheck.exists) {
             setEmailCheckError(existingCheck.message)
             setIsCheckingEmail(false)
             return
           }
-          
+
           // If no existing application, identify user for analytics
           identifyUser({
             email: formData.workEmail,
@@ -212,10 +212,10 @@ export default function InvestorMultiStepForm({
           setIsCheckingEmail(false)
           return
         }
-        
+
         setIsCheckingEmail(false)
       }
-      
+
       // Track CTA click for continue button
       trackCTAClick(
         'Continue',
@@ -224,13 +224,13 @@ export default function InvestorMultiStepForm({
         undefined,
         'primary'
       )
-      
+
       // Skip step 2 for angel investors (go from step 1 to step 3)
       const isAngelInvestor = form.getValues('investorType') === 'Angel Investor'
       const nextStepNumber = currentStep === 1 && isAngelInvestor ? 3 : currentStep + 1
-      
+
       setCurrentStep(nextStepNumber)
-      
+
       // Track step progression
       trackFormStep('investor', nextStepNumber)
     }
@@ -241,7 +241,7 @@ export default function InvestorMultiStepForm({
       // Skip step 2 for angel investors when going back (go from step 3 to step 1)
       const isAngelInvestor = form.getValues('investorType') === 'Angel Investor'
       const prevStepNumber = currentStep === 3 && isAngelInvestor ? 1 : currentStep - 1
-      
+
       setCurrentStep(prevStepNumber)
     }
   }
@@ -279,7 +279,7 @@ export default function InvestorMultiStepForm({
           console.error('Submission failed:', result.error)
           setSubmissionError(
             result.error ||
-              'An error occurred while submitting your application. Please try again.'
+            'An error occurred while submitting your application. Please try again.'
           )
         }
       } catch (error) {
@@ -305,14 +305,14 @@ export default function InvestorMultiStepForm({
   }
 
   return (
-    <div className='max-w-2xl mx-auto'>
+    <div className='max-w-2xl mx-auto px-2 sm:px-4'>
       {/* Progress Bar */}
-      <div className='mb-12'>
+      <div className='mb-8 sm:mb-12'>
         <div className='flex items-center justify-between mb-2'>
-          <span className=' text-sm text-gray-400'>
+          <span className='text-xs sm:text-sm text-gray-400'>
             Step {currentStep} of {totalSteps}
           </span>
-          <span className=' text-sm text-gray-400'>
+          <span className='text-xs sm:text-sm text-gray-400'>
             {Math.round((currentStep / totalSteps) * 100)}% Complete
           </span>
         </div>
@@ -340,11 +340,11 @@ export default function InvestorMultiStepForm({
                 transition={{ duration: 0.3 }}
                 className='space-y-8'
               >
-                <div className='text-center mb-12'>
-                  <h2 className=' text-3xl font-bold text-white mb-4'>
+                <div className='text-center mb-8 sm:mb-12'>
+                  <h2 className='text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4'>
                     Let's start with the basics
                   </h2>
-                  <p className=' text-lg text-gray-300'>
+                  <p className='text-base sm:text-lg text-gray-300'>
                     Tell us about yourself
                   </p>
                 </div>
@@ -354,14 +354,14 @@ export default function InvestorMultiStepForm({
                   name='fullName'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className=' text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         What's your full name? *
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder='Jane Smith'
                           {...field}
-                          className=' text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                          className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                         />
                       </FormControl>
                       <FormMessage className=' text-red-400 mt-2' />
@@ -374,7 +374,7 @@ export default function InvestorMultiStepForm({
                   name='workEmail'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className=' text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         What's your work email? *
                       </FormLabel>
                       <FormControl>
@@ -382,7 +382,7 @@ export default function InvestorMultiStepForm({
                           type='email'
                           placeholder='jane@investmentfirm.com'
                           {...field}
-                          className=' text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                          className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                         />
                       </FormControl>
                       <FormMessage className=' text-red-400 mt-2' />
@@ -395,7 +395,7 @@ export default function InvestorMultiStepForm({
                   name='investorType'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className=' text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         What type of investor are you? *
                       </FormLabel>
                       <Select
@@ -403,11 +403,11 @@ export default function InvestorMultiStepForm({
                         value={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger className=' text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
+                          <SelectTrigger className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
                             <SelectValue placeholder='Select investor type' />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent className='bg-black border-[#a98b5d]/30'>
+                        <SelectContent className='bg-[#0a0a0a] border-[#a98b5d]/30'>
                           {investorTypeOptions.map((option) => (
                             <SelectItem
                               key={option}
@@ -429,7 +429,7 @@ export default function InvestorMultiStepForm({
                   name='personalLinkedIn'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className=' text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         Your LinkedIn profile (optional)
                       </FormLabel>
                       <FormControl>
@@ -437,7 +437,7 @@ export default function InvestorMultiStepForm({
                           type='url'
                           placeholder='https://www.linkedin.com/in/yourprofile'
                           {...field}
-                          className=' text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                          className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                         />
                       </FormControl>
                       <FormMessage className=' text-red-400 mt-2' />
@@ -460,11 +460,11 @@ export default function InvestorMultiStepForm({
               >
                 {isInstitutionalInvestor ? (
                   <>
-                    <div className='text-center mb-12'>
-                      <h2 className=' text-3xl font-bold text-white mb-4'>
+                    <div className='text-center mb-8 sm:mb-12'>
+                      <h2 className='text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4'>
                         About your firm
                       </h2>
-                      <p className=' text-lg text-gray-300'>
+                      <p className='text-base sm:text-lg text-gray-300'>
                         Tell us about your organization and role
                       </p>
                     </div>
@@ -474,14 +474,14 @@ export default function InvestorMultiStepForm({
                       name='companyName'
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className=' text-xl text-white mb-3 block'>
+                          <FormLabel className='text-lg sm:text-xl text-white mb-2 sm:mb-3 block'>
                             What's your company/firm name? *
                           </FormLabel>
                           <FormControl>
                             <Input
                               placeholder='Investment Partners LLC'
                               {...field}
-                              className=' text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                              className='text-base sm:text-lg h-12 sm:h-14 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                             />
                           </FormControl>
                           <FormMessage className=' text-red-400 mt-2' />
@@ -494,14 +494,14 @@ export default function InvestorMultiStepForm({
                       name='title'
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className=' text-xl text-white mb-3 block'>
+                          <FormLabel className='text-lg sm:text-xl text-white mb-2 sm:mb-3 block'>
                             What's your title? *
                           </FormLabel>
                           <FormControl>
                             <Input
                               placeholder='Partner, Investment Director, etc.'
                               {...field}
-                              className=' text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                              className='text-base sm:text-lg h-12 sm:h-14 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                             />
                           </FormControl>
                           <FormMessage className=' text-red-400 mt-2' />
@@ -514,7 +514,7 @@ export default function InvestorMultiStepForm({
                       name='website'
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className=' text-xl text-white mb-3 block'>
+                          <FormLabel className='text-lg sm:text-xl text-white mb-2 sm:mb-3 block'>
                             Company website (optional)
                           </FormLabel>
                           <FormControl>
@@ -522,7 +522,7 @@ export default function InvestorMultiStepForm({
                               type='url'
                               placeholder='https://www.yourfirm.com'
                               {...field}
-                              className=' text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                              className='text-base sm:text-lg h-12 sm:h-14 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                             />
                           </FormControl>
                           <FormMessage className=' text-red-400 mt-2' />
@@ -535,7 +535,7 @@ export default function InvestorMultiStepForm({
                       name='companyLinkedIn'
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className=' text-xl text-white mb-3 block'>
+                          <FormLabel className='text-lg sm:text-xl text-white mb-2 sm:mb-3 block'>
                             Company LinkedIn page (optional)
                           </FormLabel>
                           <FormControl>
@@ -543,7 +543,7 @@ export default function InvestorMultiStepForm({
                               type='url'
                               placeholder='https://www.linkedin.com/company/yourfirm'
                               {...field}
-                              className=' text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                              className='text-base sm:text-lg h-12 sm:h-14 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                             />
                           </FormControl>
                           <FormMessage className=' text-red-400 mt-2' />
@@ -575,11 +575,11 @@ export default function InvestorMultiStepForm({
                 transition={{ duration: 0.3 }}
                 className='space-y-8'
               >
-                <div className='text-center mb-12'>
-                  <h2 className='text-3xl font-bold text-white mb-4'>
+                <div className='text-center mb-8 sm:mb-12'>
+                  <h2 className='text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4'>
                     Investment preferences
                   </h2>
-                  <p className=' text-lg text-gray-300'>
+                  <p className='text-base sm:text-lg text-gray-300'>
                     What sectors and stages do you focus on?
                   </p>
                 </div>
@@ -589,7 +589,7 @@ export default function InvestorMultiStepForm({
                   name='investmentFocus'
                   render={() => (
                     <FormItem>
-                      <FormLabel className=' text-xl text-white mb-6 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-3 sm:mb-4 block'>
                         What sectors do you invest in? *
                       </FormLabel>
                       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
@@ -602,11 +602,10 @@ export default function InvestorMultiStepForm({
                               initial={{ scale: 1 }}
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
-                              className={`flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
-                                checked
-                                  ? 'border-[#a98b5d] bg-[#a98b5d]/20 text-[#a98b5d]'
-                                  : 'border-gray-600 bg-black/30 text-gray-300 hover:border-[#a98b5d]/50'
-                              }`}
+                              className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl border transition-all duration-300 cursor-pointer ${checked
+                                ? 'border-[#a98b5d] bg-[#a98b5d]/20 text-[#a98b5d]'
+                                : 'border-gray-600 bg-[#0a0a0a]/30 text-gray-300'
+                                }`}
                             >
                               <FormControl>
                                 <Checkbox
@@ -622,15 +621,14 @@ export default function InvestorMultiStepForm({
                                 />
                               </FormControl>
                               <div
-                                className={`w-6 h-6 rounded-full flex items-center justify-center ${
-                                  checked
-                                    ? 'bg-[#a98b5d] text-black'
-                                    : 'bg-transparent border border-gray-500'
-                                }`}
+                                className={`w-6 h-6 rounded-full flex items-center justify-center ${checked
+                                  ? 'bg-[#a98b5d] text-black'
+                                  : 'bg-transparent border border-gray-500'
+                                  }`}
                               >
                                 {checked && <Check className='w-4 h-4' />}
                               </div>
-                              <span className=' text-lg'>
+                              <span className='text-base sm:text-lg'>
                                 {option}
                               </span>
                             </motion.label>
@@ -647,7 +645,7 @@ export default function InvestorMultiStepForm({
                                 <Input
                                   placeholder='Please specify other sectors'
                                   {...field}
-                                  className=' text-lg h-12 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                                  className='text-base sm:text-lg h-10 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                                 />
                               </FormControl>
                             </FormItem>
@@ -664,7 +662,7 @@ export default function InvestorMultiStepForm({
                   name='ticketSize'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className=' text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         Typical investment stage & ticket size? *
                       </FormLabel>
                       <Select
@@ -672,11 +670,11 @@ export default function InvestorMultiStepForm({
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger className=' text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
+                          <SelectTrigger className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
                             <SelectValue placeholder='Select ticket size' />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent className='bg-black border-[#a98b5d]/30 '>
+                        <SelectContent className='bg-[#0a0a0a] border-[#a98b5d]/30 '>
                           {ticketSizeOptions.map((option) => (
                             <SelectItem
                               key={option}
@@ -706,11 +704,11 @@ export default function InvestorMultiStepForm({
                 transition={{ duration: 0.3 }}
                 className='space-y-8'
               >
-                <div className='text-center mb-12'>
-                  <h2 className=' text-3xl font-bold text-white mb-4'>
+                <div className='text-center mb-8 sm:mb-12'>
+                  <h2 className='text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4'>
                     Final details
                   </h2>
-                  <p className=' text-lg text-gray-300'>
+                  <p className='text-base sm:text-lg text-gray-300'>
                     Geography and how you found us
                   </p>
                 </div>
@@ -720,7 +718,7 @@ export default function InvestorMultiStepForm({
                   name='targetGeography'
                   render={({ fieldState }) => (
                     <FormItem>
-                      <FormLabel className=' text-xl text-white mb-6 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-3 sm:mb-4 block'>
                         What is your target geography? *
                       </FormLabel>
                       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
@@ -733,11 +731,10 @@ export default function InvestorMultiStepForm({
                               initial={{ scale: 1 }}
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
-                              className={`flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
-                                checked
-                                  ? 'border-[#a98b5d] bg-[#a98b5d]/20 text-[#a98b5d]'
-                                  : 'border-gray-600 bg-black/30 text-gray-300 hover:border-[#a98b5d]/50'
-                              }`}
+                              className={`flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 cursor-pointer ${checked
+                                ? 'border-[#a98b5d] bg-[#a98b5d]/20 text-[#a98b5d]'
+                                : 'border-gray-600 bg-[#0a0a0a]/30 text-gray-300'
+                                }`}
                             >
                               <FormControl>
                                 <Checkbox
@@ -753,15 +750,14 @@ export default function InvestorMultiStepForm({
                                 />
                               </FormControl>
                               <div
-                                className={`w-6 h-6 rounded-full flex items-center justify-center ${
-                                  checked
-                                    ? 'bg-[#a98b5d] text-black'
-                                    : 'bg-transparent border border-gray-500'
-                                }`}
+                                className={`w-6 h-6 rounded-full flex items-center justify-center ${checked
+                                  ? 'bg-[#a98b5d] text-black'
+                                  : 'bg-transparent border border-gray-500'
+                                  }`}
                               >
                                 {checked && <Check className='w-4 h-4' />}
                               </div>
-                              <span className=' text-lg'>
+                              <span className='text-base sm:text-lg'>
                                 {option}
                               </span>
                             </motion.label>
@@ -781,7 +777,7 @@ export default function InvestorMultiStepForm({
                                 <Input
                                   placeholder='Please specify your target geography'
                                   {...field}
-                                  className='text-lg h-12 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                                  className='text-base sm:text-lg h-10 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                                 />
                               </FormControl>
                               <FormMessage className='text-red-400 mt-2' />
@@ -799,7 +795,7 @@ export default function InvestorMultiStepForm({
                   name='referralSource'
                   render={({ field, fieldState }) => (
                     <FormItem>
-                      <FormLabel className=' text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         How did you hear about us? *
                       </FormLabel>
                       <Select
@@ -807,11 +803,11 @@ export default function InvestorMultiStepForm({
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger className=' text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
+                          <SelectTrigger className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
                             <SelectValue placeholder='Select referral source' />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent className='bg-black border-[#a98b5d]/30 '>
+                        <SelectContent className='bg-[#0a0a0a] border-[#a98b5d]/30 '>
                           {referralOptions.map((option) => (
                             <SelectItem
                               key={option}
@@ -841,7 +837,7 @@ export default function InvestorMultiStepForm({
                           <Input
                             placeholder='Please specify your referral source'
                             {...field}
-                            className=' text-lg h-12 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                            className='text-base sm:text-lg h-10 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                           />
                         </FormControl>
                         <FormMessage className=' text-red-400 mt-2' />
@@ -879,13 +875,13 @@ export default function InvestorMultiStepForm({
           )}
 
           {/* Navigation Buttons */}
-          <div className='flex justify-between pt-8'>
+          <div className='flex flex-col-reverse sm:flex-row justify-between gap-3 sm:gap-0 pt-6 sm:pt-8'>
             <Button
               type='button'
               onClick={prevStep}
               variant='ghost'
               disabled={currentStep === 1}
-              className=' text-lg text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed'
+              className='text-base sm:text-lg text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed w-full sm:w-auto'
             >
               <ArrowLeft className='w-5 h-5 mr-2' />
               Previous
@@ -896,10 +892,10 @@ export default function InvestorMultiStepForm({
                 type='button'
                 onClick={nextStep}
                 disabled={isCheckingEmail}
-                className=' text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl'
+                className='text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl w-full sm:w-auto'
               >
                 {isCheckingEmail ? 'Checking...' : 'Continue'}
-                <ArrowRight className='w-5 h-5 ml-2' />
+                <ArrowRight className='w-4 h-4 sm:w-5 sm:h-5 ml-2' />
               </Button>
             ) : (
               <Button
@@ -907,7 +903,7 @@ export default function InvestorMultiStepForm({
                 disabled={
                   isSubmitted || isPending || form.formState.isSubmitting
                 }
-                className=' text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl'
+                className='text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl w-full sm:w-auto'
               >
                 {isPending || form.formState.isSubmitting ? (
                   <div className='flex items-center gap-2'>

@@ -15,74 +15,82 @@ datasource db {
 }
 
 model FounderApplication {
-  id                    String   @id @default(cuid())
-  fullName              String
-  workEmail             String
-  founderLinkedIn       String? // Founder's personal LinkedIn
-  companyName           String
-  website               String? // Company website
-  companyLinkedIn       String? // Company LinkedIn page
-  sector                String[] // Array of sectors
-  otherSector           String? // For when "Other" is selected
-  fundingStage          String
-  location              String
-  shortPitch            String
-  pitchDeckUrl          String? // URL to the uploaded pitch deck
-  emailConfirmationSent Boolean? @default(false)
-  createdAt             DateTime @default(now())
-  updatedAt             DateTime @updatedAt
+  id              String   @id @default(cuid())
+  fullName        String
+  workEmail       String
+  founderLinkedIn String? // Founder's personal LinkedIn
+  companyName     String
+  website         String? // Company website
+  companyLinkedIn String? // Company LinkedIn page
+  sector          String[] // Array of sectors
+  otherSector     String? // For when "Other" is selected
+  fundingStage    String
+  location        String
+  shortPitch      String
+  pitchDeckUrl    String? // URL to the uploaded pitch deck
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  emailLogs EmailLog[]
 
   @@map("founder_applications")
 }
 
 model InvestorApplication {
-  id                    String   @id @default(cuid())
-  fullName              String
-  workEmail             String
-  investorType          String   @default("investor") // Angel Investor, VC, PE, etc.
-  personalLinkedIn      String? // Investor's personal LinkedIn
-  companyName           String? // Optional for angel investors
-  title                 String? // Optional for angel investors
-  website               String? // Company website
-  companyLinkedIn       String? // Company LinkedIn page
-  investmentFocus       String[] // Array of investment focus areas
-  otherFocus            String? // For when "Other" is selected
-  ticketSize            String
-  targetGeography       String[] // Array of target geographies
-  otherGeography        String? // For when "Other" is selected in geography
-  referralSource        String
-  otherSource           String? // For when "Other" is selected
-  emailConfirmationSent Boolean? @default(false)
-  createdAt             DateTime @default(now())
-  updatedAt             DateTime @updatedAt
+  id               String   @id @default(cuid())
+  fullName         String
+  workEmail        String
+  investorType     String   @default("investor") // Angel Investor, VC, PE, etc.
+  personalLinkedIn String? // Investor's personal LinkedIn
+  companyName      String? // Optional for angel investors
+  title            String? // Optional for angel investors
+  website          String? // Company website
+  companyLinkedIn  String? // Company LinkedIn page
+  investmentFocus  String[] // Array of investment focus areas
+  otherFocus       String? // For when "Other" is selected
+  ticketSize       String
+  targetGeography  String[] // Array of target geographies
+  otherGeography   String? // For when "Other" is selected in geography
+  referralSource   String
+  otherSource      String? // For when "Other" is selected
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  emailLogs EmailLog[]
 
   @@map("investor_applications")
 }
 
 model Newsletter {
-  id     String  @id @default(cuid())
-  email  String  @unique
-  name   String?
-  source String? // Where they subscribed from (homepage, footer, etc.)
-  emailConfirmationSent Boolean? @default(false)
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  source    String? // Where they subscribed from (homepage, footer, etc.)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  // Relations
+  emailLogs EmailLog[]
 
   @@map("newsletter_subscribers")
 }
 
 model CareerApplication {
-  id                    String   @id @default(cuid())
-  fullName              String
-  email                 String
-  phone                 String?
-  motivation            String // Why they want to join
-  portfolioUrl          String? // Portfolio/LinkedIn URL
-  cvUrl                 String? // URL to uploaded CV
-  position              String   @default("General") // Position type: General, Community Manager, Digital Marketing Analyst, etc.
-  emailConfirmationSent Boolean? @default(false)
-  createdAt             DateTime @default(now())
-  updatedAt             DateTime @updatedAt
+  id           String   @id @default(cuid())
+  fullName     String
+  email        String
+  phone        String?
+  motivation   String // Why they want to join
+  portfolioUrl String? // Portfolio/LinkedIn URL
+  cvUrl        String? // URL to uploaded CV
+  position     String   @default("General") // Position type: General, Community Manager, Digital Marketing Analyst, etc.
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  emailLogs EmailLog[]
 
   @@map("career_applications")
 }
@@ -109,7 +117,83 @@ model SPVPartnerApplication {
   createdAt               DateTime @default(now())
   updatedAt               DateTime @updatedAt
 
+  // Relations
+  emailLogs EmailLog[]
+
   @@map("spv_partner_applications")
+}
+
+// Email Templates - Define different email types and their conditions
+model EmailTemplate {
+  id          String  @id @default(cuid())
+  name        String  @unique // e.g., 'founder_welcome', 'investor_confirmation', 'newsletter_welcome'
+  type        String // 'transactional', 'marketing', 'notification'
+  subject     String
+  description String? // What this email is for
+
+  // Trigger conditions (JSON string to store flexible conditions)
+  // Example: {"entityType": "FounderApplication", "trigger": "onCreate", "delay": 0}
+  // Example: {"entityType": "InvestorApplication", "trigger": "onUpdate", "condition": "status=approved", "delay": 86400}
+  triggerConditions String @db.Text
+
+  // Email content template (can use placeholders like {{fullName}}, {{companyName}})
+  htmlTemplate String  @db.Text
+  textTemplate String? @db.Text
+
+  // Sending configuration
+  enabled  Boolean @default(true)
+  priority Int     @default(5) // 1-10, higher = more important
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  emailLogs EmailLog[]
+
+  @@map("email_templates")
+}
+
+// Email Log - Track all emails sent to entities
+model EmailLog {
+  id String @id @default(cuid())
+
+  // Polymorphic relation - which entity this email is for
+  entityType String // 'FounderApplication', 'InvestorApplication', 'Newsletter', 'CareerApplication', 'SPVPartnerApplication'
+  entityId   String // ID of the entity
+
+  // Email details
+  templateId String?
+  template   EmailTemplate? @relation(fields: [templateId], references: [id], onDelete: SetNull)
+
+  emailType String // 'welcome', 'confirmation', 'follow_up', 'reminder', 'newsletter', 'campaign'
+  recipient String // Email address
+  subject   String
+
+  // Status tracking
+  status    String  @default("pending") // 'pending', 'queued', 'sent', 'failed', 'bounced'
+  attempts  Int     @default(0)
+  lastError String? @db.Text
+
+  // Timestamps
+  scheduledAt DateTime  @default(now()) // When to send
+  sentAt      DateTime? // When actually sent
+  openedAt    DateTime? // Email opened (if tracking enabled)
+  clickedAt   DateTime? // Link clicked (if tracking enabled)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Optional relations (nullable for flexibility)
+  founderApplication    FounderApplication?    @relation(fields: [entityId], references: [id], onDelete: Cascade, map: "email_log_founder_fk")
+  investorApplication   InvestorApplication?   @relation(fields: [entityId], references: [id], onDelete: Cascade, map: "email_log_investor_fk")
+  newsletter            Newsletter?            @relation(fields: [entityId], references: [id], onDelete: Cascade, map: "email_log_newsletter_fk")
+  careerApplication     CareerApplication?     @relation(fields: [entityId], references: [id], onDelete: Cascade, map: "email_log_career_fk")
+  spvPartnerApplication SPVPartnerApplication? @relation(fields: [entityId], references: [id], onDelete: Cascade, map: "email_log_spv_fk")
+
+  @@index([entityType, entityId])
+  @@index([status, scheduledAt])
+  @@index([emailType])
+  @@map("email_logs")
 }
 
 // Email queue for scheduled/retry delivery (cost-effective alternative to cron)

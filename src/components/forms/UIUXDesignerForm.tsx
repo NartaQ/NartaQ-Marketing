@@ -178,7 +178,7 @@ export default function UIUXDesignerForm() {
 
   if (isSuccess) {
     return (
-      <div className='min-h-screen bg-black text-white flex items-center justify-center'>
+      <div className='min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center'>
         <div className='max-w-2xl mx-auto px-4 text-center'>
           <div className='bg-gradient-to-br from-white/5 to-white/10 border border-white/10 rounded-3xl p-12 backdrop-blur-sm'>
             <CheckCircle className='w-16 h-16 text-green-400 mx-auto mb-6' />
@@ -201,9 +201,9 @@ export default function UIUXDesignerForm() {
   }
 
   return (
-    <div className='min-h-screen bg-black text-white relative overflow-hidden'>
+    <div className='min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden'>
       {/* Background Elements */}
-      <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#a98b5d]/20 via-gray-900 to-black' />
+      <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#a98b5d]/20 via-gray-900 to-[#0a0a0a]' />
       <div className='absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-[#a98b5d]/30 to-[#dcd7ce]/30 rounded-full blur-3xl animate-pulse' />
       <div className='absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-[#dcd7ce]/20 to-[#a98b5d]/20 rounded-full blur-3xl animate-pulse delay-1000' />
 

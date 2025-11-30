@@ -54,7 +54,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className='fixed inset-0 bg-black/80 backdrop-blur-sm z-50'
+            className='fixed inset-0 bg-[#0a0a0a]/80 backdrop-blur-sm z-50'
           />
 
           {/* Modal */}
@@ -118,7 +118,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder='Enter your email'
                         required
-                        className='w-full px-4 py-3 bg-black/50 border border-[#a98b5d]/30 rounded-xl text-[#dcd7ce] placeholder:text-[#dcd7ce]/40 focus:outline-none focus:border-[#a98b5d] focus:ring-2 focus:ring-[#a98b5d]/20 transition-all'
+                        className='w-full px-4 py-3 bg-[#0a0a0a]/50 border border-[#a98b5d]/30 rounded-xl text-[#dcd7ce] placeholder:text-[#dcd7ce]/40 focus:outline-none focus:border-[#a98b5d] focus:ring-2 focus:ring-[#a98b5d]/20 transition-all'
                         disabled={isSubmitting}
                       />
                     </div>

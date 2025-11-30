@@ -8,6 +8,7 @@ import NeonHeroSection from '../components/pages/NeonHeroSection'
 import ProblemsSection from '../components/pages/ProblemsSection'
 import SolutionsSection from '../components/pages/SolutionsSection'
 import { Metadata } from 'next'
+import { getCohortStats } from './actions/cohort-stats'
 
 export const metadata: Metadata = {
   title: 'NartaQ | The AI-Powered Startup Funding Platform',
@@ -31,7 +32,6 @@ export const metadata: Metadata = {
     title: 'NartaQ | The AI-Powered Startup Funding Platform',
     description:
       'NartaQ is an AI-powered platform connecting the best founders with the right capital. Join our founding community.',
-   
   },
   twitter: {
     title: 'NartaQ | The AI-Powered Startup Funding Platform',
@@ -43,11 +43,13 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Home() {
+export default async function Home() {
+  const stats = await getCohortStats()
+
   return (
     <div className='flex min-h-screen flex-col relative overflow-hidden'>
       {/* New Neon-Style Hero Section */}
-      <NeonHeroSection />
+      <NeonHeroSection cohortStats={stats} />
 
       {/* Problems Section - What we're solving */}
       <ProblemsSection />

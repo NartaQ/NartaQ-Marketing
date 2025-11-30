@@ -15,17 +15,17 @@ export default function HiringBanner() {
         <div className="flex items-center gap-2">
           <span className="hidden sm:inline">🚀</span>
           <span>We're Hiring!</span>
-          <Link 
+          <Link
             href="/careers"
             className="underline hover:no-underline transition-all duration-200 font-semibold hover:opacity-80"
           >
             Join our team
           </Link>
         </div>
-        
+
         <button
           onClick={() => setIsVisible(false)}
-          className="absolute right-2 p-1 hover:bg-black/10 rounded-full transition-colors duration-200"
+          className="absolute right-2 p-1 hover:bg-[#0a0a0a]/10 rounded-full transition-colors duration-200"
           aria-label="Close banner"
         >
           <X size={16} />

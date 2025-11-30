@@ -42,7 +42,7 @@ export class CookieManager {
 
   private setCookie(name: string, value: string, days: number): void {
     if (typeof document === 'undefined') return
-    
+
     const date = new Date()
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
     const expires = `expires=${date.toUTCString()}`
@@ -51,10 +51,10 @@ export class CookieManager {
 
   private getCookie(name: string): string | null {
     if (typeof document === 'undefined') return null
-    
+
     const nameEQ = name + '='
     const ca = document.cookie.split(';')
-    
+
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i]
       while (c.charAt(0) === ' ') c = c.substring(1, c.length)
@@ -84,7 +84,7 @@ export class CookieManager {
 
   savePreferences(preferences: Partial<CookiePreferences>): void {
     this.preferences = { ...this.preferences, ...preferences, necessary: true }
-    
+
     const data: CookieConsentData = {
       preferences: this.preferences,
       timestamp: new Date().toISOString(),
@@ -92,7 +92,7 @@ export class CookieManager {
     }
 
     this.setCookie(COOKIE_CONSENT_KEY, JSON.stringify(data), CONSENT_DURATION_DAYS)
-    
+
     // Track consent decision
     trackEvent('cookie_consent_updated', {
       analytics_consent: this.preferences.analytics,
@@ -102,8 +102,8 @@ export class CookieManager {
 
     // Trigger consent change event
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('cookieConsentChange', { 
-        detail: this.preferences 
+      window.dispatchEvent(new CustomEvent('cookieConsentChange', {
+        detail: this.preferences
       }))
     }
   }
@@ -174,7 +174,7 @@ export function CookieConsentBanner({ onClose }: CookieConsentBannerProps) {
     if (!cookieManager.hasGivenConsent() && cookieManager.isGDPRRegion()) {
       setIsVisible(true)
     }
-    
+
     // Load current preferences
     setPreferences(cookieManager.getPreferences())
   }, [])
@@ -233,7 +233,7 @@ export function CookieConsentBanner({ onClose }: CookieConsentBannerProps) {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-t border-[#a98b5d]/20">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-sm border-t border-[#a98b5d]/20">
       <div className="max-w-7xl mx-auto p-6">
         {!showDetails ? (
           // Simple banner
@@ -243,10 +243,10 @@ export function CookieConsentBanner({ onClose }: CookieConsentBannerProps) {
                 Cookie Preferences
               </h3>
               <p className="text-sm text-gray-300">
-                We use cookies to enhance your experience and analyze our traffic. 
+                We use cookies to enhance your experience and analyze our traffic.
                 You can choose which cookies to accept.{' '}
-                <a 
-                  href="/legal/cookies" 
+                <a
+                  href="/legal/cookies"
                   className="text-[#a98b5d] hover:underline"
                   target="_blank"
                 >

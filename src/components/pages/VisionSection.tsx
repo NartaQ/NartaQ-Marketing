@@ -32,7 +32,7 @@ export default function VisionSection() {
   return (
     <section
       ref={ref}
-      className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden'
+      className='relative py-16 sm:py-24 lg:py-32  overflow-hidden'
     >
       {/* Background Elements */}
       <div className='absolute inset-0 grid-pattern opacity-20'>
@@ -76,7 +76,7 @@ export default function VisionSection() {
         <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
           <div className='group text-center'>
             <div className='relative p-8 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
-              <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
+              <div className='w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center border-2 border-[#a98b5d]/30'>
                 <Users className='w-8 h-8 text-[#a98b5d]' />
               </div>
               <h3 className='text-xl sm:text-2xl font-bold text-[#a98b5d] mb-4'>
@@ -91,7 +91,7 @@ export default function VisionSection() {
 
           <div className='group text-center'>
             <div className='relative p-8 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
-              <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
+              <div className='w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center border-2 border-[#a98b5d]/30'>
                 <Globe className='w-8 h-8 text-[#a98b5d]' />
               </div>
               <h3 className='text-xl sm:text-2xl font-bold text-[#a98b5d] mb-4'>
@@ -106,7 +106,7 @@ export default function VisionSection() {
 
           <div className='group text-center'>
             <div className='relative p-8 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/40 transition-all duration-300 h-full'>
-              <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center'>
+              <div className='w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center border-2 border-[#a98b5d]/30'>
                 <Scale className='w-8 h-8 text-[#a98b5d]' />
               </div>
               <h3 className='text-xl sm:text-2xl font-bold text-[#a98b5d] mb-4'>

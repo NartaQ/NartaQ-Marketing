@@ -77,7 +77,7 @@ export default function Footer({
   }
 
   return (
-    <footer className='mt-auto flex flex-col w-full gap-8 text-sm pt-[5%] pb-10 px-[10%] text-white max-md:flex-col'>
+    <footer className='mt-auto flex flex-col w-full  gap-8 text-sm pt-[5%] pb-10 px-[10%] text-white max-md:flex-col'>
       <div className='flex max-md:flex-col max-md:gap-10 gap-10 w-full justify-between flex-wrap'>
         {/* Logo Section */}
         <div className='flex h-full w-[250px] flex-col items-center gap-6 max-md:w-full'>
@@ -175,6 +175,13 @@ export default function Footer({
               Blog
             </Link>
             <Link
+              href='/talks'
+              className='footer-link hover:text-black dark:hover:text-white transition-colors'
+              onClick={(e) => handleNavigation(e, '/talks')}
+            >
+              Talks
+            </Link>
+            <Link
               href='/faq'
               className='footer-link hover:text-black dark:hover:text-white transition-colors'
               onClick={(e) => handleNavigation(e, '/faq')}
@@ -268,7 +275,7 @@ export default function Footer({
             <p className='text-xs text-gray-400'>
               Get the latest insights on startup funding delivered to your inbox.
             </p>
-            
+
             {isSuccess ? (
               <div className='flex items-center gap-2 text-[#a98b5d] py-3'>
                 <CheckCircle className='w-5 h-5' />
@@ -282,7 +289,7 @@ export default function Footer({
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder='Enter your email'
                   required
-                  className='w-full px-3 py-2 bg-black/50 border border-gray-600 rounded-lg text-white text-sm placeholder:text-gray-500 focus:outline-none focus:border-[#a98b5d] focus:ring-1 focus:ring-[#a98b5d] transition-all'
+                  className='w-full px-3 py-2 bg-[#0a0a0a]/50 border border-gray-600 rounded-lg text-white text-sm placeholder:text-gray-500 focus:outline-none focus:border-[#a98b5d] focus:ring-1 focus:ring-[#a98b5d] transition-all'
                   disabled={isSubmitting}
                 />
                 <button
@@ -302,7 +309,7 @@ export default function Footer({
                     </>
                   )}
                 </button>
-                
+
                 {error && (
                   <p className='text-xs text-red-400'>{error}</p>
                 )}
@@ -317,8 +324,8 @@ export default function Footer({
       <div className='mt-2 flex gap-2 flex-col text-gray-700 dark:text-gray-300 items-center text-[11px] w-full text-center'>
         <span>© {new Date().getFullYear()} NartaQ SAS. All rights reserved.</span>
         <span>
-          NartaQ provides a technology platform and does not offer investment, legal, tax, or financial advice. 
-        All investment decisions are made solely by users based on their own analysis and risk assessment.
+          NartaQ provides a technology platform and does not offer investment, legal, tax, or financial advice.
+          All investment decisions are made solely by users based on their own analysis and risk assessment.
         </span>
       </div>
     </footer>

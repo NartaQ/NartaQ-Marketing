@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 export default function ForFoundersPage() {
   return (
     <>
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-[#0a0a0a] text-white">
         {/* Hero Section - Founder Focused */}
         <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
           {/* Animated Background */}
@@ -67,9 +67,7 @@ export default function ForFoundersPage() {
 
             {/* Subheadline - Founder Value Prop */}
             <p className="text-xl md:text-2xl text-[#dcd7ce]/80 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Stop wasting time on cold outreach and start a direct conversation
-              with a vetted investor who is actively looking for companies like
-              yours.
+              You build. We match. You close. <span className="text-[#a98b5d] font-semibold">250 spots</span> for the founding cohort.
             </p>
 
             {/* Single CTA */}
@@ -91,8 +89,7 @@ export default function ForFoundersPage() {
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#a98b5d]/10 border border-[#a98b5d]/30 rounded-full backdrop-blur-xl">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 <span className="text-sm text-[#dcd7ce] font-medium">
-                  Join a select group of founders gaining priority access to
-                  investors. Applications are now open.
+                  Founding Cohort Closing Soon. 250 Spots Total.
                 </span>
               </div>
             </div>
@@ -100,7 +97,7 @@ export default function ForFoundersPage() {
         </div>
 
         {/* Founder Pain Points Section */}
-        <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a]">
+        <section className="py-16 sm:py-24 lg:py-32 ">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6">
@@ -110,13 +107,13 @@ export default function ForFoundersPage() {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-                <span className="text-[#dcd7ce]">Fundraising is a</span>{" "}
-                <span className="text-[#a98b5d]">Full-Time Job</span>
+                <span className="text-[#dcd7ce]">The System Is</span>{" "}
+                <span className="text-[#a98b5d]">Rigged</span>
               </h2>
               <p className="text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-                You're spending your valuable time on cold outreach, rejections,
-                and finding "warm intros" instead of building your business. The
-                system is rigged against you.
+                Warm intros are a myth. You're wasting months chasing people who will never invest.
+                <br />
+                <span className="text-[#a98b5d] font-semibold">Stop playing a game you can't win.</span>
               </p>
             </div>
 
@@ -141,38 +138,38 @@ export default function ForFoundersPage() {
               </div>
 
               <div className="text-center">
-                <div className="relative p-8 rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-500/5 to-transparent hover:border-orange-500/40 transition-all duration-300 h-full">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-500/5 flex items-center justify-center">
-                    <Target className="w-8 h-8 text-orange-400" />
+                <div className="relative p-8 rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent hover:border-red-500/40 transition-all duration-300 h-full">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-500/5 flex items-center justify-center">
+                    <Target className="w-8 h-8 text-red-400" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-orange-400 mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-red-400 mb-4">
                     Endless Rejections
                   </h3>
-                  <div className="w-12 h-0.5 bg-orange-400 mx-auto mb-4"></div>
+                  <div className="w-12 h-0.5 bg-red-400 mx-auto mb-4"></div>
                   <p className="text-[#dcd7ce] leading-relaxed mb-4">
                     Stop getting a "no" from investors who were never a good fit
                     for your stage, sector, or vision.
                   </p>
-                  <div className="text-sm font-semibold text-orange-400 bg-orange-500/10 px-3 py-1 rounded-full inline-block">
+                  <div className="text-sm font-semibold text-red-400 bg-red-500/10 px-3 py-1 rounded-full inline-block">
                     Poor matching
                   </div>
                 </div>
               </div>
 
               <div className="text-center">
-                <div className="relative p-8 rounded-2xl border border-yellow-500/20 bg-gradient-to-br from-yellow-500/5 to-transparent hover:border-yellow-500/40 transition-all duration-300 h-full">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-yellow-500/5 flex items-center justify-center">
-                    <Users className="w-8 h-8 text-yellow-400" />
+                <div className="relative p-8 rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent hover:border-red-500/40 transition-all duration-300 h-full">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-500/5 flex items-center justify-center">
+                    <Users className="w-8 h-8 text-red-400" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-yellow-400 mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-red-400 mb-4">
                     No Access
                   </h3>
-                  <div className="w-12 h-0.5 bg-yellow-400 mx-auto mb-4"></div>
+                  <div className="w-12 h-0.5 bg-red-400 mx-auto mb-4"></div>
                   <p className="text-[#dcd7ce] leading-relaxed mb-4">
                     Stuck outside the exclusive networks of major tech hubs.
                     Location bias kills great ideas.
                   </p>
-                  <div className="text-sm font-semibold text-yellow-400 bg-yellow-500/10 px-3 py-1 rounded-full inline-block">
+                  <div className="text-sm font-semibold text-red-400 bg-red-500/10 px-3 py-1 rounded-full inline-block">
                     Location bias
                   </div>
                 </div>
@@ -182,7 +179,7 @@ export default function ForFoundersPage() {
         </section>
 
         {/* Transition Section */}
-        <section className="py-12 bg-gradient-to-b from-[#0a0a0a] to-[#0a0a0a]">
+        <section className="py-12 ">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#a98b5d] mb-4">
@@ -198,7 +195,7 @@ export default function ForFoundersPage() {
         </section>
 
         {/* Solutions Section */}
-        <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0a0a0a] to-black">
+        <section className="py-16 sm:py-24 lg:py-32 ">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6">
@@ -208,15 +205,13 @@ export default function ForFoundersPage() {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-                <span className="text-[#dcd7ce]">The NartaQ AI</span>{" "}
+                <span className="text-[#dcd7ce]">The Unfair</span>{" "}
                 <span className="text-[#a98b5d]">Advantage</span>
               </h2>
               <p className="text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-                Our proprietary AI engine does the heavy lifting for you. We
-                analyze hundreds of data points to find investors who are a
-                perfect match for your company's stage, sector, and vision. This
-                ensures every introduction is high-signal and high-intent, so
-                you're not wasting time.
+                We don't just match you. We give you the network you deserve. Instantly.
+                <br />
+                No cold emails. No begging. Just deals.
               </p>
             </div>
 
@@ -286,7 +281,7 @@ export default function ForFoundersPage() {
         </section>
 
         {/* How It Works - Founder Journey */}
-        <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a]">
+        <section className="py-16 sm:py-24 lg:py-32 ">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-6">
@@ -296,8 +291,8 @@ export default function ForFoundersPage() {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-                <span className="text-[#dcd7ce]">Your 3-Step</span>{" "}
-                <span className="text-[#a98b5d]">Path to Funding</span>
+                <span className="text-[#dcd7ce]">3 Steps.</span>{" "}
+                <span className="text-[#a98b5d]">Funded.</span>
               </h2>
             </div>
 
@@ -357,18 +352,18 @@ export default function ForFoundersPage() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-24 bg-gradient-to-b from-[#0a0a0a] to-black">
+        <section className="py-24 ">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="text-[#dcd7ce]">Ready to Fundraise on</span>{" "}
-                <span className="text-[#a98b5d]">Your Own Terms?</span>
+                <span className="text-[#dcd7ce]">Claim Your</span>{" "}
+                <span className="text-[#a98b5d]">Spot</span>
               </h2>
               <div className="w-24 h-0.5 bg-[#a98b5d] mx-auto mb-8"></div>
               <p className="text-xl text-[#dcd7ce]/80 mb-6 max-w-2xl mx-auto leading-relaxed">
-                Stop waiting for a "warm intro" and start a merit-based
-                conversation with the right investors. The future of funding is
-                here.
+                250 Founding Memberships. Then we close the doors.
+                <br />
+                Don't get left behind.
               </p>
 
               <a

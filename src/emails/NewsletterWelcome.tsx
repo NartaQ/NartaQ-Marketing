@@ -7,37 +7,32 @@ interface NewsletterWelcomeProps {
 }
 
 export default function NewsletterWelcome({ name = '{{name}}' }: NewsletterWelcomeProps) {
+  const preview = "You're in. (Save this email)"
+  const displayName = name && name !== '{{name}}' ? name : 'there'
+
   return (
-    <Layout preview="Welcome to NartaQ Community 🎉">
+    <Layout preview={preview}>
       <Section style={content}>
-        <Heading style={h1}>Welcome to NartaQ!</Heading>
+        <Heading style={h1}>You're in.</Heading>
         
-        <Text style={text}>Hi {name},</Text>
+        <Text style={text}>Hi {displayName},</Text>
         
         <Text style={text}>
-          Thank you for joining our community! We're building the infrastructure for merit-based
-          startup funding across Africa and developing countries.
+          You're on the list. You'll be the first to know when we launch, and you'll get access to our best content on startup funding.
         </Text>
         
         <Text style={text}>
-          You'll be among the first to know about:
+          We'll only email you when we have something valuable to share. No fluff.
         </Text>
-        
-        <ul style={list}>
-          <li style={listItem}>Platform launch announcements</li>
-          <li style={listItem}>Founder and investor success stories</li>
-          <li style={listItem}>Industry insights and market trends</li>
-          <li style={listItem}>Exclusive early access opportunities</li>
-        </ul>
         
         <Section style={buttonContainer}>
           <Button style={button} href="https://www.nartaq.com">
-            Visit NartaQ
+            Explore NartaQ
           </Button>
         </Section>
         
         <Text style={regards}>
-          Best regards,
+          Talk soon,
           <br />
           The NartaQ Team
         </Text>

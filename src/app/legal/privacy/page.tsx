@@ -100,17 +100,17 @@ export default function PrivacyPolicyPage() {
       }
     };
 
-  window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
-  return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-[#0a0a0a] text-white">
         <section className="relative pt-32 pb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-black" />
+          <div className="absolute inset-0 " />
           <div className="absolute inset-0 opacity-10">
             <div
               className="w-full h-full"
@@ -170,11 +170,10 @@ export default function PrivacyPolicyPage() {
                       title={item.title}
                       key={item.id}
                       href={`#${item.id}`}
-                      className={`block py-1.5 px-3 rounded-lg text-xs transition-all duration-200 ${
-                        activeSection === item.id
-                          ? "bg-[#a98b5d]/20 text-[#a98b5d] border-l-2 border-[#a98b5d]"
-                          : "text-gray-400 hover:text-gray-200 hover:bg-[#a98b5d]/5"
-                      } ${item.level > 1 ? "ml-4" : ""}`}
+                      className={`block py-1.5 px-3 rounded-lg text-xs transition-all duration-200 ${activeSection === item.id
+                        ? "bg-[#a98b5d]/20 text-[#a98b5d] border-l-2 border-[#a98b5d]"
+                        : "text-gray-400 hover:text-gray-200 hover:bg-[#a98b5d]/5"
+                        } ${item.level > 1 ? "ml-4" : ""}`}
                     >
                       <span className="flex items-center justify-between">
                         {item.title}

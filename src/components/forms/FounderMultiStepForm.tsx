@@ -358,27 +358,27 @@ export default function FounderMultiStepForm({
     if (isValid && currentStep < totalSteps) {
       // Clear any previous errors
       setEmailCheckError('')
-      
+
       // Check for existing application when moving from step 1
       if (currentStep === 1) {
         setIsCheckingEmail(true)
         const formData = form.getValues()
-        
+
         try {
           const existingCheck = await checkExistingFounderApplication(formData.workEmail)
-          
+
           if (!existingCheck.success) {
             setEmailCheckError(existingCheck.message)
             setIsCheckingEmail(false)
             return
           }
-          
+
           if (existingCheck.exists) {
             setEmailCheckError(existingCheck.message)
             setIsCheckingEmail(false)
             return
           }
-          
+
           // If no existing application, identify user for analytics
           identifyUser({
             email: formData.workEmail,
@@ -389,10 +389,10 @@ export default function FounderMultiStepForm({
           setIsCheckingEmail(false)
           return
         }
-        
+
         setIsCheckingEmail(false)
       }
-      
+
       // Track CTA click for continue button
       trackCTAClick(
         'Continue',
@@ -401,9 +401,9 @@ export default function FounderMultiStepForm({
         undefined,
         'primary'
       )
-      
+
       setCurrentStep(currentStep + 1)
-      
+
       // Track step progression
       trackFormStep('founder', currentStep + 1)
     }
@@ -419,9 +419,9 @@ export default function FounderMultiStepForm({
         undefined,
         'secondary'
       )
-      
+
       setCurrentStep(currentStep - 1)
-      
+
       // Track step regression
       trackFormStep('founder', currentStep - 1, { action: 'back' })
     }
@@ -444,7 +444,7 @@ export default function FounderMultiStepForm({
 
   const onSubmit = async (data: FormData) => {
     setSubmissionError('')
-    
+
     // Track form submission start
     trackFormSubmit('founder', {
       sector: data.sector,
@@ -460,7 +460,7 @@ export default function FounderMultiStepForm({
       if (result.success) {
         setIsSubmitted(true)
         onSubmissionSuccess()
-        
+
         // Track successful submission
         trackFormComplete('founder', "", {
           email: data.workEmail // Add email for LinkedIn enhanced matching
@@ -470,14 +470,14 @@ export default function FounderMultiStepForm({
         setSubmissionError(
           result.message || result.error || 'Failed to submit application'
         )
-        
+
         // Track submission error
         trackFormError('founder', result.error || 'Unknown error')
       }
     } catch (error) {
       console.error('Error submitting form:', error)
       setSubmissionError('An unexpected error occurred. Please try again.')
-      
+
       // Track unexpected error
       trackFormError('founder', String(error))
     }
@@ -488,20 +488,20 @@ export default function FounderMultiStepForm({
 
 
   return (
-    <div className='max-w-2xl mx-auto'>
+    <div className='max-w-2xl mx-auto px-2 sm:px-4'>
       {/* Progress Bar */}
-      <div className='mb-12'>
+      <div className='mb-8 sm:mb-12'>
         <div className='flex items-center justify-between mb-2'>
-          <span className='text-sm text-gray-400'>
+          <span className='text-xs sm:text-sm text-gray-400'>
             Step {currentStep} of {totalSteps}
           </span>
-          <span className='text-sm text-gray-400'>
+          <span className='text-xs sm:text-sm text-gray-400'>
             {Math.round((currentStep / totalSteps) * 100)}% Complete
           </span>
         </div>
         <div className='w-full bg-gray-800 rounded-full h-2'>
-          <motion.div 
-            className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] h-2 rounded-full' 
+          <motion.div
+            className='bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] h-2 rounded-full'
             initial={{ width: 0 }}
             animate={{ width: `${(currentStep / totalSteps) * 100}%` }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
@@ -515,13 +515,10 @@ export default function FounderMultiStepForm({
             {/* Step 1: Personal Information */}
             {currentStep === 1 && (
               <div key='step1' className='space-y-8'>
-                <div className='text-center mb-12'>
-                  <h2 className='text-3xl font-bold text-white mb-4'>
+                <div className='text-center mb-8 sm:mb-12'>
+                  <h2 className='text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4'>
                     Let's start with the basics
                   </h2>
-                  <p className='text-lg text-gray-300'>
-                    Tell us about yourself
-                  </p>
                 </div>
 
                 <FormField
@@ -529,14 +526,14 @@ export default function FounderMultiStepForm({
                   name='fullName'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         What's your full name? *
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder='John Doe'
                           {...field}
-                          className='text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                          className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                         />
                       </FormControl>
                       <FormMessage className='text-red-400 mt-2' />
@@ -549,7 +546,7 @@ export default function FounderMultiStepForm({
                   name='workEmail'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         What's your work email? *
                       </FormLabel>
                       <FormControl>
@@ -557,7 +554,7 @@ export default function FounderMultiStepForm({
                           type='email'
                           placeholder='founder@company.com'
                           {...field}
-                          className='text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                          className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                         />
                       </FormControl>
                       <FormMessage className='text-red-400 mt-2' />
@@ -570,7 +567,7 @@ export default function FounderMultiStepForm({
                   name='founderLinkedIn'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         Your LinkedIn profile
                       </FormLabel>
                       <FormControl>
@@ -578,7 +575,7 @@ export default function FounderMultiStepForm({
                           type='url'
                           placeholder='https://www.linkedin.com/in/yourprofile'
                           {...field}
-                          className='text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                          className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                         />
                       </FormControl>
                       <FormMessage className='text-red-400 mt-2' />
@@ -591,13 +588,10 @@ export default function FounderMultiStepForm({
             {/* Step 2: Company Information */}
             {currentStep === 2 && (
               <div key='step2' className='space-y-8'>
-                <div className='text-center mb-12'>
-                  <h2 className='text-3xl font-bold text-white mb-4'>
+                <div className='text-center mb-8 sm:mb-12'>
+                  <h2 className='text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4'>
                     Now about your company
                   </h2>
-                  <p className='text-lg text-gray-300'>
-                    Give us the basic details
-                  </p>
                 </div>
 
                 <FormField
@@ -605,14 +599,14 @@ export default function FounderMultiStepForm({
                   name='companyName'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         What's your company name? *
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder='Acme Inc.'
                           {...field}
-                          className='text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                          className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                         />
                       </FormControl>
                       <FormMessage className='text-red-400 mt-2' />
@@ -625,15 +619,15 @@ export default function FounderMultiStepForm({
                   name='website'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='text-xl text-white mb-3 block'>
-                        What's your company website? 
+                      <FormLabel className='text-sm sm:text-base text-white mb-2 block'>
+                        What's your company website?
                       </FormLabel>
                       <FormControl>
                         <Input
                           type='url'
                           placeholder='https://www.yourcompany.com'
                           {...field}
-                          className='text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                          className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                         />
                       </FormControl>
                       <FormMessage className='text-red-400 mt-2' />
@@ -646,7 +640,7 @@ export default function FounderMultiStepForm({
                   name='companyLinkedIn'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         Company LinkedIn page
                       </FormLabel>
                       <FormControl>
@@ -654,7 +648,7 @@ export default function FounderMultiStepForm({
                           type='url'
                           placeholder='https://www.linkedin.com/company/yourcompany'
                           {...field}
-                          className='text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                          className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                         />
                       </FormControl>
                       <FormMessage className='text-red-400 mt-2' />
@@ -667,13 +661,10 @@ export default function FounderMultiStepForm({
             {/* Step 3: Business Details */}
             {currentStep === 3 && (
               <div key='step3' className='space-y-8'>
-                <div className='text-center mb-12'>
-                  <h2 className='text-3xl font-bold text-white mb-4'>
+                <div className='text-center mb-8 sm:mb-12'>
+                  <h2 className='text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4'>
                     Business specifics
                   </h2>
-                  <p className='text-lg text-gray-300'>
-                    Help us understand your industry and stage
-                  </p>
                 </div>
 
                 <FormField
@@ -681,7 +672,7 @@ export default function FounderMultiStepForm({
                   name='sector'
                   render={() => (
                     <FormItem>
-                      <FormLabel className='text-xl text-white mb-6 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-3 sm:mb-4 block'>
                         What sector is your company in? *
                       </FormLabel>
                       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
@@ -690,11 +681,10 @@ export default function FounderMultiStepForm({
                           return (
                             <label
                               key={option}
-                              className={`flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
-                                checked
-                                  ? 'border-[#a98b5d] bg-[#a98b5d]/20 text-[#a98b5d]'
-                                  : 'border-gray-600 bg-black/30 text-gray-300 hover:border-[#a98b5d]/50'
-                              }`}
+                              className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl border transition-all duration-300 cursor-pointer ${checked
+                                ? 'border-[#a98b5d] bg-[#a98b5d]/20 text-[#a98b5d]'
+                                : 'border-gray-600 bg-[#0a0a0a]/30 text-gray-300'
+                                }`}
                             >
                               <FormControl>
                                 <Checkbox
@@ -706,15 +696,14 @@ export default function FounderMultiStepForm({
                                 />
                               </FormControl>
                               <div
-                                className={`w-6 h-6 rounded-full flex items-center justify-center ${
-                                  checked
-                                    ? 'bg-[#a98b5d] text-black'
-                                    : 'bg-transparent border border-gray-500'
-                                }`}
+                                className={`w-6 h-6 rounded-full flex items-center justify-center ${checked
+                                  ? 'bg-[#a98b5d] text-black'
+                                  : 'bg-transparent border border-gray-500'
+                                  }`}
                               >
                                 {checked && <Check className='w-4 h-4' />}
                               </div>
-                              <span className='text-lg'>
+                              <span className='text-base sm:text-lg'>
                                 {option}
                               </span>
                             </label>
@@ -731,7 +720,7 @@ export default function FounderMultiStepForm({
                                 <Input
                                   placeholder='Please specify other sector'
                                   {...field}
-                                  className='text-lg h-12 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                                  className='text-base sm:text-lg h-10 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                                 />
                               </FormControl>
                             </FormItem>
@@ -743,13 +732,13 @@ export default function FounderMultiStepForm({
                   )}
                 />
 
-                <div className='grid md:grid-cols-2 gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6'>
                   <FormField
                     control={form.control}
                     name='fundingStage'
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className='text-xl text-white mb-3 block'>
+                        <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                           Current funding stage? *
                         </FormLabel>
                         <Select
@@ -757,11 +746,11 @@ export default function FounderMultiStepForm({
                           defaultValue={field.value}
                         >
                           <FormControl>
-                            <SelectTrigger className='text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
+                            <SelectTrigger className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white focus:border-[#a98b5d] rounded-xl'>
                               <SelectValue placeholder='Select stage' />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className='bg-black border-[#a98b5d]/30 '>
+                          <SelectContent className='bg-[#0a0a0a] border-[#a98b5d]/30 '>
                             {fundingStageOptions.map((option) => (
                               <SelectItem
                                 key={option}
@@ -783,7 +772,7 @@ export default function FounderMultiStepForm({
                     name='location'
                     render={({ field }) => (
                       <FormItem className='flex flex-col'>
-                        <FormLabel className='text-xl text-white mb-3 block'>
+                        <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                           Primary location? *
                         </FormLabel>
                         <Popover open={openLocationPopover} onOpenChange={setOpenLocationPopover}>
@@ -793,7 +782,7 @@ export default function FounderMultiStepForm({
                                 variant='outline'
                                 role='combobox'
                                 className={cn(
-                                  'text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white justify-between hover:bg-black/60 hover:text-white rounded-xl',
+                                  'text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white justify-between hover:text-white rounded-xl',
                                   !field.value && 'text-gray-500'
                                 )}
                               >
@@ -802,11 +791,11 @@ export default function FounderMultiStepForm({
                               </Button>
                             </FormControl>
                           </PopoverTrigger>
-                          <PopoverContent className='w-full p-0 bg-black border-[#a98b5d]/30' align='start'>
-                            <Command className='bg-black'>
-                              <CommandInput 
-                                placeholder='Search country...' 
-                                className='h-12 bg-black/50 border-[#a98b5d]/30 text-white'
+                          <PopoverContent className='w-full p-0 bg-[#0a0a0a] border-[#a98b5d]/30' align='start'>
+                            <Command className='bg-[#0a0a0a]'>
+                              <CommandInput
+                                placeholder='Search country...'
+                                className='h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white'
                               />
                               <CommandList className='max-h-[300px]'>
                                 <CommandEmpty className='text-gray-400 py-6 text-center'>
@@ -821,7 +810,7 @@ export default function FounderMultiStepForm({
                                         form.setValue('location', country)
                                         setOpenLocationPopover(false)
                                       }}
-                                      className='text-white hover:bg-[#a98b5d]/20 cursor-pointer'
+                                      className='text-white cursor-pointer'
                                     >
                                       <Check
                                         className={cn(
@@ -848,13 +837,10 @@ export default function FounderMultiStepForm({
             {/* Step 4: Pitch */}
             {currentStep === 4 && (
               <div key='step4' className='space-y-8'>
-                <div className='text-center mb-12'>
-                  <h2 className='text-3xl font-bold text-white mb-4'>
+                <div className='text-center mb-8 sm:mb-12'>
+                  <h2 className='text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4'>
                     Tell us about your vision
                   </h2>
-                  <p className='text-lg text-gray-300'>
-                    What problem are you solving?
-                  </p>
                 </div>
 
                 <FormField
@@ -862,14 +848,14 @@ export default function FounderMultiStepForm({
                   name='shortPitch'
                   render={({ field, formState }) => (
                     <FormItem>
-                      <FormLabel className='text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         Describe your company in 1-2 sentences *
                       </FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder='We help businesses automate their customer service using AI, reducing response time by 80% while improving customer satisfaction...'
-                          rows={6}
-                          className='text-lg bg-black/50 border-[#a98b5d]/30 placeholder:text-white/50  focus:border-[#a98b5d] rounded-xl resize-none min-h-[150px]'
+                          rows={5}
+                          className='text-sm sm:text-base bg-[#0a0a0a]/50 border-[#a98b5d]/30 placeholder:text-white/50  focus:border-[#a98b5d] rounded-xl resize-none min-h-[100px] sm:min-h-[120px]'
                           {...field}
                         />
                       </FormControl>
@@ -888,7 +874,7 @@ export default function FounderMultiStepForm({
                   name='pitchDeckUrl'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className='text-xl text-white mb-3 block'>
+                      <FormLabel className='text-base sm:text-lg text-white mb-2 block'>
                         Pitch deck URL
                       </FormLabel>
                       <FormControl>
@@ -896,7 +882,7 @@ export default function FounderMultiStepForm({
                           type='url'
                           placeholder='Your pitch deck link'
                           {...field}
-                          className='text-lg h-14 bg-black/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
+                          className='text-sm sm:text-base h-11 sm:h-12 bg-[#0a0a0a]/50 border-[#a98b5d]/30 text-white placeholder-gray-500 focus:border-[#a98b5d] rounded-xl'
                         />
                       </FormControl>
                       <FormMessage className='text-red-400 mt-2' />
@@ -905,8 +891,8 @@ export default function FounderMultiStepForm({
                 />
 
                 {/* Data Processing Disclaimer */}
-                <div className='mt-8 p-6 bg-black/20 border border-[#a98b5d]/30 rounded-xl'>
-                  <p className='text-sm text-gray-300 leading-relaxed'>
+                <div className='mt-6 sm:mt-8 p-4 sm:p-6 bg-[#0a0a0a]/20 border border-[#a98b5d]/30 rounded-xl'>
+                  <p className='text-xs sm:text-sm text-gray-300 leading-relaxed'>
                     By submitting this application, you agree to our processing
                     of your personal data in accordance with our{' '}
                     <a
@@ -953,13 +939,13 @@ export default function FounderMultiStepForm({
           )}
 
           {/* Navigation Buttons */}
-          <div className='flex justify-between pt-8'>
+          <div className='flex flex-col-reverse sm:flex-row justify-between gap-3 sm:gap-0 pt-6 sm:pt-8'>
             <Button
               type='button'
               onClick={prevStep}
               variant='ghost'
               disabled={currentStep === 1}
-              className='text-lg text-gray-100 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed'
+              className='text-base sm:text-lg text-gray-100 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed w-full sm:w-auto'
             >
               <ArrowLeft className='w-5 h-5 mr-2' />
               Previous
@@ -970,10 +956,10 @@ export default function FounderMultiStepForm({
                 type='button'
                 onClick={nextStep}
                 disabled={isCheckingEmail}
-                className='text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl'
+                className='text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl w-full sm:w-auto'
               >
                 {isCheckingEmail ? 'Checking...' : 'Continue'}
-                <ArrowRight className='w-5 h-5 ml-2' />
+                <ArrowRight className='w-4 h-4 sm:w-5 sm:h-5 ml-2' />
               </Button>
             ) : (
               <Button
@@ -989,7 +975,7 @@ export default function FounderMultiStepForm({
                     'primary'
                   )
                 }}
-                className='text-lg px-8 py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl'
+                className='text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 rounded-xl w-full sm:w-auto'
               >
                 {form.formState.isSubmitting || isSubmitted ? (
                   <div className='flex items-center gap-2'>

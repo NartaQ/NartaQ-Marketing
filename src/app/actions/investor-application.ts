@@ -3,6 +3,7 @@
 import { prisma } from '@/lib/prisma'
 import { queueInvestorConfirmation } from '@/lib/email-queue-service'
 import { z } from 'zod'
+import { getCohortStats } from './cohort-stats'
 
 const investorApplicationSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
@@ -133,13 +134,19 @@ export async function submitInvestorApplication(data: InvestorApplicationData) {
     }
 
     // Queue confirmation email for investor
-    await queueInvestorConfirmation(
-      validatedData.workEmail,
-      validatedData.fullName,
-      validatedData.investorType
-    ).catch(error => {
-      console.error('Failed to queue investor confirmation email:', error)
-    })
+    try {
+      const stats = await getCohortStats();
+      const memberNumber = stats.data?.totalApplications ?? 0;
+
+      await queueInvestorConfirmation(
+        validatedData.workEmail,
+        validatedData.fullName,
+        validatedData.investorType,
+        memberNumber
+      );
+    } catch (emailError) {
+      console.error('Failed to queue investor confirmation email:', emailError);
+    }
 
     return {
       success: true,

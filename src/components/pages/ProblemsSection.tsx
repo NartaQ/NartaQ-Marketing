@@ -7,7 +7,7 @@ export default function ProblemsSection() {
   const ref = useRef(null)
 
   return (
-    <section className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden'>
+    <section className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0a0a0a]  overflow-hidden'>
       {/* Background Pattern */}
       <div className='absolute inset-0 grid-pattern opacity-20'>
         <div
@@ -35,13 +35,14 @@ export default function ProblemsSection() {
 
           <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8'>
             <span className='bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent'>
-              Why The Old Way Is Costing You Millions
+              The VC Game Is Rigged
             </span>
           </h2>
 
           <p className='text-lg sm:text-xl text-gray-400 max-w-4xl mx-auto px-4 mb-12'>
-            The current funding landscape is broken. It relies on warm intros and geography,
-            leaving billions in potential returns on the table and exceptional founders unfunded.
+            70% of VC deals come from "warm intros." If you don't know someone, you don't exist.
+            <br />
+            <span className='text-red-400 font-semibold'>That's not merit. That's a rigged game.</span>
           </p>
         </div>
 
@@ -50,17 +51,20 @@ export default function ProblemsSection() {
           {/* Investors Problem */}
           <div className='relative'>
             <div className='p-8 rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent h-full'>
-              <div className='w-16 h-16 rounded-2xl bg-gradient-to-r from-red-500/20 to-red-400/20 flex items-center justify-center mb-6'>
+              <div className='w-16 h-16 mb-4 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-500/5 flex items-center justify-center border-2 border-red-500/30'>
                 <EyeOff className='w-8 h-8 text-red-400' />
               </div>
 
-              <h3 className='text-2xl sm:text-3xl font-bold text-[#dcd7ce] mb-4'>
+              <h3 className='text-2xl sm:text-3xl font-semibold text-red-400 mb-4'>
                 For Investors: You're Missing The Best Deals
               </h3>
 
               <p className='text-gray-400 text-lg mb-6 leading-relaxed'>
                 You're drowning in pitch decks from the same 50 connectors, while the next unicorn
-                is being built by a founder you'll never meet. If they aren't in your inbox, they don't exist.
+                is being built by a founder you'll never meet.
+                <br />
+                <br />
+                <span className='text-red-400 font-semibold'>If they aren't in your inbox, they don't exist.</span>
               </p>
 
               <div className='space-y-3'>
@@ -73,7 +77,7 @@ export default function ProblemsSection() {
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    Wasting 100+ hours/month on bad pitches
+                    100+ hours/month on bad pitches
                   </span>
                 </div>
                 <div className='flex items-center gap-3'>
@@ -89,24 +93,26 @@ export default function ProblemsSection() {
           {/* Founders Problem */}
           <div className='relative'>
             <div className='p-8 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent h-full'>
-              <div className='w-16 h-16 flex items-center justify-center mb-6'>
+              <div className='w-16 h-16 mb-4 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center border-2 border-[#a98b5d]/30'>
                 <Clock className='w-8 h-8 text-red-400' />
               </div>
 
-              <h3 className='text-2xl sm:text-3xl font-bold text-[#dcd7ce] mb-4'>
+              <h3 className='text-2xl sm:text-3xl font-semibold text-red-400 mb-4'>
                 For Founders: Stuck Begging For Intros
               </h3>
 
               <p className='text-gray-400 text-lg mb-6 leading-relaxed'>
-                You're building the future, but you're spending 90% of your time chasing "warm intros"
-                instead of building your product. It's a rigged game, and you're losing time you don't have.
+                You're building the future. But you're spending 6+ months chasing "warm intros" instead of building.
+                <br />
+                <br />
+                <span className='text-red-400 font-semibold'> It's a rigged game. And you're running out of runway.</span>
               </p>
 
               <div className='space-y-3'>
                 <div className='flex items-center gap-3'>
                   <div className='w-2 h-2 bg-red-400 rounded-full'></div>
                   <span className='text-gray-300'>
-                    Months wasted on "coffee chats"
+                    6+ months wasted on "coffee chats"
                   </span>
                 </div>
                 <div className='flex items-center gap-3'>
@@ -129,7 +135,7 @@ export default function ProblemsSection() {
         {/* Bottom CTA */}
         <div className='text-center mt-16'>
           <p className='text-xl text-gray-400 mb-4'>
-            The system isn't just unfair. It's inefficient.
+            The system isn't just unfair. <span className='text-red-400 font-semibold'>It's costing you millions.</span>
           </p>
           <div className='w-24 h-px bg-gradient-to-r from-transparent via-[#a98b5d] to-transparent mx-auto' />
         </div>

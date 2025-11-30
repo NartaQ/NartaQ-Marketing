@@ -15,7 +15,7 @@ export default function BlogCTAButtons() {
           <div className='absolute -inset-0.5 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200'></div>
           <Link
             href='#latest'
-            className='relative px-8 py-4 bg-black rounded-2xl leading-none flex items-center gap-3 text-[#dcd7ce] hover:text-white transition-colors'
+            className='relative px-8 py-4 bg-[#0a0a0a] rounded-2xl leading-none flex items-center gap-3 text-[#dcd7ce] hover:text-white transition-colors'
           >
             <Globe className='w-5 h-5' />
             <span className='font-semibold'>Explore All Topics</span>

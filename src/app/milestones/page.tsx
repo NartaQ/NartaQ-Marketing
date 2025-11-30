@@ -23,7 +23,7 @@ const milestones: Milestone[] = [
     status: 'in-progress',
     icon: Rocket,
     features: [
-      'Recruiting the Founding Cohort (1,000 spots only)',
+      'Recruiting the Founding Cohort (250 spots only)',
       'Building the AI Matching Engine',
       'Securing Initial Deal Flow',
       'Establishing Legal Frameworks',
@@ -39,7 +39,7 @@ const milestones: Milestone[] = [
       'First 50 Matches Live',
       'Manual White-Glove Onboarding',
       'Direct Feedback Loops',
-      'Zero Fees for Alpha Members',
+      'Early Access Pricing',
     ],
   },
   {
@@ -163,7 +163,7 @@ const MilestoneCard = ({ milestone, index }: { milestone: Milestone; index: numb
 
         {/* Card content */}
         <div className='flex-1 pb-8 md:pb-12'>
-          <div className='bg-black/40 backdrop-blur-sm border border-gray-700 rounded-lg md:rounded-xl p-4 md:p-6 hover:border-[#a98b5d]/50 hover:shadow-lg hover:shadow-[#a98b5d]/10 transition-all duration-300 group relative overflow-hidden'>
+          <div className='bg-[#0a0a0a]/40 backdrop-blur-sm border border-gray-700 rounded-lg md:rounded-xl p-4 md:p-6 hover:border-[#a98b5d]/50 hover:shadow-lg hover:shadow-[#a98b5d]/10 transition-all duration-300 group relative overflow-hidden'>
             {/* Animated background gradient */}
             <div className='absolute inset-0 bg-gradient-to-br from-[#a98b5d]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 
@@ -190,14 +190,14 @@ const MilestoneCard = ({ milestone, index }: { milestone: Milestone; index: numb
                     {milestone.features.map((feature, idx) => (
                       <li
                         key={idx}
-                        className='flex items-start gap-2 text-sm text-gray-400 transition-all duration-300 hover:text-gray-200'
+                        className='flex items-center gap-2 text-sm text-gray-400 transition-all duration-300 hover:text-gray-200'
                         style={{
                           transitionDelay: isVisible ? `${(idx + 1) * 50}ms` : '0ms',
                           opacity: isVisible ? 1 : 0,
                           transform: isVisible ? 'translateX(0)' : 'translateX(-10px)'
                         }}
                       >
-                        <span className='text-[#a98b5d] mt-1'>•</span>
+                        <span className='text-[#a98b5d] text-2xl font-semibold '>•</span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -261,46 +261,19 @@ const CohortUrgencyBanner = () => {
             <h2 className='text-2xl md:text-3xl font-bold text-white mb-2'>
               {isFull ? (
                 'Founding Cohort Full'
-              ) : isNearCapacity ? (
-                <>
-                  Only <span className='text-orange-400'>{spotsRemaining}</span> Spots Remaining!
-                </>
               ) : (
-                'Join Our Founding Cohort'
+                'Spots Are Vanishing.'
               )}
             </h2>
             <p className='text-gray-300 text-sm md:text-base'>
               {isFull ? (
-                'We\'ve reached our target of 1,000 founding members. Applications are now closed. Join our waitlist to be notified when we open again.'
-              ) : isNearCapacity ? (
-                `We're almost at capacity! Applications will close once we reach ${targetLimit.toLocaleString()} members. Don't miss your chance to be part of the founding cohort.`
+                "Applications are now closed. Join the waitlist for the next opening."
               ) : (
-                `Be among the first ${targetLimit.toLocaleString()} founders and investors to shape the future of startup funding. Applications will close once we reach capacity.`
+                <>
+                  We're capping the cohort at {targetLimit} members to keep it intimate. Only <span className='text-orange-400 font-bold'>{spotsRemaining}</span> spots left. When they're gone, they're gone.
+                </>
               )}
             </p>
-          </div>
-        </div>
-
-        {/* Stats Grid */}
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
-          <div className='bg-black/30 rounded-lg p-4 border border-gray-700'>
-            <div className='text-2xl md:text-3xl font-bold text-[#a98b5d]'>{foundersCount}</div>
-            <div className='text-xs md:text-sm text-gray-400'>Founders Joined</div>
-          </div>
-          <div className='bg-black/30 rounded-lg p-4 border border-gray-700'>
-            <div className='text-2xl md:text-3xl font-bold text-[#a98b5d]'>{investorsCount}</div>
-            <div className='text-xs md:text-sm text-gray-400'>Investors Joined</div>
-          </div>
-          <div className='bg-black/30 rounded-lg p-4 border border-gray-700'>
-            <div className='text-2xl md:text-3xl font-bold text-white'>{totalApplications}/{targetLimit}</div>
-            <div className='text-xs md:text-sm text-gray-400'>Total Applications</div>
-          </div>
-          <div className='bg-black/30 rounded-lg p-4 border border-gray-700'>
-            <div className={`text-2xl md:text-3xl font-bold ${isFull ? 'text-red-400' : isNearCapacity ? 'text-orange-400' : 'text-green-400'
-              }`}>
-              {isFull ? '0' : spotsRemaining}
-            </div>
-            <div className='text-xs md:text-sm text-gray-400'>Spots Left</div>
           </div>
         </div>
 
@@ -371,19 +344,52 @@ const StatCard = ({ value, label, delay }: { value: string; label: string; delay
   return (
     <div
       ref={ref}
-      className={`text-center p-4 md:p-6 rounded-lg md:rounded-xl bg-black/30 border border-gray-700 hover:border-[#a98b5d]/50 transition-all duration-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+      className={`text-center p-4 md:p-6 rounded-lg md:rounded-xl bg-[#0a0a0a]/30 border border-gray-700 hover:border-[#a98b5d]/50 transition-all duration-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#a98b5d] mb-1 md:mb-2'>{value}</div>
+      <div className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#a98b5d] mb-1 md:mb-2'>
+        {value}
+      </div>
       <div className='text-xs md:text-sm text-gray-400'>{label}</div>
     </div>
   )
 }
 
+const WhatYouGetSection = () => {
+  const benefits = [
+    'Lifetime 50% fee discount (we\'ll charge fees eventually)',
+    'First access to AI matching',
+    'Quarterly fireside chats with founding team',
+    'Vote on platform features (founding members only)',
+  ]
+
+  return (
+    <section className='px-4 md:px-6 pb-12 md:pb-16'>
+      <div className='max-w-4xl mx-auto bg-[#0a0a0a]/50 border border-[#a98b5d]/30 rounded-2xl p-8'>
+        <h2 className='text-3xl md:text-4xl font-bold text-center mb-8 bg-gradient-to-r from-[#dcd7ce] to-[#a98b5d] bg-clip-text text-transparent'>
+          What Founding Members Get (That No One Else Will)
+        </h2>
+        <ul className='space-y-4 mb-8'>
+          {benefits.map((benefit, index) => (
+            <li key={index} className='flex items-start gap-3'>
+              <CheckCircle2 className='w-6 h-6 text-green-400 flex-shrink-0 mt-1' />
+              <span className='text-lg text-gray-300'>{benefit}</span>
+            </li>
+          ))}
+        </ul>
+        <p className='text-center text-xl font-semibold text-orange-400'>
+          After spot 250? You get none of this. You wait in line like everyone
+          else.
+        </p>
+      </div>
+    </section>
+  )
+}
+
 export default function MilestonesPage() {
   return (
-    <div className='min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white'>
+    <div className='min-h-screen bg-gradient-to-b text-white'>
       {/* Hero Section */}
       <section className='relative pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 overflow-hidden'>
         <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#a98b5d]/20 via-transparent to-transparent' />
@@ -391,11 +397,12 @@ export default function MilestonesPage() {
         <div className='max-w-7xl mx-auto relative z-10'>
           <div className='max-w-3xl mx-auto text-center'>
             <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#dcd7ce] via-[#a98b5d] to-[#dcd7ce] bg-clip-text text-transparent'>
-              The Roadmap To The Future Of Funding
+              The Plan to Fix Startup Funding
             </h1>
             <p className='text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed'>
-              We are building the rails for the next generation of capital allocation.
-              Here is exactly how we are doing it, and how you can get in on the ground floor.
+              We're building the rails for the next generation of capital
+              allocation. Here's exactly how we're doing it, and how you can get
+              in on the ground floor.
             </p>
           </div>
         </div>
@@ -407,7 +414,7 @@ export default function MilestonesPage() {
           <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6'>
             <StatCard value='4' label='Key Phases' delay={0} />
             <StatCard value='Q4 2025' label='Alpha Launch' delay={100} />
-            <StatCard value='1,000' label='Founding Spots' delay={200} />
+            <StatCard value='250' label='Founding Spots' delay={200} />
             <StatCard value='Global' label='Capital Reach' delay={300} />
           </div>
         </div>
@@ -419,6 +426,9 @@ export default function MilestonesPage() {
           <CohortUrgencyBanner />
         </div>
       </section>
+
+      {/* What You Get Section */}
+      <WhatYouGetSection />
 
       {/* Timeline */}
       <section className='px-4 md:px-6 pb-12 md:pb-20'>
@@ -434,13 +444,14 @@ export default function MilestonesPage() {
       {/* CTA Section */}
       <section className='px-4 md:px-6 pb-16 md:pb-32'>
         <div className='max-w-4xl mx-auto'>
-          <div className='bg-gradient-to-r from-black via-[#a98b5d]/5 to-black border border-[#a98b5d]/30 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-center'>
+          <div className='bg-gradient-to-r from-[#0a0a0a] via-[#a98b5d]/5 to-[#0a0a0a] border border-[#a98b5d]/30 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-center'>
             <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-white'>
-              Secure Your Spot In The Founding Cohort
+              Don't Miss Out
             </h2>
             <p className='text-sm sm:text-base text-gray-300 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto'>
-              We are capping the Founding Cohort at 1,000 members. Once these spots are gone,
-              you will have to wait for the public beta. Don't get left behind.
+              We are capping the Founding Cohort at 250 members. Once these
+              spots are gone, you will have to wait for the public beta. Don't
+              get left behind.
             </p>
             <div className='flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4'>
               <a

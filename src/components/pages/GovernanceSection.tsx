@@ -34,7 +34,7 @@ export default function GovernanceSection() {
   ]
 
   return (
-    <section className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden'>
+    <section className='relative py-16 sm:py-24 lg:py-32  overflow-hidden'>
       {/* Background Grid */}
       <div className='absolute inset-0 grid-pattern opacity-20'>
         <div
@@ -75,7 +75,7 @@ export default function GovernanceSection() {
         {/* Features Grid */}
         <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto'>
           <div className='group text-center p-6 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/30 transition-all duration-300'>
-            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center border-2 border-[#a98b5d]/30'>
               <Shield className='w-8 h-8 text-[#a98b5d]' />
             </div>
             <h3 className='text-xl font-bold text-[#dcd7ce] mb-3'>
@@ -88,7 +88,7 @@ export default function GovernanceSection() {
           </div>
 
           <div className='group text-center p-6 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/30 transition-all duration-300'>
-            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center border-2 border-[#a98b5d]/30'>
               <FileCheck className='w-8 h-8 text-[#a98b5d]' />
             </div>
             <h3 className='text-xl font-bold text-[#dcd7ce] mb-3'>
@@ -101,7 +101,7 @@ export default function GovernanceSection() {
           </div>
 
           <div className='group text-center p-6 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/30 transition-all duration-300'>
-            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center border-2 border-[#a98b5d]/30'>
               <Lock className='w-8 h-8 text-[#a98b5d]' />
             </div>
             <h3 className='text-xl font-bold text-[#dcd7ce] mb-3'>
@@ -114,7 +114,7 @@ export default function GovernanceSection() {
           </div>
 
           <div className='group text-center p-6 rounded-2xl border border-[#a98b5d]/10 bg-gradient-to-br from-[#a98b5d]/5 to-transparent hover:border-[#a98b5d]/30 transition-all duration-300'>
-            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center border-2 border-[#a98b5d]/30'>
               <TrendingUp className='w-8 h-8 text-[#a98b5d]' />
             </div>
             <h3 className='text-xl font-bold text-[#dcd7ce] mb-3'>
@@ -129,7 +129,7 @@ export default function GovernanceSection() {
 
         {/* Bottom CTA */}
         <div className='mt-16 text-center'>
-          <div className='inline-block p-6 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-r from-[#a98b5d]/5 to-transparent max-w-3xl'>
+          <div className='inline-block p-6 rounded-2xl border border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent max-w-3xl'>
             <p className='text-gray-300 leading-relaxed'>
               <strong className='text-[#a98b5d]'>Why it matters:</strong> Traditional cap tables live in spreadsheets.
               We give startups institutional-grade infrastructure from day one—secure, transparent, and investor-ready.

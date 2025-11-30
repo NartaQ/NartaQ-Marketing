@@ -3,6 +3,7 @@
 import { prisma } from '@/lib/prisma'
 import { queueFounderConfirmation } from '@/lib/email-queue-service'
 import { z } from 'zod'
+import { getCohortStats } from './cohort-stats'
 
 const founderApplicationSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
@@ -107,13 +108,19 @@ export async function submitFounderApplication(
     }
 
     // Queue confirmation email (non-blocking)
-    await queueFounderConfirmation(
-      validatedData.workEmail,
-      validatedData.fullName,
-      validatedData.companyName
-    ).catch(error => {
-      console.error('Failed to queue founder confirmation email:', error)
-    })
+    try {
+      const stats = await getCohortStats();
+      const memberNumber = stats.data?.totalApplications ?? 0;
+
+      await queueFounderConfirmation(
+        validatedData.workEmail,
+        validatedData.fullName,
+        validatedData.companyName,
+        memberNumber
+      );
+    } catch (emailError) {
+      console.error('Failed to queue founder confirmation email:', emailError);
+    }
 
     return {
       success: true,

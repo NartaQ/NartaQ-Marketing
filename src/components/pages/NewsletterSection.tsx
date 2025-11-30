@@ -28,7 +28,7 @@ export default function NewsletterSection() {
   return (
     <section
       ref={ref}
-      className='relative py-16 sm:py-24 lg:py-32 bg-black overflow-hidden'
+      className='relative py-16 sm:py-24 lg:py-32 bg-[#0a0a0a] overflow-hidden'
     >
       {/* Background Elements */}
 
@@ -51,7 +51,7 @@ export default function NewsletterSection() {
           <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8'>
             <Sparkles className='w-4 h-4 text-[#a98b5d]' />
             <span className='text-sm font-medium text-[#dcd7ce]'>
-              JOIN THE REVOLUTION
+              FOUNDING COHORT CLOSING SOON
             </span>
           </div>
 
@@ -63,8 +63,7 @@ export default function NewsletterSection() {
           </h2>
 
           <p className='text-xl text-gray-400 mb-8 max-w-3xl mx-auto'>
-            The next unicorn is being built right now. The only question is:
-            will you be part of it?
+            We're building the future of venture capital. You can watch from the sidelines, or you can get in on the ground floor. 250 spots. Once they're gone, they're gone.
           </p>
         </div>
 
@@ -72,7 +71,7 @@ export default function NewsletterSection() {
         <div className='max-w-2xl mx-auto mb-12'>
           <div className='rounded-2xl p-8 border backdrop-blur-xl text-center border-[#a98b5d]/20 bg-gradient-to-br from-[#a98b5d]/5 to-transparent'>
             <h3 className='text-2xl font-bold text-[#dcd7ce] mb-6'>
-              Get Matched Today
+              Claim Your Founding Spot
             </h3>
 
             <div className='flex justify-center mb-6'>
@@ -82,7 +81,7 @@ export default function NewsletterSection() {
                 className='inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#a98b5d] to-[#dcd7ce] text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300'
                 onClick={(e) => handleNavigation(e, '/apply')}
               >
-                Start Now
+                Apply Now
                 <ArrowRight className='w-4 h-4' />
               </Link>
             </div>

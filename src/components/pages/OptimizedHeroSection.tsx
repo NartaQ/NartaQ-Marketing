@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 
 export default function OptimizedHeroSection() {
   const [shouldLoadAnimations, setShouldLoadAnimations] = useState(false)
-  
+
   const pathname = usePathname()
   const router = useRouter()
 
@@ -17,7 +17,7 @@ export default function OptimizedHeroSection() {
     const timer = setTimeout(() => {
       setShouldLoadAnimations(true)
     }, 2000) // Load animations after 2s for better performance
-    
+
     return () => clearTimeout(timer)
   }, [])
 
@@ -53,25 +53,24 @@ export default function OptimizedHeroSection() {
         <div className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 border border-[#a98b5d]/30 backdrop-blur-xl mb-8'>
           <Sparkles className='w-4 h-4 text-[#a98b5d]' />
           <span className='text-sm font-medium text-[#dcd7ce]'>
-            AI-POWERED PLATFORM IN DEVELOPMENT
+            FOUNDING COHORT NOW OPEN
           </span>
         </div>
 
         {/* Main Headline using critical CSS */}
         <h1 className='hero-title'>
-          <span className='text-[#dcd7ce]'>Building the AI-Powered </span>
+          <span className='text-[#dcd7ce]'>Stop Pitching. </span>
           <br />
           <span className='hero-gradient'>
-            Platform
-          </span>{' '}
-          <span className='text-[#dcd7ce]'>for Startup Funding</span>
+            Start Matching.
+          </span>
         </h1>
 
         {/* Subheadline using critical CSS */}
         <p className='hero-subtitle'>
-          We're building a merit-based platform that connects the best founders
-          with the right capital, regardless of location or network. Get matched
-          with investors or discover your next investment with NartaQ.
+          AI matching + automated SPV creation + blockchain governance. Get funded faster with institutional-grade infrastructure from day one.
+          <br />
+          <span className='text-[#a98b5d] font-semibold'>250 founding spots. Applications close when full.</span>
         </p>
 
         {/* CTA Button using critical CSS */}
@@ -83,7 +82,7 @@ export default function OptimizedHeroSection() {
             className='cta-button'
           >
             <Sparkles className={`w-5 h-5 ${shouldLoadAnimations ? 'group-hover:rotate-180 transition-transform duration-500' : ''}`} />
-            Get Early Access
+            Claim Your Spot
             <ArrowRight className={`w-5 h-5 ${shouldLoadAnimations ? 'group-hover:translate-x-1 transition-transform' : ''}`} />
           </Link>
         </div>
@@ -93,7 +92,7 @@ export default function OptimizedHeroSection() {
           <div className='inline-flex items-center gap-3 px-4 py-2 bg-[#a98b5d]/10 border border-[#a98b5d]/30 rounded-full backdrop-blur-xl'>
             <div className={`w-2 h-2 bg-green-500 rounded-full ${shouldLoadAnimations ? 'animate-pulse' : ''}`} />
             <span className='text-sm text-[#dcd7ce] font-medium'>
-              Phase 1: Building our founding community of 1,000+ participants
+              127 of 250 founding spots taken • Applications close Dec 31st or when full
             </span>
           </div>
         </div>

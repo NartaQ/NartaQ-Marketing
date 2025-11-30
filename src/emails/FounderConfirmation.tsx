@@ -5,63 +5,53 @@ import { Layout } from './components/Layout'
 interface FounderConfirmationProps {
   founderName: string
   companyName: string
+  memberNumber: number
 }
 
 export default function FounderConfirmation({
   founderName = '{{founderName}}',
   companyName = '{{companyName}}',
+  memberNumber = 127,
 }: FounderConfirmationProps) {
+  const preview = `You're in, ${founderName}. (Save this email)`
+  const founderNameDisplay = founderName || 'founder'
+
   return (
-    <Layout preview={`Application Received for ${companyName} ✓`}>
+    <Layout preview={preview}>
       <Section style={content}>
-        <Heading style={h1}>Application Received!</Heading>
-        
-        <Text style={text}>Hi {founderName},</Text>
-        
+        <Heading style={h1}>You're Founding Member #{memberNumber} of 250.</Heading>
+
+        <Text style={text}>Hey {founderNameDisplay},</Text>
+
         <Text style={text}>
-          Thank you for applying to NartaQ with <strong style={strong}>{companyName}</strong>.
-          We've received your application and are thrilled to have you join us as we build the platform.
+          Welcome to NartaQ. Your application for <strong style={strong}>{companyName}</strong> is confirmed. You're officially one of the first 250 founding members.
         </Text>
-        
+
         <Section style={card}>
-          <Heading style={cardTitle}>You're among the first! 🎉</Heading>
-          <Text style={cardText}>
-            We're currently building NartaQ's matching platform and governance infrastructure.
-            As one of our founding cohort members, you'll get:
-          </Text>
-          <ul style={list}>
-            <li style={listItem}>
-              <strong>Early Access:</strong> First to use the platform when we launch
-            </li>
-            <li style={listItem}>
-              <strong>Priority Matching:</strong> Featured placement in our investor network
-            </li>
-            <li style={listItem}>
-              <strong>DAO Infrastructure:</strong> Institutional-grade governance from day one
-            </li>
-            <li style={listItem}>
-              <strong>Community Benefits:</strong> Shape the platform alongside other exceptional founders
-            </li>
-          </ul>
+          <Heading style={cardTitle}>Here's what happens next:</Heading>
+          <ol style={orderedList}>
+            <li style={listItem}>We'll send you platform access asap.</li>
+            <li style={listItem}>You'll get an onboarding call (15 min, optional).</li>
+            <li style={listItem}>Your AI matching starts immediately.</li>
+          </ol>
         </Section>
-        
+
         <Text style={text}>
-          We'll keep you updated on our progress through our website at{' '}
-          <strong style={strong}>www.nartaq.com</strong>. In the meantime, make sure your pitch
-          deck and traction metrics are ready—when we launch, we'll fast-track our founding cohort.
+          Questions? Just send me an email to <a href="mailto:contact@nartaq.com">contact@nartaq.com</a>. I read every one.
         </Text>
-        
-        <Section style={buttonContainer}>
-          <Button style={button} href="https://www.nartaq.com/for-founders">
-            Learn More
-          </Button>
-        </Section>
-        
+
         <Text style={regards}>
-          Best of luck,
+          - Riadh Jouini
           <br />
-          The NartaQ Team
+          Co-Founder, NartaQ
         </Text>
+
+        <Section style={{ borderTop: '1px solid #333333', marginTop: '32px', paddingTop: '32px' }}>
+          <Text style={{ ...text, fontSize: '14px', fontStyle: 'italic' }}>
+            P.S. We're at {memberNumber}/250. Tell your founder friends before we're full.
+          </Text>
+        </Section>
+
       </Section>
     </Layout>
   )

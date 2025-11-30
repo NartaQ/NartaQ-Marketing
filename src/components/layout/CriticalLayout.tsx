@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 // Critical components that load immediately
 const NavigationSkeleton = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+  <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-sm border-b border-gray-800">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between items-center h-16">
         <div className="flex items-center">
@@ -40,19 +40,19 @@ const FooterSkeleton = () => (
 )
 
 // Lazy load heavy components
-const FullNavigation = lazy(() => 
+const FullNavigation = lazy(() =>
   import('@/components/pages/UnifiedNavigation').then(module => ({ default: module.default }))
 )
 
-const FullFooter = lazy(() => 
+const FullFooter = lazy(() =>
   import('@/components/pages/Footer').then(module => ({ default: module.default }))
 )
 
-const LenisProvider = lazy(() => 
+const LenisProvider = lazy(() =>
   import('@/components/pages/LenisProvider').then(module => ({ default: module.default }))
 )
 
-const IntercomProvider = lazy(() => 
+const IntercomProvider = lazy(() =>
   import('@/components/lazyLoadIntercom').then(module => ({ default: module.default }))
 )
 
@@ -95,7 +95,7 @@ export function CriticalLayout({ children }: CriticalLayoutProps) {
   if (!enhancedMode) {
     // Critical path: minimal layout
     return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-[#0a0a0a] text-white">
         <NavigationSkeleton />
         <main className="pt-16">
           {children}
@@ -108,14 +108,14 @@ export function CriticalLayout({ children }: CriticalLayoutProps) {
   // Enhanced mode: full layout with all features
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-[#0a0a0a] text-white">
         <NavigationSkeleton />
         <main className="pt-16">{children}</main>
         <FooterSkeleton />
       </div>
     }>
       <LenisProvider>
-        <FullNavigation bannerSettings={{ 
+        <FullNavigation bannerSettings={{
           bannerEnabled: true,
           banners: [{
             bannerText: 'Cohort Urgency Banner',
@@ -123,7 +123,7 @@ export function CriticalLayout({ children }: CriticalLayoutProps) {
             bannerLinkUrl: '/apply/cohort-urgency',
             bannerBackgroundColor: '#a98b5d',
             bannerTextColor: 'white',
-          }], 
+          }],
           rotationInterval: 5,
           scrollSpeed: 50,
           bannerDismissible: true

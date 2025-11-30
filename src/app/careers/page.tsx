@@ -46,7 +46,7 @@ export default async function CareersPage() {
   ])
 
   return (
-    <div className='min-h-screen bg-black text-white relative overflow-hidden'>
+    <div className='min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden'>
       {/* Main Content */}
       <div className='relative z-10'>
         {/* Hero Section */}
@@ -135,7 +135,7 @@ export default async function CareersPage() {
         </div>
 
         {/* Current Openings */}
-        <div className='py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-r from-black via-gray-900/30 to-black'>
+        <div className='py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-r from-[#0a0a0a] via-gray-900/30 to-[#0a0a0a]'>
           <div className='max-w-7xl mx-auto'>
             <div className='text-center mb-12 sm:mb-16'>
               <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6'>

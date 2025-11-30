@@ -10,34 +10,29 @@ export default function FaqSection() {
 
   const faqs = [
     {
-      question: 'How does AI-powered matching work?',
+      question: 'Is this another LinkedIn for startups?',
       answer:
-        'Our algorithm analyzes multiple data points including market metrics, team experience, business model fit, and investor preferences to create high-probability matches. The more data we process, the smarter it gets.',
+        "No. LinkedIn is a resume. We're a matchmaker. Our AI actually reads your pitch, understands your business model, and finds investors who've funded companies like yours. Then we introduce you. That's it.",
     },
     {
-      question: 'What makes this different from other platforms?',
+      question: 'Why only 250 spots?',
       answer:
-        "We're building an AI-powered platform that democratizes access to funding. Smart matching, transparent processes, and streamlined execution mean faster, fairer deals for everyone.",
+        "Because we're building this WITH you, not FOR you. 250 is small enough that we can actually talk to every founding member. After 250, we go into heads-down build mode for 6 months.",
     },
     {
-      question: 'How do you verify participants?',
+      question: "What if I apply and don't get in?",
       answer:
-        'Multi-layer verification including KYC, accreditation status, reference checks, and on-chain reputation scoring. All participants must meet strict quality standards before joining the network.',
+        "You'll get in. We're not rejecting people. We're capping at 250 total. First come, first served. When we hit 250, applications close. Period.",
     },
     {
       question: 'Is this only for specific regions?',
       answer:
-        'No. While we started with specific corridors, the platform is designed to work globally. Any qualified investor or startup can participate, regardless of geography.',
+        "We focus on high-growth corridors like France-Tunisia first. Why? Because the talent is there, but the capital isn't. We prove it works there, then we take it global.",
     },
     {
       question: 'How do governance tokens work?',
       answer:
-        'Each startup gets its own DAO with governance tokens representing company shares. These on-chain tokens enable founders to create proposals, verify legal documents, vote on strategic decisions, and maintain a transparent cap table. Token holders have voting rights proportional to their ownership stake. All governance actions—from fundraising rounds to equity assignments—are recorded on-chain with cryptographic proof, ensuring tamper-proof records and automated compliance.',
-    },
-    {
-      question: 'Who can join the platform?',
-      answer:
-        'Accredited investors, institutional VCs, qualified startups, and ecosystem contributors. We maintain high standards but welcome applications from serious participants worldwide.',
+        "Think of it as a cap table that updates itself. No more emailing lawyers to update a spreadsheet. You get institutional-grade governance from day one, which makes you 10x more attractive to serious investors.",
     },
   ]
 
@@ -56,7 +51,7 @@ export default function FaqSection() {
   }
 
   return (
-    <section className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden'>
+    <section className='relative py-16 sm:py-24 lg:py-32  overflow-hidden'>
       {/* SEO: FAQ Structured Data */}
       <script
         type='application/ld+json'

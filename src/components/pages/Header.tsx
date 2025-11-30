@@ -72,6 +72,7 @@ export default function Header({
                 title='nartaqLogo'
                 height={32}
                 priority
+                // add glow effect
                 className='relative z-10'
               />
             </div>
@@ -107,6 +108,14 @@ export default function Header({
                     }
                   >
                     Careers
+                  </HoveredLink>
+                  <HoveredLink
+                    href='/talks'
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      handleNavigation(e, '/talks')
+                    }
+                  >
+                    NartaQ Talks
                   </HoveredLink>
                 </div>
               </MenuItem>

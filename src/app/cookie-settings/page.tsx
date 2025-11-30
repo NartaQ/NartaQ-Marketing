@@ -24,7 +24,7 @@ export default function CookieSettingsPage() {
   const handleSave = () => {
     cookieManager.savePreferences(preferences)
     setSaved(true)
-    
+
     trackEvent('cookie_settings_updated', {
       analytics_consent: preferences.analytics,
       marketing_consent: preferences.marketing,
@@ -42,7 +42,7 @@ export default function CookieSettingsPage() {
       marketing: false
     })
     setSaved(true)
-    
+
     trackEvent('cookie_consent_cleared', {
       source: 'settings_page'
     })
@@ -51,7 +51,7 @@ export default function CookieSettingsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
       <div className="max-w-4xl mx-auto px-6 py-16">
         <div className="mb-12">
           <h1 className="font-serif text-4xl font-bold text-white mb-4">
@@ -77,8 +77,8 @@ export default function CookieSettingsPage() {
                   Necessary Cookies
                 </h3>
                 <p className="text-gray-400">
-                  These cookies are essential for the website to function properly. 
-                  They enable core functionality such as security, network management, 
+                  These cookies are essential for the website to function properly.
+                  They enable core functionality such as security, network management,
                   and accessibility. You cannot disable these cookies.
                 </p>
               </div>
@@ -104,8 +104,8 @@ export default function CookieSettingsPage() {
                   Analytics Cookies
                 </h3>
                 <p className="text-gray-400">
-                  These cookies help us understand how visitors interact with our website 
-                  by collecting and reporting information anonymously. This includes page 
+                  These cookies help us understand how visitors interact with our website
+                  by collecting and reporting information anonymously. This includes page
                   views, user journeys, and performance metrics.
                 </p>
               </div>
@@ -121,7 +121,7 @@ export default function CookieSettingsPage() {
             <div className="text-sm text-gray-500">
               <strong>Services:</strong> PostHog, Google Analytics
               <br />
-              <strong>Data collected:</strong> Page views, click events, form interactions, 
+              <strong>Data collected:</strong> Page views, click events, form interactions,
               session duration, device information
             </div>
           </div>
@@ -134,8 +134,8 @@ export default function CookieSettingsPage() {
                   Marketing Cookies
                 </h3>
                 <p className="text-gray-400">
-                  These cookies are used to deliver personalized advertisements and 
-                  measure the effectiveness of advertising campaigns. They track your 
+                  These cookies are used to deliver personalized advertisements and
+                  measure the effectiveness of advertising campaigns. They track your
                   activity across websites to build a profile of your interests.
                 </p>
               </div>
@@ -151,7 +151,7 @@ export default function CookieSettingsPage() {
             <div className="text-sm text-gray-500">
               <strong>Services:</strong> Facebook Pixel, LinkedIn Ads, Google Ads
               <br />
-              <strong>Purpose:</strong> Retargeting, conversion tracking, lookalike audiences, 
+              <strong>Purpose:</strong> Retargeting, conversion tracking, lookalike audiences,
               ad personalization
             </div>
           </div>
@@ -164,7 +164,7 @@ export default function CookieSettingsPage() {
           >
             Clear All Consent
           </button>
-          
+
           <div className="flex gap-4">
             <button
               onClick={() => setPreferences({ necessary: true, analytics: false, marketing: false })}
@@ -200,8 +200,8 @@ export default function CookieSettingsPage() {
             </p>
           </div>
           <div className="mt-4">
-            <a 
-              href="/legal/privacy" 
+            <a
+              href="/legal/privacy"
               className="text-[#a98b5d] hover:underline"
             >
               Read our full Privacy Policy →

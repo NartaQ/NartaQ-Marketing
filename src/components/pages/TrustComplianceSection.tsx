@@ -29,7 +29,7 @@ export default function TrustComplianceSection() {
   ]
 
   return (
-    <section className='relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-black to-[#0a0a0a] overflow-hidden'>
+    <section className='relative py-16 sm:py-24 lg:py-32  overflow-hidden'>
       {/* Background Grid */}
       <div className='absolute inset-0 grid-pattern opacity-20'>
         <div
@@ -70,8 +70,8 @@ export default function TrustComplianceSection() {
         {/* Trust Features Grid */}
         <div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
           <div className='group text-center'>
-            <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
-              <Shield className='w-10 h-10 text-[#a98b5d]' />
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#a98b5d]/5 flex items-center justify-center border border-[#a98b5d]/30'>
+              <Shield className='w-8 h-8 text-[#a98b5d]' />
             </div>
             <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
               No Scammers Allowed
@@ -83,8 +83,8 @@ export default function TrustComplianceSection() {
           </div>
 
           <div className='group text-center'>
-            <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
-              <Lock className='w-10 h-10 text-[#a98b5d]' />
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center border border-[#a98b5d]/30'>
+              <Lock className='w-8 h-8 text-[#a98b5d]' />
             </div>
             <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
               Fort Knox Security
@@ -96,8 +96,8 @@ export default function TrustComplianceSection() {
           </div>
 
           <div className='group text-center'>
-            <div className='w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300'>
-              <Scale className='w-10 h-10 text-[#a98b5d]' />
+            <div className='w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-[#a98b5d]/20 to-[#dcd7ce]/20 flex items-center justify-center border border-[#a98b5d]/30'>
+              <Scale className='w-8 h-8 text-[#a98b5d]' />
             </div>
             <h3 className='text-2xl font-bold text-[#dcd7ce] mb-4'>
               Ironclad Legal Protection
